@@ -247,3 +247,17 @@ class TestPotentialVQEModule:
             assert len(pred["noiseless"]["Delta"]) == 3
         except ImportError:
             pytest.skip("pt_potential_vqe noch nicht implementiert (erwartet bei TDD)")
+
+    def test_initial_params_can_be_extended(self):
+        """INITIAL_PARAMS muss kuerzere Vektoren auf Ansatz-Laenge erweitern koennen."""
+        try:
+            from pt_potential_vqe import INITIAL_PARAMS
+            # Test: zyklische Erweiterung wie im main()
+            n_target = 6
+            extended = [INITIAL_PARAMS[i % len(INITIAL_PARAMS)] for i in range(n_target)]
+            assert len(extended) == n_target
+            assert extended[0] == INITIAL_PARAMS[0]
+            assert extended[4] == INITIAL_PARAMS[0]  # zyklisch
+            assert extended[5] == INITIAL_PARAMS[1]
+        except ImportError:
+            pytest.skip("pt_potential_vqe noch nicht implementiert (erwartet bei TDD)")

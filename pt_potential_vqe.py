@@ -134,6 +134,21 @@ def main():
     isa_imag = pauli_imag.apply_layout(isa_ansatz.layout)
     isa_diag = pauli_diag.apply_layout(isa_ansatz.layout)
 
+    # === Auto-derive parameter vector length from ISA-ansatz ===
+    # Vermeidet Mismatch zwischen INITIAL_PARAMS-Laenge und ISA-Parametern
+    n_params = isa_ansatz.num_parameters
+    # Lokale Kopie (Initial-Wert aus Modul-Scope), damit Re-Assignment
+    # nicht zu UnboundLocalError fuehrt
+    initial_params = list(INITIAL_PARAMS)
+    if len(initial_params) < n_params:
+        # Erweitere deterministisch (Anti-Sharpshooter) durch zyklische Wiederholung
+        initial_params = [initial_params[i % len(initial_params)] for i in range(n_params)]
+        print(f"  initial_params auto-erweitert auf {n_params} Parameter")
+    print(f"  Ansatz: {ansatz.num_parameters} Parameter (orig), "
+          f"{isa_ansatz.num_parameters} Parameter (ISA), "
+          f"{isa_ansatz.depth()} Circuit-Tiefe, "
+          f"{len(isa_ansatz.data)} Operationen")
+
     # === Estimator ===
     estimator = Estimator(mode=backend)
     estimator.options.resilience_level = 1
@@ -152,7 +167,7 @@ def main():
     print("=" * 70)
     res_vqe = minimize(
         fun=cost_real,
-        x0=INITIAL_PARAMS,
+        x0=initial_params,
         method='COBYLA',
         options={'maxiter': N_ITERS_VQE, 'rhobeg': 0.5, 'disp': False}
     )
@@ -197,7 +212,7 @@ def main():
         "backend": BACKEND_NAME,
         "gamma": GAMMA,
         "alpha": ALPHA,
-        "initial_params": INITIAL_PARAMS,
+        "initial_params": initial_params,
         "vqe_result": {
             "E0_meas": float(E0_meas),
             "E0_params": E0_params,
