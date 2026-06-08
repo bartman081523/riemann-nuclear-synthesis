@@ -112,11 +112,13 @@ def precompute_predictions():
     H_PT_4 = np.diag(E_DIAG).astype(complex) + 1j * GAMMA * A_4
     eigs_4 = sorted(np.linalg.eigvals(H_PT_4), key=lambda z: z.real)
 
+    # Konvertiere komplexe Eigenwerte zu JSON-serialisierbaren Tupeln
+    eigs_5_json = [{"re": e.real, "im": e.imag} for e in eigs_5]
+    eigs_4_json = [{"re": e.real, "im": e.imag} for e in eigs_4]
+
     return {
-        "H_PT_5_eigenvalues": [complex(e).real if abs(complex(e).imag) < 1e-10
-                                else complex(e) for e in eigs_5],
-        "H_PT_4_eigenvalues": [complex(e).real if abs(complex(e).imag) < 1e-10
-                                else complex(e) for e in eigs_4],
+        "H_PT_5_eigenvalues": eigs_5_json,
+        "H_PT_4_eigenvalues": eigs_4_json,
         "E_DIAG_5": np.append(E_DIAG, 5.0).tolist(),
         "threshold_ququint": THRESHOLD_QUQUINT,
         "threshold_qubit": THRESHOLD_QUBIT,
@@ -150,8 +152,7 @@ def main():
     # === H_PT_5 Eigenwerte ===
     print(f"\nH_PT_5 (5x5) Eigenwerte (Real-Teile):")
     for i, e in enumerate(prereg['H_PT_5_eigenvalues']):
-        e_real = e if isinstance(e, float) else complex(e).real
-        print(f"  E_{i} = {e_real:.6f}")
+        print(f"  E_{i} = {e['re']:.6f} + {e['im']:.6f}j")
 
     # === Magic State Distillation Threshold ===
     print(f"\nMagic State Distillation Threshold:")

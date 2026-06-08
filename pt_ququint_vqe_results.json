@@ -1,0 +1,64 @@
+{
+  "predictions": {
+    "H_PT_5_eigenvalues": [
+      {
+        "re": 2.0018501462716802,
+        "im": 0.02994539229037304
+      },
+      {
+        "re": 2.692948010374175,
+        "im": 0.02749304395484926
+      },
+      {
+        "re": 3.68318116938115,
+        "im": 0.025443850560302884
+      },
+      {
+        "re": 4.986843622818315,
+        "im": 0.02398282978343611
+      },
+      {
+        "re": 5.0,
+        "im": 0.0
+      }
+    ],
+    "H_PT_4_eigenvalues": [
+      {
+        "re": 2.0018501462716802,
+        "im": 0.02994539229037304
+      },
+      {
+        "re": 2.692948010374175,
+        "im": 0.02749304395484926
+      },
+      {
+        "re": 3.68318116938115,
+        "im": 0.025443850560302884
+      },
+      {
+        "re": 4.986843622818315,
+        "im": 0.02398282978343611
+      }
+    ],
+    "E_DIAG_5": [
+      2.0,
+      2.6931471805599454,
+      3.683857645907477,
+      4.98781812237791,
+      5.0
+    ],
+    "threshold_ququint": 0.363,
+    "threshold_qubit": 0.01,
+    "improvement_factor": 36.3,
+    "ccz_M_gates_ququint": 4,
+    "ccz_T_gates_qubit": 7,
+    "ccz_reduction": 1.75,
+    "decision_rule": "CONFIRMED: GF(5) ist bias-invariant, wenn E_n(H_PT_5) fuer n=0..3 mit E_n(H_PT_4) uebereinstimmt (innerhalb 1e-10). 36.3%-Threshold (Ququint) ist 36x besser als 1% (Qubit). CCZ in 4 M-Gates statt 7 T-Gates: 1.75x weniger Decoherence."
+  },
+  "gf5_verification": {
+    "3_plus_4": 2,
+    "3_times_4": 2,
+    "inverse_3": 2,
+    "inverse_2": 3
+  }
+}

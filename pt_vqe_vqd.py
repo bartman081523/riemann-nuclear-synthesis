@@ -32,7 +32,7 @@ GAMMA = 0.02
 ALPHA = 1.0
 SHOTS = 8192
 INITIAL_PARAMS = [0.523, 1.21, -0.45, 0.88]
-N_ITERS_VQE = 30  # COBYLA-Iterationen fuer E_0 VQE
+N_ITERS_VQE = 10  # COBYLA-Iterationen fuer E_0 VQE
 
 
 def load_token():
@@ -45,7 +45,7 @@ def precompute_predictions():
     H_diag = np.diag(E_DIAG).astype(complex)
     H_PT = H_diag + 1j * GAMMA * A
     eigs_PT = sorted(np.linalg.eigvals(H_PT), key=lambda z: z.real)
-    eigs_diag = sorted(np.diag(H_diag))
+    eigs_diag = sorted([float(x.real) for x in np.diag(H_diag)])
 
     # Noiseless E_n fuer Re(H_PT)
     E_noiseless = [e.real for e in eigs_PT]
@@ -86,7 +86,7 @@ def precompute_predictions():
         "H2_multiplicative_k25": H2,
         "H3_decoherence_p0.3": H3,
         "H_diag_exact": {
-            "E": eigs_diag.tolist(),
+            "E": list(eigs_diag),
             "Delta": [eigs_diag[i+1] - eigs_diag[i] for i in range(3)]
         },
         "decision_rule": (
