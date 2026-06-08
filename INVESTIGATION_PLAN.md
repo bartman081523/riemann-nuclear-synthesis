@@ -170,7 +170,7 @@ graph TD
     A2ca2 --> A2ca3d[Saeule 4: pt_ququint_vqe.py - GF(5)-Simulator, H_PT_5=H_PT_4 bit-genau]
     A2ca3a --> A2ca4[Submission Saeule 1 auf Fez]
 
-    %% A2ca4: Saeule 1 QPU-Submission (2026-06-08)
+    %% A2ca4: Saeule 1 QPU-Submission (2026-06-08) - BLOCKED durch Kontingent
     A2ca4 --> A2ca4a[Pre-Reg H1/H2/H3 geschrieben]
     A2ca4a --> A2ca4b[5 Pubs: H_diag, Re(H_PT), Im(H_PT) am VQE-Opt + 2 random theta_r]
     A2ca4b --> A2ca4c[COBYLA 10 Iter, 8192 Shots, DD-XX]
@@ -184,11 +184,31 @@ graph TD
     A2ca4 -.PARALLEL KW2-3.-> A2ca6[Saeule 3: pt_prime_state Fez, 5 Sweeps]
     A2ca4 -.OFFLINE.-> A2ca7[Saeule 4: GF(5) Simulator, kein QPU]
 
+    %% A2ca8: Aer-Stresstest Saeule 1 (2026-06-08) - Surrogat fuer Fez-Blockade
+    A2ca4 -.BLOCKED: IBM Open-Plan Kontingent.-> A2ca8[Aer-Stresstest Saeule 1 mit Fez-Rauschprofil]
+    A2ca8 --> A2ca8a[pt_aer_stress_saeule1.py: 11/11 Tests gruen]
+    A2ca8a --> A2ca8b[VQE Aer+Fez: E_0=2.4057, bias_PT_re=+0.0059]
+    A2ca8b --> A2ca8c{Vergleich mit H1/H2/H3 Prereg?}
+    A2ca8c -- H1/H3 (|bias|<0.05) --> A2ca8d[VERDICT: H1 oder H3, Confidence HOCH]
+    A2ca8c -- H2 (|bias|>0.15) --> A2ca8e[REJECTED: multiplikative Bias-Topologie]
+    A2ca8d --> A2ca8f[Section 6.5.10: Aer-Stresstest dokumentiert]
+    A2ca8f --> A2ca8g[Strategic Vector: REFRAMING_VECTOR_RELATIVE_SPECTRUM bestaetigt (Aer-Niveau)]
+    A2ca8g --> A2ca8h[Warten auf Fez-Kontingent-Reset (Anfang Juli 2026)]
+
     B2 -.RESOLVED: yes.-> B4
     B4 -.DONE.-> B5
     C1 -.DONE.-> C2
     C2 -.SUPERSEDED by A2be.-> A2be
     A2u -.DROPPED: Kingston queue.-> A2be
+
+    A2ca4 -.BLOCKED.-> A2ca8
+    A2ca8 -.DONE: 11/11 Tests.-> A2ca8a
+    A2ca8a -.DONE: VQE E_0=2.4057.-> A2ca8b
+    A2ca8b -.DONE: H1/H3 detected.-> A2ca8c
+    A2ca8c -.DONE.-> A2ca8d
+    A2ca8d -.DONE: Section 6.5.10.-> A2ca8f
+    A2ca8f -.DONE: REFRAMING_VECTOR bestaetigt.-> A2ca8g
+    A2ca8g -.NEXT: Fez-Kontingent-Reset Anfang Juli 2026.-> A2ca8h
 
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
@@ -202,3 +222,6 @@ graph TD
     style A2ca5 fill:#9cf,stroke:#333,stroke-width:2px
     style A2ca6 fill:#9cf,stroke:#333,stroke-width:2px
     style A2ca7 fill:#9cf,stroke:#333,stroke-width:2px
+    style A2ca8 fill:#cf9,stroke:#333,stroke-width:2px
+    style A2ca8d fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca8e fill:#f55,stroke:#333,stroke-width:2px
