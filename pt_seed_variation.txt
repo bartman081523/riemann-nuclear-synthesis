@@ -1,0 +1,12 @@
+EXPERIMENT 005 - SEED VARIATION
+Verdict: FAIL (4/10)
+Seed 1: NO HIT in [0, 0.5]
+Seed 2: NO HIT in [0, 0.5]
+Seed 3: NO HIT in [0, 0.5]
+Seed 4: NO HIT in [0, 0.5]
+Seed 5: gamma* = 0.4200, E_0 = +1.8028 +0.0547j
+Seed 6: gamma* = 0.4000, E_0 = +1.8027 +0.2348j
+Seed 7: gamma* = 0.0000, E_0 = +2.1123 -0.0000j
+Seed 8: NO HIT in [0, 0.5]
+Seed 9: NO HIT in [0, 0.5]
+Seed 10: gamma* = 0.0000, E_0 = +1.8334 +0.0000j

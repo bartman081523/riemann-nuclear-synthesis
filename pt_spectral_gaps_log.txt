@@ -1,0 +1,13 @@
+EXPERIMENT 006 v4 - PRÄREGISTRIERTER GROUND-TRUTH-RUN
+======================================================================
+Backend: ibm_fez
+Job ID: d8jeuqtv8cos73f6pqog
+gamma=0.02, alpha=1.0
+Initial params: [0.523, 1.21, -0.45, 0.88]
+Shots: 8192, DD: XX, resilience: 1
+
+VORHERSAGEN (pre-registriert):
+  noiseless           : Delta E = ['0.6911', '0.9902', '1.3037']
+  H1_additive         : Delta E = ['0.6911', '0.9902', '1.3037']
+  H2_multiplicative   : Delta E = ['0.8425', '0.1348', '1.3741']
+  H3_decoherence      : Delta E = ['0.6921', '0.9905', '1.3038']

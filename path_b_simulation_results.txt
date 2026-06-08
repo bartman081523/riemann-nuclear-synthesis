@@ -1,0 +1,2 @@
+Aer Noise Simulation (ibm_marrakesh profile)
+Expectation Value: 3.3672196103926364

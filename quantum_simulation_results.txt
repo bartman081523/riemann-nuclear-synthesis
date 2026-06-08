@@ -1,0 +1,3 @@
+Zeraoulia Quantum Simulation (VQD)
+Theoretical: [2.         2.68035601]
+Quantum: [2.35812458 2.37074086]

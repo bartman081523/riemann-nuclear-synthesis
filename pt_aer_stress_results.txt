@@ -1,0 +1,5 @@
+EXPERIMENT 005 - AER STRESS TEST (Marrakesh noise profile)
+gamma_target: 0.475
+E_0 (exact PT): +2.000926 -0.019919j
+Projector EV (noisy): 0.9569 +/- 0.0172
+Verdict: PASS

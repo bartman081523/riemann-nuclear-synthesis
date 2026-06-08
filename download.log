@@ -1,0 +1,6 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-08 08:18:35,433: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-08 08:18:37,550: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+Retrieving granular counts for d8j5j7u6983c73dste00...
+Granular JSON data saved to shots_kingston.json
+Retrieving granular counts for d8j5kotv8cos73f6d5dg...
+Granular JSON data saved to shots_marrakesh_rigor.json

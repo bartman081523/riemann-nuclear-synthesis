@@ -1,0 +1,11 @@
+EXPERIMENT 005 - HARDWARE: STRUKTURELLES A
+Backend: ibm_marrakesh
+Job ID: d8j90eu6983c73dt1ek0
+gamma_eff: 0.02
+alpha: 1.0
+Initial-Parameter: [0.523, 1.21, -0.45, 0.88]
+Resilience: 1 (TREX + Measurement Mitigation)
+DD: XX
+Shots: 8192
+Predicted: Re(E_0) = 2.0019, Im(E_0) = 0.0299
+---

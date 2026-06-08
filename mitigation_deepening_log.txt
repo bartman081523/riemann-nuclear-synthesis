@@ -1,0 +1,4 @@
+Job ID: d8j63b42upec739n2jtg
+Backend: ibm_marrakesh
+Resilience: 2 (ZNE+TREX)
+Extrapolator: exponential

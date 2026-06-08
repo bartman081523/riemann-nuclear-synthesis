@@ -1,0 +1,16 @@
+[
+  {
+    "data": {
+      "evs": 3.3655466798508997,
+      "stds": 0.009593895421798828,
+      "ensemble_standard_error": 0.010548220428746782
+    },
+    "metadata": {
+      "shots": 8192,
+      "target_precision": 0.011048543456039804,
+      "circuit_metadata": {},
+      "resilience": {},
+      "num_randomizations": 32
+    }
+  }
+]

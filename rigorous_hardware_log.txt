@@ -1,0 +1,6 @@
+Job ID: d8j5kotv8cos73f6d5dg
+Backend: ibm_marrakesh
+Seed: 42
+Shots: 8192
+Target: [2.         2.67870172]
+---

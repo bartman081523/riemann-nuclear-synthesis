@@ -1,0 +1,43 @@
+# Secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual envs
+venv/
+.venv/
+env/
+
+# Runtime artifacts
+monitor.log
+monitor.pid
+*.log
+!pt_*.log
+!multi_backend_*.log
+!rigorous_hardware_log.txt
+!hardware_*.txt
+!quantum_*.txt
+!path_*.txt
+!pt_symmetric_results.txt
+!pt_structural_results.txt
+!pt_seed_variation.txt
+!pt_aer_stress_results.txt
+!raw_result_*.txt
+!download.log
+
+# Generated plots
+*.png
+!zeraoulia_spectral_plot.png
+
+# OS
+.DS_Store
+Thumbs.db
