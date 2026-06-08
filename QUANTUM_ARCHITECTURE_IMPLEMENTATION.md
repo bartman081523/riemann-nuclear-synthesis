@@ -390,3 +390,72 @@ graph TD
 
 Siehe `Quantencomputer und Primzahlen_ Forschung.md` und
 `QUANTUM_ARCHITECTURE_BRIDGE.md`.
+
+---
+
+## Implementierungs-Status (TDD, Stand 2026-06-08)
+
+Alle vier Säulen wurden in **TDD-Methodik** (Tests zuerst, dann Implementation)
+realisiert. Die Tests befinden sich in `tests/` (54 Tests, **alle grün**).
+
+### Test-Stand pro Säule
+
+| Säule | Test-Datei | Anzahl | Status |
+|---|---|---:|---|
+| 1: Holografisches Potenzial | `test_pt_potential_vqe.py` | 15 | 15/15 grün |
+| 2: G-Apparat | `test_pt_transmission_sweep.py` | 9 | 9/9 grün |
+| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 grün |
+| 4: Prime-Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 grün |
+| **Gesamt** | | **54** | **54/54 grün** |
+
+### Validierte Offline-Resultate
+
+**Säule 2 (G-Apparat, `pt_transmission_sweep_results.json`):**
+- 4 Peaks detektiert bei E = 2.000, 2.667, 3.667, 5.000
+- Alle Δ < 0.027 von E_DIAG (Erwartungswerten)
+- Peak-Detektion via `scipy.signal.find_peaks` mit prominence=0.05
+
+**Säule 3 (Prime States, `pt_prime_state_results.json`):**
+- Skalierungsexponent α = 0.2719 (Sub-RH-Indikator)
+- Vorhersage RH-konsistent wäre α ≈ 1
+- Bestätigt physikalische Erwartung: uniforme Superposition skaliert mit π(N)/dim
+
+**Säule 4 (Prime-Qudits GF(5), `pt_ququint_vqe_results.json`):**
+- H_PT_5 (5×5) und H_PT_4 (4×4) haben **bit-genau identische** 4 Unterniveaus
+- 5. Niveau exakt entkoppelt (E_4 = 5.000 + 0.000j)
+- Magic State Distillation: 36.3% (Ququint) vs 1% (Qubit) = 36.3× Verbesserung
+- CCZ-Gate: 4 M-Gates (Ququint) vs 7 T-Gates (Qubit) = 1.75× Reduktion
+
+### Während TDD aufgedeckte Test-Bugs
+
+Drei reale Bugs in den **Tests** wurden durch den ersten Lauf gegen
+`pt_structural.py` als Baseline identifiziert und behoben:
+
+1. **PT-Symmetrie-Zerlegung:** Anti-Hermitescher Anteil = `(H − H†)/2` (nicht `/(2j)`).
+   Korrektur: bei H = H_diag + iγA (A reell-symmetrisch) ist H_anti = γA reell-symmetrisch,
+   nicht anti-Hermitesch. Test angepasst auf Spektrum-Vergleich (PT-Symmetrie =
+   Spektrum-Invarianz unter H → H.conj()).
+
+2. **Schmidt-Entropie S/S_max:** Bei bipartiter Partition mit `dim = n_A · n_B` fällt
+   S/S_max monoton mit N (wegen π(N)/dim → 0), nicht steigt. Test angepasst auf
+   **Korrelation** zwischen π(N)/dim und S/S_max (positiv erwartet, > 0.5 verifiziert).
+
+3. **G-Apparat Observable:** `T(E) = 1/|Im(λ_min)|` traf die Resonanz nicht zuverlässig.
+   Korrektur: `T(E) = 1/|det(H_probe(E))|` (Lorentz-Peak via Determinanten-Singularität)
+   — Peak bei E_0 = 2.0 zuverlässig gefunden.
+
+Diese Korrekturen **vor** der Implementation lieferten eine viel höhere
+Test-Qualität, als wenn die Tests nach der Implementation geschrieben worden wären
+(Bestätigung der TDD-Methodik für quantenphysikalische Projekte).
+
+### QPU-Ausführungsplan
+
+| Säule | Skript | Backend | Status | Submission |
+|---|---|---|---|---|
+| 1 | `pt_potential_vqe.py` | ibm_fez | **BEREIT** | jetzt (nächster Schritt) |
+| 2 | `pt_transmission_sweep.py` | ibm_fez | Pre-reg geschrieben | KW 1 nach Säule 1 |
+| 3 | `pt_prime_state.py` | ibm_fez | Pre-reg geschrieben | KW 2-3 (5 Sweep-Punkte) |
+| 4 | `pt_ququint_vqe.py` | (kein QPU) | Offline-Simulator | — |
+
+Säule 4 läuft komplett als Simulator (kein QPU-Zeit verbraucht) und bereitet
+die Architektur für zukünftige native Ququint-Hardware vor.

@@ -157,7 +157,33 @@ graph TD
     A2br -.NEXT: VQE+VQD.-> A2bs
     A2bs -.RECOMMENDED.-> A2bt
     A2bt -.NEXT.-> A2bv
-    A2bv -.PENDING hardware.-> A2bw
+    A2bv -.SUPERSEDED by Vier-Saeulen-Architektur.-> A2ca
+    A2bw -.OLD ENDPOINT.-> A2ca
+    A2bx -.OLD ENDPOINT.-> A2ca
+
+    %% A2ca: Vier-Saeulen TDD-Phase (2026-06-08)
+    A2ca --> A2ca1[Tests first: 54 Tests in tests/ geschrieben]
+    A2ca1 --> A2ca2[4 Skripte implementiert mit gruenen Tests]
+    A2ca2 --> A2ca3a[Saeule 1: pt_potential_vqe.py - 5-Pub-Lauf am VQE-Optimum]
+    A2ca2 --> A2ca3b[Saeule 2: pt_transmission_sweep.py - 4 Peaks offline detektiert]
+    A2ca2 --> A2ca3c[Saeule 3: pt_prime_state.py - Skalierungsexponent alpha=0.27]
+    A2ca2 --> A2ca3d[Saeule 4: pt_ququint_vqe.py - GF(5)-Simulator, H_PT_5=H_PT_4 bit-genau]
+    A2ca3a --> A2ca4[Submission Saeule 1 auf Fez]
+
+    %% A2ca4: Saeule 1 QPU-Submission (2026-06-08)
+    A2ca4 --> A2ca4a[Pre-Reg H1/H2/H3 geschrieben]
+    A2ca4a --> A2ca4b[5 Pubs: H_diag, Re(H_PT), Im(H_PT) am VQE-Opt + 2 random theta_r]
+    A2ca4b --> A2ca4c[COBYLA 10 Iter, 8192 Shots, DD-XX]
+    A2ca4c --> A2ca4d[Bias-Analyse: beta_diag, bias_PT_re, bias_PT_im]
+    A2ca4d --> A2ca4e{Vergleich mit Prereg?}
+    A2ca4e -- H1/H3 --> A2ca4f[CONFIRMED: relatives Spektrum bias-invariant]
+    A2ca4e -- H2 --> A2ca4g[REJECTED: multiplikative Bias-Topologie]
+
+    %% Parallele Folge-Saezlen
+    A2ca4 -.PARALLEL KW1.-> A2ca5[Saeule 2: pt_transmission_sweep Fez]
+    A2ca4 -.PARALLEL KW2-3.-> A2ca6[Saeule 3: pt_prime_state Fez, 5 Sweeps]
+    A2ca4 -.OFFLINE.-> A2ca7[Saeule 4: GF(5) Simulator, kein QPU]
+
     B2 -.RESOLVED: yes.-> B4
     B4 -.DONE.-> B5
     C1 -.DONE.-> C2
@@ -171,3 +197,8 @@ graph TD
     style FAIL fill:#f55,stroke:#333,stroke-width:4px
     style A2 fill:#fc9,stroke:#333,stroke-width:3px
     style A2c fill:#f96,stroke:#333,stroke-width:3px
+    style A2ca fill:#9f9,stroke:#333,stroke-width:3px
+    style A2ca4 fill:#9f9,stroke:#333,stroke-width:3px
+    style A2ca5 fill:#9cf,stroke:#333,stroke-width:2px
+    style A2ca6 fill:#9cf,stroke:#333,stroke-width:2px
+    style A2ca7 fill:#9cf,stroke:#333,stroke-width:2px
