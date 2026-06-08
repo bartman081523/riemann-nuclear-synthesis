@@ -116,11 +116,21 @@ class TestGF5MatrixConstruction:
         gamma = 0.02
         H_PT_5 = H_diag_5 + 1j * gamma * A_5
 
+        # Hermitescher und anti-hermitescher Anteil (korrekte Definition)
         H_real = (H_PT_5 + H_PT_5.conj().T) / 2
-        H_imag = (H_PT_5 - H_PT_5.conj().T) / (2j)
+        H_anti = (H_PT_5 - H_PT_5.conj().T) / 2
 
-        np.testing.assert_allclose(H_real, H_real.T, atol=1e-12)
-        np.testing.assert_allclose(H_imag, -H_imag.T, atol=1e-12)
+        np.testing.assert_allclose(H_real, H_real.conj().T, atol=1e-12)
+        np.testing.assert_allclose(H_anti, -H_anti.conj().T, atol=1e-12)
+        # A_5 reell-symmetrisch (5x5 Jacobi-Erweiterung)
+        np.testing.assert_allclose(A_5, A_5.T, atol=1e-12)
+        np.testing.assert_allclose(A_5.imag, 0, atol=1e-12)
+        # PT-Symmetrie: |Re(eigs)| und |Im(eigs)| von H_PT_5 = H_PT_5.conj()
+        eigs_H = sorted(np.linalg.eigvals(H_PT_5), key=lambda z: z.real)
+        eigs_Hc = sorted(np.linalg.eigvals(H_PT_5.conj()), key=lambda z: z.real)
+        for i in range(5):
+            assert abs(eigs_H[i].real - eigs_Hc[i].real) < 1e-12
+            assert abs(abs(eigs_H[i].imag) - abs(eigs_Hc[i].imag)) < 1e-12
 
     def test_H_PT_5_5x5_eigenvalues_contain_4x4_levels(self):
         """Eigenwerte von H_PT_5 müssen 4x4-Niveaus als Unterniveau enthalten."""

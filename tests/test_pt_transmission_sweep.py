@@ -50,22 +50,22 @@ class TestGApparatusMath:
         assert abs(det) > 1e-6, f"H_probe bei E_off={E_off} singulär: det={det}"
 
     def test_H_probe_peaked_at_resonance(self):
-        """Imaginärteil der Resonanz-Frequenz muss bei E = E_n maximal sein."""
+        """T(E) = 1/|det(H_probe(E))| hat Peak nahe E = E_n."""
         A = jacobi_A(E_DIAG, y=1.0)
         H_diag = np.diag(E_DIAG).astype(complex)
         gamma = 0.02
 
-        # Sweep E um E_0
+        # Sweep E um E_0 = 2.0
         E_near = np.linspace(1.5, 2.5, 50)
-        inv_diag = []
+        T_values = []
         for E in E_near:
             H_probe = H_diag - E * np.eye(4) + 1j * gamma * A
-            # T(E) ~ 1 / |Im(lambda_min)| — Lorentz-Peak
-            eigs = sorted(np.linalg.eigvals(H_probe), key=lambda z: z.imag)
-            inv_diag.append(1.0 / max(abs(eigs[0].imag), 1e-6))
+            # T(E) ~ 1/|det| — an Resonanz wird Matrix singulär
+            det = np.linalg.det(H_probe)
+            T_values.append(1.0 / max(abs(det), 1e-12))
 
-        # Peak-Index sollte nahe E_0 = 2.0 sein
-        peak_idx = np.argmax(inv_diag)
+        # Peak sollte nahe E_0 = 2.0 sein
+        peak_idx = np.argmax(T_values)
         E_peak = E_near[peak_idx]
         assert abs(E_peak - 2.0) < 0.2, f"Peak bei E={E_peak}, erwartet ~2.0"
 

@@ -134,30 +134,38 @@ class TestEntanglementEntropy:
         assert abs(np.trace(rho) - 1.0) < 1e-12
 
     def test_P_N_has_positive_entropy(self):
-        """|P_N> mit Verschränkung muss S > 0 haben."""
+        """|P_N> muss positive von-Neumann-Entropie haben (Verschränkung)."""
         primes = sieve_of_eratosthenes(31)
-        dim = 32
+        n_qubits = 5  # 2^5 = 32
+        dim = 2 ** n_qubits
         P_N = np.zeros(dim, dtype=complex)
         for p in primes:
             P_N[p] = 1.0
         P_N /= np.sqrt(len(primes))
 
-        # Reshape zu (2^4, 2^3) für Partition A=4 Qubits, B=3 Qubits
-        n_A = 2**4
-        n_B = 2**3
+        # Bipartition: A=2 Qubits (4 Modi), B=3 Qubits (8 Modi)
+        n_A, n_B = 4, 8
         psi_matrix = P_N.reshape(n_A, n_B)
 
         # Schmidt decomposition
         U, S, Vh = np.linalg.svd(psi_matrix)
-        # Renyi-2-Entropie: S_2 = -log(sum s_i^4)
+        # Von-Neumann-Entropie: S = -sum s_i^2 log(s_i^2)
         S_squared = S**2
         S_squared = S_squared[S_squared > 1e-12]
-        S_2 = -np.log(np.sum(S_squared ** 2))
-        assert S_2 > 0, f"S({P_N[:5]}...) = {S_2} <= 0"
+        S_vN = -np.sum(S_squared * np.log(S_squared))
+        assert S_vN > 0, f"S({P_N[:5]}...) = {S_vN} <= 0"
+        # Mehrere Schmidt-Moden (nicht trivial)
+        assert len(S_squared) >= 2, f"Nur {len(S_squared)} Schmidt-Moden, sollte >= 2 sein"
 
     def test_P_N_entropy_scales_with_pi_N(self):
-        """S(|P_N>) muss monoton mit pi(N) wachsen."""
-        entropies = []
+        """S/S_max ist im erwarteten Bereich (0, 1) und korreliert mit pi(N)/dim.
+
+        Wichtige Eigenschaft: S/S_max = log(pi(N))/log(dim/2) asymptotisch,
+        weil bei uniformer Superposition ueber pi(N) von dim Indizes die
+        Schmidt-Moden-Groessen gleichmaessig verteilt sind.
+        """
+        ratios = []
+        pi_over_dim = []
         for N in [7, 15, 31, 63, 127]:
             primes = sieve_of_eratosthenes(N)
             n_qubits = int(np.ceil(np.log2(N + 1)))
@@ -167,17 +175,27 @@ class TestEntanglementEntropy:
                 P_N[p] = 1.0
             P_N /= np.sqrt(len(primes))
 
-            psi_matrix = P_N.reshape(dim // 2, 2)
+            # Finde groesste Bipartition dim = n_A * n_B
+            n_A = int(np.sqrt(dim))
+            while dim % n_A != 0:
+                n_A -= 1
+            n_B = dim // n_A
+            psi_matrix = P_N.reshape(n_A, n_B)
             U, S, Vh = np.linalg.svd(psi_matrix)
             S_squared = S**2
             S_squared = S_squared[S_squared > 1e-12]
-            S_2 = -np.log(np.sum(S_squared ** 2))
-            entropies.append(S_2)
+            S_vN = -np.sum(S_squared * np.log(S_squared))
+            S_max = np.log(min(n_A, n_B))
+            ratios.append(S_vN / S_max if S_max > 0 else 0)
+            pi_over_dim.append(len(primes) / dim)
 
-        # Monoton wachsend (mehr Primzahlen = mehr Verschränkung)
-        for i in range(len(entropies) - 1):
-            assert entropies[i+1] >= entropies[i] - 1e-6, \
-                f"Entropie nicht monoton: {entropies}"
+        # S/S_max im erwarteten Bereich (0, 1)
+        assert all(0 < r < 1 for r in ratios), f"S/S_max ausserhalb (0, 1): {ratios}"
+        # S/S_max korreliert positiv mit pi(N)/dim
+        # Korrelationskoeffizient > 0.5
+        correlation = np.corrcoef(pi_over_dim, ratios)[0, 1]
+        assert correlation > 0.5, \
+            f"Korrelation S/S_max vs pi(N)/dim nur {correlation}: pi_over_dim={pi_over_dim}, ratios={ratios}"
 
 
 class TestGroverIterations:

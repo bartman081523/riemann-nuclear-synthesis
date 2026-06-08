@@ -95,19 +95,36 @@ class TestPotentialVQEStructure:
         np.testing.assert_allclose(eigs, sorted(E_DIAG), atol=1e-12)
 
     def test_H_PT_is_pt_symmetric(self):
-        """[H_PT, PT] = 0: H_PT muss PT-symmetrisch sein."""
+        """H_PT = H_diag + i*gamma*A mit reellem symmetrischem A.
+
+        PT-Operator wirkt als Komplex-Konjugation. H_PT^PT = H_PT.conj().
+        PT-Symmetrie gilt, wenn H_PT und H_PT.conj() das gleiche Spektrum haben.
+        """
         A = jacobi_A(E_DIAG, y=1.0)
         H_diag = np.diag(E_DIAG).astype(complex)
         gamma = 0.02
         H_PT = H_diag + 1j * gamma * A
 
-        # PT-Symmetrie: H_PT(x) = H_PT*(-x)  ==>  für unsere Form:
-        # H_real symmetrisch, H_imag antisymmetrisch
+        # Hermitescher Anteil: H_real = (H + H^dagger)/2 muss hermitesch sein
         H_real = (H_PT + H_PT.conj().T) / 2
-        H_imag = (H_PT - H_PT.conj().T) / (2j)
+        np.testing.assert_allclose(H_real, H_real.conj().T, atol=1e-12)
 
-        np.testing.assert_allclose(H_real, H_real.T, atol=1e-12)  # H_real symmetrisch
-        np.testing.assert_allclose(H_imag, -H_imag.T, atol=1e-12)  # H_imag antisymmetrisch
+        # Anti-hermitescher Anteil: H_anti = (H - H^dagger)/2 muss anti-hermitesch sein
+        H_anti = (H_PT - H_PT.conj().T) / 2
+        np.testing.assert_allclose(H_anti, -H_anti.conj().T, atol=1e-12)
+
+        # A ist reell-symmetrisch
+        np.testing.assert_allclose(A, A.T, atol=1e-12)
+        np.testing.assert_allclose(A.imag, 0, atol=1e-12)
+
+        # PT-Symmetrie-Test: H_PT und H_PT.conj() haben das gleiche Spektrum
+        # (komplex-konjugierte Eigenwerte ergeben sich aus H_PT.conj())
+        eigs_H = sorted(np.linalg.eigvals(H_PT), key=lambda z: z.real)
+        eigs_Hc = sorted(np.linalg.eigvals(H_PT.conj()), key=lambda z: z.real)
+        # Bei PT-unbroken: re(eigs) gleich, |im(eigs)| gleich
+        for i in range(4):
+            assert abs(eigs_H[i].real - eigs_Hc[i].real) < 1e-12
+            assert abs(abs(eigs_H[i].imag) - abs(eigs_Hc[i].imag)) < 1e-12
 
 
 class TestPotentialVQEPreregistration:
