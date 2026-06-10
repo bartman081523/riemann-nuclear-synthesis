@@ -1,0 +1,7 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 20:38:50,022: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 20:38:53,363: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 20:38:53,363: Using instance: 1, plan: open
+/run/media/julian/ML4/riemann/pt_vqe_vqd.py:129: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=1)
+/home/julian/.local/lib/python3.14/site-packages/qiskit_ibm_runtime/qiskit_runtime_service.py:1210: UserWarning: This instance has met its usage limit. Workloads will not run until time is made available. Check https://quantum.cloud.ibm.com/instances/crn%3Av1%3Abluemix%3Apublic%3Aquantum-computing%3Aus-east%3Aa%2F62969f8d58c346ab90fdee98f3084650%3Aede9d355-60ef-476b-a6b0-ac6dc1bbc2e3%3A%3A for more details.
+  warnings.warn(
