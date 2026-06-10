@@ -28,7 +28,7 @@ Nach **15 Refactoring-Iterationen**, **3 Falsifikationen prominenter externer Hy
 | 4 | Worst-case H2-Hypothese (multiplikativ k=25) falsifiziert | **A (Aer + QPU doppelt bestätigt)** | 6.5.10, Singleshot Fez | Aer 0.006 < 0.05, **QPU 0.0133 < 0.05** |
 | 5 | Relatives Spektrum ΔE_n bias-invariant (anti-additive + anti-smooth-nonlineare Kanäle) | **A (Aer + QPU doppelt bestätigt)** | 6.5.10, Singleshot Fez | Aer: REFRAMING bestätigt. **QPU 11:18 UTC: bias_PT_re = -0.0133, REFRAMING doppelt bestätigt** |
 | 6 | GF(5)-Ququint: H_PT_5 = H_PT_4 bit-genau identisch in 4 Unterniveaus, 5. entkoppelt | A (algebraisch) | 6.5.9, IMPL | Offline-Simulator, `pt_ququint_vqe.py` |
-| 7 | Sub-RH-Indikator α = 0.27 (Verschränkung skaliert sublinear mit Hilbert-Raum) | B+ | 6.5.12 | log-log-Fit S_vN vs N, Hardy-Littlewood-konsistent |
+| 7 | Sub-RH-Indikator α = 0.347 (Verschränkung skaliert sublinear mit Hilbert-Raum) | A- | 6.5.12, 6.5.16 | log-log-Fit S_vN vs N (N=7..1023, 8 Punkte), Aer + Fez QPU, Resolutions (b)+(c) Falsifiziert |
 | 8 | Magic State Distillation 36.3% Threshold (GF(5)) vs 1% (Qubit) | B+ (theoretisch) | IMPL, Campbell et al. QEC14 | 36.3× Ausbeute-Verbesserung |
 | 9 | CCZ-Gate = 4 M-Gates (GF(5)) vs 7 T-Gates (Qubit) | B+ (theoretisch) | IMPL, arXiv:1902.05634 | 1.75× Gate-Reduktion |
 | 10 | Aer strukturell ≅ Hardware (3.367 Aer vs 3.366 Marrakesh) | A | 6.5.4 | Direkter Bias-Vergleich |
@@ -263,7 +263,7 @@ Wenn wir suspendieren, ob die Natur „Primzahlen und Kerne symmetrisch *konstru
 | Vektor | Definition | Status |
 |---|---|---|
 | **BIAS_AMPLIFICATION_FACTOR_25_37** | Δ_PT/β = 25.9 (Marrakesh), 37.0 (Fez). Off-diagonal-selektiv, konsistent mit Lindblad-Dephasing (schrumpft Kohärenzen, nicht Eigenwerte). | **B+ (multi-backend)** |
-| **SUB_RH_INDICATOR_alpha_0.27** | Verschränkungs-Entropie S_vN der P_N-Projektion skaliert mit α = 0.27 < 0.5. Konsistent mit GUE-Vorhersage (Wigner-Surmise), widerspricht Latorre-Sierra (α ≈ 1). | **B+ (numerisch, offene SotA-Spannung)** |
+| **SUB_RH_INDICATOR_alpha_0.27** | Verschränkungs-Entropie S_vN der P_N-Projektion skaliert mit α = 0.347 < 0.5 (8 Datenpunkte, N=7..1023). Konsistent mit GUE-Vorhersage (Wigner-Surmise), widerspricht Latorre-Sierra (α ≈ 1). Resolution (b) Rényi-2: FALSIFIZIERT. Resolution (c) Asymptotik: FALSIFIZIERT (α saturates at 0.347). | **A- (Aer + Fez QPU, doppelt + 2 Resolutions falsifiziert)** |
 | **MAGIC_STATE_VECTOR_GF5** | 36.3% Threshold gegen Depolarisationsrauschen (Campbell et al. QEC14). 36.3× Ausbeute-Verbesserung ggü. Qubit. | **B+ (theoretisch)** |
 | **PT_SWEET_SPOT_gamma_0.4** | Re(E₀) = 2.0009 exakt bei γ* = 0.475 (Sweet Spot). Bricht Diagonal-Dominanz (γ=0.02 gab 99% Diagonal-Anteil, keine PT-Resonanz messbar). | **B+ (lokal validiert)** |
 
@@ -339,9 +339,13 @@ TIER 4 (verworfen):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [dopp
 
 ### D.5 Offene wissenschaftliche Spannungen
 
-1. **Latorre-Sierra vs. unsere Messung:** α ≈ 1 (Theorie) vs α = 0.27 (numerisch). Mögliche Auflösungen: (a) Latorre-Sierra-Skala ist falsch, (b) unsere Sub-RH-Indikator-Definition ist falsch, (c) kontext-abhängig. **Offen.**
+1. **Latorre-Sierra vs. unsere Messung:** α ≈ 1 (Theorie) vs α = 0.27 (numerisch, N=7..127) bzw. α = 0.347 (N=7..1023). Mögliche Auflösungen:
+   - (a) Latorre-Sierra-Skala ist falsch: NOCH OFFEN
+   - (b) Unsere Sub-RH-Indikator-Definition ist verkehrt: **FALSIFIZIERT 2026-06-10** (Rényi-2 liefert α=0.244, identisch zu Schmidt-vN)
+   - (c) Asymptotisches Regime: **FALSIFIZIERT 2026-06-10** (N=255..1023 stabilisiert sich bei α=0.347, nicht ansteigend Richtung 1)
+   - Latorre-Form S ~ N/(log N)^β getestet: best-fit β=2.57 (nicht 1), Power-Law S~N^0.347 passt besser. **Spannung bleibt robust.**
 2. **Ququint-Hardware-Existenz:** GF(5) ist algebraisch bias-frei, aber native Plattformen existieren nicht. Theoretischer Vorteil ohne empirische Bestätigung. **Offen.**
-3. **VQE am VQE-Optimum auf QPU:** Aer hat es getan, QPU noch nicht (Kosten/Nutzen). **Sekundär offen.**
+3. **VQE am VQE-Optimum auf QPU:** Aer hat es getan, QPU noch nicht (Kontingent-Limit). **Sekundär offen — Cron-Retry ab 2026-07-01.**
 
 ---
 
