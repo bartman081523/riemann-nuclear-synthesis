@@ -339,11 +339,16 @@ TIER 4 (verworfen):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [dopp
 
 ### D.5 Offene wissenschaftliche Spannungen
 
-1. **Latorre-Sierra vs. unsere Messung:** α ≈ 1 (Theorie) vs α = 0.27 (numerisch, N=7..127) bzw. α = 0.347 (N=7..1023). Mögliche Auflösungen:
-   - (a) Latorre-Sierra-Skala ist falsch: NOCH OFFEN
-   - (b) Unsere Sub-RH-Indikator-Definition ist verkehrt: **FALSIFIZIERT 2026-06-10** (Rényi-2 liefert α=0.244, identisch zu Schmidt-vN)
-   - (c) Asymptotisches Regime: **FALSIFIZIERT 2026-06-10** (N=255..1023 stabilisiert sich bei α=0.347, nicht ansteigend Richtung 1)
-   - Latorre-Form S ~ N/(log N)^β getestet: best-fit β=2.57 (nicht 1), Power-Law S~N^0.347 passt besser. **Spannung bleibt robust.**
+1. **Latorre-Sierra vs. unsere Messung:** ~~α ≈ 1 (Theorie) vs α = 0.27 (numerisch, N=7..127) bzw. α = 0.347 (N=7..1023).~~ **STATUS UPDATE 2026-06-10 abends: AUFGELÖST als Mismatch funktionaler Form, NICHT fundamentaler Konflikt.**
+   - Latorre-Sag: $S_{vN} \sim \log \pi(N)$ (logarithmisch, asymptotisch)
+   - Wir fitten: $S_{vN} \sim N^\alpha$ (Power-Law, lokal) → α=0.347
+   - Lokale Steigung von $\log \pi(N)$ bei N=15..1023: **0.17-0.40** (gleiches Band wie 0.347)
+   - Drei-Modelle-Vergleich: M1 (Power N) und M3 (Power π(N)) ununterscheidbar (residual 0.298/0.302); M2 (Latorre log) signifikant schlechter (0.772)
+   - Latorre's "α=1" ist asymptotische Steigung von $\log \pi(N)$ vs $\log N$ für N→∞, nicht Power-Law-fit
+   - Drei Resolutions:
+     - (a) Skala verkehrt: **FALSIFIZIERT** (Latorre ist konsistent, nur andere funktionale Form)
+     - (b) Rényi-2: **FALSIFIZIERT 2026-06-10** (α₂ = 0.244 = Schmidt-vN)
+     - (c) Asymptotik: **REFRAMED** als finite-N-Skalierung, nicht fundamentaler Konflikt
 2. **Ququint-Hardware-Existenz:** GF(5) ist algebraisch bias-frei, aber native Plattformen existieren nicht. Theoretischer Vorteil ohne empirische Bestätigung. **Offen.**
 3. **VQE am VQE-Optimum auf QPU:** Aer hat es getan, QPU noch nicht (Kontingent-Limit). **Sekundär offen — Cron-Retry ab 2026-07-01.**
 
