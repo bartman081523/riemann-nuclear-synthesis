@@ -1,0 +1,45 @@
+{
+  "M1_power_N": {
+    "alpha": 0.34749400912938905,
+    "residual": 0.29817370994868303
+  },
+  "M2_log_N": {
+    "coeff": 0.5240306121103544,
+    "residual": 0.7723938429242391
+  },
+  "M3_power_pi_N": {
+    "alpha": 0.45379084035623146,
+    "residual": 0.30200879915661116
+  },
+  "latorre_local_slopes": [
+    {
+      "N": 15.0,
+      "slope": 0.3366360554275019
+    },
+    {
+      "N": 31.0,
+      "slope": 0.4014030153899152
+    },
+    {
+      "N": 63.0,
+      "slope": 0.2634060489640206
+    },
+    {
+      "N": 127.0,
+      "slope": 0.24582601294532924
+    },
+    {
+      "N": 255.0,
+      "slope": 0.21491837135722985
+    },
+    {
+      "N": 511.0,
+      "slope": 0.19710222641965813
+    },
+    {
+      "N": 1023.0,
+      "slope": 0.16994998657634505
+    }
+  ],
+  "verdict": "M1 und M3 ununterscheidbar (residuals 0.298 vs 0.302). M2 (Latorre log) am schlechtesten. Latorre-Form ist KEIN power-law, sondern logarithmisch \u2014 deshalb ist finite-N-Steigung von M2 auch 0.17-0.40, im gleichen Band wie unser M1 (0.347). -> Latorre vs. wir: kein Konflikt, sondern Mismatch der funktionalen Form. Asymptotische alpha=1 von Latorre ist die Steigung von log pi(N) vs log N, NICHT ein power-law-fit."
+}
