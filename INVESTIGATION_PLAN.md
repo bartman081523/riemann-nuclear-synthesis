@@ -223,6 +223,7 @@ graph TD
     A2ca6 -.DONE: alpha=0.2719 offline.-> A2ca6a
     A2ca6a -.DONE.-> A2ca6b
     A2ca6b -.DONE: Section 6.5.12.-> A2ca6c
+    A2ca6c -.SYNTH.-> SYN10[SYNTHESIS_2026_06_10.md: SciMind 4.0/5.0 Synthese, 14 strategische Vektoren, Fez-Reset-Plan]
 
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
@@ -241,3 +242,4 @@ graph TD
     style A2ca8e fill:#f55,stroke:#333,stroke-width:2px
     style A2ca5c fill:#5f5,stroke:#333,stroke-width:2px
     style A2ca6c fill:#5f5,stroke:#333,stroke-width:2px
+    style SYN10 fill:#f96,stroke:#333,stroke-width:3px
