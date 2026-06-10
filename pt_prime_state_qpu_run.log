@@ -1,0 +1,70 @@
+/run/media/julian/ML4/riemann/pt_prime_state_qpu_run.py:5: SyntaxWarning: "\o" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\o"? A raw string is also an option.
+  - psi_prime = (U_A^dagger \otimes I_B) |P_N>  in numpy
+[0s] Starting pt_prime_state_qpu_run.py
+[0s] Token loaded (len=44)
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 12:12:59,226: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 12:13:01,708: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 12:13:01,708: Using instance: open-instance, plan: open
+[3s] Backend: ibm_fez, queue=1
+[5s] Praeregistrierung geladen: [7, 15, 31, 63, 127]
+[5s] Aer-Skalierung: alpha_AER = 0.2719
+
+[5s] === N=7 ===
+[5s] Statevector verifiziert: P(|i>_A) = [0.75 0.25]
+[5s] ISA: depth=30, ops=43
+[6s] Job submitted: d8kjhcjnn5bs738quimg
+[16s] Counts: {'1': 1085, '0': 3011}
+[16s] N=7: S_vN_qpu=0.5781 (klassisch: 0.5623)
+[16s] s_i^2 qpu=[0.73510742 0.26489258]
+[16s] |delta S_vN|: 0.0158
+
+[16s] === N=15 ===
+[16s] Statevector verifiziert: P(|i>_A) = [6.46564207e-01 2.75450607e-01 7.79851856e-02 2.82469725e-33]
+[16s] ISA: depth=98, ops=130
+[17s] Job submitted: d8kjhf832u0s73f8rfr0
+[67s] Counts: {'00': 2475, '01': 1140, '10': 410, '11': 71}
+[67s] N=15: S_vN_qpu=0.9610 (klassisch: 0.8361)
+[67s] s_i^2 qpu=[0.60424805 0.27832031 0.10009766 0.01733398]
+[67s] |delta S_vN|: 0.1250
+
+[67s] === N=31 ===
+[67s] Statevector verifiziert: P(|i>_A) = [0.69584304 0.15888207 0.09090909 0.0543658 ]
+[67s] ISA: depth=214, ops=272
+[68s] Job submitted: d8kjhs3qv2lc7385c930
+[119s] Counts: {'00': 2455, '10': 412, '01': 900, '11': 329}
+[119s] N=31: S_vN_qpu=1.0733 (klassisch: 0.9209)
+[119s] s_i^2 qpu=[0.59936523 0.21972656 0.10058594 0.08032227]
+[119s] |delta S_vN|: 0.1524
+
+[119s] === N=63 ===
+[119s] Statevector verifiziert: P(|i>_A) = [6.26112273e-01 2.36189602e-01 7.95190645e-02 5.11387262e-02
+ 7.04033463e-03 1.06414217e-32 2.10648588e-33 1.45977823e-32]
+[119s] ISA: depth=405, ops=504
+[120s] Job submitted: d8kji93nn5bs738qujjg
+[185s] Counts: {'001': 1146, '000': 2017, '011': 377, '100': 113, '010': 355, '110': 39, '111': 20, '101': 29}
+[185s] N=63: S_vN_qpu=1.3411 (klassisch: 1.0223)
+[185s] s_i^2 qpu=[0.49243164 0.27978516 0.08666992 0.09204102 0.02758789 0.00708008
+ 0.00952148 0.00488281]
+[185s] |delta S_vN|: 0.3189
+
+[185s] === N=127 ===
+[185s] Statevector verifiziert: P(|i>_A) = [5.29625180e-01 1.95465951e-01 1.22324176e-01 9.86220094e-02
+ 2.33396615e-02 1.84725356e-02 1.21504873e-02 3.84404767e-33]
+[185s] ISA: depth=841, ops=1250
+[186s] Job submitted: d8kjipjnn5bs738quk50
+[197s] Counts: {'000': 1710, '100': 551, '110': 259, '011': 219, '001': 537, '010': 535, '101': 235, '111': 50}
+[197s] N=127: S_vN_qpu=1.7157 (klassisch: 1.3562)
+[197s] s_i^2 qpu=[0.41748047 0.13110352 0.13061523 0.0534668  0.13452148 0.05737305
+ 0.06323242 0.01220703]
+[197s] |delta S_vN|: 0.3595
+
+============================================================
+VERGLEICH ALPHA-WERTE
+  alpha_AER                   = 0.2719
+  alpha_QPU (Fez/TOKEN2)      = 0.3479
+  alpha_Latorre-Sierra        = ~1.0
+  Konsistenz QPU <-> Latorre: NEIN (DISSENS wie Aer)
+============================================================
+
+[fertig] Laufzeit: 197s
+Ergebnisse: pt_prime_state_qpu_singleshot_results.json

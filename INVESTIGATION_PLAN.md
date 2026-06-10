@@ -203,6 +203,27 @@ graph TD
     A2ca6a --> A2ca6b[S_vN waechst sublinear mit Hilbert-Raum]
     A2ca6b --> A2ca6c[Section 6.5.12: Skalierungsexponent dokumentiert]
 
+    %% A2ca9: QPU-Validierung Saeule 1+3 auf Fez/TOKEN2 (2026-06-10) - Neuer Account
+    A2ca8g -.UNBLOCKED: TOKEN2 (neuer Account, Tageslimit 10 Min).-> A2ca9[QPU-Validierung Fez/TOKEN2]
+    A2ca9 --> A2ca9a[Saeule 1 Singleshot: 3 sequenzielle 1-Pub Jobs, 1024 Shots]
+    A2ca9a --> A2ca9b[bias_PT_re = -0.0133, |b|<0.05, H1/H3 bestaetigt]
+    A2ca9b --> A2ca9c[Section 6.5.13: Echte QPU-Messung dokumentiert]
+    A2ca9c --> A2ca9d[REFRAMING_VECTOR promoted auf A (Aer + QPU doppelt)]
+
+    A2ca6c -.ALSO: QPU-Validierung Saeule 3.-> A2ca9e[Saeule 3 QPU: 5 sequenzielle Jobs, N=7..127, 4096 Shots]
+    A2ca9e --> A2ca9f[initialize(psi_prime)+Sampler: Schmidt-Entropie gemessen]
+    A2ca9f --> A2ca9g[alpha_QPU = 0.3479 vs alpha_Aer = 0.2719]
+    A2ca9g --> A2ca9h{DISSENS zu Latorre-Sierra (alpha ~ 1)?}
+    A2ca9h -- JA --> A2ca9i[QPU bestaetigt Aer: Sub-RH robust gegen Fez-Dekohaerenz]
+    A2ca9i --> A2ca9j[Section 6.5.14: Saeule 3 QPU dokumentiert]
+    A2ca9j --> A2ca9k[SUB_RH_INDICATOR promoted auf A- (Aer + Fez doppelt)]
+
+    A2ca9 -.OPTIONAL.-> A2ca9l[Sauele 1 VQE-Optimum QPU: 5-Pub-Messung separat]
+
+    %% Update Section 6.5.10/12-14
+    A2ca8f -.DONE.-> A2ca8g
+    A2ca8g -.DONE: TOKEN2 breakthrough.-> A2ca9a
+
     B2 -.RESOLVED: yes.-> B4
     B4 -.DONE.-> B5
     C1 -.DONE.-> C2

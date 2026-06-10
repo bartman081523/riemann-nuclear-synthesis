@@ -1,0 +1,50 @@
+[0s] Starting pt_potential_vqe_minimal.py
+[0s] SHOTS=2048, N_ITERS_VQE=3
+[0s] Token loaded (len=44)
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 11:44:25,625: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 11:44:28,620: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 11:44:28,620: Using instance: open-instance, plan: open
+[4s] Backend: ibm_fez, queue=0
+[4s] Prereg loaded: H_diag_exact gaps = [0.6931471805599454, 0.9907104653475316, 1.3039604764704333]
+/run/media/julian/ML4/riemann/pt_potential_vqe_minimal.py:68: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+[5s] Pass manager built (opt_level=1)
+[5s] ISA built: n_params=6, depth=18
+[5s] initial_params: [0.523, 1.21, -0.45, 0.88, 0.523, 1.21]
+[5s] Estimator configured
+
+[5s] === VQE START (3 Iter) ===
+/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/scipy/_lib/pyprima/common/preproc.py:68: UserWarning: COBYLA: Invalid MAXFUN; it should be at least num_vars + 2; it is set to 8
+  warn(f'{solver}: Invalid MAXFUN; it should be at least {min_maxfun_str}; it is set to {maxfun}')
+[212s] VQE done: E_0 = 2.3610 (noiseless 2.0019)
+
+[212s] === 5-PUB MESSUNG ===
+Traceback (most recent call last):
+  File "/run/media/julian/ML4/riemann/pt_potential_vqe_minimal.py", line 187, in <module>
+    main()
+    ~~~~^^
+  File "/run/media/julian/ML4/riemann/pt_potential_vqe_minimal.py", line 112, in main
+    result = estimator.run([
+             ~~~~~~~~~~~~~^^
+        (isa_ansatz, isa_diag, E0_params),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        (isa_ansatz, isa_imag, theta_r)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ]).result()
+    ^^
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit_ibm_runtime/estimator.py", line 143, in run
+    coerced_pubs = [EstimatorPub.coerce(pub, precision) for pub in pubs]
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit/primitives/containers/estimator_pub.py", line 155, in coerce
+    parameter_values = BindingsArray.coerce(values)
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit/primitives/containers/bindings_array.py", line 306, in coerce
+    bindings_array = cls(data=bindings_array)
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit/primitives/containers/bindings_array.py", line 136, in __init__
+    self.validate()
+    ~~~~~~~~~~~~~^^
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit/primitives/containers/bindings_array.py", line 318, in validate
+    raise ValueError(
+        f"Length of {parameters} inconsistent with last dimension of {val}"
+    )
+ValueError: Length of ('θ[0]', 'θ[1]', 'θ[2]', 'θ[3]', 'θ[4]', 'θ[5]') inconsistent with last dimension of [-0.78828768  2.83192151  1.45766093  0.61988954]

@@ -1,0 +1,25 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 11:18:34,192: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 11:18:36,111: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 11:18:36,111: Using instance: open-instance, plan: open
+[2s] Backend: ibm_fez, queue=1
+/run/media/julian/ML4/riemann/pt_potential_vqe_singleshot.py:46: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+[4s] Estimator ready, submitting 1-Pub (H_diag am Initial-Punkt)...
+[6s] Job submitted: d8kins3qv2lc7385bbj0
+[13s] H_diag (1-Pub) = 3.6045
+[14s] Job 2 submitted: d8kinubqv2lc7385bbm0
+[21s] H_diag (random) = 3.6559
+[23s] Job 3 submitted: d8kio0832u0s73f8qhs0
+[30s] Re(H_PT) (init) = 3.5912
+
+============================================================
+ERGEBNIS:
+  H_diag am Initial-Punkt: 3.6045 (noiseless mean: 3.34)
+  H_diag am random-Punkt:  3.6559
+  Re(H_PT) am Initial:     3.5912
+  bias_PT_re = -0.0133
+  |bias_PT_re| = 0.0133
+  VERDICT: H1/H3
+  Laufzeit: 30s
+============================================================
+Ergebnisse gespeichert: pt_potential_vqe_singleshot_results.json

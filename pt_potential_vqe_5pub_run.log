@@ -1,0 +1,41 @@
+[0s] Starting pt_potential_vqe_5pub.py
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 12:19:22,250: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 12:19:25,459: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 12:19:25,459: Using instance: open-instance, plan: open
+[4s] Backend: ibm_fez, queue=0
+[5s] Prereg loaded
+/run/media/julian/ML4/riemann/pt_potential_vqe_5pub.py:61: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+[6s] ISA: n_params=6
+[6s] E0_params (6-dim): [-0.78828768, 2.83192151, 1.45766093, 0.61988954, -0.78828768, 2.83192151]
+
+[6s] === Pub: H_diag_at_vqe_opt ===
+[28s] H_diag_at_vqe_opt: 3.0611 (job=d8kjkcg32u0s73f8rjag)
+
+[28s] === Pub: Re_H_PT_at_vqe_opt ===
+[54s] Re_H_PT_at_vqe_opt: 2.9897 (job=d8kjki032u0s73f8rjg0)
+
+[54s] === Pub: Im_H_PT_at_vqe_opt ===
+[101s] Im_H_PT_at_vqe_opt: 0.0131 (job=d8kjkojnn5bs738qun30)
+
+[101s] === Pub: Re_H_PT_at_random ===
+[122s] Re_H_PT_at_random: 3.0151 (job=d8kjl4832u0s73f8rk40)
+
+[122s] === Pub: Im_H_PT_at_random ===
+[150s] Im_H_PT_at_random: 0.0158 (job=d8kjl9g32u0s73f8rk9g)
+
+============================================================
+5-Pub-Messung auf ibm_fez (TOKEN2)
+  <H_diag>      = 3.0611
+  <Re(H_PT)>    = 2.9897
+  <Im(H_PT)>    = 0.0131
+  <Re(H_PT)>_r  = 3.0151  (random)
+  <Im(H_PT)>_r  = 0.0158  (random)
+  bias_PT_re    = -0.0714  <-- ENTSCHEIDEND
+  beta_diag     = -0.2801
+  Im_bias       = -0.0169
+  VERDICT: MITTEL — partial H2-Einfluss
+  Laufzeit: 150s
+============================================================
+
+Ergebnisse: pt_potential_vqe_5pub_results.json

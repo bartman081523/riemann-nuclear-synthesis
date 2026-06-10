@@ -1,0 +1,29 @@
+{
+  "backend": "ibm_fez",
+  "token": "TOKEN2 (neuer Account)",
+  "shots": 1024,
+  "vqe_params_source": "pt_potential_vqe_minimal (E0=2.3610)",
+  "vqe_E0_meas": 2.361,
+  "vqe_E0_noiseless": 2.0018501462716802,
+  "5_pubs": {
+    "H_diag_at_vqe_opt": 3.061070070276827,
+    "Re_H_PT_at_vqe_opt": 2.989694806026698,
+    "Im_H_PT_at_vqe_opt": 0.013085566630250539,
+    "Re_H_PT_at_random": 3.0151417249073886,
+    "Im_H_PT_at_random": 0.015788130991290412
+  },
+  "job_ids": [
+    "d8kjkcg32u0s73f8rjag",
+    "d8kjki032u0s73f8rjg0",
+    "d8kjkojnn5bs738qun30",
+    "d8kjl4832u0s73f8rk40",
+    "d8kjl9g32u0s73f8rk9g"
+  ],
+  "bias_analysis": {
+    "beta_diag": -0.2801299297231732,
+    "bias_PT_re": -0.07137526425012908,
+    "Im_bias": -0.0168598256601225
+  },
+  "verdict": "MITTEL \u2014 partial H2-Einfluss",
+  "runtime_seconds": 149.90489745140076
+}

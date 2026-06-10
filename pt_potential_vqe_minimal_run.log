@@ -1,0 +1,16 @@
+[0s] Starting pt_potential_vqe_minimal.py
+[0s] SHOTS=2048, N_ITERS_VQE=3
+[0s] Token loaded (len=44)
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 10:39:03,540: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 10:39:06,295: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 10:39:06,295: Using instance: open-instance, plan: open
+[3s] Backend: ibm_fez, queue=37
+[4s] Prereg loaded: H_diag_exact gaps = [0.6931471805599454, 0.9907104653475316, 1.3039604764704333]
+/run/media/julian/ML4/riemann/pt_potential_vqe_minimal.py:68: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+[5s] Pass manager built (opt_level=1)
+[5s] ISA built: n_params=6, depth=18
+[5s] initial_params: [0.523, 1.21, -0.45, 0.88, 0.523, 1.21]
+[5s] Estimator configured
+
+[5s] === VQE START (3 Iter) ===
