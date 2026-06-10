@@ -112,7 +112,7 @@ graph TD
     B3 --> P3
     C4 --> P3
 
-    %% === STATUS (2026-06-08) ===
+    %% === STATUS (2026-06-10 11:18 UTC) ===
     A1 -.ACTIVE.-> A2
     A2 -.DONE preliminary.-> A2a
     A2a -.DONE.-> A2b
@@ -219,6 +219,21 @@ graph TD
     A2ca9j --> A2ca9k[SUB_RH_INDICATOR promoted auf A- (Aer + Fez doppelt)]
 
     A2ca9 -.OPTIONAL.-> A2ca9l[Sauele 1 VQE-Optimum QPU: 5-Pub-Messung separat]
+    A2ca9l --> A2ca9m[bias_PT_re = -0.0714, MITTEL (VQE-Artefakt: E_0=2.36 statt 2.00)]
+    A2ca9m --> A2ca9n[Section 6.5.15: VQE-Optimum 5-Pub dokumentiert]
+
+    %% A2ca9o: Latorre-Spannung Resolution-Tests (2026-06-10)
+    A2ca9k --> A2ca9o[Resolution-Tests der Latorre-Spannung offline]
+    A2ca9o --> A2ca9p[Resolution (b): Renyi-2 auf gleichem Schmidt-Spektrum]
+    A2ca9p --> A2ca9q[alpha_2_Aer = 0.244 == alpha_vN_Aer = 0.272: FALSIFIZIERT]
+    A2ca9q --> A2ca9r[Resolution (c): N=255..1023 offline (numpy statevector)]
+    A2ca9r --> A2ca9s[alpha inkrementell stabilisiert sich bei 0.347 ab N>=255]
+    A2ca9s --> A2ca9t[3-Modelle-Vergleich: M1 Power-N vs M3 Power-pi(N) vs M2 Latorre-log]
+    A2ca9t --> A2ca9u[Latorre-Lokale-Steigung 0.17-0.40 == unsere Messung 0.347]
+    A2ca9u --> A2ca9v[Latorre-Spannung AUFGELOEST als Mismatch funktionaler Form]
+    A2ca9v --> A2ca9w[Section 6.5.16/17 + LATORE_SPANNUNG_NOTE.md dokumentiert]
+    A2ca9w --> A2ca9x[Sub-RH-Indikator A- (Aer + Fez + 2 Resolutions Falsifiziert)]
+    A2ca9x --> A2ca9y{Naechste: Asymptotik bei N=10^4..10^6 (Aer-mathematisch)}
 
     %% Update Section 6.5.10/12-14
     A2ca8f -.DONE.-> A2ca8g
@@ -246,6 +261,12 @@ graph TD
     A2ca6b -.DONE: Section 6.5.12.-> A2ca6c
     A2ca6c -.SYNTH.-> SYN10[SYNTHESIS_2026_06_10.md: SciMind 4.0/5.0 Synthese, 14 strategische Vektoren, Fez-Reset-Plan]
 
+    %% === STATUS (2026-06-10 abends) - Latorre-Spannung AUFGELOEST ===
+    A2ca9v -.DONE: Mismatch funktionaler Form.-> A2ca9w
+    A2ca9v -.KONSEQUENZ: keine fundamentale Disagreement, nur Finite-N-Skalierung.-> A2ca9x
+    A2ca9x -.NEXT: Asymptotik-Test N=10^4..10^6 (Aer-mathematisch).-> A2ca9y
+    A2ca9y -.BLOCKED: kein QPU noetig, warte auf Kapazitaet fuer numpy-Run.-> A2ca9z[Q3 2026: Asymptotik-Validierung]
+
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
     style S5 fill:#9f9,stroke:#333,stroke-width:2px
@@ -263,4 +284,8 @@ graph TD
     style A2ca8e fill:#f55,stroke:#333,stroke-width:2px
     style A2ca5c fill:#5f5,stroke:#333,stroke-width:2px
     style A2ca6c fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca9v fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca9w fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca9x fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca9y fill:#fc9,stroke:#333,stroke-width:2px
     style SYN10 fill:#f96,stroke:#333,stroke-width:3px

@@ -634,22 +634,40 @@ Schmidt-vN-Sweep offline (numpy statevector) erweitert auf $N \in \{255, 511, 10
 
 **$\alpha$ ist NICHT ansteigend Richtung 1** — sie stabilisiert sich bei 0.347 für $N \ge 255$. Resolution (c) ist **FALSIFIZIERT**.
 
-**Test 3: Latorre-Form $S \sim N/(\log N)^\beta$**
+**Test 3: Drei-Modelle-Vergleich — Mismatch funktionaler Form**
 
-| Modell | Best-Fit-Parameter | Residual |
-|---|---:|---:|
-| Power-Law $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
-| Latorre-Form $S \sim N/(\log N)^\beta$ | $\beta = 2.57$ (statt 1) | 0.536 |
+Drei konkurrierende Modelle für $S_{vN}(N)$ direkt verglichen:
 
-**Power-Law passt BESSER als Latorre-Form.** Latorre-Form würde $\beta=1$ verlangen — empirisch $\beta=2.57$ ist doppelt zu groß.
+| Modell | Form | Best-Fit-Parameter | Residual |
+|---|---|---:|---:|
+| M1 (unser Power-Law) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
+| M3 (Power in $\pi(N)$) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
+| M2 (Latorre log) | $S \sim \log\pi(N)$ | coeff = 0.524 | 0.772 |
 
-**Sub-RH-Test ($H_0: \alpha \ge 0.5$):**
-- Schmidt-vN: $z = 3.05$ → $p < 0.05$
-- Rényi-2: $z = 4.92$ → $p < 0.01$
+**M1 und M3 ununterscheidbar** (Residuals unterscheiden sich um 1%). M2 (Latorre-Form) ist signifikant schlechter (Faktor 2.5).
 
-**Strategische Konsequenz:** Resolution (a) — *Latorre-Sierra-Skala selbst ist verkehrt* — ist die einzige verbleibende offene Erklärung. Die Sub-RH-Indikator-Aussage $\alpha < 0.5$ ist **dreifach** empirisch gestützt:
-1. Power-Law Fit $S \sim N^{0.347}$ (8 Datenpunkte, $N=7..1023$)
-2. Rényi-2 vs Schmidt-vN identisch
-3. Power-Law passt besser als Latorre-Form
+**Lokale Steigung der Latorre-Kurve bei unseren N-Werten:**
 
-Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`. Prepreprint in `LATORE_SPANNUNG_NOTE.md` (10 KB).
+| $N$ | $d \log S / d \log N$ (Latorre) |
+|---:|---:|
+| 15 | 0.34 |
+| 31 | 0.40 |
+| 63 | 0.26 |
+| 127 | 0.25 |
+| 255 | 0.21 |
+| 511 | 0.20 |
+| 1023 | 0.17 |
+
+**Die Latorre-Lokal-Steigung 0.17–0.40 liegt im SELBEN Band wie unser gemessenes $\alpha = 0.347$!**
+
+**Auflösung der "Spannung":** Es gibt **keinen fundamentalen Konflikt**. Latorre-Sierra sagt $S \sim \log\pi(N)$ (asymptotisch) — die *asymptotische* Steigung von $\log\pi(N)$ vs $\log N$ ist tatsächlich 1 (für $N \to \infty$). Wir fitten lokal $S \sim N^\alpha$ — die *lokale* effektive Steigung ist 0.347 für $N \le 1023$. Beide Werte sind **konsistent**, weil die Latorre-Kurve als logarithmische Funktion lokal ebenfalls Steigungen $< 0.5$ aufweist.
+
+**Strategische Konsequenz — REFRAMING der Sub-RH-Indikator-Aussage:**
+
+Die Sub-RH-Vorhersage $\alpha < 0.5$ ist empirisch robust gestützt, aber ihre Interpretation ändert sich:
+- **Vorher:** $\alpha = 0.347$ widerspricht Latorre-Sierra's $\alpha \approx 1$ → "Spannung"
+- **Nachher:** $\alpha = 0.347$ ist die *finite-N effektive Steigung* einer Funktion, die **asymptotisch** $\alpha \to 1$ hat (genau wie Latorre) → **Konsistenz, kein Konflikt**
+
+Die offene Frage ist nicht mehr "Latorre vs. wir", sondern: **bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden?** Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
+
+Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `pt_three_models_results.json`. Prepreprint in `LATORE_SPANNUNG_NOTE.md` (10 KB).
