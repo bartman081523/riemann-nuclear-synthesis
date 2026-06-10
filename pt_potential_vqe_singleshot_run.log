@@ -1,0 +1,22 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-10 11:03:21,907: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-10 11:03:24,177: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-10 11:03:24,177: Using instance: open-instance, plan: open
+[3s] Backend: ibm_fez, queue=43
+/run/media/julian/ML4/riemann/pt_potential_vqe_singleshot.py:46: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+[5s] Estimator ready, submitting 1-Pub (H_diag am Initial-Punkt)...
+[7s] Job submitted: d8kigobnn5bs738qtc3g
+Traceback (most recent call last):
+  File "/run/media/julian/ML4/riemann/pt_potential_vqe_singleshot.py", line 117, in <module>
+    main()
+    ~~~~^^
+  File "/run/media/julian/ML4/riemann/pt_potential_vqe_singleshot.py", line 68, in main
+    result = job.result(timeout=600)
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit_ibm_runtime/runtime_job_v2.py", line 133, in result
+    self.wait_for_final_state(timeout=timeout, poll_interval=poll_interval)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit_ibm_runtime/runtime_job_v2.py", line 263, in wait_for_final_state
+    raise RuntimeJobTimeoutError(
+        f"Timed out waiting for job to complete after {timeout} secs."
+    )
+qiskit_ibm_runtime.exceptions.RuntimeJobTimeoutError: 'Timed out waiting for job to complete after 600 secs.'

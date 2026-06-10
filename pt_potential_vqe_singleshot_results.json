@@ -1,0 +1,13 @@
+{
+  "backend": "ibm_fez",
+  "token": "TOKEN2 (neuer Account)",
+  "shots": 1024,
+  "H_diag_at_init": 3.604521765906033,
+  "H_diag_at_random": 3.6558931303414366,
+  "Re_H_PT_at_init": 3.5912058196789243,
+  "bias_PT_re": -0.013315946227108633,
+  "abs_bias_PT_re": 0.013315946227108633,
+  "verdict": "H1/H3",
+  "runtime_seconds": 29.82221007347107,
+  "note": "3 Pubs sequenziell (1 Pub pro Job wegen Fez-Queue-Optimierung)"
+}
