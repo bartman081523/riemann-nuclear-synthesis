@@ -195,6 +195,14 @@ graph TD
     A2ca8f --> A2ca8g[Strategic Vector: REFRAMING_VECTOR_RELATIVE_SPECTRUM bestaetigt (Aer-Niveau)]
     A2ca8g --> A2ca8h[Warten auf Fez-Kontingent-Reset (Anfang Juli 2026)]
 
+    %% A2ca5/A2ca6: Saeule 2/3 offline (2026-06-08) - parallel zu Saeule 1
+    A2ca5 --> A2ca5a[G-Apparat offline: 4 Peaks bei E=2.0,2.67,3.67,5.0]
+    A2ca5a --> A2ca5b[Alle Peaks Delta < 0.027 (Aufloesungsgrenze)]
+    A2ca5b --> A2ca5c[Section 6.5.11: G-Apparat deterministisch bestaetigt]
+    A2ca6 --> A2ca6a[Prime States offline: alpha = 0.2719, Sub-RH-Indikator]
+    A2ca6a --> A2ca6b[S_vN waechst sublinear mit Hilbert-Raum]
+    A2ca6b --> A2ca6c[Section 6.5.12: Skalierungsexponent dokumentiert]
+
     B2 -.RESOLVED: yes.-> B4
     B4 -.DONE.-> B5
     C1 -.DONE.-> C2
@@ -209,6 +217,12 @@ graph TD
     A2ca8d -.DONE: Section 6.5.10.-> A2ca8f
     A2ca8f -.DONE: REFRAMING_VECTOR bestaetigt.-> A2ca8g
     A2ca8g -.NEXT: Fez-Kontingent-Reset Anfang Juli 2026.-> A2ca8h
+    A2ca5 -.DONE: 4 Peaks offline.-> A2ca5a
+    A2ca5a -.DONE.-> A2ca5b
+    A2ca5b -.DONE: Section 6.5.11.-> A2ca5c
+    A2ca6 -.DONE: alpha=0.2719 offline.-> A2ca6a
+    A2ca6a -.DONE.-> A2ca6b
+    A2ca6b -.DONE: Section 6.5.12.-> A2ca6c
 
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
@@ -225,3 +239,5 @@ graph TD
     style A2ca8 fill:#cf9,stroke:#333,stroke-width:2px
     style A2ca8d fill:#5f5,stroke:#333,stroke-width:3px
     style A2ca8e fill:#f55,stroke:#333,stroke-width:2px
+    style A2ca5c fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca6c fill:#5f5,stroke:#333,stroke-width:2px

@@ -454,12 +454,42 @@ Test-Qualität, als wenn die Tests nach der Implementation geschrieben worden w�
 |---|---|---|---|---|
 | 1 | `pt_potential_vqe.py` | ibm_fez | **BEREIT, blockiert** durch Open-Plan-Kontingent | Aer-Stresstest als Surrogat |
 | 1-Aer | `pt_aer_stress_saeule1.py` | Aer+Fez-Rausch | **DONE: H1/H3 bestätigt** | 11/11 Tests grün, Verdict: HOCH |
-| 2 | `pt_transmission_sweep.py` | ibm_fez | Pre-reg geschrieben | KW 1 nach Säule 1 (auch blockiert) |
-| 3 | `pt_prime_state.py` | ibm_fez | Pre-reg geschrieben | KW 2-3 (5 Sweep-Punkte, auch blockiert) |
-| 4 | `pt_ququint_vqe.py` | (kein QPU) | Offline-Simulator | — |
+| 2 | `pt_transmission_sweep.py` | (offline DONE) | **DONE: 4 Peaks bei Δ < 0.027** | 9/9 Tests grün |
+| 3 | `pt_prime_state.py` | (offline DONE) | **DONE: α = 0.2719 (Sub-RH)** | 15/15 Tests grün |
+| 4 | `pt_ququint_vqe.py` | (kein QPU) | Offline-Simulator | 15/15 Tests grün |
 
 Säule 4 läuft komplett als Simulator (kein QPU-Zeit verbraucht) und bereitet
 die Architektur für zukünftige native Ququint-Hardware vor.
+
+### Säule 2 Offline-Resultat (2026-06-08)
+
+`pt_transmission_sweep.py` main() wurde am 2026-06-08 offline ausgeführt.
+Der G-Apparat ist deterministisch (`T(E) = 1/|det(H_probe(E))|`), keine QPU nötig.
+
+**Resultat:**
+- Sweep: E ∈ [0.5, 6.0] mit 100 Schritten
+- T-Range: [0.0005, 280.41]
+- 4 Peaks detektiert: E = 2.000, 2.667, 3.667, 5.000
+- Vergleich mit E_DIAG: Δ < 0.027 für alle Peaks (Auflösungsgrenze 0.056)
+
+Persistiert in `pt_transmission_sweep_results.json`.
+
+### Säule 3 Offline-Resultat (2026-06-08)
+
+`pt_prime_state.py` main() wurde am 2026-06-08 offline ausgeführt für
+N ∈ {7, 15, 31, 63, 127} (Mersenne-Bereich 2^k − 1).
+
+**Resultat:**
+- Skalierungsexponent α = 0.2719 (log-log-Fit von S_vN vs N)
+- S/S_max ∈ [0.49, 0.81] (nicht-monoton, π(N)/dim-abhängig)
+- Grover-Iterationen: 1 für N ≤ 63, 2 für N = 127
+
+**Befund:** α = 0.27 < 0.5 → **Sub-RH-Indikator** — die Verschränkungs-Entropie
+der P_N-Projektion wächst sublinear mit dem Hilbert-Raum, was auf eine
+strukturelle Korrelation zwischen Primzahl-Sparsity und spektraler Lücken-Statistik
+hindeutet.
+
+Persistiert in `pt_prime_state_results.json`.
 
 ### Aer-Stresstest-Resultat (Säule 1, 2026-06-08)
 
