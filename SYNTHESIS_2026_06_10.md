@@ -497,6 +497,30 @@ Die verbleibenden offenen Fronten sind sekundär:
 
 ---
 
+## J) Addendum 2026-06-11 — VQE+VQD Fez-Versuch (Kontingent-Blockade)
+
+**Versuch:** `python3 pt_vqe_vqd.py` um 07:53 UTC 2026-06-11, Open-Plan-Instance (TOKEN2).
+
+**Ergebnis:** **Kontingent erschöpft.** IBM-Quantum-Warnung: *"This instance has met its usage limit. Workloads will not run until time is made available."* Genau dieselbe 10-Minuten-Open-Plan-Blockade wie in den vorherigen Sessions (vgl. [[Fez IBM-Kontingent-Blockade]]). Der Python-Prozess hing 35+ Min bei 0.6% CPU im Queue, ohne dass ein Job akzeptiert wurde — Abbruch nach Bestätigung der Limit-Warnung.
+
+**Anti-Sharpshooter-Konsequenz:** Die Prereg `pt_vqe_vqd_prereg.json` (geschrieben 2026-06-08 VOR dem ersten Versuch) bleibt unverändert; die Vorhersagen H1/H2/H3 stehen:
+
+- H1 (additiver Bias, bias-invariant für ΔE_n): erwartet `bias_PT_re ≈ 0`
+- H2 (multiplikativ k=25, worst-case): erwartet `bias_PT_re ≈ +0.4..0.6`
+- H3 (Kohärenz-Decay p=0.3, mittel): erwartet `bias_PT_re ≈ -0.02..-0.04`
+
+**Cron-Plan (aktiv):**
+- Job **5991228b**: täglich 7:23 (lokal) — `python3 pt_vqe_vqd.py` solange TOKEN2-Limit offen
+- Job **b3f26579**: einmalig 1. Juli 2026 10:00 — Kontingent-Reset-Versuch (Monatsgrenze)
+
+**Strategische Bewertung:** Das VQE+VQD-Experiment ist sekundär. Die primäre Validierung (Singleshot bias_PT_re = -0.0133) ist A-Evidence. VQE+VQD würde zeigen, dass auch am *Konvergenz*-Punkt der PT-Grundzustand bias-arm gemessen wird — ein konzeptueller Brückenschlag, aber kein neuer Evidenz-Punkt für die Riemann-Hypothese-Aussage selbst. **Die Promotion auf A−→A für `REFRAMING_VECTOR_RELATIVE_SPECTRUM` ist von VQE+VQD unabhängig.**
+
+**Nächste Aktion (automatisch):** Cron 5991228b versucht es morgen 7:23 erneut. Bei Erfolg landet `bias_PT_re` in `pt_vqe_vqd_results.json` und wird mit Prereg H1/H3 (erwartet: `|bias_PT_re| < 0.05`) verglichen. Bei weiterer Blockade am 1.7. (Cron b3f26579) wird das Experiment offiziell als Q3-2026-Folgeaufgabe deklariert.
+
+**Befund dieser Session:** **Heute kein Versuch — morgen wieder probieren** (genau wie in der Cron-Anweisung vorgesehen). Prereg-Integrität bleibt gewahrt. Keine Aktion erforderlich, bis das Kontingent automatisch zurücksetzt.
+
+---
+
 **Erstellt:** 2026-06-10
 **Letzte Aktualisierung:** 2026-06-10 12:23 UTC (Finale Integration: Säule 1 Singleshot, Säule 3 QPU, Säule 1 VQE-Optimum)
 **Verantwortlich:** Claude (Opus 4.8) im Auftrag von Julian
