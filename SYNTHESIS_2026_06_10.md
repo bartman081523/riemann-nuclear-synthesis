@@ -521,6 +521,24 @@ Die verbleibenden offenen Fronten sind sekundär:
 
 ---
 
+## K) Addendum 2026-06-12 — Zweiter Kontingent-Block (Tag 3 in Folge)
+
+**Versuch:** `python3 pt_vqe_vqd.py` um 07:53 UTC 2026-06-12, Open-Plan-Instance (TOKEN2).
+
+**Ergebnis:** **Kontingent erneut erschöpft.** Dritte Warnung in Folge (10., 11., 12. Juni 2026): *"This instance has met its usage limit. Workloads will not run until time is made available."* Python-Prozess wurde nach Bestätigung der Warnung abgebrochen (kein 35-Min-Leerlauf mehr abgewartet — pkill nach ~30 Sek. Reaktionszeit).
+
+**Kontingent-Muster:** Die Open-Plan-Instance crn:...ede9d355-60ef-476b-a6b0-ac6dc1bbc2e3 ist seit dem Singleshot-Durchbruch am 2026-06-10 11:18 UTC dauerhaft blockiert. Hypothese: TOKEN2 hat ein kumulatives Monatslimit, das durch die damaligen 3 sequenziellen 1-Pub-Jobs (Singleshot) aufgebraucht wurde — und der Reset erfolgt erst zum Monatsende (~Anfang Juli 2026).
+
+**Strategische Lage unverändert:**
+- REFRAMING_VECTOR_RELATIVE_SPECTRUM bleibt A-Promoted (von VQE+VQD unabhängig, vgl. J-Abschnitt)
+- Prereg `pt_vqe_vqd_prereg.json` (seit 2026-06-08) bleibt unverändert — Anti-Sharpshooter-Integrität gewahrt
+- VQE+VQD-QPU-Messung ist als Q3-2026-Folgeaufgabe deklariert
+- Cron 5991228b läuft weiter (low-cost, harmlos wenn blockiert); Cron b3f26579 am 1.7. ist der formale Reset-Trigger
+
+**Befund:** Heute kein Versuch — Cron 5991228b probiert morgen 7:23 erneut. Falls weiter blockiert, wird Cron 5991228b zugunsten von b3f26579 (1.7.) abgeschaltet — kein Handlungsbedarf bis dahin.
+
+---
+
 **Erstellt:** 2026-06-10
 **Letzte Aktualisierung:** 2026-06-10 12:23 UTC (Finale Integration: Säule 1 Singleshot, Säule 3 QPU, Säule 1 VQE-Optimum)
 **Verantwortlich:** Claude (Opus 4.8) im Auftrag von Julian
