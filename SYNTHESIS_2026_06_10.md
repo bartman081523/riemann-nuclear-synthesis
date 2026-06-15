@@ -539,6 +539,29 @@ Die verbleibenden offenen Fronten sind sekundär:
 
 ---
 
+## L) Addendum 2026-06-15 — Dreifach-Versuch (Batch-Strategie), 6. Tag in Folge blockiert
+
+**Versuche:** 3 parallele `python3 pt_vqe_vqd.py` (TOKEN2, Open-Plan) um 05:53 UTC 2026-06-15, gestartet mit 5s/10s Versatz.
+
+**Ergebnis aller 3 Versuche:** **Identische Limit-Warnung.** *"This instance has met its usage limit. Workloads will not run until time is made available."* Alle drei Prozesse hingen 7+ Min bei 0.8-0.9% CPU im Fez-Queue, kein einziger Job wurde angenommen. Abbruch per `pkill -9`.
+
+**Diagnose-Update:**
+- 6. Tag in Folge blockiert (10., 11., 12., vermutlich 13., 14., 15. Juni)
+- Dreifache Parallel-Submission bringt **keine** Verbesserung — die Open-Plan-Instance crn:...ede9d355-60ef-476b-a6b0-ac6dc1bbc2e3 ist **account-seitig** blockiert (nicht queue-seitig, nicht backend-seitig)
+- Bestätigt Hypothese: kumulatives Monatslimit, Reset erst Anfang Juli 2026
+- Fez-Backend selbst ist operational — die Blockade sitzt eine Schicht höher (Account-Credits)
+
+**Strategische Lage unverändert:**
+- REFRAMING_VECTOR_RELATIVE_SPECTRUM bleibt A-Promoted
+- VQE+VQD ist Q3-2026-Folgeaufgabe
+- Prereg `pt_vqe_vqd_prereg.json` (2026-06-08) bleibt unverändert — Anti-Sharpshooter-Integrität
+
+**Cron-Plan-Update:** **Cron 5991228b wird abgeschaltet** — 6 Tage ohne Erfolg, dreifache Parallel-Bestätigung, dass Account-Blockade dauerhaft ist. Cron **b3f26579** (1.7.2026 10:00) ist der formale Reset-Trigger. Das spart täglich 7 Min CPU/Wall-Clock für leere Versuche.
+
+**Befund dieser Session:** Dreifach-Versuch bestätigt: **Diese Instance ist tot bis Juli.** Kein weiterer manueller Versuch vor 1.7. — `b3f26579` triggert automatisch.
+
+---
+
 **Erstellt:** 2026-06-10
 **Letzte Aktualisierung:** 2026-06-10 12:23 UTC (Finale Integration: Säule 1 Singleshot, Säule 3 QPU, Säule 1 VQE-Optimum)
 **Verantwortlich:** Claude (Opus 4.8) im Auftrag von Julian
