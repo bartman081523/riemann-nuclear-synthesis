@@ -1,28 +1,28 @@
-> **STATUS: SUPERSEDED 2026-06-17** (für Säule 1+3-Status, QPU-Validierung, Im-Bias-Metrik, Asymptotik).
+> **STATUS: SUPERSEDED 2026-06-17** (for Pillar 1+3 status, QPU validation, Im-Bias metric, asymptotics).
 >
-> Der Inhalt (Sections 1–7) bleibt als **historische architektonische Rationale** erhalten, ist aber **nicht mehr Quelle der Wahrheit** für aktuellen Säule-1+3-Status. Nachfolger:
-> - Aktuelle Architektur + QPU-Update-Log: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md)
-> - Aktuelle Theorie-Stand + Audits: [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Section 6.5.9
+> The content (Sections 1–7) is retained as **historical architectural rationale**, but is **no longer the source of truth** for current Pillar 1+3 status. Successors:
+> - Current architecture + QPU update log: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md)
+> - Current theory status + audits: [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Section 6.5.9
 >
-> Im neuen Doc-Map-System ist diese Datei `SUPERSEDED`. Bei Code-Bug-Fixes (siehe z.B. Qiskit-Version-Inkompatibilität `qc.unitary()`) bitte weiterhin in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` konsultieren.
+> In the new doc-map system this file is `SUPERSEDED`. For code bug fixes (see e.g. Qiskit version incompatibility `qc.unitary()`) please continue to consult `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`.
 
-# Quantencomputer-Architektur für das Riemann-Projekt
+# Quantum Computer Architecture for the Riemann Project
 
-Integriert vier Architektur-Konzepte aus `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` in unser transkategoriales Forschungsprogramm.
+Integrates four architecture concepts from `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` into our trans-categorical research program.
 
-## 1\. Strategische Lücke im aktuellen Setup
+## 1\. Strategic Gap in the Current Setup
 
-Das aktuelle Setup (Zeraoulia + IBM-Hardware) scheitert an drei strukturellen Punkten:
+The current setup (Zeraoulia + IBM hardware) fails at three structural points:
 
 | Problem | Ursache | Konsequenz |
 |---|---|---|
-| VQE findet nur E_0 | TwoLocal(2 qubit) zu ausdrucksschwach | E_1..E_3 nicht messbar |
-| Hardware-Bias +62% | 2-Qubit-System, viele Kohärenzen | absolute Energien unzuverlässig |
-| Gaps schwer extrahierbar | Penalty-VQE scheitert lokal | relative Spektren nicht isoliert |
+| VQE finds only E_0 | TwoLocal(2 qubit) too inexpressive | E_1..E_3 not measurable |
+| Hardware bias +62% | 2-qubit system, many coherences | absolute energies unreliable |
+| Gaps hard to extract | Penalty VQE fails locally | relative spectra not isolated |
 
-Die vier Architekturen aus der Forschungs-Übersicht bieten **konkrete Lösungen** für jeden Punkt.
+The four architectures from the research overview offer **concrete solutions** for each point.
 
-## 2\. Mermaid-Architektur: Vier-Säulen-Modell
+## 2\. Mermaid Architecture: Four-Pillar Model
 
 ```mermaid
 graph TD
@@ -115,99 +115,99 @@ graph TD
     style TCI fill:#f9c,stroke:#333,stroke-width:3px
 ```
 
-## 3\. Konkrete Implementierungs-Pfade für unser Projekt
+## 3\. Concrete Implementation Paths for Our Project
 
-### 3.1 Säule 1: Holografisches Potenzial (KURZFRISTIG)
+### 3.1 Pillar 1: Holographic Potential (SHORT-TERM)
 
-**Architektur-Idee:** Statt TwoLocal(2, ry, cx, reps=1) konstruieren wir einen **Zeraoulia-Potenzial-VQE**:
-- Potenzial V(x) so konstruieren, dass Eigenwerte = `E_DIAG` aus `pt_structural.py`
-- Initial-VQE-Ansatz als Variationsbasis für das **gesamte** Spektrum, nicht nur E_0
-- Hardware misst **alle** Resonanz-Peaks in einem Sweep
+**Architecture idea:** Instead of TwoLocal(2, ry, cx, reps=1) we construct a **Zeraoulia potential VQE**:
+- Construct potential V(x) so that eigenvalues = `E_DIAG` from `pt_structural.py`
+- Initial VQE ansatz as variational basis for the **entire** spectrum, not just E_0
+- Hardware measures **all** resonance peaks in one sweep
 
-**Konkrete Schritte:**
-1. `pt_potential_vqe.py` schreiben: V(x) = Sum über Jacobi-Basis-Funktionen, optimiert via VQE
-2. E_0, E_1, E_2, E_3 in **einem** Lauf (statt separater VQE-Loops)
-3. ΔE_n aus Peak-Abständen, **bias-invariant** (Hardware-Bias kürzt sich in Differenzen)
+**Concrete steps:**
+1. Write `pt_potential_vqe.py`: V(x) = sum over Jacobi basis functions, optimized via VQE
+2. E_0, E_1, E_2, E_3 in **one** run (instead of separate VQE loops)
+3. ΔE_n from peak spacings, **bias-invariant** (hardware bias cancels in differences)
 
-**Aufwand:** ~1 Woche, 1 QPU-Run (Fez, 3 Estimator-Submissions)
+**Effort:** ~1 week, 1 QPU run (Fez, 3 Estimator submissions)
 
-### 3.2 Säule 2: G-Apparat (MITTELFRISTIG)
+### 3.2 Pillar 2: G-Apparatus (MID-TERM)
 
-**Architektur-Idee:** Das holographische Potenzial wird zum **Transmissions-Filter**:
-- Barriere V_b(x) = V_Zeraoulia(x) · 1_[a,b](x)
-- T(E) = |durchgelassene Amplitude|² als Funktion der eingestrahlten Energie E
-- Peaks bei E = p (Primzahl) = Resonanzen des Potenzials
+**Architecture idea:** The holographic potential becomes the **transmission filter**:
+- Barrier V_b(x) = V_Zeraoulia(x) · 1_[a,b](x)
+- T(E) = |transmitted amplitude|² as a function of incident energy E
+- Peaks at E = p (prime) = resonances of the potential
 
-**Konkrete Schritte:**
-1. `pt_transmission_sweep.py` schreiben: Sweep E über [2, 5] in 100 Schritten
-2. Messe T(E) pro Schritt — 100 Estimator-Runs, parallelisierbar
-3. Peak-Detektion via `scipy.signal.find_peaks`
-4. ΔE_n aus Peak-Abständen
+**Concrete steps:**
+1. Write `pt_transmission_sweep.py`: sweep E over [2, 5] in 100 steps
+2. Measure T(E) per step — 100 Estimator runs, parallelizable
+3. Peak detection via `scipy.signal.find_peaks`
+4. ΔE_n from peak spacings
 
-**Vorteil gegenüber VQE:** **Alle** Niveaus in **einem** Sweep, keine Penalty-Logik nötig, **kein** VQE-Optimizer, der in lokalen Minima landet.
+**Advantage over VQE:** **All** levels in **one** sweep, no penalty logic needed, **no** VQE optimizer getting stuck in local minima.
 
-**Aufwand:** ~2 Wochen, 1 QPU-Sweep (Fez, 100 Estimator-Submissions, parallel)
+**Effort:** ~2 weeks, 1 QPU sweep (Fez, 100 Estimator submissions, parallel)
 
-### 3.3 Säule 3: Prime States (LANGFRISTIG)
+### 3.3 Pillar 3: Prime States (LONG-TERM)
 
-**Architektur-Idee:** Statt Energien messen wir **Verschränkungsentropie** der konstruierten Zustände:
-- $|P_N\rangle = \frac{1}{\sqrt{\pi(N)}} \sum_{p \le N} |p\rangle$ als Quantenzustand
-- Verschränkungsentropie $S(|P_N\rangle)$ partitioniert nach Qubit-Subsystem
-- RH impliziert **charakteristische Skalierung** von $S$ als Funktion der Partition
+**Architecture idea:** Instead of measuring energies we measure **entanglement entropy** of the constructed states:
+- $|P_N\rangle = \frac{1}{\sqrt{\pi(N)}} \sum_{p \le N} |p\rangle$ as a quantum state
+- Entanglement entropy $S(|P_N\rangle)$ partitioned by qubit subsystem
+- RH implies **characteristic scaling** of $S$ as a function of the partition
 
-**Konkrete Schritte:**
-1. `pt_prime_state.py` schreiben: Grover-basierte Konstruktion von $|P_N\rangle$ auf IBM
-2. Messe Verschränkungsentropie via Renyi-2-Estimator
-3. Vergleiche mit theoretischer Vorhersage (Latorre-Sierra-Resultate)
+**Concrete steps:**
+1. Write `pt_prime_state.py`: Grover-based construction of $|P_N\rangle$ on IBM
+2. Measure entanglement entropy via Renyi-2 estimator
+3. Compare with theoretical prediction (Latorre–Sierra results)
 
-**Aufwand:** ~4 Wochen, separater Forschungszweig (wir haben aktuell nur 4-dim Hilbert-Raum)
+**Effort:** ~4 weeks, separate research branch (we currently only have a 4-dim Hilbert space)
 
-### 3.4 Säule 4: Prime-Qudits (PARALLEL)
+### 3.4 Pillar 4: Prime Qudits (PARALLEL)
 
-**Architektur-Idee:** **GF(5)-Ququint** statt 2-Qubit:
-- Dimension 5 ist eine Primzahl → Galois-Felder ohne Nullteiler
-- Threshold 36.3% für Magic State Distillation (Campbell et al.)
-- CCZ-Gate in 4 M-Gates statt 7 T-Gates → weniger Decoherence
+**Architecture idea:** **GF(5) ququint** instead of 2-qubit:
+- Dimension 5 is a prime → Galois fields without zero divisors
+- Threshold 36.3% for magic state distillation (Campbell et al.)
+- CCZ gate in 4 M-gates instead of 7 T-gates → less decoherence
 
-**Konkrete Schritte:**
-1. `pt_ququint_vqe.py` schreiben: 1 Ququint = 5 Niveaus, GF(5)-Operatoren
-2. Jacobi-A in 5x5-Form statt 4x4
-3. Hardware-Bias in GF(5) ist **exakt** bias-invariant (algebraisch)
+**Concrete steps:**
+1. Write `pt_ququint_vqe.py`: 1 ququint = 5 levels, GF(5) operators
+2. Jacobi A in 5x5 form instead of 4x4
+3. Hardware bias in GF(5) is **exactly** bias-invariant (algebraically)
 
-**Aufwand:** ~3 Wochen, separater Forschungszweig (IBM-Hardware hat aktuell keine nativen Ququints, aber Google/IBM-Quantinuum-Paper zeigen Simulation)
+**Effort:** ~3 weeks, separate research branch (IBM hardware currently has no native ququints, but Google/IBM/Quantinuum papers show simulation)
 
-## 4\. Mapping der aktuellen Probleme auf die Architektur
+## 4\. Mapping of Current Problems onto the Architecture
 
-| Aktuelles Problem | Säule | Auflösung |
+| Current problem | Pillar | Resolution |
 |---|---|---|
-| VQE findet nur E_0 | **1 + 2** | Potenzial-/Transmissions-basierte Messung statt VQE |
-| Hardware-Bias +62% | **4** | GF(5) ist bias-invariant durch Galois-Struktur |
-| Penalty-VQE scheitert | **1** | Direkter Sweep statt iterativer Optimierung |
-| Niedrige Auflösung | **4** | 5-Qudit hat doppelt so viele Niveaus wie 2-Qubit |
-| Lokale Minima | **2** | Sweep findet Peaks unabhängig von Optimierer-Start |
+| VQE finds only E_0 | **1 + 2** | Potential-/transmission-based measurement instead of VQE |
+| Hardware bias +62% | **4** | GF(5) is bias-invariant via Galois structure |
+| Penalty VQE fails | **1** | Direct sweep instead of iterative optimization |
+| Low resolution | **4** | 5-qudit has twice as many levels as 2-qubit |
+| Local minima | **2** | Sweep finds peaks independent of optimizer start |
 
-## 5\. Strategischer Vektor: ARCHITECTURE\_INTEGRATION
+## 5\. Strategic Vector: ARCHITECTURE_INTEGRATION
 
-**Sofort (diese Woche):** Säule 1 als Ersatz für `pt_spectral_gaps.py` — schreibe `pt_potential_vqe.py`
-**Parallel (nächste Woche):** Säule 4 als Code-Vorbereitung — `pt_ququint_vqe.py` (für zukünftige GF(5)-Hardware)
-**Mittelfristig (Monat):** Säule 2 — `pt_transmission_sweep.py` als systematischer ΔE_n-Messung
-**Langfristig (Quartal):** Säule 3 — Prime-State-Konstruktion als separate Forschungslinie
+**Immediately (this week):** Pillar 1 as a replacement for `pt_spectral_gaps.py` — write `pt_potential_vqe.py`
+**Parallel (next week):** Pillar 4 as code preparation — `pt_ququint_vqe.py` (for future GF(5) hardware)
+**Mid-term (month):** Pillar 2 — `pt_transmission_sweep.py` as a systematic ΔE_n measurement
+**Long-term (quarter):** Pillar 3 — prime state construction as a separate research line
 
 ## 6\. Transcategorical Bridge (SciMind 5.0)
 
-Die vier Säulen sind isomorph zu:
-- **Quantenphysik**: Potenziale (1), Streuung (2), Verschränkung (3), Symmetriegruppen (4)
-- **Zahlentheorie**: Eigenniveaus (1), Siebe (2), Multiplikative Strukturen (3), Restklassenringe (4)
-- **Statistik**: Energiespektren (1), Resonanz-Peaks (2), Zufallsmatrizen (3), endliche Körper (4)
-- **Informatik**: Quantenalgorithmen (1+2+3), Fehlerkorrektur (4)
+The four pillars are isomorphic to:
+- **Quantum physics**: Potentials (1), scattering (2), entanglement (3), symmetry groups (4)
+- **Number theory**: Eigenlevels (1), sieves (2), multiplicative structures (3), residue class rings (4)
+- **Statistics**: Energy spectra (1), resonance peaks (2), random matrices (3), finite fields (4)
+- **Computer science**: Quantum algorithms (1+2+3), error correction (4)
 
-**Gemeinsamer Kern:** **Galois-Feld-Struktur** in 4 ist das algebraische Rückgrat aller Säulen. Sie löst nicht nur das Bias-Problem, sondern verbindet die Architektur mit der zugrundeliegenden **mathematischen Struktur der Primzahlen**.
+**Common core:** The **Galois field structure** in 4 is the algebraic backbone of all pillars. It not only solves the bias problem, but also connects the architecture with the underlying **mathematical structure of the prime numbers**.
 
-## 7\. Quellenangaben
+## 7\. References
 
-Siehe `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` für die vollständige Referenzliste. Kernreferenzen für unser Projekt:
+See `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` for the full reference list. Key references for our project:
 - [1] Holographic realization of the prime number quantum potential (PNAS Nexus, 2023)
 - [5] Quantum Computation of Prime Number Functions (arXiv:1302.6245)
 - [8] Daniel Gottesman: Stabilizer Codes for Prime Power Qudits
-- [18] G-Apparat-Apparatus for prime/lucky number filtering
+- [18] G-Apparat apparatus for prime/lucky number filtering
 - [33] Earl Campbell: The advantages of qudit fault-tolerance (36.3% threshold)
