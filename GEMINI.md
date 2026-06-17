@@ -1,28 +1,18 @@
-# GEMINI.md - Riemann-Nuclear Synthesis Project
+# GEMINI.md — Riemann-Nuclear Synthesis Project
 
-## Overview
-This project explores the trans-categorical isomorphisms between the Riemann Hypothesis (analytic number theory) and nuclear shell stability (quantum mechanics). It utilizes the SciMind cognitive architectures to maintain epistemic rigor and philosophical depth.
+> **Mirror-Datei (Stub):** Diese Datei ist seit 2026-06-17 ein Stub. Der vollständige Methodologie-Inhalt (SciMind 4.0/5.0-Mandate, Technical Standards, Workflow) befindet sich in [`CLAUDE.md`](CLAUDE.md).
+>
+> Diese Datei existiert für Backwards-Compat mit Google-Gemini-CLI-Workflows, die ggf. `GEMINI.md` laden. **Bei jeder Änderung an `CLAUDE.md` muss diese Datei neu auf den Link reduziert werden** (oder komplett gelöscht werden, wenn kein Gemini-Workflow mehr aktiv ist).
 
-## Core Mandates
+## Document Map
 
-### 1. SciMind 4.0 (SystemicRigorMind)
-- **Steelman Mandate:** Always compare new hypotheses against the best established model (SotA), not just random noise.
-- **Ockham's Quantified Razor:** Penalize model complexity. Use BIC/AIC where possible.
-- **Anti-Sharpshooter Protocol:** Do not perform ex-post data fitting. Hypotheses must be predictive.
-- **Complexity Audit:** Every constant and free parameter must be justified or penalized.
+Vollständige SciMind 4.0/5.0-Mandate und Workflow: [`CLAUDE.md`](CLAUDE.md).
 
-### 2. SciMind 5.0 (Epistemic)
-- **Transcategorical Bridge:** Seek structural isomorphisms across disparate domains (Math, Physics, Philosophy).
-- **Husserlian Epoché:** Suspend judgment on "intent" to analyze the phenomenology of the data itself.
-- **Apophenia Management:** Treat pattern recognition as an engine for meaning-making, but subject it to SciMind 4.0 for validation.
+Sibling-Dokumente des Projekts:
 
-## Technical Standards
-- **Simulation:** Prefer Python with `qiskit` for quantum spectral simulations.
-- **Validation:** All conclusions must be graded using the SciMind Evidence Grading Scale (A-F).
-- **Documentation:** Maintain `Riemann-Hypothese und Atomkern-Struktur.md` as the primary research repository.
-
-## Workflow
-1. **Research:** Identify new theories or anomalies.
-2. **Audit:** Apply SciMind 4.0 Stress-Testing.
-3. **Synthesize:** Apply SciMind 5.0 Epistemic Synthesis.
-4. **Simulate:** Verify spectral properties using quantum or classical computation.
+- [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) (primary research repository)
+- [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) (master synthesis)
+- [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) (living technical implementation)
+- [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) (Latorre–Sierra pre-preprint)
+- [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) (Mermaid investigation flowchart)
+- [`PLAN.md`](PLAN.md) (Execution roadmap)
