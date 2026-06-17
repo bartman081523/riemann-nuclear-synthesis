@@ -1069,16 +1069,17 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 
 #### **10.8 Strategische Vektoren — Gesamtstatus 2026-06-17 17:25 UTC**
 
-| Vektor | Status 2026-06-08 | Status 2026-06-17 17:25 UTC | Status 2026-06-17 19:50 UTC (QBER) | Promotion |
-|---|---|---|---|---|
-| `REFRAMING_VECTOR_RELATIVE_SPECTRUM` | A− (Aer) | **A+** (Aer + Fez H_Im_h1) | **A+** (Aer + Fez H_Im_h1 + QBER-QPU) | **PROMOVIERT + GESTÄRKT** |
-| `IM_BIAS_AS_KANONISCHE_METRIK` | (nicht existent) | **A** (5 Sweep-Punkte) | **A+** (QBER-Korrelation = 0) | **PROMOVIERT** |
-| `UNIFICATION_VECTOR_H_PT_GF5` | A | A | A | stabil |
-| `G_APPARAT_DETERMINISTIC` | A | A | A | stabil |
-| `SUB_RH_INDICATOR` | A− (Aer) | **A−** (Aer + Fez + 6 decades statevector) | **A−** | strengthened |
-| `LATORRE_TENSION` | "Mismatch of functional form" | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | sharpened |
-| `QBER_VS_IM_BIAS_DECOUPLING` | (nicht existent) | (nicht existent) | **A** (rho = 0.007, n.s.) | **NEU** |
-| `VQE+VQD_Fez` | BLOCKED, Q3-2026 | open (Cron b3f26579) | unchanged |
+| Vektor | Status 2026-06-08 | Status 2026-06-17 17:25 UTC | Status 2026-06-17 19:50 UTC (QBER) | Status 2026-06-17 20:14 UTC (Spectral-Scaling) | Promotion |
+|---|---|---|---|---|---|
+| `REFRAMING_VECTOR_RELATIVE_SPECTRUM` | A− (Aer) | **A+** (Aer + Fez H_Im_h1) | **A+** (Aer + Fez H_Im_h1 + QBER-QPU) | **A+** (zusaetzl. Block-Invarianz QPU) | **PROMOVIERT + GESTÄRKT** |
+| `IM_BIAS_AS_KANONISCHE_METRIK` | (nicht existent) | **A** (5 Sweep-Punkte) | **A+** (QBER-Korrelation = 0) | **A+** (Bias systematisch negativ) | **PROMOVIERT + GESTÄRKT** |
+| `UNIFICATION_VECTOR_H_PT_GF5` | A | A | A | A (Block-Invarianz QPU) | stabil |
+| `G_APPARAT_DETERMINISTIC` | A | A | A | A | stabil |
+| `SUB_RH_INDICATOR` | A− (Aer) | **A−** (Aer + Fez + 6 decades statevector) | **A−** | **A−** | strengthened |
+| `LATORRE_TENSION` | "Mismatch of functional form" | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | sharpened |
+| `QBER_VS_IM_BIAS_DECOUPLING` | (nicht existent) | (nicht existent) | **A** (rho = 0.007, n.s.) | **A** | **NEU** |
+| `JACOBI_BLOCK_INVARIANCE_QPU` | (nicht existent) | (nicht existent) | (nicht existent) | **A** (n=2,3,4 konsistent) | **NEU** |
+| `VQE+VQD_Fez` | BLOCKED, Q3-2026 | open (Cron b3f26579) | unchanged | unchanged | |
 
 #### **10.9 Cross-Referenz-Index**
 
