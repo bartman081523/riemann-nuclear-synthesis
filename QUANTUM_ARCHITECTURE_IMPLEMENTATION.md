@@ -1,8 +1,8 @@
-# Quantencomputer-Architektur — Vier-Säulen Mermaid-Funktionsdiagramme
+# Quantum Computer Architecture — Four-Pillar Mermaid Functional Diagrams
 
 ## Document Map
 
-Living technical implementation document. Mermaid-Architektur-Diagramme + chronologische QPU-Update-Logs (zuletzt 2026-06-17 17:25 UTC).
+Living technical implementation document. Mermaid architecture diagrams + chronological QPU update logs (last 2026-06-17 17:25 UTC).
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -15,23 +15,23 @@ Living technical implementation document. Mermaid-Architektur-Diagramme + chrono
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Diagramm-Ideen historisch |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Code-Bug-Fixes weiter relevant |
-| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | External research literature (95 KB) |
 
-Dieses Dokument beschreibt die **konkrete Implementierung** der vier Säulen aus
-`QUANTUM_ARCHITECTURE_BRIDGE.md` als Mermaid-Funktionsdiagramme. Jedes Diagramm
-entspricht einem Python-Skript, das wir in den nächsten Wochen schreiben und auf
-IBM-Hardware ausführen werden.
+This document describes the **concrete implementation** of the four pillars from
+`QUANTUM_ARCHITECTURE_BRIDGE.md` as Mermaid functional diagrams. Each diagram
+corresponds to a Python script that we will write and run on
+IBM hardware in the coming weeks.
 
-Gemeinsame Datenquelle: `pt_structural.E_DIAG` (Zeraoulia-Niveaus) und
-`pt_structural.jacobi_A(y=1.0)` (struktureller Kopplungs-Operator).
+Common data source: `pt_structural.E_DIAG` (Zeraoulia levels) and
+`pt_structural.jacobi_A(y=1.0)` (structural coupling operator).
 
 ---
 
-## Säule 1: `pt_potential_vqe.py` — Holografisches Potenzial (kurzfristig)
+## Säule 1: `pt_potential_vqe.py` — Holographic Potential (short-term)
 
-**Löst:** VQE findet nur E_0. Penalty-VQE für E_1..E_3 scheitert.
-**Idee:** Variationsansatz als **Potentialbasis**, nicht als E_0-Suche. Die
-Näherungsenergien aller vier Niveaus fallen in **einem** Optimierungslauf ab.
+**Solves:** VQE only finds E_0. Penalty-VQE for E_1..E_3 fails.
+**Idea:** Variational ansatz as a **potential basis**, not as an E_0 search. The
+approximate energies of all four levels drop in **one** optimization run.
 
 ```mermaid
 graph TD
@@ -100,18 +100,18 @@ graph TD
     style FAIL1 fill:#f55,stroke:#333,stroke-width:2px
 ```
 
-**Erwartete Metriken:**
-- E_0..E_3 aus **einem** 5-Pub-Lauf
-- ΔE_n direkt aus Peak-Abständen der Potential-Basis
-- Bias hebt sich in Differenzen auf → **bias-invariant** in 1. Ordnung
+**Expected metrics:**
+- E_0..E_3 from **one** 5-pub run
+- ΔE_n directly from peak distances of the potential basis
+- Bias cancels in differences → **bias-invariant** to first order
 
 ---
 
-## Säule 2: `pt_transmission_sweep.py` — G-Apparat (mittelfristig)
+## Säule 2: `pt_transmission_sweep.py` — G-Apparatus (mid-term)
 
-**Löst:** Lokale Minima des VQE-Optimierers. Penalty-Logik zu komplex.
-**Idee:** Sweep der **eingestrahlten Energie E_ein** durch das Zeraoulia-Potenzial.
-Peaks in T(E) = |durchgelassene Amplitude|² markieren die Resonanzen = E_n.
+**Solves:** Local minima of the VQE optimizer. Penalty logic is too complex.
+**Idea:** Sweep the **incident energy E_in** through the Zeraoulia potential.
+Peaks in T(E) = |transmitted amplitude|² mark the resonances = E_n.
 
 ```mermaid
 graph TD
@@ -181,19 +181,19 @@ graph TD
     style REJ fill:#f55,stroke:#333,stroke-width:2px
 ```
 
-**Erwartete Metriken:**
-- T(E) hat Resonanzpeaks bei E = 2.00, 2.69, 3.40, 4.14
-- ΔE_n aus Peak-Abständen, **völlig unabhängig** von VQE-Optimizer
-- 100 QPU-Runs parallelisierbar (~10-20 min auf Fez)
+**Expected metrics:**
+- T(E) has resonance peaks at E = 2.00, 2.69, 3.40, 4.14
+- ΔE_n from peak distances, **completely independent** of the VQE optimizer
+- 100 QPU runs parallelizable (~10-20 min on Fez)
 
 ---
 
-## Säule 3: `pt_prime_state.py` — Prime States (langfristig)
+## Säule 3: `pt_prime_state.py` — Prime States (long-term)
 
-**Löst:** Brauchen RH-Indikator, der **nicht** auf Eigenwerten basiert.
-**Idee:** Konstruiere $\lvert P_N\rangle = \sum_{p\le N} \lvert p\rangle$ im
-Quantenregister, messe **Verschränkungsentropie** der Partition. RH impliziert
-charakteristische Skalierung $S(\lvert P_N\rangle)$.
+**Solves:** Need an RH indicator that is **not** based on eigenvalues.
+**Idea:** Construct $\lvert P_N\rangle = \sum_{p\le N} \lvert p\rangle$ in the
+quantum register, measure the **entanglement entropy** of the partition. RH implies
+characteristic scaling $S(\lvert P_N\rangle)$.
 
 ```mermaid
 graph TD
@@ -262,19 +262,19 @@ graph TD
     style RH4 fill:#fc9,stroke:#333,stroke-width:2px
 ```
 
-**Erwartete Metriken:**
-- S(|P_N⟩) wächst charakteristisch mit N
-- Skalierungsexponent α entscheidet über RH-Implikation
-- Braucht 5 separate QPU-Runs (N = 7, 15, 31, 63, 127)
+**Expected metrics:**
+- S(|P_N⟩) grows characteristically with N
+- Scaling exponent α decides about RH implication
+- Needs 5 separate QPU runs (N = 7, 15, 31, 63, 127)
 
 ---
 
-## Säule 4: `pt_ququint_vqe.py` — Prime-Qudits GF(5) (parallel)
+## Säule 4: `pt_ququint_vqe.py` — Prime Qudits GF(5) (parallel)
 
-**Löst:** Hardware-Bias +62% auf 2-Qubit-System.
-**Idee:** Statt 2-Qubit (Dimension 4) → **1 Ququint** (Dimension 5) auf
-$\mathbb{F}_5$. Galois-Felder haben **keine Nullteiler** → Algebra macht den
-Bias algebraisch exakt null.
+**Solves:** Hardware bias +62% on the 2-qubit system.
+**Idea:** Instead of 2 qubits (dimension 4) → **1 ququint** (dimension 5) over
+$\mathbb{F}_5$. Galois fields have **no zero divisors** → algebra makes the
+bias algebraically exactly zero.
 
 ```mermaid
 graph TD
@@ -356,10 +356,10 @@ graph TD
     style FAIL fill:#f55,stroke:#333,stroke-width:2px
 ```
 
-**Erwartete Metriken:**
-- ΔE_n aus 5×5-GF(5)-Simulation vs. 4×4-Qubit-Resultat
-- Bias algebraisch eliminiert (keine β·𝟙-Korrektur nötig)
-- Vorbereitung für zukünftige native Ququint-Hardware (Quantinuum H2, IBM nächste Gen.)
+**Expected metrics:**
+- ΔE_n from 5×5 GF(5) simulation vs. 4×4 qubit result
+- Bias algebraically eliminated (no β·𝟙 correction needed)
+- Preparation for future native ququint hardware (Quantinuum H2, IBM next gen.)
 
 ---
 
@@ -405,196 +405,210 @@ graph TD
 
 ## Quellenangaben
 
-Siehe `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` und
+See `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` and
 `QUANTUM_ARCHITECTURE_BRIDGE.md`.
 
 ---
 
-## Implementierungs-Status (TDD, Stand 2026-06-08)
+## Implementation Status (TDD, as of 2026-06-08)
 
-Alle vier Säulen wurden in **TDD-Methodik** (Tests zuerst, dann Implementation)
-realisiert. Die Tests befinden sich in `tests/` (54 Tests, **alle grün**).
+All four pillars were implemented using **TDD methodology** (tests first, then
+implementation). The tests are in `tests/` (54 tests, **all green**).
 
-### Test-Stand pro Säule
+### Test status per pillar
 
-| Säule | Test-Datei | Anzahl | Status |
+| Säule | Test file | Number | Status |
 |---|---|---:|---|
-| 1: Holografisches Potenzial | `test_pt_potential_vqe.py` | 15 | 15/15 grün |
-| 2: G-Apparat | `test_pt_transmission_sweep.py` | 9 | 9/9 grün |
-| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 grün |
-| 4: Prime-Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 grün |
-| **Gesamt** | | **54** | **54/54 grün** |
+| 1: Holographic Potential | `test_pt_potential_vqe.py` | 15 | 15/15 green |
+| 2: G-Apparatus | `test_pt_transmission_sweep.py` | 9 | 9/9 green |
+| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 green |
+| 4: Prime Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 green |
+| **Total** | | **54** | **54/54 green** |
 
-### Validierte Offline-Resultate
+### Validated offline results
 
-**Säule 2 (G-Apparat, `pt_transmission_sweep_results.json`):**
-- 4 Peaks detektiert bei E = 2.000, 2.667, 3.667, 5.000
-- Alle Δ < 0.027 von E_DIAG (Erwartungswerten)
-- Peak-Detektion via `scipy.signal.find_peaks` mit prominence=0.05
+**Säule 2 (G-Apparatus, `pt_transmission_sweep_results.json`):**
+- 4 peaks detected at E = 2.000, 2.667, 3.667, 5.000
+- All Δ < 0.027 from E_DIAG (expected values)
+- Peak detection via `scipy.signal.find_peaks` with prominence=0.05
 
 **Säule 3 (Prime States, `pt_prime_state_results.json`):**
-- Skalierungsexponent α = 0.2719 (Sub-RH-Indikator)
-- Vorhersage RH-konsistent wäre α ≈ 1
-- Bestätigt physikalische Erwartung: uniforme Superposition skaliert mit π(N)/dim
+- Scaling exponent α = 0.2719 (Sub-RH indicator)
+- RH-consistent prediction would be α ≈ 1
+- Confirms physical expectation: uniform superposition scales with π(N)/dim
 
-**Säule 4 (Prime-Qudits GF(5), `pt_ququint_vqe_results.json`):**
-- H_PT_5 (5×5) und H_PT_4 (4×4) haben **bit-genau identische** 4 Unterniveaus
-- 5. Niveau exakt entkoppelt (E_4 = 5.000 + 0.000j)
-- Magic State Distillation: 36.3% (Ququint) vs 1% (Qubit) = 36.3× Verbesserung
-- CCZ-Gate: 4 M-Gates (Ququint) vs 7 T-Gates (Qubit) = 1.75× Reduktion
+**Säule 4 (Prime Qudits GF(5), `pt_ququint_vqe_results.json`):**
+- H_PT_5 (5×5) and H_PT_4 (4×4) have **bit-exact identical** 4 sublevels
+- 5th level exactly decoupled (E_4 = 5.000 + 0.000j)
+- Magic state distillation: 36.3% (ququint) vs 1% (qubit) = 36.3× improvement
+- CCZ gate: 4 M-gates (ququint) vs 7 T-gates (qubit) = 1.75× reduction
 
-### Während TDD aufgedeckte Test-Bugs
+### Test bugs uncovered during TDD
 
-Drei reale Bugs in den **Tests** wurden durch den ersten Lauf gegen
-`pt_structural.py` als Baseline identifiziert und behoben:
+Three real bugs in the **tests** were identified and fixed by the first run
+against `pt_structural.py` as baseline:
 
-1. **PT-Symmetrie-Zerlegung:** Anti-Hermitescher Anteil = `(H − H†)/2` (nicht `/(2j)`).
-   Korrektur: bei H = H_diag + iγA (A reell-symmetrisch) ist H_anti = γA reell-symmetrisch,
-   nicht anti-Hermitesch. Test angepasst auf Spektrum-Vergleich (PT-Symmetrie =
-   Spektrum-Invarianz unter H → H.conj()).
+1. **PT-symmetry decomposition:** Anti-Hermitian part = `(H − H†)/2` (not `/(2j)`).
+   Correction: for H = H_diag + iγA (A real-symmetric), H_anti = γA is real-symmetric,
+   not anti-Hermitian. Test adapted to spectrum comparison (PT symmetry =
+   spectrum invariance under H → H.conj()).
 
-2. **Schmidt-Entropie S/S_max:** Bei bipartiter Partition mit `dim = n_A · n_B` fällt
-   S/S_max monoton mit N (wegen π(N)/dim → 0), nicht steigt. Test angepasst auf
-   **Korrelation** zwischen π(N)/dim und S/S_max (positiv erwartet, > 0.5 verifiziert).
+2. **Schmidt entropy S/S_max:** For a bipartite partition with `dim = n_A · n_B`,
+   S/S_max falls monotonically with N (because π(N)/dim → 0), not rises. Test
+   adapted to **correlation** between π(N)/dim and S/S_max (expected positive,
+   verified > 0.5).
 
-3. **G-Apparat Observable:** `T(E) = 1/|Im(λ_min)|` traf die Resonanz nicht zuverlässig.
-   Korrektur: `T(E) = 1/|det(H_probe(E))|` (Lorentz-Peak via Determinanten-Singularität)
-   — Peak bei E_0 = 2.0 zuverlässig gefunden.
+3. **G-Apparatus observable:** `T(E) = 1/|Im(λ_min)|` did not reliably hit the
+   resonance. Correction: `T(E) = 1/|det(H_probe(E))|` (Lorentz peak via
+   determinant singularity) — peak at E_0 = 2.0 reliably found.
 
-Diese Korrekturen **vor** der Implementation lieferten eine viel höhere
-Test-Qualität, als wenn die Tests nach der Implementation geschrieben worden wären
-(Bestätigung der TDD-Methodik für quantenphysikalische Projekte).
+These corrections **before** the implementation yielded a much higher
+test quality than if the tests had been written after the implementation
+(confirmation of the TDD methodology for quantum physics projects).
 
-### QPU-Ausführungsplan
+### QPU execution plan
 
-| Säule | Skript | Backend | Status | Submission |
+| Säule | Script | Backend | Status | Submission |
 |---|---|---|---|---|
-| 1 | `pt_potential_vqe.py` | ibm_fez (TOKEN1) | BEREIT, aber Kontingent blockiert | 3 Versuche fehlgeschlagen (`bzmtvyu13`, `b0pekypf3`, `bf3yqz8tt`) |
-| 1-Aer | `pt_aer_stress_saeule1.py` | Aer+Fez-Rausch | **DONE** | 11/11 Tests grün, `bias_PT_re = 0.0059`, H1/H3 HOCH |
-| 1-Singleshot | `pt_potential_vqe_singleshot.py` | **ibm_fez (TOKEN2)** | **DONE: ECHTE QPU** | `bias_PT_re = -0.0133 < 0.05`, H1/H3 bestätigt, 6 Jobs DONE |
-| 1-VQE-Opt | `pt_potential_vqe_minimal.py` | ibm_fez (TOKEN2) | **RUNNING** | 3 VQE-Iter + 5-Pub, ~5-10 Min QPU-Zeit |
-| 2 | `pt_transmission_sweep.py` | (offline DONE) | **DONE: 4 Peaks bei Δ < 0.027** | 9/9 Tests grün |
-| 3 | `pt_prime_state.py` | (offline DONE) | **DONE: α = 0.2719 (Sub-RH)** | 15/15 Tests grün |
-| 4 | `pt_ququint_vqe.py` | (kein QPU) | Offline-Simulator | 15/15 Tests grün |
+| 1 | `pt_potential_vqe.py` | ibm_fez (TOKEN1) | READY, but quota blocked | 3 attempts failed (`bzmtvyu13`, `b0pekypf3`, `bf3yqz8tt`) |
+| 1-Aer | `pt_aer_stress_saeule1.py` | Aer+Fez noise | **DONE** | 11/11 tests green, `bias_PT_re = 0.0059`, H1/H3 HIGH |
+| 1-Singleshot | `pt_potential_vqe_singleshot.py` | **ibm_fez (TOKEN2)** | **DONE: REAL QPU** | `bias_PT_re = -0.0133 < 0.05`, H1/H3 confirmed, 6 jobs DONE |
+| 1-VQE-Opt | `pt_potential_vqe_minimal.py` | ibm_fez (TOKEN2) | **RUNNING** | 3 VQE iterations + 5-pub, ~5-10 min QPU time |
+| 2 | `pt_transmission_sweep.py` | (offline DONE) | **DONE: 4 peaks at Δ < 0.027** | 9/9 tests green |
+| 3 | `pt_prime_state.py` | (offline DONE) | **DONE: α = 0.2719 (Sub-RH)** | 15/15 tests green |
+| 4 | `pt_ququint_vqe.py` | (no QPU) | Offline simulator | 15/15 tests green |
 
-Säule 4 läuft komplett als Simulator (kein QPU-Zeit verbraucht) und bereitet
-die Architektur für zukünftige native Ququint-Hardware vor.
+Säule 4 runs completely as a simulator (no QPU time consumed) and prepares
+the architecture for future native ququint hardware.
 
-### Säule 2 Offline-Resultat (2026-06-08)
+### Säule 2 offline result (2026-06-08)
 
-`pt_transmission_sweep.py` main() wurde am 2026-06-08 offline ausgeführt.
-Der G-Apparat ist deterministisch (`T(E) = 1/|det(H_probe(E))|`), keine QPU nötig.
+`pt_transmission_sweep.py` main() was run offline on 2026-06-08.
+The G-apparatus is deterministic (`T(E) = 1/|det(H_probe(E))|`), no QPU needed.
 
-**Resultat:**
-- Sweep: E ∈ [0.5, 6.0] mit 100 Schritten
-- T-Range: [0.0005, 280.41]
-- 4 Peaks detektiert: E = 2.000, 2.667, 3.667, 5.000
-- Vergleich mit E_DIAG: Δ < 0.027 für alle Peaks (Auflösungsgrenze 0.056)
+**Result:**
+- Sweep: E ∈ [0.5, 6.0] with 100 steps
+- T range: [0.0005, 280.41]
+- 4 peaks detected: E = 2.000, 2.667, 3.667, 5.000
+- Comparison with E_DIAG: Δ < 0.027 for all peaks (resolution limit 0.056)
 
-Persistiert in `pt_transmission_sweep_results.json`.
+Persisted in `pt_transmission_sweep_results.json`.
 
-### Säule 3 Offline-Resultat (2026-06-08)
+### Säule 3 offline result (2026-06-08)
 
-`pt_prime_state.py` main() wurde am 2026-06-08 offline ausgeführt für
-N ∈ {7, 15, 31, 63, 127} (Mersenne-Bereich 2^k − 1).
+`pt_prime_state.py` main() was run offline on 2026-06-08 for
+N ∈ {7, 15, 31, 63, 127} (Mersenne range 2^k − 1).
 
-**Resultat:**
-- Skalierungsexponent α = 0.2719 (log-log-Fit von S_vN vs N)
-- S/S_max ∈ [0.49, 0.81] (nicht-monoton, π(N)/dim-abhängig)
-- Grover-Iterationen: 1 für N ≤ 63, 2 für N = 127
+**Result:**
+- Scaling exponent α = 0.2719 (log-log fit of S_vN vs N)
+- S/S_max ∈ [0.49, 0.81] (non-monotonic, π(N)/dim-dependent)
+- Grover iterations: 1 for N ≤ 63, 2 for N = 127
 
-**Befund:** α = 0.27 < 0.5 → **Sub-RH-Indikator** — die Verschränkungs-Entropie
-der P_N-Projektion wächst sublinear mit dem Hilbert-Raum, was auf eine
-strukturelle Korrelation zwischen Primzahl-Sparsity und spektraler Lücken-Statistik
-hindeutet.
+**Finding:** α = 0.27 < 0.5 → **Sub-RH indicator** — the entanglement entropy
+of the P_N projection grows sublinearly with the Hilbert space, indicating a
+structural correlation between prime sparsity and spectral gap statistics.
 
-Persistiert in `pt_prime_state_results.json`.
+Persisted in `pt_prime_state_results.json`.
 
-### Aer-Stresstest-Resultat (Säule 1, 2026-06-08)
+### Aer stress-test result (Säule 1, 2026-06-08)
 
-Da der IBM Open-Plan für Fez blockiert ist (3 Versuche scheiterten an
-Kontingent-Erschöpfung), wurde `pt_aer_stress_saeule1.py` als
-Hardware-Surrogat ausgeführt: Aer-Simulator mit Fez-Backend-Rauschprofil
-(T1, T2, Gate-Fehler, Readout-Fehler). Aer+Fez liefert Resultate, die
-identisch zur echten Hardware sind bis zur 4. Dezimalstelle (verifiziert in
+Since the IBM Open Plan for Fez is blocked (3 attempts failed due to
+quota exhaustion), `pt_aer_stress_saeule1.py` was run as a
+hardware surrogate: Aer simulator with Fez backend noise profile
+(T1, T2, gate error, readout error). Aer+Fez delivers results that are
+identical to real hardware to the 4th decimal place (verified in
 Section 6.5.4: 3.367 Aer vs 3.366 Marrakesh).
 
-**Resultat:**
-- E_0 (Aer+VQE) = 2.4057 vs noiseless 2.0019 (+20% Bias, erwartet)
+**Result:**
+- E_0 (Aer+VQE) = 2.4057 vs noiseless 2.0019 (+20% bias, expected)
 - bias_PT_re = Re(H_PT) - H_diag = +0.0059
-- **|bias_PT_re| < 0.05 → Verdict: H1 oder H3 (gaps invariant)**
-- **Confidence: HOCH**
-- **H2-Hypothese (multiplikative Bias-Topologie) FALSIFIZIERT**
+- **|bias_PT_re| < 0.05 → Verdict: H1 or H3 (gaps invariant)**
+- **Confidence: HIGH**
+- **H2 hypothesis (multiplicative bias topology) FALSIFIED**
 
-**Schlussfolgerung:** Die in Section 6.5.7 abgeleitete Anti-Bias-Hypothese
-"relatives Spektrum ist bias-invariant" ist im Aer-Setup mit Fez-Rauschen
-**operativ bestätigt**. Der REFRAMING_VECTOR_RELATIVE_SPECTRUM ist damit
-auf Aer-Niveau validiert. Verallgemeinerung auf echte Hardware steht aus
-(Kontingent-Reset Anfang Juli 2026).
+**Conclusion:** The anti-bias hypothesis derived in Section 6.5.7,
+"relative spectrum is bias-invariant," is **operationally confirmed** in the
+Aer setup with Fez noise. The REFRAMING_VECTOR_RELATIVE_SPECTRUM is thus
+validated at Aer level. Generalization to real hardware is pending
+(quota reset early July 2026).
 
-Persistiert in `pt_aer_stress_saeule1_results.json`.
+Persisted in `pt_aer_stress_saeule1_results.json`.
 
-### Säule 1 Echte QPU-Messung (2026-06-10 11:18 UTC, Fez/TOKEN2)
+### Säule 1 real QPU measurement (2026-06-10 11:18 UTC, Fez/TOKEN2)
 
-Mit dem neuen Account (TOKEN2) konnte die QPU-Submission am 2026-06-10 um 11:18 UTC trotz Open-Plan-Kontingent-Blockade auf TOKEN1 durchgeführt werden. Drei sequenzielle 1-Pub-Jobs auf ibm_fez (1024 Shots, kein VQE — am Initial-Punkt gemessen):
+With the new account (TOKEN2) the QPU submission could be carried out on
+2026-06-10 at 11:18 UTC despite the Open Plan quota blockade on TOKEN1.
+Three sequential 1-pub jobs on ibm_fez (1024 shots, no VQE — measured at
+the initial point):
 
-**Resultat:**
-- H_diag am Initial: 3.6045 (noiseless 3.34, +7.9% Bias)
-- H_diag am random:  3.6559 (+9.4%)
-- Re(H_PT) am Init:  3.5912 (+7.5%)
+**Result:**
+- H_diag at initial: 3.6045 (noiseless 3.34, +7.9% bias)
+- H_diag at random:  3.6559 (+9.4%)
+- Re(H_PT) at init:  3.5912 (+7.5%)
 - **bias_PT_re = −0.0133**
-- **|bias_PT_re| < 0.05 → Verdict: H1 oder H3 (gaps invariant)**
-- **Confidence: HOCH**
-- **H2-Hypothese (multiplikative Bias-Topologie) FALSIFIZIERT** — doppelt (Aer + QPU)
+- **|bias_PT_re| < 0.05 → Verdict: H1 or H3 (gaps invariant)**
+- **Confidence: HIGH**
+- **H2 hypothesis (multiplicative bias topology) FALSIFIED** — twice (Aer + QPU)
 
-**Befund:** Die **absolute** Bias-Drift (+7.9% bis +9.4%) auf Fez ist deutlich moderater als die ursprüngliche Marrakesh-Messung (+63%, Section 6.5.4). Die **relative** Größe `bias_PT_re = -0.0133` ist:
-- < 0.05 Threshold für H1/H3 (gaps-invariant): bestätigt
-- < 0.15 Threshold für H2 (multiplikative Bias-Topologie): falsifiziert
+**Finding:** The **absolute** bias drift (+7.9% to +9.4%) on Fez is markedly
+more moderate than the original Marrakesh measurement (+63%, Section 6.5.4). The
+**relative** quantity `bias_PT_re = -0.0133` is:
+- < 0.05 threshold for H1/H3 (gaps-invariant): confirmed
+- < 0.15 threshold for H2 (multiplicative bias topology): falsified
 
-**Schlussfolgerung:** REFRAMING_VECTOR_RELATIVE_SPECTRUM ist jetzt **doppelt validiert** (Aer + QPU). Aer-Resultate sind nicht nur Surrogat, sondern direkte Hardware-Eigenschaft.
+**Conclusion:** REFRAMING_VECTOR_RELATIVE_SPECTRUM is now **double-validated**
+(Aer + QPU). Aer results are not just a surrogate, but a direct hardware property.
 
-Persistiert in `pt_potential_vqe_singleshot_results.json`.
+Persisted in `pt_potential_vqe_singleshot_results.json`.
 
-### Säule 1 VQE-Optimum QPU (2026-06-10 12:19 UTC, Fez/TOKEN2)
+### Säule 1 VQE optimum QPU (2026-06-10 12:19 UTC, Fez/TOKEN2)
 
-5 sequenzielle 1-Pub-Jobs am VQE-Optimum (3 Iter, E0=2.36, suboptimal):
+5 sequential 1-pub jobs at the VQE optimum (3 iterations, E0=2.36, suboptimal):
 
-| Observable | Initial-Punkt (Singleshot) | VQE-Optimum (5-Pub) | random $\theta_r$ |
+| Observable | Initial point (Singleshot) | VQE optimum (5-Pub) | random $\theta_r$ |
 |---|---:|---:|---:|
 | `<H_diag>` | 3.6045 | **3.0611** | — |
 | `<Re(H_PT)>` | 3.5912 | **2.9897** | 3.0151 |
 | `<Im(H_PT)>` | — | **0.0131** | 0.0158 |
-| **`bias_PT_re`** | **−0.0133** ✓ H1/H3 | **−0.0714** ⚠ Mittel | — |
+| **`bias_PT_re`** | **−0.0133** ✓ H1/H3 | **−0.0714** ⚠ Medium | — |
 
-**Verdict:** `|bias_PT_re| = 0.0714` ist > 0.05 (H1/H3-Threshold) → **MITTEL — partial H2-Einfluss**.
+**Verdict:** `|bias_PT_re| = 0.0714` is > 0.05 (H1/H3 threshold) → **MEDIUM — partial H2 influence**.
 
-**SciMind 4.0 Erklärung:** Der 3-Iter-VQE hat das **wahre Optimum nicht erreicht** (E_0 = 2.36 statt 2.00). Bei besser konvergiertem VQE (10 Iter, 8192 Shots) wäre `bias_PT_re → 0`. Aer-Stresstest mit E0=2.4057 liefert bereits `bias_PT_re = +0.0059`. **Tageslimit-Restriktion TOKEN2 (10 Min/Tag) limitierte die VQE-Qualität.**
+**SciMind 4.0 explanation:** The 3-iteration VQE did not reach the **true
+optimum** (E_0 = 2.36 instead of 2.00). With a better-converged VQE (10 iterations,
+8192 shots) `bias_PT_re → 0`. The Aer stress test with E0=2.4057 already yields
+`bias_PT_re = +0.0059`. **TOKEN2 daily limit restriction (10 min/day) limited the
+VQE quality.**
 
-**Strategische Konsequenz:** REFRAMING_VECTOR bleibt A-Grade (Initial-Punkt QPU + Aer-Stresstest doppelt validiert). VQE-Optimum-QPU-Messung erfordert längere VQE in Q3 2026.
+**Strategic consequence:** REFRAMING_VECTOR remains A-grade (initial-point QPU +
+Aer stress test double-validated). VQE-optimum QPU measurement requires longer
+VQE in Q3 2026.
 
-Persistiert in `pt_potential_vqe_5pub_results.json`.
+Persisted in `pt_potential_vqe_5pub_results.json`.
 
-### Säule 3 Echte QPU-Messung (2026-06-10 12:13 UTC, Fez/TOKEN2)
+### Säule 3 real QPU measurement (2026-06-10 12:13 UTC, Fez/TOKEN2)
 
-Schmidt-Entropie $S_{vN}$ von $|P_N\rangle$ auf echter Fez-Hardware gemessen. 5 sequenzielle 1-Pub-Jobs (`pt_prime_state_qpu_run.py`), 4096 Shots, `initialize(psi_prime)+Sampler`-Architektur.
+Schmidt entropy $S_{vN}$ of $|P_N\rangle$ measured on real Fez hardware.
+5 sequential 1-pub jobs (`pt_prime_state_qpu_run.py`), 4096 shots,
+`initialize(psi_prime)+Sampler` architecture.
 
-**Architektur (statevector-first, qiskit-agnostisch):**
-1. `psi` als numpy-statevector (verifiziert `||diff(sv, s_i^2)|| < 10^{-15}`)
-2. `linalg.svd(psi.reshape((n_A, n_B)))` → Schmidt-Zerlegung
-3. `psi_prime = (U_A^\dagger \otimes I_B) |psi>` als Matrix-Mult, F-order flatten
+**Architecture (statevector-first, qiskit-agnostic):**
+1. `psi` as numpy statevector (verified `||diff(sv, s_i^2)|| < 10^{-15}`)
+2. `linalg.svd(psi.reshape((n_A, n_B)))` → Schmidt decomposition
+3. `psi_prime = (U_A^\dagger \otimes I_B) |psi>` as matrix-mult, F-order flatten
 4. QPU: `qc.initialize(psi_prime, range(n_qubits))` + `measure(System A)`
 5. Population $P(|i\rangle_A)$ = $s_i^2$
 
-**Jobs (alle DONE):**
+**Jobs (all DONE):**
 - `d8kjhcjnn5bs738quimg` (N=7, 3qb, depth=30)
 - `d8kjhf832u0s73f8rfr0` (N=15, 4qb, depth=98)
 - `d8kjhs3qv2lc7385c930` (N=31, 5qb, depth=214)
 - `d8kji93nn5bs738qujjg` (N=63, 6qb, depth=405)
 - `d8kjipjnn5bs738quk50` (N=127, 7qb, depth=841)
 
-**Resultate:**
+**Results:**
 
-| N | $S_{vN}$ klassisch | $S_{vN}$ QPU | $\|\Delta\|$ |
+| N | $S_{vN}$ classical | $S_{vN}$ QPU | $\|\Delta\|$ |
 |---:|---:|---:|---:|
 | 7 | 0.5623 | **0.5781** | 0.016 |
 | 15 | 0.8361 | **0.9610** | 0.125 |
@@ -602,25 +616,30 @@ Schmidt-Entropie $S_{vN}$ von $|P_N\rangle$ auf echter Fez-Hardware gemessen. 5 
 | 63 | 1.0223 | **1.3411** | 0.319 |
 | 127 | 1.3562 | **1.7157** | 0.360 |
 
-**Skalierungsexponenten:**
-- $\alpha_{Aer} = 0.2719$ (statevector, idealisiert)
-- $\alpha_{QPU} = 0.3479$ (Fez-Rauschen korrigiert)
-- $\alpha_{Latorre\text{-}Sierra} \approx 1.0$ (SotA-Erwartung)
+**Scaling exponents:**
+- $\alpha_{Aer} = 0.2719$ (statevector, idealized)
+- $\alpha_{QPU} = 0.3479$ (Fez-noise corrected)
+- $\alpha_{Latorre\text{-}Sierra} \approx 1.0$ (SotA expectation)
 
-**Verdict:** **QPU bestätigt Aer** — DISSENS zu Latorre-Sierra. Die **Unterlinearität** $\alpha \ll 1$ ist robust gegen Fez-Dekohärenz. Systematische Bias in Richtung höherer Entropie (kleine Schmidt-Koeff. werden aufgefüllt), Skalierung bleibt intakt.
+**Verdict:** **QPU confirms Aer** — DISSENT from Latorre-Sierra. The
+**sub-linearity** $\alpha \ll 1$ is robust against Fez decoherence. Systematic
+bias toward higher entropy (small Schmidt coefficients are filled in), scaling
+remains intact.
 
-**Persistiert in** `pt_prime_state_qpu_singleshot_results.json`.
+**Persisted in** `pt_prime_state_qpu_singleshot_results.json`.
 
-### Säule 3 N-Erweiterung + Latorre-Sierra Resolution-Tests (2026-06-10, offline Aer)
+### Säule 3 N-extension + Latorre-Sierra resolution tests (2026-06-10, offline Aer)
 
-**Motivation:** Drei plausible Resolutions der Latorre-Sierra-Diskrepanz (arXiv:1302.6245 sagt $\alpha\approx 1$, wir messen $\alpha\approx 0.27$) waren offen:
-- (a) Latorre-Sierra-Skala ist verkehrt
-- (b) Andere Entropie-Definition (Rényi-2) löst auf
-- (c) Asymptotisches Regime: bei $N\to\infty$ nähert sich $\alpha$ an 1
+**Motivation:** Three plausible resolutions of the Latorre-Sierra discrepancy
+(arXiv:1302.6245 says $\alpha\approx 1$, we measure $\alpha\approx 0.27$) were
+open:
+- (a) Latorre-Sierra scale is wrong
+- (b) Different entropy definition (Rényi-2) resolves it
+- (c) Asymptotic regime: at $N\to\infty$ $\alpha$ approaches 1
 
-**Test 1: Resolution (b) FALSIFIZIERT — Rényi-2 vs Schmidt-vN**
+**Test 1: Resolution (b) FALSIFIED — Rényi-2 vs Schmidt-vN**
 
-Rényi-2-Entropie $S_2 = -\log_2 \sum s_i^4$ auf demselben Schmidt-Spektrum:
+Rényi-2 entropy $S_2 = -\log_2 \sum s_i^4$ on the same Schmidt spectrum:
 
 | $N$ | $S_2^{\text{Aer}}$ | $S_{vN}^{\text{Aer}}$ | $S_2^{\text{QPU}}$ | $S_{vN}^{\text{QPU}}$ |
 |---:|---:|---:|---:|---:|
@@ -630,15 +649,17 @@ Rényi-2-Entropie $S_2 = -\log_2 \sum s_i^4$ auf demselben Schmidt-Spektrum:
 | 63 | 1.1304 | 1.0223 | 1.5663 | 1.3411 |
 | 127 | 1.5377 | 1.3562 | 2.0775 | 1.7157 |
 
-Log-log-Fit:
+Log-log fit:
 - $\alpha_2^{\text{Aer}} = 0.244$, $\alpha_2^{\text{QPU}} = 0.340$
 - $\alpha_{vN}^{\text{Aer}} = 0.272$, $\alpha_{vN}^{\text{QPU}} = 0.348$
 
-**Identische Skalierung.** Latorre-Diskrepanz ist **kein** Entropie-Maß-Artefakt. Resolution (b) ist **FALSIFIZIERT**.
+**Identical scaling.** Latorre discrepancy is **not** an entropy-measure
+artifact. Resolution (b) is **FALSIFIED**.
 
-**Test 2: Resolution (c) FALSIFIZIERT — Asymptotisches Regime**
+**Test 2: Resolution (c) FALSIFIED — Asymptotic regime**
 
-Schmidt-vN-Sweep offline (numpy statevector) erweitert auf $N \in \{255, 511, 1023\}$ (8 Qubits):
+Schmidt-vN sweep offline (numpy statevector) extended to $N \in \{255, 511, 1023\}$
+(8 qubits):
 
 | $N_{\max}$ | $\alpha_{\text{inc}}$ |
 |---:|---:|
@@ -649,21 +670,23 @@ Schmidt-vN-Sweep offline (numpy statevector) erweitert auf $N \in \{255, 511, 10
 | 511 | 0.347 |
 | 1023 | **0.347** |
 
-**$\alpha$ ist NICHT ansteigend Richtung 1** — sie stabilisiert sich bei 0.347 für $N \ge 255$. Resolution (c) ist **FALSIFIZIERT**.
+**$\alpha$ is NOT rising toward 1** — it stabilizes at 0.347 for $N \ge 255$.
+Resolution (c) is **FALSIFIED**.
 
-**Test 3: Drei-Modelle-Vergleich — Mismatch funktionaler Form**
+**Test 3: Three-model comparison — Mismatch of functional form**
 
-Drei konkurrierende Modelle für $S_{vN}(N)$ direkt verglichen:
+Three competing models for $S_{vN}(N)$ compared directly:
 
-| Modell | Form | Best-Fit-Parameter | Residual |
+| Model | Form | Best-fit parameter | Residual |
 |---|---|---:|---:|
-| M1 (unser Power-Law) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
-| M3 (Power in $\pi(N)$) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
+| M1 (our power law) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
+| M3 (power in $\pi(N)$) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
 | M2 (Latorre log) | $S \sim \log\pi(N)$ | coeff = 0.524 | 0.772 |
 
-**M1 und M3 ununterscheidbar** (Residuals unterscheiden sich um 1%). M2 (Latorre-Form) ist signifikant schlechter (Faktor 2.5).
+**M1 and M3 indistinguishable** (residuals differ by 1%). M2 (Latorre form) is
+significantly worse (factor 2.5).
 
-**Lokale Steigung der Latorre-Kurve bei unseren N-Werten:**
+**Local slope of the Latorre curve at our N values:**
 
 | $N$ | $d \log S / d \log N$ (Latorre) |
 |---:|---:|
@@ -675,81 +698,107 @@ Drei konkurrierende Modelle für $S_{vN}(N)$ direkt verglichen:
 | 511 | 0.20 |
 | 1023 | 0.17 |
 
-**Die Latorre-Lokal-Steigung 0.17–0.40 liegt im SELBEN Band wie unser gemessenes $\alpha = 0.347$!**
+**The Latorre local slope 0.17–0.40 lies in the SAME band as our measured
+$\alpha = 0.347$!**
 
-**Auflösung der "Spannung":** Es gibt **keinen fundamentalen Konflikt**. Latorre-Sierra sagt $S \sim \log\pi(N)$ (asymptotisch) — die *asymptotische* Steigung von $\log\pi(N)$ vs $\log N$ ist tatsächlich 1 (für $N \to \infty$). Wir fitten lokal $S \sim N^\alpha$ — die *lokale* effektive Steigung ist 0.347 für $N \le 1023$. Beide Werte sind **konsistent**, weil die Latorre-Kurve als logarithmische Funktion lokal ebenfalls Steigungen $< 0.5$ aufweist.
+**Resolution of the "tension":** There is **no fundamental conflict**.
+Latorre-Sierra says $S \sim \log\pi(N)$ (asymptotically) — the *asymptotic*
+slope of $\log\pi(N)$ vs $\log N$ is indeed 1 (for $N \to \infty$). We fit
+locally $S \sim N^\alpha$ — the *local* effective slope is 0.347 for $N \le 1023$.
+Both values are **consistent**, because the Latorre curve as a logarithmic
+function also locally has slopes $< 0.5$.
 
-**Strategische Konsequenz — REFRAMING der Sub-RH-Indikator-Aussage:**
+**Strategic consequence — REFRAMING of the Sub-RH indicator statement:**
 
-Die Sub-RH-Vorhersage $\alpha < 0.5$ ist empirisch robust gestützt, aber ihre Interpretation ändert sich:
-- **Vorher:** $\alpha = 0.347$ widerspricht Latorre-Sierra's $\alpha \approx 1$ → "Spannung"
-- **Nachher:** $\alpha = 0.347$ ist die *finite-N effektive Steigung* einer Funktion, die **asymptotisch** $\alpha \to 1$ hat (genau wie Latorre) → **Konsistenz, kein Konflikt**
+The Sub-RH prediction $\alpha < 0.5$ is empirically robustly supported, but its
+interpretation changes:
+- **Before:** $\alpha = 0.347$ contradicts Latorre-Sierra's $\alpha \approx 1$ → "tension"
+- **After:** $\alpha = 0.347$ is the *finite-N effective slope* of a function that
+  **asymptotically** has $\alpha \to 1$ (just like Latorre) → **consistency, no
+  conflict**
 
-Die offene Frage ist nicht mehr "Latorre vs. wir", sondern: **bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden?** Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
+The open question is no longer "Latorre vs. us," but: **at which $N$ does the
+asymptotic $\alpha \to 1$ start becoming visible?** Aer simulation at
+$N = 10^4$–$10^6$ (mathematical, no QPU needed) could clarify this.
 
-Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `pt_three_models_results.json`. Prepreprint in `LATORE_TENSION_NOTE.md` (10 KB).
+Persisted in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`,
+`pt_three_models_results.json`. Prepreprint in `LATORE_TENSION_NOTE.md` (10 KB).
 
 ---
 
-## Update 2026-06-17 — Token-Diagnose, Statevector-Fallback, Asymptotik H_C
+## Update 2026-06-17 — Token Diagnosis, Statevector Fallback, H_C Asymptotics
 
-### Update-Überblick
+### Update overview
 
-Drei strategische Entwicklungen seit dem 10.06., die das Implementation-Dossier substanziell verändern:
+Three strategic developments since 10.06 that substantially change the
+implementation dossier:
 
-1. **Token-Diagnose etabliert** — beide IBM-Accounts (TOKEN1, TOKEN2) haben separate Open-Plan-Limits, die unabhängig aktiv/inaktiv sind
-2. **Statevector-Fallback implementiert** — VQE+VQD-Messung lokal ausführbar (kein QPU nötig)
-3. **Asymptotik N=10⁴..10⁶** — alpha sinkt monoton, Latorre-Spannung endgültig aufgelöst
+1. **Token diagnosis established** — both IBM accounts (TOKEN1, TOKEN2) have
+   separate Open Plan limits, which are independently active/inactive
+2. **Statevector fallback implemented** — VQE+VQD measurement runnable locally
+   (no QPU needed)
+3. **Asymptotics N=10⁴..10⁶** — alpha drops monotonically, Latorre tension
+   finally resolved
 
-### Test-Coverage-Update
+### Test coverage update
 
-| Datum | Tests | Dateien | Δ |
+| Date | Tests | Files | Δ |
 |---|---:|---:|---|
 | 2026-06-08 (initial) | 54 | 5 | baseline |
-| 2026-06-10 (Resolution-Tests) | 66 | 5 | +12 |
-| 2026-06-17 (heute) | **150** | **9** | **+84** |
+| 2026-06-10 (resolution tests) | 66 | 5 | +12 |
+| 2026-06-17 (today) | **150** | **9** | **+84** |
 
-**Neue Test-Dateien (4):**
-- `test_pt_renyi2.py` (11 Tests)
-- `test_pt_three_models.py` (9 Tests)
-- `test_pt_prime_state_N255.py` (18 Tests)
-- `test_pt_potential_vqe_5pub.py` (18 Tests)
-- `test_pt_asymptotic_N1e6.py` (27 Tests)
+**New test files (4):**
+- `test_pt_renyi2.py` (11 tests)
+- `test_pt_three_models.py` (9 tests)
+- `test_pt_prime_state_N255.py` (18 tests)
+- `test_pt_potential_vqe_5pub.py` (18 tests)
+- `test_pt_asymptotic_N1e6.py` (27 tests)
 
-### Token-Diagnose (`pt_token_diagnose.py`)
+### Token diagnosis (`pt_token_diagnose.py`)
 
-**Motivation:** TOKEN1 war 6 Tage blockiert (10.-15.6.). TOKEN2 schien alternativ, aber war noch blockierter. Diagnose-Skript prüft beide Accounts parallel.
+**Motivation:** TOKEN1 was blocked for 6 days (10-15.6.). TOKEN2 seemed
+alternative, but was even more blocked. Diagnostic script checks both accounts
+in parallel.
 
-**Befund (2026-06-17 12:59 UTC):**
-- **TOKEN1 (IBMQ_TOKEN):** OFFEN, Job `d8p7sa8q90bc73e7e2ng` lief auf Fez durch (1-Pub, 100 Shots)
-- **TOKEN2 (IBMQ_TOKEN2):** WEITER BLOCKIERT (8 Tage)
+**Finding (2026-06-17 12:59 UTC):**
+- **TOKEN1 (IBMQ_TOKEN):** OPEN, job `d8p7sa8q90bc73e7e2ng` ran through on Fez
+  (1-pub, 100 shots)
+- **TOKEN2 (IBMQ_TOKEN2):** STILL BLOCKED (8 days)
 
-**Konsequenz:** VQE+VQD auf TOKEN1 versucht (`pt_vqe_vqd_token1.py`). 13 sequenzielle Estimator-Calls > Tageszeit-Limit. **Strategischer Switch zu statevector-Fallback.**
+**Consequence:** VQE+VQD on TOKEN1 attempted (`pt_vqe_vqd_token1.py`). 13
+sequential estimator calls > daily time limit. **Strategic switch to
+statevector fallback.**
 
-### Statevector-Fallback (`pt_vqe_vqd_statevector.py`)
+### Statevector fallback (`pt_vqe_vqd_statevector.py`)
 
-**Identische Strategie wie `pt_vqe_vqd.py` (Fez-Plan), aber mit `Statevector.expectation_value()` statt Qiskit-Estimator:**
+**Same strategy as `pt_vqe_vqd.py` (Fez plan), but with
+`Statevector.expectation_value()` instead of Qiskit Estimator:**
 
-| Pfad | bias_PT_re | Verdict |
+| Path | bias_PT_re | Verdict |
 |---|---:|---|
-| statevector (heute) | **+0.000000** | H1/H3 ✓ exakt |
-| Fez-Singleshot (10.6.) | -0.0133 | H1/H3 ✓ |
-| Fez VQE-Optimum 5-Pub (10.6.) | -0.0714 | MITTEL (VQE-Artefakt) |
+| statevector (today) | **+0.000000** | H1/H3 ✓ exact |
+| Fez singleshot (10.6.) | -0.0133 | H1/H3 ✓ |
+| Fez VQE optimum 5-pub (10.6.) | -0.0714 | MEDIUM (VQE artifact) |
 
-**Wissenschaftliche Pointe:** Differenz statevector (0.000) ↔ Fez (-0.0133) = **0.0133 = Hardware-Bias der Dekohärenz**. Beide bestätigen H1/H3.
+**Scientific punchline:** Difference statevector (0.000) ↔ Fez (-0.0133) =
+**0.0133 = hardware bias of decoherence**. Both confirm H1/H3.
 
-**Statevector-First-Architektur bestätigt:** numpy ist die deterministische Wahrheit, QPU nur als Sampling-Wrapper. Die seit Saeule 1 etablierte Methodik zahlt sich aus.
+**Statevector-first architecture confirmed:** numpy is the deterministic truth,
+QPU only as sampling wrapper. The methodology established since Säule 1 pays off.
 
-### Asymptotik N=10⁴..10⁶ (`pt_asymptotic_N1e6.py`)
+### Asymptotics N=10⁴..10⁶ (`pt_asymptotic_N1e6.py`)
 
-**Motivation:** Resolution (c) der Latorre-Spannung war "$\alpha$ stabilisiert sich bei 0.347" (finite-N). Asymptotische Daten sollten klären, ob $\alpha \to 1$ (Latorre) oder bei 0.35 bleibt (unsere Hypothese).
+**Motivation:** Resolution (c) of the Latorre tension was "$\alpha$ stabilizes
+at 0.347" (finite-N). Asymptotic data should clarify whether $\alpha \to 1$
+(Latorre) or stays at 0.35 (our hypothesis).
 
-**Prereg (VOR `main()` geschrieben, 3 Hypothesen):**
-- **H_A:** $\alpha$ stabil bei 0.347 (Sub-RH)
-- **H_B:** $\alpha \to 1$ (Latorre-Sierra Asymptotik)
-- **H_C:** anderes Power-Law (z.B. $\alpha$ sinkt mit N)
+**Prereg (written BEFORE `main()`, 3 hypotheses):**
+- **H_A:** $\alpha$ stable at 0.347 (Sub-RH)
+- **H_B:** $\alpha \to 1$ (Latorre-Sierra asymptotics)
+- **H_C:** other power law (e.g. $\alpha$ drops with N)
 
-**Resultat:**
+**Result:**
 
 | N | $\alpha_{\text{inc}}$ |
 |---:|---:|
@@ -758,145 +807,162 @@ Drei strategische Entwicklungen seit dem 10.06., die das Implementation-Dossier 
 | 100,000 | 0.2576 |
 | **1,000,000** | **0.2228** |
 
-**Verdict: H_C bestätigt** — alpha sinkt monoton, weder H_A noch H_B.
+**Verdict: H_C confirmed** — alpha drops monotonically, neither H_A nor H_B.
 
-**Implikation für Latorre-Spannung:** §5.1 des `LATORE_TENSION_NOTE.md` (framing als "finite-N artifact") ist **superseded**. Die Latorre-Spannung ist eine **fundamentale Disagreement**: Latorre sagt $\alpha \to 1$, Daten sagen $\alpha \to 0$.
+**Implication for Latorre tension:** §5.1 of `LATORE_TENSION_NOTE.md` (framed as
+"finite-N artifact") is **superseded**. The Latorre tension is a
+**fundamental disagreement**: Latorre says $\alpha \to 1$, data says $\alpha \to 0$.
 
-**Sub-RH-Indikator:** noch stärker. $S_{\text{vN}} \sim N^\alpha$ mit $\alpha < 0.5$ jetzt bestätigt für $N \in [7, 10^6]$ — **sechs Dekaden**.
+**Sub-RH indicator:** even stronger. $S_{\text{vN}} \sim N^\alpha$ with
+$\alpha < 0.5$ now confirmed for $N \in [7, 10^6]$ — **six decades**.
 
-### Implementierungs-Status (TDD, Stand 2026-06-17)
+### Implementation status (TDD, as of 2026-06-17)
 
-**Aktualisierte Tabelle:**
+**Updated table:**
 
-| Säule | Test-Datei | Anzahl | Status |
+| Säule | Test file | Number | Status |
 |---|---|---:|---|
-| 1: Holografisches Potenzial | `test_pt_potential_vqe.py` | 15 | 15/15 grün |
-| 2: G-Apparat | `test_pt_transmission_sweep.py` | 9 | 9/9 grün |
-| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 grün |
-| 4: Prime-Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 grün |
-| Renyi-2 | `test_pt_renyi2.py` | 11 | 11/11 grün |
-| 3-Modelle | `test_pt_three_models.py` | 9 | 9/9 grün |
-| N255 | `test_pt_prime_state_N255.py` | 18 | 18/18 grün |
-| VQE-5pub | `test_pt_potential_vqe_5pub.py` | 18 | 18/18 grün |
-| Asymptotik | `test_pt_asymptotic_N1e6.py` | 27 | 27/27 grün |
-| **Gesamt** | | **150** | **150/150 grün** |
+| 1: Holographic Potential | `test_pt_potential_vqe.py` | 15 | 15/15 green |
+| 2: G-Apparatus | `test_pt_transmission_sweep.py` | 9 | 9/9 green |
+| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 green |
+| 4: Prime Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 green |
+| Renyi-2 | `test_pt_renyi2.py` | 11 | 11/11 green |
+| 3-Modelle | `test_pt_three_models.py` | 9 | 9/9 green |
+| N255 | `test_pt_prime_state_N255.py` | 18 | 18/18 green |
+| VQE-5pub | `test_pt_potential_vqe_5pub.py` | 18 | 18/18 green |
+| Asymptotik | `test_pt_asymptotic_N1e6.py` | 27 | 27/27 green |
+| **Total** | | **150** | **150/150 green** |
 
-### Strategische Vektor-Update
+### Strategic vector update
 
-| Vektor | Status 10.06. | Status 17.06. | Promotion |
+| Vector | Status 10.06. | Status 17.06. | Promotion |
 |---|---|---|---|
-| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (Aer + Fez) | **A−** (statevector-Wahrheit +0.000 ist stärker als -0.0133) | stabil |
-| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stabil |
-| G-APPARAT_DETERMINISTIC | A | A | stabil |
-| SUB_RH_INDICATOR | A− (Aer + Fez, 8 Datenpunkte) | **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden) | gestärkt |
-| LATORRE_SPANNUNG | "Mismatch funktionaler Form" (REFRAMED) | **"Fundamentale Disagreement" (H_C bestätigt, §11)** | verschärft |
-| VQE+VQD Fez | BLOCKED, Q3-2026 | **Q3-2026 (Cron b3f26579 1.7.)** | unverändert |
+| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (Aer + Fez) | **A−** (statevector truth +0.000 is stronger than -0.0133) | stable |
+| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stable |
+| G-APPARAT_DETERMINISTIC | A | A | stable |
+| SUB_RH_INDICATOR | A− (Aer + Fez, 8 data points) | **A−** (Aer + Fez + statevector asymptotics, 11 data points, 6 decades) | strengthened |
+| LATORRE_SPANNUNG | "Mismatch of functional form" (REFRAMED) | **"Fundamental Disagreement" (H_C confirmed, §11)** | sharpened |
+| VQE+VQD Fez | BLOCKED, Q3-2026 | **Q3-2026 (Cron b3f26579 1.7.)** | unchanged |
 
-### Cron-Plan
+### Cron plan
 
-- **7307190e:** täglich 7:07 — Token-Diagnose + QPU wenn möglich, sonst statevector-Fallback
-- **b3f26579:** einmalig 1.7.2026 10:00 — Monats-Reset-Trigger (QPU-Kontingent)
+- **7307190e:** daily 7:07 — token diagnosis + QPU if possible, otherwise
+  statevector fallback
+- **b3f26579:** one-time 1.7.2026 10:00 — monthly reset trigger (QPU quota)
 
 ### Commits (2026-06-17)
 
-- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
-- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
-- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
-- `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11) — H_C bestätigt
+- `d8ef466` — Token diagnosis + statevector VQE+VQD fallback
+- `8c558f3` — Tests: coverage doubled (66 → 123)
+- `2ad86c8` — Asymptotics N=10⁴..10⁶ (H_C confirmed)
+- `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11) — H_C confirmed
 
 
-## Update 2026-06-17 13:10 UTC — Im-Bias-Reanalyse: Theorem-Korrektur + TOKEN1-Blockade bestätigt
+## Update 2026-06-17 13:10 UTC — Im-Bias Reanalysis: Theorem Correction + TOKEN1 Blockade Confirmed
 
-### Wichtigster Befund: `bias_PT_re` ist Theorem-Identität
+### Most important finding: `bias_PT_re` is a theorem identity
 
 ```python
-# In pt_im_bias_sweep_token1.py validiert:
-||[H_diag, Re(H_PT)]||_F = 0.0   # exakt
+# Validated in pt_im_bias_sweep_token1.py:
+||[H_diag, Re(H_PT)]||_F = 0.0   # exact
 eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 ```
 
-→ `bias_PT_re = Re(H_PT) - H_diag` ist per Theorem ~0, NICHT ein Bias-Indikator. Die alte Metrik war ein **Sampling-Noise-Quantifizierer**, kein Bias-Topologie-Test.
+→ `bias_PT_re = Re(H_PT) - H_diag` is ~0 by theorem, NOT a bias indicator. The
+old metric was a **sampling-noise quantifier**, not a bias topology test.
 
-### Echte Bias-Signatur: `Im(H_PT)` (anti-Hermitescher Anteil)
+### True bias signature: `Im(H_PT)` (anti-Hermitian part)
 
-| Quelle | `<Im(H_PT)>` gemessen | noiseless (am Grundzustand) | `Im_bias` |
+| Source | `<Im(H_PT)>` measured | noiseless (at ground state) | `Im_bias` |
 |---|---:|---:|---:|
-| Fez 2026-06-10 (VQE-Optimum 5-Pub) | 0.0131 | 0.0299 | **−0.0169** |
-| Statevector 2026-06-17 (10-Iter, suboptimal) | 0.0084 | 0.0299 | **−0.0215** |
-| Statevector+Noise 2026-06-17 (offline Baseline) | siehe `pt_im_bias_statevector_results.json` | n/a | mean −0.0001, std 0.0103 |
+| Fez 2026-06-10 (VQE optimum 5-pub) | 0.0131 | 0.0299 | **−0.0169** |
+| Statevector 2026-06-17 (10-iter, suboptimal) | 0.0084 | 0.0299 | **−0.0215** |
+| Statevector+Noise 2026-06-17 (offline baseline) | see `pt_im_bias_statevector_results.json` | n/a | mean −0.0001, std 0.0103 |
 
-### Neue Skripte (alle fertig, QPU-Blockade 13:08 UTC)
+### New scripts (all finished, QPU blockade 13:08 UTC)
 
-- **`pt_im_bias_prereg.json`** — Prereg VOR Skript: H_Im_h1/h2/h3 + Entscheidungsregel
-- **`pt_im_bias_sweep_token1.py`** — 5 sequenzielle 1-Pub-Jobs auf Im(H_PT)
-- **`pt_im_bias_statevector.py`** — Offline-Baseline mit Sampling-Noise-Simulator
-- **`pt_potential_vqe_initial_token1.py`** — TOKEN1 vs TOKEN2 Vergleich
-- **`tests/test_pt_im_bias.py`** — 22 Tests grün (Operator, Prereg, Verdict, Anti-Sharpshooter)
+- **`pt_im_bias_prereg.json`** — prereg BEFORE script: H_Im_h1/h2/h3 + decision
+  rule
+- **`pt_im_bias_sweep_token1.py`** — 5 sequential 1-pub jobs on Im(H_PT)
+- **`pt_im_bias_statevector.py`** — offline baseline with sampling-noise
+  simulator
+- **`pt_potential_vqe_initial_token1.py`** — TOKEN1 vs TOKEN2 comparison
+- **`tests/test_pt_im_bias.py`** — 22 tests green (operator, prereg, verdict,
+  anti-sharpshooter)
 
-### TOKEN1-Blockade bestätigt (KORREKTUR 13:08 UTC)
+### TOKEN1 blockade confirmed (CORRECTION 13:08 UTC)
 
-- 4 Jobs QUEUED, 0 RUNNING (Diagnose war Falle)
-- Echte QPU-Validierung: 1.7.2026 Fez-Reset (Cron `b3f26579`)
-- Wenn Fez dann `|bias| > 0.020` zeigt: Hardware-Decay-Signal (NEUER BEFUND)
-- Wenn Fez dann `|bias| < 0.005` zeigt: H_Im_h1 bestätigt, REFRAMING auf A+
+- 4 jobs QUEUED, 0 RUNNING (diagnosis was a trap)
+- Real QPU validation: 1.7.2026 Fez reset (Cron `b3f26579`)
+- If Fez then shows `|bias| > 0.020`: hardware decay signal (NEW FINDING)
+- If Fez then shows `|bias| < 0.005`: H_Im_h1 confirmed, REFRAMING to A+
 
-### Säule 1 umdefiniert
+### Säule 1 redefined
 
-- Vorher: "VQE+VQD am Optimum" mit `bias_PT_re`-Metrik
-- Nachher: "Im-Bias-Sweep über θ" mit `Im_bias = <Im>_QPU(θ) - <Im>_statevector(θ)`
+- Before: "VQE+VQD at optimum" with `bias_PT_re` metric
+- After: "Im-bias sweep over θ" with
+  `Im_bias = <Im>_QPU(θ) - <Im>_statevector(θ)`
 
-### Test-Coverage
+### Test coverage
 
-| Datum | Tests grün |
+| Date | Tests green |
 |---|---:|
-| 2026-06-08 (TDD-Start) | 54 |
+| 2026-06-08 (TDD start) | 54 |
 | 2026-06-17 13:00 | 150 |
 | 2026-06-17 13:08 | **172** (+22 Im-Bias) |
 
-### Commits (Stand 2026-06-17 13:10)
+### Commits (as of 2026-06-17 13:10)
 
-- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
-- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
-- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
+- `d8ef466` — Token diagnosis + statevector VQE+VQD fallback
+- `8c558f3` — Tests: coverage doubled (66 → 123)
+- `2ad86c8` — Asymptotics N=10⁴..10⁶ (H_C confirmed)
 - `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11)
 - `d77cf44` — Plans updated (Investigation + Architecture)
-- **NEU:** Im-Bias-Reanalyse + TOKEN1-Blockade-Bestätigung
+- **NEW:** Im-Bias reanalysis + TOKEN1 blockade confirmation
 
 ---
 
-## Update 2026-06-17 17:25 UTC — TOKEN2-Wende: H_Im_h1 echt QPU-bestätigt + Test-Bug-Fix
+## Update 2026-06-17 17:25 UTC — TOKEN2 Turnaround: H_Im_h1 Real-QPU Confirmed + Test Bug Fix
 
-### Drei strategische Wendepunkte seit 13:10 UTC
+### Three strategic turning points since 13:10 UTC
 
-1. **TOKEN2 nach 8-Tage-Blockade wieder offen** (17:15 UTC) — Diagnose-Job `d8pbjqq01fac73d1gc0g` DONE nach 1s QPU-Zeit
-2. **H_Im_h1 echt QPU-bestätigt** (17:19 UTC) — 5 sequenzielle 1-Pub-Jobs in 17s DONE, alle |bias| < 0.005
-3. **Test-Bug behoben** (17:25 UTC) — `pt_potential_vqe_prereg.json` wurde von Test-Fixture gelöscht, jetzt mit Backup-Restore + Regression-Test
+1. **TOKEN2 open again after 8-day blockade** (17:15 UTC) — diagnostic job
+   `d8pbjqq01fac73d1gc0g` DONE after 1s QPU time
+2. **H_Im_h1 real-QPU confirmed** (17:19 UTC) — 5 sequential 1-pub jobs in 17s
+   DONE, all |bias| < 0.005
+3. **Test bug fixed** (17:25 UTC) — `pt_potential_vqe_prereg.json` was deleted
+   by test fixture, now with backup-restore + regression test
 
-### TOKEN2-Durchbruch (17:15 UTC)
+### TOKEN2 breakthrough (17:15 UTC)
 
-**Befund:** Diagnose-Job `d8pbjqq01fac73d1gc0g` (2Q-Bell, 10 shots) auf Fez/TOKEN2 → **DONE** nach 1 Sekunde QPU-Zeit (15:14:59 → 15:15:00 UTC). 8-Tage-Blockade ist vorbei.
+**Finding:** Diagnostic job `d8pbjqq01fac73d1gc0g` (2Q Bell, 10 shots) on
+Fez/TOKEN2 → **DONE** after 1 second QPU time (15:14:59 → 15:15:00 UTC). 8-day
+blockade is over.
 
-**TOKEN2 Account-Details (KORREKTUR):**
-- `instance="open-instance"` (anders als TOKEN1's `"open"`)
-- Backends: ibm_fez, ibm_marrakesh, ibm_kingston (alle 156 Qubits)
-- QPU-Zeit-Verhalten: gleitende 10-Min-Quote, Pipeline extrem effizient
+**TOKEN2 account details (CORRECTION):**
+- `instance="open-instance"` (different from TOKEN1's `"open"`)
+- Backends: ibm_fez, ibm_marrakesh, ibm_kingston (all 156 qubits)
+- QPU time behavior: sliding 10-min quota, pipeline extremely efficient
 
-**TOKEN1-Status (KORREKTUR 17:15 UTC):**
-- 2 M1-Priority-Jobs (`d8p9itmgbcrc73f1m4t0`, `d8p9njugbcrc73f1mc4g`) hingen 130-140 Min in QUEUED, **0 RUNNING** — Quarantäne-Blockade bestätigt
-- Beide gecancelt, 16 weitere alte Jobs gecancelt (`pt_ibmq_cancel_log_2026_06_17.json`)
+**TOKEN1 status (CORRECTION 17:15 UTC):**
+- 2 M1-priority jobs (`d8p9itmgbcrc73f1m4t0`, `d8p9njugbcrc73f1mc4g`) hung
+  130-140 min in QUEUED, **0 RUNNING** — quarantine blockade confirmed
+- Both cancelled, 16 additional old jobs cancelled
+  (`pt_ibmq_cancel_log_2026_06_17.json`)
 
-### H_Im_h1 echt QPU-bestätigt (17:19 UTC)
+### H_Im_h1 real-QPU confirmed (17:19 UTC)
 
 **Setup:**
-- Skript: `pt_im_bias_sweep_token2.py` (Variante mit `instance="open-instance"`, `idx|all`-Aufrufmuster)
-- Ansatz: n_local(2, ['ry'], 'cx', 'linear', reps=1) — 4 Parameter
-- Operator: Im(H_PT) = (H_PT - H_PT†)/(2i) — anti-Hermitescher Anteil
-- 5 θ-Punkte: θ_initial, θ_random_1, θ_random_2, θ_VQE_optimal, θ_random_3
-- 4096 Shots, DD-XX, resilience=0
+- Script: `pt_im_bias_sweep_token2.py` (variant with `instance="open-instance"`,
+  `idx|all` call pattern)
+- Ansatz: n_local(2, ['ry'], 'cx', 'linear', reps=1) — 4 parameters
+- Operator: Im(H_PT) = (H_PT - H_PT†)/(2i) — anti-Hermitian part
+- 5 θ points: θ_initial, θ_random_1, θ_random_2, θ_VQE_optimal, θ_random_3
+- 4096 shots, DD-XX, resilience=0
 
-**Job-IDs (alle Fez/TOKEN2):**
+**Job IDs (all Fez/TOKEN2):**
 
-| # | θ-Punkt | Job-ID |
+| # | θ point | Job-ID |
 |---|---|---|
 | 1 | θ_initial | `d8pbl2201fac73d1gdag` |
 | 2 | θ_random_1 | `d8pbl2eab0ds73dos8a0` |
@@ -904,9 +970,9 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | 4 | θ_VQE_optimal | `d8pbl2q01fac73d1gdcg` |
 | 5 | θ_random_3 | `d8pbl3ekodhs7381kec0` |
 
-**Ergebnis:**
+**Result:**
 
-| # | θ-Punkt | <Im>_QPU | <Im>_statevector | bias | |bias| |
+| # | θ point | <Im>_QPU | <Im>_statevector | bias | |bias| |
 |---|---|---:|---:|---:|---:|
 | 1 | θ_initial | +0.0467 | +0.0485 | −0.0018 | 0.0018 |
 | 2 | θ_random_1 | +0.0291 | +0.0269 | +0.0022 | 0.0022 |
@@ -914,70 +980,90 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | 4 | θ_VQE_optimal | +0.0100 | +0.0084 | +0.0015 | 0.0015 |
 | 5 | θ_random_3 | +0.0151 | +0.0149 | +0.0002 | 0.0002 |
 
-**Statistik:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **Alle 5 |bias| < 0.005** → **H_Im_h1 bestätigt** (additive Bias-Topologie, Sampling-Noise dominiert).
+**Statistics:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **All 5
+|bias| < 0.005** → **H_Im_h1 confirmed** (additive bias topology, sampling noise
+dominates).
 
-**Bedeutung:** Besser als statevector+Noise-Vorhersage (~0.01 std). Fez liefert erstaunlich saubere Schätzungen für 2-Qubit-Estimatoren. **REFRAMING_VECTOR_RELATIVE_SPECTRUM: A → A+ promoviert**.
+**Significance:** Better than statevector+noise prediction (~0.01 std). Fez
+delivers surprisingly clean estimates for 2-qubit estimators.
+**REFRAMING_VECTOR_RELATIVE_SPECTRUM: A → A+ promoted**.
 
-### Strategische Vektor-Update (Stand 17:19 UTC)
+### Strategic vector update (as of 17:19 UTC)
 
-| Vektor | Status 13:08 UTC | Status 17:19 UTC | Promotion |
+| Vector | Status 13:08 UTC | Status 17:19 UTC | Promotion |
 |---|---|---|---|
-| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (offline + Prereg) | **A+** (Aer + Fez 17:18 UTC, H_Im_h1 echt QPU-bestaetigt) | **PROMOVIERT** |
-| IM_BIAS_AS_KANONISCHE_METRIK | A− (statevector+Noise) | **A** (Fez/TOKEN2 5 Sweep-Punkte, alle |bias| < 0.005) | **PROMOVIERT** |
-| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stabil |
-| G-APPARAT_DETERMINISTIC | A | A | stabil |
-| SUB_RH_INDICATOR | A− (6 Dekaden) | A− | stabil |
-| LATORRE_SPANNUNG | "Fundamentale Disagreement" | unverändert | stabil |
-| VQE+VQD Fez (Q3 2026) | offen | offen | unverändert |
+| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (offline + prereg) | **A+** (Aer + Fez 17:18 UTC, H_Im_h1 real-QPU confirmed) | **PROMOTED** |
+| IM_BIAS_AS_KANONISCHE_METRIK | A− (statevector+noise) | **A** (Fez/TOKEN2 5 sweep points, all |bias| < 0.005) | **PROMOTED** |
+| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stable |
+| G-APPARAT_DETERMINISTIC | A | A | stable |
+| SUB_RH_INDICATOR | A− (6 decades) | A− | stable |
+| LATORRE_SPANNUNG | "Fundamental Disagreement" | unchanged | stable |
+| VQE+VQD Fez (Q3 2026) | open | open | unchanged |
 
-### Test-Bug-Fix (17:25 UTC)
+### Test bug fix (17:25 UTC)
 
-**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present` hatte im `finally`-Block ein `os.remove("pt_potential_vqe_prereg.json")`. Mein eigener `pytest tests/`-Lauf um 17:21 UTC hat den Test getriggert → Original-Prereg-Datei aus dem Working Tree gelöscht.
+**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present`
+had an `os.remove("pt_potential_vqe_prereg.json")` in the `finally` block. My
+own `pytest tests/` run at 17:21 UTC triggered the test → original prereg file
+deleted from the working tree.
 
 **Fix:**
-1. **Backup-vor-Schreiben:** `backup = prereg_path.read_text()` vor `prereg_path.write_text(test_prereg)`
-2. **Original-Wiederherstellung im `finally`-Block** statt Löschen
-3. **Neuer Regression-Test** `test_preserves_existing_prereg_after_run` mit MD5-Vergleich vor/nach
-4. **Wiederherstellung** der Original-Datei aus `git show 7015454:pt_potential_vqe_prereg.json` (vollständiger Inhalt: noiseless, H1_additive, H2_multiplicative_k25, H3_decoherence_p0.3, H_diag_exact, decision_rule)
+1. **Backup before writing:** `backup = prereg_path.read_text()` before
+   `prereg_path.write_text(test_prereg)`
+2. **Original restoration in the `finally` block** instead of deleting
+3. **New regression test** `test_preserves_existing_prereg_after_run` with MD5
+   comparison before/after
+4. **Restoration** of the original file from
+   `git show 7015454:pt_potential_vqe_prereg.json` (full content: noiseless,
+   H1_additive, H2_multiplicative_k25, H3_decoherence_p0.3, H_diag_exact,
+   decision_rule)
 
-**Verifikation:**
-- 173/173 Tests grün (vorher 172, +1 Regression-Test)
-- Prereg-MD5 = `839837f42ef3922cd7ab003c9dc8a633` — unverändert vor/nach Test
+**Verification:**
+- 173/173 tests green (before 172, +1 regression test)
+- Prereg MD5 = `839837f42ef3922cd7ab003c9dc8a633` — unchanged before/after test
 
-**Lessons Learned (Anti-Sharpshooter):**
-- Tests dürfen Prereg-Dateien nur in `tempdir` schreiben, nie im Working Tree
-- Jeder `finally`-Block mit destruktiver Cleanup-Logik ist verdächtig
-- Eigener `pytest tests/`-Aufruf hat den Bug getriggert — Selbstkritik: Anti-Pattern hätte vorher gesehen werden müssen
+**Lessons learned (anti-sharpshooter):**
+- Tests may only write prereg files in `tempdir`, never in the working tree
+- Every `finally` block with destructive cleanup logic is suspicious
+- Own `pytest tests/` call triggered the bug — self-criticism: anti-pattern
+  should have been seen beforehand
 
-### Cron-Plan (KORREKTUR 17:19 UTC)
+### Cron plan (CORRECTION 17:19 UTC)
 
-- **7307190e:** abgeschaltet (TOKEN2-Blockade ist vorbei, kein Fallback mehr nötig)
-- **b3f26579:** 1.7.2026 10:00 — bleibt als zusätzlicher Sicherheits-Trigger
-- **NEUE STRATEGIE:** Token-Diagnose vor jedem QPU-Lauf, statevector-Fallback nicht mehr Default
+- **7307190e:** turned off (TOKEN2 blockade is over, no fallback needed)
+- **b3f26579:** 1.7.2026 10:00 — remains as additional safety trigger
+- **NEW STRATEGY:** token diagnosis before every QPU run, statevector fallback
+  no longer default
 
-### Test-Coverage (KORREKTUR 17:25 UTC)
+### Test coverage (CORRECTION 17:25 UTC)
 
-| Datum | Tests grün | Dateien | Δ |
+| Date | Tests green | Files | Δ |
 |---|---:|---:|---|
 | 2026-06-17 13:00 | 150 | 9 | baseline |
 | 2026-06-17 13:08 | 172 | 10 | +22 (Im-Bias) |
-| **2026-06-17 17:25** | **173** | **10** | **+1 (Regression-Test Prereg-Protection)** |
+| **2026-06-17 17:25** | **173** | **10** | **+1 (regression test prereg protection)** |
 
-### Commits (Stand 2026-06-17 17:25 UTC)
+### Commits (as of 2026-06-17 17:25 UTC)
 
-- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
-- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
-- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
+- `d8ef466` — Token diagnosis + statevector VQE+VQD fallback
+- `8c558f3` — Tests: coverage doubled (66 → 123)
+- `2ad86c8` — Asymptotics N=10⁴..10⁶ (H_C confirmed)
 - `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11)
 - `d77cf44` — Plans updated (Investigation + Architecture)
-- `af0d2a9` — SYNTHESIS 2026-06-17 13:10: Im-Bias-Reanalyse
-- `cc906f6` — AUDIT 2026-06-17 14:48: 18 QUEUED Jobs + Priorisierung
-- **`8541237` — DURCHBRUCH 17:19: H_Im_h1 echt QPU-bestaetigt auf Fez/TOKEN2** (NEU)
-- **`d0cfae7` — FIX 17:25: Test-Bug pt_potential_vqe_prereg.json geloescht, + Regression-Test** (NEU)
+- `af0d2a9` — SYNTHESIS 2026-06-17 13:10: Im-Bias reanalysis
+- `cc906f6` — AUDIT 2026-06-17 14:48: 18 QUEUED jobs + prioritization
+- **`8541237` — BREAKTHROUGH 17:19: H_Im_h1 real-QPU confirmed on Fez/TOKEN2**
+  (NEW)
+- **`d0cfae7` — FIX 17:25: test bug pt_potential_vqe_prereg.json deleted,
+  + regression test** (NEW)
 
-### Nächste Schritte (Q3 2026)
+### Next steps (Q3 2026)
 
-1. **VQE+VQD auf Fez/TOKEN2** (`pt_vqe_vqd_token2.py` umstellen) — statevector-Wert bias_PT_re = 0.000 bestätigt, jetzt QPU-Validierung
-2. **Latorre-Spannung Preprint** (Q3 2026) — H_C ist statevector-validiert für 6 Dekaden, Aer + Fez doppelt validiert
-3. **Sub-RH-Indikator Promotion** auf A? — wenn VQE+QPU+Sweeps konsistent, Promotion zu A
-4. **TOKEN1 Backup** behalten — bei TOKEN2-Ausfall (Kontingent) noch ein Konto
+1. **VQE+VQD on Fez/TOKEN2** (switch to `pt_vqe_vqd_token2.py`) — statevector
+   value bias_PT_re = 0.000 confirmed, now QPU validation
+2. **Latorre tension preprint** (Q3 2026) — H_C is statevector-validated for 6
+   decades, Aer + Fez double-validated
+3. **Sub-RH indicator promotion** to A? — if VQE+QPU+sweeps are consistent,
+   promotion to A
+4. **TOKEN1 backup** retained — in case of TOKEN2 failure (quota) still one
+   account
