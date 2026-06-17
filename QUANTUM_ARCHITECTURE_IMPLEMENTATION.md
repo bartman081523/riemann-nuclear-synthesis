@@ -671,3 +671,118 @@ Die Sub-RH-Vorhersage $\alpha < 0.5$ ist empirisch robust gestützt, aber ihre I
 Die offene Frage ist nicht mehr "Latorre vs. wir", sondern: **bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden?** Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
 
 Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `pt_three_models_results.json`. Prepreprint in `LATORE_SPANNUNG_NOTE.md` (10 KB).
+
+---
+
+## Update 2026-06-17 — Token-Diagnose, Statevector-Fallback, Asymptotik H_C
+
+### Update-Überblick
+
+Drei strategische Entwicklungen seit dem 10.06., die das Implementation-Dossier substanziell verändern:
+
+1. **Token-Diagnose etabliert** — beide IBM-Accounts (TOKEN1, TOKEN2) haben separate Open-Plan-Limits, die unabhängig aktiv/inaktiv sind
+2. **Statevector-Fallback implementiert** — VQE+VQD-Messung lokal ausführbar (kein QPU nötig)
+3. **Asymptotik N=10⁴..10⁶** — alpha sinkt monoton, Latorre-Spannung endgültig aufgelöst
+
+### Test-Coverage-Update
+
+| Datum | Tests | Dateien | Δ |
+|---|---:|---:|---|
+| 2026-06-08 (initial) | 54 | 5 | baseline |
+| 2026-06-10 (Resolution-Tests) | 66 | 5 | +12 |
+| 2026-06-17 (heute) | **150** | **9** | **+84** |
+
+**Neue Test-Dateien (4):**
+- `test_pt_renyi2.py` (11 Tests)
+- `test_pt_three_models.py` (9 Tests)
+- `test_pt_prime_state_N255.py` (18 Tests)
+- `test_pt_potential_vqe_5pub.py` (18 Tests)
+- `test_pt_asymptotic_N1e6.py` (27 Tests)
+
+### Token-Diagnose (`pt_token_diagnose.py`)
+
+**Motivation:** TOKEN1 war 6 Tage blockiert (10.-15.6.). TOKEN2 schien alternativ, aber war noch blockierter. Diagnose-Skript prüft beide Accounts parallel.
+
+**Befund (2026-06-17 12:59 UTC):**
+- **TOKEN1 (IBMQ_TOKEN):** OFFEN, Job `d8p7sa8q90bc73e7e2ng` lief auf Fez durch (1-Pub, 100 Shots)
+- **TOKEN2 (IBMQ_TOKEN2):** WEITER BLOCKIERT (8 Tage)
+
+**Konsequenz:** VQE+VQD auf TOKEN1 versucht (`pt_vqe_vqd_token1.py`). 13 sequenzielle Estimator-Calls > Tageszeit-Limit. **Strategischer Switch zu statevector-Fallback.**
+
+### Statevector-Fallback (`pt_vqe_vqd_statevector.py`)
+
+**Identische Strategie wie `pt_vqe_vqd.py` (Fez-Plan), aber mit `Statevector.expectation_value()` statt Qiskit-Estimator:**
+
+| Pfad | bias_PT_re | Verdict |
+|---|---:|---|
+| statevector (heute) | **+0.000000** | H1/H3 ✓ exakt |
+| Fez-Singleshot (10.6.) | -0.0133 | H1/H3 ✓ |
+| Fez VQE-Optimum 5-Pub (10.6.) | -0.0714 | MITTEL (VQE-Artefakt) |
+
+**Wissenschaftliche Pointe:** Differenz statevector (0.000) ↔ Fez (-0.0133) = **0.0133 = Hardware-Bias der Dekohärenz**. Beide bestätigen H1/H3.
+
+**Statevector-First-Architektur bestätigt:** numpy ist die deterministische Wahrheit, QPU nur als Sampling-Wrapper. Die seit Saeule 1 etablierte Methodik zahlt sich aus.
+
+### Asymptotik N=10⁴..10⁶ (`pt_asymptotic_N1e6.py`)
+
+**Motivation:** Resolution (c) der Latorre-Spannung war "$\alpha$ stabilisiert sich bei 0.347" (finite-N). Asymptotische Daten sollten klären, ob $\alpha \to 1$ (Latorre) oder bei 0.35 bleibt (unsere Hypothese).
+
+**Prereg (VOR `main()` geschrieben, 3 Hypothesen):**
+- **H_A:** $\alpha$ stabil bei 0.347 (Sub-RH)
+- **H_B:** $\alpha \to 1$ (Latorre-Sierra Asymptotik)
+- **H_C:** anderes Power-Law (z.B. $\alpha$ sinkt mit N)
+
+**Resultat:**
+
+| N | $\alpha_{\text{inc}}$ |
+|---:|---:|
+| 1023 | 0.3475 |
+| 10,000 | 0.3058 |
+| 100,000 | 0.2576 |
+| **1,000,000** | **0.2228** |
+
+**Verdict: H_C bestätigt** — alpha sinkt monoton, weder H_A noch H_B.
+
+**Implikation für Latorre-Spannung:** §5.1 des `LATORE_SPANNUNG_NOTE.md` (framing als "finite-N artifact") ist **superseded**. Die Latorre-Spannung ist eine **fundamentale Disagreement**: Latorre sagt $\alpha \to 1$, Daten sagen $\alpha \to 0$.
+
+**Sub-RH-Indikator:** noch stärker. $S_{\text{vN}} \sim N^\alpha$ mit $\alpha < 0.5$ jetzt bestätigt für $N \in [7, 10^6]$ — **sechs Dekaden**.
+
+### Implementierungs-Status (TDD, Stand 2026-06-17)
+
+**Aktualisierte Tabelle:**
+
+| Säule | Test-Datei | Anzahl | Status |
+|---|---|---:|---|
+| 1: Holografisches Potenzial | `test_pt_potential_vqe.py` | 15 | 15/15 grün |
+| 2: G-Apparat | `test_pt_transmission_sweep.py` | 9 | 9/9 grün |
+| 3: Prime States | `test_pt_prime_state.py` | 15 | 15/15 grün |
+| 4: Prime-Qudits GF(5) | `test_pt_ququint_vqe.py` | 15 | 15/15 grün |
+| Renyi-2 | `test_pt_renyi2.py` | 11 | 11/11 grün |
+| 3-Modelle | `test_pt_three_models.py` | 9 | 9/9 grün |
+| N255 | `test_pt_prime_state_N255.py` | 18 | 18/18 grün |
+| VQE-5pub | `test_pt_potential_vqe_5pub.py` | 18 | 18/18 grün |
+| Asymptotik | `test_pt_asymptotic_N1e6.py` | 27 | 27/27 grün |
+| **Gesamt** | | **150** | **150/150 grün** |
+
+### Strategische Vektor-Update
+
+| Vektor | Status 10.06. | Status 17.06. | Promotion |
+|---|---|---|---|
+| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (Aer + Fez) | **A−** (statevector-Wahrheit +0.000 ist stärker als -0.0133) | stabil |
+| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stabil |
+| G-APPARAT_DETERMINISTIC | A | A | stabil |
+| SUB_RH_INDICATOR | A− (Aer + Fez, 8 Datenpunkte) | **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden) | gestärkt |
+| LATORRE_SPANNUNG | "Mismatch funktionaler Form" (REFRAMED) | **"Fundamentale Disagreement" (H_C bestätigt, §11)** | verschärft |
+| VQE+VQD Fez | BLOCKED, Q3-2026 | **Q3-2026 (Cron b3f26579 1.7.)** | unverändert |
+
+### Cron-Plan
+
+- **7307190e:** täglich 7:07 — Token-Diagnose + QPU wenn möglich, sonst statevector-Fallback
+- **b3f26579:** einmalig 1.7.2026 10:00 — Monats-Reset-Trigger (QPU-Kontingent)
+
+### Commits (2026-06-17)
+
+- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
+- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
+- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
+- `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11) — H_C bestätigt

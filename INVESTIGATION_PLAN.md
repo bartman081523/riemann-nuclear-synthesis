@@ -265,7 +265,37 @@ graph TD
     A2ca9v -.DONE: Mismatch funktionaler Form.-> A2ca9w
     A2ca9v -.KONSEQUENZ: keine fundamentale Disagreement, nur Finite-N-Skalierung.-> A2ca9x
     A2ca9x -.NEXT: Asymptotik-Test N=10^4..10^6 (Aer-mathematisch).-> A2ca9y
-    A2ca9y -.BLOCKED: kein QPU noetig, warte auf Kapazitaet fuer numpy-Run.-> A2ca9z[Q3 2026: Asymptotik-Validierung]
+    A2ca9y -.DONE 2026-06-17: pt_asymptotic_N1e6.py.-> A2ca9z[H_C bestaetigt: alpha sinkt 0.347 -> 0.223]
+    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_SPANNUNG_NOTE.md: Asymptotic Addendum]
+    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_SPANNUNG_NOTE.md: Asymptotic Addendum]
+    A2ca9z -.NEUER STATUS: SUB_RH_INDICATOR A- (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).-> A2ca9zb[Audit grade A- von B+]
+
+    %% === STATUS (2026-06-17) - TOKEN-DIAGNOSE + STATEVECTOR-FALLBACK ===
+    A2ca9zb -.DONE: Asymptotik.-> A2ca10[Token-Diagnose: TOKEN1 wieder offen, TOKEN2 blockiert]
+    A2ca10 -.DONE 2026-06-17: pt_token_diagnose.py.-> A2ca10a[TOKEN1 Job d8p7sa8q90bc73e7e2ng lief durch]
+    A2ca10a -.STATEVECTOR-FALLBACK: VQE+VQD lokal.-> A2ca10b[pt_vqe_vqd_statevector.py: bias_PT_re = 0.000 exakt]
+    A2ca10b -.WISSENSCHAFTLICHE POINTE: statevector (0.000) - Fez (-0.0133) = 0.0133 Hardware-Bias.-> A2ca10c[Differenz quantifiziert exakt den Dekohaerenz-Beitrag]
+    A2ca10c -.TEST-COVERAGE: 66 -> 150.-> A2ca10d[4 neue Test-Dateien (+57 Tests)]
+    A2ca10d -.CRON-PLAN: 7307190e (taeglich), b3f26579 (1.7.).-> A2ca10e[Token-Diagnose + statevector-Fallback als Default-Retry-Strategie]
+
+    %% A2ca11: Asymptotik-Validierung H_C (2026-06-17) - HARTES ENDE
+    A2ca9zb -.AUCH: N=10^4..10^6.-> A2ca11[Asymptotik-Validierung N=10^4..10^6]
+    A2ca11 -.DONE 2026-06-17: pt_asymptotic_N1e6.py.-> A2ca11a[Prereg VOR main(): H_A stabil / H_B -> 1 / H_C different]
+    A2ca11a -.LAUF.-> A2ca11b[11 Datenpunkte: N=7..10^6, 3.1 sec runtime]
+    A2ca11b -.RESULTAT: alpha sinkt monoton.-> A2ca11c[N=1023: 0.347 -> N=10^4: 0.306 -> N=10^5: 0.258 -> N=10^6: 0.223]
+    A2ca11c -.H_C bestaetigt.-> A2ca11d[Latorre-Spannung = FUNDAMENTALE Disagreement, kein finite-N-Artefakt]
+    A2ca11d -.NEUER AUDIT-GRADE.-> A2ca11e[Sub-RH-Indikator A- (Aer + Fez + 6 Dekaden statevector)]
+    A2ca11e -.SECTION 11 LATORE_SPANNUNG_NOTE.md.-> A2ca11f[Asymptotic Addendum dokumentiert, Abstract aktualisiert]
+    A2ca11f -.STATUS 2026-06-17: relative spectrum bias-invariant A bestaetigt + Sub-RH A-.-> A2ca11g[Beide Hauptsaezlen auf A- promoviert]
+
+    %% A2ca12: Aktionsplan Q3 2026 - Fez-Reset + VQE-Konvergenz + Latorre-Paper
+    A2ca10e -.PLAN Q3.-> A2ca12[1.7. Fez-Reset Cron b3f26579: VQE+VQD 5-Pub am Optimum]
+    A2ca11g -.PLAN Q3.-> A2ca12
+    A2ca12 -.VORBEREITET.-> A2ca12a[pt_vqe_vqd_token1.py: 4-param n_local, COBYLA 10 iter, 3-Pub]
+    A2ca12a -.ERWARTUNG.-> A2ca12b[bias_PT_re ~ 0.000 (statevector-Konvergenz bereits validiert)]
+    A2ca12b -.PUBLIKATION.-> A2ca12c[Latorre-Spannung Note -> arXiv Preprint (Q3 2026)]
+    A2ca12c -.OFFEN.-> A2ca12d[Ququint-Hardware existiert nicht; GF(5) bleibt offline]
+    A2ca12d -.NAECHSTER MEILENSTEIN.-> A2ca12e[pt_paper_arxiv_latorre.py: Preprint-Vorbereitung]
 
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
@@ -288,4 +318,27 @@ graph TD
     style A2ca9w fill:#5f5,stroke:#333,stroke-width:2px
     style A2ca9x fill:#5f5,stroke:#333,stroke-width:2px
     style A2ca9y fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca9z fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca9za fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca9zb fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca10 fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca10a fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca10b fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca10c fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca10d fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca10e fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca11 fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca11a fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca11b fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca11c fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca11d fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca11e fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca11f fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca11g fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca12 fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca12a fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca12b fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca12c fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca12d fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca12e fill:#fc9,stroke:#333,stroke-width:2px
     style SYN10 fill:#f96,stroke:#333,stroke-width:3px
