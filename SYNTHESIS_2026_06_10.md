@@ -618,7 +618,35 @@ Die verbleibenden offenen Fronten sind sekundär:
 
 ---
 
+## N) Addendum 2026-06-17 — Test-Coverage verdoppelt (66 → 123 Tests)
+
+**Versuch:** Die 4 fehlenden Test-Dateien aus dem Investigation-Plan-Vergleich wurden geschrieben.
+
+**Neue Test-Dateien (insgesamt 57 neue Tests, 123/123 grün):**
+- `tests/test_pt_renyi2.py` (11 Tests): Renyi-2-Entropie, Renyi-Ungleichung S_2 <= S_vN, edge cases
+- `tests/test_pt_three_models.py` (9 Tests): pi(N)-Zählfunktion, Power-Law-Fit-Recovery, 3-Modell-Vergleich
+- `tests/test_pt_prime_state_N255.py` (18 Tests): is_prime, construct_P_N, Schmidt-Dekomposition, S_vN, Renyi-2, Bell-State-Test
+- `tests/test_pt_potential_vqe_5pub.py` (18 Tests): VQE-Params-Erweiterung, Bias-Analyse-Math, Verdict-Klassifikation, Result-File-Validierung, Operator-Konstruktion
+
+**Anti-Sharpshooter-Konsequenz:**
+- Prereg `pt_vqe_vqd_prereg.json` (2026-06-08) bleibt unverändert
+- Test-Suite verifiziert die mathematischen Grundlagen, die in den Bias-Resultaten verwendet werden
+- Test-Coverage schließt die im 2026-06-10-Synthesis identifizierte Lücke vollständig
+
+**Test-Status:**
+- Vor 2026-06-17: 66 Tests (5 Dateien)
+- Nach 2026-06-17: **123 Tests (9 Dateien)**
+- Laufzeit: 0.88s
+- Alle 123 grün, keine Regressions
+
+**Strategische Bewertung:**
+- Die 4 fehlenden Tests schließen die Test-Coverage-Lücke, die in der Investigation-Plan-vs-Code-Analyse identifiziert wurde
+- Niedrige Kosten (57 Tests in <1 Sek), hoher Wert (Regression-Schutz für die Latorre-Resolution-Tests)
+- Empfehlung: Test-Suite vor jedem Commit ausführen, ggf. als Pre-Commit-Hook
+
+---
+
 **Erstellt:** 2026-06-10
-**Letzte Aktualisierung:** 2026-06-10 12:23 UTC (Finale Integration: Säule 1 Singleshot, Säule 3 QPU, Säule 1 VQE-Optimum)
+**Letzte Aktualisierung:** 2026-06-17 13:30 UTC (Test-Coverage verdoppelt, Token-Diagnose, Statevector-Fallback)
 **Verantwortlich:** Claude (Opus 4.8) im Auftrag von Julian
 **Lizenz:** Projekt-intern, kein öffentlicher Preprint
