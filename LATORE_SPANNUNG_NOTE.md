@@ -8,6 +8,23 @@ license: "CC-BY 4.0 (proposed)"
 
 # Sub-linear Entanglement Scaling of the Prime State: A QPU-validated Tension with Latorre–Sierra (2020)
 
+## Document Map
+
+Pre-preprint zur Latorre–Sierra-Spannung (Säule 3 des Hauptprojekts). **Interne Supersession:** §5.1 ("Finite-N-Artefakt-Framing") wurde 2026-06-17 durch §11 (Asymptotik-Addendum, H_C bestätigt) abgelöst — die Spannung ist **fundamental**, kein Finite-N-Skalierungsartefakt.
+
+| Datei | Status | Rolle |
+|---|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
+| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
+| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie + §10 Operational Findings Log (Säule 3) |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | Strategische Vektoren; §Q.5 H_Im_h1-Bestätigung (Säule 1, orthogonal) |
+| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | statevector-first-Architektur (mit §Update 17:25 UTC) |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
+| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
+| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+
 ## Abstract
 
 The Prime State $|P_N\rangle = \frac{1}{\sqrt{\pi(N)}}\sum_{p\le N}|p\rangle$ of Latorre & Sierra is conjectured to encode the Riemann Hypothesis (RH) in its entanglement structure. Their 2020 analysis ("The Prime state and its quantum relatives", *Quantum* 4, 246) predicts a **linear scaling** $S_{vN}(|P_N\rangle) \sim \log \pi(N) \sim N/\log N$, i.e. a scaling exponent $\alpha \approx 1$ in $S_{vN} \propto N^\alpha$.
