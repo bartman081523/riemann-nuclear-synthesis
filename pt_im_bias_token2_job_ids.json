@@ -1,0 +1,17 @@
+{
+  "job_ids": [
+    "d8pbl2201fac73d1gdag",
+    "d8pbl2eab0ds73dos8a0",
+    "d8pbl2mab0ds73dos8ag",
+    "d8pbl2q01fac73d1gdcg",
+    "d8pbl3ekodhs7381kec0"
+  ],
+  "theta_labels": [
+    "theta_initial",
+    "theta_random_1",
+    "theta_random_2",
+    "theta_VQE_optimal",
+    "theta_random_3"
+  ],
+  "submitted_at": "2026-06-17 15:18:09 UTC"
+}
