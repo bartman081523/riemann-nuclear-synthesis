@@ -844,3 +844,123 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 - `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11)
 - `d77cf44` — Plans updated (Investigation + Architecture)
 - **NEU:** Im-Bias-Reanalyse + TOKEN1-Blockade-Bestätigung
+
+---
+
+## Update 2026-06-17 17:25 UTC — TOKEN2-Wende: H_Im_h1 echt QPU-bestätigt + Test-Bug-Fix
+
+### Drei strategische Wendepunkte seit 13:10 UTC
+
+1. **TOKEN2 nach 8-Tage-Blockade wieder offen** (17:15 UTC) — Diagnose-Job `d8pbjqq01fac73d1gc0g` DONE nach 1s QPU-Zeit
+2. **H_Im_h1 echt QPU-bestätigt** (17:19 UTC) — 5 sequenzielle 1-Pub-Jobs in 17s DONE, alle |bias| < 0.005
+3. **Test-Bug behoben** (17:25 UTC) — `pt_potential_vqe_prereg.json` wurde von Test-Fixture gelöscht, jetzt mit Backup-Restore + Regression-Test
+
+### TOKEN2-Durchbruch (17:15 UTC)
+
+**Befund:** Diagnose-Job `d8pbjqq01fac73d1gc0g` (2Q-Bell, 10 shots) auf Fez/TOKEN2 → **DONE** nach 1 Sekunde QPU-Zeit (15:14:59 → 15:15:00 UTC). 8-Tage-Blockade ist vorbei.
+
+**TOKEN2 Account-Details (KORREKTUR):**
+- `instance="open-instance"` (anders als TOKEN1's `"open"`)
+- Backends: ibm_fez, ibm_marrakesh, ibm_kingston (alle 156 Qubits)
+- QPU-Zeit-Verhalten: gleitende 10-Min-Quote, Pipeline extrem effizient
+
+**TOKEN1-Status (KORREKTUR 17:15 UTC):**
+- 2 M1-Priority-Jobs (`d8p9itmgbcrc73f1m4t0`, `d8p9njugbcrc73f1mc4g`) hingen 130-140 Min in QUEUED, **0 RUNNING** — Quarantäne-Blockade bestätigt
+- Beide gecancelt, 16 weitere alte Jobs gecancelt (`pt_ibmq_cancel_log_2026_06_17.json`)
+
+### H_Im_h1 echt QPU-bestätigt (17:19 UTC)
+
+**Setup:**
+- Skript: `pt_im_bias_sweep_token2.py` (Variante mit `instance="open-instance"`, `idx|all`-Aufrufmuster)
+- Ansatz: n_local(2, ['ry'], 'cx', 'linear', reps=1) — 4 Parameter
+- Operator: Im(H_PT) = (H_PT - H_PT†)/(2i) — anti-Hermitescher Anteil
+- 5 θ-Punkte: θ_initial, θ_random_1, θ_random_2, θ_VQE_optimal, θ_random_3
+- 4096 Shots, DD-XX, resilience=0
+
+**Job-IDs (alle Fez/TOKEN2):**
+
+| # | θ-Punkt | Job-ID |
+|---|---|---|
+| 1 | θ_initial | `d8pbl2201fac73d1gdag` |
+| 2 | θ_random_1 | `d8pbl2eab0ds73dos8a0` |
+| 3 | θ_random_2 | `d8pbl2mab0ds73dos8ag` |
+| 4 | θ_VQE_optimal | `d8pbl2q01fac73d1gdcg` |
+| 5 | θ_random_3 | `d8pbl3ekodhs7381kec0` |
+
+**Ergebnis:**
+
+| # | θ-Punkt | <Im>_QPU | <Im>_statevector | bias | |bias| |
+|---|---|---:|---:|---:|---:|
+| 1 | θ_initial | +0.0467 | +0.0485 | −0.0018 | 0.0018 |
+| 2 | θ_random_1 | +0.0291 | +0.0269 | +0.0022 | 0.0022 |
+| 3 | θ_random_2 | +0.0781 | +0.0808 | −0.0027 | 0.0027 |
+| 4 | θ_VQE_optimal | +0.0100 | +0.0084 | +0.0015 | 0.0015 |
+| 5 | θ_random_3 | +0.0151 | +0.0149 | +0.0002 | 0.0002 |
+
+**Statistik:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **Alle 5 |bias| < 0.005** → **H_Im_h1 bestätigt** (additive Bias-Topologie, Sampling-Noise dominiert).
+
+**Bedeutung:** Besser als statevector+Noise-Vorhersage (~0.01 std). Fez liefert erstaunlich saubere Schätzungen für 2-Qubit-Estimatoren. **REFRAMING_VECTOR_RELATIVE_SPECTRUM: A → A+ promoviert**.
+
+### Strategische Vektor-Update (Stand 17:19 UTC)
+
+| Vektor | Status 13:08 UTC | Status 17:19 UTC | Promotion |
+|---|---|---|---|
+| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A− (offline + Prereg) | **A+** (Aer + Fez 17:18 UTC, H_Im_h1 echt QPU-bestaetigt) | **PROMOVIERT** |
+| IM_BIAS_AS_KANONISCHE_METRIK | A− (statevector+Noise) | **A** (Fez/TOKEN2 5 Sweep-Punkte, alle |bias| < 0.005) | **PROMOVIERT** |
+| UNIFICATION_VECTOR_H_PT_GF5 | A | A | stabil |
+| G-APPARAT_DETERMINISTIC | A | A | stabil |
+| SUB_RH_INDICATOR | A− (6 Dekaden) | A− | stabil |
+| LATORRE_SPANNUNG | "Fundamentale Disagreement" | unverändert | stabil |
+| VQE+VQD Fez (Q3 2026) | offen | offen | unverändert |
+
+### Test-Bug-Fix (17:25 UTC)
+
+**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present` hatte im `finally`-Block ein `os.remove("pt_potential_vqe_prereg.json")`. Mein eigener `pytest tests/`-Lauf um 17:21 UTC hat den Test getriggert → Original-Prereg-Datei aus dem Working Tree gelöscht.
+
+**Fix:**
+1. **Backup-vor-Schreiben:** `backup = prereg_path.read_text()` vor `prereg_path.write_text(test_prereg)`
+2. **Original-Wiederherstellung im `finally`-Block** statt Löschen
+3. **Neuer Regression-Test** `test_preserves_existing_prereg_after_run` mit MD5-Vergleich vor/nach
+4. **Wiederherstellung** der Original-Datei aus `git show 7015454:pt_potential_vqe_prereg.json` (vollständiger Inhalt: noiseless, H1_additive, H2_multiplicative_k25, H3_decoherence_p0.3, H_diag_exact, decision_rule)
+
+**Verifikation:**
+- 173/173 Tests grün (vorher 172, +1 Regression-Test)
+- Prereg-MD5 = `839837f42ef3922cd7ab003c9dc8a633` — unverändert vor/nach Test
+
+**Lessons Learned (Anti-Sharpshooter):**
+- Tests dürfen Prereg-Dateien nur in `tempdir` schreiben, nie im Working Tree
+- Jeder `finally`-Block mit destruktiver Cleanup-Logik ist verdächtig
+- Eigener `pytest tests/`-Aufruf hat den Bug getriggert — Selbstkritik: Anti-Pattern hätte vorher gesehen werden müssen
+
+### Cron-Plan (KORREKTUR 17:19 UTC)
+
+- **7307190e:** abgeschaltet (TOKEN2-Blockade ist vorbei, kein Fallback mehr nötig)
+- **b3f26579:** 1.7.2026 10:00 — bleibt als zusätzlicher Sicherheits-Trigger
+- **NEUE STRATEGIE:** Token-Diagnose vor jedem QPU-Lauf, statevector-Fallback nicht mehr Default
+
+### Test-Coverage (KORREKTUR 17:25 UTC)
+
+| Datum | Tests grün | Dateien | Δ |
+|---|---:|---:|---|
+| 2026-06-17 13:00 | 150 | 9 | baseline |
+| 2026-06-17 13:08 | 172 | 10 | +22 (Im-Bias) |
+| **2026-06-17 17:25** | **173** | **10** | **+1 (Regression-Test Prereg-Protection)** |
+
+### Commits (Stand 2026-06-17 17:25 UTC)
+
+- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
+- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
+- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
+- `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11)
+- `d77cf44` — Plans updated (Investigation + Architecture)
+- `af0d2a9` — SYNTHESIS 2026-06-17 13:10: Im-Bias-Reanalyse
+- `cc906f6` — AUDIT 2026-06-17 14:48: 18 QUEUED Jobs + Priorisierung
+- **`8541237` — DURCHBRUCH 17:19: H_Im_h1 echt QPU-bestaetigt auf Fez/TOKEN2** (NEU)
+- **`d0cfae7` — FIX 17:25: Test-Bug pt_potential_vqe_prereg.json geloescht, + Regression-Test** (NEU)
+
+### Nächste Schritte (Q3 2026)
+
+1. **VQE+VQD auf Fez/TOKEN2** (`pt_vqe_vqd_token2.py` umstellen) — statevector-Wert bias_PT_re = 0.000 bestätigt, jetzt QPU-Validierung
+2. **Latorre-Spannung Preprint** (Q3 2026) — H_C ist statevector-validiert für 6 Dekaden, Aer + Fez doppelt validiert
+3. **Sub-RH-Indikator Promotion** auf A? — wenn VQE+QPU+Sweeps konsistent, Promotion zu A
+4. **TOKEN1 Backup** behalten — bei TOKEN2-Ausfall (Kontingent) noch ein Konto

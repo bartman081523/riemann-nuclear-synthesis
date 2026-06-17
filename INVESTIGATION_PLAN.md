@@ -335,6 +335,30 @@ graph TD
     A2ca16d -.WENN-OPEN.-> A2ca16g[Bei Fez-Quota-Reset: M1+Jobs sequenziell weiter]
     A2ca16e -.WENN-OPEN.-> A2ca16g
 
+    %% A2ca17: TOKEN2-Wende (2026-06-17 17:15 UTC) - 8-Tage-Blockade VORBEI
+    A2ca16g -.UMDENKEN 17:15 UTC.-> A2ca17[TOKEN2 nach 8-Tage-Blockade wieder offen]
+    A2ca17 -.DIAGNOSE.-> A2ca17a[Diagnose-Job d8pbjqq01fac73d1gc0g: DONE nach 1s QPU-Zeit]
+    A2ca17a -.TOKEN1-VERGLEICH.-> A2ca17b[TOKEN1: 2 M1-Priority-Jobs 130 Min QUEUED, 0 RUNNING]
+    A2ca17b -.STRATEGIE.-> A2ca17c[2 TOKEN1 M1-Jobs cancellen, auf TOKEN2 resubmitten]
+    A2ca17c -.CANCEL.-> A2ca17d[d8p9itmg + d8p9njug gecancelt, 16 alte Jobs gecancelt]
+    A2ca17d -.RESUBMIT.-> A2ca17e[5 sequenzielle 1-Pub Jobs auf Fez/TOKEN2 in 12s submitted]
+
+    %% A2ca18: H_Im_h1 ECHT QPU-bestaetigt (2026-06-17 17:19 UTC)
+    A2ca17e -.JOB-IDS.-> A2ca18[d8pbl2201...gdag, d8pbl2ea...os8a0, d8pbl2ma...os8ag, d8pbl2q0...gdcg, d8pbl3ek...kec0]
+    A2ca18 -.EXECUTION.-> A2ca18a[Alle 5 Jobs DONE in 17s (17:18:25 - 17:18:42 UTC)]
+    A2ca18a -.RESULT.-> A2ca18b[Alle 5 |bias| < 0.005, max 0.0027, mean -0.0001, std 0.0019]
+    A2ca18b -.VERDICT.-> A2ca18c[H_Im_h1 bestaetigt (additive Bias-Topologie, Sampling-Noise dominiert)]
+    A2ca18c -.PROMOTION.-> A2ca18d[REFRAMING_VECTOR_RELATIVE_SPECTRUM A -> A+ promoviert]
+    A2ca18d -.STRATEGIC CONSEQUENCE.-> A2ca18e[Kein Warten auf 1.7. mehr noetig, QPU-Validierung jetzt aktiv]
+
+    %% A2ca19: Test-Bug-Fix (2026-06-17 17:25 UTC) - Anti-Sharpshooter Integritaet
+    A2ca18e -.NEBENBEFUND.-> A2ca19[test_uses_existing_prereg_file_if_present loeschte pt_potential_vqe_prereg.json]
+    A2ca19 -.ROOT-CAUSE.-> A2ca19a[os.remove() im finally-Block des Tests, Anti-Pattern]
+    A2ca19a -.FIX.-> A2ca19b[Backup-vor-Schreiben, Original-Wiederherstellung im finally]
+    A2ca19b -.REGRESSION-TEST.-> A2ca19c[test_preserves_existing_prereg_after_run: MD5-Check vor/nach]
+    A2ca19c -.RESTORE.-> A2ca19d[pt_potential_vqe_prereg.json aus commit 7015454 wiederhergestellt]
+    A2ca19d -.TESTS.-> A2ca19e[173/173 gruen, Prereg-MD5 = 839837f4... (unveraendert)]
+
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
     style S5 fill:#9f9,stroke:#333,stroke-width:2px
@@ -409,3 +433,21 @@ graph TD
     style A2ca16f fill:#f96,stroke:#333,stroke-width:2px
     style A2ca16g fill:#5f5,stroke:#333,stroke-width:2px
     style SYN10 fill:#f96,stroke:#333,stroke-width:3px
+    style A2ca17 fill:#9f9,stroke:#333,stroke-width:3px
+    style A2ca17a fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca17b fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca17c fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca17d fill:#cf9,stroke:#333,stroke-width:2px
+    style A2ca17e fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca18 fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca18a fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca18b fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca18c fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca18d fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca18e fill:#9f9,stroke:#333,stroke-width:3px
+    style A2ca19 fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca19a fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca19b fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca19c fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca19d fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca19e fill:#5f5,stroke:#333,stroke-width:2px
