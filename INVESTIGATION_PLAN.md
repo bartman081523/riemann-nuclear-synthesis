@@ -315,6 +315,26 @@ graph TD
     A2ca14a -.NEUE METRIK.-> A2ca14b[Im_bias = <Im(H_PT)>_QPU(theta) - <Im(H_PT)>_statevector(theta)]
     A2ca14b -.PRUEFUNG.-> A2ca14c[Fez: wenn |bias| > 0.020, dann Hardware-Decay-Signal = NEUER BEFUND]
 
+    %% A2ca15: IBMQ-Audit + Job-Priorisierung 2026-06-17 14:48 UTC
+    A2ca14c -.AUDIT 14:48 UTC.-> A2ca15[pt_ibmq_audit_2026_06_17.json: 18 QUEUED Jobs identifiziert]
+    A2ca15 -.BEFUND.-> A2ca15a[TOKEN1/Fez pending=0 (Backend-global), 18 Jobs QUEUED - in IBM-Quarantaene]
+    A2ca15a -.TOKEN2-CHECK.-> A2ca15b[TOKEN2/Fez pending=3 (Backend-global), 0 Jobs von heute]
+    A2ca15b -.STRATEGIE.-> A2ca15c[12 alte Jobs (vor heute) cancellen, 1 Job pro Cron-Trigger]
+    A2ca15c -.PRIORITAET.-> A2ca15d[HOCH: d8p9itmg (theta_init), d8p9njug (theta_r1) - M1 Sweep]
+    A2ca15d -.PRIORITAET.-> A2ca15e[NIEDRIG: 4 Diagnose/Test-Jobs - cancellen]
+    A2ca15e -.NEUE STRATEGIE.-> A2ca15f[NUR 1 Job pro Cron-Trigger, sequenziell, nach Job-Result naechster]
+
+    %% A2ca16: Heutige 6 QUEUED Jobs (mit Priorisierung)
+    A2ca15f -.DETAIL HEUTE.-> A2ca16[Heute 10:59-14:35 UTC: 6 Jobs QUEUED]
+    A2ca16 -.JOB-A.-> A2ca16a[d8p7sa8q 10:59 - Token-Diagnose, NIEDRIG, cancellen]
+    A2ca16 -.JOB-B.-> A2ca16b[d8p7st29 11:01 - Token-Diagnose, NIEDRIG, cancellen]
+    A2ca16 -.JOB-C.-> A2ca16c[d8p97gi9 12:32 - pt_token_diagnose 100 shots, NIEDRIG, cancellen]
+    A2ca16 -.JOB-D.-> A2ca16d[d8p9itmg 12:56 - M1 theta_initial, HOCH, behalten]
+    A2ca16 -.JOB-E.-> A2ca16e[d8p9njug 13:06 - M1 theta_random_1, HOCH, behalten]
+    A2ca16 -.JOB-F.-> A2ca16f[d8pb1eug 14:35 - Test 100 shots, NIEDRIG, cancellen]
+    A2ca16d -.WENN-OPEN.-> A2ca16g[Bei Fez-Quota-Reset: M1+Jobs sequenziell weiter]
+    A2ca16e -.WENN-OPEN.-> A2ca16g
+
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
     style S5 fill:#9f9,stroke:#333,stroke-width:2px
@@ -373,4 +393,19 @@ graph TD
     style A2ca14a fill:#fc9,stroke:#333,stroke-width:2px
     style A2ca14b fill:#fc9,stroke:#333,stroke-width:2px
     style A2ca14c fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca15 fill:#cf9,stroke:#333,stroke-width:2px
+    style A2ca15a fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca15b fill:#9cf,stroke:#333,stroke-width:2px
+    style A2ca15c fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca15d fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca15e fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca15f fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca16 fill:#cf9,stroke:#333,stroke-width:2px
+    style A2ca16a fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca16b fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca16c fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca16d fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca16e fill:#5f5,stroke:#333,stroke-width:2px
+    style A2ca16f fill:#f96,stroke:#333,stroke-width:2px
+    style A2ca16g fill:#5f5,stroke:#333,stroke-width:2px
     style SYN10 fill:#f96,stroke:#333,stroke-width:3px
