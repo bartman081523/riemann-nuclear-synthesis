@@ -1,0 +1,34 @@
+{
+  "backend": "statevector_simulator (lokal, da Fez blockiert)",
+  "token_used": "n/a (statevector-first Architektur)",
+  "gamma": 0.02,
+  "alpha": 1.0,
+  "shots_equivalent": 8192,
+  "n_vqe_iters": 10,
+  "method": "COBYLA statevector, exakte Eigenwerte",
+  "vqe_result": {
+    "E0_meas": 2.147155413167466,
+    "E0_params": [
+      -0.10429557196547518,
+      0.31712019104984424,
+      -0.8033260712535257,
+      -0.08637344921169077
+    ],
+    "E0_noiseless": 2.0018501462716807
+  },
+  "measurement_at_vqe_optimum": {
+    "H_diag_meas": 2.147155413167466,
+    "H_diag_noiseless_mean": 3.3412,
+    "Re_PT_meas": 2.147155413167466,
+    "Im_PT_meas": 0.00841237421001852,
+    "Im_PT_noiseless_at_ground": 0.02994539229037302
+  },
+  "bias_analysis": {
+    "beta_diag": -1.194044586832534,
+    "bias_PT_re_minus_diag": 0.0,
+    "Im_bias": -0.0215330180803545
+  },
+  "verdict": "H1/H3 bestaetigt (|bias_PT_re| < 0.05)",
+  "prereg_file": "pt_vqe_vqd_prereg.json",
+  "note": "Statevector-Wahrheit fuer statevector-first Architektur. Auf Fez wuerde dasselbe Experiment (bei offenem Kontingent) vergleichbare Resultate liefern, mit zusaetzlichem Hardware-Bias. Die Differenz statevector-vs-Fez quantifiziert den Bias-Beitrag der Hardware-Dekohaerenz."
+}

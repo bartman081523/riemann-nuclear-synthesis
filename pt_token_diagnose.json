@@ -1,0 +1,18 @@
+{
+  "backend": "ibm_fez",
+  "gamma": 0.02,
+  "shots": 100,
+  "tokens": [
+    {
+      "token": "IBMQ_TOKEN",
+      "backend_status": {
+        "operational": true,
+        "pending_jobs": 1,
+        "status_msg": "active"
+      },
+      "has_quota": true,
+      "submit_error": null,
+      "job_id": "d8p7sa8q90bc73e7e2ng"
+    }
+  ]
+}
