@@ -1,0 +1,138 @@
+{
+  "prereg_file": "pt_qber_prereg.json",
+  "backend": "ibm_fez",
+  "instance": "open-instance",
+  "token": "IBMQ_TOKEN2",
+  "gamma": 0.02,
+  "shots": 4096,
+  "method": "5 sequenzielle 2-Job-Paare (Estimator + Sampler) auf Fez/TOKEN2",
+  "n_theta": 5,
+  "theta_labels": [
+    "theta_initial",
+    "theta_random_1",
+    "theta_random_2",
+    "theta_VQE_optimal",
+    "theta_random_3"
+  ],
+  "theta_values": [
+    [
+      0.523,
+      1.21,
+      -0.45,
+      0.88
+    ],
+    [
+      -0.788287681898749,
+      2.8319215077704234,
+      1.4576609265440963,
+      0.6198895383354297
+    ],
+    [
+      -2.4186834925256155,
+      0.6852852771057627,
+      -2.303472507305873,
+      -1.6299234883635934
+    ],
+    [
+      -0.104,
+      0.317,
+      -0.803,
+      -0.086
+    ],
+    [
+      2.1038752687204516,
+      -2.483139310363369,
+      1.5371214800300832,
+      -0.8764990959983447
+    ]
+  ],
+  "jobs": [
+    {
+      "theta_label": "theta_initial",
+      "estimator_job_id": "d8pdrdugbcrc73f1tbp0",
+      "sampler_job_id": "d8pdre6kodhs7381nmgg",
+      "theta_4": [
+        0.523,
+        1.21,
+        -0.45,
+        0.88
+      ],
+      "theta_used": [
+        0.523,
+        1.21,
+        -0.45,
+        0.88
+      ]
+    },
+    {
+      "theta_label": "theta_random_1",
+      "estimator_job_id": "d8pdrei01fac73d1jk10",
+      "sampler_job_id": "d8pdreukodhs7381nmhg",
+      "theta_4": [
+        -0.788287681898749,
+        2.8319215077704234,
+        1.4576609265440963,
+        0.6198895383354297
+      ],
+      "theta_used": [
+        -0.788287681898749,
+        2.8319215077704234,
+        1.4576609265440963,
+        0.6198895383354297
+      ]
+    },
+    {
+      "theta_label": "theta_random_2",
+      "estimator_job_id": "d8pdrf6gbcrc73f1tbr0",
+      "sampler_job_id": "d8pdrfi01fac73d1jk2g",
+      "theta_4": [
+        -2.4186834925256155,
+        0.6852852771057627,
+        -2.303472507305873,
+        -1.6299234883635934
+      ],
+      "theta_used": [
+        -2.4186834925256155,
+        0.6852852771057627,
+        -2.303472507305873,
+        -1.6299234883635934
+      ]
+    },
+    {
+      "theta_label": "theta_VQE_optimal",
+      "estimator_job_id": "d8pdrgeab0ds73dovdfg",
+      "sampler_job_id": "d8pdrgmgbcrc73f1tbsg",
+      "theta_4": [
+        -0.104,
+        0.317,
+        -0.803,
+        -0.086
+      ],
+      "theta_used": [
+        -0.104,
+        0.317,
+        -0.803,
+        -0.086
+      ]
+    },
+    {
+      "theta_label": "theta_random_3",
+      "estimator_job_id": "d8pdrgukodhs7381nml0",
+      "sampler_job_id": "d8pdrheab0ds73dovdig",
+      "theta_4": [
+        2.1038752687204516,
+        -2.483139310363369,
+        1.5371214800300832,
+        -0.8764990959983447
+      ],
+      "theta_used": [
+        2.1038752687204516,
+        -2.483139310363369,
+        1.5371214800300832,
+        -0.8764990959983447
+      ]
+    }
+  ],
+  "submission_timestamp": "2026-06-17 17:48:08 UTC",
+  "status": "submitted"
+}
