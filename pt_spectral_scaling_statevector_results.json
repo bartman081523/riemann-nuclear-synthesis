@@ -1,0 +1,79 @@
+{
+  "prereg_file": "pt_spectral_scaling_prereg.json",
+  "prereg_md5": "984886c53e47fa82aa0ce2009daefbed",
+  "method": "pt_spectral_scaling_statevector.py - H_PT on E_DIAG[:n] for n in {2,3,4}",
+  "gamma": 0.02,
+  "E_DIAG_full": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791
+  ],
+  "spectra": {
+    "2": [
+      {
+        "re": 2.0011808958800534,
+        "im": 0.03000439980913655
+      },
+      {
+        "re": 2.691966284679892,
+        "im": 0.027421856039176087
+      }
+    ],
+    "3": [
+      {
+        "re": 2.001622479385926,
+        "im": 0.029970292007622676
+      },
+      {
+        "re": 2.692665708376764,
+        "im": 0.027483219138333848
+      },
+      {
+        "re": 3.682716638704734,
+        "im": 0.02540183613921405
+      }
+    ],
+    "4": [
+      {
+        "re": 2.0018501462716807,
+        "im": 0.02994539229037302
+      },
+      {
+        "re": 2.6929480103741765,
+        "im": 0.0274930439548492
+      },
+      {
+        "re": 3.68318116938115,
+        "im": 0.025443850560302107
+      },
+      {
+        "re": 4.986843622818317,
+        "im": 0.023982829783436105
+      }
+    ]
+  },
+  "H_BlockDiag_Invariance_Statevector": {
+    "test": "max(|Im_E_i(H_PT_n) - Im_E_i(H_PT_2)|) < 1e-6",
+    "diffs": [
+      {
+        "n": 3,
+        "diffs": [
+          3.41078015138746e-05,
+          6.136309915776017e-05
+        ],
+        "max": 6.136309915776017e-05
+      },
+      {
+        "n": 4,
+        "diffs": [
+          5.900751876353194e-05,
+          7.118791567311405e-05
+        ],
+        "max": 7.118791567311405e-05
+      }
+    ],
+    "PASS": false
+  },
+  "decision_rule": "PASS H_BlockDiag_Invariance_Statevector if all max_diffs < 1e-6. Algebraic identity: the 2x2 Jacobi block is preserved under block extension."
+}

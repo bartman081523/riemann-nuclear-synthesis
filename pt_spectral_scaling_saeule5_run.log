@@ -1,0 +1,26 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-17 20:10:22,098: Loading account with the given token. A saved account will not be used.
+======================================================================
+SPECTRAL-SCALING QPU-SWEEP auf Fez/TOKEN2
+======================================================================
+Backend: ibm_fez, Instance: open-instance, Token: IBMQ_TOKEN2
+Shots: 1024, n_qubits: [2, 3, 4]
+Prereg: pt_spectral_scaling_prereg.json
+======================================================================
+
+Prereg hypotheses: ['H_BlockDiag_Invariance_Statevector', 'H_BlockDiag_Invariance_QPU', 'H_Qber_Baseline_Stable']
+Connected: ibm_fez (156 qubits, status=active)
+
+--- Sweep n_qubits=2 ---
+  Estimator Job ID (n=2, n2): d8pe5s6gbcrc73f1tqsg
+
+--- Sweep n_qubits=3 ---
+  Estimator Job ID (n=3, n3): d8pe5smab0ds73dovt90
+
+--- Sweep n_qubits=4 ---
+  Estimator Job ID (n=4, n4): d8pe5sugbcrc73f1tqtg
+
+--- QBER Reference ---
+  QBER-Ref Sampler Job ID: d8pe5t6kodhs7381o5q0
+
+Job IDs saved: pt_spectral_scaling_token2_job_ids.json
+Next: run pt_spectral_scaling_token2_results.py

@@ -1,0 +1,65 @@
+{
+  "prereg_file": "pt_spectral_scaling_prereg.json",
+  "backend": "ibm_fez",
+  "instance": "open-instance",
+  "token": "IBMQ_TOKEN2",
+  "gamma": 0.02,
+  "shots": 1024,
+  "n_qubits_list": [
+    2,
+    3,
+    4
+  ],
+  "method": "3 sequenzielle Estimator-Jobs (n=2,3,4) + 1 Sampler f\u00fcr QBER-Ref auf Fez/TOKEN2",
+  "jobs": [
+    {
+      "n_qubits": 2,
+      "label": "n2",
+      "estimator_job_id": "d8pe5s6gbcrc73f1tqsg",
+      "n_params": 4,
+      "theta_used": [
+        0.523,
+        1.21,
+        -0.45,
+        0.88
+      ]
+    },
+    {
+      "n_qubits": 3,
+      "label": "n3",
+      "estimator_job_id": "d8pe5smab0ds73dovt90",
+      "n_params": 6,
+      "theta_used": [
+        0.523,
+        1.21,
+        -0.45,
+        0.88,
+        0.523,
+        1.21
+      ]
+    },
+    {
+      "n_qubits": 4,
+      "label": "n4",
+      "estimator_job_id": "d8pe5sugbcrc73f1tqtg",
+      "n_params": 8,
+      "theta_used": [
+        0.523,
+        1.21,
+        -0.45,
+        0.88,
+        0.523,
+        1.21,
+        -0.45,
+        0.88
+      ]
+    },
+    {
+      "label": "qber_ref",
+      "sampler_job_id": "d8pe5t6kodhs7381o5q0",
+      "n_qubits": 2
+    }
+  ],
+  "submission_timestamp": "2026-06-17 18:10:26 UTC",
+  "status": "submitted"
+}
