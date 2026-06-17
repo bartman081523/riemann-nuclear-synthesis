@@ -12,6 +12,7 @@ Aer-Simulator-Runs selbst werden NICHT getestet (zu langsam, requires IBM token)
 import json
 import os
 import sys
+import hashlib
 
 import numpy as np
 import pytest
@@ -130,21 +131,58 @@ class TestPreregistrationLoader:
 
     def test_uses_existing_prereg_file_if_present(self):
         """Wenn pt_potential_vqe_prereg.json existiert, soll es gelesen werden."""
-        # Schreibe temporaer eine Test-Prereg-Datei
+        from pathlib import Path
+        prereg_path = Path("pt_potential_vqe_prereg.json")
+        # Backup der existierenden Prereg-Datei (Anti-Sharpshooter: nie Original loeschen)
+        backup = None
+        if prereg_path.exists():
+            backup = prereg_path.read_text()
+        # Schreibe temporaer eine Test-Prereg-Datei mit eindeutigem Marker
         test_prereg = {
             "noiseless": {"E": [2.0, 2.69, 3.68, 4.99], "Delta": [0.69, 0.99, 1.30]},
             "H_diag_exact": {"E": [2.0, 2.69, 3.68, 4.99], "Delta": [0.69, 0.99, 1.30]},
             "marker": "test_prereg_from_file"
         }
-        with open("pt_potential_vqe_prereg.json", "w") as f:
-            json.dump(test_prereg, f)
+        prereg_path.write_text(json.dumps(test_prereg))
         try:
             from pt_aer_stress_saeule1 import precompute_predictions
             pred = precompute_predictions()
             assert pred.get("marker") == "test_prereg_from_file"
         finally:
-            # Cleanup: loesche Test-Datei
-            os.remove("pt_potential_vqe_prereg.json")
+            # Cleanup: Original wiederherstellen, nicht loeschen
+            if backup is not None:
+                prereg_path.write_text(backup)
+            else:
+                prereg_path.unlink(missing_ok=True)
+
+    def test_preserves_existing_prereg_after_run(self):
+        """REGRESSION: Vorhandene pt_potential_vqe_prereg.json darf nach Test-Lauf NICHT geloescht sein.
+
+        Hintergrund: 2026-06-17 hat ein Bug im Loader-Test die Original-Prereg
+        aus dem Working Tree geloescht. Das ist ein Anti-Sharpshooter-Verstoss
+        (Prereg-Datei ist anti-sharpshooter-kritisch, darf nie von Tests beruehrt werden).
+        Dieser Test faengt kuenftige Regressionen.
+        """
+        from pathlib import Path
+        prereg_path = Path("pt_potential_vqe_prereg.json")
+        if not prereg_path.exists():
+            # Wenn die Datei nicht existiert, koennen wir nicht pruefen — Skip
+            import pytest
+            pytest.skip("pt_potential_vqe_prereg.json existiert nicht — Test nicht anwendbar")
+        # Vor dem Testlauf: Inhalt merken
+        original = prereg_path.read_text()
+        original_md5 = hashlib.md5(original.encode()).hexdigest()
+        # Den problematischen Test ausfuehren
+        from tests.test_pt_aer_stress_saeule1 import TestPreregistrationLoader
+        TestPreregistrationLoader().test_uses_existing_prereg_file_if_present()
+        # Nach dem Testlauf: Datei muss identisch sein
+        assert prereg_path.exists(), "Prereg-Datei wurde geloescht!"
+        after = prereg_path.read_text()
+        after_md5 = hashlib.md5(after.encode()).hexdigest()
+        assert after_md5 == original_md5, (
+            f"Prereg-Datei wurde MODIFIZIERT: original={original_md5}, after={after_md5}. "
+            f"Das ist ein Anti-Sharpshooter-Verstoss — Prereg-Dateien sind unantastbar."
+        )
 
 
 class TestAerStressModule:
