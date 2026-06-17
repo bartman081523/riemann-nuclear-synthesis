@@ -4,6 +4,23 @@
 
 ---
 
+## Document Map
+
+Master-Synthese-Dokument mit SciMind-Verdikten (Sections A–G), Empfehlungen (H), Quellen (H.1), und chronologischen Addenda (J–Q).
+
+| Datei | Status | Rolle |
+|---|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
+| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
+| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
+| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
+| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Inhaltliche Sections 1–7 historisch lesenswert |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Code-Bug-Fixes weiter relevant |
+| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+
 ## 0. Executive Summary
 
 Nach **15 Refactoring-Iterationen**, **3 Falsifikationen prominenter externer Hypothesen**, einer **Vier-Säulen-TDD-Architektur mit 66/66 grünen Tests**, und einer **ersten echten QPU-Messung auf ibm_fez** (TOKEN2/neuer Account, Job `d8kins3qv2lc7385bbj0` et al., 2026-06-10 11:18 UTC) ist das Projekt in einem Zustand, der drei Aussagen erlaubt:
@@ -447,13 +464,24 @@ TIER 4 (verworfen):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [dopp
 
 ### H.1 Primärquellen (Projekt-intern)
 
-- `Riemann-Hypothese und Atomkern-Struktur.md` (Sections 1-9 + 6.5.1-6.5.15)
-- `Quantencomputer und Primzahlen_ Forschung.md` (95KB)
-- `QUANTUM_ARCHITECTURE_BRIDGE.md` (10KB)
-- `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` (25KB, inkl. Säule 1+3 QPU-Sektionen)
-- `INVESTIGATION_PLAN.md` (13KB, inkl. A2ca9-Knoten)
-- `SYNTHESIS_2026_06_10.md` (Finale Integration)
-- `SAEULE1_FEZ_BLOCKED.md` (Hardware-Blockade-Doku)
+**Markdown-Dokumente (Stand 2026-06-17):**
+
+| Datei | Größe | Status | Inhalt |
+|---|---:|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | 1.7 KB | REFERENCE (locked) | SciMind 4.0/5.0 Mandate, Workflow |
+| [`GEMINI.md`](GEMINI.md) | 1.7 KB | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
+| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | 130 KB | **CURRENT (primary)** | Sections 1–9 Theorie + §10 Operational Findings Log |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | 60 KB | **CURRENT (master)** | Sections A–Q, Strategische Vektoren, QPU-Addenda |
+| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | 43 KB | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
+| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | 20 KB | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | 27 KB | REFERENCE (visuell) | Mermaid-Flowchart A2ca1–A2ca19 |
+| [`PLAN.md`](PLAN.md) | 4 KB | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
+| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | 10 KB | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | 2.7 KB | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
+| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | 95 KB | REFERENCE (extern) | Externe Forschungs-Literatur |
+
+**Ergebnis-JSONs (Fez/TOKEN2):**
+
 - `pt_potential_vqe_singleshot_results.json` (2026-06-10 11:18 UTC, Fez/TOKEN2, bias_PT_re = -0.0133)
 - `pt_potential_vqe_5pub_results.json` (2026-06-10 12:19 UTC, Fez/TOKEN2, bias_PT_re = -0.0714)
 - `pt_prime_state_qpu_singleshot_results.json` (2026-06-10 12:13 UTC, Fez/TOKEN2, alpha_QPU = 0.348)
@@ -465,6 +493,8 @@ TIER 4 (verworfen):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [dopp
 - `pt_vqe_vqd_prereg.json` (Präregistrierung VQE+VQD, nicht ausgeführt wg. Kontingent)
 - `pt_spectral_gaps_results.json` (Fez 3-Pub d8jeuhdv8cos73f6pqc0)
 - `pt_structural_hardware_results.json` (Jacobi-Matrix, job d8j90eu6983c73dt1ek0)
+- `pt_im_bias_5sweep_results.json` (2026-06-17 17:19 UTC, Fez/TOKEN2, alle 5 Sweep-Punkte |bias| < 0.005)
+- `pt_asymptotic_N1e6_results.json` (2026-06-17, statevector, alpha(N=10^6) = 0.223)
 
 ### H.2 Externe SotA-Referenzen (Top 8)
 
