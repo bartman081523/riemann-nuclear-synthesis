@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "purpose": "Preregistrierung VOR main() von pt_im_bias_sweep_token1.py (Anti-Sharpshooter Protocol)",
+    "date": "2026-06-17",
+    "author": "Claude (Opus 4.8)",
+    "correction_12_45_utc": "bias-Metrik ist QPU-vs-statevector am SELBEN theta, NICHT vs Im_noiseless(ground). Grund: Im(H_PT) variiert stark mit theta (0.009-0.081), also ist der Vergleich gegen den Ground-State-Wert 0.0299 unsinnig.",
+    "references": [
+      "SYNTHESIS_2026_06_10.md Sektion P (Bias-Reanalyse)",
+      "pt_potential_vqe_5pub_results.json (Fez 2026-06-10 VQE-Optimum 5-Pub)",
+      "pt_vqe_vqd_results.json (statevector 2026-06-17 VQE-Optimum)"
+    ]
+  },
+  "context": {
+    "key_finding_pre_registered": "bias_PT_re ≈ 0 ist mathematische Identität (Theorem), nicht Bias-Test. Echte Bias-Signatur ist Im_bias = <Im(H_PT)>_QPU(theta) - <Im(H_PT)>_statevector(theta) am SELBEN theta. Fez-2026-06-10 mass gegen Im_noiseless(ground)=0.0299 (Im_bias = -0.0169). Statevector 2026-06-17 mass gegen Im_noiseless(ground) (Im_bias = -0.0215).",
+    "bias_metric_corrected": "<Im>_QPU(theta) - <Im>_statevector(theta) am SELBEN theta",
+    "n_theta_points": 5,
+    "shots_per_job": 4096,
+    "dd_sequence": "XX"
+  },
+  "hypotheses": {
+    "H_Im_h1": {
+      "label": "additive Bias-Topologie (QPU reproduziert statevector)",
+      "prediction": "Für ALLE 5 theta-Punkte gilt |Im_bias| < 0.005 (QPU reproduziert statevector bis auf Sampling-Noise).",
+      "consequence_if_true": "QPU-Hardware führt keinen signifikanten Bias auf den Im-Kanal ein. Relative Spektrum-Hypothese auch für Im-Kanal gültig."
+    },
+    "H_Im_h2": {
+      "label": "multiplikative Bias-Topologie (H2-analog, QPU systematisch verfälscht)",
+      "prediction": "Für ALLE 5 theta-Punkte gilt |Im_bias| > 0.020 (Hardware-Decay oder Depolarisation verfälscht Im systematisch).",
+      "consequence_if_true": "Im-Kanal ist NICHT bias-invariant. Im-Messungen erfordern Hardware-Kalibrierung."
+    },
+    "H_Im_h3": {
+      "label": "Konsistenz mit Fez-2026-06-10 (struktureller Bias, sampling-noise-dominiert)",
+      "prediction": "Mittelwert |Im_bias| im Bereich [0.005, 0.020], mit Std < 0.015 (gleiche Größenordnung wie Fez-2026-06-10 Sampling-Noise, aber konsistent über alle theta).",
+      "consequence_if_true": "QPU-Hardware-Sampling-Noise dominiert; Im_bias ist zwar > H_Im_h1, aber NICHT systematisch verzerrend (H_Im_h2). Mittelwert des Bias gibt Kalibrierungs-Korrektur."
+    }
+  },
+  "decision_rule": {
+    "primary": "if all |Im_bias[i]| < 0.005: H_Im_h1 confirmed. elif all |Im_bias[i]| > 0.020: H_Im_h2 confirmed. else: H_Im_h3 confirmed.",
+    "secondary": "H_Im_h3 wird genauer quantifiziert durch Mittelwert und Std-Abweichung über die 5 theta-Punkte.",
+    "anti_sharpshooter": "Alle drei Hypothesen sind a priori gleichberechtigt. H_Im_h3 ist NICHT die 'sichere' Default-Annahme — sie ist die 'langweilige' Konsistenz-Hypothese. Wenn H_Im_h1 oder H_Im_h2 eintreten, ist das ein neuer Befund, kein Artefakt."
+  },
+  "theta_points": [
+    {"index": 0, "label": "theta_initial", "source": "[0.523, 1.21, -0.45, 0.88] (pt_potential_vqe_singleshot.py)"},
+    {"index": 1, "label": "theta_random_1", "source": "np.random.default_rng(42).uniform(-pi, pi, 4)"},
+    {"index": 2, "label": "theta_random_2", "source": "np.random.default_rng(43).uniform(-pi, pi, 4)"},
+    {"index": 3, "label": "theta_VQE_optimal", "source": "pt_vqe_vqd_statevector.py 10-Iter-COBYLA-Optimum"},
+    {"index": 4, "label": "theta_random_3", "source": "np.random.default_rng(44).uniform(-pi, pi, 4)"}
+  ],
+  "oos_decision": {
+    "if_quota_blocked": "Sofortiger Abbruch, KEIN Aer-Stresstest als 'Validierung' (Aer ≠ QPU; STATEVECTOR-first-Architektur hat bereits deterministische Wahrheit geliefert).",
+    "if_one_job_fails": "Verbleibende Jobs werden trotzdem eingereicht (Lücken sind transparent, kein Re-Run mit anderen Parametern)."
+  }
+}

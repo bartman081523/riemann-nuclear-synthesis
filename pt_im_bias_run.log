@@ -1,0 +1,31 @@
+[0s] Prereg geladen: H_Im_h1/h2/h3 + Entscheidungsregel
+[0s] 5 theta-Punkte vorbereitet
+[0s] Im(H_PT) gebaut: 4x4-Matrix, 16-Pauli-Zerlegung
+
+[0s] STATEVECTOR-REFERENZEN (vor QPU-Submit):
+  1. theta_initial: <Im(H_PT)>_statevector = +0.048515
+  2. theta_random_1: <Im(H_PT)>_statevector = +0.026870
+  3. theta_random_2: <Im(H_PT)>_statevector = +0.080766
+  4. theta_VQE_optimal: <Im(H_PT)>_statevector = +0.008428
+  5. theta_random_3: <Im(H_PT)>_statevector = +0.014910
+qiskit_runtime_service._discover_account:WARNING:2026-06-17 14:56:53,118: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-17 14:56:55,227: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-17 14:56:55,227: Using instance: 1, plan: open
+
+[3s] Backend: ibm_fez, operational=True, pending_jobs=3
+[4s] Ansatz ISA-transformiert, n_params=4
+[4s] Warnung: DD konnte nicht gesetzt werden: 1 validation error for DynamicalDecouplingOptions
+sequence
+  Object has no attribute 'sequence' [type=no_such_attribute, input_value='XX', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/no_such_attribute
+
+[4s] === Job 1/5: Im(H_PT) bei theta_initial ===
+[4s]   theta = ['+0.523', '+1.210', '-0.450', '+0.880']
+/home/julian/.local/lib/python3.14/site-packages/qiskit_ibm_runtime/qiskit_runtime_service.py:1210: UserWarning: This instance has met its usage limit. Workloads will not run until time is made available. Check https://quantum.cloud.ibm.com/instances/crn%3Av1%3Abluemix%3Apublic%3Aquantum-computing%3Aus-east%3Aa%2F62969f8d58c346ab90fdee98f3084650%3Aede9d355-60ef-476b-a6b0-ac6dc1bbc2e3%3A%3A for more details.
+  warnings.warn(
+[5s]   job_id: d8p9itmgbcrc73f1m4t0, warte auf Result...
+[605s]   FEHLER: 'Timed out waiting for job to complete after 600 secs.'
+
+[605s] === Job 2/5: Im(H_PT) bei theta_random_1 ===
+[605s]   theta = ['-0.788', '+2.832', '+1.458', '+0.620']
+[607s]   job_id: d8p9njugbcrc73f1mc4g, warte auf Result...

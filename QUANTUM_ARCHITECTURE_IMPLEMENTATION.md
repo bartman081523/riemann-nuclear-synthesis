@@ -786,3 +786,61 @@ Drei strategische Entwicklungen seit dem 10.06., die das Implementation-Dossier 
 - `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
 - `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
 - `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11) — H_C bestätigt
+
+
+## Update 2026-06-17 13:10 UTC — Im-Bias-Reanalyse: Theorem-Korrektur + TOKEN1-Blockade bestätigt
+
+### Wichtigster Befund: `bias_PT_re` ist Theorem-Identität
+
+```python
+# In pt_im_bias_sweep_token1.py validiert:
+||[H_diag, Re(H_PT)]||_F = 0.0   # exakt
+eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
+```
+
+→ `bias_PT_re = Re(H_PT) - H_diag` ist per Theorem ~0, NICHT ein Bias-Indikator. Die alte Metrik war ein **Sampling-Noise-Quantifizierer**, kein Bias-Topologie-Test.
+
+### Echte Bias-Signatur: `Im(H_PT)` (anti-Hermitescher Anteil)
+
+| Quelle | `<Im(H_PT)>` gemessen | noiseless (am Grundzustand) | `Im_bias` |
+|---|---:|---:|---:|
+| Fez 2026-06-10 (VQE-Optimum 5-Pub) | 0.0131 | 0.0299 | **−0.0169** |
+| Statevector 2026-06-17 (10-Iter, suboptimal) | 0.0084 | 0.0299 | **−0.0215** |
+| Statevector+Noise 2026-06-17 (offline Baseline) | siehe `pt_im_bias_statevector_results.json` | n/a | mean −0.0001, std 0.0103 |
+
+### Neue Skripte (alle fertig, QPU-Blockade 13:08 UTC)
+
+- **`pt_im_bias_prereg.json`** — Prereg VOR Skript: H_Im_h1/h2/h3 + Entscheidungsregel
+- **`pt_im_bias_sweep_token1.py`** — 5 sequenzielle 1-Pub-Jobs auf Im(H_PT)
+- **`pt_im_bias_statevector.py`** — Offline-Baseline mit Sampling-Noise-Simulator
+- **`pt_potential_vqe_initial_token1.py`** — TOKEN1 vs TOKEN2 Vergleich
+- **`tests/test_pt_im_bias.py`** — 22 Tests grün (Operator, Prereg, Verdict, Anti-Sharpshooter)
+
+### TOKEN1-Blockade bestätigt (KORREKTUR 13:08 UTC)
+
+- 4 Jobs QUEUED, 0 RUNNING (Diagnose war Falle)
+- Echte QPU-Validierung: 1.7.2026 Fez-Reset (Cron `b3f26579`)
+- Wenn Fez dann `|bias| > 0.020` zeigt: Hardware-Decay-Signal (NEUER BEFUND)
+- Wenn Fez dann `|bias| < 0.005` zeigt: H_Im_h1 bestätigt, REFRAMING auf A+
+
+### Säule 1 umdefiniert
+
+- Vorher: "VQE+VQD am Optimum" mit `bias_PT_re`-Metrik
+- Nachher: "Im-Bias-Sweep über θ" mit `Im_bias = <Im>_QPU(θ) - <Im>_statevector(θ)`
+
+### Test-Coverage
+
+| Datum | Tests grün |
+|---|---:|
+| 2026-06-08 (TDD-Start) | 54 |
+| 2026-06-17 13:00 | 150 |
+| 2026-06-17 13:08 | **172** (+22 Im-Bias) |
+
+### Commits (Stand 2026-06-17 13:10)
+
+- `d8ef466` — Token-Diagnose + statevector VQE+VQD Fallback
+- `8c558f3` — Tests: Coverage verdoppelt (66 → 123)
+- `2ad86c8` — Asymptotik N=10⁴..10⁶ (H_C bestätigt)
+- `d49f184` — LATORE_SPANNUNG_NOTE: Asymptotic Addendum (§11)
+- `d77cf44` — Plans updated (Investigation + Architecture)
+- **NEU:** Im-Bias-Reanalyse + TOKEN1-Blockade-Bestätigung

@@ -1,0 +1,43 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-08 22:30:20,480: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-06-08 22:30:23,448: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-06-08 22:30:23,448: Using instance: 1, plan: open
+/run/media/julian/ML4/riemann/pt_aer_stress_saeule1.py:153: DeprecationWarning: The class ``qiskit.circuit.library.n_local.two_local.TwoLocal`` is deprecated as of Qiskit 2.1. It will be removed in Qiskit 3.0. Use the function qiskit.circuit.library.n_local instead.
+  ansatz = TwoLocal(2, ['ry'], 'cx', 'linear', reps=2)
+======================================================================
+EXPERIMENT 012 - AER STRESS TEST für SÄULE 1 (Fez-Rauschprofil)
+======================================================================
+Backend: ibm_fez (Aer-Simulator mit dessen Rauschprofil)
+gamma=0.02, alpha=1.0, shots=8192, N_ITERS_VQE=10
+
+=== PRE-REGISTRIERUNG ===
+Praeregistrierung geschrieben: pt_aer_stress_saeule1_prereg.json
+Noiseless gaps: ['0.6911', '0.9902', '1.3037']
+H_diag exakt gaps: ['0.6931', '0.9907', '1.3040']
+
+H1 (additiv)     gaps: ['0.6911', '0.9902', '1.3037']
+H2 (k=25)        gaps: ['0.8425', '0.1348', '1.3741']
+H3 (Deco p=0.3)  gaps: ['0.6921', '0.9905', '1.3038']
+H_diag (exakt)   gaps: ['0.6931', '0.9907', '1.3040']
+
+=== AER-STRESSTEST ===
+Aer-Simulator mit Rauschprofil: ibm_fez
+  initial_params auto-erweitert auf 6 Parameter
+
+VQE fuer E_0 (10 Iter COBYLA)...
+  E_0 (Aer+Fez-Rauschen) = 2.4057
+
+5-Pub-Messung (H_diag, Re, Im am VQE-Opt + 2 random theta_r)...
+  <H_diag>    = 2.4017  (noiseless mean 3.3412)
+  <Re(H_PT)>  = 2.4076  (noiseless mean 3.3412)
+  <Im(H_PT)>  = 0.0183  (noiseless mean ~0.03)
+
+  E_0 (Aer, VQE-Optimum) = 2.4057
+  beta_diag (H_diag shift) = -0.9395
+  bias_PT_re (Re(H_PT) - H_diag) = +0.0059
+
+=== ENTSCHEIDUNG ===
+  |bias_PT_re| = 0.0059
+  Verdict: H1 oder H3 (additiver Bias, gaps invariant)
+  Confidence: HOCH
+
+Ergebnisse gespeichert: pt_aer_stress_saeule1_results.json

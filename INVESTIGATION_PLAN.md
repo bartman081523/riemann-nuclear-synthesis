@@ -297,6 +297,24 @@ graph TD
     A2ca12c -.OFFEN.-> A2ca12d[Ququint-Hardware existiert nicht; GF(5) bleibt offline]
     A2ca12d -.NAECHSTER MEILENSTEIN.-> A2ca12e[pt_paper_arxiv_latorre.py: Preprint-Vorbereitung]
 
+    %% A2ca13: Im-Bias-Reanalyse + TOKEN1-Blockade-Bestaetigung (2026-06-17 12:35-13:10 UTC)
+    A2ca11g -.KORREKTUR 12:45 UTC.-> A2ca13[Im(H_PT) Bias-Reanalyse: bias_PT_re = Theorem-Identitaet]
+    A2ca13 -.BEFUND.-> A2ca13a[||[H_diag, Re(H_PT)]||_F = 0, identische Eigenwerte]
+    A2ca13a -.KONSEQUENZ.-> A2ca13b[bias_PT_re misst Sampling-Noise, nicht Bias-Topologie]
+    A2ca13b -.ECHTE SIGNATUR.-> A2ca13c[Im(H_PT) = (H_PT - H_PT†)/(2i), Fez: -0.0169, statevector: -0.0215]
+    A2ca13c -.PREREG VOR SKRIPT.-> A2ca13d[pt_im_bias_prereg.json: H_Im_h1/h2/h3 + Entscheidungsregel]
+    A2ca13d -.SKRIPT.-> A2ca13e[pt_im_bias_sweep_token1.py: 5 sequenzielle 1-Pub-Jobs]
+    A2ca13e -.TOKEN1-SUBMIT 13:08 UTC.-> A2ca13f[4 Jobs QUEUED, 0 RUNNING - KEIN ECHTES QPU-FENSTER]
+    A2ca13f -.FALLBACK.-> A2ca13g[pt_im_bias_statevector.py: offline Baseline]
+    A2ca13g -.VERDICT H_Im_h1.-> A2ca13h[5/5 |bias| < 0.005, mean -0.0001, std 0.0103]
+    A2ca13h -.NAECHSTER MEILENSTEIN.-> A2ca13i[1.7.2026 Fez-Reset Cron b3f26579: Vergleich Fez vs statevector+Noise]
+
+    %% A2ca14: Saeule-1-Umdefinition
+    A2ca13i -.SAEULE 1 UMDEFINIERT.-> A2ca14[VQE+VQD am Optimum -> Im-Bias-Sweep ueber theta]
+    A2ca14 -.METRIK.-> A2ca14a[bias_PT_re NICHT MEHR VERWENDET (Theorem)]
+    A2ca14a -.NEUE METRIK.-> A2ca14b[Im_bias = <Im(H_PT)>_QPU(theta) - <Im(H_PT)>_statevector(theta)]
+    A2ca14b -.PRUEFUNG.-> A2ca14c[Fez: wenn |bias| > 0.020, dann Hardware-Decay-Signal = NEUER BEFUND]
+
     style Start fill:#f9f,stroke:#333,stroke-width:4px
     style S4 fill:#ff9,stroke:#333,stroke-width:2px
     style S5 fill:#9f9,stroke:#333,stroke-width:2px
@@ -341,4 +359,18 @@ graph TD
     style A2ca12c fill:#fc9,stroke:#333,stroke-width:2px
     style A2ca12d fill:#fc9,stroke:#333,stroke-width:2px
     style A2ca12e fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca13 fill:#9f9,stroke:#333,stroke-width:3px
+    style A2ca13a fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13b fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13c fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13d fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13e fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13f fill:#f96,stroke:#333,stroke-width:3px
+    style A2ca13g fill:#9f9,stroke:#333,stroke-width:2px
+    style A2ca13h fill:#5f5,stroke:#333,stroke-width:3px
+    style A2ca13i fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca14 fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca14a fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca14b fill:#fc9,stroke:#333,stroke-width:2px
+    style A2ca14c fill:#fc9,stroke:#333,stroke-width:2px
     style SYN10 fill:#f96,stroke:#333,stroke-width:3px
