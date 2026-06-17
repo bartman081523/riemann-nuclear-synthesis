@@ -1,3 +1,11 @@
+> **STATUS: SUPERSEDED 2026-06-17** (für Säule 1+3-Status, QPU-Validierung, Im-Bias-Metrik, Asymptotik).
+>
+> Der Inhalt (Sections 1–7) bleibt als **historische architektonische Rationale** erhalten, ist aber **nicht mehr Quelle der Wahrheit** für aktuellen Säule-1+3-Status. Nachfolger:
+> - Aktuelle Architektur + QPU-Update-Log: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md)
+> - Aktuelle Theorie-Stand + Audits: [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) Section 6.5.9
+>
+> Im neuen Doc-Map-System ist diese Datei `SUPERSEDED`. Bei Code-Bug-Fixes (siehe z.B. Qiskit-Version-Inkompatibilität `qc.unitary()`) bitte weiterhin in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` konsultieren.
+
 # Quantencomputer-Architektur für das Riemann-Projekt
 
 Integriert vier Architektur-Konzepte aus `Quantencomputer und Primzahlen_ Forschung.md` in unser transkategoriales Forschungsprogramm.
