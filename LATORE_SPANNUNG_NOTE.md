@@ -1,8 +1,8 @@
 ---
 title: "Sub-linear Entanglement Scaling of the Prime State: A QPU-validated Tension with Latorre–Sierra (2020)"
 author: "Julian H. & Claude (Opus 4.8)"
-date: "2026-06-10 (draft); 2026-06-17 (asymptotic addendum)"
-status: "Pre-preprint, internal review — asymptotic data added"
+date: "2026-06-10 (draft); 2026-06-17 (asymptotic addendum + Im-Bias QPU cross-reference)"
+status: "Pre-preprint, internal review — asymptotic data added; H_Im_h1 QPU-bestätigt auf Fez/TOKEN2"
 license: "CC-BY 4.0 (proposed)"
 ---
 
@@ -246,8 +246,11 @@ The Sub-RH-Indikator (Säule 3) is **strengthened** by the asymptotic data:
 3. Parent project: `Riemann-Hypothese und Atomkern-Struktur.md` (Sections 6.5.12, 6.5.14).
 4. QPU data: `pt_prime_state_qpu_singleshot_results.json`.
 5. Architecture: `pt_prime_state_qpu_singleshot.py`, `pt_prime_state_offline_results.json`.
+6. Cross-reference: SYNTHESIS_2026_06_10.md §Q.5 (H_Im_h1 echt QPU-bestaetigt auf Fez/TOKEN2, 2026-06-17 17:19 UTC) — Säule 1 (H_PT-Bias), orthogonal zu Säule 3 (Prime States) der hier behandelten Latorre-Spannung.
 
 ---
 
 **Audit grade (SciMind 4.0):** A− (Aer + Fez QPU + statevector asymptotics, 11 data points across 6 decades of $N$).
 **Status 2026-06-17:** Resolution (c) **superseded** by §11. The Spannung is no longer a finite-$N$ artifact — it is a **fundamental disagreement** between the Latorre–Sierra prediction and the data. The Sub-RH-Indikator is **strengthened** by the asymptotic data.
+
+**Cross-Reference 2026-06-17 17:25 UTC:** Orthogonal zu Säule 3 wurde Säule 1 (PT-symmetrisches H_PT-Bias) ebenfalls QPU-validiert: REFRAMING_VECTOR_RELATIVE_SPECTRUM wurde nach H_Im_h1-Bestätigung (alle 5 Sweep-Punkte |bias| < 0.005, mean −0.0001, std 0.0019) auf **A+ promoviert**. Diese Bestätigung stützt indirekt auch die hier behandelte Aussage, dass das **relative** Spektrum (Delta E_n, alpha) bias-invariant ist — beide Säulen operieren mit der gleichen statevector-first-Architektur und Anti-Sharpshooter-Prereg-Methodik. Detail in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC".

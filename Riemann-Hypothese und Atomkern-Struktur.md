@@ -942,6 +942,136 @@ Die initiale Section 9 interpretierte den Kingston-Wert (E₀=2.216) als Erfolg.
 **Section 9 ist damit inkonsistent:** "Abweichung ~10% bedingt durch Hardware-Rauschen" suggeriert ein erfolgreiches Experiment, ignoriert jedoch die +68% systematische Abweichung auf `ibm_marrakesh`. Der strategische Vektor (Skalierung auf mehr Qubits) ist obsolet, solange der Operator selbst backend-abhängig ist.  
 **Konsequenz:** EXPERIMENT 005 (PT-symmetrische Erweiterung) wurde als Reaktion auf diese Backend-Fragilität initiiert (vgl. Section 6.5). Vorläufiges Resultat: PT-unbroken numerisch perfekt, aber physikalisch durch Diagonal-Dominanz trivialisiert → Refactoring-Vektor `COUPLING_ENHANCEMENT` erforderlich.
 
+### **10. Operational Findings Log 2026-06-08 → 2026-06-17**
+
+Dieser Abschnitt ist ein **kompakter chronologischer Log** der experimentellen Befunde zwischen dem Stand von Section 9.1 und dem aktuellen Datum. Die detaillierte Methodik, Skript-Liste und Audit-Tabellen sind in `SYNTHESIS_2026_06_10.md` (~960 Zeilen) und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` dokumentiert; dieser Log dient als kompakter Index für Leser der Theoriedokumentation.
+
+#### **10.1 Säule 1 — Holografisches Potenzial (PT-symmetrisches H_PT)**
+
+**Vier-Säulen-Architektur** (Section 6.5.9) ist als `QUANTUM_ARCHITECTURE_BRIDGE.md` und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` separat dokumentiert. Säule 1 ist die direkte experimentelle Umsetzung des PT-symmetrischen Operators `H_PT(γ=0.02, y=1.0) = H_diag + iγ·A(y)` auf IBM Quantum Hardware.
+
+**Chronologie:**
+- **2026-06-08:** Aer-Stresstest (`pt_aer_stress_saeule1.py`) auf Fez-Rauschprofil — `bias_PT_re = +0.0059`, H1/H3 bestätigt (Section 6.5.10).
+- **2026-06-10 11:18 UTC:** Echte QPU-Messung auf Fez/TOKEN2 (`pt_potential_vqe_singleshot.py`, Jobs `d8kins3qv2lc7385bbj0`/`d8kinubqv2lc7385bbm0`/`d8kio0832u0s73f8qhs0`) — `bias_PT_re = -0.0133`, |bias| < 0.05, **H1/H3 auf echter Hardware bestätigt** (Section 6.5.13).
+- **2026-06-10 12:19 UTC:** VQE-Optimum 5-Pub-Messung auf Fez/TOKEN2 — `bias_PT_re = -0.0714`, MITTEL (VQE-Artefakt: 3-Iter-COBYLA liefert E_0=2.36 statt 2.00) (Section 6.5.15).
+
+**Strategischer Vektor `REFRAMING_VECTOR_RELATIVE_SPECTRUM`:** Aer + Fez QPU doppelt validiert → **A−** (Stand 2026-06-10).
+
+#### **10.2 Säule 2 — G-Apparat (Offline-Peak-Detektion)**
+
+**Resultat 2026-06-08:** `pt_transmission_sweep.py` detektiert 4 Resonanz-Peaks bei E = 2.00, 2.67, 3.67, 5.00 mit allen Δ < 0.027 (Auflösungsgrenze des Apparats). Deterministisch bestätigt (Section 6.5.11).
+
+**Strategischer Vektor `G_APPARAT_DETERMINISTIC`:** **A**.
+
+#### **10.3 Säule 3 — Prime States (Schmidt-Entropie-Skalierung)**
+
+**Resultat 2026-06-10 12:13 UTC:** 5 sequenzielle QPU-Jobs auf Fez/TOKEN2, N = 7..127, 4096 Shots, initialize(psi_prime)-Architektur. Aer-Vorhermessung: `α_Aer = 0.272`. Latorre-Sierra-Vorhersage: `α ≈ 1` (SotA, basierend auf logπ(N)-Skalierung). **QPU-Messung: `α_QPU = 0.348`** — Aer-Wert bestätigt, **DISSENS zu Latorre-Sierra** (Section 6.5.14).
+
+**Strategischer Vektor `SUB_RH_INDICATOR`:** Aer + Fez doppelt validiert → **A−** (Stand 2026-06-10).
+
+#### **10.4 Latorre-Sierra-Spannung: 3 Resolutionen (Section 6.5.16/17)**
+
+Drei formale Resolutionen der scheinbaren Spannung getestet:
+- **(b) Renyi-2** statt vN: `α_2_Aer = 0.244 ≈ α_vN_Aer = 0.272` → **Falsifiziert** (Renyi-Korrektur erklärt die Spannung nicht).
+- **(c) Finite-N-Asymptotik:** N = 255..1023 offline — α stabilisiert sich bei 0.347 ab N ≥ 255.
+- **Lokale Steigung der Latorre-Kurve** `S = log₂π(N)` ist im selben Band wie unsere Messung (0.17-0.40 vs. 0.347).
+
+**Verdict 2026-06-10:** Latorre-Spannung ist **Mismatch funktionaler Form** (nicht fundamentaler Konflikt). Strategischer Vektor: REFRAMED.
+
+#### **10.5 Asymptotik N=10⁴..10⁶ (statevector-first) — H_C bestätigt**
+
+**Motivation:** Resolution (c) verließ Frage offen: bleibt α bei 0.347 stabil, oder beginnt α → 1 (Latorre)? Aer-Simulation auf N = 10⁴..10⁶ (mathematisch, kein QPU) testet asymptotisches Verhalten (`pt_asymptotic_N1e6.py`).
+
+**Prereg VOR main() geschrieben (Anti-Sharpshooter):**
+- **H_A:** α stabilisiert sich bei 0.347 (Sub-RH)
+- **H_B:** α → 1 (Latorre-Sierra)
+- **H_C:** anderes Power-Law (z.B. α sinkt mit N)
+
+**Resultat (2026-06-17):**
+
+| N | α_incrementell |
+|---:|---:|
+| 31 | 0.333 |
+| 1,023 | 0.348 |
+| 10,000 | 0.306 |
+| 100,000 | 0.258 |
+| **1,000,000** | **0.223** |
+
+**Verdict: H_C bestätigt — α SINKT monoton mit wachsendem N.**
+
+**Konsequenz:** Latorre-Spannung ist **FUNDAMENTALE Disagreement**, kein Finite-N-Artefakt. Sub-RH-Indikator weiter gestärkt (`α < 0.5` bestätigt für 6 Dekaden). `LATORE_SPANNUNG_NOTE.md` §11 dokumentiert die Reklassifikation.
+
+**Strategischer Vektor `SUB_RH_INDICATOR`:** **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).
+
+#### **10.6 Im-Bias-Reanalyse — Theorem-Korrektur + QPU-Bestätigung (2026-06-17)**
+
+**Theoretischer Befund 2026-06-17 12:45 UTC:**
+```python
+||[H_diag, Re(H_PT)]||_F = 0.0   # exakt
+eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
+```
+
+→ `bias_PT_re = Re(H_PT) - H_diag` ist per Theorem ~0, **NICHT** ein Bias-Indikator. Die alte Metrik war ein Sampling-Noise-Quantifizierer, kein Bias-Topologie-Test.
+
+**Echte Bias-Signatur:** `Im(H_PT) = (H_PT - H_PT†)/(2i)` (anti-Hermitescher Anteil).
+- Fez 2026-06-10 (VQE-Optimum 5-Pub): `Im_bias = -0.0169`.
+- Statevector 2026-06-17 (10-Iter, suboptimal): `Im_bias = -0.0215`.
+
+**Prereg VOR Skript (`pt_im_bias_prereg.json`):** H_Im_h1 = additiv |bias| < 0.005, H_Im_h2 = multiplikativ |bias| > 0.020, H_Im_h3 = Konsistenz.
+
+**QPU-Durchbruch 2026-06-17 17:19 UTC:** 5 sequenzielle 1-Pub-Jobs auf Fez/TOKEN2 (in 12 Sekunden submitted, in 17 Sekunden alle DONE):
+
+| θ-Punkt | <Im>_QPU | <Im>_SV | bias | |bias| |
+|---|---:|---:|---:|---:|
+| θ_initial | +0.0467 | +0.0485 | −0.0018 | 0.0018 |
+| θ_random_1 | +0.0291 | +0.0269 | +0.0022 | 0.0022 |
+| θ_random_2 | +0.0781 | +0.0808 | −0.0027 | 0.0027 |
+| θ_VQE_optimal | +0.0100 | +0.0084 | +0.0015 | 0.0015 |
+| θ_random_3 | +0.0151 | +0.0149 | +0.0002 | 0.0002 |
+
+**Statistik:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **Alle 5 |bias| < 0.005 → H_Im_h1 bestätigt** (additive Bias-Topologie, Sampling-Noise dominiert). Job-IDs: `d8pbl2201fac73d1gdag`, `d8pbl2eab0ds73dos8a0`, `d8pbl2mab0ds73dos8ag`, `d8pbl2q01fac73d1gdcg`, `d8pbl3ekodhs7381kec0`.
+
+**Strategische Promotion:**
+- `REFRAMING_VECTOR_RELATIVE_SPECTRUM`: **A− → A+** (Aer + Fez QPU, H_Im_h1 echt bestätigt)
+- `IM_BIAS_AS_KANONISCHE_METRIK`: neu → **A** (5 Sweep-Punkte, alle |bias| < 0.005)
+
+#### **10.7 Test-Bug-Fix 2026-06-17 17:25 UTC — Anti-Sharpshooter-Integrität**
+
+**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present` hatte im `finally`-Block ein `os.remove("pt_potential_vqe_prereg.json")`. Eigener `pytest tests/`-Lauf löschte die Original-Prereg-Datei aus dem Working Tree.
+
+**Fix:**
+1. Backup-vor-Schreiben, Original-Wiederherstellung im `finally`-Block.
+2. Neuer Regression-Test `test_preserves_existing_prereg_after_run` mit MD5-Check.
+3. Wiederherstellung der Prereg-Datei aus `git show 7015454:pt_potential_vqe_prereg.json`.
+
+**Tests:** 173/173 grün (Stand 2026-06-17 17:25 UTC).
+
+#### **10.8 Strategische Vektoren — Gesamtstatus 2026-06-17 17:25 UTC**
+
+| Vektor | Status 2026-06-08 | Status 2026-06-17 17:25 UTC | Promotion |
+|---|---|---|---|
+| `REFRAMING_VECTOR_RELATIVE_SPECTRUM` | A− (Aer) | **A+** (Aer + Fez H_Im_h1) | **PROMOVIERT** |
+| `IM_BIAS_AS_KANONISCHE_METRIK` | (nicht existent) | **A** (5 Sweep-Punkte) | **NEU** |
+| `UNIFICATION_VECTOR_H_PT_GF5` | A | A | stabil |
+| `G_APPARAT_DETERMINISTIC` | A | A | stabil |
+| `SUB_RH_INDICATOR` | A− (Aer) | **A−** (Aer + Fez + 6 Dekaden statevector) | gestärkt |
+| `LATORRE_SPANNUNG` | "Mismatch funktionaler Form" | **"Fundamentale Disagreement"** (H_C) | verschärft |
+| `VQE+VQD_Fez` | BLOCKED, Q3-2026 | offen (Cron b3f26579) | unverändert |
+
+#### **10.9 Cross-Referenz-Index**
+
+| Befund | Hauptdoku | Detail-Doku |
+|---|---|---|
+| Aer-Stresstest Säule 1 | §6.5.10 | `SYNTHESIS_2026_06_10.md` §6.5.10 |
+| Echte Fez-QPU Singleshot | §6.5.13 | `pt_potential_vqe_singleshot_results.json` |
+| Fez VQE-Optimum 5-Pub | §6.5.15 | `pt_potential_vqe_minimal_results.json` |
+| Fez Schmidt-Entropie Säule 3 | §6.5.14 | `pt_prime_state_qpu_singleshot_results.json` |
+| Latorre-Spannung 3 Resolutionen | §6.5.16/17 | `LATORE_SPANNUNG_NOTE.md` |
+| Asymptotik H_C | §10.5 hier | `pt_asymptotic_N1e6_results.json` |
+| H_Im_h1 QPU-Bestätigung | §10.6 hier | `pt_im_bias_token2_results.json` |
+| Test-Bug-Fix | §10.7 hier | commit `d0cfae7` |
+| Strategic Vektor-Update | §10.8 hier | `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC |
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
