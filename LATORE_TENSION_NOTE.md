@@ -2,7 +2,7 @@
 title: "Sub-linear Entanglement Scaling of the Prime State: A QPU-validated Tension with Latorre–Sierra (2020)"
 author: "Julian H. & Claude (Opus 4.8)"
 date: "2026-06-10 (draft); 2026-06-17 (asymptotic addendum + Im-Bias QPU cross-reference)"
-status: "Pre-preprint, internal review — asymptotic data added; H_Im_h1 QPU-bestätigt auf Fez/TOKEN2"
+status: "Pre-preprint, internal review — asymptotic data added; H_Im_h1 QPU-confirmed on Fez/TOKEN2"
 license: "CC-BY 4.0 (proposed)"
 ---
 
@@ -10,20 +10,20 @@ license: "CC-BY 4.0 (proposed)"
 
 ## Document Map
 
-Pre-preprint zur Latorre–Sierra-Spannung (Säule 3 des Hauptprojekts). **Interne Supersession:** §5.1 ("Finite-N-Artefakt-Framing") wurde 2026-06-17 durch §11 (Asymptotik-Addendum, H_C bestätigt) abgelöst — die Spannung ist **fundamental**, kein Finite-N-Skalierungsartefakt.
+Pre-preprint on the Latorre–Sierra tension (Pillar 3 of the main project). **Internal supersession:** §5.1 ("Finite-N-Artifact Framing") was replaced on 2026-06-17 by §11 (Asymptotic Addendum, H_C confirmed) — the tension is **fundamental**, not a finite-$N$ scaling artifact.
 
-| Datei | Status | Rolle |
+| File | Status | Role |
 |---|---|---|
-| [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
-| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie + §10 Operational Findings Log (Säule 3) |
-| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | Strategische Vektoren; §Q.5 H_Im_h1-Bestätigung (Säule 1, orthogonal) |
-| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | statevector-first-Architektur (mit §Update 17:25 UTC) |
-| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart |
-| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
-| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
-| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
-| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 methodology manifesto |
+| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Refers to `CLAUDE.md` |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theory + §10 Operational Findings Log (Pillar 3) |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | Strategic vectors; §Q.5 H_Im_h1 confirmation (Pillar 1, orthogonal) |
+| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | statevector-first architecture (with §Update 17:25 UTC) |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visual) | Mermaid flowchart |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 active |
+| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architecture rationale (frozen 6/8) |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez quota block (resolved 6/17) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (external) | External research literature (95 KB) |
 
 ## Abstract
 
@@ -118,7 +118,7 @@ The Latorre–Sierra $S_{vN} \sim \log \pi(N)$ is **logarithmic in N**, *not* li
 
 ### 5.2 Three Models (formal fit comparison)
 
-| Modell | Form | Best-Fit-Parameter | Residual |
+| Model | Form | Best-Fit Parameter | Residual |
 |---|---|---:|---:|
 | M1 (ours) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
 | M3 (RH-Gram) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
@@ -158,7 +158,7 @@ The Schmidt entropy is a bipartite observable. A more RH-relevant observable may
 
 **Post-2026-06-17 framing (asymptotic data, §11):** The finite-$N$ "saturating" interpretation is *rejected* by the asymptotic data. $\alpha$ is *decreasing* monotonically from $\alpha(1023) = 0.347$ to $\alpha(10^6) = 0.223$. The Latorre–Sierra prediction $\alpha \to 1$ is excluded in the empirically accessible range $N \in [10^3, 10^6]$.
 
-The **Sub-RH indicator** defined in our project (Säule 3) — that the Schmidt entropy of the prime state scales sublinearly with $N$ — is **robust** and **strengthened** by the asymptotic data:
+The **Sub-RH indicator** defined in our project (Pillar 3) — that the Schmidt entropy of the prime state scales sublinearly with $N$ — is **robust** and **strengthened** by the asymptotic data:
 
 - The indicator's claim — that $S_{\text{vN}} \sim N^\alpha$ with $\alpha < 0.5$ — is now confirmed for $N$ spanning **six orders of magnitude** ($N = 7$ to $N = 10^6$).
 - The asymptotic $\alpha$ is closer to $\sim 0.22$ than to the finite-$N$ value $\sim 0.35$; the Sub-RH claim is *more* robust in the asymptotic regime.
@@ -176,15 +176,15 @@ The Latorre–Sierra prediction has been tested at scales *no one has previously
 ## 9. SciMind 5.0 — Transcategorical Bridge
 
 The Prime State entanglement structure is mathematically isomorphic to:
-- **Nuclear shell stability** (Säule 1 of the parent project): both are constrained by an asymptotic counting law (prime number theorem ↔ Wigner-Bethe formula for nuclear level density).
-- **PT-symmetric quantum mechanics** (Säule 2 of the parent project): the **sub-linear** scaling of the entanglement entropy is the operational equivalent of the "anti-Hermitian" term in the Zeraoulia Hamiltonian being sub-dominant.
+- **Nuclear shell stability** (Pillar 1 of the parent project): both are constrained by an asymptotic counting law (prime number theorem ↔ Wigner-Bethe formula for nuclear level density).
+- **PT-symmetric quantum mechanics** (Pillar 2 of the parent project): the **sub-linear** scaling of the entanglement entropy is the operational equivalent of the "anti-Hermitian" term in the Zeraoulia Hamiltonian being sub-dominant.
 
-The Spannung with Latorre–Sierra is therefore not merely a technical disagreement about exponents; it is a **phenomenological signature** of the same Hardy–Littlewood constraint that forces the nuclear shell spacings to compress as $E$ grows.
+The tension with Latorre–Sierra is therefore not merely a technical disagreement about exponents; it is a **phenomenological signature** of the same Hardy–Littlewood constraint that forces the nuclear shell spacings to compress as $E$ grows.
 
 ## 10. Next Steps
 
 1. ~~Compute Rényi-2 entropies on the same data (offline, immediate).~~ **DONE 2026-06-10: Resolution (b) falsified.**
-2. Extend to $N \in \{255, 511, 1023\}$ via the GF(5) ququint simulator (Säule 4) — no QPU cost. **DONE 2026-06-10.**
+2. Extend to $N \in \{255, 511, 1023\}$ via the GF(5) ququint simulator (Pillar 4) — no QPU cost. **DONE 2026-06-10.**
 3. After Fez Open-Plan quota reset (early July 2026), re-measure $N = 127$ with 16384 shots to reduce statistical noise on the largest system.
 4. **Re-read the Latorre–Sierra 2013 paper** (arXiv:1302.6245) for the *exact* observable they used — if they computed $S_{vN}$ at the level of single-qubit reductions (our System A is multi-qubit), the bipartition may explain the difference.
 
@@ -248,7 +248,7 @@ The Schmidt-vN entropy of the prime state scales as $S_{\text{vN}} \sim N^{0.22\
 
 ### 11.8 Sub-RH-Indikator: Status Update
 
-The Sub-RH-Indikator (Säule 3) is **strengthened** by the asymptotic data:
+The Sub-RH-Indikator (Pillar 3) is **strengthened** by the asymptotic data:
 
 - The indicator's claim — that $S_{\text{vN}} \sim N^\alpha$ with $\alpha < 0.5$ — is now confirmed for $N$ spanning **six orders of magnitude** ($N = 7$ to $N = 10^6$).
 - The original $\alpha = 0.27$ (Aer) / $\alpha = 0.35$ (QPU) are finite-$N$ effective slopes; the **asymptotic** $\alpha$ is closer to $\sim 0.22$.
@@ -263,11 +263,11 @@ The Sub-RH-Indikator (Säule 3) is **strengthened** by the asymptotic data:
 3. Parent project: `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` (Sections 6.5.12, 6.5.14).
 4. QPU data: `pt_prime_state_qpu_singleshot_results.json`.
 5. Architecture: `pt_prime_state_qpu_singleshot.py`, `pt_prime_state_offline_results.json`.
-6. Cross-reference: SYNTHESIS_2026_06_10.md §Q.5 (H_Im_h1 echt QPU-bestaetigt auf Fez/TOKEN2, 2026-06-17 17:19 UTC) — Säule 1 (H_PT-Bias), orthogonal zu Säule 3 (Prime States) der hier behandelten Latorre-Spannung.
+6. Cross-reference: SYNTHESIS_2026_06_10.md §Q.5 (H_Im_h1 truly QPU-confirmed on Fez/TOKEN2, 2026-06-17 17:19 UTC) — Pillar 1 (H_PT-Bias), orthogonal to Pillar 3 (Prime States) of the Latorre tension treated here.
 
 ---
 
 **Audit grade (SciMind 4.0):** A− (Aer + Fez QPU + statevector asymptotics, 11 data points across 6 decades of $N$).
-**Status 2026-06-17:** Resolution (c) **superseded** by §11. The Spannung is no longer a finite-$N$ artifact — it is a **fundamental disagreement** between the Latorre–Sierra prediction and the data. The Sub-RH-Indikator is **strengthened** by the asymptotic data.
+**Status 2026-06-17:** Resolution (c) **superseded** by §11. The tension is no longer a finite-$N$ artifact — it is a **fundamental disagreement** between the Latorre–Sierra prediction and the data. The Sub-RH-Indikator is **strengthened** by the asymptotic data.
 
-**Cross-Reference 2026-06-17 17:25 UTC:** Orthogonal zu Säule 3 wurde Säule 1 (PT-symmetrisches H_PT-Bias) ebenfalls QPU-validiert: REFRAMING_VECTOR_RELATIVE_SPECTRUM wurde nach H_Im_h1-Bestätigung (alle 5 Sweep-Punkte |bias| < 0.005, mean −0.0001, std 0.0019) auf **A+ promoviert**. Diese Bestätigung stützt indirekt auch die hier behandelte Aussage, dass das **relative** Spektrum (Delta E_n, alpha) bias-invariant ist — beide Säulen operieren mit der gleichen statevector-first-Architektur und Anti-Sharpshooter-Prereg-Methodik. Detail in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC".
+**Cross-Reference 2026-06-17 17:25 UTC:** Orthogonal to Pillar 3, Pillar 1 (PT-symmetric H_PT-Bias) was likewise QPU-validated: REFRAMING_VECTOR_RELATIVE_SPECTRUM was promoted to **A+** after the H_Im_h1 confirmation (all 5 sweep points |bias| < 0.005, mean −0.0001, std 0.0019). This confirmation also indirectly supports the claim treated here, that the **relative** spectrum (Delta E_n, alpha) is bias-invariant — both pillars operate with the same statevector-first architecture and Anti-Sharpshooter prereg methodology. Detail in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC".
