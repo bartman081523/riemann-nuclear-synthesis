@@ -1,0 +1,23 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-17 21:09:55,738: Loading account with the given token. A saved account will not be used.
+======================================================================
+QEC-BIAS-TEST QPU-SWEEP auf Fez/TOKEN2
+======================================================================
+Backend: ibm_fez, n_qubits: 2
+Resilience-Levels: [1, 2]
+Shots: 1024, theta: [0.523, 1.21, -0.45, 0.88]
+Prereg: pt_qec_bias_prereg.json
+======================================================================
+
+Prereg hypotheses: ['H_QEC_Eliminates_Bias', 'H_QEC_NoEffect', 'H_QEC_Amplifies_Bias']
+Connected: ibm_fez (156 qubits, status=active)
+Ansatz: n_local(2, 'ry', 'cx', 'linear', reps=1), n_params=4
+Observable A: (4, 4)
+
+--- Sweep RL=1 ---
+  Estimator Job ID (RL=1, rl1): d8pf1pmab0ds73dp0t90
+
+--- Sweep RL=2 ---
+  Estimator Job ID (RL=2, rl2): d8pf1q201fac73d1l3t0
+
+Job IDs saved: pt_qec_bias_token2_job_ids.json
+Next: run pt_qec_bias_token2_results.py

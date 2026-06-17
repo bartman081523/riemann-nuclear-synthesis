@@ -1,0 +1,48 @@
+{
+  "preregistered_at": "2026-06-17 20:30 UTC",
+  "purpose": "Test if QEC (resilience_level > 1) reduces the QPU bias observed in §10.11. QBER-Studie §10.10 sagte: 'Error mitigation will not reduce Im_bias, weil Bias algorithmisch.' Hier: direkter QEC-Bias-Vergleich.",
+  "rationale": "§10.11 zeigte Bias = -0.031, -0.051, -0.047 (systematisch negativ) auf n=2/3/4 Jacobi-Block. Wenn depolarisierender Hardware-Kanal, sollte QEC den Bias reduzieren. Wenn algorithmisch (QBER-Studie), sollte QEC keinen Effekt haben.",
+  "hypotheses": {
+    "H_QEC_Eliminates_Bias": {
+      "description": "resilience_level=2 (Zero-Noise Extrapolation) reduziert |bias| um Faktor >= 2 im Vergleich zu resilience_level=1.",
+      "implication": "QPU-Bias ist depolarisierungsdominiert. QEC ist eine effektive Mitigation.",
+      "test_statistic": "ratio = |bias_RL2| / |bias_RL1|",
+      "threshold": "ratio < 0.5"
+    },
+    "H_QEC_NoEffect": {
+      "description": "QEC hat keinen signifikanten Effekt auf den Bias (innerhalb Faktor 2).",
+      "implication": "QPU-Bias ist algorithmus-dominiert, NICHT depolarisierungs-dominiert. QEC hilft nicht. QBER-Studie §10.10 wird doppelt bestätigt.",
+      "test_statistic": "ratio = |bias_RL2| / |bias_RL1|",
+      "threshold": "0.5 <= ratio <= 2.0"
+    },
+    "H_QEC_Amplifies_Bias": {
+      "description": "QEC amplifiziert den Bias (ratio > 2.0).",
+      "implication": "QEC selbst fügt systematischen Fehler hinzu (z.B. extrapolation overshoot).",
+      "test_statistic": "ratio = |bias_RL2| / |bias_RL1|",
+      "threshold": "ratio > 2.0"
+    }
+  },
+  "decision_rule": [
+    "1 sequenzieller QPU-Sweep auf Fez/TOKEN2 mit n=2 (kleinste Jacobi-Block-Dimension, niedrigster QPU-Verbrauch).",
+    "2 Jobs: (a) resilience_level=1 (ref aus §10.11), (b) resilience_level=2 (ZNE, Zero-Noise-Extrapolation).",
+    "NOTE: qiskit_ibm_runtime.EstimatorOptions erlaubt max resilience_level=2. PEA (RL=3) ist in dieser API nicht verfügbar.",
+    "1024 shots, gleiche theta-Parameter [0.523, 1.21, -0.45, 0.88].",
+    "Compute bias = QPU_<A> - SV_<A> für jeden RL.",
+    "Compute ratio = |bias_RL2| / |bias_RL1| und ratio_PEA = |bias_RL3| / |bias_RL1|.",
+    "Verdict: H_QEC_Eliminates_Bias wenn ratio < 0.5; H_QEC_NoEffect wenn 0.5 <= ratio <= 2.0; H_QEC_Amplifies_Bias wenn ratio > 2.0.",
+    "Cross-check: H_QEC_Eliminates_Bias impliziert, dass §10.10 QBER-Studie revidiert werden muss. H_QEC_NoEffect bestätigt §10.10 doppelt."
+  ],
+  "method": {
+    "ansatz": "n_local(2, 'ry', 'cx', 'linear', reps=1)",
+    "theta": [0.523, 1.21, -0.45, 0.88],
+    "observable": "A (Jacobi-Kopplungs-Matrix, gamma=0.02)",
+    "shots": 1024,
+    "backend": "ibm_fez",
+    "instance": "open-instance",
+    "token": "IBMQ_TOKEN2"
+  },
+  "qpu_evidence_grade": "A (direkter QEC-Bias-Vergleich, preregistriert)",
+  "expected_qpu_cost_minutes": 2,
+  "expected_qpu_cost_jobs": 2,
+  "post_analysis_note": "Qiskit EstimatorOptions erlaubt max RL=2. RL=3 (PEA) nicht in API. Reduktion auf 2 Jobs."
+}

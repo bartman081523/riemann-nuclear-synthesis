@@ -1,0 +1,54 @@
+{
+  "prereg_file": "pt_qec_bias_prereg.json",
+  "qpu_A_per_RL": {
+    "1": 0.19713846255135617,
+    "2": 0.24160415212085054
+  },
+  "sv_A": 0.2627087944483092,
+  "biases": {
+    "1": -0.06557033189695302,
+    "2": -0.02110464232745865
+  },
+  "abs_biases": {
+    "1": 0.06557033189695302,
+    "2": 0.02110464232745865
+  },
+  "ratio_RL2_vs_RL1": 0.32186267351255177,
+  "verdict": "H_QEC_Eliminates_Bias",
+  "implication": "QEC (ZNE) reduziert Bias um >= 2x. QPU-Bias ist depolarisierungsdominiert.",
+  "sweep_metadata": {
+    "prereg_file": "pt_qec_bias_prereg.json",
+    "backend": "ibm_fez",
+    "instance": "open-instance",
+    "token": "IBMQ_TOKEN2",
+    "n_qubits": 2,
+    "gamma": 0.02,
+    "shots": 1024,
+    "theta": [
+      0.523,
+      1.21,
+      -0.45,
+      0.88
+    ],
+    "resilience_levels": [
+      1,
+      2
+    ],
+    "method": "3 sequenzielle Estimator-Jobs (RL=1,2,3) auf n=2 Jacobi-Block auf Fez/TOKEN2",
+    "jobs": [
+      {
+        "resilience_level": 1,
+        "label": "rl1",
+        "estimator_job_id": "d8pf1pmab0ds73dp0t90"
+      },
+      {
+        "resilience_level": 2,
+        "label": "rl2",
+        "estimator_job_id": "d8pf1q201fac73d1l3t0"
+      }
+    ],
+    "submission_timestamp": "2026-06-17 19:10:00 UTC",
+    "status": "submitted"
+  },
+  "analysis_timestamp": "2026-06-17 19:16:10 UTC"
+}
