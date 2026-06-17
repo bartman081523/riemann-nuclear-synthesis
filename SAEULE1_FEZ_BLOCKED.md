@@ -1,3 +1,11 @@
+> **STATUS: SUPERSEDED 2026-06-17** (Kontingent aufgelöst, H_Im_h1 echt QPU-bestaetigt).
+>
+> Diese Datei dokumentiert die Fez-Kontingent-Blockade (8.6.–16.6.2026) und die zugehörigen Code-Bug-Fixes (Qiskit-Version-Inkompatibilität, Quarantäne-Blockade TOKEN1, statevector-first-Architektur). Der Inhalt bleibt **historisch und technisch wertvoll** (insbesondere die Code-Bug-Fixes), ist aber **nicht mehr Quelle der Wahrheit** für den aktuellen Status.
+>
+> Nachfolger für aktuellen Säule-1-Status: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) §"Update 2026-06-17 17:25 UTC".
+>
+> Aktuelle Theorie-Stand: [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) §10 (Operational Findings Log).
+
 # Säule 1 Fez Submission — Blockiert durch Account-Kontingent
 
 **Datum:** 2026-06-08
