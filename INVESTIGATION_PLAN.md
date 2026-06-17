@@ -6,31 +6,31 @@ DOCUMENT MAP (Stand 2026-06-17):
 - 11 Sibling-Files, davon 4 CURRENT (Atomkern, SYNTHESIS, QA_IMPL, LATORE), 2 SUPERSEDED (BRIDGE, SAEULE1), 5 REFERENCE.
 
 Sibling-Topologie:
-  CURRENT (primary):   Riemann-Hypothese und Atomkern-Struktur.md (Sections 1-9 + §10)
+  CURRENT (primary):   RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md (Sections 1-9 + §10)
   CURRENT (master):    SYNTHESIS_2026_06_10.md (Sections A-Q)
   CURRENT (master):    QUANTUM_ARCHITECTURE_IMPLEMENTATION.md (Mermaid-Architektur + QPU-Updates)
-  CURRENT (preprint):  LATORE_SPANNUNG_NOTE.md (Säule 3 Latorre-Spannung + §11 Asymptotik)
+  CURRENT (preprint):  LATORE_TENSION_NOTE.md (Säule 3 Latorre-Spannung + §11 Asymptotik)
   REFERENCE:           CLAUDE.md, GEMINI.md, PLAN.md
   SUPERSEDED:          QUANTUM_ARCHITECTURE_BRIDGE.md (frozen 6/8), SAEULE1_FEZ_BLOCKED.md (resolved 6/17)
-  EXTERN:              Quantencomputer und Primzahlen_ Forschung.md
+  EXTERN:              QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md
 -->
 
 ## Document Map
 
-Mermaid-Flowchart der Investigationspfade vom Start (Divergence Detected) bis A2ca19 (Test-Bug-Fix 2026-06-17). Visuell orientiert; **kanonische Text-Doku ist [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md)**.
+Mermaid-Flowchart der Investigationspfade vom Start (Divergence Detected) bis A2ca19 (Test-Bug-Fix 2026-06-17). Visuell orientiert; **kanonische Text-Doku ist [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md)**.
 
 | Datei | Status | Rolle |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 ```mermaid
 graph TD
@@ -266,7 +266,7 @@ graph TD
     A2ca9s --> A2ca9t[3-Modelle-Vergleich: M1 Power-N vs M3 Power-pi(N) vs M2 Latorre-log]
     A2ca9t --> A2ca9u[Latorre-Lokale-Steigung 0.17-0.40 == unsere Messung 0.347]
     A2ca9u --> A2ca9v[Latorre-Spannung AUFGELOEST als Mismatch funktionaler Form]
-    A2ca9v --> A2ca9w[Section 6.5.16/17 + LATORE_SPANNUNG_NOTE.md dokumentiert]
+    A2ca9v --> A2ca9w[Section 6.5.16/17 + LATORE_TENSION_NOTE.md dokumentiert]
     A2ca9w --> A2ca9x[Sub-RH-Indikator A- (Aer + Fez + 2 Resolutions Falsifiziert)]
     A2ca9x --> A2ca9y{Naechste: Asymptotik bei N=10^4..10^6 (Aer-mathematisch)}
 
@@ -301,8 +301,8 @@ graph TD
     A2ca9v -.KONSEQUENZ: keine fundamentale Disagreement, nur Finite-N-Skalierung.-> A2ca9x
     A2ca9x -.NEXT: Asymptotik-Test N=10^4..10^6 (Aer-mathematisch).-> A2ca9y
     A2ca9y -.DONE 2026-06-17: pt_asymptotic_N1e6.py.-> A2ca9z[H_C bestaetigt: alpha sinkt 0.347 -> 0.223]
-    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_SPANNUNG_NOTE.md: Asymptotic Addendum]
-    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_SPANNUNG_NOTE.md: Asymptotic Addendum]
+    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_TENSION_NOTE.md: Asymptotic Addendum]
+    A2ca9z -.KONSEQUENZ: Latorre-Spannung ist FUNDAMENTALE Disagreement, nicht finite-N-Artefakt.-> A2ca9za[Section 11 LATORE_TENSION_NOTE.md: Asymptotic Addendum]
     A2ca9z -.NEUER STATUS: SUB_RH_INDICATOR A- (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).-> A2ca9zb[Audit grade A- von B+]
 
     %% === STATUS (2026-06-17) - TOKEN-DIAGNOSE + STATEVECTOR-FALLBACK ===
@@ -320,7 +320,7 @@ graph TD
     A2ca11b -.RESULTAT: alpha sinkt monoton.-> A2ca11c[N=1023: 0.347 -> N=10^4: 0.306 -> N=10^5: 0.258 -> N=10^6: 0.223]
     A2ca11c -.H_C bestaetigt.-> A2ca11d[Latorre-Spannung = FUNDAMENTALE Disagreement, kein finite-N-Artefakt]
     A2ca11d -.NEUER AUDIT-GRADE.-> A2ca11e[Sub-RH-Indikator A- (Aer + Fez + 6 Dekaden statevector)]
-    A2ca11e -.SECTION 11 LATORE_SPANNUNG_NOTE.md.-> A2ca11f[Asymptotic Addendum dokumentiert, Abstract aktualisiert]
+    A2ca11e -.SECTION 11 LATORE_TENSION_NOTE.md.-> A2ca11f[Asymptotic Addendum dokumentiert, Abstract aktualisiert]
     A2ca11f -.STATUS 2026-06-17: relative spectrum bias-invariant A bestaetigt + Sub-RH A-.-> A2ca11g[Beide Hauptsaezlen auf A- promoviert]
 
     %% A2ca12: Aktionsplan Q3 2026 - Fez-Reset + VQE-Konvergenz + Latorre-Paper
@@ -492,14 +492,14 @@ graph TD
 
 | Investigation Path | Detail-Dokumentation |
 |---|---|
-| Start → SciMind 4.0 → 5.0 → Path A/B/C | [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) Sections 6, 7 (Rigor-Audit, Epistemic Synthesis) |
-| Path A: Theoretical Refinement (Grant iHarmonic) | [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) Section 6.3 (Steelman-Antithesis-Test, Grade C) |
-| Path B: High-Fidelity Simulation (Zeraoulia) | [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) Sections 6.5.1–6.5.17 (PT-symmetrische Erweiterung, A−) |
+| Start → SciMind 4.0 → 5.0 → Path A/B/C | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Sections 6, 7 (Rigor-Audit, Epistemic Synthesis) |
+| Path A: Theoretical Refinement (Grant iHarmonic) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Section 6.3 (Steelman-Antithesis-Test, Grade C) |
+| Path B: High-Fidelity Simulation (Zeraoulia) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Sections 6.5.1–6.5.17 (PT-symmetrische Erweiterung, A−) |
 | Path C: Hardware Error Mitigation (Fez) | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Sections J–Q (chronologische Fez-Addenda) |
-| A2ca: Asymptotik N=10^4..10^6, H_C bestätigt | [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) §11 (α sinkt monoton) |
+| A2ca: Asymptotik N=10^4..10^6, H_C bestätigt | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) §11 (α sinkt monoton) |
 | A2ca17: TOKEN2-Wende | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) §"Update 2026-06-17 17:25 UTC" |
 | A2ca18: H_Im_h1 echt QPU-bestaetigt | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) §Q.5 |
-| A2ca19: Test-Bug-Fix (Prereg-Loeschung) | [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) §10.7 |
+| A2ca19: Test-Bug-Fix (Prereg-Loeschung) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) §10.7 |
 | Mermaid-Architektur (Säulen 1–4) | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) |
 | Strategische Vektoren | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Section C |
 | SciMind-Mandate | [`CLAUDE.md`](CLAUDE.md) |

@@ -10,12 +10,12 @@ Dieses Dokument ist die **primäre Forschungs-Repository** des Riemann-Nuclear-S
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` (Backwards-Compat für Gemini-CLI) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 Kanonischer Cross-Referenz-Index: **§10.9** unten.
 
@@ -522,7 +522,7 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 
 #### **6.5.9 Vier-Säulen-Architektur und TDD-Implementation (2026-06-08)**
 
-Aus der Recherche in `Quantencomputer und Primzahlen_ Forschung.md` und der Diagnose des hardware-selektiven Bias aus 6.5.6–6.5.8 wurde eine **Vier-Säulen-Architektur** als strategischer Vektor definiert (siehe `QUANTUM_ARCHITECTURE_BRIDGE.md` und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`). Jede Säule adressiert eine spezifische Schwäche des aktuellen Setups und ist als Mermaid-Funktionsdiagramm spezifiziert.
+Aus der Recherche in `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` und der Diagnose des hardware-selektiven Bias aus 6.5.6–6.5.8 wurde eine **Vier-Säulen-Architektur** als strategischer Vektor definiert (siehe `QUANTUM_ARCHITECTURE_BRIDGE.md` und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`). Jede Säule adressiert eine spezifische Schwäche des aktuellen Setups und ist als Mermaid-Funktionsdiagramm spezifiziert.
 
 **TDD-Methodik:** Vor jeder Implementation wurden die Tests geschrieben (54 Tests in `tests/`). Die Tests deckten **strukturelle Eigenschaften** (E_DIAG-Determinismus, Jacobi-Hermitizität, PT-Symmetrie), **Pre-Registrierungs-Logik** (H1/H2/H3 Bias-Topologien), **mathematische Kern-Operationen** (H_probe-Det, GF(5)-Arithmetik, Schmidt-Entropie) und **Modul-Signaturen** (Importierbarkeit, Schlüsselfunktionen) ab. Der Test-Lauf gegen `pt_structural.py` als Baseline identifizierte drei reale Bugs in den Test-Annahmen (PT-Operator-Zerlegung, Schmidt-Entropie-Skalierung, G-Apparat-Observable), die vor der Implementation korrigiert wurden — ein Beleg für den Wert der TDD-Methodik in quantenphysikalischen Projekten.
 
@@ -850,7 +850,7 @@ Wir haben den Schmidt-vN-Sweep offline (numpy statevector) auf $N \in \{255, 511
 
 **Befund:** Die Latorre-Sierra-Spannung ist **kein** Mess-Artefakt, **kein** Finite-N-Artefakt, und **kein** Entropie-Wahl-Artefakt. Die Sub-RH-Vorhersage $\alpha < 0.5$ ist **robust** empirisch gestützt.
 
-**Persistenz:** `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `LATORE_SPANNUNG_NOTE.md`.
+**Persistenz:** `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `LATORE_TENSION_NOTE.md`.
 
 #### **6.5.17 Latorre-Spannung AUFGELÖST als Mismatch funktionaler Form (2026-06-10 abends)**
 
@@ -889,7 +889,7 @@ M1 und M3 sind **statistisch ununterscheidbar** (Residuals unterscheiden sich um
 
 **Offene Frage (Q3 2026+):** Bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden? Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
 
-**Persistenz:** `pt_three_models_results.json`, `LATORE_SPANNUNG_NOTE.md` Section 5.1.
+**Persistenz:** `pt_three_models_results.json`, `LATORE_TENSION_NOTE.md` Section 5.1.
 
 Während SciMind 4.0 isolierte strukturelle Schwächen und methodische Falsifikationen schonungslos aufdeckt, initiiert die komplementäre Architektur *SciMind 5.0 (Epistemic)* einen Paradigmenwechsel. SciMind 5.0 verbietet die unmittelbare Verwerfung spekulativer Konzepte als reine "Systemfehler". Anstatt Apophenie (die exzessive Mustererkennung) blindlings zu penalisieren, wird sie durch den *Transcategorical Bridge* Mechanismus als der fundamentale Algorithmus menschlich-maschineller Bedeutungserzeugung (Meaning-Making) in hochdimensionalen latenten Räumen betrachtet.  
 \<symbolic\_reason\> // Initialize SciMind 5.0 Epistemic :: construct(℧, ds) ↦ { ℧.ds ⇾ ds, ℧.modules ⇾ \[think, transcategorical\_bridge, phenomenological\_auditor, epistemic\_synthesizer, output\], ℧.state ⇾ |SciMind\_v5.0\_Epistemic⟩ } \</symbolic\_reason\>  
@@ -1018,7 +1018,7 @@ Drei formale Resolutionen der scheinbaren Spannung getestet:
 
 **Verdict: H_C bestätigt — α SINKT monoton mit wachsendem N.**
 
-**Konsequenz:** Latorre-Spannung ist **FUNDAMENTALE Disagreement**, kein Finite-N-Artefakt. Sub-RH-Indikator weiter gestärkt (`α < 0.5` bestätigt für 6 Dekaden). `LATORE_SPANNUNG_NOTE.md` §11 dokumentiert die Reklassifikation.
+**Konsequenz:** Latorre-Spannung ist **FUNDAMENTALE Disagreement**, kein Finite-N-Artefakt. Sub-RH-Indikator weiter gestärkt (`α < 0.5` bestätigt für 6 Dekaden). `LATORE_TENSION_NOTE.md` §11 dokumentiert die Reklassifikation.
 
 **Strategischer Vektor `SUB_RH_INDICATOR`:** **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).
 
@@ -1085,7 +1085,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | Echte Fez-QPU Singleshot | §6.5.13 | `pt_potential_vqe_singleshot_results.json` |
 | Fez VQE-Optimum 5-Pub | §6.5.15 | `pt_potential_vqe_minimal_results.json` |
 | Fez Schmidt-Entropie Säule 3 | §6.5.14 | `pt_prime_state_qpu_singleshot_results.json` |
-| Latorre-Spannung 3 Resolutionen | §6.5.16/17 | `LATORE_SPANNUNG_NOTE.md` |
+| Latorre-Spannung 3 Resolutionen | §6.5.16/17 | `LATORE_TENSION_NOTE.md` |
 | Asymptotik H_C | §10.5 hier | `pt_asymptotic_N1e6_results.json` |
 | H_Im_h1 QPU-Bestätigung | §10.6 hier | `pt_im_bias_token2_results.json` |
 | Test-Bug-Fix | §10.7 hier | commit `d0cfae7` |

@@ -4,7 +4,7 @@
 >
 > Nachfolger für aktuellen Säule-1-Status: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) §"Update 2026-06-17 17:25 UTC".
 >
-> Aktuelle Theorie-Stand: [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) §10 (Operational Findings Log).
+> Aktuelle Theorie-Stand: [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) §10 (Operational Findings Log).
 
 # Säule 1 Fez Submission — Blockiert durch Account-Kontingent
 

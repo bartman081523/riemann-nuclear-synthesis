@@ -8,21 +8,21 @@ Historische Execution-Roadmap. Phases 1–3 seit 2026-06-08 abgeschlossen; **Pha
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 ## Objective
 To finalize the research document by auditing missing theories, refining existing falsifications, and providing empirical simulation data.
 
 ## Status-Update 2026-06-17 17:25 UTC
 
-**Alle drei ursprünglichen Phasen sind seit 2026-06-08 faktisch abgeschlossen** (siehe `Riemann-Hypothese und Atomkern-Struktur.md` Sections 6.5.4–6.5.17 und `SYNTHESIS_2026_06_10.md`). PLAN.md wird hier als historischer Marker der ursprünglichen Execution-Roadmap beibehalten, plus die neuen Phase 4 mit den QPU-validierten Befunden.
+**Alle drei ursprünglichen Phasen sind seit 2026-06-08 faktisch abgeschlossen** (siehe `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` Sections 6.5.4–6.5.17 und `SYNTHESIS_2026_06_10.md`). PLAN.md wird hier als historischer Marker der ursprünglichen Execution-Roadmap beibehalten, plus die neuen Phase 4 mit den QPU-validierten Befunden.
 
 ## Phase 1: Audit of Farrell's Time-Scalar Field Theory (TSFT) — DONE
 - **Goal:** Subject TSFT (Section 5.4) to SciMind 4.0 Rigor.
@@ -30,7 +30,7 @@ To finalize the research document by auditing missing theories, refining existin
     1. Analyze the "Zebra Journal of Unified Physics" source context (if possible/simulated).
     2. Identify free parameters and physical mechanism (Spin-Orbit coupling replacement).
     3. Assign Evidence Grade.
-    4. Append result to `Riemann-Hypothese und Atomkern-Struktur.md`.
+    4. Append result to `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`.
 - **Result (Section 6.4):** Evidence Grade **F (FALSIFIED)** — TSFT verstößt gegen Ockham's Razor, keine unabhängige Vorhersagekraft. Strategischer Vektor: `REJECTION_VECTOR_TOPOLOGICAL_METAPHOR`.
 
 ## Phase 2: Geometric Refinement (Alphahedron/Grant) — DONE
@@ -59,7 +59,7 @@ To finalize the research document by auditing missing theories, refining existin
     2. Prereg VOR Skript-Ausführung: `pt_im_bias_prereg.json` mit H_Im_h1/h2/h3 + Entscheidungsregel.
     3. 5 sequenzielle 1-Pub-Jobs auf Fez/TOKEN2 (in 17 Sekunden alle DONE): H_Im_h1 echt QPU-bestätigt (alle |bias| < 0.005, mean −0.0001, std 0.0019).
     4. Strategischer Vektor `IM_BIAS_AS_KANONISCHE_METRIK` auf **A** promoviert, `REFRAMING_VECTOR_RELATIVE_SPECTRUM` auf **A+**.
-- **Result:** Asymptotik N=10⁴..10⁶ (statevector) bestätigt H_C (alpha sinkt monoton mit N), Latorre-Spannung als **fundamentale Disagreement** klassifiziert (`LATORE_SPANNUNG_NOTE.md` §11). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Q.5, `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC.
+- **Result:** Asymptotik N=10⁴..10⁶ (statevector) bestätigt H_C (alpha sinkt monoton mit N), Latorre-Spannung als **fundamentale Disagreement** klassifiziert (`LATORE_TENSION_NOTE.md` §11). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Q.5, `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC.
 
 ## Execution Schedule (historisch)
 1. Farrell Audit → ✅ DONE (Phase 1)

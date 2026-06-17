@@ -8,14 +8,14 @@ Living technical implementation document. Mermaid-Architektur-Diagramme + chrono
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Diagramm-Ideen historisch |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Code-Bug-Fixes weiter relevant |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 Dieses Dokument beschreibt die **konkrete Implementierung** der vier Säulen aus
 `QUANTUM_ARCHITECTURE_BRIDGE.md` als Mermaid-Funktionsdiagramme. Jedes Diagramm
@@ -405,7 +405,7 @@ graph TD
 
 ## Quellenangaben
 
-Siehe `Quantencomputer und Primzahlen_ Forschung.md` und
+Siehe `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` und
 `QUANTUM_ARCHITECTURE_BRIDGE.md`.
 
 ---
@@ -687,7 +687,7 @@ Die Sub-RH-Vorhersage $\alpha < 0.5$ ist empirisch robust gestützt, aber ihre I
 
 Die offene Frage ist nicht mehr "Latorre vs. wir", sondern: **bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden?** Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
 
-Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `pt_three_models_results.json`. Prepreprint in `LATORE_SPANNUNG_NOTE.md` (10 KB).
+Persistiert in `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `pt_three_models_results.json`. Prepreprint in `LATORE_TENSION_NOTE.md` (10 KB).
 
 ---
 
@@ -760,7 +760,7 @@ Drei strategische Entwicklungen seit dem 10.06., die das Implementation-Dossier 
 
 **Verdict: H_C bestätigt** — alpha sinkt monoton, weder H_A noch H_B.
 
-**Implikation für Latorre-Spannung:** §5.1 des `LATORE_SPANNUNG_NOTE.md` (framing als "finite-N artifact") ist **superseded**. Die Latorre-Spannung ist eine **fundamentale Disagreement**: Latorre sagt $\alpha \to 1$, Daten sagen $\alpha \to 0$.
+**Implikation für Latorre-Spannung:** §5.1 des `LATORE_TENSION_NOTE.md` (framing als "finite-N artifact") ist **superseded**. Die Latorre-Spannung ist eine **fundamentale Disagreement**: Latorre sagt $\alpha \to 1$, Daten sagen $\alpha \to 0$.
 
 **Sub-RH-Indikator:** noch stärker. $S_{\text{vN}} \sim N^\alpha$ mit $\alpha < 0.5$ jetzt bestätigt für $N \in [7, 10^6]$ — **sechs Dekaden**.
 

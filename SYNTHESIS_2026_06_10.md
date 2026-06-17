@@ -12,14 +12,14 @@ Master-Synthese-Dokument mit SciMind-Verdikten (Sections A–G), Empfehlungen (H
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Inhaltliche Sections 1–7 historisch lesenswert |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Code-Bug-Fixes weiter relevant |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 ## 0. Executive Summary
 
@@ -470,15 +470,15 @@ TIER 4 (verworfen):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [dopp
 |---|---:|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | 1.7 KB | REFERENCE (locked) | SciMind 4.0/5.0 Mandate, Workflow |
 | [`GEMINI.md`](GEMINI.md) | 1.7 KB | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | 130 KB | **CURRENT (primary)** | Sections 1–9 Theorie + §10 Operational Findings Log |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | 130 KB | **CURRENT (primary)** | Sections 1–9 Theorie + §10 Operational Findings Log |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | 60 KB | **CURRENT (master)** | Sections A–Q, Strategische Vektoren, QPU-Addenda |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | 43 KB | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | 20 KB | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | 20 KB | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | 27 KB | REFERENCE (visuell) | Mermaid-Flowchart A2ca1–A2ca19 |
 | [`PLAN.md`](PLAN.md) | 4 KB | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | 10 KB | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | 2.7 KB | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | 95 KB | REFERENCE (extern) | Externe Forschungs-Literatur |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | 95 KB | REFERENCE (extern) | Externe Forschungs-Literatur |
 
 **Ergebnis-JSONs (Fez/TOKEN2):**
 

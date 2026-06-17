@@ -16,14 +16,14 @@ Pre-preprint zur Latorre–Sierra-Spannung (Säule 3 des Hauptprojekts). **Inter
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) | **CURRENT (primary)** | Theorie + §10 Operational Findings Log (Säule 3) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie + §10 Operational Findings Log (Säule 3) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | Strategische Vektoren; §Q.5 H_Im_h1-Bestätigung (Säule 1, orthogonal) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | statevector-first-Architektur (mit §Update 17:25 UTC) |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) |
-| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+| [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
 ## Abstract
 
@@ -260,7 +260,7 @@ The Sub-RH-Indikator (Säule 3) is **strengthened** by the asymptotic data:
 
 1. Latorre, J. I. & Sierra, G. "Quantum Computation of Prime Number Functions". arXiv:1302.6245 (2013).
 2. Latorre, J. I. & Sierra, G. "The Prime state and its quantum relatives". *Quantum* 4, 246 (2020).
-3. Parent project: `Riemann-Hypothese und Atomkern-Struktur.md` (Sections 6.5.12, 6.5.14).
+3. Parent project: `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` (Sections 6.5.12, 6.5.14).
 4. QPU data: `pt_prime_state_qpu_singleshot_results.json`.
 5. Architecture: `pt_prime_state_qpu_singleshot.py`, `pt_prime_state_offline_results.json`.
 6. Cross-reference: SYNTHESIS_2026_06_10.md §Q.5 (H_Im_h1 echt QPU-bestaetigt auf Fez/TOKEN2, 2026-06-17 17:19 UTC) — Säule 1 (H_PT-Bias), orthogonal zu Säule 3 (Prime States) der hier behandelten Latorre-Spannung.

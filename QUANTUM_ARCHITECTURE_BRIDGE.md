@@ -2,13 +2,13 @@
 >
 > Der Inhalt (Sections 1–7) bleibt als **historische architektonische Rationale** erhalten, ist aber **nicht mehr Quelle der Wahrheit** für aktuellen Säule-1+3-Status. Nachfolger:
 > - Aktuelle Architektur + QPU-Update-Log: [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md)
-> - Aktuelle Theorie-Stand + Audits: [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) Section 6.5.9
+> - Aktuelle Theorie-Stand + Audits: [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Section 6.5.9
 >
 > Im neuen Doc-Map-System ist diese Datei `SUPERSEDED`. Bei Code-Bug-Fixes (siehe z.B. Qiskit-Version-Inkompatibilität `qc.unitary()`) bitte weiterhin in `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` konsultieren.
 
 # Quantencomputer-Architektur für das Riemann-Projekt
 
-Integriert vier Architektur-Konzepte aus `Quantencomputer und Primzahlen_ Forschung.md` in unser transkategoriales Forschungsprogramm.
+Integriert vier Architektur-Konzepte aus `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` in unser transkategoriales Forschungsprogramm.
 
 ## 1\. Strategische Lücke im aktuellen Setup
 
@@ -205,7 +205,7 @@ Die vier Säulen sind isomorph zu:
 
 ## 7\. Quellenangaben
 
-Siehe `Quantencomputer und Primzahlen_ Forschung.md` für die vollständige Referenzliste. Kernreferenzen für unser Projekt:
+Siehe `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` für die vollständige Referenzliste. Kernreferenzen für unser Projekt:
 - [1] Holographic realization of the prime number quantum potential (PNAS Nexus, 2023)
 - [5] Quantum Computation of Prime Number Functions (arXiv:1302.6245)
 - [8] Daniel Gottesman: Stabilizer Codes for Prime Power Qudits

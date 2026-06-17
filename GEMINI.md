@@ -10,9 +10,9 @@ Vollständige SciMind 4.0/5.0-Mandate und Workflow: [`CLAUDE.md`](CLAUDE.md).
 
 Sibling-Dokumente des Projekts:
 
-- [`Riemann-Hypothese und Atomkern-Struktur.md`](Riemann-Hypothese%20und%20Atomkern-Struktur.md) (primary research repository)
+- [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) (primary research repository)
 - [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) (master synthesis)
 - [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) (living technical implementation)
-- [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) (Latorre–Sierra pre-preprint)
+- [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) (Latorre–Sierra pre-preprint)
 - [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) (Mermaid investigation flowchart)
 - [`PLAN.md`](PLAN.md) (Execution roadmap)

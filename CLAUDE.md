@@ -19,7 +19,7 @@ This project explores the trans-categorical isomorphisms between the Riemann Hyp
 ## Technical Standards
 - **Simulation:** Prefer Python with `qiskit` for quantum spectral simulations.
 - **Validation:** All conclusions must be graded using the SciMind Evidence Grading Scale (A-F).
-- **Documentation:** Maintain `Riemann-Hypothese und Atomkern-Struktur.md` as the primary research repository.
+- **Documentation:** Maintain `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` as the primary research repository.
 
 ## Workflow
 1. **Research:** Identify new theories or anomalies.
