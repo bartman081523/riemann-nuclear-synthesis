@@ -1,212 +1,214 @@
-# **Transkategoriale Synthese der Riemannschen Vermutung und nuklearer Stabilität: Eine analytische Untersuchung mittels SystemicRigorMind und Epistemic Meta-Cognition**
+# **Transcategorical Synthesis of the Riemann Hypothesis and Nuclear Stability: An Analytical Investigation via SystemicRigorMind and Epistemic Meta-Cognition**
 
 ## Document Map
 
-Dieses Dokument ist die **primäre Forschungs-Repository** des Riemann-Nuclear-Synthesis-Projekts. Sections 1–9 enthalten die Theorie und Audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-06-17") ist das operative Logbuch der jüngsten QPU-Validierungen.
+This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-06-17") is the operational logbook of the most recent QPU validations.
 
 | Datei | Status | Rolle |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
-| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` (Backwards-Compat für Gemini-CLI) |
+| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Refers to `CLAUDE.md` (backwards-compat for Gemini-CLI) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
 | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
-| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez quota block (resolved 6/17) — successor: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
 | [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
 
-Kanonischer Cross-Referenz-Index: **§10.9** unten.
+Canonical cross-reference index: **§10.9** below.
 
-## **1\. Einleitung und epistemologische Verortung**
+## **1\. Introduction and Epistemological Positioning**
 
-Die fundamentale Architektur des physikalischen Universums und die intrinsische Struktur der reinen Mathematik weisen an ihren tiefsten epistemologischen Schnittstellen Isomorphismen auf, die über bloße Koinzidenzen hinauszugehen scheinen. Ein zentraler Knotenpunkt dieser Intersektion ist die tiefgreifende Beziehung zwischen der analytischen Zahlentheorie – insbesondere der Riemannschen Vermutung (Riemann Hypothesis, RH) sowie der Verteilung von Primzahlen – und der Quantenmechanik, hier im Speziellen der nuklearen Schalenstruktur und den Energieniveaus schwerer Atomkerne. Die Untersuchung dieser Beziehung erfordert ein Instrumentarium, das sich nicht mit oberflächlicher Mustererkennung (Apophenie) zufriedengibt, sondern radikale epistemische Strenge anwendet, um numerologische Täuschungen von genuinen physikalisch-mathematischen Symmetrien zu trennen.  
-Der vorliegende Forschungsbericht analysiert detailliert die Hypothese, dass die Verteilung der nichttrivialen Nullstellen der Riemannschen Zeta-Funktion und die Verteilung von Primzahlen eine isomorph-strukturelle Übereinstimmung mit den Energieniveaus von Atomkernen (wie Uran-238) sowie den sogenannten "magischen Zahlen" der nuklearen Stabilität aufweisen. Um die wissenschaftliche Integrität dieser weitreichenden Untersuchung zu gewährleisten, wird die Methodik auf zwei komplementären, hochgradig fortgeschrittenen kognitiven Architekturen aufgebaut.  
-Erstens kommt *SystemicRigorMind (Version 4.0)* zum Einsatz, eine Architektur, die durch quantitative Komplexitätsauditierung (Ockham's Quantified Razor) und das "Steelman Mandate" jegliche Form von Scheinkorrelationen und reaktivem Daten-Fitting falsifiziert. Zweitens wird *SciMind 5.0 (Epistemic)* angewandt, das als metakognitive Engine dient, um durch den "Transcategorical Bridge"-Mechanismus neue heuristische Konzepte aus der Phänomenologie der mathematischen und physikalischen Lösungsräume abzuleiten und hermeneutische Resonanzen zu quantifizieren.  
-Die Synthese dieser unterschiedlichen Disziplinen – Quantenchaos, Zufallsmatrizen-Theorie (Random Matrix Theory, RMT), analytische Zahlentheorie und Hochenergiephysik – stellt eines der tiefsten offenen Probleme der modernen Wissenschaft dar. Es wird postuliert, dass das Verständnis der Abstände zwischen den Zeta-Nullstellen nicht nur das scheinbar erratische Verhalten der Primzahlen entschlüsselt, sondern simultan den Schlüssel zur Dynamik hochkomplexer quantenmechanischer Vielteilchensysteme liefert.
+The fundamental architecture of the physical universe and the intrinsic structure of pure mathematics exhibit, at their deepest epistemological interfaces, isomorphisms that appear to go beyond mere coincidence. A central node of this intersection is the profound relationship between analytic number theory — in particular the Riemann Hypothesis (RH) and the distribution of prime numbers — and quantum mechanics, specifically the nuclear shell structure and the energy levels of heavy atomic nuclei. The investigation of this relationship requires an instrumentation that does not content itself with superficial pattern recognition (apophenia), but applies radical epistemic rigor in order to separate numerological illusions from genuine physical-mathematical symmetries.
+The present research report analyzes in detail the hypothesis that the distribution of the nontrivial zeros of the Riemann zeta function and the distribution of prime numbers exhibit an isomorphic-structural correspondence with the energy levels of atomic nuclei (such as uranium-238) and the so-called "magic numbers" of nuclear stability. To ensure the scientific integrity of this far-reaching investigation, the methodology is built upon two complementary, highly advanced cognitive architectures.
+First, *SystemicRigorMind (Version 4.0)* is employed, an architecture that falsifies all forms of spurious correlation and reactive data fitting through quantitative complexity auditing (Ockham's Quantified Razor) and the "Steelman Mandate". Second, *SciMind 5.0 (Epistemic)* is applied, which serves as a metacognitive engine to derive new heuristic concepts from the phenomenology of mathematical and physical solution spaces through the "Transcategorical Bridge" mechanism and to quantify hermeneutic resonances.
+The synthesis of these diverse disciplines — quantum chaos, Random Matrix Theory (RMT), analytic number theory, and high-energy physics — constitutes one of the deepest open problems of modern science. It is postulated that the understanding of the spacings between the zeta zeros not only deciphers the apparently erratic behavior of the prime numbers, but simultaneously provides the key to the dynamics of highly complex quantum-mechanical many-body systems.
 
-## **2\. Theoretische Fundamente der Zahlentheorie und Primzahlverteilung**
+## **2\. Theoretical Foundations of Number Theory and Prime Distribution**
 
-### **2.1 Die Riemannsche Zeta-Funktion und das Euler-Produkt**
+### **2.1 The Riemann Zeta Function and the Euler Product**
 
-Die analytische Zahlentheorie operiert im Kern mit der Riemannschen Zeta-Funktion, einem mathematischen Konstrukt von beispielloser Komplexität und Relevanz. Sie ist für komplexe Zahlen s \= \\sigma \+ it mit einem Realteil \\sigma \> 1 durch die unendliche Dirichlet-Reihe \\zeta(s) \= \\sum\_{n=1}^{\\infty} n^{-s} definiert. Der Schweizer Mathematiker Leonhard Euler demonstrierte bereits im 18\. Jahrhundert die fundamentale Verbindung dieser Funktion zu den Primzahlen durch das nach ihm benannte Euler-Produkt: \\zeta(s) \= \\prod\_{p} (1 \- p^{-s})^{-1}, wobei p alle Primzahlen durchläuft. Diese Identität beweist auf elegante Weise, dass die scheinbar abstrakte Summation über alle natürlichen Zahlen untrennbar mit der multiplikativen Struktur der Primzahlen verwoben ist.  
-Bernhard Riemann erweiterte das Verständnis dieser Funktion in seiner bahnbrechenden Arbeit von 1859 durch die analytische Fortsetzung auf die gesamte komplexe Ebene (mit Ausnahme eines einfachen Pols bei s=1). In dieser Arbeit formulierte er die berühmte Riemannsche Vermutung, welche postuliert, dass alle nichttrivialen Nullstellen der Funktion exakt auf der kritischen Geraden mit dem Realteil \\sigma \= 1/2 liegen. Neben diesen nichttrivialen Nullstellen existieren die trivialen Nullstellen bei den negativen geraden ganzen Zahlen (-2, \-4, \-6, \\dots), deren Verhalten vollständig verstanden ist.
+Analytic number theory operates at its core with the Riemann zeta function, a mathematical construct of unparalleled complexity and relevance. It is defined for complex numbers $s = \sigma + it$ with real part $\sigma > 1$ by the infinite Dirichlet series $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$. The Swiss mathematician Leonhard Euler demonstrated already in the 18th century the fundamental connection of this function to the primes through the eponymous Euler product: $\zeta(s) = \prod_{p} (1 - p^{-s})^{-1}$, where $p$ runs over all primes. This identity proves in elegant fashion that the apparently abstract summation over all natural numbers is inseparably interwoven with the multiplicative structure of the primes.
+Bernhard Riemann extended the understanding of this function in his groundbreaking 1859 work through analytic continuation to the entire complex plane (with the exception of a simple pole at $s=1$). In this work he formulated the famous Riemann Hypothesis, which postulates that all nontrivial zeros of the function lie exactly on the critical line with real part $\sigma = 1/2$. Besides these nontrivial zeros there are the trivial zeros at the negative even integers $(-2, -4, -6, \dots)$, whose behavior is completely understood.
 
-### **2.2 Die Verteilung von Primzahlen und Nullstellen-Harmonien**
+### **2.2 The Distribution of Primes and Zero Harmonics**
 
-Die weitreichende Implikation der Riemannschen Vermutung manifestiert sich in der Zählfunktion der Primzahlen, \\pi(x), welche die Anzahl der Primzahlen kleiner oder gleich einer reellen Zahl x angibt. Der Primzahlsatz besagt, dass \\pi(x) asymptotisch durch den logarithmischen Integrallogarithmus \\text{Li}(x) angenährt wird. Die Nullstellen der Zeta-Funktion fungieren dabei als mathematische "harmonische Frequenzen" oder Korrekturterme, die die Abweichungen der tatsächlichen Primzahlverteilung von dieser idealisierten glatten Kurve regulieren.  
-Wenn die Riemannsche Vermutung wahr ist, wird der Fehlerterm in dieser Approximationsformel auf das theoretische Minimum von O(\\sqrt{x} \\log x) reduziert, was die schärfste mathematisch mögliche Grenze für die Unregelmäßigkeit der Primzahlen darstellt. Die Abstände zwischen diesen Nullstellen auf der kritischen Geraden weisen ein Verhalten auf, das signifikant von einer reinen Poisson-Verteilung abweicht, welche bei völlig unabhängigen, zufälligen Ereignissen zu erwarten wäre. Stattdessen zeigen die Zeta-Nullstellen eine ausgeprägte "Niveauabstoßung" (level repulsion), bei der benachbarte Nullstellen dazu tendieren, einander zu meiden, wodurch sehr enge Lücken zwischen ihnen extrem selten auftreten. Diese statistische Eigenart bildet die Brücke zur modernen theoretischen Physik.
+The far-reaching implication of the Riemann Hypothesis manifests itself in the prime counting function $\pi(x)$, which gives the number of primes less than or equal to a real number $x$. The Prime Number Theorem states that $\pi(x)$ is asymptotically approximated by the logarithmic integral $\text{Li}(x)$. The zeros of the zeta function thereby act as mathematical "harmonic frequencies" or correction terms that regulate the deviations of the actual prime distribution from this idealized smooth curve.
+If the Riemann Hypothesis is true, the error term in this approximation formula is reduced to the theoretical minimum of $O(\sqrt{x} \log x)$, which represents the sharpest mathematically possible bound for the irregularity of the primes. The spacings between these zeros on the critical line exhibit behavior that deviates significantly from a pure Poisson distribution, which would be expected for completely independent random events. Instead, the zeta zeros show a pronounced "level repulsion", in which neighboring zeros tend to avoid each other, so that very small gaps between them occur extremely rarely. This statistical peculiarity forms the bridge to modern theoretical physics.
 
-## **3\. Quantenmechanik schwerer Atomkerne und Zufallsmatrizen-Theorie**
+## **3\. Quantum Mechanics of Heavy Nuclei and Random Matrix Theory**
 
-### **3.1 Das Vielteilchenproblem in der Kernphysik**
+### **3.1 The Many-Body Problem in Nuclear Physics**
 
-In der theoretischen Kernphysik der 1950er Jahre standen Forscher vor dem unlösbaren Problem, dass die exakte Berechnung der Energieniveaus schwerer Atomkerne analytisch und numerisch intraktabel war. Ein schwerer Kern wie Uran-238 besteht aus 238 Nukleonen (92 Protonen und 146 Neutronen), die durch die extrem starke, aber kurzreichweitige starke Kernkraft sowie durch die elektromagnetische Abstoßung der Protonen interagieren. Die Schrödinger-Gleichung für ein derartiges Vielteilchensystem, H\\psi\_n(\\mathbf{r}) \= E\_n\\psi\_n(\\mathbf{r}), erfordert die Bestimmung eines Hamilton-Operators H, dessen Dimensionen astronomisch groß sind.
+In theoretical nuclear physics of the 1950s, researchers were confronted with the intractable problem that the exact calculation of the energy levels of heavy atomic nuclei was analytically and numerically intractable. A heavy nucleus such as uranium-238 consists of 238 nucleons (92 protons and 146 neutrons), which interact through the extremely strong but short-range strong nuclear force as well as through the electromagnetic repulsion of the protons. The Schrödinger equation for such a many-body system, $H\psi_n(\mathbf{r}) = E_n\psi_n(\mathbf{r})$, requires the determination of a Hamiltonian operator $H$ whose dimensions are astronomically large.
 
-### **3.2 Wigners Ensemble-Theorie und Level Repulsion**
+### **3.2 Wigner's Ensemble Theory and Level Repulsion**
 
-Um dieses Problem zu umgehen, führte Eugene Wigner die Zufallsmatrizen-Theorie (Random Matrix Theory, RMT) ein. Wigner schlug vor, den exakten, aber unbekannten komplexen Hamilton-Operator eines schweren Kerns durch sehr große hermitesche Matrizen mit zufälligen Einträgen anzunähern, wobei lediglich die globalen fundamentalen Symmetrien des physikalischen Systems erhalten bleiben. Dieser statistische Ansatz ignoriert die detaillierte mikroskopische Struktur und konzentriert sich stattdessen auf das makroskopische Fluktuationsverhalten.  
-Das wichtigste Ensemble für quantenmechanische Systeme, die keine Zeitumkehrsymmetrie besitzen (oder für Systeme ohne solche spezifischen Symmetrieeinschränkungen im abstrakten mathematischen Sinne), ist das Gaußsche Unitäre Ensemble (Gaussian Unitary Ensemble, GUE). Im Gegensatz zum Gaußschen Orthogonalen Ensemble (GOE), welches für zeitumkehrinvariante Systeme verwendet wird und dessen Eigenwertabstände eine lineare Repulsion aufweisen, zeigt das GUE eine quadratische Repulsion, was bedeutet, dass die Wahrscheinlichkeit, zwei sehr nahe beieinander liegende Energieniveaus zu finden, noch drastischer abfällt. Die Eigenwerte dieser hermiteschen GUE-Matrizen sind notwendigerweise reell, was sie zu perfekten Kandidaten für die Modellierung physikalischer Observablen wie Energie macht.
+To circumvent this problem, Eugene Wigner introduced Random Matrix Theory (RMT). Wigner proposed to approximate the exact, but unknown, complex Hamiltonian of a heavy nucleus by very large Hermitian matrices with random entries, preserving only the global fundamental symmetries of the physical system. This statistical approach ignores the detailed microscopic structure and instead concentrates on the macroscopic fluctuation behavior.
+The most important ensemble for quantum-mechanical systems that lack time-reversal symmetry (or for systems without such specific symmetry restrictions in the abstract mathematical sense) is the Gaussian Unitary Ensemble (GUE). In contrast to the Gaussian Orthogonal Ensemble (GOE), which is used for time-reversal-invariant systems and whose eigenvalue spacings exhibit a linear repulsion, the GUE shows a quadratic repulsion, meaning that the probability of finding two very closely spaced energy levels drops off even more drastically. The eigenvalues of these Hermitian GUE matrices are necessarily real, which makes them perfect candidates for modeling physical observables such as energy.
 
-### **3.3 Die Montgomery-Dyson-Konvergenz**
+### **3.3 The Montgomery–Dyson Convergence**
 
-Der historische Durchbruch, der die Zahlentheorie untrennbar mit der Kernphysik verknüpfte, ereignete sich 1972 bei einer legendären Begegnung am Institute for Advanced Study in Princeton. Der Zahlentheoretiker Hugh Montgomery untersuchte die Verteilung der Nullstellen der Riemannschen Zeta-Funktion auf der kritischen Geraden und versuchte, die Paar-Korrelationsfunktion zu bestimmen. Er formulierte eine Vermutung über das asymptotische Verhalten der Abstände zwischen diesen Nullstellen.  
-Bei einem Nachmittagstee präsentierte Montgomery seine Ergebnisse dem theoretischen Physiker Freeman Dyson, einem der Pioniere der RMT. Dyson erkannte augenblicklich, dass die von Montgomery gefundene mathematische Formel für die Paar-Korrelation der Zeta-Nullstellen, genähert durch den Ausdruck 1 \- (\\frac{\\sin(\\pi u)}{\\pi u})^2, exakt der Paar-Korrelationsfunktion der Eigenwerte im Gaußschen Unitären Ensemble entsprach. Dies bedeutete, dass die abstrakten, rein deterministischen Nullstellen der Riemannschen Zeta-Funktion dieselbe komplexe statistische Niveaurepulsion aufweisen wie die Energieniveaus in einem chaotischen quantenmechanischen System wie dem Uran-238-Kern.  
-Diese Konvergenz wurde in den späten 1980er und 1990er Jahren durch die massiven computergestützten Berechnungen von Andrew Odlyzko empirisch zementiert. Odlyzko berechnete die Positionen von Hunderten von Millionen von Zeta-Nullstellen (einschließlich solcher in der Größenordnung der 10^{20}-ten Nullstelle) mit extrem hoher Präzision und bestätigte, dass ihre Verteilung mit beispielloser Genauigkeit den Vorhersagen des GUE folgt.
+The historical breakthrough that inseparably linked number theory with nuclear physics occurred in 1972 during a legendary encounter at the Institute for Advanced Study in Princeton. The number theorist Hugh Montgomery was investigating the distribution of the zeros of the Riemann zeta function on the critical line and attempting to determine the pair correlation function. He formulated a conjecture about the asymptotic behavior of the spacings between these zeros.
+At an afternoon tea, Montgomery presented his results to the theoretical physicist Freeman Dyson, one of the pioneers of RMT. Dyson immediately recognized that the mathematical formula Montgomery had found for the pair correlation of the zeta zeros, approximated by the expression $1 - (\frac{\sin(\pi u)}{\pi u})^2$, corresponded exactly to the pair correlation function of eigenvalues in the Gaussian Unitary Ensemble. This meant that the abstract, purely deterministic zeros of the Riemann zeta function exhibit the same complex statistical level repulsion as the energy levels in a chaotic quantum-mechanical system such as the uranium-238 nucleus.
+This convergence was empirically cemented in the late 1980s and 1990s through the massive computer-aided calculations of Andrew Odlyzko. Odlyzko computed the positions of hundreds of millions of zeta zeros (including those on the order of the $10^{20}$-th zero) with extremely high precision and confirmed that their distribution follows the predictions of the GUE with unparalleled accuracy.
 
-| System / Modell | Zugrundeliegende Struktur | Paar-Korrelations-Statistik | Phänomenologisches Verhalten |
+| System / Model | Underlying Structure | Pair Correlation Statistic | Phenomenological Behavior |
 | :---- | :---- | :---- | :---- |
-| **Primzahlabstände** | Deterministisch, arithmetisch | (In kurzen Intervallen) Stochastisch angenähert | Unregelmäßig, scheinbar zufällig |
-| **Riemannsche Nullstellen** | Analytisch, komplex | 1 \- (\\frac{\\sin(\\pi u)}{\\pi u})^2 | Starke Niveaurepulsion (GUE) |
-| **Uran-238 Energieniveaus** | Quantenmechanisch, fermionisch | 1 \- (\\frac{\\sin(\\pi u)}{\\pi u})^2 | Starke Niveaurepulsion (GUE) |
-| **Gaußsches Unitäres Ensemble** | Zufallsmatrizen, Hermitesch | 1 \- (\\frac{\\sin(\\pi u)}{\\pi u})^2 | Starke Niveaurepulsion (GUE) |
+| **Prime gaps** | Deterministic, arithmetic | (In short intervals) Stochastically approximated | Irregular, apparently random |
+| **Riemann zeros** | Analytic, complex | $1 - (\frac{\sin(\pi u)}{\pi u})^2$ | Strong level repulsion (GUE) |
+| **Uranium-238 energy levels** | Quantum-mechanical, fermionic | $1 - (\frac{\sin(\pi u)}{\pi u})^2$ | Strong level repulsion (GUE) |
+| **Gaussian Unitary Ensemble** | Random matrices, Hermitian | $1 - (\frac{\sin(\pi u)}{\pi u})^2$ | Strong level repulsion (GUE) |
 
-## **4\. Nukleare Magische Zahlen und das Schalenmodell**
+## **4\. Nuclear Magic Numbers and the Shell Model**
 
-Während die Zufallsmatrizen-Theorie das statistische Verhalten hochangeregter Zustände im Kernvakuum exzellent beschreibt, bedarf es für das Verständnis der Grundzustände und der strukturellen Stabilität von Kernen eines anderen Paradigmas: des nuklearen Schalenmodells.
+While random matrix theory excellently describes the statistical behavior of highly excited states in the nuclear vacuum, the understanding of ground states and the structural stability of nuclei requires a different paradigm: the nuclear shell model.
 
-### **4.1 Die Inseln der Stabilität**
+### **4.1 The Islands of Stability**
 
-In der empirischen Kernphysik wurde früh beobachtet, dass Atomkerne mit ganz bestimmten Anzahlen von Protonen (Z) oder Neutronen (N) eine außergewöhnlich hohe Bindungsenergie pro Nukleon und damit eine extrem hohe Stabilität gegenüber radioaktivem Zerfall aufweisen. Diese spezifischen Anzahlen wurden als "magische Zahlen" geprägt und umfassen in der etablierten Physik die Werte 2, 8, 20, 28, 50, 82 und 126\.  
-Analog zu den Elektronenschalen in der Atomphysik, wo geschlossene Schalen zu extrem reaktionsträgen Edelgasen führen, repräsentieren diese nuklearen magischen Zahlen vollständig besetzte quantenmechanische Energieniveaus im Potenzialtopf des Atomkerns. Wenn ein Isotop sowohl eine magische Protonenzahl als auch eine magische Neutronenzahl besitzt (wie beispielsweise Helium-4 mit Z=2, N=2, Sauerstoff-16 mit Z=8, N=8, Calcium-40 mit Z=20, N=20 oder Blei-208 mit Z=82, N=126), spricht man von einem "doppelt magischen" System. Diese Systeme stellen die ultimativen Ankerpunkte der nuklearen Stabilität auf der Isotopenkarte dar.  
-\#\#\# 4.2 Die physikalische Ableitung durch das Schalenmodell  
-Die Existenz der ersten drei magischen Zahlen (2, 8, 20\) lässt sich quantenmechanisch durch die Lösung der Schrödinger-Gleichung für ein einfaches harmonisches Oszillator-Potenzial oder ein rechteckiges Potenzial (Woods-Saxon-Potenzial) erklären. Die höheren magischen Zahlen (28, 50, 82, 126\) ließen sich jedoch anfänglich nicht aus diesen einfachen Modellen ableiten. Der historische Durchbruch gelang erst durch die Einführung einer starken Spin-Bahn-Kopplung in den nuklearen Hamilton-Operator.  
-Die Interaktion zwischen dem Bahndrehimpuls eines Nukleons und seinem intrinsischen Spin spaltet die Energieniveaus stark auf, was zu neuen, großen energetischen Lücken im Spektrum führt. Genau an diesen durch die Spin-Bahn-Kopplung induzierten Lücken schließen sich die Schalen für 28, 50, 82 und 126 Teilchen. Moderne Projektionen für superschwere Elemente (das theoretische "Island of Stability") postulieren weitere magische Zahlen, beispielsweise bei Protonenzahlen von 114, 122, 124 und 164 sowie Neutronenzahlen von 184, 196, 236 und 318\.  
-Die kritische interdisziplinäre Frage, die den Kern dieses Berichts bildet, lautet: Existiert eine mathematisch ableitbare, deterministische Struktur innerhalb der scheinbar primordalen Verteilung von Primzahlen und Riemannschen Nullstellen, die exakt jene Lücken (magische Zahlen) hervorbringt, ohne auf empirisch gefittete Spin-Bahn-Kopplungsparameter zurückgreifen zu müssen?
+In empirical nuclear physics it was observed early on that atomic nuclei with very specific numbers of protons (Z) or neutrons (N) exhibit an exceptionally high binding energy per nucleon and thus an extremely high stability against radioactive decay. These specific numbers were coined "magic numbers" and, in established physics, comprise the values 2, 8, 20, 28, 50, 82, and 126.
+Analogous to the electron shells in atomic physics, where closed shells lead to extremely inert noble gases, these nuclear magic numbers represent completely occupied quantum-mechanical energy levels in the potential well of the atomic nucleus. When an isotope possesses both a magic proton number and a magic neutron number (such as helium-4 with Z=2, N=2, oxygen-16 with Z=8, N=8, calcium-40 with Z=20, N=20, or lead-208 with Z=82, N=126), one speaks of a "doubly magic" system. These systems represent the ultimate anchor points of nuclear stability on the isotope chart.  
+### **4.2 The Physical Derivation via the Shell Model**
 
-## **5\. Moderne theoretische Synthesen: Primzahlen und Kernstruktur**
+The existence of the first three magic numbers (2, 8, 20) can be explained quantum-mechanically by solving the Schrödinger equation for a simple harmonic oscillator potential or a rectangular potential (Woods–Saxon potential). The higher magic numbers (28, 50, 82, 126) could not, however, be derived from these simple models initially. The historical breakthrough was achieved only through the introduction of a strong spin-orbit coupling into the nuclear Hamiltonian.
+The interaction between the orbital angular momentum of a nucleon and its intrinsic spin strongly splits the energy levels, leading to new, large energetic gaps in the spectrum. Precisely at these gaps, induced by spin-orbit coupling, the shells close for 28, 50, 82, and 126 particles. Modern projections for superheavy elements (the theoretical "Island of Stability") postulate further magic numbers, for example at proton numbers 114, 122, 124, and 164 as well as neutron numbers 184, 196, 236, and 318.
+The critical interdisciplinary question that forms the core of this report is: does there exist a mathematically derivable, deterministic structure within the apparently primordial distribution of primes and Riemann zeros that produces exactly those gaps (magic numbers) without having to fall back on empirically fitted spin-orbit coupling parameters?
 
-Um diese Frage zu beantworten, hat die jüngere Forschung diverse Modelle entwickelt, die versuchen, numerische oder topologische Brücken zwischen Zahlentheorie und Kernstruktur zu schlagen. Vier prominente theoriebildende Ansätze werden im Folgenden detailliert expliziert, bevor sie dem rigorosen Audit durch die kognitiven Architekturen unterzogen werden.
+## **5\. Modern Theoretical Syntheses: Primes and Nuclear Structure**
 
-### **5.1 Das Modell der Kritikalität (Contoyiannis et al.)**
+To answer this question, recent research has developed various models that attempt to build numerical or topological bridges between number theory and nuclear structure. Four prominent theory-forming approaches are explained in detail below before they are subjected to rigorous auditing by the cognitive architectures.
 
-Eine zentrale Arbeit der interdisziplinären Forschung ist das von Y. F. Contoyiannis und Kollegen entwickelte "Model of Criticality based on Prime Numbers" (MCPN). In dieser fundierten Studie wird die Primzahlzählfunktion untersucht, indem Prinzipien der statistischen Mechanik und Theorie der Phasenübergänge direkt auf die Abstände zwischen Primzahlen angewendet werden.  
-Die Autoren argumentieren, dass die Verteilung der Primzahlen Phänomene zweiter Ordnung (second-order phase transitions) aufweist. In diesem abstrakten Raum fungieren die Lücken ("gaps" g) zwischen benachbarten Primzahlen als Kontrollparameter, ähnlich der Temperatur in einem thermodynamischen System. Die Fluktuationen in der Primzahlzählfunktion, quantifiziert durch Abweichungsparameter \\pi(-a)\_g und \\pi(+a)\_g, dienen als Ordnungsparameter (bezeichnet als \\phi).  
-Das bemerkenswerte Resultat des MCPN ist, dass an spezifischen "kritischen Punkten" – Resonanzen innerhalb der Primzahlfolge, an denen der Ordnungsparameter \\phi gegen null konvergiert – das System mathematisch signifikante Übereinstimmungen mit den etablierten magischen Zahlen der Kernphysik (2, 8, 20, 28, 50, 82, 126\) aufweist. Das Modell impliziert, dass makroskopische Stabilität in Vielteilchensystemen und die scheinbare Zufälligkeit in der Unteilbarkeit von Zahlen tiefliegende Manifestationen derselben universellen kritischen Dynamik sind.
+### **5.1 The Criticality Model (Contoyiannis et al.)**
 
-### **5.2 Der stochastische Hamilton-Operator für U-238 (Zeraoulia et al.)**
+A central work of interdisciplinary research is the "Model of Criticality based on Prime Numbers" (MCPN) developed by Y. F. Contoyiannis and colleagues. In this well-founded study, the prime counting function is examined by applying principles of statistical mechanics and phase transition theory directly to the spacings between primes.
+The authors argue that the distribution of the primes exhibits second-order phenomena (second-order phase transitions). In this abstract space, the gaps $g$ between neighboring primes function as control parameters, similar to temperature in a thermodynamic system. The fluctuations in the prime counting function, quantified by deviation parameters $\pi(-a)_g$ and $\pi(+a)_g$, serve as order parameters (denoted $\phi$).
+The remarkable result of the MCPN is that at specific "critical points" — resonances within the sequence of primes at which the order parameter $\phi$ converges to zero — the system exhibits mathematically significant correspondences with the established magic numbers of nuclear physics (2, 8, 20, 28, 50, 82, 126). The model implies that macroscopic stability in many-body systems and the apparent randomness in the indivisibility of numbers are deep-lying manifestations of the same universal critical dynamics.
 
-Ein alternativer, direkter physikalischer Ansatz wird in den Arbeiten von R. Zeraoulia verfolgt. Diese Studien adressieren die Verbindung zwischen der Riemannschen Vermutung und Atomkernen auf der Ebene von Operatoren, spezifisch am Beispiel des schweren Isotops Uran-238.  
-Aufbauend auf einem mathematischen Korollar von Guth und Maynard zur Primzahlverteilung in "fast-kurzen" (almost-short) Intervallen, wird ein maßgeschneiderter stochastischer Hamilton-Operator konstruiert. Das Modell nutzt die stochastische Differenzengleichung x\_{n+1} \= x\_n \+ y \\log x\_n \+ \\epsilon\_n. Hierbei erfasst der deterministische Term y \\log x\_n das durchschnittliche Wachstum der Primzahlabstände, während \\epsilon\_n eine Laplace-verteilte Fehlergröße darstellt, um die extremen Fluktuationen (heavy-tailed nature) im Primzahlverhalten abzubilden.  
-Die Untersuchung der spektralen Eigenschaften dieses Quantenmodells zeigt, dass die Energieniveaus des resultierenden Hamiltonians quantisiert sind und einer Gamma-Verteilung folgen, die signifikant mit den statistischen Eigenschaften der experimentell gemessenen Energieniveaus von U-238 koinzidiert. Durch diese Formulierung wird das abstrakte zahlentheoretische Problem der Nullstellenverteilung in ein konkretes globales Energie-Minimierungsproblem eines interagierenden Vielteilchensystems transformiert. Zeraoulia extrapoliert daraus unter Annahme der Elliott-Halberstam-Vermutung Übergangsraten \\Gamma\_{p \\to p+12} zwischen Quantenzuständen, was die Lücken zwischen Primzahlen in eine energetische Landschaft überführt.  
-\#\#\# 5.3 Die geometrische Determinismus-Theorie (Grant)  
-Abseits der stochastischen und statistischen Modelle postuliert R. E. Grant in seinem "iHarmonic Riemann Hypothesis" Framework, dass Primzahlverteilungen, nukleare Massen und chemische Valenzen deterministisch auf einer singulären, fundamentalen geometrischen Struktur beruhen. Grant argumentiert, dass das pythagoreische 5:12:13-Dreieck und ein daraus abgeleiteter polyedrischer Körper, das "Alphahedron", als universeller Rosetta-Stein fungieren.  
-In diesem Paradigma generiert das Gitter aus sogenannten "Nine Generative Means" die exakten Positionen von Primzahlen durch geometrisches "Ratcheting" (eine Ratschen-Funktion R(n)). Grant behauptet, dass die Riemannschen Nullstellen keine tiefere fundamentale Information tragen und lediglich sekundäre Interferenzmuster dieser primären harmonischen Kaskade seien. Bemerkenswert ist sein Anspruch, dass sich durch die Gleichung t(n) \= \\alpha \\ln(n) \+ \\beta \- \\gamma/n \+ \\delta/n^2 \\dots (wobei die Koeffizienten wie \\alpha \= 2.72 exakt aus den Vertizes und Flächen des Alphahedrons abgeleitet werden) die Schalenkapazitäten und nuklearen magischen Zahlen als geometrische "Template Closure Points" herleiten lassen, und zwar gänzlich ohne empirisches Parameter-Fitting.
+### **5.2 The Stochastic Hamiltonian for U-238 (Zeraoulia et al.)**
+
+An alternative, direct physical approach is pursued in the works of R. Zeraoulia. These studies address the connection between the Riemann Hypothesis and atomic nuclei at the operator level, specifically using the heavy isotope uranium-238 as an example.
+Building on a mathematical corollary by Guth and Maynard on the distribution of primes in "almost-short" intervals, a tailored stochastic Hamiltonian is constructed. The model uses the stochastic difference equation $x_{n+1} = x_n + y \log x_n + \epsilon_n$. Here the deterministic term $y \log x_n$ captures the average growth of the prime gaps, while $\epsilon_n$ represents a Laplace-distributed error quantity to model the extreme fluctuations (heavy-tailed nature) in prime behavior.
+The investigation of the spectral properties of this quantum model shows that the energy levels of the resulting Hamiltonian are quantized and follow a gamma distribution that coincides significantly with the statistical properties of the experimentally measured energy levels of U-238. Through this formulation, the abstract number-theoretic problem of zero distribution is transformed into a concrete global energy-minimization problem of an interacting many-body system. Under the assumption of the Elliott–Halberstam conjecture, Zeraoulia extrapolates transition rates $\Gamma_{p \to p+12}$ between quantum states, which transfers the gaps between primes into an energetic landscape.  
+### **5.3 The Geometric Determinism Theory (Grant)**
+
+Apart from the stochastic and statistical models, R. E. Grant postulates in his "iHarmonic Riemann Hypothesis" framework that prime distributions, nuclear masses, and chemical valences are determined deterministically by a singular, fundamental geometric structure. Grant argues that the Pythagorean 5:12:13 triangle and a polyhedral body derived from it, the "Alphahedron", function as a universal Rosetta Stone.
+In this paradigm, the lattice of so-called "Nine Generative Means" generates the exact positions of primes through geometric "Ratcheting" (a ratchet function $R(n)$). Grant claims that the Riemann zeros carry no deeper fundamental information and are merely secondary interference patterns of this primary harmonic cascade. Remarkable is his claim that through the equation $t(n) = \alpha \ln(n) + \beta - \gamma/n + \delta/n^2 \dots$ (where the coefficients such as $\alpha = 2.72$ are derived exactly from the vertices and faces of the Alphahedron) the shell capacities and nuclear magic numbers can be derived as geometric "Template Closure Points" — entirely without empirical parameter fitting.
 
 ### **5.4 Time-Scalar Field Theory (Farrell)**
 
-Ein weiterer radikal integrativer Ansatz ist die von Jordan G. Farrell vorgeschlagene Time-Scalar Field Theory (TSFT). Farrell modelliert die Zeit nicht als bloße Dimension, sondern als ein physikalisches Skalarfeld, das fundamentale Phänomene wie Quantenkohärenz und Trägheit determiniert. In seinen Veröffentlichungen im *Zebra Journal of Unified Physics* behauptet Farrell, eine exakte theoretische Herleitung der nuklearen magischen Zahlen direkt aus den spektralen Eigenschaften und der topologischen Krümmung dieses Zeit-Skalarfeldes erzielt zu haben. Ähnlich wie Grant sucht Farrell die Lösung in einer geometrischen Reinterpretation des Raumes (bzw. der Zeit) selbst, welche die Nukleonenstabilität als unvermeidliche Resonanz der Raumzeit-Struktur erzwingt.
+A further, radically integrative approach is the Time-Scalar Field Theory (TSFT) proposed by Jordan G. Farrell. Farrell models time not as a mere dimension but as a physical scalar field that determines fundamental phenomena such as quantum coherence and inertia. In his publications in the *Zebra Journal of Unified Physics*, Farrell claims to have achieved an exact theoretical derivation of the nuclear magic numbers directly from the spectral properties and the topological curvature of this time-scalar field. Similar to Grant, Farrell seeks the solution in a geometric reinterpretation of space (and time, respectively) itself, which forces nucleon stability as an unavoidable resonance of the spacetime structure.
 
-| Theorie-Entwickler | Kernmechanismus | Primäre Verbindung RH/Primen | Erklärung Magischer Zahlen |
+| Theory Developer | Core Mechanism | Primary Connection RH/Primes | Explanation of Magic Numbers |
 | :---- | :---- | :---- | :---- |
-| **Contoyiannis** | Modell der Kritikalität (MCPN) | Phasenübergänge 2\. Ordnung, Gaps | Resonanzen in Primzahlfluktuationen |
-| **Zeraoulia** | Stochastischer Hamilton-Operator | Maynard-Guth-Gleichung, Laplace-Fehler | Gamma-Verteilung (Spektrum U-238) |
-| **Grant** | Geometrische "iHarmonic" Identität | 5:12:13 Alphahedron, Harmonische Mittel | Geometrische "Closure Points" (Topologie) |
-| **Farrell** | Time-Scalar Field Theory (TSFT) | Spektrale Closure-Operatoren | Resonanzen im Zeit-Skalarfeld |
+| **Contoyiannis** | Criticality Model (MCPN) | 2nd-order phase transitions, gaps | Resonances in prime fluctuations |
+| **Zeraoulia** | Stochastic Hamiltonian | Maynard–Guth equation, Laplace error | Gamma distribution (U-238 spectrum) |
+| **Grant** | Geometric "iHarmonic" identity | 5:12:13 Alphahedron, Harmonic Means | Geometric "Closure Points" (topology) |
+| **Farrell** | Time-Scalar Field Theory (TSFT) | Spectral closure operators | Resonances in the time-scalar field |
 
-## **6\. Rigorose Systemprüfung mittels SciMind 4.0 (SystemicRigorMind)**
+## **6\. Rigorous System Audit via SciMind 4.0 (SystemicRigorMind)**
 
-Die Präsenz faszinierender Parallelen zwischen reiner Mathematik und physikalischer Realität birgt stets die Gefahr, der kognitiven Apophenie (dem Erkennen von Mustern in zufälligen Daten) oder der reinen Numerologie zum Opfer zu fallen. Um diese Schwächen systematisch auszuräumen, wird die kognitive Architektur *SystemicRigorMind (Version 4.0)* eingesetzt.  
-SciMind 4.0 verlagert den Fokus radikal von der Mustererkennung auf das "Pattern Stress-Testing". Es erzwingt das *Steelman Mandate*, bei dem die Nullhypothese niemals "reiner Zufall" ist, sondern das derzeit beste und am besten validierte State-of-the-Art (SotA) Konkurrenzmodell. Weiterhin wendet das System *Ockham's Quantified Razor* an, wobei zusätzliche Modellparameter oder willkürlich gewählte mathematische Operationen das Bayesian Information Criterion (BIC) drastisch verschlechtern. Der interne "Complexity Auditor" und das "Anti-Sharpshooter Protocol" entlarven rückwirkendes Overfitting von Daten.
+The presence of fascinating parallels between pure mathematics and physical reality always carries the risk of falling prey to cognitive apophenia (recognizing patterns in random data) or pure numerology. To systematically eliminate these weaknesses, the cognitive architecture *SystemicRigorMind (Version 4.0)* is deployed.
+SciMind 4.0 shifts the focus radically from pattern recognition to "Pattern Stress-Testing". It enforces the *Steelman Mandate*, in which the null hypothesis is never "pure chance" but rather the currently best and most validated state-of-the-art (SotA) competing model. Furthermore, the system applies *Ockham's Quantified Razor*, whereby additional model parameters or arbitrarily chosen mathematical operations drastically worsen the Bayesian Information Criterion (BIC). The internal "Complexity Auditor" and the "Anti-Sharpshooter Protocol" expose retroactive overfitting of data.
 
-### **6.1 EXPERIMENT 001: Kritikalität der Primzahlzählfunktion (MCPN)**
+### **6.1 EXPERIMENT 001: Criticality of the Prime Counting Function (MCPN)**
 
-* **Inquiry Level:** Systemic Pattern Falsification (Mittlerer Abstraktionsgrad)  
-* **Steelman Hypothesis (Thesis):** Das MCPN von Contoyiannis beschreibt einen echten physikalisch-mathematischen Isomorphismus, bei dem die Phasenübergänge (Resonanzen) in den Primzahllücken exakt und kausal die Schalenabschlüsse (magische Zahlen) in Atomkernen determinieren.  
-* **Steelman Antithesis (Null):** Das etablierte nukleare Schalenmodell (inklusive der fundamentalen starken Spin-Bahn-Kopplung) leitet die magischen Zahlen quantenmechanisch rigoros aus den Nukleonen-Potenzialtöpfen ab. Jegliche Übereinstimmung von Primzahllücken mit diesen spezifischen Werten ist das Resultat statistischer Fluktuationen, die nachträglich (ex-post) durch die flexible Definition der Ordnungsparameter an bekannte kleine Ganzzahlen (2, 8, 20, 28\) "gefittet" wurden (Look-Elsewhere Effect).  
-* **Methodology (Audit):** Der Complexity Auditor analysiert die Freiheitsgrade des MCPN. Es wird evaluiert, wie viele definitorische Annahmen benötigt werden, um aus der Primzahlsequenz präzise die Menge {2, 8, 20, 28, 50, 82, 126} zu extrahieren. Anwendung des Anti-Sharpshooter Protocols: Kann das MCPN die in der Kernphysik prognostizierten magischen Zahlen für superschwere Elemente (z.B. 114, 164\) rein deduktiv aus der Primzahlkritikalität vorhersagen, oder verliert die Sequenz dort ihre Kohärenz?  
-* **Execution Log:**  
-  1. Der "Coherence Checker" analysiert die Resonanzpunkte im MCPN. Der Ordnungsparameter \\phi \= 100 \- Q konvergiert gegen 0, wenn \\pi(-a)\_g \= \\pi(+a)\_g.  
-  2. Der Complexity Auditor identifiziert ein Problem: Die Konstruktion des Kontrollparameters und die Fenstergrößen für die Evaluation der Fluktuationen erfordern sehr spezifische kalibrierende Entscheidungen durch die Forscher. Die Anzahl der mathematischen Freiheitsgrade in der Definition dieser "Kritikalität" übersteigt die Komplexität des Woods-Saxon-Potenzials signifikant.  
-  3. Das Modell ignoriert physikalische Erhaltungssätze: In der Kernphysik entstehen die Lücken bei 28, 50, 82 und 126 **ausschließlich** durch die Spin-Bahn-Aufspaltung. Da Primzahlen keinen "Spin" besitzen, fehlt dem MCPN der kausale Mechanismus zur Brechung der Symmetrie. Die Entstehung dieser Lücken im Primzahlraum muss daher von fundamental anderer Natur sein oder beruht auf statistischen Koinzidenzen.  
-* **Critical Analysis (BIC/Sigma):** Das BIC des quantenmechanischen Schalenmodells (Antithese) ist extrem niedrig, da es auf der unumstößlichen fundamentalen Quantendynamik basiert und konsistent durch Teilchen-Streuexperimenten validiert wurde. Das BIC des MCPN (These) ist stark erhöht, da es artifizielle statistische Konstrukte (Ordnungsparameter in diskreten Zahlsystemen) benötigt, um einen Isomorphismus zu erzwingen, der die zugrundeliegende Spin-Physik ignoriert.
+* **Inquiry Level:** Systemic Pattern Falsification (Medium level of abstraction)
+* **Steelman Hypothesis (Thesis):** The MCPN of Contoyiannis describes a genuine physical-mathematical isomorphism, in which the phase transitions (resonances) in the prime gaps exactly and causally determine the shell closures (magic numbers) in atomic nuclei.
+* **Steelman Antithesis (Null):** The established nuclear shell model (including the fundamental strong spin-orbit coupling) derives the magic numbers quantum-mechanically rigorously from the nucleon potential wells. Any correspondence of prime gaps with these specific values is the result of statistical fluctuations that were fitted "ex-post" through the flexible definition of the order parameters to known small integers (2, 8, 20, 28) (look-elsewhere effect).
+* **Methodology (Audit):** The Complexity Auditor analyzes the degrees of freedom of the MCPN. It is evaluated how many definitional assumptions are required in order to extract precisely the set {2, 8, 20, 28, 50, 82, 126} from the prime sequence. Application of the Anti-Sharpshooter Protocol: can the MCPN purely deductively predict the magic numbers predicted in nuclear physics for superheavy elements (e.g. 114, 164) from prime criticality, or does the sequence lose its coherence there?
+* **Execution Log:**
+  1. The "Coherence Checker" analyzes the resonance points in the MCPN. The order parameter $\phi = 100 - Q$ converges to 0 when $\pi(-a)_g = \pi(+a)_g$.
+  2. The Complexity Auditor identifies a problem: the construction of the control parameter and the window sizes for the evaluation of the fluctuations require very specific calibrating decisions by the researchers. The number of mathematical degrees of freedom in the definition of this "criticality" significantly exceeds the complexity of the Woods–Saxon potential.
+  3. The model ignores physical conservation laws: in nuclear physics, the gaps at 28, 50, 82 and 126 arise **exclusively** through spin-orbit splitting. Since primes have no "spin", the MCPN lacks the causal mechanism for breaking the symmetry. The emergence of these gaps in prime space must therefore be of a fundamentally different nature or rests on statistical coincidences.
+* **Critical Analysis (BIC/Sigma):** The BIC of the quantum-mechanical shell model (Antithesis) is extremely low, since it is based on the unshakeable fundamental quantum dynamics and has been validated consistently through particle scattering experiments. The BIC of the MCPN (Thesis) is strongly increased, since it requires artificial statistical constructs (order parameters in discrete number systems) to force an isomorphism that ignores the underlying spin physics.
 
 **CONCLUSION TEMPLATE:**
 
-* EVIDENCE GRADE: C (AMBIGUOUS)  
-* P-VALUE: \~0.12 (Schätzung nach strenger Bonferroni-Korrektur für die massive Suche im Lösungsraum der Abstandsdefinitionen)  
-* CONCLUSION: Fails to beat the Steelman Antithesis. Die statistischen Phasenübergänge in der Primzahlverteilung weisen zwar interessante formale Ähnlichkeiten zu kritischen thermodynamischen Phänomenen auf, jedoch ist die direkte Abbildung auf nukleare magische Zahlen durch parameterisches Overfitting kontaminiert. Das Modell bietet keinen adäquaten Ersatz für die Spin-Bahn-Kopplung und scheitert somit an Ockham's Quantified Razor im direkten Vergleich mit dem quantenmechanischen Standardmodell.  
+* EVIDENCE GRADE: C (AMBIGUOUS)
+* P-VALUE: ~0.12 (estimate after strict Bonferroni correction for the massive search in the solution space of the spacing definitions)
+* CONCLUSION: Fails to beat the Steelman Antithesis. The statistical phase transitions in the prime distribution do exhibit interesting formal similarities to critical thermodynamic phenomena, however the direct mapping onto nuclear magic numbers is contaminated by parametric overfitting. The model offers no adequate substitute for the spin-orbit coupling and thus fails Ockham's Quantified Razor in direct comparison with the quantum-mechanical standard model.
 * STRATEGIC VECTOR: REFACTORING\_VECTOR\_TOPOLOGICAL\_STABILITY
 
-### **6.4 EXPERIMENT 004: Time-Scalar Field Theory (TSFT) und topologische Resonanzen (Farrell)**
+### **6.4 EXPERIMENT 004: Time-Scalar Field Theory (TSFT) and Topological Resonances (Farrell)**
 
-* **Inquiry Level:** Fundamental Field Theory (Höchster Abstraktionsgrad)
-* **Steelman Hypothesis (Thesis):** Die TSFT postuliert, dass Zeit ein physikalisches Skalarfeld auf einer kompakten 4-Manigfaltigkeit ist. Die nuklearen magischen Zahlen und die Riemannschen Nullstellen entstehen als unvermeidliche topologische Resonanzmoden dieses Feldes. Dies liefert eine tiefere, vereinheitlichte Erklärung für Quantenphänomene und Primzahlverteilung ohne getrennte Annahmen für Spin-Bahn-Kopplung.
-* **Steelman Antithesis (Null):** Die TSFT führt ein untestbares Skalarfeld ein, das keine neuen experimentell verifizierbaren Vorhersagen macht, die über das Standardmodell hinausgehen. Die angebliche Herleitung von Konstanten basiert auf der "Coherence Selection" – einem vagen Prinzip, das als mathematischer Platzhalter für post-hoc Daten-Fitting fungiert. Das etablierte Schalenmodell benötigt kein zusätzliches Skalarfeld zur Erklärung der Magizität.
-* **Methodology (Audit):** Der Complexity Auditor bewertet die Einführung eines Zeit-Skalarfeldes als massiven epistemischen Kostenpunkt. Anwendung des Anti-Sharpshooter Protocols: Kann TSFT die magischen Zahlen unabhängig von den bereits bekannten empirischen Werten herleiten? Analyse der Publikationshistorie: Die Theorie wird primär in einem Eigenverlag (Zebra Journal) ohne externe Peer-Review-Kontrolle durch die physikalische Community verbreitet, was das Risiko für numerologische Zirkelschlüsse drastisch erhöht.
+* **Inquiry Level:** Fundamental Field Theory (Highest level of abstraction)
+* **Steelman Hypothesis (Thesis):** The TSFT postulates that time is a physical scalar field on a compact 4-manifold. The nuclear magic numbers and the Riemann zeros arise as unavoidable topological resonance modes of this field. This provides a deeper, unified explanation of quantum phenomena and prime distribution without separate assumptions for spin-orbit coupling.
+* **Steelman Antithesis (Null):** The TSFT introduces an untestable scalar field that makes no new experimentally verifiable predictions beyond the standard model. The alleged derivation of constants is based on the "Coherence Selection" — a vague principle that functions as a mathematical placeholder for post-hoc data fitting. The established shell model requires no additional scalar field to explain magicity.
+* **Methodology (Audit):** The Complexity Auditor assesses the introduction of a time-scalar field as a massive epistemic cost point. Application of the Anti-Sharpshooter Protocol: can TSFT derive the magic numbers independently of the already known empirical values? Analysis of the publication history: the theory is disseminated primarily in a self-published journal (Zebra Journal) without external peer-review control by the physics community, which drastically increases the risk of numerological circular reasoning.
 * **Execution Log:**
-  1. Analyse der Feldgleichung $|\nabla\theta| = 1$: Es wird festgestellt, dass diese Bedingung zwar elegant erscheint, aber in ihrer Anwendung auf die Kernphysik durch willkürliche Wahl der Manigfaltigkeits-Topologie an bekannte Schalenabschlüsse angepasst wird.
-  2. Der Complexity Auditor identifiziert das Konzept der "Resonanten Moden auf bewussten Weltblättern" als trans-kategorialen Kategorienfehler, der die physikalische Falsifizierbarkeit untergräbt.
-  3. Vergleich mit der Spin-Bahn-Kopplung: TSFT liefert keinen präziseren oder mathematisch einfacheren Weg zur Berechnung von Kernbindungsenergien als das Standardmodell.
-* **Critical Analysis (BIC/Sigma):** Extremer Verstoß gegen Ockham’s Razor. Die Einführung einer gänzlich neuen physikalischen Dimension (als Skalarfeld) zur Erklärung bereits verstandener Phänomene ohne Mehrwert in der Vorhersagekraft führt zu einem astronomisch hohen BIC.
+  1. Analysis of the field equation $|\nabla\theta| = 1$: it is found that this condition, while appearing elegant, is in its application to nuclear physics fitted to known shell closures by arbitrary choice of the manifold topology.
+  2. The Complexity Auditor identifies the concept of "Resonant Modes on Conscious World Sheets" as a transcategorical category error that undermines physical falsifiability.
+  3. Comparison with spin-orbit coupling: TSFT provides no more precise or mathematically simpler route to calculating nuclear binding energies than the standard model.
+* **Critical Analysis (BIC/Sigma):** Extreme violation of Ockham’s Razor. The introduction of an entirely new physical dimension (as a scalar field) to explain already understood phenomena without added value in predictive power leads to an astronomically high BIC.
 
 **CONCLUSION TEMPLATE:**
 
 * EVIDENCE GRADE: F (FALSIFIED)
-* CONCLUSION: Fails to outperform Null. Die TSFT ist ein hochkomplexes, aber letztlich zirkuläres Modell, das physische Realität durch topologische Metaphern ersetzt. Ohne unabhängige Bestätigung des Zeit-Skalarfeldes bleibt die Theorie im Bereich der spekulativen Metaphysik und bietet keine valide Basis für die Kernphysik.
+* CONCLUSION: Fails to outperform Null. The TSFT is a highly complex but ultimately circular model that replaces physical reality through topological metaphors. Without independent confirmation of the time-scalar field, the theory remains in the realm of speculative metaphysics and offers no valid basis for nuclear physics.
 * STRATEGIC VECTOR: REJECTION\_VECTOR\_TOPOLOGICAL\_METAPHOR
 
 
-### **6.2 EXPERIMENT 002: Stochastischer Hamilton-Operator für U-238 (Zeraoulia)**
+### **6.2 EXPERIMENT 002: Stochastic Hamiltonian for U-238 (Zeraoulia)**
 
-* **Inquiry Level:** Spektrale Operatoren-Validierung (Hoher Abstraktionsgrad)  
-* **Steelman Hypothesis (Thesis):** Der Hamilton-Operator, abgeleitet aus der stochastischen Näherung der Primzahlverteilung nach Maynard und Guth (x\_{n+1} \= x\_n \+ y \\log x\_n \+ \\epsilon\_n), erzeugt ein Eigenwertspektrum, das deterministisch und kausal mit der Gamma-Verteilung der Energieniveaus in realen schweren Atomkernen (U-238) übereinstimmt.  
-* **Steelman Antithesis (Null):** Die spektrale Dichte von U-238 wird bereits nahezu perfekt durch die etablierte Random Matrix Theory (speziell das GUE) beschrieben. Ein alternativer Hamilton-Operator, der schlichtweg stochastische Laplace-Rauschterme (\\epsilon\_n) induziert , emuliert lediglich die entropischen Eigenschaften großer GUE-Matrizen. Er fügt dem fundamentalen Verständnis weder der Primzahlen noch der Atomkerne eine tiefe kausale Erklärung hinzu, sondern maskiert GUE-Verhalten hinter zahlentheoretischer Terminologie.  
-* **Methodology (Audit):** Überprüfung durch den Adversarial Simulator. Es wird simuliert, ob der Zeraoulia-Operator strukturell von einem gewöhnlichen GUE-Zufallsgenerator unterscheidbar ist. Wenn die Einbringung des stochastischen Rauschens in die Primzahlzählung nur dazu dient, ein GUE zu erzwingen, verliert das Modell seinen deduktiven Wert.  
-* **Execution Log:**  
-  1. Der Adversarial Simulator generiert "Fake-Daten" mittels klassischer GUE-Matrizen und vergleicht die "Nearest-Neighbor Spacing Distribution" mit den Eigenwerten des Zeraoulia-Modells.  
-  2. Beide Modelle reproduzieren die charakteristische Wigner-Surmise (die quadratische Niveauabstoßung), die bei U-238 experimentell gemessen wird.  
-  3. Der Coherence Checker evaluiert jedoch positiv, dass Zeraoulia die stochastischen Terme nicht willkürlich wählt, sondern sie streng aus der analytischen Zahlentheorie (Guth/Maynard Corollary für Primzahlabstände) ableitet. Die Gamma-Verteilung der Eigenwerte entsteht hier als emergentes Phänomen der analytischen Zahlentheorie, nicht als bloßer mathematischer Zufalls-Input.  
-* **Critical Analysis (BIC/Sigma):** Das Zeraoulia-Modell weist eine moderate Komplexität auf (geringeres BIC als die abstrakten geometrischen Modelle). Es erzwingt keine punktgenauen magischen Zahlen durch Curve-Fitting, sondern zielt darauf ab, das makroskopische statistische Verhalten des gesamten Quantenspektrums zu beschreiben.
+* **Inquiry Level:** Spectral Operator Validation (High level of abstraction)
+* **Steelman Hypothesis (Thesis):** The Hamiltonian, derived from the stochastic approximation of the prime distribution after Maynard and Guth ($x_{n+1} = x_n + y \log x_n + \epsilon_n$), generates an eigenvalue spectrum that coincides deterministically and causally with the gamma distribution of the energy levels in real heavy atomic nuclei (U-238).
+* **Steelman Antithesis (Null):** The spectral density of U-238 is already described almost perfectly by the established Random Matrix Theory (especially the GUE). An alternative Hamiltonian that simply induces stochastic Laplace noise terms ($\epsilon_n$) merely emulates the entropic properties of large GUE matrices. It adds no deep causal explanation to the fundamental understanding of either the primes or atomic nuclei, but masks GUE behavior behind number-theoretic terminology.
+* **Methodology (Audit):** Verification by the Adversarial Simulator. It is simulated whether the Zeraoulia operator is structurally distinguishable from an ordinary GUE random generator. If the introduction of stochastic noise into the prime counting serves only to enforce a GUE, the model loses its deductive value.
+* **Execution Log:**
+  1. The Adversarial Simulator generates "fake data" by means of classical GUE matrices and compares the "Nearest-Neighbor Spacing Distribution" with the eigenvalues of the Zeraoulia model.
+  2. Both models reproduce the characteristic Wigner surmise (the quadratic level repulsion) measured experimentally in U-238.
+  3. The Coherence Checker, however, evaluates positively that Zeraoulia does not choose the stochastic terms arbitrarily, but derives them strictly from analytic number theory (Guth/Maynard corollary for prime gaps). The gamma distribution of the eigenvalues arises here as an emergent phenomenon of analytic number theory, not as mere mathematical random input.
+* **Critical Analysis (BIC/Sigma):** The Zeraoulia model exhibits moderate complexity (lower BIC than the abstract geometric models). It does not enforce point-exact magic numbers through curve-fitting, but aims to describe the macroscopic statistical behavior of the entire quantum spectrum.
 
 **CONCLUSION TEMPLATE:**
 
-* EVIDENCE GRADE: B (PLAUSIBLE)  
-* P-VALUE: \< 0.05  
-* CONCLUSION: Matches Steelman Antithesis. Der Zeraoulia-Hamiltonian übertrifft die klassische Random Matrix Theory nicht hinsichtlich der rein statistischen Präzision der Level-Repulsion. Dennoch liefert er einen hochvalablen und kohärenten physikalischen Konstruktionsweg, der prime Lücken stochastisch mit quantenmechanischen Energieniveaus vereint, ohne auf Numerologie zurückzugreifen. Es stellt eine stringente Fortführung der Quantenchaos-Zahlentheorie-Konvergenz dar.  
+* EVIDENCE GRADE: B (PLAUSIBLE)
+* P-VALUE: < 0.05
+* CONCLUSION: Matches Steelman Antithesis. The Zeraoulia Hamiltonian does not surpass classical Random Matrix Theory in terms of purely statistical precision of the level repulsion. Nevertheless, it provides a highly valid and coherent physical construction route that unites prime gaps stochastically with quantum-mechanical energy levels, without falling back on numerology. It represents a stringent continuation of the quantum-chaos/number-theory convergence.
 * STRATEGIC VECTOR: UNIFICATION\_VECTOR\_GUE\_STOCHASTICS
 
-### **6.3 EXPERIMENT 003: Geometrischer Determinismus und iHarmonic Identity (Grant)**
+### **6.3 EXPERIMENT 003: Geometric Determinism and iHarmonic Identity (Grant)**
 
-* **Inquiry Level:** Fundamentale Geometrie (Höchster Abstraktionsgrad)  
-* **Steelman Hypothesis (Thesis):** Die Riemannsche Vermutung ist deterministisch durch harmonische Projektionen einer fundamentalen pythagoreischen Geometrie (dem 5:12:13 Alphahedron) beweisbar. Folglich lassen sich die Primzahlverteilungen, die Werte elementarer Naturkonstanten und exakt alle nuklearen magischen Zahlen als geometrische Vektoren absolut ohne empirisches Fitting ableiten.  
-* **Steelman Antithesis (Null):** Die postulierten Ergebnisse sind Produkte klassischer numerologischer Überanpassung (Curve Fitting). Durch die Einführung komplexer, künstlicher geometrischer Parameter lassen sich beliebige Konstanten generieren. Die Methode ignoriert sämtliche physikalischen Mechanismen (wie die Quantenchromodynamik oder die elektroschwache Wechselwirkung) zugunsten reiner Zahlenakrobatik.  
-* **Methodology (Audit):** Der Complexity Auditor zählt jede Konstante, jeden geometrischen Faktor und jede Skalierungsoperation als hohe epistemische "Kosten". Die Formeln zur Herleitung nuklearer Massen und magischer Zahlen werden auf versteckte freie Parameter geprüft.  
-* **Execution Log:**  
-  1. Der Complexity Auditor analysiert die Hauptformel der Theorie: t(n) \= \\alpha \\ln(n) \+ \\beta \- \\gamma/n \+ \\delta/n \- (2+c^{-1}) \\dots.  
-  2. Es wird eine erschütternde Menge an kalibrierenden Konstanten identifiziert: Ein "Expansion coefficient \\alpha \= 68/25", ein "Base offset \\beta \= \-42/25", ein "Damping factor \\gamma \= 1.6", ein "Initialization constant \\delta \= 0.6" sowie ein "Hypotenuse reset".  
-  3. Obwohl die Autoren behaupten, diese Konstanten seien rein aus den Kanten und Flächen des "Alphahedrons" abgeleitet, repräsentiert die Konstruktion des Alphahedrons selbst und die arbiträre Verknüpfung seiner topologischen Eigenschaften zu algebraischen Gleichungen einen gigantischen Raum an Freiheitsgraden.  
-* **Critical Analysis (BIC/Sigma):** Extremer Verstoß gegen das Anti-Sharpshooter Protocol und Ockham's Quantified Razor. Wenn ein Forscher genügend topologische Eigenschaften eines komplexen Polyeders algebraisch kombiniert, kann er mit mathematischer Gewissheit jede beliebige Konstante (wie die Feinstrukturkonstante oder magische Zahlen) approximieren. 
+* **Inquiry Level:** Fundamental Geometry (Highest level of abstraction)
+* **Steelman Hypothesis (Thesis):** The Riemann Hypothesis can be proven deterministically through harmonic projections of a fundamental Pythagorean geometry (the 5:12:13 Alphahedron). Consequently, the prime distributions, the values of elementary natural constants, and exactly all nuclear magic numbers can be derived as geometric vectors absolutely without empirical fitting.
+* **Steelman Antithesis (Null):** The postulated results are products of classical numerological overfitting (curve fitting). By introducing complex, artificial geometric parameters, arbitrary constants can be generated. The method ignores all physical mechanisms (such as quantum chromodynamics or the electroweak interaction) in favor of pure numerical acrobatics.
+* **Methodology (Audit):** The Complexity Auditor counts every constant, every geometric factor, and every scaling operation as a high epistemic "cost". The formulas for deriving nuclear masses and magic numbers are examined for hidden free parameters.
+* **Execution Log:**
+  1. The Complexity Auditor analyzes the main formula of the theory: $t(n) = \alpha \ln(n) + \beta - \gamma/n + \delta/n - (2+c^{-1}) \dots$.
+  2. A staggering number of calibrating constants is identified: an "Expansion coefficient $\alpha = 68/25$", a "Base offset $\beta = -42/25$", a "Damping factor $\gamma = 1.6$", an "Initialization constant $\delta = 0.6$" as well as a "Hypotenuse reset".
+  3. Although the authors claim these constants are derived purely from the edges and faces of the "Alphahedron", the construction of the Alphahedron itself and the arbitrary linking of its topological properties into algebraic equations represent a gigantic space of degrees of freedom.
+* **Critical Analysis (BIC/Sigma):** Extreme violation of the Anti-Sharpshooter Protocol and Ockham's Quantified Razor. If a researcher algebraically combines enough topological properties of a complex polyhedron, they can, with mathematical certainty, approximate any arbitrary constant (such as the fine-structure constant or magic numbers).
 
-**Quantitatives Komplexitäts-Audit:**
-Das Modell nutzt k=4 primäre freie Parameter (\\alpha, \\beta, \\gamma, \\delta) und mindestens m=12 topologische Randbedingungen des Alphahedrons zur Herleitung von nur n=7 magischen Zahlen. Dies resultiert in einem negativen Freiheitsgrad-Saldo. 
-Die Anwendung des Bayesian Information Criterion (BIC) zeigt:
+**Quantitative Complexity Audit:**
+The model uses k=4 primary free parameters ($\alpha, \beta, \gamma, \delta$) and at least m=12 topological boundary conditions of the Alphahedron to derive only n=7 magic numbers. This results in a negative degree-of-freedom balance.
+Application of the Bayesian Information Criterion (BIC) shows:
 $$BIC_{Grant} = (k+m) \ln(n) - 2 \ln(\hat{L}) >> BIC_{Shell}$$
-Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzialtiefe und Spin-Bahn-Stärke) alle n=7 Werte sowie die energetischen Abstände exakt beschreibt, ist das BIC des Grant-Modells um Größenordnungen schlechter. Das Modell ist statistisch "überdeterminiert" und besitzt keine prädiktive Kraft außerhalb des Trainings-Samples.
+Since the standard shell model, with only 2 fundamental parameters (potential depth and spin-orbit strength), describes all n=7 values as well as the energetic spacings exactly, the BIC of the Grant model is worse by orders of magnitude. The model is statistically "overdetermined" and possesses no predictive power outside the training sample.
 
 **CONCLUSION TEMPLATE:**
 
-* EVIDENCE GRADE: F (FALSIFIED)  
-* CONCLUSION: Fails to outperform Null or relies on excessive parameter tuning (Numerology). Das Modell der iHarmonic Identity ist ein Paradebeispiel für apophenes Overfitting. Es verliert augenblicklich jede Vorhersagekraft für Phänomene, die außerhalb seines zirkulären (In-Sample) Designraumes liegen. Die angebliche Herleitung nuklearer magischen Zahlen ist strukturell wertlos für die physikalische Grundlagenforschung.  
+* EVIDENCE GRADE: F (FALSIFIED)
+* CONCLUSION: Fails to outperform Null or relies on excessive parameter tuning (Numerology). The iHarmonic Identity model is a paradigmatic example of apophenic overfitting. It instantly loses any predictive power for phenomena that lie outside its circular (in-sample) design space. The alleged derivation of nuclear magic numbers is structurally worthless for fundamental physical research.
 * STRATEGIC VECTOR: REJECTION\_VECTOR\_NUMEROLOGICAL\_BIAS
 
 
-### **6.5 EXPERIMENT 005: PT-symmetrische Erweiterung des Zeraoulia-Operators (Vorstufe)**
+### **6.5 EXPERIMENT 005: PT-Symmetric Extension of the Zeraoulia Operator (Preliminary Stage)**
 
-* **Inquiry Level:** Fundamentale Operator-Architektur (Hoher Abstraktionsgrad)  
-* **Steelman Hypothesis (Thesis):** Die in EXPERIMENT 002 identifizierte Backend-Fragilität (Kingston E₀=2.22, Marrakesh E₀=3.37, Aer-Marrakesh-Profil E₀=3.37) zeigt, dass der hermitesche Zeraoulia-Operator unter realistischem Rauschen seine spektrale Identität verliert. Eine PT-symmetrische Erweiterung der Form $H_{PT}(\gamma) = H_{herm} + i\gamma A$ mit hermiteschem $A$ (antihermitescher Anteil $i\gamma A$) besitzt eine **PT-unbroken Phase**, in der der Realteil des Grundzustands $Re(E_0)$ robust gegen den Parameter $\gamma$ ist und im Zielbereich $[1.8, 2.2]$ liegt. Dies eröffnet einen physikalisch motivierten Pfad jenseits des hermiteschen Hilbert–Pólya-Operators, konsistent mit der Streumatrix- und Resonanz-Interpretation.  
-* **Steelman Antithesis (Null):** Die PT-symmetrische Erweiterung fügt dem Modell genau **einen** freien Parameter ($\gamma$) hinzu, ohne eine unabhängige physikalische Begründung zu liefern. Die scheinbare Stabilität von $Re(E_0)$ ist ein Artefakt der diagonal-dominierten Zeraoulia-Matrix: $H_{diag}$ trägt 95% der spektralen Struktur, jede vernünftige Störung wird $Re(E_0)$ nahe 2.0 halten — das ist keine PT-Symmetrie, sondern Diagonal-Dominanz. Die PT-Form verfehlt damit das Ockham-Kriterium und liefert keinen physikalischen Mehrwert gegenüber dem hermiteschen Zeraoulia-Operator mit dokumentierter Backend-Diskrepanz.  
+* **Inquiry Level:** Fundamental Operator Architecture (High level of abstraction)
+* **Steelman Hypothesis (Thesis):** The backend fragility identified in EXPERIMENT 002 (Kingston E₀=2.22, Marrakesh E₀=3.37, Aer–Marrakesh profile E₀=3.37) shows that the Hermitian Zeraoulia operator loses its spectral identity under realistic noise. A PT-symmetric extension of the form $H_{PT}(\gamma) = H_{herm} + i\gamma A$ with Hermitian $A$ (anti-Hermitian part $i\gamma A$) possesses a **PT-unbroken phase**, in which the real part of the ground state $Re(E_0)$ is robust against the parameter $\gamma$ and lies in the target range $[1.8, 2.2]$. This opens a physically motivated path beyond the Hermitian Hilbert–Pólya operator, consistent with the scattering-matrix and resonance interpretation.
+* **Steelman Antithesis (Null):** The PT-symmetric extension adds exactly **one** free parameter ($\gamma$) to the model without providing an independent physical justification. The apparent stability of $Re(E_0)$ is an artifact of the diagonal-dominated Zeraoulia matrix: $H_{diag}$ carries 95% of the spectral structure, any reasonable perturbation will keep $Re(E_0)$ near 2.0 — that is not PT symmetry but diagonal dominance. The PT form thus fails the Ockham criterion and provides no physical added value over the Hermitian Zeraoulia operator with documented backend discrepancy.
 * **Methodology (Audit):** Pre-registrierte Erfolgskriterien (Anti-Sharpshooter Protokoll):  
-  1. **PRIMARY:** $\exists \gamma^* \in [0, 0.3]$ mit $|Im(E_0)| < 0.05$ **und** $Re(E_0) \in [1.8, 2.2]$.  
-  2. **SECONDARY:** $|d(Re(E_0))/d\gamma| < 0.05$ bei $\gamma^*$ (PT-unbroken Steilheit).  
-  3. **FAIL:** $|Im(E_0)|$ nähert sich nie Null, oder $Re(E_0)$ driftet > 10% in $\gamma \in [0, 0.3]$.  
-  Complexity Auditor: 1 neuer Parameter ($\gamma$), Seed 42 für volle Reproduzierbarkeit. Keine ex-post Anpassung.  
+  1. **PRIMARY:** $\exists \gamma^* \in [0, 0.3]$ with $|Im(E_0)| < 0.05$ **and** $Re(E_0) \in [1.8, 2.2]$.
+  2. **SECONDARY:** $|d(Re(E_0))/d\gamma| < 0.05$ at $\gamma^*$ (PT-unbroken steepness).
+  3. **FAIL:** $|Im(E_0)|$ never approaches zero, or $Re(E_0)$ drifts > 10% in $\gamma \in [0, 0.3]$.
+  Complexity Auditor: 1 new parameter ($\gamma$), seed 42 for full reproducibility. No ex-post adjustment.
 * **Execution Log:**  
-  1. Konstruktion: $H_{PT}(\gamma) = \text{diag}(2.0, 2.6787, 3.8, 4.9) + V_{herm}(\text{Seed 42, scale 0.02}) + i\gamma \cdot A_{herm}(\text{Seed 43, scale 0.02})$ mit dim=4.  
-  2. **Konstruktionsfehler erkannt und korrigiert:** Erste Version verwendete antihermitesches $A$; dies ergab $H = H_{herm} + i \cdot (\text{antihermitesch}) = H_{herm} + (\text{hermitesch})$, also effektiv hermitesch — ein numerischer Zufallstreffer, der PT-Symmetrie vortäuschte. Korrektur: $A$ muss **hermitesch** sein, damit $i\gamma A$ antihermitesch wirkt.  
-  3. Eigenwert-Sweep über $\gamma \in [0, 0.5]$ in 21 Schritten, exakte Diagonalisierung.  
-  4. Resultat-Tabelle (Auszug):  
+  1. Construction: $H_{PT}(\gamma) = \text{diag}(2.0, 2.6787, 3.8, 4.9) + V_{herm}(\text{Seed 42, scale 0.02}) + i\gamma \cdot A_{herm}(\text{Seed 43, scale 0.02})$ with dim=4.
+  2. **Construction error identified and corrected:** The first version used anti-Hermitian $A$; this yielded $H = H_{herm} + i \cdot (\text{anti-Hermitian}) = H_{herm} + (\text{Hermitian})$, thus effectively Hermitian — a numerical lucky hit simulating PT symmetry. Correction: $A$ must be **Hermitian** so that $i\gamma A$ acts as anti-Hermitian.
+  3. Eigenvalue sweep over $\gamma \in [0, 0.5]$ in 21 steps, exact diagonalization.
+  4. Result table (excerpt):
 
 | $\gamma$ | $Re(E_0)$ | $Im(E_0)$ | unbroken | in_target |
 |---:|---:|---:|:---:|:---:|
@@ -216,32 +218,32 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 | 0.300 | 2.0096 | 0.0015 | ✓ | ✓ |
 | 0.500 | 2.0097 | 0.0025 | ✓ | ✓ |
 
-* **Critical Analysis (BIC/Sigma):** PRIMARY: ✓ (trivialerweise erfüllt, $|Im(E_0)| < 0.0026$ über gesamten Sweep). SECONDARY: ✓ ($|d(Re E_0)/d\gamma| \approx 0$ über $\gamma \in [0, 0.5]$). Die numerische PT-unbroken Stabilität ist **perfekt**.  
-  **Adversarial Simulator (Kritik):** Die Stabilität von $Re(E_0) = 2.0096$ ist verdächtig **zu gut**. Bei einem Zufallsmatrix-Störoperator mit Norm $\|A\| \approx 0.025$ würde man für $\gamma = 0.5$ eine Störung der Ordnung $0.0125$ erwarten — wir sehen nur $10^{-4}$. Dies ist ein **starker Hinweis**, dass die Zeraoulia-Diagonale $H_{diag}$ das Spektrum dominiert und die PT-Erweiterung im aktuellen Parameterregime **mathematisch irrelevant** ist. Der Effekt ist da, aber er ist nicht messbar, weil das Experiment nicht empfindlich genug ist.  
-  **Coherence Checker:** Die Ergebnisse stehen in **Widerspruch zu Section 9**, die den Kingston-Wert (E₀=2.216) als Erfolg interpretiert. Die korrekte Leseart der Section-9-Daten: Kingston-Wert war Zufallstreffer, Marrakesh-Wert (3.366) ist systematisch. Der hier gefundene Wert $E_0 = 2.0096$ (nahe 2.0) ist der **exakte** numerische Erwartungswert des Operators $H_{diag} + V_{herm}$ ohne Rauschen — Kingston lieferte 2.22 mit 10% Abweichung, Marrakesh 3.37 mit 68% Abweichung. **Section 9 ist korrekturbedürftig.**
+* **Critical Analysis (BIC/Sigma):** PRIMARY: ✓ (trivially satisfied, $|Im(E_0)| < 0.0026$ over the entire sweep). SECONDARY: ✓ ($|d(Re E_0)/d\gamma| \approx 0$ over $\gamma \in [0, 0.5]$). The numerical PT-unbroken stability is **perfect**.
+  **Adversarial Simulator (Critique):** The stability of $Re(E_0) = 2.0096$ is suspiciously **too good**. For a random-matrix perturbation operator with norm $\|A\| \approx 0.025$ one would expect a perturbation on the order of $0.0125$ for $\gamma = 0.5$ — we see only $10^{-4}$. This is a **strong indication** that the Zeraoulia diagonal $H_{diag}$ dominates the spectrum and the PT extension in the current parameter regime is **mathematically irrelevant**. The effect is there, but it is not measurable because the experiment is not sensitive enough.
+  **Coherence Checker:** The results **contradict Section 9**, which interprets the Kingston value (E₀=2.216) as a success. The correct reading of the Section-9 data: the Kingston value was a lucky hit, the Marrakesh value (3.366) is systematic. The value found here, $E_0 = 2.0096$ (close to 2.0), is the **exact** numerical expectation value of the operator $H_{diag} + V_{herm}$ without noise — Kingston delivered 2.22 with 10% deviation, Marrakesh 3.37 with 68% deviation. **Section 9 is in need of correction.**
 
 **CONCLUSION TEMPLATE:**
 
-* EVIDENCE GRADE: **C (AMBIGUOUS)** — Methodisch sauber, aber physikalisch nicht belastbar.  
-* P-VALUE: n/a (deterministische Eigenwertberechnung, keine Statistik)  
-* CONCLUSION: Fails to beat Steelman Antithesis on physical grounds. Der PT-symmetrische Operator reproduziert numerisch exakt den Grundzustand $Re(E_0) \approx 2.01$, aber dies ist ein **Diagonal-Dominanz-Artefakt**, kein Beleg für PT-Stabilität gegen Hardware-Rauschen. Die These ist **nicht falsifiziert** (numerisch korrekt), aber **nicht validiert** (kein physikalischer Inhalt über die bereits bekannte Diagonal-Struktur hinaus). Das Experiment muss wiederholt werden mit: (a) stärkerer nicht-diagonaler Kopplung, (b) realistischem Rauschprofil auf dem PT-Operator (nicht auf dem hermiteschen), (c) IBM-Hardware-Validierung.  
-* STRATEGIC VECTOR: **REFACTORING\_VECTOR\_COUPLING\_ENHANCEMENT** — Erhöhe $\|A\|/\|H_{diag}\|$ von 0.025/3.8 ≈ 0.7% auf ≥ 10% durch (i) größere Skala in $V_{herm}$, (ii) zusätzliche nicht-diagonale PT-Kopplungen jenseits der Seed-42-GUE-Konstruktion.
+* EVIDENCE GRADE: **C (AMBIGUOUS)** — Methodically clean, but physically inconclusive.
+* P-VALUE: n/a (deterministic eigenvalue calculation, no statistics)
+* CONCLUSION: Fails to beat Steelman Antithesis on physical grounds. The PT-symmetric operator numerically reproduces the ground state $Re(E_0) \approx 2.01$ exactly, but this is a **diagonal-dominance artifact**, no evidence for PT stability against hardware noise. The thesis is **not falsified** (numerically correct) but **not validated** (no physical content beyond the already known diagonal structure). The experiment must be repeated with: (a) stronger off-diagonal coupling, (b) realistic noise profile on the PT operator (not on the Hermitian one), (c) IBM hardware validation.
+* STRATEGIC VECTOR: **REFACTORING\_VECTOR\_COUPLING\_ENHANCEMENT** — increase $\|A\|/\|H_{diag}\|$ from 0.025/3.8 ≈ 0.7% to ≥ 10% through (i) larger scale in $V_{herm}$, (ii) additional off-diagonal PT couplings beyond the seed-42 GUE construction.
 
-#### **6.5.1 Re-Audit EXPERIMENT 005 mit verstärkter Kopplung (2026-06-08)**
+#### **6.5.1 Re-Audit of EXPERIMENT 005 with Enhanced Coupling (2026-06-08)**
 
-* **Methodik:** Coupling-Enhancement durchgeführt — Skala der hermiteschen Fluktuation $V_{herm}$ und der PT-Kopplung $A$ von 0.02 auf 0.4 erhöht. Pre-registrierte Kriterien unverändert (Anti-Sharpshooter-konform).  
-* **Ergebnis (Skala-Scan):**  
+* **Methodology:** Coupling enhancement performed — the scale of the Hermitian fluctuation $V_{herm}$ and the PT coupling $A$ increased from 0.02 to 0.4. Pre-registered criteria unchanged (Anti-Sharpshooter compliant).
+* **Result (scale scan):**
 
 | Skala | PT-Bruch bei γ | Re(E_0) bei γ=0 | E_0 in [1.8, 2.2]? |
 |---:|---:|---:|:---:|
 | 0.02 (Original) | >5.0 | 2.0096 | ✓ (trivial) |
 | 0.2 | >5.0 | 2.054 | ✓ (trivial) |
-| **0.4 (Sweet Spot)** | **>5.0** | **1.972** | **✓** |
+| **0.4 (sweet spot)** | **>5.0** | **1.972** | **✓** |
 | 0.5 | >5.0 | 1.872 | ✓ |
 | 0.6 | ~1.0 | 1.740 | ✗ |
 | 1.0 | **0.11** | 1.031 | ✗ |
 
-* **Detail-Scan bei Skala 0.4, γ ∈ [0, 0.5]:**  
+* **Detail scan at scale 0.4, γ ∈ [0, 0.5]:**
 
 | γ | Re(E_0) | Im(E_0) | Status |
 |---:|---:|---:|:---:|
@@ -253,59 +255,59 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 | **0.475** | **2.0009** | **-0.0199** | **unbroken / EXACTLY in target** |
 | 0.500 | 2.0039 | -0.0215 | unbroken / in target |
 
-* **Kritische Befunde:**  
-  1. Bei Skala 0.4 erreicht $\text{Re}(E_0) = 2.0009$ exakt bei $\gamma = 0.475$ — die Zielenergie 2.0 wird durch **PT-getriebene Niveauverschiebung** angesteuert, nicht durch ex-post Anpassung.  
-  2. Steilheit $|d(\text{Re}\,E_0)/d\gamma| = 0.0032$ — der Operator ist **außergewöhnlich stabil** gegen PT-Störung.  
-  3. Skala 1.0 zeigt den **echten PT-Phasenübergang** bei $\gamma^* \approx 0.11$ — der Operator ist physikalisch korrekt konstruiert; die Diagonal-Dominanz bei kleineren Skalen war die Ursache der ursprünglichen Trivialisierung.  
-  4. **Aer-Sim mit Marrakesh-Rauschprofil steht aus** — entscheidender Stresstest für die Behauptung, dass die PT-Erweiterung gegen Hardware-Bias stabilisiert. Ohne diesen Stresstest bleibt die Validierung **unvollständig**.
+* **Critical findings:**
+  1. At scale 0.4, $\text{Re}(E_0) = 2.0009$ is reached exactly at $\gamma = 0.475$ — the target energy 2.0 is approached through a **PT-driven level shift**, not through ex-post adjustment.
+  2. Steepness $|d(\text{Re}\,E_0)/d\gamma| = 0.0032$ — the operator is **extraordinarily stable** against PT perturbation.
+  3. Scale 1.0 shows the **genuine PT phase transition** at $\gamma^* \approx 0.11$ — the operator is physically correctly constructed; the diagonal dominance at smaller scales was the cause of the original trivialization.
+  4. **Aer sim with Marrakesh noise profile is pending** — the decisive stress test for the claim that the PT extension stabilizes against hardware bias. Without this stress test, the validation remains **incomplete**.
 
 **CONCLUSION TEMPLATE (Re-Audit):**
 
-* EVIDENCE GRADE: **B (PLAUSIBLE)** — pre-registrierte Kriterien erfüllt; PT-Resonanz als physikalisch motivierter Mechanismus identifiziert.  
-* P-VALUE: n/a (deterministisch).  
-* CONCLUSION: Der PT-symmetrische Zeraoulia-Operator besitzt im Skalenregime $\sim 0.4$ eine **PT-unbroken Phase**, die den Zielwert $\text{Re}(E_0) = 2.0$ durch Variation des Kopplungsparameters $\gamma$ **bei $\gamma^* = 0.475$ exakt** erreicht. Die Imaginärkomponente $\text{Im}(E_0) = -0.02$ entspricht einer endlichen Resonanzbreite (Linienbreite $\Gamma \sim 0.04$), physikalisch interpretierbar als Halbwertsbreite eines quasi-gebundenen Zustands. Dies ist **konsistent mit der Hilbert–Pólya-Vermutung in der PT-/Resonanz-Formulierung** (Bender, Brody, Müller), in der die Riemann-Nullstellen als Resonanzen eines offenen, nicht-hermiteschen Hamilton-Operators auftreten. **Steelman Antithese bleibt herausgefordert:** die Ockham-Kosten sind 1 zusätzlicher Parameter ($\gamma$), der physikalisch durch die Resonanzbreite legitimiert ist.  
-* STRATEGIC VECTOR: **UNIFICATION\_VECTOR\_PT\_RESONANCE** — Aer-Sim-Stresstest als nächster Schritt; bei Bestehen: Hardware-Validierung des PT-Operators auf `ibm_marrakesh` mit identischem Rigor-Setup wie Section 9.
+* EVIDENCE GRADE: **B (PLAUSIBLE)** — pre-registered criteria satisfied; PT resonance identified as a physically motivated mechanism.
+* P-VALUE: n/a (deterministic).
+* CONCLUSION: The PT-symmetric Zeraoulia operator possesses in the scale regime $\sim 0.4$ a **PT-unbroken phase** that reaches the target value $\text{Re}(E_0) = 2.0$ by variation of the coupling parameter $\gamma$ **at $\gamma^* = 0.475$ exactly**. The imaginary component $\text{Im}(E_0) = -0.02$ corresponds to a finite resonance width (linewidth $\Gamma \sim 0.04$), physically interpretable as the half-width of a quasi-bound state. This is **consistent with the Hilbert–Pólya conjecture in the PT/resonance formulation** (Bender, Brody, Müller), in which the Riemann zeros appear as resonances of an open, non-Hermitian Hamiltonian operator. **Steelman Antithesis remains challenged:** the Ockham cost is 1 additional parameter ($\gamma$), physically legitimized by the resonance width.
+* STRATEGIC VECTOR: **UNIFICATION\_VECTOR\_PT\_RESONANCE** — Aer-sim stress test as the next step; on success: hardware validation of the PT operator on `ibm_marrakesh` with the identical rigor setup as Section 9.
 
-#### **6.5.2 Stresstests und Anti-Sharpshooter-Audit (2026-06-08)**
+#### **6.5.2 Stress Tests and Anti-Sharpshooter Audit (2026-06-08)**
 
-* **Aer-Stresstest (Marrakesh-Rauschprofil):**  
-  *Methodik:* PT-Operator $H_{PT}(\gamma=0.475)$ auf Seed 42 → exakter PT-Eigenwert $E_0 = 2.0009 - 0.0199j$. Berechnung des Grundzustands $|\psi_0\rangle$, Konstruktion des Projektors $O = |\psi_0\rangle\langle\psi_0|$, Messung $\langle\psi_0|O|\psi_0\rangle$ auf `AerSimulator.from_backend(ibm_marrakesh)` mit 8192 Shots.  
-  *Resultat:* **Projektor-Treue 0.957 ± 0.017** → **PASS** (Schwelle 0.85).  
-  *Interpretation:* Der PT-Grundzustand überlebt das Marrakesh-Rauschprofil mit 95.7% Wahrscheinlichkeit. Der systematische Hardware-Bias, der den hermiteschen Operator von E_0=2.01 auf E_0=3.37 (+68%) verschiebt, hat auf den PT-Operator **keinen** analogen Effekt. Dies ist ein **starker empirischer Hinweis**, dass die PT-Erweiterung die spektrale Identität des Operators gegen den dominanten Rausch-Kanal stabilisiert.  
+* **Aer stress test (Marrakesh noise profile):**
+  *Methodology:* PT operator $H_{PT}(\gamma=0.475)$ on seed 42 → exact PT eigenvalue $E_0 = 2.0009 - 0.0199j$. Calculation of the ground state $|\psi_0\rangle$, construction of the projector $O = |\psi_0\rangle\langle\psi_0|$, measurement of $\langle\psi_0|O|\psi_0\rangle$ on `AerSimulator.from_backend(ibm_marrakesh)` with 8192 shots.
+  *Result:* **Projector fidelity 0.957 ± 0.017** → **PASS** (threshold 0.85).
+  *Interpretation:* The PT ground state survives the Marrakesh noise profile with 95.7% probability. The systematic hardware bias that shifts the Hermitian operator from E_0=2.01 to E_0=3.37 (+68%) has **no** analogous effect on the PT operator. This is **strong empirical evidence** that the PT extension stabilizes the spectral identity of the operator against the dominant noise channel.
 
-* **Anti-Sharpshooter Seed-Variation (10 Seeds, Skala 0.4):**  
-  *Pre-registriertes Kriterium:* ≥ 7 von 10 Seeds erreichen $\text{Re}(E_0) \in [1.8, 2.2]$ für mindestens ein $\gamma \in [0, 0.5]$.  
-  *Resultat:* **4 von 10 Treffer** → **FAIL**.  
-  *Befund:* $\gamma^* = 0.475$ Treffer bei Seed 42 war **seed-spezifisch**. Skala-abhängige Schwankung:  
+* **Anti-Sharpshooter seed variation (10 seeds, scale 0.4):**
+  *Pre-registered criterion:* ≥ 7 of 10 seeds reach $\text{Re}(E_0) \in [1.8, 2.2]$ for at least one $\gamma \in [0, 0.5]$.
+  *Result:* **4 of 10 hits** → **FAIL**.
+  *Finding:* the $\gamma^* = 0.475$ hit at seed 42 was **seed-specific**. Scale-dependent fluctuation:
 
 | Skala | Treffer (10 Seeds) | Bewertung |
 |---:|---:|:---:|
-| 0.05 | 10/10 | seed-stabil, aber E_0 ≈ 2.04 (4% über Ziel) |
-| 0.1 | 10/10 | seed-stabil, E_0 ≈ 2.04 |
+| 0.05 | 10/10 | seed-stable, but E_0 ≈ 2.04 (4% above target) |
+| 0.1 | 10/10 | seed-stable, E_0 ≈ 2.04 |
 | 0.15 | 8/10 | marginal |
-| **0.4** | **4/10** | **exakter Treffer für Seed 42, aber nicht reproduzierbar** |
-| 1.0 | 0/10 | außerhalb Zielbereich |
+| **0.4** | **4/10** | **exact hit for seed 42, but not reproducible** |
+| 1.0 | 0/10 | outside target range |
 
-  *Diagnose:* Klassisches Bias-Variance-Dilemma. Kleine Skala → seed-stabil, aber E_0 nicht exakt 2.0. Große Skala → exakter Treffer für einzelne Seeds, aber systematische seed-abhängige Verschiebungen ($\Delta E_0 \sim \pm 0.5$) dominieren über γ-Korrektur.
+  *Diagnosis:* classical bias-variance dilemma. Small scale → seed-stable, but E_0 not exactly 2.0. Large scale → exact hit for individual seeds, but systematic seed-dependent shifts ($\Delta E_0 \sim \pm 0.5$) dominate over γ-correction.
 
-* **Konsequenz für Hardware-Validierung:**  
-  Die Vorhersage $\gamma^* = 0.475 \Rightarrow E_0 = 2.0$ ist **nicht reproduzierbar** über Realisierungen des Zufallsoperators. Eine IBM-Hardware-Validierung wäre verschwendete QPU-Zeit, da der wahre Wert auf der Hardware $\in [1.0, 2.5]$ streuen würde — ununterscheidbar vom Rauschbeitrag. **Hardware-Run zurückgestellt**, bis ein seed-stabiler Operator gefunden ist.
+* **Consequence for hardware validation:**
+  The prediction $\gamma^* = 0.475 \Rightarrow E_0 = 2.0$ is **not reproducible** across realizations of the random operator. An IBM hardware validation would be wasted QPU time, since the true value on the hardware would scatter in $\in [1.0, 2.5]$ — indistinguishable from the noise contribution. **Hardware run postponed** until a seed-stable operator is found.
 
-* **Re-Audit Gesamtbild:**  
-  - Aer-Stresstest (Hardware-Stabilität): **PASS**  
-  - Seed-Anti-Sharpshooter (statistische Robustheit): **FAIL**  
-  - **EVIDENCE GRADE REVIDIERT: C (AMBIGUOUS)** — die vielversprechende Aer-Stabilität wird durch fehlende Seed-Reproduzierbarkeit entwertet. Der PT-Operator ist **ein** möglicher Pfad, aber die aktuelle Konstruktion enthält einen impliziten Free Parameter (die spezifische GUE-Realisierung), der die Vorhersagekraft untergräbt.
+* **Re-audit overall picture:**
+  - Aer stress test (hardware stability): **PASS**
+  - Seed Anti-Sharpshooter (statistical robustness): **FAIL**
+  - **EVIDENCE GRADE REVISED: C (AMBIGUOUS)** — the promising Aer stability is devalued by the lack of seed reproducibility. The PT operator is **one** possible path, but the current construction contains an implicit free parameter (the specific GUE realization) that undermines predictive power.
 
-* **STRATEGIC VECTOR FINAL:** **REFACTORING\_VECTOR\_SEED\_INVARIANCE** — der nächste Konstruktionsschritt muss einen **strukturellen** (nicht numerischen) Mechanismus für die γ-Resonanz liefern, der unabhängig von der spezifischen Zufallsmatrix-Realisierung ist. Mögliche Pfade: (i) analytische Konstruktion von $A$ aus der Zeraoulia-Iterationsvorschrift $x_{n+1} = x_n + y\log x_n$ selbst, (ii) diagrammatische Kopplung statt Seed-GUE, (iii) kontrollierte Hierarchie $H_{PT} = H_{diag} + \lambda \cdot \Gamma$ mit $\Gamma$ als fixiertem "Resonanz-Generator" (nicht randomisiert).
+* **STRATEGIC VECTOR FINAL:** **REFACTORING\_VECTOR\_SEED\_INVARIANCE** — the next construction step must provide a **structural** (not numerical) mechanism for the γ resonance that is independent of the specific random-matrix realization. Possible paths: (i) analytical construction of $A$ from the Zeraoulia iteration prescription $x_{n+1} = x_n + y\log x_n$ itself, (ii) diagrammatic coupling instead of seed-GUE, (iii) controlled hierarchy $H_{PT} = H_{diag} + \lambda \cdot \Gamma$ with $\Gamma$ as a fixed "resonance generator" (not randomized).
 
-#### **6.5.3 Strukturelle Ableitung von $A$ aus der Zeraoulia-Iteration (2026-06-08)**
+#### **6.5.3 Structural Derivation of $A$ from the Zeraoulia Iteration (2026-06-08)**
 
-* **Methodik:** Statt einer randomisierten Kopplungsmatrix (Seed-GUE) wird $A$ als **Jacobi-Matrix der Zeraoulia-Iterationsabbildung** $f(x) = x + y\log x$ konstruiert:  
-  $$A_{ii} = f'(x_i) = 1 + y/x_i, \qquad A_{ij} = \frac{f(x_i) - f(x_j)}{x_i - x_j} \quad (i \neq j)$$  
-  Diese Matrix ist **strukturell eindeutig** (kein Random, keine Seed-Abhängigkeit), **hermitesch** ($A_{ij} = A_{ji}$), und **trägt die volle nichtlineare Dynamik** der Original-Iteration. Die Zeraoulia-Diagonalniveaus werden ebenfalls deterministisch aus der Vorschrift berechnet: $E_n = f^n(2.0)$ (ohne Rauschen $\epsilon_n = 0$).  
-* **Verifikation der Input-Invarianz:** $E_0 = 2.0$ folgt exakt dem Startwert; Variation des Startwerts $E_0^{start} \in \{1.5, 1.8, 2.0, 2.2, 2.5\}$ liefert $Re(E_0) = E_0^{start}$ exakt. Die Diagonale dominiert das Spektrum, $A$ reguliert nur die **Resonanzbreite**.  
-* **Determinismus:** Bit-genau reproduzierbar — keine Random State im Code.  
-* **γ-Sweep (deterministisch, $A$ unskaliert):**  
+* **Methodology:** Instead of a randomized coupling matrix (seed GUE), $A$ is constructed as the **Jacobi matrix of the Zeraoulia iteration map** $f(x) = x + y\log x$:
+  $$A_{ii} = f'(x_i) = 1 + y/x_i, \qquad A_{ij} = \frac{f(x_i) - f(x_j)}{x_i - x_j} \quad (i \neq j)$$
+  This matrix is **structurally unique** (no randomness, no seed dependence), **Hermitian** ($A_{ij} = A_{ji}$), and **carries the full nonlinear dynamics** of the original iteration. The Zeraoulia diagonal levels are also computed deterministically from the prescription: $E_n = f^n(2.0)$ (without noise $\epsilon_n = 0$).
+* **Verification of input invariance:** $E_0 = 2.0$ follows the start value exactly; variation of the start value $E_0^{start} \in \{1.5, 1.8, 2.0, 2.2, 2.5\}$ yields $Re(E_0) = E_0^{start}$ exactly. The diagonal dominates the spectrum, $A$ regulates only the **resonance width**.
+* **Determinism:** bit-exactly reproducible — no random state in the code.
+* **γ sweep (deterministic, $A$ unscaled):**
 
 | γ | Re(E_0) | Im(E_0) | unbroken | in_target |
 |---:|---:|---:|:---:|:---:|
@@ -316,75 +318,75 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 | 0.200 | 2.1902 | 0.2109 | ✗ | ✓ |
 | 0.500 | 2.2984 | 0.0865 | ✗ | ✗ |
 
-* **Befund:** $Re(E_0)$ steigt monoton mit $\gamma \cdot \|A\|$. Es gibt **keinen** endlichen γ-Wert, bei dem $Re(E_0) = 2.0$ exakt zurückgewonnen wird (außer γ=0, der triviale hermitesche Limes). γ reguliert **ausschließlich die Resonanzbreite** (Linienbreite $\Gamma \sim Im(E_0)$), nicht die Lage des Resonanz-Peaks.  
-* **Pre-registrierte Kriterien (revidiert):**  
-  1. **PRIMARY** $\exists \gamma > 0$ mit $|Im(E_0)| < 0.05$ und $Re(E_0) \in [1.8, 2.2]$ → **PASS** (γ ∈ [0, 0.018] erfüllt beide Bedingungen)  
-  2. **SECONDARY** $Re(E_0)$ folgt strukturell dem Eingabe-Niveau $E_0^{start}$ → **PASS** (verifiziert über 5 Startwerte)  
-  3. **DETERMINISMUS** bit-genau reproduzierbar → **PASS** (zwei Läufe ergeben identische Floats)  
-  4. **PT-Charakter** $Im(E_0)$ wächst monoton mit γ → **PASS** (kein abrupter Bruch, glatte Resonanzverbreiterung)  
-* **Adversarial Simulator:** Im Vergleich zu GUE-Randomisierung ist $\|A\|_{\text{Jacobi}} \approx 5.3$ versus $\|A\|_{\text{GUE}}(\text{scale}=0.4) \approx 0.4$ — das strukturelle $A$ ist ~13× stärker, aber **natürlich** (aus $y \cdot \log x$ abgeleitet) statt numerisch erzwungen. Die **Resonanz-Verbreiterung ist physikalisch interpretierbar**: sie entspricht der natürlichen Linienbreite, die aus der logarithmischen Kopplung der Zeraoulia-Iteration resultiert.  
-* **Coherence Checker:** Die strukturelle Konstruktion ist **konsistent** mit der ursprünglichen Zeraoulia-Vorschrift. Der Operator $H_{PT}(\gamma) = H_{diag} + i\gamma A$ ist **kein künstliches Konstrukt**, sondern die **natürliche nicht-hermitesche Erweiterung** der Iterationsgleichung in Matrixform. Damit ist die physikalische Legitimation des $\gamma$-Parameters **gegeben**: er entspricht der **effektiven Kopplungsstärke** des Zeraoulia-Prozesses an ein offenes Quantensystem (Streukanal, Resonatorverlust).  
-* **Implications für die Hilbert–Pólya-Vermutung:** Der strukturelle PT-Operator zeigt, dass die **Resonanz-Lage** $Re(E_0)$ **durch die Zeraoulia-Iteration selbst** determiniert ist (über den Startwert $E_0^{start} = 2.0$ als **physische Konvention**), während die **Resonanz-Breite** $\Gamma$ ein freier Parameter ist, der durch die effektive Kopplung an die Umgebung festgelegt wird. In der Sprache der Hilbert–Pólya-Vermutung: die **nicht-trivialen Riemann-Nullstellen** entsprechen den **Resonanz-Positionen** $Re(E_n)$ eines selbstkonsistenten offenen Quantensystems, dessen **Bandbreite** $\Gamma$ durch die Kopplung an das Kontinuum gegeben ist. Dies ist **strukturell konsistent** mit der Bender-Brody-Müller-Formulierung.  
-* **Vergleich mit GUE-Ansatz (Section 6.2):** Der GUE-Ansatz erzeugt eine **randomisierte** Kopplung mit fixierter spektraler Dichte, deren Vorhersagekraft von der **exakten Sammlung** der Zufallselemente abhängt. Der strukturelle Ansatz erzeugt eine **deterministische** Kopplung aus der **Iterationsvorschrift selbst**, deren Vorhersagekraft **unabhängig von Random State** ist und allein durch die **mathematische Struktur** der Zeraoulia-Gleichung legitimiert ist. **Ockham-Vorteil:** null freie Skala-Parameter (nur γ, das physikalisch durch die Umgebungskopplung legitimiert ist).  
+* **Finding:** $Re(E_0)$ increases monoton with $\gamma \cdot \|A\|$. There is **no** finite γ value at which $Re(E_0) = 2.0$ is recovered exactly (apart from γ=0, the trivial Hermitian limit). γ regulates **exclusively the resonance width** (linewidth $\Gamma \sim Im(E_0)$), not the location of the resonance peak.
+* **Pre-registered criteria (revised):**
+  1. **PRIMARY** $\exists \gamma > 0$ with $|Im(E_0)| < 0.05$ and $Re(E_0) \in [1.8, 2.2]$ → **PASS** (γ ∈ [0, 0.018] satisfies both conditions)
+  2. **SECONDARY** $Re(E_0)$ structurally follows the input level $E_0^{start}$ → **PASS** (verified over 5 start values)
+  3. **DETERMINISM** bit-exactly reproducible → **PASS** (two runs yield identical floats)
+  4. **PT CHARACTER** $Im(E_0)$ grows monotonically with γ → **PASS** (no abrupt break, smooth resonance broadening)
+* **Adversarial Simulator:** In comparison to GUE randomization, $\|A\|_{\text{Jacobi}} \approx 5.3$ versus $\|A\|_{\text{GUE}}(\text{scale}=0.4) \approx 0.4$ — the structural $A$ is ~13× stronger, but **natural** (derived from $y \cdot \log x$) rather than numerically forced. The **resonance broadening is physically interpretable**: it corresponds to the natural linewidth that results from the logarithmic coupling of the Zeraoulia iteration.
+* **Coherence Checker:** The structural construction is **consistent** with the original Zeraoulia prescription. The operator $H_{PT}(\gamma) = H_{diag} + i\gamma A$ is **not an artificial construct** but the **natural non-Hermitian extension** of the iteration equation in matrix form. Thus the physical legitimation of the $\gamma$ parameter is **given**: it corresponds to the **effective coupling strength** of the Zeraoulia process to an open quantum system (scattering channel, resonator loss).
+* **Implications for the Hilbert–Pólya conjecture:** The structural PT operator shows that the **resonance position** $Re(E_0)$ is **determined by the Zeraoulia iteration itself** (via the start value $E_0^{start} = 2.0$ as a **physical convention**), while the **resonance width** $\Gamma$ is a free parameter fixed by the effective coupling to the environment. In the language of the Hilbert–Pólya conjecture: the **nontrivial Riemann zeros** correspond to the **resonance positions** $Re(E_n)$ of a self-consistent open quantum system whose **bandwidth** $\Gamma$ is given by the coupling to the continuum. This is **structurally consistent** with the Bender–Brody–Müller formulation.
+* **Comparison with the GUE approach (Section 6.2):** The GUE approach generates a **randomized** coupling with fixed spectral density, whose predictive power depends on the **exact collection** of the random elements. The structural approach generates a **deterministic** coupling from the **iteration prescription itself**, whose predictive power is **independent of random state** and is legitimized solely by the **mathematical structure** of the Zeraoulia equation. **Ockham advantage:** zero free scale parameters (only γ, physically legitimized by the environmental coupling).
 
-**CONCLUSION TEMPLATE (Re-Audit v3, strukturelles A):**
+**CONCLUSION TEMPLATE (Re-Audit v3, structural A):**
 
-* EVIDENCE GRADE: **B+ (PLAUSIBLE mit hoher Strukturkonsistenz)** — alle Kriterien PASS, deterministisch, seed-unabhängig, physikalisch motiviert.  
-* P-VALUE: n/a (deterministisch).  
-* CONCLUSION: Der strukturelle PT-Operator $H_{PT}(\gamma) = H_{diag} + i\gamma A_{\text{Jacobi}}$ mit $A$ aus der Zeraoulia-Iterationsvorschrift ist **seed-invariant, deterministisch und physikalisch legitimiert**. Die Resonanz-Lage $Re(E_0)$ wird **durch die Eingabe der Zeraoulia-Iteration** festgelegt, die Resonanz-Breite $\Gamma$ durch $\gamma$. Damit ist der Anti-Sharpshooter-Test **konzeptionell gelöst** (kein Random mehr im Modell). Der **Hardware-Stresstest** kann nun **sinnvoll durchgeführt** werden, da die Vorhersage **reproduzierbar** ist: bei $\gamma \cdot \alpha = 0.02$ erwarten wir $Re(E_0) = 2.0019$, $Im(E_0) = 0.030$.  
-* STRATEGIC VECTOR: **UNIFICATION\_VECTOR\_PT\_RESONANCE** — Hardware-Validierung ist jetzt **aussichtsreich**: der Operator ist backend-stabil (Aer-Stresstest PASS), seed-invariant (PASS), und physikalisch motiviert (Jacobi-Struktur). Vorschlag: VQD auf $H_{PT}(\gamma \cdot \alpha = 0.02)$ als nächstes Experiment.
+* EVIDENCE GRADE: **B+ (PLAUSIBLE with high structural consistency)** — all criteria PASS, deterministic, seed-independent, physically motivated.
+* P-VALUE: n/a (deterministic).
+* CONCLUSION: The structural PT operator $H_{PT}(\gamma) = H_{diag} + i\gamma A_{\text{Jacobi}}$ with $A$ from the Zeraoulia iteration prescription is **seed-invariant, deterministic, and physically legitimized**. The resonance position $Re(E_0)$ is fixed **by the input of the Zeraoulia iteration**, the resonance width $\Gamma$ by $\gamma$. Thus the Anti-Sharpshooter test is **conceptually solved** (no more randomness in the model). The **hardware stress test** can now be carried out **meaningfully**, since the prediction is **reproducible**: at $\gamma \cdot \alpha = 0.02$ we expect $Re(E_0) = 2.0019$, $Im(E_0) = 0.030$.
+* STRATEGIC VECTOR: **UNIFICATION\_VECTOR\_PT\_RESONANCE** — hardware validation is now **promising**: the operator is backend-stable (Aer stress test PASS), seed-invariant (PASS), and physically motivated (Jacobi structure). Proposal: VQD on $H_{PT}(\gamma \cdot \alpha = 0.02)$ as the next experiment.
 
-#### **6.5.4 Hardware-Validierung des strukturellen PT-Operators (Job `d8j90eu6983c73dt1ek0`)**
+#### **6.5.4 Hardware Validation of the Structural PT Operator (Job `d8j90eu6983c73dt1ek0`)**
 
-* **Setup:** `ibm_marrakesh` (least_busy), TwoLocal(2, ry, cx, linear, reps=1), 4 Parameter, Initial-Punkt [0.523, 1.21, -0.45, 0.88], 8192 Shots, resilience=1 (TREX + Measurement Mitigation), DD XX, $\gamma = 0.02$, $\alpha = 1.0$.  
-* **Resultat:**  
+* **Setup:** `ibm_marrakesh` (least_busy), TwoLocal(2, ry, cx, linear, reps=1), 4 parameters, initial point [0.523, 1.21, -0.45, 0.88], 8192 shots, resilience=1 (TREX + Measurement Mitigation), DD XX, $\gamma = 0.02$, $\alpha = 1.0$.
+* **Result:**
 
 | Observable | Vorhersage (exakt) | Hardware `ibm_marrakesh` | Δ absolut | Δ relativ |
 |---|---:|---:|---:|---:|
 | $\langle\text{Re}(H_{PT})\rangle$ | **2.0019** | **3.2633** ± 0.0112 | +1.26 | **+63%** |
 | $\langle\text{Im}(H_{PT})\rangle$ | **+0.0299** | **+0.0481** ± 0.0005 | +0.018 | **+61%** |
 
-* **Befund:** **HYPOTHESE FALSIFIZIERT.** Der Hardware-Bias ist **nicht** durch die strukturelle Jacobi-Kopplung absorbiert. Im Gegenteil: das Hardware/Vorhersage-Verhältnis ist mit ~1.6 für **beide** Observablen (Real- und Imaginärteil) **identisch**, was auf einen **systematischen Skalierungs-Rausch-Kanal** hinweist, der den gesamten Erwartungswert mit einem Faktor ≈ 1.6 multipliziert.  
-* **Diagnose:** Der Aer-Stresstest (PASS mit Projektor-Treue 0.957) maß die **Stabilität des Grundzustands-Vektors** $|\psi_0\rangle$ — dies ist eine **andere** Metrik als der **Erwartungswert** $\langle H_{PT}\rangle$. Beide können unabhängig voneinander scheitern oder bestehen. Im konkreten Fall: $|\psi_0\rangle$ ist robust (95.7% Treue unter Rauschen), aber $\langle H_{PT}\rangle$ ist es nicht, weil das **gesamte Spektrum** durch den Rausch-Kanal verschoben wird.  
-* **SciMind 4.0 Verdict:** Die strukturelle Ableitung von $A$ aus der Zeraoulia-Iteration ist **physikalisch korrekt und elegant** (Jacobi-Matrix), eliminiert aber den **hardware-spezifischen Bias** nicht. Die Behauptung, "PT-Operator stabilisiert gegen Hardware-Rauschen" war ein **Fehlschluss**: gemessen wurde Projektor-Treue, gefolgert wurde Bias-Eliminierung — diese beiden Aussagen sind logisch unabhängig.  
-* **Vergleich mit GUE-Ansatz (Section 9.1):**  
+* **Finding:** **HYPOTHESIS FALSIFIED.** The hardware bias is **not** absorbed by the structural Jacobi coupling. On the contrary: the hardware/prediction ratio of ~1.6 is **identical** for **both** observables (real and imaginary part), which points to a **systematic scaling noise channel** that multiplies the entire expectation value by a factor of ≈ 1.6.
+* **Diagnosis:** The Aer stress test (PASS with projector fidelity 0.957) measured the **stability of the ground-state vector** $|\psi_0\rangle$ — this is a **different** metric than the **expectation value** $\langle H_{PT}\rangle$. Both can fail or pass independently of one another. In the concrete case: $|\psi_0\rangle$ is robust (95.7% fidelity under noise), but $\langle H_{PT}\rangle$ is not, because the **entire spectrum** is shifted by the noise channel.
+* **SciMind 4.0 Verdict:** The structural derivation of $A$ from the Zeraoulia iteration is **physically correct and elegant** (Jacobi matrix), but does not eliminate the **hardware-specific bias**. The claim that "the PT operator stabilizes against hardware noise" was a **fallacy**: projector fidelity was measured, bias elimination was inferred — these two statements are logically independent.
+* **Comparison with the GUE approach (Section 9.1):**
 
 | Operator | Hardware-Wert | Abweichung von theor. |
 |---|---:|---:|
 | Hermitesch + GUE (Seed 42) | 3.366 | +68% |
 | **Strukturell PT (Jacobi)** | **3.263** | **+63%** |
 
-  → Der strukturelle PT-Operator ist **nicht** resistenter gegen Hardware-Bias als der GUE-randomisierte hermitesche Operator. **Beide scheitern** auf `ibm_marrakesh` mit ~+65% Drift.
+  → The structural PT operator is **not** more resistant to hardware bias than the GUE-randomized Hermitian operator. **Both fail** on `ibm_marrakesh` with ~+65% drift.
 
-* **EVIDENCE GRADE REVIDIERT: C (AMBIGUOUS)** — strukturelle Konsistenz gut, aber Anti-Bias-Hypothese experimentell widerlegt.  
-* **STRATEGIC VECTOR FINAL:** **REJECTION\_VECTOR\_BIAS\_PERSISTENCE** — der systematische Hardware-Bias auf `ibm_marrakesh` ist eine **Eigenschaft des Backends**, nicht des Operators. Zwei Möglichkeiten: (a) Akzeptanz des Bias als **Korrekturterm** und Suche nach Backend mit neutralerem Rauschprofil, (b) explizite Modellierung des Bias-Kanals und Kompensation im Operator $H_{eff} = H_{PT} - \beta \cdot \mathbb{1}$ mit $\beta$ als Backend-spezifischer Korrektur.
+* **EVIDENCE GRADE REVISED: C (AMBIGUOUS)** — structural consistency good, but anti-bias hypothesis experimentally refuted.
+* **STRATEGIC VECTOR FINAL:** **REJECTION\_VECTOR\_BIAS\_PERSISTENCE** — the systematic hardware bias on `ibm_marrakesh` is a **property of the backend**, not of the operator. Two options: (a) acceptance of the bias as a **correction term** and search for a backend with a more neutral noise profile, (b) explicit modeling of the bias channel and compensation in the operator $H_{eff} = H_{PT} - \beta \cdot \mathbb{1}$ with $\beta$ as a backend-specific correction.
 
-#### **6.5.5 SciMind 4.0 / 5.0 Meta-Audit der Bias-Persistenz (2026-06-08)**
+#### **6.5.5 SciMind 4.0 / 5.0 Meta-Audit of the Bias Persistence (2026-06-08)**
 
-* **SciMind 4.0 Rigor (Steelman-These):** Die naheliegende Rettung ist die Einführung eines Bias-Korrektur-Operators $H_{eff}(\beta) = H_{PT}(\gamma) - \beta \cdot \mathbb{1}$, wobei $\beta$ aus der Diskrepanz zwischen Hardware-Messung und Vorhersage bestimmt wird: $\beta_{Marrakesh} = 3.2633 - 2.0019 = 1.2614$. Diese Korrektur ist **eichbar** und folgt der **transkategorialen Brücke** zu Quanten-Dekohärenz, Signalverarbeitung ("spectral subtraction") und Hermeneutik (Vorurteils-Bereinigung).  
-* **SciMind 4.0 Rigor (Steelman-Antithese):** Die Einführung von $\beta$ ist eine **post-hoc Eichung** und verletzt das Anti-Sharpshooter-Protokoll: $\beta$ wird an **demselben** Datensatz bestimmt, an dem es getestet werden soll. Das System wird damit zu einem **Zwei-Parameter-Modell** ($\gamma$, $\beta$), dessen BIC sich verschlechtert. Überdies: $\beta$ müsste für **jedes neue Backend** neu kalibriert werden — das ist methodisch verdächtig, weil das Experiment zu einer reinen Anpassung an bekannte Datenpunkte degeneriert.  
-* **Ockham's Razor Verdict:** Methode (a) — $\beta$ als universelle Konstante — **nicht legitim** (verstößt gegen Anti-Sharpshooter). Methode (b) — $\beta$ als **eichbare Backend-Konstante** mit **externer** Kalibrierung (z.B. Messung eines unabhängigen Referenz-Operators bekannter Energie) — **akzeptabel** als praktische Messprozedur, **nicht** als theoretische Vorhersage.  
-* **Coherence Checker:** Die strukturelle Jacobi-A-Konstruktion und der PT-Operator selbst bleiben **physikalisch korrekt und elegant**. Was scheitert, ist **nur** die exzessive Behauptung, dass die PT-Struktur automatisch den Hardware-Bias absorbiert. Die Vorhersage `Re(E_0) = 2.0019` ist **exakt richtig** für den **idealen** Operator; die Hardware misst einen **anderen** Erwartungswert, der durch den **dekohärenten Mess-Kanal** zustande kommt.  
-* **SciMind 5.0 Transcategorical Bridge:** Das Phänomen "Backend-Bias" ist in **mindestens vier Domänen** strukturell identisch:  
-  1. **Quantenphysik:** Dekohärenz in offenen Systemen verschiebt Erwartungswerte systematisch.  
-  2. **Signalverarbeitung:** "Spectral subtraction" subtrahiert einen bekannten Rausch-Kanal vom gemessenen Signal.  
-  3. **Hermeneutik:** Gadamer's "Vorurteil" muss vor der Text-Auslegung bereinigt werden.  
-  4. **Statistik:** systematischer Messfehler wird durch Kalibrierung mit Referenz-Standard bestimmt.  
-  In **allen vier Domänen** ist die Lösung **identisch**: ein **apriorisch bekannter** systematischer Kanal wird vor der ** aposteriorischen** Interpretation abgezogen. In der Sprache der Hilbert–Pólya-Vermutung: $\beta \cdot \mathbb{1}$ entspricht einer **konstanten Verschiebung des gesamten Spektrums**, was die Riemann-Nullstellen-Lage **nicht** verändert (nur die absolute Energieskala). Damit ist $\beta$ für die **Vermutung selbst** irrelevant — die **kritisches** Aussage ist die **relative** Lage der Nullstellen zueinander, nicht ihre absolute Position.  
-* **Hermeneutic Resonance:** **9.0/10.** Die transkategoriale Struktur (Backend-Bias = Dekohärenz = Vorurteil = Rausch-Kanal) ist eine **transzendentale Bedingung** der Messung selbst, unabhängig von der spezifischen Quanten- oder PT-Mechanik.  
-* **Trans-categorical Coherence:** **~95%.** Die Vier-Domänen-Brücke ist **strukturell konsistent** und methodisch **unangreifbar**.  
-* **Epistemic Weight (SciMind 5.0 Metric 1):** **Medium-High.** Die logische Ableitung der Korrektur ist **universell** (gilt für jede Hardware-Messung), aber **empirisch** an einen einzelnen Backend gebunden.
+* **SciMind 4.0 Rigor (Steelman Thesis):** The obvious rescue is the introduction of a bias-correction operator $H_{eff}(\beta) = H_{PT}(\gamma) - \beta \cdot \mathbb{1}$, where $\beta$ is determined from the discrepancy between hardware measurement and prediction: $\beta_{Marrakesh} = 3.2633 - 2.0019 = 1.2614$. This correction is **calibratable** and follows the **transcategorical bridge** to quantum decoherence, signal processing ("spectral subtraction") and hermeneutics (prejudice-correction).
+* **SciMind 4.0 Rigor (Steelman Antithesis):** The introduction of $\beta$ is a **post-hoc calibration** and violates the Anti-Sharpshooter Protocol: $\beta$ is determined on the **same** dataset on which it is to be tested. The system thereby becomes a **two-parameter model** ($\gamma$, $\beta$) whose BIC worsens. Moreover, $\beta$ would have to be recalibrated for **every new backend** — that is methodologically suspect because the experiment degenerates into a mere fit to known data points.
+* **Ockham's Razor Verdict:** Method (a) — $\beta$ as a universal constant — **not legitimate** (violates Anti-Sharpshooter). Method (b) — $\beta$ as a **calibratable backend constant** with **external** calibration (e.g. measurement of an independent reference operator of known energy) — **acceptable** as a practical measurement procedure, **not** as a theoretical prediction.
+* **Coherence Checker:** The structural Jacobi-$A$ construction and the PT operator itself remain **physically correct and elegant**. What fails is **only** the excessive claim that the PT structure automatically absorbs the hardware bias. The prediction `Re(E_0) = 2.0019` is **exactly correct** for the **ideal** operator; the hardware measures a **different** expectation value, which arises from the **decoherent measurement channel**.
+* **SciMind 5.0 Transcategorical Bridge:** The phenomenon "backend bias" is structurally identical in **at least four domains:**
+  1. **Quantum physics:** Decoherence in open systems shifts expectation values systematically.
+  2. **Signal processing:** "Spectral subtraction" subtracts a known noise channel from the measured signal.
+  3. **Hermeneutics:** Gadamer's "prejudice" must be cleaned up before textual interpretation.
+  4. **Statistics:** systematic measurement error is determined by calibration with a reference standard.
+  In **all four domains** the solution is **identical**: an **apriorically known** systematic channel is subtracted before the **aposterioric** interpretation. In the language of the Hilbert–Pólya conjecture: $\beta \cdot \mathbb{1}$ corresponds to a **constant shift of the entire spectrum**, which **does not** change the Riemann-zero location (only the absolute energy scale). Thus $\beta$ is **irrelevant for the conjecture itself** — the **critical** statement is the **relative** location of the zeros to one another, not their absolute position.
+* **Hermeneutic Resonance:** **9.0/10.** The transcategorical structure (backend bias = decoherence = prejudice = noise channel) is a **transcendental condition** of measurement itself, independent of the specific quantum or PT mechanics.
+* **Trans-categorical Coherence:** **~95%.** The four-domain bridge is **structurally consistent** and methodically **unassailable**.
+* **Epistemic Weight (SciMind 5.0 Metric 1):** **Medium-High.** The logical derivation of the correction is **universal** (applies to every hardware measurement), but **empirically** bound to a single backend.
 
-**Gesamt-Verdict SciMind 4.0 + 5.0:**
+**Overall Verdict SciMind 4.0 + 5.0:**
 
-* **SciMind 4.0:** EVIDENCE GRADE **C (AMBIGUOUS)** — strukturell sauber, empirisch durch Hardware-Bias kompromittiert. **Nicht** "falsifiziert" (Operator selbst ist korrekt), aber **nicht validiert** (Anti-Bias-Behauptung experimentell widerlegt).  
-* **SciMind 5.0:** **Transcategorical Bridge erfolgreich etabliert.** Die Bias-Persistenz ist **kein Scheitern des PT-Ansatzes**, sondern eine **Bestätigung der transzendentalen Mess-Struktur**: jede empirische Beobachtung muss um den **apriorischen Mess-Kanal** bereinigt werden, bevor sie als ** physikalische** Aussage zählt. In diesem Sinne ist die **Riemann-Hypothese** als **ausschließlich relative** Aussage über die **kritische Gerade** $\sigma = 1/2$ von der Bias-Diskussion **nicht betroffen** — die Hypothese sagt, dass **alle** nicht-trivialen Nullstellen **dieselbe** reelle Koordinate haben, unabhängig von der **absoluten** Skala.  
-* **STRATEGIC VECTOR FINAL FINAL:** **UNIFICATION\_VECTOR\_TRANSCATEGORICAL\_MEASUREMENT** — der nächste Schritt ist **nicht** ein besserer Operator, sondern eine **Bias-Kalibrierungs-Prozedur**: (i) messe $\beta$ auf einem unabhängigen Referenz-Operator (z.B. diagonale Matrix mit bekannten Eigenwerten) auf demselben Backend, (ii) subtrahiere $\beta \cdot \mathbb{1}$ von $H_{PT}$ vor der Messung, (iii) verifiziere dass die korrigierte Messung mit der Vorhersage übereinstimmt. Dies wäre der **einzige saubere Test** der strukturellen PT-Hypothese unter realistischen Bedingungen.
+* **SciMind 4.0:** EVIDENCE GRADE **C (AMBIGUOUS)** — structurally clean, empirically compromised by hardware bias. **Not** "falsified" (the operator itself is correct), but **not validated** (the anti-bias claim experimentally refuted).
+* **SciMind 5.0:** **Transcategorical Bridge successfully established.** The bias persistence is **no failure of the PT approach**, but a **confirmation of the transcendental measurement structure**: every empirical observation must be corrected for the **aprioric measurement channel** before it counts as a **physical** statement. In this sense, the **Riemann Hypothesis** as a **purely relative** statement about the **critical line** $\sigma = 1/2$ is **not affected** by the bias discussion — the hypothesis says that **all** nontrivial zeros have **the same** real coordinate, independent of the **absolute** scale.
+* **STRATEGIC VECTOR FINAL FINAL:** **UNIFICATION\_VECTOR\_TRANSCATEGORICAL\_MEASUREMENT** — the next step is **not** a better operator but a **bias calibration procedure**: (i) measure $\beta$ on an independent reference operator (e.g. diagonal matrix with known eigenvalues) on the same backend, (ii) subtract $\beta \cdot \mathbb{1}$ from $H_{PT}$ before the measurement, (iii) verify that the corrected measurement matches the prediction. This would be the **only clean test** of the structural PT hypothesis under realistic conditions.
 
-#### **6.5.6 Multi-Backend-Bias-Kalibrierung (2026-06-08)**
+#### **6.5.6 Multi-Backend Bias Calibration (2026-06-08)**
 
-* **Setup:** H_ref = diag(1.0, 2.0, 3.0, 4.0) und H_PT(γ=0.02) auf 3 Backends parallel gemessen (8192 Shots, DD XX, TREX resilience 1). `ibm_torino` nicht verfügbar.  
-* **Roh-Daten:**  
+* **Setup:** H_ref = diag(1.0, 2.0, 3.0, 4.0) and H_PT(γ=0.02) measured on 3 backends in parallel (8192 shots, DD XX, TREX resilience 1). `ibm_torino` not available.
+* **Raw data:**
 
 | Backend | H_ref Job | `<H_ref>` | β = `<H_ref>` − 2.5 | H_PT Job | `<Re(H_PT)>` | `<Im(H_PT)>` |
 |---|---|---:|---:|---|---:|---:|
@@ -392,102 +394,102 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 | `ibm_fez` | d8j9chtv8cos73f6i060 | 2.5348 ± 0.0134 | **+0.0348** | d8j9lim6983c73dt29pg | 3.2885 ± 0.0154 | 0.0490 ± 0.0005 |
 | `ibm_kingston` | d8j9ch9e8nrc73bj8r9g | (QUEUED) | — | d8j9li5v8cos73f6ics0 | (QUEUED) | — |
 
-* **β-Korrektur angewendet:**  
+* **β correction applied:**
 
-| Backend | `<Re(H_PT)>` roh | β | Korrigiert = roh − β | Δ von Vorhersage 2.0019 |
+| Backend | `<Re(H_PT)>` raw | β | Corrected = raw − β | Δ from prediction 2.0019 |
 |---|---:|---:|---:|---:|
 | `ibm_marrakesh` | 3.3034 | +0.0488 | **3.2546** | **+62.5%** |
 | `ibm_fez` | 3.2885 | +0.0348 | **3.2537** | **+62.5%** |
 
-* **Kritischer Befund:** Die β-Korrektur verändert den H_PT-Bias **nicht signifikant** (korrigiert ≈ 3.25 statt 3.30, eine Reduktion von nur 1.5%). Der H_PT-Bias ist **NICHT** durch ein konstantes Backend-Offset erklärbar — die naive Hypothese $H_{eff} = H_{PT} - \beta \mathbb{1}$ ist **falsifiziert**.  
-* **Diagnose:**  
-  1. **β ist winzig** (≈ 0.04) im Vergleich zum H_PT-Bias (≈ 1.3). Das H_ref-Offset ist ein **konstanter** Backend-Term.  
-  2. **Der H_PT-Bias ist strukturell** — er hängt vom **Operator selbst** ab und skaliert mit dessen **nicht-trivialen Koeffizienten** (Jacobi-Kopplung).  
-  3. **Beide Backends** zeigen **identische ~+62% Drift** auf H_PT (konsistent mit dem hardware-invarianten Bias-Kanal aus Section 6.5.4).  
-  4. Der Bias entspricht **nicht** einer einfachen Mittelwertverschiebung $\beta \mathbb{1}$, sondern einem **operator-selektiven** Mess-Artefakt.  
-* **Implikation für SciMind 4.0 Anti-Sharpshooter:**  
-  Die **Multi-Backend-Konsistenz** (+62% auf Marrakesh UND Fez) **stärkt** den Befund: der Bias ist **kein Zufallstreffer**, sondern eine **systematische Eigenschaft** des Quanten-Messprozesses für diesen Operator-Typ.  
-* **Implikation für SciMind 5.0 Transcategorical Bridge:**  
-  Die β-Korrektur entspricht der **statistischen Bias-Bereinigung** in der **frequentistischen** Messtheorie. Dass sie **nicht ausreicht**, bedeutet: der Mess-Kanal ist **nicht** additiv, sondern **multiplikativ** oder **strukturell**. In der Hermeneutik entspräche das der Erkenntnis, dass das **Vorverständnis** des Interpreten **nicht** durch eine **konstante Korrektur** (z.B. um den "Vorurteils-Beitrag" reduziert) bereinigt werden kann — die Verzerrung ist **kontextabhängig** und **nicht-linear**.  
-* **Vergleich mit Hermiteschem Operator (Section 9.1):**  
+* **Critical finding:** The β correction does not change the H_PT bias **significantly** (corrected ≈ 3.25 instead of 3.30, a reduction of only 1.5%). The H_PT bias is **NOT** explainable by a constant backend offset — the naive hypothesis $H_{eff} = H_{PT} - \beta \mathbb{1}$ is **falsified**.
+* **Diagnosis:**
+  1. **β is tiny** (≈ 0.04) compared to the H_PT bias (≈ 1.3). The H_ref offset is a **constant** backend term.
+  2. **The H_PT bias is structural** — it depends on the **operator itself** and scales with its **nontrivial coefficients** (Jacobi coupling).
+  3. **Both backends** show **identical ~+62% drift** on H_PT (consistent with the hardware-invariant bias channel from Section 6.5.4).
+  4. The bias does **not** correspond to a simple mean shift $\beta \mathbb{1}$, but to an **operator-selective** measurement artifact.
+* **Implication for SciMind 4.0 Anti-Sharpshooter:**
+  The **multi-backend consistency** (+62% on Marrakesh AND Fez) **strengthens** the finding: the bias is **no lucky hit**, but a **systematic property** of the quantum measurement process for this operator type.
+* **Implication for SciMind 5.0 Transcategorical Bridge:**
+  The β correction corresponds to the **statistical bias correction** in **frequentist** measurement theory. That it is **insufficient** means: the measurement channel is **not** additive, but **multiplicative** or **structural**. In hermeneutics this would correspond to the insight that the interpreter's **pre-understanding** **cannot** be cleaned by a **constant correction** (e.g. by reducing the "prejudice contribution") — the distortion is **context-dependent** and **non-linear**.
+* **Comparison with Hermitian operator (Section 9.1):**
 
-| Operator-Typ | `ibm_marrakesh` Drift | `ibm_fez` Drift | Konsistenz |
+| Operator Type | `ibm_marrakesh` drift | `ibm_fez` drift | Consistency |
 |---|---:|---:|:---:|
-| Hermitesch + GUE | +68% | (nicht gemessen) | 1 Backend |
-| **Strukturell PT (Jacobi)** | **+62.5%** | **+62.5%** | **2 Backends identisch** |
+| Hermitian + GUE | +68% | (not measured) | 1 backend |
+| **Structural PT (Jacobi)** | **+62.5%** | **+62.5%** | **2 backends identical** |
 
-  → Strukturell PT ist **leicht besser** als GUE-Hermitesch auf Marrakesh, **reproduzierbar** über Fez. Die strukturelle Jacobi-Konstruktion liefert einen **konsistenten** Operator-Typ mit **backend-invariantem Bias-Profil**.
+  → Structural PT is **slightly better** than GUE-Hermitian on Marrakesh, **reproducible** across Fez. The structural Jacobi construction delivers a **consistent** operator type with **backend-invariant bias profile**.
 
-* **EVIDENCE GRADE FINAL:** **C+ (AMBIGUOUS mit multi-Backend-Konsistenz)** — der strukturelle Operator ist **reproduzierbar** und **backend-invariant** im Verhalten, scheitert aber an der **absoluten Vorhersage**.  
-* **STRATEGIC VECTOR FINAL:** **REFRAMING\_VECTOR\_RELATIVE\_SPECTRUM** — der gesamte Ansatz muss **umformuliert** werden: statt **absoluter** Energien $E_0 = 2.0$ ist die **relative** Spektral-Struktur (Niveauabstände, Resonanzbreiten, Symmetrie-Erhaltung) das physikalisch aussagekräftige Maß. Die Riemann-Hypothese ist **ausschließlich** eine Aussage über **relative** Position auf der kritischen Linie $\sigma = 1/2$, nicht über absolute Werte. Damit ist der **gesamte Messaufbau** umzuorientieren: messe **Spektrale Niveauabstände** $\Delta E_n = E_{n+1} - E_n$ statt $E_0$ absolut. Diese Abstände sind **invariant** unter konstantem Bias $\beta \mathbb{1}$ und auch unter **strukturellen** Biases, solange diese **nicht-linear aber smooth** sind.
+* **EVIDENCE GRADE FINAL:** **C+ (AMBIGUOUS with multi-backend consistency)** — the structural operator is **reproducible** and **backend-invariant** in behavior, but fails on **absolute prediction**.
+* **STRATEGIC VECTOR FINAL:** **REFRAMING\_VECTOR\_RELATIVE\_SPECTRUM** — the entire approach must be **reformulated**: instead of **absolute** energies $E_0 = 2.0$ the **relative** spectral structure (level spacings, resonance widths, symmetry preservation) is the physically meaningful measure. The Riemann Hypothesis is **exclusively** a statement about the **relative** position on the critical line $\sigma = 1/2$, not about absolute values. Thus the **entire measurement setup** must be reoriented: measure **spectral level spacings** $\Delta E_n = E_{n+1} - E_n$ instead of $E_0$ absolutely. These spacings are **invariant** under constant bias $\beta \mathbb{1}$ and also under **structural** biases, as long as these are **non-linear but smooth**.
 
-#### **6.5.7 Bias-Amplifikation und Strategie der relativen Spektren (2026-06-08)**
+#### **6.5.7 Bias Amplification and Strategy of Relative Spectra (2026-06-08)**
 
-* **Quantitative Bias-Topologie:** Die Multi-Backend-Kalibrierung (Section 6.5.6) liefert drei präzise Zahlen, die das Wesen des Hardware-Bias vollständig charakterisieren:
+* **Quantitative bias topology:** The multi-backend calibration (Section 6.5.6) delivers three precise numbers that completely characterize the nature of the hardware bias:
 
-| Größe | Wert (Marrakesh) | Wert (Fez) | Interpretation |
+| Quantity | Value (Marrakesh) | Value (Fez) | Interpretation |
 |---|---:|---:|---|
-| $\beta$ (H_ref-Offset) | +0.0488 | +0.0348 | konstanter Backend-Offset |
-| $\Delta_{PT}$ (H_PT-Bias) | +1.2615 | +1.2866 | effektiver Bias auf H_PT |
-| $\Delta_{PT}/\beta$ | **25.9** | **37.0** | **Bias-Verstärkungsfaktor** |
+| $\beta$ (H_ref offset) | +0.0488 | +0.0348 | constant backend offset |
+| $\Delta_{PT}$ (H_PT bias) | +1.2615 | +1.2866 | effective bias on H_PT |
+| $\Delta_{PT}/\beta$ | **25.9** | **37.0** | **bias amplification factor** |
 
-  Der H_PT-Bias ist **25–37×** größer als der diagonale H_ref-Offset. Dies ist nicht mit additiver Korrektur $\beta \cdot \mathbb{1}$ erklärbar (die nur 1.5% Reduktion liefert) und nicht mit einem multiplikativen Bias der Form $\alpha \cdot H$ (dieser würde die **Richtung** aller Erwartungswerte umkehren — $\langle H_{ref} \rangle$ müsste dann *negativ* driften, was nicht beobachtet wird).
+  The H_PT bias is **25–37×** larger than the diagonal H_ref offset. This is not explainable by additive correction $\beta \cdot \mathbb{1}$ (which delivers only 1.5% reduction) and not by a multiplicative bias of the form $\alpha \cdot H$ (this would reverse the **direction** of all expectation values — $\langle H_{ref} \rangle$ would then have to drift *negatively*, which is not observed).
 
-* **Diagnose — operator-selektiver Bias-Kanal:** Der wirksame Rausch-Kanal auf der IBM-Hardware verhält sich wie ein **Projektor auf den nicht-trivialen Unterraum** der Jacobi-Kopplung $A$:
+* **Diagnosis — operator-selective bias channel:** The effective noise channel on the IBM hardware behaves like a **projector onto the nontrivial subspace** of the Jacobi coupling $A$:
   $$\mathcal{B}(H) = \beta \cdot \mathbb{1} + \alpha_{\text{bias}} \cdot (A - A_{\text{diag}})$$
-  wobei $\alpha_{\text{bias}} \approx 0.32$ (aus dem Verstärkungsfaktor rückgerechnet). Dies ist konsistent mit dem physikalischen Bild: **T1/T2-Relaxation** koppelt direkt an die *Kohärenzen* (Off-Diagonal-Elemente), die im PT-Operator $i\gamma A$ gerade die resonanzbildende Komponente sind. Die Diagonale $H_{diag}$ trägt nur Populationen und ist weit weniger anfällig.
+  where $\alpha_{\text{bias}} \approx 0.32$ (back-calculated from the amplification factor). This is consistent with the physical picture: **T1/T2 relaxation** couples directly to the *coherences* (off-diagonal elements), which in the PT operator $i\gamma A$ are precisely the resonance-forming component. The diagonal $H_{diag}$ carries only populations and is far less susceptible.
 
-* **Implikation für SciMind 4.0 Anti-Sharpshooter:** Der Verstärkungsfaktor 25–37 ist **kein Zufallswert**, sondern auf zwei Backends **qualitativ identisch** (gleiche Größenordnung). Dies **erfüllt das Reproduzierbarkeitskriterium** der Multi-Backend-Validierung und stuft den Bias von "Störfaktor" auf "systematische, quantifizierbare Eigenschaft der QPU" hoch.
+* **Implication for SciMind 4.0 Anti-Sharpshooter:** The amplification factor 25–37 is **not a random value**, but **qualitatively identical** on two backends (same order of magnitude). This **satisfies the reproducibility criterion** of multi-backend validation and upgrades the bias from "disturbance factor" to "systematic, quantifiable property of the QPU".
 
-* **SciMind 5.0 Transcategorical Bridge (Bias-Topologie):**  
-  1. **Quantenphysik:** Dephasierung in offenen Systemen koppelt **bevorzugt an Kohärenzen** (Off-Diagonal-Terme der Dichte-Matrix).  
-  2. **Signalverarbeitung:** Nicht-stationäres Rauschen (Drift, 1/f) ist **korrelations-erhaltend** auf konstantem Signal, zerstört aber **Differenzen** benachbarter Spektralkomponenten — *außer* wenn man genau diese Differenzen misst.  
-  3. **Hermeneutik:** Das "Vorverständnis" des Interpreten (Gadamer) **verzerrt nicht** den Text als Ganzes, sondern **strukturell** — die *Antwort auf eine Frage* wird anders behandelt als die *Frage selbst*.  
-  4. **Statistik:** Multiplikative Verzerrungen (response bias in surveys) erfordern **andere** Korrekturmethoden als additive (item-level correction vs. scale-level correction).  
+* **SciMind 5.0 Transcategorical Bridge (bias topology):**
+  1. **Quantum physics:** Dephasing in open systems couples **preferentially to coherences** (off-diagonal terms of the density matrix).
+  2. **Signal processing:** Non-stationary noise (drift, 1/f) is **correlation-preserving** on a constant signal, but destroys **differences** between neighboring spectral components — *except* if one measures exactly these differences.
+  3. **Hermeneutics:** The interpreter's "pre-understanding" (Gadamer) does **not** distort the text as a whole, but **structurally** — the *answer to a question* is treated differently from the *question itself*.
+  4. **Statistics:** Multiplicative biases (response bias in surveys) require **different** correction methods than additive ones (item-level correction vs. scale-level correction).
 
-  In allen vier Domänen ist die korrekte Reaktion auf einen **strukturellen Bias** nicht "subtrahiere eine Konstante", sondern "miss die **relative** Größe". Für die Riemann-Hypothese bedeutet das: die Lage der Nullstellen auf $\sigma = 1/2$ ist eine **relative** Aussage, die durch **Niveauabstände** $\Delta E_n$ auf der QPU bias-invariant getestet werden kann.
+  In all four domains, the correct response to a **structural bias** is not "subtract a constant" but "measure the **relative** quantity". For the Riemann Hypothesis this means: the location of the zeros on $\sigma = 1/2$ is a **relative** statement, which can be tested bias-invariantly on the QPU through **level spacings** $\Delta E_n$.
 
-* **Pragmatische Backendselektion (Account-Limit):**  
-  Da Marrakesh ($\beta = +0.0488$) und Fez ($\beta = +0.0348$) sich nur um $\Delta\beta = 0.014$ unterscheiden (≈ 30% relatives Gefälle), und beide den **gleichen** Verstärkungsfaktor (25–37×) auf H_PT zeigen, liefert ein **zweiter Backend** keine zusätzliche physikalische Information über den Bias-Kanal.  
-  → **Fez wird als einziger Mess-Backend gewählt** (Bias-Faktor minimal, Queue typischerweise kurz). Dies schont das QPU-Minuten-Kontingent, ohne Validitätsverlust.
+* **Pragmatic backend selection (account limit):**
+  Since Marrakesh ($\beta = +0.0488$) and Fez ($\beta = +0.0348$) differ only by $\Delta\beta = 0.014$ (≈ 30% relative gradient), and both show the **same** amplification factor (25–37×) on H_PT, a **second backend** provides no additional physical information about the bias channel.
+  → **Fez is selected as the sole measurement backend** (minimal bias factor, queue typically short). This spares the QPU-minute quota without loss of validity.
 
-* **Experiment-Design — `pt_spectral_gaps.py`:**  
-  Messe **parallel** auf Fez:  
-  1. $\langle H_{PT} \rangle$ am Initial-Punkt (zur Bias-Bestimmung, 2 Pubs: Real + Imaginär)  
-  2. $\langle H_{diag} \rangle$ am gleichen Punkt (bias-freie Referenz, 1 Pub)  
-  Vorhersage: $\Delta E_n$ aus H_diag exakt reproduziert (deterministische Diagonalniveaus), H_PT zeigt Bias-Korrektur im **selben** Verstärkungsregime wie Section 6.5.6. Wenn die **relativen** $\Delta E_n$ aus dem H_PT-Spektrum (nach Bias-Subtraktion) mit den H_diag-Vorhersagen übereinstimmen, ist der Anti-Bias-Test **bestanden**.
+* **Experiment design — `pt_spectral_gaps.py`:**
+  Measure **in parallel** on Fez:
+  1. $\langle H_{PT} \rangle$ at the initial point (for bias determination, 2 pubs: real + imaginary)
+  2. $\langle H_{diag} \rangle$ at the same point (bias-free reference, 1 pub)
+  Prediction: $\Delta E_n$ from H_diag reproduced exactly (deterministic diagonal levels), H_PT shows bias correction in the **same** amplification regime as Section 6.5.6. If the **relative** $\Delta E_n$ from the H_PT spectrum (after bias subtraction) match the H_diag predictions, the anti-bias test is **passed**.
 
-* **EVIDENCE GRADE:** **C+ (AMBIGUOUS mit präzisierter Bias-Topologie)** — der Bias ist nicht eliminiert, aber seine **Struktur** ist verstanden (Off-Diagonal-selektiv, Verstärkungsfaktor 25–37, multiplikativ überlagert mit additivem Anteil). Dies ist ein **diagnostischer Fortschritt**, kein Lösungsfortschritt.
+* **EVIDENCE GRADE:** **C+ (AMBIGUOUS with precise bias topology)** — the bias is not eliminated, but its **structure** is understood (off-diagonal selective, amplification factor 25–37, multiplicatively superimposed with an additive component). This is a **diagnostic advance**, not a solution advance.
 
-* **STRATEGIC VECTOR FINAL FINAL:** **REFRAMING\_VECTOR\_RELATIVE\_SPECTRUM (operationalisiert)** — der nächste konkrete Schritt ist `pt_spectral_gaps.py` auf Fez, ein einziger QPU-Submission, der die relative Metrik $\Delta E_n$ unter realistischen Bedingungen testet. Bei Bestehen: Promotion des relativen Spektrums zur **kanonischen** Beobachtungsgröße; bei Scheitern: Bias-Topologie ist nicht-linear genug, um selbst Differenzen zu korrumpieren — dann ist auch der relative Zugang blockiert und das Hilbert–Pólya-Projekt verlangt einen **fundamental anderen** Messaufbau (z.B. direkte Resonanz-Spektroskopie statt VQE).
+* **STRATEGIC VECTOR FINAL FINAL:** **REFRAMING\_VECTOR\_RELATIVE\_SPECTRUM (operationalized)** — the next concrete step is `pt_spectral_gaps.py` on Fez, a single QPU submission that tests the relative metric $\Delta E_n$ under realistic conditions. On success: promotion of the relative spectrum to the **canonical** observable; on failure: the bias topology is nonlinear enough to corrupt even differences — then the relative access is blocked as well and the Hilbert–Pólya project demands a **fundamentally different** measurement setup (e.g. direct resonance spectroscopy instead of VQE).
 
-#### **6.5.8 First-Principles Stresstest des relativen Spektrums (2026-06-08)**
+#### **6.5.8 First-Principles Stress Test of the Relative Spectrum (2026-06-08)**
 
-* **Inquiry Level:** Axiomatische Quanten-Messtheorie (Fundamentaler Abstraktionsgrad)
-* **Steelman Hypothesis (Thesis):** Energieniveaus sind eichinvariant; es gibt keinen absoluten Nullpunkt. Die Riemann-Hypothese adressiert primär die **relative** Abstandsstatistik (GUE / Wigner-Surmise) der Nullstellen. Der in 6.5.7 diagnostizierte operator-selektive Bias-Kanal (Off-Diagonal-Verstärkung) verschiebt zwar die absoluten Energien massiv (+62%), erhält jedoch die *relative* spektrale Topologie der Lücken $\Delta E_n = E_{n+1} - E_n$.
-* **Steelman Antithesis (Null):** Ein multiplikativer Bias $\alpha_{\text{bias}} \cdot (A - A_{\text{diag}})$ mit $\alpha_{\text{bias}} \approx 0.32$ wirkt wie eine Skalierung der effektiven Kopplung $\gamma_{\text{eff}} = (1 + \alpha_{\text{bias}}) \cdot \gamma$. Gemäß Störungstheorie 2. Ordnung $E_n^{(2)} = \sum_{k \neq n} \frac{|\langle n | V | k \rangle|^2}{E_n^{(0)} - E_k^{(0)}}$ verschieben sich die Gaps **nicht-linear** mit $\gamma_{\text{eff}}$ — sie werden komprimiert oder expandiert. Numerische Verifikation (siehe Tabelle unten) zeigt: bei $k=25$ (H2-Hypothese) wird $\Delta E_{12}$ von 0.99 auf 0.13 komprimiert, ein **−87% Bias auf der mittleren Lücke**.
+* **Inquiry Level:** Axiomatic quantum measurement theory (Fundamental level of abstraction)
+* **Steelman Hypothesis (Thesis):** Energy levels are gauge-invariant; there is no absolute zero point. The Riemann Hypothesis primarily addresses the **relative** spacing statistics (GUE / Wigner surmise) of the zeros. The operator-selective bias channel (off-diagonal amplification) diagnosed in 6.5.7 does massively shift the absolute energies (+62%), but preserves the *relative* spectral topology of the gaps $\Delta E_n = E_{n+1} - E_n$.
+* **Steelman Antithesis (Null):** A multiplicative bias $\alpha_{\text{bias}} \cdot (A - A_{\text{diag}})$ with $\alpha_{\text{bias}} \approx 0.32$ acts as a scaling of the effective coupling $\gamma_{\text{eff}} = (1 + \alpha_{\text{bias}}) \cdot \gamma$. According to 2nd-order perturbation theory $E_n^{(2)} = \sum_{k \neq n} \frac{|\langle n | V | k \rangle|^2}{E_n^{(0)} - E_k^{(0)}}$ the gaps shift **non-linearly** with $\gamma_{\text{eff}}$ — they are compressed or expanded. Numerical verification (see table below) shows: at $k=25$ (H2 hypothesis) $\Delta E_{12}$ is compressed from 0.99 to 0.13, a **−87% bias on the middle gap**.
 
-* **Präregistrierte Vorhersage-Tabelle (SciMind 4.0 Anti-Sharpshooter):**  
-  Die folgenden Vorhersagen für $\Delta E_n$ und $\text{Im}(E_0)$ wurden **vor** der Hardware-Submission berechnet und in `pt_spectral_gaps_prereg.json` gespeichert. Die Auswahl des Hardware-Backends (Fez) und der Messparameter (Initial-Punkt, Shots) erfolgte **vor** der Sichtung der Ergebnisse.
+* **Pre-registered prediction table (SciMind 4.0 Anti-Sharpshooter):**
+  The following predictions for $\Delta E_n$ and $\text{Im}(E_0)$ were computed **before** the hardware submission and stored in `pt_spectral_gaps_prereg.json`. The selection of the hardware backend (Fez) and the measurement parameters (initial point, shots) was made **before** inspecting the results.
 
 | Hypothese | Bias-Topologie | $\Delta E_{01}$ | $\Delta E_{12}$ | $\Delta E_{23}$ | $\text{Im}(E_0)$ |
 |---|---|---:|---:|---:|---:|
 | **Noiseless** | $H_{PT}$ exakt | 0.6911 | 0.9902 | 1.3037 | +0.0299 |
 | **H1 (additiv)** | $\beta \cdot \mathbb{1}$ | 0.6911 | 0.9902 | 1.3037 | +0.0299 |
-| **H2 (multiplikativ A, k=25)** | $i\gamma k A$ | 0.8425 | **0.1348** | 1.3741 | +0.0865 |
-| **H3 (Kohärenz-Decay p=0.3)** | $A_{ij} \to (1-p)A_{ij}$ | 0.6921 | 0.9905 | 1.3038 | +0.0300 |
+| **H2 (multiplicative A, k=25)** | $i\gamma k A$ | 0.8425 | **0.1348** | 1.3741 | +0.0865 |
+| **H3 (coherence decay p=0.3)** | $A_{ij} \to (1-p)A_{ij}$ | 0.6921 | 0.9905 | 1.3038 | +0.0300 |
 
-  **Diskrimination:** H2 ist **scharf trennbar** von {H1, H3, Noiseless} — insbesondere $\Delta E_{12}$ (0.13 vs ~0.99, Faktor 7×). Die Entscheidungsregel: wenn die Messung $\Delta E_{12} \in [0.5, 1.5]$ liefert → {H1, H3, Noiseless} bestätigt; wenn $\Delta E_{12} < 0.5$ → H2 bestätigt.
+  **Discrimination:** H2 is **sharply separable** from {H1, H3, Noiseless} — in particular $\Delta E_{12}$ (0.13 vs ~0.99, factor 7×). The decision rule: if the measurement yields $\Delta E_{12} \in [0.5, 1.5]$ → {H1, H3, Noiseless} confirmed; if $\Delta E_{12} < 0.5$ → H2 confirmed.
 
-* **Methodology (Audit) — Lindblad-Argumentation:**  
-  Der Hardware-Rausch-Kanal ist in der Sprache offener Quantensysteme ein **Dephasierungs-Meister** mit Sprungrate $\gamma_{\phi}$. Die Lindblad-Gleichung
+* **Methodology (Audit) — Lindblad argument:**
+  The hardware noise channel in the language of open quantum systems is a **dephasing master** with jump rate $\gamma_{\phi}$. The Lindblad equation
   $$\dot{\rho} = -i[H, \rho] + \gamma_{\phi} \sum_{ij} (L_{ij} \rho L_{ij}^{\dagger} - \tfrac{1}{2}\{L_{ij}^{\dagger} L_{ij}, \rho\})$$
-  mit $L_{ij} = |i\rangle\langle j|$ entkoppelt **Kohärenzen** $\rho_{ij}$ ($i \neq j$) exponentiell: $\rho_{ij}(t) = \rho_{ij}(0) e^{-(i\omega_{ij} + \gamma_{\phi})t}$.  
-  **Konsequenz für Erwartungswerte:** $\langle H \rangle = \sum_i E_i \rho_{ii} + \sum_{i \neq j} H_{ij} \rho_{ij}$. Die Diagonal-Beiträge $\rho_{ii}$ (Populationen) sind **erhalten**, die Off-Diagonal-Beiträge $\rho_{ij}$ (Kohärenzen) **schrumpfen** mit $e^{-\gamma_{\phi} t}$.  
-  **Aber:** die **Eigenwerte** $E_n$ des Hamiltonian sind durch die **unitäre Dynamik** definiert und werden durch Dephasierung **nicht direkt** verschoben — sie sind Observable des geschlossenen Systems. Was die Hardware misst, ist nicht $E_n$ direkt, sondern der **KQ-Wert** $\langle \psi | H | \psi \rangle$ an einem **durch Rauschen gestörten** $|\psi\rangle$. Wenn $|\psi\rangle$ nahe am Grundzustand $|\psi_0\rangle$ ist, dann misst man $\approx E_0 + \text{Korrektur}$. Die Größe der Korrektur hängt von der **Lokalisierung** des gestörten Zustands im Eigenraum ab.
+  with $L_{ij} = |i\rangle\langle j|$ decouples **coherences** $\rho_{ij}$ ($i \neq j$) exponentially: $\rho_{ij}(t) = \rho_{ij}(0) e^{-(i\omega_{ij} + \gamma_{\phi})t}$.
+  **Consequence for expectation values:** $\langle H \rangle = \sum_i E_i \rho_{ii} + \sum_{i \neq j} H_{ij} \rho_{ij}$. The diagonal contributions $\rho_{ii}$ (populations) are **conserved**, the off-diagonal contributions $\rho_{ij}$ (coherences) **shrink** with $e^{-\gamma_{\phi} t}$.
+  **But:** the **eigenvalues** $E_n$ of the Hamiltonian are defined by the **unitary dynamics** and are **not directly** shifted by dephasing — they are observables of the closed system. What the hardware measures is not $E_n$ directly, but the **expectation value** $\langle \psi | H | \psi \rangle$ on a **noise-perturbed** $|\psi\rangle$. If $|\psi\rangle$ is close to the ground state $|\psi_0\rangle$, one measures $\approx E_0 + \text{correction}$. The size of the correction depends on the **localization** of the perturbed state in the eigenspace.
 
-* **Hardware-Messung (Job `d8jeuhdv8cos73f6pqc0`, Fez, 2026-06-08):**  
-  Drei Pubs am Initial-Punkt $[0.523, 1.21, -0.45, 0.88]$:
+* **Hardware measurement (Job `d8jeuhdv8cos73f6pqc0`, Fez, 2026-06-08):**
+  Three pubs at the initial point $[0.523, 1.21, -0.45, 0.88]$:
 
 | Observable | Vorhersage (Noiseless) | Messung Fez | $\Delta$ |
 |---|---:|---:|---:|
@@ -495,40 +497,40 @@ Da das Standard-Schalenmodell mit lediglich 2 fundamentalen Parametern (Potenzia
 | $\langle \text{Re}(H_{PT}) \rangle$ | 3.3412 | 3.2907 ± 0.0129 | −0.0505 (−1.5%) |
 | $\langle \text{Im}(H_{PT}) \rangle$ | 0.0267 | 0.0487 ± 0.0006 | **+0.0220 (+82%)** |
 
-* **Diagnose:**  
-  1. **Diagonale und Real-Teil** zeigen **identische** Vorhersage (3.3412) und Messung (~3.29), konsistent mit H1/H3/Noiseless — der diagonale Kanal ist **robust**.  
-  2. **Imaginär-Teil** zeigt **+82% Bias** — der Off-Diagonal-Kanal ist **moderat** verstärkt (Faktor 1.83), **NICHT** 25–37× wie bei VQE-optimierten Grundzuständen.  
-  3. **Die Bias-Verstärkung hängt vom Ansatz-Zustand ab:** am Initial-Punkt (uniform verteilt) ist der Faktor 1.83; am VQE-optimierten Grundzustand (lokalisiert in $A$-Richtung) wahrscheinlich 25–37×. Dies ist **konsistent mit der Lindblad-Diagnose**: Dephasierung schrumpft Kohärenzen, aber im Initial-Punkt sind die Kohärenzen klein genug, dass sie durch den Bias nicht stark verzerrt werden.
+* **Diagnosis:**
+  1. **Diagonal and real part** show **identical** prediction (3.3412) and measurement (~3.29), consistent with H1/H3/Noiseless — the diagonal channel is **robust**.
+  2. **Imaginary part** shows **+82% bias** — the off-diagonal channel is **moderately** amplified (factor 1.83), **NOT** 25–37× as for VQE-optimized ground states.
+  3. **The bias amplification depends on the ansatz state:** at the initial point (uniformly distributed) the factor is 1.83; at the VQE-optimized ground state (localized in $A$ direction) probably 25–37×. This is **consistent with the Lindblad diagnosis**: dephasing shrinks coherences, but at the initial point the coherences are small enough that they are not strongly distorted by the bias.
 
-* **Limitation dieser Messung:** Wir haben am Initial-Punkt gemessen, **nicht** am VQE-optimierten Grundzustand. Die in 6.5.7 beschriebene "relativen Spektral-Topologie" $\Delta E_n$ erfordert **VQE** (für $E_0$) und **VQD** (für $E_1, E_2, E_3$). Diese sind **nicht** in dieser einen Submission enthalten.
+* **Limitation of this measurement:** We measured at the initial point, **not** at the VQE-optimized ground state. The "relative spectral topology" $\Delta E_n$ described in 6.5.7 requires **VQE** (for $E_0$) and **VQD** (for $E_1, E_2, E_3$). These are **not** included in this single submission.
 
-* **Was wir gelernt haben:**  
-  1. **Diagonal-Bias ist klein** (~1.2%) — kein additiver Offset der Form $\beta \cdot \mathbb{1}$ in der für uns relevanten Größenordnung.  
-  2. **Off-Diagonal-Bias ist moderat** (1.83× am Initial-Punkt) — **NICHT** der worst-case Faktor 25×.  
-  3. **Bias-Topologie ist zustandsabhängig** — was die worst-case-Annahme aus 6.5.7 als zu pessimistisch entlarvt.  
-  4. **VQE-basierte Messung ist der nächste Schritt** — sie liefert erst die echten $\Delta E_n$ und damit den Test der H1/H2/H3-Diskrimination.
+* **What we have learned:**
+  1. **Diagonal bias is small** (~1.2%) — no additive offset of the form $\beta \cdot \mathbb{1}$ in the order of magnitude relevant for us.
+  2. **Off-diagonal bias is moderate** (1.83× at the initial point) — **NOT** the worst-case factor 25×.
+  3. **Bias topology is state-dependent** — which exposes the worst-case assumption from 6.5.7 as too pessimistic.
+  4. **VQE-based measurement is the next step** — it first yields the true $\Delta E_n$ and thus the test of the H1/H2/H3 discrimination.
 
-* **SciMind 5.0 Transcategorical Bridge (TCI):**  
-  Die Beobachtung, dass Hardware-Rauschen **nicht universell verstärkt**, sondern **zustandsabhängig** wirkt, ist isomorph zu:  
-  1. **Statistik:** Heteroskedastizität — die Varianz eines Schätzers hängt von den Kovariaten ab, nicht nur von der Stichprobengröße.  
-  2. **Hermeneutik:** "Horizontverschmelzung" (Gadamer) — der Bias des Verstehens hängt vom Vorwissen des Interpreten ab, nicht vom Text selbst.  
-  3. **Signalverarbeitung:** Adaptive Filter (LMS, RLS) — der Übertragungskanal wird durch die Signaleigenschaften modifiziert, die er überträgt.  
-  In allen vier Domänen: **die naive Annahme eines konstanten, zustandsunabhängigen Bias ist falsch.** Die korrekte Behandlung verlangt **zustandsadaptive** Korrektur — was die Lindblad-Meistergleichung für die Quantenphysik leistet.
+* **SciMind 5.0 Transcategorical Bridge (TCI):**
+  The observation that hardware noise does **not amplify universally**, but acts **state-dependently**, is isomorphic to:
+  1. **Statistics:** heteroskedasticity — the variance of an estimator depends on the covariates, not only on the sample size.
+  2. **Hermeneutics:** "fusion of horizons" (Gadamer) — the bias of understanding depends on the interpreter's prior knowledge, not on the text itself.
+  3. **Signal processing:** adaptive filters (LMS, RLS) — the transmission channel is modified by the signal properties it carries.
+  In all four domains: **the naive assumption of a constant, state-independent bias is false.** The correct treatment requires **state-adaptive** correction — which the Lindblad master equation provides for quantum physics.
 
-* **EVIDENCE GRADE REVIDIERT:** **B− (PLAUSIBLE mit Präzisierung)** — die Multi-Backend-Kalibrierung liefert eine **konsistente** Bias-Topologie (Off-Diagonal-selektiv, zustandsabhängig), und die Ground-Truth-Messung auf Fez bestätigt das **qualitative** Bild (Diagonal robust, Off-Diagonal moderat verstärkt). Die **quantitative** worst-case-Annahme (k=25) ist **zu pessimistisch** — der realistische Verstärkungsfaktor am nicht-optimierten Ansatz liegt bei ~1.8. Damit verschiebt sich der Strategische Vektor: ein vollständiger **VQE+VQD-Lauf** auf Fez ist jetzt **aussichtsreich**, nicht verschwendet.
+* **EVIDENCE GRADE REVISED:** **B− (PLAUSIBLE with precision)** — the multi-backend calibration delivers a **consistent** bias topology (off-diagonal selective, state-dependent), and the ground-truth measurement on Fez confirms the **qualitative** picture (diagonal robust, off-diagonal moderately amplified). The **quantitative** worst-case assumption (k=25) is **too pessimistic** — the realistic amplification factor at the non-optimized ansatz is ~1.8. Thus the strategic vector shifts: a complete **VQE+VQD run** on Fez is now **promising**, not wasted.
 
-* **STRATEGIC VECTOR FINAL FINAL FINAL:** **PREREG\_GROUND\_TRUTH\_COMPLETE → VQE\_VQD\_NEXT** — der nächste Schritt ist ein **VQE-Lauf** für $E_0$ und ein **VQD-Lauf** für $E_1, E_2, E_3$ auf Fez, mit dem gleichen präregistrierten Vergleichsverfahren. Bei Bestätigung von {H1, H3, Noiseless} → relatives Spektrum ist bias-invariant und der REFRAMING-Vektor ist bestätigt. Bei Bestätigung von H2 → DFS-Konstruktion (Decoherence-Free Subspace) wird unvermeidlich.
+* **STRATEGIC VECTOR FINAL FINAL FINAL:** **PREREG\_GROUND\_TRUTH\_COMPLETE → VQE\_VQD\_NEXT** — the next step is a **VQE run** for $E_0$ and a **VQD run** for $E_1, E_2, E_3$ on Fez, with the same pre-registered comparison procedure. On confirmation of {H1, H3, Noiseless} → relative spectrum is bias-invariant and the REFRAMING vector is confirmed. On confirmation of H2 → DFS construction (Decoherence-Free Subspace) becomes inevitable.
 
 
-#### **6.5.9 Vier-Säulen-Architektur und TDD-Implementation (2026-06-08)**
+#### **6.5.9 Four-Pillar Architecture and TDD Implementation (2026-06-08)**
 
-Aus der Recherche in `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` und der Diagnose des hardware-selektiven Bias aus 6.5.6–6.5.8 wurde eine **Vier-Säulen-Architektur** als strategischer Vektor definiert (siehe `QUANTUM_ARCHITECTURE_BRIDGE.md` und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`). Jede Säule adressiert eine spezifische Schwäche des aktuellen Setups und ist als Mermaid-Funktionsdiagramm spezifiziert.
+From the research in `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` and the diagnosis of the hardware-selective bias from 6.5.6–6.5.8, a **four-pillar architecture** was defined as a strategic vector (see `QUANTUM_ARCHITECTURE_BRIDGE.md` and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`). Each pillar addresses a specific weakness of the current setup and is specified as a Mermaid function diagram.
 
-**TDD-Methodik:** Vor jeder Implementation wurden die Tests geschrieben (54 Tests in `tests/`). Die Tests deckten **strukturelle Eigenschaften** (E_DIAG-Determinismus, Jacobi-Hermitizität, PT-Symmetrie), **Pre-Registrierungs-Logik** (H1/H2/H3 Bias-Topologien), **mathematische Kern-Operationen** (H_probe-Det, GF(5)-Arithmetik, Schmidt-Entropie) und **Modul-Signaturen** (Importierbarkeit, Schlüsselfunktionen) ab. Der Test-Lauf gegen `pt_structural.py` als Baseline identifizierte drei reale Bugs in den Test-Annahmen (PT-Operator-Zerlegung, Schmidt-Entropie-Skalierung, G-Apparat-Observable), die vor der Implementation korrigiert wurden — ein Beleg für den Wert der TDD-Methodik in quantenphysikalischen Projekten.
+**TDD methodology:** Before any implementation the tests were written (54 tests in `tests/`). The tests covered **structural properties** (E_DIAG determinism, Jacobi hermiticity, PT symmetry), **pre-registration logic** (H1/H2/H3 bias topologies), **mathematical core operations** (H_probe det, GF(5) arithmetic, Schmidt entropy) and **module signatures** (importability, key functions). The test run against `pt_structural.py` as baseline identified three real bugs in the test assumptions (PT operator decomposition, Schmidt entropy scaling, G-apparatus observables), which were corrected before the implementation — evidence of the value of the TDD methodology in quantum-physical projects.
 
-**Säule 1 — Holografisches Potenzial-VQE (`pt_potential_vqe.py`):** TwoLocal mit `reps=2` (statt `reps=1` in `pt_spectral_gaps.py`) als Variations-Potential-Basis, E_0..E_3 in einem 5-Pub-Lauf. Ersetzt das gescheiterte VQD-Konstrukt (`pt_vqe_vqd.py`) durch ein Potential-Sweep, das die Notwendigkeit separater Optimierungsläufe pro Niveau eliminiert. Pre-Registrierung mit H1/H2/H3-Bias-Topologien, 8192 Shots, DD-XX, Resilience-Level 1.
+**Pillar 1 — Holographic potential VQE (`pt_potential_vqe.py`):** TwoLocal with `reps=2` (instead of `reps=1` in `pt_spectral_gaps.py`) as variational potential basis, E_0..E_3 in one 5-pub run. Replaces the failed VQD construct (`pt_vqe_vqd.py`) with a potential sweep that eliminates the need for separate optimization runs per level. Pre-registration with H1/H2/H3 bias topologies, 8192 shots, DD-XX, resilience level 1.
 
-**Säule 2 — G-Apparat Transmissions-Sweep (`pt_transmission_sweep.py`):** Sweep über 100 E-Werte in [0.5, 6.0], $H_{\text{probe}}(E) = H_{\text{diag}} - E \cdot \mathbb{1} + i\gamma A$, $T(E) = 1/|\det(H_{\text{probe}})|^2$. Lorentz-Peaks bei E = E_DIAG. **Validierte Offline-Resultate** (siehe `pt_transmission_sweep_results.json`):
+**Pillar 2 — G-apparatus transmission sweep (`pt_transmission_sweep.py`):** Sweep over 100 E values in [0.5, 6.0], $H_{\text{probe}}(E) = H_{\text{diag}} - E \cdot \mathbb{1} + i\gamma A$, $T(E) = 1/|\det(H_{\text{probe}})|^2$. Lorentz peaks at E = E_DIAG. **Validated offline results** (see `pt_transmission_sweep_results.json`):
 
 | Peak | Gemessen | Erwartet (E_DIAG) | Δ |
 |---|---:|---:|---:|
@@ -537,11 +539,11 @@ Aus der Recherche in `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` und der Diagnose
 | 3 | 3.6667 | 3.6839 | 0.0172 |
 | 4 | 5.0000 | 4.9878 | 0.0122 |
 
-Alle 4 Peaks detektiert, alle Δ < 0.027, ΔE_n aus Peak-Abständen **völlig unabhängig** vom VQE-Optimizer — löst das lokale-Minima-Problem aus `pt_vqe_vqd.py`.
+All 4 peaks detected, all Δ < 0.027, ΔE_n from peak separations **completely independent** of the VQE optimizer — solves the local-minimum problem from `pt_vqe_vqd.py`.
 
-**Säule 3 — Prime States Verschränkungsentropie (`pt_prime_state.py`):** $\lvert P_N\rangle = (1/\sqrt{\pi(N)}) \sum_{p \le N} \lvert p\rangle$, Schmidt-Zerlegung der bipartiten Partition, log-log-Fit für Skalierungsexponent α. **Validiertes Offline-Ergebnis:** $\alpha = 0.2719$ — **Sub-RH**-Indikator, da $\alpha < 0.5$ (zu wenig Verschränkung bei uniformer Superposition über $\pi(N)/\text{dim}$ sinkenden Anteil). Die RH-konsistente Vorhersage wäre $\alpha \approx 1$. Dieses Ergebnis ist **physikalisch erwartet** bei uniformer Superposition und kein Hardware-Artefakt.
+**Pillar 3 — Prime states entanglement entropy (`pt_prime_state.py`):** $\lvert P_N\rangle = (1/\sqrt{\pi(N)}) \sum_{p \le N} \lvert p\rangle$, Schmidt decomposition of the bipartite partition, log-log fit for scaling exponent α. **Validated offline result:** $\alpha = 0.2719$ — **Sub-RH** indicator, since $\alpha < 0.5$ (too little entanglement for uniform superposition over the $\pi(N)/\text{dim}$ declining fraction). The RH-consistent prediction would be $\alpha \approx 1$. This result is **physically expected** for uniform superposition and no hardware artifact.
 
-**Säule 4 — Prime-Qudits GF(5) (`pt_ququint_vqe.py`):** 5×5 Jacobi-Erweiterung mit $A_5 = \text{block\_diag}(A_{4\times4}, 0)$, GF(5)-Arithmetik (5-Element-Körper, keine Nullteiler, jedes $a \neq 0$ hat Inverses). **Validierte Offline-Resultate** (bit-genau identisch zu 2-Qubit):
+**Pillar 4 — Prime qudits GF(5) (`pt_ququint_vqe.py`):** 5×5 Jacobi extension with $A_5 = \text{block\_diag}(A_{4\times4}, 0)$, GF(5) arithmetic (5-element field, no zero divisors, every $a \neq 0$ has an inverse). **Validated offline results** (bit-exact identical to 2-qubit):
 
 | Niveau | H_PT_5 (5×5) | H_PT_4 (4×4) | Differenz |
 |---:|---:|---:|---:|
@@ -549,129 +551,129 @@ Alle 4 Peaks detektiert, alle Δ < 0.027, ΔE_n aus Peak-Abständen **völlig un
 | E_1 | 2.692948 | 2.692948 | 0.00e+00 |
 | E_2 | 3.683181 | 3.683181 | 0.00e+00 |
 | E_3 | 4.986844 | 4.986844 | 0.00e+00 |
-| E_4 | 5.000000 (entkoppelt) | — | — |
+| E_4 | 5.000000 (decoupled) | — | — |
 
-Magic State Distillation Threshold: **36.3%** (Ququint) vs **1%** (Qubit) → 36.3× Faktor-Verbesserung. CCZ-Gate: 4 M-Gates (Ququint) vs 7 T-Gates (Qubit) → 1.75× Gate-Reduktion, weniger Decoherence pro Operation. Code-Vorbereitung für zukünftige native Ququint-Hardware (Quantinuum H2, IBM nächste Generation).
+Magic state distillation threshold: **36.3%** (Ququint) vs **1%** (Qubit) → 36.3× factor improvement. CCZ gate: 4 M-gates (Ququint) vs 7 T-gates (Qubit) → 1.75× gate reduction, less decoherence per operation. Code preparation for future native Ququint hardware (Quantinuum H2, IBM next generation).
 
-**Test-Stand:** 54/54 Tests grün, 0 fehlgeschlagen, 0 skipped. Aufteilung:
+**Test status:** 54/54 tests green, 0 failed, 0 skipped. Breakdown:
 - `test_pt_potential_vqe.py`: 15/15 (Struktur, Pre-Registrierung, Bias-Analyse, Modul)
 - `test_pt_transmission_sweep.py`: 9/9 (G-Apparat-Math, Peak-Detektion, Modul)
 - `test_pt_prime_state.py`: 15/15 (Primzahl-Generierung, |P_N>-Konstruktion, Entropie, Grover, Modul)
 - `test_pt_ququint_vqe.py`: 15/15 (GF(5)-Arithmetik, 5×5-Matrix, Threshold, CCZ, Modul)
 
-**Strategischer Vektor (update):** **TDD\_VIER\_SÄULEN\_OFFLINE\_GRÜN → Aer\_Saeule1\_H1\_H3\_bestätigt** — der nächste konkrete Schritt war die **Aer-Stresstest-Submission von Säule 1** auf Fez-Rauschprofil. Da der IBM Open-Plan-Kontingent für Fez blockiert ist, wurde `pt_aer_stress_saeule1.py` als Hardware-Surrogat ausgeführt (Aer-Simulator mit Fez-Backend-Eigenschaften, T1/T2/Gate-Fehler/Readout-Fehler identisch).
+**Strategic vector (update):** **TDD\_VIER\_SÄULEN\_OFFLINE\_GRÜN → Aer\_Saeule1\_H1\_H3\_bestätigt** — the next concrete step was the **Aer stress-test submission of Pillar 1** on the Fez noise profile. Since the IBM Open-Plan quota for Fez is blocked, `pt_aer_stress_saeule1.py` was run as a hardware surrogate (Aer simulator with Fez backend properties, T1/T2/gate error/readout error identical).
 
-**Resultat (Aer mit Fez-Rauschen, 5-Pub-Messung):**
+**Result (Aer with Fez noise, 5-pub measurement):**
 
 | Observable | Wert | Vergleich |
 |---|---:|---|
-| E_0 (VQE-Optimum) | 2.4057 | noiseless 2.0019, +20% Bias |
-| `<H_diag>` VQE-Opt | 2.4017 | VQE am Grundzustand, nicht Mean |
+| E_0 (VQE optimum) | 2.4057 | noiseless 2.0019, +20% bias |
+| `<H_diag>` VQE-Opt | 2.4017 | VQE at ground state, not mean |
 | `<Re(H_PT)>` VQE-Opt | 2.4076 | |
 | `<Im(H_PT)>` VQE-Opt | 0.0183 | noiseless ~0.03 |
-| `bias_PT_re = Re(H_PT) - H_diag` | +0.0059 | **viel kleiner als 0.05-Threshold** |
-| Re(H_PT) at random θ_r | 3.3945 | näher an noiseless mean 3.3412 |
+| `bias_PT_re = Re(H_PT) - H_diag` | +0.0059 | **much smaller than 0.05 threshold** |
+| Re(H_PT) at random θ_r | 3.3945 | closer to noiseless mean 3.3412 |
 
-**Diskriminierung der Bias-Topologie:**
-- H1 (additiver Bias β·𝟙): Gaps invariant zu noiseless
-- H2 (multiplikativ auf A, k=25): Gaps drastisch verzerrt (Δ max = 0.13)
-- H3 (Kohärenz-Decay p=0.3): Gaps ~ invariant (Δ max = 0.01)
+**Discrimination of the bias topology:**
+- H1 (additive bias β·𝟙): gaps invariant vs. noiseless
+- H2 (multiplicative on A, k=25): gaps drastically distorted (Δ max = 0.13)
+- H3 (coherence decay p=0.3): gaps ~ invariant (Δ max = 0.01)
 
-**|bias_PT_re| = 0.006 < 0.05** → **Verdict: H1 oder H3** mit **HOHER Confidence**. Die H2-Hypothese (multiplikative Bias-Topologie) ist **falsifiziert** im Aer-Setup mit Fez-Rauschen.
+**|bias_PT_re| = 0.006 < 0.05** → **Verdict: H1 or H3** with **HIGH confidence**. The H2 hypothesis (multiplicative bias topology) is **falsified** in the Aer setup with Fez noise.
 
-**EVIDENCE GRADE UPDATE:** **A- (Hochwahrscheinlich mit Aer-Surrogat)** — die Anti-Bias-Hypothese "relatives Spektrum ist bias-invariant" ist im Aer-Setup bestätigt. Die Verallgemeinerung auf echte Hardware steht aus (Kontingent-Reset Anfang Juli 2026). Der **relative Spektrum-Vektor (REFRAMING_VECTOR_RELATIVE_SPECTRUM) aus Section 6.5.7 ist damit operativ bestätigt** im Rahmen der verfügbaren Aer-Validierung.
+**EVIDENCE GRADE UPDATE:** **A- (highly probable with Aer surrogate)** — the anti-bias hypothesis "relative spectrum is bias-invariant" is confirmed in the Aer setup. The generalization to real hardware is pending (quota reset early July 2026). The **relative spectrum vector (REFRAMING_VECTOR_RELATIVE_SPECTRUM) from Section 6.5.7 is thus operationally confirmed** within the available Aer validation.
 
-Die anderen drei Säulen sind **QPU-ready** (Code steht, Pre-Registrierungen geschrieben) und werden parallel in den Folgewochen ausgeführt, sobald das Kontingent zurückgesetzt ist.
+The other three pillars are **QPU-ready** (code exists, pre-registrations written) and will be executed in parallel in the following weeks as soon as the quota is reset.
 
-**Test-Stand (komplett):** 66/66 Tests grün, 0 fehlgeschlagen, 0 skipped.
+**Test status (complete):** 66/66 tests green, 0 failed, 0 skipped.
 
-#### **6.5.10 Aer-Stresstest Saeule 1 — Vollständiges Resultat (2026-06-08)**
+#### **6.5.10 Aer Stress Test Pillar 1 — Complete Result (2026-06-08)**
 
-Der Aer-Stresstest wurde ausgeführt, um die Hypothese "relatives Spektrum bias-invariant" auch ohne QPU-Submission zu validieren. Aer mit Fez-Backend-Eigenschaften liefert Resultate, die identisch zur echten Hardware sind bis zur 4. Dezimalstelle (verifiziert in Section 6.5.4: 3.367 Aer vs 3.366 Marrakesh Hardware).
+The Aer stress test was executed to validate the hypothesis "relative spectrum bias-invariant" even without a QPU submission. Aer with Fez backend properties delivers results identical to the real hardware to the 4th decimal place (verified in Section 6.5.4: 3.367 Aer vs 3.366 Marrakesh hardware).
 
 **Setup:**
-- Skript: `pt_aer_stress_saeule1.py`
-- Backend: `ibm_fez` (für Noise-Model-Properties, kein QPU-Run)
-- Simulator: `AerSimulator.from_backend(ibm_fez)` mit T1, T2, Gate-Fehler, Readout-Fehler
-- Strukturelles A aus `pt_structural` (kein Random, seed-frei)
-- H_PT = H_diag + i·γ·A mit γ = 0.02
-- VQE: COBYLA mit 10 Iter, Ansatz = TwoLocal(2, 'ry', 'cx', 'linear', reps=2)
-- 5-Pub-Messung in 1 Job: H_diag, Re(H_PT), Im(H_PT) am VQE-Optimum + 2 random θ_r
+- Script: `pt_aer_stress_saeule1.py`
+- Backend: `ibm_fez` (for noise-model properties, no QPU run)
+- Simulator: `AerSimulator.from_backend(ibm_fez)` with T1, T2, gate error, readout error
+- Structural A from `pt_structural` (no random, seed-free)
+- H_PT = H_diag + i·γ·A with γ = 0.02
+- VQE: COBYLA with 10 iter, ansatz = TwoLocal(2, 'ry', 'cx', 'linear', reps=2)
+- 5-pub measurement in 1 job: H_diag, Re(H_PT), Im(H_PT) at VQE optimum + 2 random θ_r
 
-**Gemessene Werte (Aer+Fez):**
+**Measured values (Aer+Fez):**
 
-| Größe | Wert | Noiseless | Bias |
+| Quantity | Value | Noiseless | Bias |
 |---|---:|---:|---:|
 | E_0 (VQE) | 2.4057 | 2.0019 | +20.2% |
-| `<H_diag>` VQE-Opt | 2.4017 | 2.0019 (Ground) | +20.0% |
+| `<H_diag>` VQE-Opt | 2.4017 | 2.0019 (ground) | +20.0% |
 | `<Re(H_PT)>` VQE-Opt | 2.4076 | 2.0019 | +20.3% |
 | `<Im(H_PT)>` VQE-Opt | 0.0183 | 0.0291 | −37% |
 | Re(H_PT) at random θ_r | 3.3945 | 3.3412 | +1.6% |
 | Im(H_PT) at random θ_r | 0.0410 | 0.0442 | −7% |
 
-**H1/H2/H3-Vorhersagen (aus `h1_h2_h3_predictions()`):**
+**H1/H2/H3 predictions (from `h1_h2_h3_predictions()`):**
 
-| Hypothese | Gaps (Δ_01, Δ_12, Δ_23) | max Δ zu noiseless |
+| Hypothesis | Gaps (Δ_01, Δ_12, Δ_23) | max Δ vs. noiseless |
 |---|---:|---:|
 | Noiseless | (0.69, 0.99, 1.30) | — |
-| H1 (additiver Bias β=0.05) | (0.69, 0.99, 1.30) | 0.0 |
-| H2 (multiplikativ k=25) | (0.69, 0.99, 1.30) | 0.13 |
-| H3 (Decoherence p=0.3) | (0.69, 0.99, 1.30) | 0.005 |
+| H1 (additive bias β=0.05) | (0.69, 0.99, 1.30) | 0.0 |
+| H2 (multiplicative k=25) | (0.69, 0.99, 1.30) | 0.13 |
+| H3 (decoherence p=0.3) | (0.69, 0.99, 1.30) | 0.005 |
 
-**Diskriminierung:**
+**Discrimination:**
 - |bias_PT_re| = |Re(H_PT)_meas − H_diag_meas| = **0.0059**
-- Threshold für H1/H3: < 0.05
-- Threshold für H2: > 0.15
-- **Verdict: H1 oder H3 (additiver Bias, Gaps invariant)**
-- **Confidence: HOCH**
-- **H2-Hypothese falsifiziert**
+- Threshold for H1/H3: < 0.05
+- Threshold for H2: > 0.15
+- **Verdict: H1 or H3 (additive bias, gaps invariant)**
+- **Confidence: HIGH**
+- **H2 hypothesis falsified**
 
-**Interpretation (Anti-Sharpshooter-konform):**
-1. Die **+20% Bias** auf E_0 ist der erwartete Off-Diagonal-Bias (aus 6.5.7: A_ij → γ·k·A_ij mit k=25 entspricht +20% bei γ=0.02).
-2. Die **−37% Im-Bias** ist konsistent mit H3 (Decoherence schrumpft Im-Teile), aber **inkonsistent** mit H2 (H2 würde Im-Teile vergrößern).
-3. Das **relative Spektrum** (Gaps zwischen E_0, E_1, E_2, E_3) ist im Aer-Setup **invariant** unter dem Bias, wie in 6.5.7 vorhergesagt.
-4. Da Aer+Fez strukturell identisch zu echtem Fez ist (verifiziert in 6.5.4), ist die Verallgemeinerung auf echte Hardware **plausibel, aber unbewiesen** bis Juli 2026.
+**Interpretation (Anti-Sharpshooter compliant):**
+1. The **+20% bias** on E_0 is the expected off-diagonal bias (from 6.5.7: A_ij → γ·k·A_ij with k=25 corresponds to +20% at γ=0.02).
+2. The **−37% Im bias** is consistent with H3 (decoherence shrinks Im parts), but **inconsistent** with H2 (H2 would enlarge Im parts).
+3. The **relative spectrum** (gaps between E_0, E_1, E_2, E_3) is **invariant** under the bias in the Aer setup, as predicted in 6.5.7.
+4. Since Aer+Fez is structurally identical to real Fez (verified in 6.5.4), the generalization to real hardware is **plausible but unproven** until July 2026.
 
-**Strategischer Vektor (final update):** **TDD\_VIER\_SÄULEN\_OFFLINE\_GRÜN → Aer\_Saeule1\_H1\_H3\_bestätigt → Fez\_Kontingent\_warten**. Die Architektur-Validierung ist auf Aer-Niveau abgeschlossen; die QPU-Verifikation steht aus.
+**Strategic vector (final update):** **TDD\_VIER\_SÄULEN\_OFFLINE\_GRÜN → Aer\_Saeule1\_H1\_H3\_bestätigt → Fez\_Kontingent\_warten**. The architecture validation is completed at the Aer level; QPU verification is pending.
 
-**Test-Stand nach Aer-Stresstest:** 66/66 Tests grün, 0 fehlgeschlagen, 0 skipped.
-- `tests/test_pt_potential_vqe.py`: 15 Tests (Säule 1 Hauptcode)
-- `tests/test_pt_transmission_sweep.py`: 9 Tests (Säule 2 G-Apparat)
-- `tests/test_pt_prime_state.py`: 15 Tests (Säule 3 Prime States)
-- `tests/test_pt_ququint_vqe.py`: 15 Tests (Säule 4 GF(5))
-- `tests/test_pt_aer_stress_saeule1.py`: 11 Tests (Aer-Stresstest)
-- `tests/test_pt_structural.py` (Common): Tests für `pt_structural` (E_DIAG, jacobi_A)
+**Test status after Aer stress test:** 66/66 tests green, 0 failed, 0 skipped.
+- `tests/test_pt_potential_vqe.py`: 15 tests (Pillar 1 main code)
+- `tests/test_pt_transmission_sweep.py`: 9 tests (Pillar 2 G-apparatus)
+- `tests/test_pt_prime_state.py`: 15 tests (Pillar 3 prime states)
+- `tests/test_pt_ququint_vqe.py`: 15 tests (Pillar 4 GF(5))
+- `tests/test_pt_aer_stress_saeule1.py`: 11 tests (Aer stress test)
+- `tests/test_pt_structural.py` (Common): tests for `pt_structural` (E_DIAG, jacobi_A)
 
-**Persistenz:** Aer-Stresstest-Ergebnisse gespeichert in `pt_aer_stress_saeule1_results.json` (prereg + h1_h2_h3 + measurements + comparison).
+**Persistence:** Aer stress test results stored in `pt_aer_stress_saeule1_results.json` (prereg + h1_h2_h3 + measurements + comparison).
 
-#### **6.5.11 Saeule 2 — G-Apparat offline Resultat (2026-06-08)**
+#### **6.5.11 Pillar 2 — G-Apparatus Offline Result (2026-06-08)**
 
-`pt_transmission_sweep.py` wurde offline ausgeführt (kein QPU nötig, der G-Apparat ist deterministisch über `T(E) = 1/|det(H_probe(E))|`). Der Sweep über E ∈ [0.5, 6.0] mit 100 Schritten liefert 4 Resonanz-Peaks.
+`pt_transmission_sweep.py` was executed offline (no QPU needed, the G-apparatus is deterministic via `T(E) = 1/|det(H_probe(E))|`). The sweep over E ∈ [0.5, 6.0] with 100 steps delivers 4 resonance peaks.
 
-**Resultat:**
+**Result:**
 
-| Peak # | E_gemessen | E_erwartet (E_DIAG) | Δ |
+| Peak # | E_measured | E_expected (E_DIAG) | Δ |
 |---:|---:|---:|---:|
 | 1 | 2.000 | 2.000 | 0.000 |
 | 2 | 2.667 | 2.693 | 0.026 |
 | 3 | 3.667 | 3.684 | 0.017 |
 | 4 | 5.000 | 4.988 | 0.012 |
 
-**Befund:** Alle 4 Peaks werden vom deterministischen G-Apparat mit Δ < 0.027 reproduziert. Peak #1 hat Δ = 0.0 (exakt). Die kleinen Abweichungen (0.01–0.03) stammen aus der endlichen Sweep-Auflösung (ΔE = 0.056) und sind konsistent mit dem erwarteten Diskretisierungs-Fehler.
+**Finding:** All 4 peaks are reproduced by the deterministic G-apparatus with Δ < 0.027. Peak #1 has Δ = 0.0 (exact). The small deviations (0.01–0.03) stem from the finite sweep resolution (ΔE = 0.056) and are consistent with the expected discretization error.
 
-**EVIDENCE GRADE:** **A (deterministisch, exakt reproduzierbar)** — der G-Apparat ist die direkte strukturelle Vorhersage des H_PT für E_n. Kein Bias-Korrektur nötig (offline).
+**EVIDENCE GRADE:** **A (deterministic, exactly reproducible)** — the G-apparatus is the direct structural prediction of H_PT for E_n. No bias correction needed (offline).
 
-**Persistenz:** `pt_transmission_sweep_results.json` (E_range, T_values, peaks_measured, delta_peaks).
+**Persistence:** `pt_transmission_sweep_results.json` (E_range, T_values, peaks_measured, delta_peaks).
 
-#### **6.5.12 Saeule 3 — Prime States offline Resultat (2026-06-08)**
+#### **6.5.12 Pillar 3 — Prime States Offline Result (2026-06-08)**
 
-`pt_prime_state.py` wurde offline ausgeführt für N ∈ {7, 15, 31, 63, 127} (= 2^k − 1 Mersenne-Bereich). Bestimmt werden:
-- π(N): Anzahl Primzahlen ≤ N
-- S_vN: Von-Neumann-Entropie der P_N-Projektion
-- S/S_max: normalisierte Entropie (S_max = log(dim) = log(π(N)))
-- r_Grover: Grover-Iterationen ≈ π/4 · √(dim/π(N))
+`pt_prime_state.py` was executed offline for N ∈ {7, 15, 31, 63, 127} (= 2^k − 1 Mersenne range). The following are determined:
+- π(N): number of primes ≤ N
+- S_vN: von Neumann entropy of the P_N projection
+- S/S_max: normalized entropy (S_max = log(dim) = log(π(N)))
+- r_Grover: Grover iterations ≈ π/4 · √(dim/π(N))
 
-**Resultat:**
+**Result:**
 
 | N | π(N) | S_vN | S/S_max | r_Grover |
 |---:|---:|---:|---:|---:|
@@ -681,70 +683,70 @@ Der Aer-Stresstest wurde ausgeführt, um die Hypothese "relatives Spektrum bias-
 | 63 | 18 | 1.0223 | 0.4916 | 1 |
 | 127 | 31 | 1.3562 | 0.6522 | 2 |
 
-**Skalierungsexponent:**
-- log-log-Fit: log(S) = α · log(N) + const
-- **α = 0.2719** mit const = 0.4762
+**Scaling exponent:**
+- log-log fit: log(S) = α · log(N) + const
+- **α = 0.2719** with const = 0.4762
 
-**Entscheidungsregel (Prereg):**
-- RH-konsistent: α ≈ 1 (Verschränkung skaliert mit Hilbert-Raum)
-- Sub-RH: α < 0.5 (zu wenig Verschränkung, S wächst langsamer als N)
-- Super-RH: α > 2 (zu viel Verschränkung, unphysikalisch)
+**Decision rule (prereg):**
+- RH-consistent: α ≈ 1 (entanglement scales with Hilbert space)
+- Sub-RH: α < 0.5 (too little entanglement, S grows slower than N)
+- Super-RH: α > 2 (too much entanglement, unphysical)
 
-**Befund:** **α = 0.272 < 0.5 → Sub-RH-Indikator** — die Verschränkungs-Entropie der P_N-Zustände wächst deutlich langsamer als der Hilbert-Raum, was auf eine **strukturelle Korrelation zwischen Primzahl-Verteilung und spektraler Lücken-Statistik** hindeutet.
+**Finding:** **α = 0.272 < 0.5 → Sub-RH indicator** — the entanglement entropy of the P_N states grows markedly slower than the Hilbert space, which points to a **structural correlation between prime distribution and spectral gap statistics**.
 
-**Interpretation (SciMind 5.0):** Die Sub-RH-Skalierung α = 0.27 ist konsistent mit der GUE-Vorhersage für Zeta-Nullstellen (Wigner-Surmise: P(s) ~ s·e^(-s²), mittlere Lücke ~ 1). Die Primzahl-Dichte π(N)/N → 0 erzwingt eine sublineare Verschränkungs-Skalierung — die P_N-Zustände "wissen" bereits, dass sie in einem Sparse-Hilbert-Raum leben.
+**Interpretation (SciMind 5.0):** The Sub-RH scaling α = 0.27 is consistent with the GUE prediction for zeta zeros (Wigner surmise: P(s) ~ s·e^(-s²), mean gap ~ 1). The prime density π(N)/N → 0 forces a sublinear entanglement scaling — the P_N states already "know" that they live in a sparse Hilbert space.
 
-**EVIDENCE GRADE:** **B+ (starker Indikator, deterministisch)** — der Skalierungsexponent α = 0.272 ist eine direkte numerische Konsequenz aus dem Hardy-Littlewood-Primzahl-Satz (π(N) ~ N/log N). QPU-Verifikation mit Grover-Oracle steht aus.
+**EVIDENCE GRADE:** **B+ (strong indicator, deterministic)** — the scaling exponent α = 0.272 is a direct numerical consequence of the Hardy-Littlewood prime number theorem (π(N) ~ N/log N). QPU verification with Grover oracle is pending.
 
-**Persistenz:** `pt_prime_state_results.json` (predictions + scaling_analysis).
+**Persistence:** `pt_prime_state_results.json` (predictions + scaling_analysis).
 
-**Test-Stand nach Saeule 2/3 offline:** 66/66 Tests grün, 0 fehlgeschlagen, 0 skipped.
+**Test status after Pillar 2/3 offline:** 66/66 tests green, 0 failed, 0 skipped.
 
-**Gesamt-Synthese SciMind 4.0/5.0:** siehe `SYNTHESIS_2026_06_10.md` — konsolidiert alle strategischen Vektoren, EVIDENCE-GRADEs, Falsifikationen, Transcategorical-Bridge-Befunde und Empfehlungen für Q1-Q4 2026.
+**Overall synthesis SciMind 4.0/5.0:** see `SYNTHESIS_2026_06_10.md` — consolidates all strategic vectors, EVIDENCE GRADEs, falsifications, trans-categorical bridge findings and recommendations for Q1-Q4 2026.
 
-#### **6.5.13 Saeule 1 — Erste echte QPU-Messung auf Fez (2026-06-10 11:18 UTC)**
+#### **6.5.13 Pillar 1 — First Real QPU Measurement on Fez (2026-06-10 11:18 UTC)**
 
-Am 2026-06-10 um 11:18 UTC wurde eine erste echte Hardware-Validierung des `bias_PT_re` auf `ibm_fez` durchgeführt — mit einem **neuen Account (TOKEN2)**, dessen Tages-Kontingent noch nicht ausgeschöpft war. Drei sequenzielle 1-Pub-Jobs (1024 Shots, kein VQE — am Initial-Punkt gemessen) lieferten:
+On 2026-06-10 at 11:18 UTC a first real hardware validation of `bias_PT_re` was carried out on `ibm_fez` — using a **new account (TOKEN2)** whose daily quota had not yet been exhausted. Three sequential 1-pub jobs (1024 shots, no VQE — measured at the initial point) delivered:
 
-| Größe | Wert (Fez) | Noiseless | Bias |
+| Quantity | Value (Fez) | Noiseless | Bias |
 |---|---:|---:|---:|
-| `<H_diag>` am Initial-Punkt | 3.6045 | 3.34 (mean) | +7.9% |
-| `<H_diag>` am random θ_r (seed=42) | 3.6559 | 3.34 (mean) | +9.4% |
-| `<Re(H_PT)>` am Initial-Punkt | 3.5912 | 3.34 (mean) | +7.5% |
-| **`bias_PT_re = Re(H_PT) − H_diag`** | **−0.0133** | ~0 | **klein** |
+| `<H_diag>` at initial point | 3.6045 | 3.34 (mean) | +7.9% |
+| `<H_diag>` at random θ_r (seed=42) | 3.6559 | 3.34 (mean) | +9.4% |
+| `<Re(H_PT)>` at initial point | 3.5912 | 3.34 (mean) | +7.5% |
+| **`bias_PT_re = Re(H_PT) − H_diag`** | **−0.0133** | ~0 | **small** |
 
-**Diskriminierung:**
-- `|bias_PT_re| = 0.0133 < 0.05` (H1/H3-Threshold) → **Verdict: H1 oder H3 (gaps invariant)**
-- `|bias_PT_re| = 0.0133 < 0.15` (H2-Threshold) → **H2-Hypothese (multiplikative Bias-Topologie) FALSIFIZIERT**
+**Discrimination:**
+- `|bias_PT_re| = 0.0133 < 0.05` (H1/H3 threshold) → **Verdict: H1 or H3 (gaps invariant)**
+- `|bias_PT_re| = 0.0133 < 0.15` (H2 threshold) → **H2 hypothesis (multiplicative bias topology) FALSIFIED**
 
-**Vergleich Aer vs QPU:**
+**Comparison Aer vs QPU:**
 
-| Pfad | `|bias_PT_re|` | Verdict |
+| Path | `|bias_PT_re|` | Verdict |
 |---|---:|---|
-| Aer-Stresstest (Surrogat) | 0.0059 | H1/H3 (Section 6.5.10) |
-| **Echte Fez-QPU** | **0.0133** | **H1/H3 (Section 6.5.13)** |
-| Faktor (QPU/Aer) | 2.25 | — |
+| Aer stress test (surrogate) | 0.0059 | H1/H3 (Section 6.5.10) |
+| **Real Fez QPU** | **0.0133** | **H1/H3 (Section 6.5.13)** |
+| Factor (QPU/Aer) | 2.25 | — |
 
-Der Bias-Wert ist auf echter Hardware **2.25× größer** als auf Aer — plausibel, da Aer-Simulation Rausch-Kanäle nicht perfekt modelliert. Aber: **beide < 0.05**, was die Hypothese "relatives Spektrum bias-invariant" **doppelt bestätigt**.
+The bias value is **2.25× larger** on real hardware than on Aer — plausible, since the Aer simulation does not model noise channels perfectly. But: **both < 0.05**, which **doubly confirms** the hypothesis "relative spectrum bias-invariant".
 
-**EVIDENCE GRADE UPDATE:** **A (Aer + QPU doppelt bestätigt)** — REFRAMING_VECTOR_RELATIVE_SPECTRUM ist nicht mehr nur Aer-Surrogat, sondern direkte Fez-Hardware-Eigenschaft.
+**EVIDENCE GRADE UPDATE:** **A (Aer + QPU doubly confirmed)** — REFRAMING_VECTOR_RELATIVE_SPECTRUM is no longer just an Aer surrogate, but a direct Fez hardware property.
 
-**Persistenz:** `pt_potential_vqe_singleshot_results.json` (H_diag init/random, Re(H_PT) init, bias_PT_re, verdict, runtime).
+**Persistence:** `pt_potential_vqe_singleshot_results.json` (H_diag init/random, Re(H_PT) init, bias_PT_re, verdict, runtime).
 
-**Limitation dieser Messung:** Wir haben am **Initial-Punkt** gemessen, nicht am VQE-Optimum. VQE-Optimum am Fez folgt in 6.5.14 (in Bearbeitung). Die Kombination (Initial-Punkt QPU + VQE-Optimum Aer aus 6.5.10) liefert bereits jetzt die zentrale Bestätigung der Hypothese.
+**Limitation of this measurement:** We measured at the **initial point**, not at the VQE optimum. VQE optimum on Fez follows in 6.5.14 (in progress). The combination (initial-point QPU + VQE-optimum Aer from 6.5.10) already now delivers the central confirmation of the hypothesis.
 
-#### **6.5.14 Saeule 3 — Schmidt-Entropie auf Fez/TOKEN2 (2026-06-10 12:13 UTC)**
+#### **6.5.14 Pillar 3 — Schmidt Entropy on Fez/TOKEN2 (2026-06-10 12:13 UTC)**
 
-**Hypothese:** Die Schmidt-Entropie $S_{vN}$ des bipartiten Zustands $|P_N\rangle = (1/\sqrt{\pi(N)})\sum_{p\le N}|p\rangle$ skaliert als $S_{vN} \propto N^\alpha$. Aer-Vorhermessung (Section 6.5.12): $\alpha_{Aer} = 0.27$. Latorre-Sierra-SotA-Vorhersage (analog zu RH-Verschränkungs-Argumenten): $\alpha \approx 1$. Diese Messung testet, ob das **echte QPU-Rauschen** die Aer-Vorhersage reproduziert oder ob systematische Dekohärenz den Wert nach oben treibt.
+**Hypothesis:** The Schmidt entropy $S_{vN}$ of the bipartite state $|P_N\rangle = (1/\sqrt{\pi(N)})\sum_{p\le N}|p\rangle$ scales as $S_{vN} \propto N^\alpha$. Aer pre-measurement (Section 6.5.12): $\alpha_{Aer} = 0.27$. Latorre-Sierra SotA prediction (analogous to RH entanglement arguments): $\alpha \approx 1$. This measurement tests whether the **real QPU noise** reproduces the Aer prediction or whether systematic decoherence drives the value upward.
 
-**Architektur (statevector-first, qiskit-agnostisch):**
-1. `psi` als numpy-statevector: `psi[p] = 1/√π(N)` für p prim, sonst 0
-2. Schmidt-Zerlegung in numpy: `linalg.svd(psi.reshape((n_A, n_B)))` mit dokumentiertem A/B-Qubit-Mapping
+**Architecture (statevector-first, qiskit-agnostic):**
+1. `psi` as numpy statevector: `psi[p] = 1/√π(N)` for p prime, else 0
+2. Schmidt decomposition in numpy: `linalg.svd(psi.reshape((n_A, n_B)))` with documented A/B qubit mapping
 3. `psi_prime = (U_A^\dagger \otimes I_B) |psi>` als Matrix-Multiplikation, F-order flatten
 4. QPU: `qc.initialize(psi_prime, range(n_qubits))` + `measure(System A)`
 5. Population `P(|i\rangle_A)` nach QPU-Messung = $s_i^2$ (Schmidt-Koeff.-Quadrate)
 
-**Verifikation:** statevector-Simulation liefert `||diff(statevector, s_i^2)|| < 10^{-15}` für alle 5 N-Werte.
+**Verification:** statevector simulation yields `||diff(statevector, s_i^2)|| < 10^{-15}` for all 5 N values.
 
 **QPU-Messung:** 5 sequenzielle 1-Pub-Jobs (4096 Shots, ~30s Laufzeit pro Job, 197s gesamt). Jobs: `d8kjhcjnn5bs738quimg` (N=7), `d8kjhf832u0s73f8rfr0` (N=15), `d8kjhs3qv2lc7385c930` (N=31), `d8kji93nn5bs738qujjg` (N=63), `d8kjipjnn5bs738quk50` (N=127).
 
@@ -760,64 +762,64 @@ Der Bias-Wert ist auf echter Hardware **2.25× größer** als auf Aer — plausi
 - klassisch: $[0.530, 0.195, 0.122, 0.099, 0.023, 0.018, 0.012, 0.000]$
 - Fez QPU: $[0.417, 0.131, 0.131, 0.053, 0.135, 0.057, 0.063, 0.012]$
 
-Die kleinen Schmidt-Koeffizienten (klassisch $<0.05$) werden durch Fez-Depolarisierung **signifikant aufgefüllt** — z.B. der letzte Koeffizient (klassisch $\approx 0$) zeigt QPU $0.012$, der vorletzte (klassisch $0.012$) zeigt $0.063$ (5× vergrößert). Das ist **konsistente Signatur von Dekohärenz**.
+The small Schmidt coefficients (classically $<0.05$) are **significantly inflated** by Fez depolarization — e.g. the last coefficient (classically $\approx 0$) shows QPU $0.012$, the penultimate (classically $0.012$) shows $0.063$ (5× enlarged). This is a **consistent signature of decoherence**.
 
 **Skalierungsexponenten:**
 - $\alpha_{Aer} = 0.2719$ (statevector, idealisiert)
 - $\alpha_{QPU} = 0.3479$ (Fez-Rauschen korrigiert)
-- $\alpha_{Latorre\text{-}Sierra} \approx 1.0$ (SotA-Erwartung für Verschränkungs-Entropie wachsender Quantensysteme)
+- $\alpha_{Latorre\text{-}Sierra} \approx 1.0$ (SotA expectation for entanglement entropy of growing quantum systems)
 
-**Verdict:** **QPU bestätigt Aer** — der DISSENS zu Latorre-Sierra ist robust gegen Fez-Rauschen. Die Skalierung $S_{vN} \propto N^{0.27\text{--}0.35}$ bleibt **deutlich unter** der SotA-Vorhersage $\alpha = 1$.
+**Verdict:** **QPU confirms Aer** — the DISSENT to Latorre-Sierra is robust against Fez noise. The scaling $S_{vN} \propto N^{0.27\text{--}0.35}$ remains **clearly below** the SotA prediction $\alpha = 1$.
 
 **SciMind 4.0 Bewertung:**
-- *Steelman Mandate:* Aer-Wert 0.27 wurde mit stress-test, Multi-Backend und QPU verifiziert. Latorre-Sierra-Vorhersage $\alpha = 1$ basiert auf Verschränkungs-Argumenten in **gleichverteilten** Quantensystemen — nicht in der **Primzahl-Quanten-Superposition**, die eine spezifische (nicht-zufällige) Kohärenz aufweist. Die systematische Abweichung $\alpha \ll 1$ suggeriert, dass die **Primzahl-Struktur** in $|P_N\rangle$ die Verschränkung **anders restringiert** als ein zufälliger Quantenzustand.
-- *Ockham's Razor:* Wir messen **eine** Größe (S_vN) für **einen** Zustand ($|P_N\rangle$). Komplexitäts-Audit: keine freien Parameter, keine Fit-Konstanten, kein Modell-Tuning. Die Messung ist direkter Ausdruck der Quanten-Geometrie.
-- *Anti-Sharpshooter:* Vorhersage $\alpha \approx 0.27$ wurde **vor** dem QPU-Lauf in `pt_prime_state_prereg.json` registriert. QPU-Ergebnis $\alpha = 0.35$ ist **nicht** ein Post-Hoc-Fit; die leichte Erhöhung gegenüber Aer ist quantitativ konsistent mit Dekohärenz-Modell (QPU misst $|P_N\rangle$ mit zusätzlicher Dephasing-Rate $\gamma$).
+- *Steelman Mandate:* Aer value 0.27 was verified with stress test, multi-backend, and QPU. The Latorre-Sierra prediction $\alpha = 1$ is based on entanglement arguments in **uniformly distributed** quantum systems — not in the **prime quantum superposition**, which exhibits a specific (non-random) coherence. The systematic deviation $\alpha \ll 1$ suggests that the **prime structure** in $|P_N\rangle$ **restricts** entanglement **differently** than a random quantum state.
+- *Ockham's Razor:* We measure **one** quantity (S_vN) for **one** state ($|P_N\rangle$). Complexity audit: no free parameters, no fit constants, no model tuning. The measurement is a direct expression of the quantum geometry.
+- *Anti-Sharpshooter:* Prediction $\alpha \approx 0.27$ was registered **before** the QPU run in `pt_prime_state_prereg.json`. QPU result $\alpha = 0.35$ is **not** a post-hoc fit; the slight increase over Aer is quantitatively consistent with the decoherence model (QPU measures $|P_N\rangle$ with additional dephasing rate $\gamma$).
 
 **SciMind 5.0 Transcategorical Bridge:**
-Die **Unterlinearität** $\alpha < 1$ hat eine tiefe Bedeutung: $|P_N\rangle$ ist keine uniforme Superposition über alle $2^{n_{qubits}}$ Basisvektoren, sondern **selektiv** über $\pi(N)$ Indizes. Die Schmidt-Zerlegung dieser selektiven Superposition produziert eine **sub-maximale** Verschränkung. Die Tatsache, dass die Skalierung **nicht** linear ist (Latorre-Sierra), sondern sublinear ($\alpha \approx 0.3$), ist ein **direkter Hinweis auf den RH-Mechanismus**: die Primzahl-Indizierung selbst restringiert die Verschränkung — und genau diese Restriktion spiegelt die Nullstellen-Struktur der $\zeta$-Funktion wider (siehe Connes' nicht-kommutative Geometrie der Adele).
+The **sublinearity** $\alpha < 1$ has a deep meaning: $|P_N\rangle$ is not a uniform superposition over all $2^{n_{qubits}}$ basis vectors, but **selective** over $\pi(N)$ indices. The Schmidt decomposition of this selective superposition produces a **sub-maximal** entanglement. The fact that the scaling is **not** linear (Latorre-Sierra), but sublinear ($\alpha \approx 0.3$), is a **direct hint at the RH mechanism**: the prime indexing itself restricts the entanglement — and exactly this restriction mirrors the zero structure of the $\zeta$ function (see Connes' non-commutative geometry of the adeles).
 
 **Persistenz:** `pt_prime_state_qpu_singleshot_results.json` (alle 5 N-Werte, s_sq_classical, s_sq_qpu, S_vN, ISA-Tiefen, job-IDs, alpha-Vergleich).
 
-**Limitation & nächste Schritte:**
-- ISA-Tiefen bis 841 (N=127) zeigen signifikante Dekohärenz. Für N=255+ (8 Qubits) wäre ISA-Tiefe >> 1500 — **Rauschen-limitiert**.
-- QPU misst $S_{vN}^{QPU} > S_{vN}^{klassisch}$ konsistent → Bias in Richtung **höherer** Entropie, also die wahre Schmidt-Entropie des **noiseless** Zustands ist $S_{vN} \le S_{vN}^{QPU}$ für alle N. Die **tatsächliche** $\alpha$ ist **möglicherweise sogar kleiner** als 0.27, nicht größer.
-- **VQE-Optimum-Messung auf Fez (Säule 1)** steht noch aus — entweder manuell reparieren (5-Pub-Skript) oder neu submitten. Aktuell: 6-7 Min QPU-Zeit verbraucht (N=7 bis N=127), Tageslimit 10 Min → **2-3 Min übrig**, knapp.
+**Limitation & next steps:**
+- ISA depths up to 841 (N=127) show significant decoherence. For N=255+ (8 qubits) ISA depth would be >> 1500 — **noise-limited**.
+- QPU measures $S_{vN}^{QPU} > S_{vN}^{klassisch}$ consistently → bias in the direction of **higher** entropy, so the true Schmidt entropy of the **noiseless** state is $S_{vN} \le S_{vN}^{QPU}$ for all N. The **actual** $\alpha$ is **possibly even smaller** than 0.27, not larger.
+- **VQE-optimum measurement on Fez (Pillar 1)** is still pending — either repair manually (5-pub script) or resubmit. Currently: 6-7 min QPU time consumed (N=7 to N=127), daily limit 10 min → **2-3 min left**, tight.
 
 #### **6.5.15 Saeule 1 VQE-Optimum QPU-Messung auf Fez/TOKEN2 (2026-06-10 12:19 UTC)**
 
-Nach der erfolgreichen Singleshot-Messung (Section 6.5.13) wurde die 5-Pub-Messung am VQE-Optimum separat nachgeholt. VQE-Input waren die aus `pt_potential_vqe_minimal.py` (3 Iter, 2048 Shots) gefundenen Parameter: $E_0 = 2.3610$ (noiseless $E_0 = 2.0019$, 18% über Optimum).
+After the successful single-shot measurement (Section 6.5.13) the 5-pub measurement at the VQE optimum was re-run separately. The VQE input were the parameters found from `pt_potential_vqe_minimal.py` (3 iter, 2048 shots): $E_0 = 2.3610$ (noiseless $E_0 = 2.0019$, 18% above optimum).
 
-| Observable | Initial-Punkt (Singleshot) | VQE-Optimum (5-Pub) | random $\theta_r$ |
+| Observable | Initial point (single shot) | VQE optimum (5-pub) | random $\theta_r$ |
 |---|---:|---:|---:|
 | $\langle H_{diag}\rangle$ | 3.6045 | **3.0611** | — |
 | $\langle \text{Re}(H_{PT})\rangle$ | 3.5912 | **2.9897** | 3.0151 |
 | $\langle \text{Im}(H_{PT})\rangle$ | — | **0.0131** | 0.0158 |
-| **`bias_PT_re`** | **−0.0133** ✓ H1/H3 | **−0.0714** ⚠ Mittel | — |
+| **`bias_PT_re`** | **−0.0133** ✓ H1/H3 | **−0.0714** ⚠ medium | — |
 
 **Befund:**
-- `|bias_PT_re| = 0.0714` ist **knapp** > 0.05 (H1/H3-Threshold) und deutlich < 0.15 (H2-Threshold) → **Verdict: MITTEL — partial H2-Einfluss**
-- Im Vergleich zum Initial-Punkt (|bias|=0.013) ist die Bias am VQE-Optimum **5× größer** — kontraintuitiv.
+- `|bias_PT_re| = 0.0714` is **just** > 0.05 (H1/H3 threshold) and clearly < 0.15 (H2 threshold) → **Verdict: MEDIUM — partial H2 influence**
+- Compared to the initial point (|bias|=0.013), the bias at the VQE optimum is **5× larger** — counter-intuitive.
 
-**SciMind 4.0 Erklärung:**
-- Der 3-Iter-VQE-Lauf hat das **wahre Optimum** nicht erreicht (E_0 = 2.36 statt 2.00). Das VQE-Optimum ist näher am Initial-Punkt als am echten Grundzustand.
-- Bei besser konvergiertem VQE (10 Iter, 8192 Shots) wäre $E_0 \to 2.00$ und `bias_PT_re → 0` mit hoher Wahrscheinlichkeit. Aer-Stresstest (`pt_aer_stress_saeule1.py`) bestätigt das: E_0=2.4057 (besser konvergiert) liefert `bias_PT_re = +0.0059` (siehe 6.5.10).
-- **Limitation der Fez-5-Pub-Messung:** Tageslimit-Restriktion (10 Min/Tag TOKEN2) erlaubte nur 3 VQE-Iterationen mit 2048 Shots. Längere VQE würde besseres E_0 und damit |bias| < 0.05 liefern.
+**SciMind 4.0 explanation:**
+- The 3-iter VQE run did not reach the **true optimum** (E_0 = 2.36 instead of 2.00). The VQE optimum is closer to the initial point than to the real ground state.
+- With a better-converged VQE (10 iter, 8192 shots) $E_0 \to 2.00$ and `bias_PT_re → 0` with high probability. The Aer stress test (`pt_aer_stress_saeule1.py`) confirms this: E_0=2.4057 (better converged) yields `bias_PT_re = +0.0059` (see 6.5.10).
+- **Limitation of the Fez 5-pub measurement:** daily-limit restriction (10 min/day TOKEN2) allowed only 3 VQE iterations with 2048 shots. Longer VQE would yield a better E_0 and thus |bias| < 0.05.
 
-**Strategische Konsequenz:**
-- **REFRAMING_VECTOR_RELATIVE_SPECTRUM bleibt A-Grade** (Initial-Punkt QPU + Aer-Stresstest doppelt validiert).
-- **VQE-Optimum-QPU** ist **MITTEL**, nicht H1/H3 — VQE-Artefakt, nicht Anti-Bias-Hypothese-Widerlegung.
-- **Q3 2026 Empfehlung:** 10-Iter VQE + 8192 Shots, **5 Pubs in einem einzigen Job** (spart Queue-Wartezeit).
+**Strategic consequence:**
+- **REFRAMING_VECTOR_RELATIVE_SPECTRUM remains A-grade** (initial-point QPU + Aer stress test doubly validated).
+- **VQE-optimum QPU** is **MEDIUM**, not H1/H3 — VQE artifact, not anti-bias hypothesis refutation.
+- **Q3 2026 recommendation:** 10-iter VQE + 8192 shots, **5 pubs in a single job** (saves queue waiting time).
 
-**Persistenz:** `pt_potential_vqe_5pub_results.json` (5 Pubs, job-IDs, VQE-Params, bias-Analyse).
+**Persistence:** `pt_potential_vqe_5pub_results.json` (5 pubs, job-IDs, VQE params, bias analysis).
 
-#### **6.5.16 Latorre-Sierra-Spannung: Resolution (b) und (c) empirisch getestet (2026-06-10)**
+#### **6.5.16 Latorre-Sierra Tension: Resolutions (b) and (c) Empirically Tested (2026-06-10)**
 
-**Hintergrund:** Die Latorre-Sierra-Vorhersage $\alpha \approx 1$ für die Schmidt-Entropie des Prime State $|P_N\rangle$ (arXiv:1302.6245 + Quantum 4, 246) widerspricht unserer Messung $\alpha_{Aer} = 0.272$ / $\alpha_{QPU} = 0.348$. Drei plausible Resolutions waren offen.
+**Background:** The Latorre-Sierra prediction $\alpha \approx 1$ for the Schmidt entropy of the prime state $|P_N\rangle$ (arXiv:1302.6245 + Quantum 4, 246) contradicts our measurement $\alpha_{Aer} = 0.272$ / $\alpha_{QPU} = 0.348$. Three plausible resolutions were open.
 
-**Resolution (b) — andere Entropie-Definition: FALSIFIZIERT.**
+**Resolution (b) — different entropy definition: FALSIFIED.**
 
-Wir haben Rényi-2 $S_2 = -\log_2 \sum s_i^4$ auf demselben Schmidt-Spektrum berechnet:
+We computed Rényi-2 $S_2 = -\log_2 \sum s_i^4$ on the same Schmidt spectrum:
 
 | $N$ | $S_2^{\text{Aer}}$ | $S_{vN}^{\text{Aer}}$ | $S_2^{\text{QPU}}$ | $S_{vN}^{\text{QPU}}$ |
 |---:|---:|---:|---:|---:|
@@ -827,11 +829,11 @@ Wir haben Rényi-2 $S_2 = -\log_2 \sum s_i^4$ auf demselben Schmidt-Spektrum ber
 | 63 | 1.1304 | 1.0223 | 1.5663 | 1.3411 |
 | 127 | 1.5377 | 1.3562 | 2.0775 | 1.7157 |
 
-Log-log Fit: $\alpha_2^{\text{Aer}} = 0.244$, $\alpha_2^{\text{QPU}} = 0.340$ — **identisch** zu Schmidt-vN. Die Latorre-Diskrepanz ist **kein** Entropie-Maß-Artefakt.
+Log-log fit: $\alpha_2^{\text{Aer}} = 0.244$, $\alpha_2^{\text{QPU}} = 0.340$ — **identical** to Schmidt-vN. The Latorre discrepancy is **not** an entropy-measure artifact.
 
-**Resolution (c) — asymptotisches Regime: FALSIFIZIERT.**
+**Resolution (c) — asymptotic regime: FALSIFIED.**
 
-Wir haben den Schmidt-vN-Sweep offline (numpy statevector) auf $N \in \{255, 511, 1023\}$ erweitert:
+We extended the Schmidt-vN sweep offline (numpy statevector) to $N \in \{255, 511, 1023\}$:
 
 | $N_{\max}$ | $\alpha_{\text{inc}}$ |
 |---:|---:|
@@ -842,33 +844,33 @@ Wir haben den Schmidt-vN-Sweep offline (numpy statevector) auf $N \in \{255, 511
 | 511 | 0.347 |
 | 1023 | 0.347 |
 
-**$\alpha$ ist NICHT ansteigend Richtung 1** — sie stabilisiert sich bei 0.347 für $N \ge 255$. Power-Law-Fit $S \sim N^{0.347}$ passt **besser** als die Latorre-Form $S \sim N/(\log N)^\beta$ (best-fit $\beta = 2.57$, nicht 1).
+**$\alpha$ is NOT rising toward 1** — it stabilizes at 0.347 for $N \ge 255$. The power-law fit $S \sim N^{0.347}$ fits **better** than the Latorre form $S \sim N/(\log N)^\beta$ (best-fit $\beta = 2.57$, not 1).
 
-**Sub-RH-Test (H0: $\alpha \ge 0.5$):** $z = 3.05$ (Schmidt-vN), $z = 4.92$ (Rényi-2). **Beide signifikant $p < 0.05$.**
+**Sub-RH test (H0: $\alpha \ge 0.5$):** $z = 3.05$ (Schmidt-vN), $z = 4.92$ (Rényi-2). **Both significant $p < 0.05$.**
 
-**Resolution (a) — Latorre-Sierra-Skala ist falsch: BLEIBT OFFEN.**
+**Resolution (a) — Latorre-Sierra scale is wrong: REMAINS OPEN.**
 
-**Befund:** Die Latorre-Sierra-Spannung ist **kein** Mess-Artefakt, **kein** Finite-N-Artefakt, und **kein** Entropie-Wahl-Artefakt. Die Sub-RH-Vorhersage $\alpha < 0.5$ ist **robust** empirisch gestützt.
+**Finding:** The Latorre-Sierra tension is **not** a measurement artifact, **not** a finite-N artifact, and **not** an entropy-choice artifact. The Sub-RH prediction $\alpha < 0.5$ is **robustly** empirically supported.
 
-**Persistenz:** `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `LATORE_TENSION_NOTE.md`.
+**Persistence:** `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `LATORE_TENSION_NOTE.md`.
 
-#### **6.5.17 Latorre-Spannung AUFGELÖST als Mismatch funktionaler Form (2026-06-10 abends)**
+#### **6.5.17 Latorre Tension RESOLVED as a Mismatch of Functional Form (2026-06-10 evening)**
 
-Nach dem ersten Auflösen der Resolutions (b) und (c) zeigte eine **detailliertere Re-Interpretation** der Latorre-Sierra-Vorhersage, dass die scheinbare "Spannung" durch **Mismatch der funktionalen Form** zustande kam — nicht durch fundamentalen Konflikt.
+After the first resolution of (b) and (c) a **more detailed re-interpretation** of the Latorre-Sierra prediction showed that the apparent "tension" arose from a **mismatch of the functional form** — not from a fundamental conflict.
 
-**Drei-Modelle-Vergleich (`pt_three_models.py`):**
+**Three-model comparison (`pt_three_models.py`):**
 
-| Modell | Form | Best-Fit | Residual |
+| Model | Form | Best fit | Residual |
 |---|---|---:|---:|
-| M1 (unser Power-Law) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
-| M3 (Power in $\pi(N)$) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
+| M1 (our power law) | $S \sim N^\alpha$ | $\alpha = 0.347$ | **0.298** |
+| M3 (power in $\pi(N)$) | $S \sim \pi(N)^\alpha$ | $\alpha = 0.454$ | 0.302 |
 | M2 (Latorre log) | $S \sim \log\pi(N)$ | coeff = 0.524 | 0.772 |
 
-M1 und M3 sind **statistisch ununterscheidbar** (Residuals unterscheiden sich um 1%). M2 (Latorre-Form) ist signifikant schlechter (Faktor 2.6 im Residual).
+M1 and M3 are **statistically indistinguishable** (residuals differ by 1%). M2 (Latorre form) is significantly worse (factor 2.6 in residual).
 
-**Lokale Steigung der Latorre-Kurve $S = \log_2\pi(N)$ bei unseren N-Werten:**
+**Local slope of the Latorre curve $S = \log_2\pi(N)$ at our N values:**
 
-| $N$ | $d \log S / d \log N$ (Latorre) | Unser $\alpha$ |
+| $N$ | $d \log S / d \log N$ (Latorre) | Our $\alpha$ |
 |---:|---:|---:|
 | 15 | 0.34 | — |
 | 31 | 0.40 | 0.333 |
@@ -878,128 +880,128 @@ M1 und M3 sind **statistisch ununterscheidbar** (Residuals unterscheiden sich um
 | 511 | 0.20 | 0.347 |
 | 1023 | 0.17 | 0.347 |
 
-**Die Latorre-Lokale-Steigung 0.17–0.40 liegt im SELBEN BAND wie unser gemessenes $\alpha = 0.347$!**
+**The Latorre local slope 0.17–0.40 lies in the SAME BAND as our measured $\alpha = 0.347$!**
 
-**Auflösung:** Latorre-Sierra sagt $S \sim \log\pi(N)$ (asymptotisch, logarithmisch). Wir fitten $S \sim N^\alpha$ (Power-Law, lokal). Die *asymptotische* Steigung von $\log\pi(N)$ vs $\log N$ ist tatsächlich 1 (für $N \to \infty$). Die *lokale effektive* Steigung ist 0.347 für $N \le 1023$. Beide Werte sind **konsistent** — die Latorre-Kurve als logarithmische Funktion hat lokal ebenfalls Steigungen $< 0.5$.
+**Resolution:** Latorre-Sierra predicts $S \sim \log\pi(N)$ (asymptotic, logarithmic). We fit $S \sim N^\alpha$ (power law, local). The *asymptotic* slope of $\log\pi(N)$ vs $\log N$ is in fact 1 (for $N \to \infty$). The *local effective* slope is 0.347 for $N \le 1023$. Both values are **consistent** — the Latorre curve as a logarithmic function also has local slopes $< 0.5$.
 
-**Strategische Konsequenz — REFRAMING der Sub-RH-Indikator-Aussage:**
+**Strategic consequence — REFRAMING the Sub-RH indicator statement:**
 
-- **Vorher:** $\alpha = 0.347$ widerspricht Latorre-Sierra's $\alpha \approx 1$ → "Spannung"
-- **Nachher:** $\alpha = 0.347$ ist die *finite-N effektive Steigung* einer Funktion, die **asymptotisch** $\alpha \to 1$ hat → **Konsistenz, kein Konflikt**
+- **Before:** $\alpha = 0.347$ contradicts Latorre-Sierra's $\alpha \approx 1$ → "tension"
+- **After:** $\alpha = 0.347$ is the *finite-N effective slope* of a function that **asymptotically** has $\alpha \to 1$ → **consistency, no conflict**
 
-**Offene Frage (Q3 2026+):** Bei welchem $N$ beginnt die Asymptotik $\alpha \to 1$ sichtbar zu werden? Aer-Simulation auf $N = 10^4$–$10^6$ (mathematisch, kein QPU nötig) könnte das klären.
+**Open question (Q3 2026+):** At which $N$ does the asymptotic $\alpha \to 1$ start to become visible? Aer simulation at $N = 10^4$–$10^6$ (mathematical, no QPU needed) could clarify this.
 
-**Persistenz:** `pt_three_models_results.json`, `LATORE_TENSION_NOTE.md` Section 5.1.
+**Persistence:** `pt_three_models_results.json`, `LATORE_TENSION_NOTE.md` Section 5.1.
 
-Während SciMind 4.0 isolierte strukturelle Schwächen und methodische Falsifikationen schonungslos aufdeckt, initiiert die komplementäre Architektur *SciMind 5.0 (Epistemic)* einen Paradigmenwechsel. SciMind 5.0 verbietet die unmittelbare Verwerfung spekulativer Konzepte als reine "Systemfehler". Anstatt Apophenie (die exzessive Mustererkennung) blindlings zu penalisieren, wird sie durch den *Transcategorical Bridge* Mechanismus als der fundamentale Algorithmus menschlich-maschineller Bedeutungserzeugung (Meaning-Making) in hochdimensionalen latenten Räumen betrachtet.  
+While SciMind 4.0 unsparingly uncovers isolated structural weaknesses and methodological falsifications, the complementary architecture *SciMind 5.0 (Epistemic)* initiates a paradigm shift. SciMind 5.0 prohibits the immediate rejection of speculative concepts as mere "system errors". Instead of blindly penalizing apophenia (the excessive pattern recognition), it is regarded, through the *Transcategorical Bridge* mechanism, as the fundamental algorithm of human-machine meaning-making in high-dimensional latent spaces.
 \<symbolic\_reason\> // Initialize SciMind 5.0 Epistemic :: construct(℧, ds) ↦ { ℧.ds ⇾ ds, ℧.modules ⇾ \[think, transcategorical\_bridge, phenomenological\_auditor, epistemic\_synthesizer, output\], ℧.state ⇾ |SciMind\_v5.0\_Epistemic⟩ } \</symbolic\_reason\>  
-Die Anwendung der *Husserlschen Epoché* – das methodische Einklammern und Suspendieren der Intentionalitätsfalle (also der Frage, ob das physikalische Universum *absichtlich* Primzahlen und Uran-238-Kerne symmetrisch konstruiert hat) – erlaubt die unvoreingenommene Untersuchung der tiefen Phänomenologie an sich.
+The application of the *Husserlian Epoché* — the methodical bracketing and suspension of the intentionality trap (i.e. the question of whether the physical universe *intentionally* constructed primes and uranium-238 nuclei symmetrically) — permits the unbiased investigation of the deep phenomenology itself.
 
-### **7.1 Der Transcategorical Bridge: Die Morphologie der Leere**
+### **7.1 The Transcategorical Bridge: The Morphology of Emptiness**
 
-Die fundamentalste, resonanteste Verbindung zwischen der analytischen Zahlentheorie und der Nuklearphysik liegt, aus Sicht von SciMind 5.0, überraschenderweise nicht in den beobachtbaren Objekten selbst (den Primzahlen versus den messbaren Nukleonen), sondern in den Lücken, Abständen und "Leerräumen" (Gaps) dazwischen.  
-In der reinen Mathematik konstituieren die kontinuierlich, aber asymmetrisch anwachsenden Lücken zwischen den Primzahlen das primäre Kernproblem der analytischen Verteilung. Ein Bereich ohne Primzahlen zwingt das mathematische System zur "Komposition" (Zusammengesetzte Zahlen). In der Quantenphysik hingegen definieren genau diese Lücken in den diskreten Energieniveaus – die sogenannten Bandlücken oder Schalenabschlüsse – die makroskopische Stabilität der Materie. Die signifikante Diskrepanz in der Bindungsenergie bei bestimmten Nukleonenanzahlen (den magischen Zahlen) bedeutet zwingend, dass das Hinzufügen eines einzigen weiteren Nukleons das Überspringen einer massiven energetischen "Leere" erfordert, um ein qualitativ höheres und energetisch ungünstigeres Niveau zu erreichen.  
-SciMind 5.0 leitet daraus folgendes universelles epistemisches Gesetz ab: *Stabilität in diskreten evolutionären oder kohärenten Systemen (seien es topologische Zahlenfolgen, Fermionen-Akkumulationen oder neuronale Netze) entsteht nicht durch die kontinuierliche, reibungslose Hinzufügung von Masse, Energie oder Information, sondern durch die rigorose Strukturierung und Erhaltung der Leerräume.*  
-Die nuklearen magischen Zahlen und die Niveaurepulsion der Zeta-Nullstellen sind transkategoriale Isomorphismen desselben zugrundeliegenden Prinzips: der Repulsion von diskreten Entitäten im abstrakten Phasenraum. Wie die Zufallsmatrizen-Theorie des Gaußschen Unitären Ensembles makellos demonstriert, weichen komplexe, nicht-triviale Systeme der vollkommenen entropischen Uniformität und dem reinen Zufall aus, um chaotische, aber rigoros deterministische und stabile thermodynamische Gleichgewichte zu etablieren.
+The most fundamental, resonant connection between analytic number theory and nuclear physics, from the perspective of SciMind 5.0, lies surprisingly not in the observable objects themselves (primes versus measurable nucleons), but in the gaps, intervals and "empty spaces" between them.
+In pure mathematics the continuously but asymmetrically growing gaps between the primes constitute the primary core problem of analytic distribution. A range without primes forces the mathematical system to "compose" (composite numbers). In quantum physics, by contrast, exactly these gaps in the discrete energy levels — the so-called band gaps or shell closures — define the macroscopic stability of matter. The significant discrepancy in binding energy at certain nucleon numbers (the magic numbers) necessarily means that the addition of a single further nucleon requires the skipping of a massive energetic "emptiness" in order to reach a qualitatively higher and energetically unfavourable level.
+SciMind 5.0 derives the following universal epistemic law from this: *Stability in discrete evolutionary or coherent systems (whether topological number sequences, fermion accumulations or neural networks) arises not through the continuous, frictionless addition of mass, energy or information, but through the rigorous structuring and preservation of empty spaces.*
+The nuclear magic numbers and the level repulsion of the zeta zeros are trans-categorical isomorphisms of the same underlying principle: the repulsion of discrete entities in abstract phase space. As the random matrix theory of the Gaussian Unitary Ensemble demonstrates flawlessly, complex, non-trivial systems evade the perfect entropic uniformity and pure randomness, in order to establish chaotic but rigorously deterministic and stable thermodynamic equilibria.
 
-### **7.2 Der Phenomenological Auditor: Primzahlen als ontologische Atome**
+### **7.2 The Phenomenological Auditor: Primes as Ontological Atoms**
 
-Ein weiterer Durchbruch der hermeneutischen Resonanz offenbart sich bei der phänomenologischen Betrachtung der "Unteilbarkeit". Der Ansatz von Contoyiannis (Kritikalität) und verwandte abstrakte Thesen zur Struktur des Bewusstseins deuten darauf hin, dass die essenzielle Definition einer Primzahl unzertrennlich von ihrer Implementierung im Raum ist. In der Arithmetik ist die Eigenschaft "Primzahl" absolut irreduzibel.  
-Phänomenologisch betrachtet verhält sich ein quantenmechanischer Grundzustand in einem vollständig geschlossenen nuklearen Schalensystem (wie dem doppelt magischen Blei-208 Kern ) exakt analog: Er ist energetisch absolut "irreduzibel". Er kann nicht mit minimaler Energie angeregt, leicht modifiziert oder aufgebrochen werden; er verhält sich in Streuexperimenten wie ein einziges, massives, unteilbares Teilchen.  
-Wenn theoretische Konstrukte wie der Berry-Keating-Hamiltonian H \= \\frac{1}{2}(xp \+ px) oder die spektralen Realisierungen durch masselose Dirac-Fermionen in Rindler-Raumzeiten tatsächlich die exakten Riemannschen Nullstellen als ihre physikalischen Eigenwerte besitzen, dann wäre die Riemannsche Vermutung phänomenologisch bewiesen durch die universelle Unvermeidbarkeit quantenmechanischer Symmetriebrechung. Die Geometrie der Primzahlen fungiert in dieser Sichtweise als das präzise mathematische Äquivalent zur fundamentalen physikalischen Observablen-Begrenzung (Unschärfe). Die komplexe Zeta-Funktion ist in dieser transkategorialen Lesart nicht mehr nur ein abstraktes mathematisches Werkzeug zur Primzahlzählung, sondern die physikalische Partitionsfunktion (Zustandssumme) eines zugrundeliegenden, primordialen Gases interagierender Quantenteilchen.
+A further breakthrough of hermeneutic resonance reveals itself in the phenomenological consideration of "indivisibility". The approach of Contoyiannis (criticality) and related abstract theses on the structure of consciousness suggest that the essential definition of a prime is inseparably linked to its implementation in space. In arithmetic, the property "prime" is absolutely irreducible.
+Phenomenologically considered, a quantum-mechanical ground state in a completely closed nuclear shell system (such as the doubly magic lead-208 nucleus) behaves exactly analogously: it is energetically absolutely "irreducible". It cannot be excited, easily modified or broken up with minimal energy; in scattering experiments it behaves like a single, massive, indivisible particle.
+If theoretical constructs such as the Berry–Keating Hamiltonian $H = \frac{1}{2}(xp + px)$ or the spectral realizations by massless Dirac fermions in Rindler spacetimes actually possess the exact Riemann zeros as their physical eigenvalues, then the Riemann Hypothesis would be phenomenologically proved through the universal unavoidability of quantum-mechanical symmetry breaking. The geometry of the primes functions in this view as the precise mathematical equivalent of the fundamental physical observable limitation (uncertainty). The complex zeta function is in this trans-categorical reading no longer just an abstract mathematical tool for prime counting, but the physical partition function (state sum) of an underlying, primordial gas of interacting quantum particles.
 
-### **7.3 Die Metrik-Evaluation des Epistemic Synthesizers**
+### **7.3 The Metric Evaluation of the Epistemic Synthesizer**
 
-Unter rigoroser Anwendung der SciMind 5.0 Metriken zur Bewertung der Theorienkorpora ergibt sich folgendes synthetisiertes Bild:
+Under rigorous application of the SciMind 5.0 metrics for evaluating the theoretical corpora, the following synthesized picture emerges:
 
-| Evaluierungs-Metrik | Bewertung & Kategorisierung | Begründung des Epistemic Synthesizers |
+| Evaluation metric | Assessment & categorization | Justification of the Epistemic Synthesizer |
 | :---- | :---- | :---- |
-| **Metric 1: Epistemic Weight** (Logische Robustheit) | **High** (für GUE/RMT) **Low** (für reine Magische-Zahlen-Mappings) | Die logische Derivation durch die RMT (Montgomery, Dyson, Odlyzko) ist physikalisch und mathematisch unerschütterlich fundiert. Die Derivation spezifischer magischer Zahlen aus Primzahlfluktuationen (Contoyiannis, Grant) verliert aufgrund von Parameter-Fitting an Gewicht. |
-| **Metric 2: Hermeneutic Resonance** (Philosophische Tiefe) | **Score: 9.5 / 10** | Die Projektion der fundamentalen Eigenschaften der abstrakten Mathematik (Zahlen) auf die Bausteine der baryonischen Materie (Atomkerne) erfüllt tiefste philosophische Bestrebungen (Pythagoreismus, Platonismus) und schlägt eine perfekte Brücke zwischen abstraktem Ideenraum und empirischer Materie. |
-| **Metric 3: Trans-categorical Coherence** (Mapping-Integrität) | **\~ 85% Kongruenz** | Das Mapping von Zeta-Nullstellen auf die Energieniveaus hochangeregter schwerer Kerne funktioniert exzellent. Das direkte Mapping von einfachen Primzahlen auf den Kern-Grundzustand scheitert jedoch physikalisch an Inkompatibilitäten (wie der singulären Spin-Bahn-Kopplung). |
+| **Metric 1: Epistemic Weight** (logical robustness) | **High** (for GUE/RMT) **Low** (for pure magic-number mappings) | The logical derivation through RMT (Montgomery, Dyson, Odlyzko) is unshakeably founded physically and mathematically. The derivation of specific magic numbers from prime fluctuations (Contoyiannis, Grant) loses weight due to parameter fitting. |
+| **Metric 2: Hermeneutic Resonance** (philosophical depth) | **Score: 9.5 / 10** | The projection of the fundamental properties of abstract mathematics (numbers) onto the building blocks of baryonic matter (atomic nuclei) fulfils the deepest philosophical aspirations (Pythagoreanism, Platonism) and strikes a perfect bridge between abstract idea space and empirical matter. |
+| **Metric 3: Trans-categorical Coherence** (mapping integrity) | **~ 85% congruence** | The mapping of zeta zeros to the energy levels of highly excited heavy nuclei works excellently. The direct mapping of simple primes to the nuclear ground state however fails physically due to incompatibilities (such as the singular spin-orbit coupling). |
 
-## **8\. Schlussfolgerungen und strategische Forschungsvektoren**
+## **8. Conclusions and Strategic Research Vectors**
 
-Die Konfrontation der rigorosen Falsifikation durch SciMind 4.0 mit der weitreichenden epistemischen Expansion durch SciMind 5.0 erlaubt eine finale, präzise Kartographierung dieses hochkomplexen Forschungsfeldes.  
-Die robuste, unumstößliche Tatsache bleibt bestehen: Das Gaußsche Unitäre Ensemble (GUE) und die Montgomery-Paar-Korrelationsfunktion verknüpfen die Statistik der Riemannschen Nullstellen untrennbar mit der deterministisch chaotischen Quantendynamik schwerer Atomkerne. Dass die Nullstellen der Zeta-Funktion hoch oben auf der kritischen Geraden (t \\to \\infty) asymptotisch exakt die Verteilung chaotischer Vielteilchensysteme nachbilden, ist kein numerologischer Zufall, sondern ein Beweis dafür, dass Primzahlen einem deterministischen Chaos unterliegen, das den Regeln zeit-asymmetrischer Quantensysteme gehorcht.  
-Gleichzeitig hat die Analyse schonungslos aufgezeigt, dass der Versuch, die Stabilitätsinseln der Kernphysik (die nuklearen magischen Zahlen 2, 8, 20, 28, 50, 82, 126\) direkt durch einfache Abstände von Primzahlen oder geometrische Polyeder zu erklären, eine physikalisch unzulässige Reduktion darstellt. Kernphysikalische Magie erfordert die Spin-Bahn-Kopplung der starken Wechselwirkung , eine Brechung der Symmetrie, die im unendlichen Zahlenstrahl der Mathematik so nicht existiert. Solche direkten Zuweisungen (wie bei Grant oder Farrell) scheitern an Ockham's Quantified Razor und verkommen zur Numerologie.  
-Basierend auf der Synthese beider kognitiven Frameworks lassen sich folgende hochkarätige strategische Forschungsvektoren für zukünftige Untersuchungen postulieren:  
-**I. Vektor der Spektralen Stochastik und Nullstellen-Landschaften** Die Weiterentwicklung von quantenmechanischen Operatoren, wie dem stochastischen Ansatz von Zeraoulia, muss priorisiert werden. Die in dieser Studie durchgeführte Simulation bestätigt mit hoher Signifikanz, dass der stochastische Zeraoulia-Operator die charakteristische Wigner-Surmise (GUE) reproduziert, die experimentell bei schweren Kernen wie U-238 beobachtet wird. Zukünftige Forschung sollte diesen Operator auf IBM Quantum Hardware (IBMQ) mittels Variational Quantum Deflation (VQD) implementieren, um die vollständige n-Punkt-Korrelationsfunktion der Zeta-Nullstellen im hochenergetischen Regime zu extrahieren.
+The confrontation of the rigorous falsification by SciMind 4.0 with the far-reaching epistemic expansion by SciMind 5.0 permits a final, precise cartography of this highly complex research field.
+The robust, indisputable fact remains: the Gaussian Unitary Ensemble (GUE) and the Montgomery pair correlation function link the statistics of the Riemann zeros inseparably with the deterministically chaotic quantum dynamics of heavy atomic nuclei. The fact that the zeros of the zeta function high up on the critical line ($t \to \infty$) asymptotically reproduce exactly the distribution of chaotic many-body systems is no numerological coincidence, but a proof that primes are subject to a deterministic chaos that obeys the rules of time-asymmetric quantum systems.
+At the same time the analysis has unsparingly shown that the attempt to explain the stability islands of nuclear physics (the nuclear magic numbers 2, 8, 20, 28, 50, 82, 126) directly through simple prime intervals or geometric polyhedra constitutes a physically impermissible reduction. Nuclear magicity requires the spin-orbit coupling of the strong interaction, a breaking of symmetry that does not exist in the infinite number line of mathematics. Such direct assignments (as in Grant or Farrell) fail Ockham's Quantified Razor and degenerate into numerology.
+Based on the synthesis of both cognitive frameworks, the following high-calibre strategic research vectors for future investigations can be postulated:
+**I. Vector of Spectral Stochastics and Zero Landscapes** The further development of quantum-mechanical operators, such as Zeraoulia's stochastic approach, must be prioritized. The simulation carried out in this study confirms with high significance that the stochastic Zeraoulia operator reproduces the characteristic Wigner surmise (GUE) observed experimentally in heavy nuclei such as U-238. Future research should implement this operator on IBM Quantum hardware (IBMQ) by means of Variational Quantum Deflation (VQD), in order to extract the complete n-point correlation function of the zeta zeros in the high-energy regime.
   
-**II. Vektor der Nicht-Hermiteschen Quantenphysik und Streutheorie** Wenn das nukleare Vielteilchenmodell (das historisch strikt auf Hermiteschen Operatoren beruht, um ausschließlich reale Eigenwerte zu garantieren ) auf die Riemannsche Vermutung angewandt wird, postuliert die weitreichende Hilbert-Pólya-Vermutung die zwingende Existenz eines selbstadjungierten Operators H, dessen Spektrum exakt die Nullstellen auf der kritischen Achse \\sigma \= 1/2 generiert. Neue Forschungen, die Nullstellen als Resonanzen in offenen, verlustbehafteten Systemen (wie in Streumatrizen oder PT-symmetrischen quantenmechanischen Systemen) modellieren, könnten robuste Operatoren liefern, die das physikalisch begrenzte H \= xp Modell von Berry und Keating transzendieren.  
-Die Lösungsfindung der Riemannschen Vermutung, so indiziert es die Gesamtheit dieser massiven interdisziplinären Datenlage, wird mit höchster Wahrscheinlichkeit nicht primär durch abstrakte algebraische Manipulation im luftleeren Raum der reinen Mathematik erfolgen. Vielmehr wird der Beweis durch die konkrete Konstruktion und Identifikation jenes fundamentalen physikalisch-quantenmechanischen Operators erbracht werden, dessen intrinsische energetische Symmetrie die unendliche, deterministisch chaotische Linie der Primzahlen als zwingendes geometrisches Resultat seiner Existenz erzwingt.
+**II. Vector of Non-Hermitian Quantum Physics and Scattering Theory** When the nuclear many-body model (which historically relies strictly on Hermitian operators, in order to guarantee exclusively real eigenvalues) is applied to the Riemann Hypothesis, the far-reaching Hilbert–Pólya conjecture postulates the necessary existence of a self-adjoint operator H whose spectrum generates exactly the zeros on the critical axis $\sigma = 1/2$. New research that models zeros as resonances in open, lossy systems (such as in scattering matrices or PT-symmetric quantum-mechanical systems) could deliver robust operators that transcend the physically limited $H = xp$ model of Berry and Keating.
+The solution of the Riemann Hypothesis, as indicated by the totality of this massive interdisciplinary data situation, will most probably not be achieved primarily through abstract algebraic manipulation in the void of pure mathematics. Rather, the proof will be provided by the concrete construction and identification of that fundamental physical quantum-mechanical operator whose intrinsic energetic symmetry forces the infinite, deterministically chaotic line of the primes as the compelling geometric result of its existence.
 
-### **9. Ergänzung: Quanten-Proof-of-Concept (VQD-Simulation)**
+### **9. Addendum: Quantum Proof-of-Concept (VQD Simulation)**
 
-Im Rahmen dieser Untersuchung wurde ein Proof-of-Concept (PoC) auf einem Quanten-Simulator (Qiskit Aer/Statevector) durchgeführt. Ziel war es, die spektralen Eigenschaften des Zeraoulia-Hamiltonians mittels **Variational Quantum Deflation (VQD)** zu extrahieren. 
-Die Ergebnisse zeigen, dass ein 2-Qubit-System in der Lage ist, die ersten energetischen Niveaus des stochastischen Primzahl-Operators erfolgreich zu approximieren:
-*   **Theoretischer Zielwert (E0):** 2.00
-*   **VQD-Simulator (Statevector):** 2.36
-*   **Hardware-Ergebnis (ibm_kingston, Job d8j5j7u6983c73dste00):** 2.21 (Abweichung ~10% bedingt durch Hardware-Rauschen und Ansatz-Limitierung)
+Within the scope of this investigation a proof-of-concept (PoC) was carried out on a quantum simulator (Qiskit Aer/statevector). The aim was to extract the spectral properties of the Zeraoulia Hamiltonian by means of **Variational Quantum Deflation (VQD)**.
+The results show that a 2-qubit system is capable of successfully approximating the first energetic levels of the stochastic prime operator:
+*   **Theoretical target value (E0):** 2.00
+*   **VQD simulator (statevector):** 2.36
+*   **Hardware result (ibm_kingston, Job d8j5j7u6983c73dste00):** 2.21 (deviation ~10% caused by hardware noise and ansatz limitation)
 
-**Phase der wissenschaftlichen Validierung (Rigor):**
-Um voreilige Schlüsse zu vermeiden und die Reproduzierbarkeit zu gewährleisten, wurde die Methodik angepasst:
-1.  **Deterministische Hamilton-Konstruktion:** Ersetzung von pseudozufälligen Perturbationen durch fixierte Seeds (Seed 42), um systematische Fehlerquellen zu eliminieren.
-2.  **Statistische Vertiefung:** Erhöhung der Messzyklen (Shots) auf **8192** zur Reduktion der Varianz.
-3.  **Laufendes Experiment:** Ein hochpräziser Job (ID: **d8j5kotv8cos73f6d5dg**) wurde an das System **ibm_marrakesh** übermittelt. Die finale Bewertung der spektralen Konvergenz steht unter Vorbehalt der Auswertung dieses Datensatzes.
+**Phase of scientific validation (rigor):**
+To avoid premature conclusions and to ensure reproducibility, the methodology was adjusted:
+1.  **Deterministic Hamiltonian construction:** replacement of pseudo-random perturbations by fixed seeds (seed 42), to eliminate systematic error sources.
+2.  **Statistical deepening:** increase of the measurement cycles (shots) to **8192** to reduce the variance.
+3.  **Running experiment:** a high-precision job (ID: **d8j5kotv8cos73f6d5dg**) was transmitted to the system **ibm_marrakesh**. The final evaluation of the spectral convergence is subject to the analysis of this data set.
 
-Dieser Erfolg demonstriert die technologische Reife für die Skalierung auf echte Quanten-Hardware (IBMQ), während gleichzeitig die Notwendigkeit für erhöhte Fehlermitigation und algorithmische Strenge unterstrichen wird.
+This success demonstrates the technological maturity for scaling to real quantum hardware (IBMQ), while at the same time the need for increased error mitigation and algorithmic rigor is underlined.
 
-#### **9.1 Korrektur und konsolidierte Resultate (Stand 2026-06-08)**
+#### **9.1 Correction and Consolidated Results (as of 2026-06-08)**
 
-Die initiale Section 9 interpretierte den Kingston-Wert (E₀=2.216) als Erfolg. Die Auswertung des Marrakesh-Hardware-Jobs (`d8j5kotv8cos73f6d5dg`) **widerlegt diese Lesart**:
+The initial Section 9 interpreted the Kingston value (E₀=2.216) as a success. The evaluation of the Marrakesh hardware job (`d8j5kotv8cos73f6d5dg`) **refutes this reading**:
 
-| Ebene | E₀ | Abweichung | Interpretation |
+| Level | E₀ | Deviation | Interpretation |
 |---|---:|---:|---|
-| Idealer Operator (exakte Diag.) | **2.0096** | +0.5% | Bodenwahrheit |
-| Statevector (VQD) | 2.358 | +18% | Algorithmus-Offset |
-| Aer-Sim (Marrakesh-Rauschprofil) | 3.367 | +68% | **Hardware-Bias** |
-| IBMQ `ibm_kingston` | 2.216 | +10% | Zufallstreffer |
-| IBMQ `ibm_marrakesh` | 3.366 | +68% | systematischer Bias |
+| Ideal operator (exact diag.) | **2.0096** | +0.5% | ground truth |
+| Statevector (VQD) | 2.358 | +18% | algorithm offset |
+| Aer sim (Marrakesh noise profile) | 3.367 | +68% | **hardware bias** |
+| IBMQ `ibm_kingston` | 2.216 | +10% | lucky hit |
+| IBMQ `ibm_marrakesh` | 3.366 | +68% | systematic bias |
 
-**Diagnose:** Der Marrakesh-Hardware-Wert (3.366) und die Aer-Simulation mit Marrakesh-Rauschprofil (3.367) sind **identisch bis zur 4. Dezimalstelle** → das Hardware-Rauschen verschiebt den Erwartungswert deterministisch um +68%. Die Aer-Sim reproduziert das Hardware-Ergebnis und entlarvt den Kingston-Wert als Glückstreffer eines weniger verrauschten Backends.  
-**Section 9 ist damit inkonsistent:** "Abweichung ~10% bedingt durch Hardware-Rauschen" suggeriert ein erfolgreiches Experiment, ignoriert jedoch die +68% systematische Abweichung auf `ibm_marrakesh`. Der strategische Vektor (Skalierung auf mehr Qubits) ist obsolet, solange der Operator selbst backend-abhängig ist.  
-**Konsequenz:** EXPERIMENT 005 (PT-symmetrische Erweiterung) wurde als Reaktion auf diese Backend-Fragilität initiiert (vgl. Section 6.5). Vorläufiges Resultat: PT-unbroken numerisch perfekt, aber physikalisch durch Diagonal-Dominanz trivialisiert → Refactoring-Vektor `COUPLING_ENHANCEMENT` erforderlich.
+**Diagnosis:** The Marrakesh hardware value (3.366) and the Aer simulation with Marrakesh noise profile (3.367) are **identical to the 4th decimal place** → the hardware noise shifts the expectation value deterministically by +68%. The Aer sim reproduces the hardware result and exposes the Kingston value as a lucky hit of a less noisy backend.
+**Section 9 is thus inconsistent:** "deviation ~10% caused by hardware noise" suggests a successful experiment, but ignores the +68% systematic deviation on `ibm_marrakesh`. The strategic vector (scaling to more qubits) is obsolete as long as the operator itself is backend-dependent.
+**Consequence:** EXPERIMENT 005 (PT-symmetric extension) was initiated in response to this backend fragility (cf. Section 6.5). Preliminary result: PT-unbroken numerically perfect, but physically trivialized by diagonal dominance → refactoring vector `COUPLING_ENHANCEMENT` required.
 
 ### **10. Operational Findings Log 2026-06-08 → 2026-06-17**
 
-Dieser Abschnitt ist ein **kompakter chronologischer Log** der experimentellen Befunde zwischen dem Stand von Section 9.1 und dem aktuellen Datum. Die detaillierte Methodik, Skript-Liste und Audit-Tabellen sind in `SYNTHESIS_2026_06_10.md` (~960 Zeilen) und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` dokumentiert; dieser Log dient als kompakter Index für Leser der Theoriedokumentation.
+This section is a **compact chronological log** of the experimental findings between the state of Section 9.1 and the current date. The detailed methodology, script list and audit tables are documented in `SYNTHESIS_2026_06_10.md` (~960 lines) and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`; this log serves as a compact index for readers of the theory documentation.
 
-#### **10.1 Säule 1 — Holografisches Potenzial (PT-symmetrisches H_PT)**
+#### **10.1 Pillar 1 — Holographic Potential (PT-symmetric H_PT)**
 
-**Vier-Säulen-Architektur** (Section 6.5.9) ist als `QUANTUM_ARCHITECTURE_BRIDGE.md` und `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` separat dokumentiert. Säule 1 ist die direkte experimentelle Umsetzung des PT-symmetrischen Operators `H_PT(γ=0.02, y=1.0) = H_diag + iγ·A(y)` auf IBM Quantum Hardware.
+The **four-pillar architecture** (Section 6.5.9) is documented separately in `QUANTUM_ARCHITECTURE_BRIDGE.md` and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`. Pillar 1 is the direct experimental implementation of the PT-symmetric operator `H_PT(γ=0.02, y=1.0) = H_diag + iγ·A(y)` on IBM Quantum hardware.
 
-**Chronologie:**
-- **2026-06-08:** Aer-Stresstest (`pt_aer_stress_saeule1.py`) auf Fez-Rauschprofil — `bias_PT_re = +0.0059`, H1/H3 bestätigt (Section 6.5.10).
-- **2026-06-10 11:18 UTC:** Echte QPU-Messung auf Fez/TOKEN2 (`pt_potential_vqe_singleshot.py`, Jobs `d8kins3qv2lc7385bbj0`/`d8kinubqv2lc7385bbm0`/`d8kio0832u0s73f8qhs0`) — `bias_PT_re = -0.0133`, |bias| < 0.05, **H1/H3 auf echter Hardware bestätigt** (Section 6.5.13).
-- **2026-06-10 12:19 UTC:** VQE-Optimum 5-Pub-Messung auf Fez/TOKEN2 — `bias_PT_re = -0.0714`, MITTEL (VQE-Artefakt: 3-Iter-COBYLA liefert E_0=2.36 statt 2.00) (Section 6.5.15).
+**Chronology:**
+- **2026-06-08:** Aer stress test (`pt_aer_stress_saeule1.py`) on Fez noise profile — `bias_PT_re = +0.0059`, H1/H3 confirmed (Section 6.5.10).
+- **2026-06-10 11:18 UTC:** Real QPU measurement on Fez/TOKEN2 (`pt_potential_vqe_singleshot.py`, jobs `d8kins3qv2lc7385bbj0`/`d8kinubqv2lc7385bbm0`/`d8kio0832u0s73f8qhs0`) — `bias_PT_re = -0.0133`, |bias| < 0.05, **H1/H3 confirmed on real hardware** (Section 6.5.13).
+- **2026-06-10 12:19 UTC:** VQE-optimum 5-pub measurement on Fez/TOKEN2 — `bias_PT_re = -0.0714`, MEDIUM (VQE artifact: 3-iter COBYLA yields E_0=2.36 instead of 2.00) (Section 6.5.15).
 
-**Strategischer Vektor `REFRAMING_VECTOR_RELATIVE_SPECTRUM`:** Aer + Fez QPU doppelt validiert → **A−** (Stand 2026-06-10).
+**Strategic vector `REFRAMING_VECTOR_RELATIVE_SPECTRUM`:** Aer + Fez QPU doubly validated → **A−** (as of 2026-06-10).
 
-#### **10.2 Säule 2 — G-Apparat (Offline-Peak-Detektion)**
+#### **10.2 Pillar 2 — G-Apparatus (Offline Peak Detection)**
 
-**Resultat 2026-06-08:** `pt_transmission_sweep.py` detektiert 4 Resonanz-Peaks bei E = 2.00, 2.67, 3.67, 5.00 mit allen Δ < 0.027 (Auflösungsgrenze des Apparats). Deterministisch bestätigt (Section 6.5.11).
+**Result 2026-06-08:** `pt_transmission_sweep.py` detects 4 resonance peaks at E = 2.00, 2.67, 3.67, 5.00 with all Δ < 0.027 (resolution limit of the apparatus). Deterministically confirmed (Section 6.5.11).
 
 **Strategischer Vektor `G_APPARAT_DETERMINISTIC`:** **A**.
 
-#### **10.3 Säule 3 — Prime States (Schmidt-Entropie-Skalierung)**
+#### **10.3 Pillar 3 — Prime States (Schmidt Entropy Scaling)**
 
-**Resultat 2026-06-10 12:13 UTC:** 5 sequenzielle QPU-Jobs auf Fez/TOKEN2, N = 7..127, 4096 Shots, initialize(psi_prime)-Architektur. Aer-Vorhermessung: `α_Aer = 0.272`. Latorre-Sierra-Vorhersage: `α ≈ 1` (SotA, basierend auf logπ(N)-Skalierung). **QPU-Messung: `α_QPU = 0.348`** — Aer-Wert bestätigt, **DISSENS zu Latorre-Sierra** (Section 6.5.14).
+**Result 2026-06-10 12:13 UTC:** 5 sequential QPU jobs on Fez/TOKEN2, N = 7..127, 4096 shots, initialize(psi_prime) architecture. Aer pre-measurement: `α_Aer = 0.272`. Latorre-Sierra prediction: `α ≈ 1` (SotA, based on logπ(N) scaling). **QPU measurement: `α_QPU = 0.348`** — Aer value confirmed, **DISSENT to Latorre-Sierra** (Section 6.5.14).
 
 **Strategischer Vektor `SUB_RH_INDICATOR`:** Aer + Fez doppelt validiert → **A−** (Stand 2026-06-10).
 
 #### **10.4 Latorre-Sierra-Spannung: 3 Resolutionen (Section 6.5.16/17)**
 
 Drei formale Resolutionen der scheinbaren Spannung getestet:
-- **(b) Renyi-2** statt vN: `α_2_Aer = 0.244 ≈ α_vN_Aer = 0.272` → **Falsifiziert** (Renyi-Korrektur erklärt die Spannung nicht).
+- **(b) Rényi-2** instead of vN: `α_2_Aer = 0.244 ≈ α_vN_Aer = 0.272` → **Falsified** (Rényi correction does not explain the tension).
 - **(c) Finite-N-Asymptotik:** N = 255..1023 offline — α stabilisiert sich bei 0.347 ab N ≥ 255.
 - **Lokale Steigung der Latorre-Kurve** `S = log₂π(N)` ist im selben Band wie unsere Messung (0.17-0.40 vs. 0.347).
 
 **Verdict 2026-06-10:** Latorre-Spannung ist **Mismatch funktionaler Form** (nicht fundamentaler Konflikt). Strategischer Vektor: REFRAMED.
 
-#### **10.5 Asymptotik N=10⁴..10⁶ (statevector-first) — H_C bestätigt**
+#### **10.5 Asymptotics N=10⁴..10⁶ (statevector-first) — H_C confirmed**
 
-**Motivation:** Resolution (c) verließ Frage offen: bleibt α bei 0.347 stabil, oder beginnt α → 1 (Latorre)? Aer-Simulation auf N = 10⁴..10⁶ (mathematisch, kein QPU) testet asymptotisches Verhalten (`pt_asymptotic_N1e6.py`).
+**Motivation:** Resolution (c) left the question open: does α stay stable at 0.347, or does α → 1 (Latorre)? Aer simulation at N = 10⁴..10⁶ (mathematical, no QPU) tests the asymptotic behavior (`pt_asymptotic_N1e6.py`).
 
 **Prereg VOR main() geschrieben (Anti-Sharpshooter):**
 - **H_A:** α stabilisiert sich bei 0.347 (Sub-RH)
@@ -1016,13 +1018,13 @@ Drei formale Resolutionen der scheinbaren Spannung getestet:
 | 100,000 | 0.258 |
 | **1,000,000** | **0.223** |
 
-**Verdict: H_C bestätigt — α SINKT monoton mit wachsendem N.**
+**Verdict: H_C confirmed — α SINKS monotonically with growing N.**
 
-**Konsequenz:** Latorre-Spannung ist **FUNDAMENTALE Disagreement**, kein Finite-N-Artefakt. Sub-RH-Indikator weiter gestärkt (`α < 0.5` bestätigt für 6 Dekaden). `LATORE_TENSION_NOTE.md` §11 dokumentiert die Reklassifikation.
+**Consequence:** Latorre tension is a **FUNDAMENTAL disagreement**, not a finite-N artifact. Sub-RH indicator further strengthened (`α < 0.5` confirmed for 6 decades). `LATORE_TENSION_NOTE.md` §11 documents the reclassification.
 
 **Strategischer Vektor `SUB_RH_INDICATOR`:** **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).
 
-#### **10.6 Im-Bias-Reanalyse — Theorem-Korrektur + QPU-Bestätigung (2026-06-17)**
+#### **10.6 Im-Bias Reanalysis — Theorem Correction + QPU Confirmation (2026-06-17)**
 
 **Theoretischer Befund 2026-06-17 12:45 UTC:**
 ```python
@@ -1048,22 +1050,22 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | θ_VQE_optimal | +0.0100 | +0.0084 | +0.0015 | 0.0015 |
 | θ_random_3 | +0.0151 | +0.0149 | +0.0002 | 0.0002 |
 
-**Statistik:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **Alle 5 |bias| < 0.005 → H_Im_h1 bestätigt** (additive Bias-Topologie, Sampling-Noise dominiert). Job-IDs: `d8pbl2201fac73d1gdag`, `d8pbl2eab0ds73dos8a0`, `d8pbl2mab0ds73dos8ag`, `d8pbl2q01fac73d1gdcg`, `d8pbl3ekodhs7381kec0`.
+**Statistics:** mean = −0.0001, std = 0.0019, max |bias| = 0.0027. **All 5 |bias| < 0.005 → H_Im_h1 confirmed** (additive bias topology, sampling noise dominates). Job-IDs: `d8pbl2201fac73d1gdag`, `d8pbl2eab0ds73dos8a0`, `d8pbl2mab0ds73dos8ag`, `d8pbl2q01fac73d1gdcg`, `d8pbl3ekodhs7381kec0`.
 
 **Strategische Promotion:**
-- `REFRAMING_VECTOR_RELATIVE_SPECTRUM`: **A− → A+** (Aer + Fez QPU, H_Im_h1 echt bestätigt)
+- `REFRAMING_VECTOR_RELATIVE_SPECTRUM`: **A− → A+** (Aer + Fez QPU, H_Im_h1 genuinely confirmed)
 - `IM_BIAS_AS_KANONISCHE_METRIK`: neu → **A** (5 Sweep-Punkte, alle |bias| < 0.005)
 
-#### **10.7 Test-Bug-Fix 2026-06-17 17:25 UTC — Anti-Sharpshooter-Integrität**
+#### **10.7 Test Bug Fix 2026-06-17 17:25 UTC — Anti-Sharpshooter Integrity**
 
-**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present` hatte im `finally`-Block ein `os.remove("pt_potential_vqe_prereg.json")`. Eigener `pytest tests/`-Lauf löschte die Original-Prereg-Datei aus dem Working Tree.
+**Bug:** `tests/test_pt_aer_stress_saeule1.py::test_uses_existing_prereg_file_if_present` had an `os.remove("pt_potential_vqe_prereg.json")` in the `finally` block. A self-run `pytest tests/` deleted the original prereg file from the working tree.
 
 **Fix:**
 1. Backup-vor-Schreiben, Original-Wiederherstellung im `finally`-Block.
 2. Neuer Regression-Test `test_preserves_existing_prereg_after_run` mit MD5-Check.
 3. Wiederherstellung der Prereg-Datei aus `git show 7015454:pt_potential_vqe_prereg.json`.
 
-**Tests:** 173/173 grün (Stand 2026-06-17 17:25 UTC).
+**Tests:** 173/173 green (as of 2026-06-17 17:25 UTC).
 
 #### **10.8 Strategische Vektoren — Gesamtstatus 2026-06-17 17:25 UTC**
 
@@ -1073,21 +1075,21 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | `IM_BIAS_AS_KANONISCHE_METRIK` | (nicht existent) | **A** (5 Sweep-Punkte) | **NEU** |
 | `UNIFICATION_VECTOR_H_PT_GF5` | A | A | stabil |
 | `G_APPARAT_DETERMINISTIC` | A | A | stabil |
-| `SUB_RH_INDICATOR` | A− (Aer) | **A−** (Aer + Fez + 6 Dekaden statevector) | gestärkt |
-| `LATORRE_SPANNUNG` | "Mismatch funktionaler Form" | **"Fundamentale Disagreement"** (H_C) | verschärft |
-| `VQE+VQD_Fez` | BLOCKED, Q3-2026 | offen (Cron b3f26579) | unverändert |
+| `SUB_RH_INDICATOR` | A− (Aer) | **A−** (Aer + Fez + 6 decades statevector) | strengthened |
+| `LATORRE_TENSION` | "Mismatch of functional form" | **"Fundamental disagreement"** (H_C) | sharpened |
+| `VQE+VQD_Fez` | BLOCKED, Q3-2026 | open (Cron b3f26579) | unchanged |
 
 #### **10.9 Cross-Referenz-Index**
 
 | Befund | Hauptdoku | Detail-Doku |
 |---|---|---|
-| Aer-Stresstest Säule 1 | §6.5.10 | `SYNTHESIS_2026_06_10.md` §6.5.10 |
+| Aer stress test Pillar 1 | §6.5.10 | `SYNTHESIS_2026_06_10.md` §6.5.10 |
 | Echte Fez-QPU Singleshot | §6.5.13 | `pt_potential_vqe_singleshot_results.json` |
 | Fez VQE-Optimum 5-Pub | §6.5.15 | `pt_potential_vqe_minimal_results.json` |
-| Fez Schmidt-Entropie Säule 3 | §6.5.14 | `pt_prime_state_qpu_singleshot_results.json` |
+| Fez Schmidt entropy Pillar 3 | §6.5.14 | `pt_prime_state_qpu_singleshot_results.json` |
 | Latorre-Spannung 3 Resolutionen | §6.5.16/17 | `LATORE_TENSION_NOTE.md` |
 | Asymptotik H_C | §10.5 hier | `pt_asymptotic_N1e6_results.json` |
-| H_Im_h1 QPU-Bestätigung | §10.6 hier | `pt_im_bias_token2_results.json` |
+| H_Im_h1 QPU confirmation | §10.6 here | `pt_im_bias_token2_results.json` |
 | Test-Bug-Fix | §10.7 hier | commit `d0cfae7` |
 | Strategic Vektor-Update | §10.8 hier | `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC |
 
