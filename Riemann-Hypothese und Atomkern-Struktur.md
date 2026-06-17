@@ -1,5 +1,24 @@
 # **Transkategoriale Synthese der Riemannschen Vermutung und nuklearer Stabilität: Eine analytische Untersuchung mittels SystemicRigorMind und Epistemic Meta-Cognition**
 
+## Document Map
+
+Dieses Dokument ist die **primäre Forschungs-Repository** des Riemann-Nuclear-Synthesis-Projekts. Sections 1–9 enthalten die Theorie und Audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-06-17") ist das operative Logbuch der jüngsten QPU-Validierungen.
+
+| Datei | Status | Rolle |
+|---|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
+| [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` (Backwards-Compat für Gemini-CLI) |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
+| [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
+| [`LATORE_SPANNUNG_NOTE.md`](LATORE_SPANNUNG_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
+| [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
+| [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez-Kontingent-Block (resolved 6/17) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
+| [`Quantencomputer und Primzahlen_ Forschung.md`](Quantencomputer%20und%20Primzahlen_%20Forschung.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
+
+Kanonischer Cross-Referenz-Index: **§10.9** unten.
+
 ## **1\. Einleitung und epistemologische Verortung**
 
 Die fundamentale Architektur des physikalischen Universums und die intrinsische Struktur der reinen Mathematik weisen an ihren tiefsten epistemologischen Schnittstellen Isomorphismen auf, die über bloße Koinzidenzen hinauszugehen scheinen. Ein zentraler Knotenpunkt dieser Intersektion ist die tiefgreifende Beziehung zwischen der analytischen Zahlentheorie – insbesondere der Riemannschen Vermutung (Riemann Hypothesis, RH) sowie der Verteilung von Primzahlen – und der Quantenmechanik, hier im Speziellen der nuklearen Schalenstruktur und den Energieniveaus schwerer Atomkerne. Die Untersuchung dieser Beziehung erfordert ein Instrumentarium, das sich nicht mit oberflächlicher Mustererkennung (Apophenie) zufriedengibt, sondern radikale epistemische Strenge anwendet, um numerologische Täuschungen von genuinen physikalisch-mathematischen Symmetrien zu trennen.  
