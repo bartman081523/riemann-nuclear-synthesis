@@ -1,0 +1,14 @@
+{
+  "hypotheses": {
+    "H_A_sub_rh_alpha_0347": "alpha stabilisiert sich bei ~0.347 \u2014 unsere finite-N-Messung extrapoliert",
+    "H_B_latorre_alpha_1": "alpha -> 1 as N -> inf \u2014 Latorre-Sierra Asymptotik korrekt",
+    "H_C_other": "alpha konvergiert zu einem anderen Power-Law-Exponenten"
+  },
+  "n_values": [
+    10000,
+    100000,
+    1000000
+  ],
+  "decision_rule": "H_A bestaetigt: alpha_full (11 Punkte) \u2208 [0.30, 0.40] UND alpha(N_max=10^6) \u2208 [0.30, 0.40] UND |alpha(N_max=10^6) - alpha(N_max=1023)| < 0.05. H_B bestaetigt: alpha(N_max=10^6) > 0.7. H_C sonst.",
+  "anti_sharpshooter": "Prereg wurde VOR Ausfuehrung von main() geschrieben. Keine ex-post Anpassung der Hypothesen."
+}

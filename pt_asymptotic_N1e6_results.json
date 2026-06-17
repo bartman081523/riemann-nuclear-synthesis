@@ -1,0 +1,102 @@
+{
+  "prereg_file": "pt_asymptotic_N1e6_prereg.json",
+  "n_existing_points": 8,
+  "n_new_points": 3,
+  "N_list_all": [
+    7,
+    15,
+    31,
+    63,
+    127,
+    255,
+    511,
+    1023,
+    10000,
+    100000,
+    1000000
+  ],
+  "alpha_vN_full_fit": 0.22275345050922138,
+  "log_a_vN": -0.7192169090417907,
+  "alpha_2_full_fit": 0.07858043682181515,
+  "incremental_alpha_vN": [
+    {
+      "N_max": 31,
+      "n_pts": 3,
+      "alpha_vN": 0.33305202609341633
+    },
+    {
+      "N_max": 63,
+      "n_pts": 4,
+      "alpha_vN": 0.2597306718152198
+    },
+    {
+      "N_max": 127,
+      "n_pts": 5,
+      "alpha_vN": 0.2718751073071342
+    },
+    {
+      "N_max": 255,
+      "n_pts": 6,
+      "alpha_vN": 0.34335334422993624
+    },
+    {
+      "N_max": 511,
+      "n_pts": 7,
+      "alpha_vN": 0.34660441634713357
+    },
+    {
+      "N_max": 1023,
+      "n_pts": 8,
+      "alpha_vN": 0.34749400912938905
+    },
+    {
+      "N_max": 10000,
+      "n_pts": 9,
+      "alpha_vN": 0.3058497886833033
+    },
+    {
+      "N_max": 100000,
+      "n_pts": 10,
+      "alpha_vN": 0.2575878229816306
+    },
+    {
+      "N_max": 1000000,
+      "n_pts": 11,
+      "alpha_vN": 0.22275345050922138
+    }
+  ],
+  "new_data_points": [
+    {
+      "N": 10000,
+      "n_qubits": 14,
+      "n_A": 7,
+      "pi_N": 1229,
+      "S_vN": 4.672241830479666,
+      "S_2": 3.4920940525904736,
+      "n_schmidt_nonzero": 65,
+      "computation_seconds": 0.0074462890625
+    },
+    {
+      "N": 100000,
+      "n_qubits": 17,
+      "n_A": 8,
+      "pi_N": 9592,
+      "S_vN": 5.924327731498289,
+      "S_2": 4.314272340036849,
+      "n_schmidt_nonzero": 129,
+      "computation_seconds": 0.13108444213867188
+    },
+    {
+      "N": 1000000,
+      "n_qubits": 20,
+      "n_A": 10,
+      "pi_N": 78498,
+      "S_vN": 7.539223986336283,
+      "S_2": 5.014721348193617,
+      "n_schmidt_nonzero": 513,
+      "computation_seconds": 2.9624314308166504
+    }
+  ],
+  "verdict": "H_C (anderes Power-Law)",
+  "total_runtime_seconds": 3.101879358291626
+}
