@@ -1,0 +1,43 @@
+{
+  "preregistered_at": "2026-06-17 18:35 UTC",
+  "purpose": "QBER-vs-Im_bias correlation test on Fez/TOKEN2 (5 sweeps)",
+  "rationale": "If Im_bias is noise-driven (hardware decoherence), it should correlate with the Quantum Bit Error Rate (QBER) of a reference circuit. If Im_bias is algorithm-driven (ansatz depth, circuit compilation), QBER and Im_bias should be uncorrelated.",
+  "hypotheses": {
+    "H_Noise_Driven": {
+      "description": "Im_bias correlates with QBER (rho > 0.5)",
+      "implication": "Bias is hardware-decoherence driven; should be reducible by error mitigation",
+      "test_statistic": "Pearson rho(QBER, Im_bias) on 5 points",
+      "threshold": "rho > 0.5"
+    },
+    "H_Bias_Driven": {
+      "description": "Im_bias does NOT correlate with QBER (|rho| < 0.3)",
+      "implication": "Bias is ansatz-/algorithm-driven; irreducible by error mitigation",
+      "test_statistic": "Pearson rho(QBER, Im_bias) on 5 points",
+      "threshold": "|rho| < 0.3"
+    },
+    "H_Qber_Sanity_Statevector": {
+      "description": "Statevector QBER (no noise) == 0 exactly",
+      "implication": "QBER is a meaningful noise indicator (sanity check)",
+      "threshold": "QBER == 0.0 (deterministic |00>)"
+    }
+  },
+  "decision_rule": [
+    "PASS H_Qber_Sanity_Statevector if statevector QBER == 0 exactly.",
+    "On QPU: measure QBER on a |00> reference circuit and Im_bias for the same 5 theta_values as pt_im_bias_token2_results.json.",
+    "Compute Pearson rho(QBER, Im_bias) on the 5 points.",
+    "If rho > 0.5: H_Noise_Driven confirmed.",
+    "If |rho| < 0.3: H_Bias_Driven confirmed.",
+    "If 0.3 <= |rho| <= 0.5: ambiguous (report as AMBIGUOUS)."
+  ],
+  "theta_values_reference": "pt_im_bias_token2_results.json (5 theta_values, identical)",
+  "theta_labels": [
+    "theta_initial",
+    "theta_random_1",
+    "theta_random_2",
+    "theta_VQE_optimal",
+    "theta_random_3"
+  ],
+  "qpu_protocol": "5 sequential 1-Pub jobs on Fez/TOKEN2: each job runs (a) the ansatz on H_imag and (b) a |00> reference circuit. 4096 shots each. Plus 1 statevector baseline run (no QPU cost).",
+  "expected_qpu_cost_minutes": 5,
+  "expected_qpu_evidence_grade": "A- (multi-metric QPU validation)"
+}
