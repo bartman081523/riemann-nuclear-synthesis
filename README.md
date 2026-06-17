@@ -78,6 +78,25 @@ The same Hardy–Littlewood asymptotic that forces nuclear level spacings to com
 
 ---
 
+## Hardware availability (as of 2026-06-17)
+
+**Active IBM Quantum Open Plan accounts:**
+
+| Account | Instance | Backend | Status | Last successful run |
+|---|---|---|---|---|
+| `IBMQ_TOKEN` | `open` | `ibm_fez` (156 qubits) | ⚠️ Quarantine (jobs accepted but QUEUED) | 2026-06-08 |
+| `IBMQ_TOKEN2` | `open-instance` | `ibm_fez` (156 qubits) | ✅ **Open** | 2026-06-17 17:19 UTC |
+
+**Operational policy:**
+- **QPU-time is scarce** — all statevector-first validations MUST be done before any QPU submission.
+- **5 sequential 1-Pub Jobs** (Fez) take ~2 minutes wall-clock; **3-Pub VQE Jobs** take ~5 minutes.
+- **QBER measurement** is encouraged as a complementary hardware-level bias indicator.
+- **Preregistration before main()** is required for every QPU script (Anti-Sharpshooter Protocol).
+
+For real-time account status, check [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) (history) and [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) §"Update 2026-06-17 17:25 UTC" (latest).
+
+---
+
 ## Quickstart
 
 ```bash
@@ -112,8 +131,9 @@ The implementation is organised as four independent "Säulen" (pillars), each wi
 
 | Pillar | Script | Observable | Hardware status |
 |---|---|---|---|
-| Säule 1 (PT potential) | `pt_potential_vqe.py` | Im-bias of PT-symmetric H | **A+** (Fez/TOKEN2) |
-| Säule 2 (G-apparatus) | `pt_transmission_sweep.py` | Transmission spectrum | offline (A−) |
+| Säule 1 (PT potential) | `pt_potential_vqe.py` | Im-bias of PT-symmetric H | **A+** (Fez/TOKEN2, 5 sweeps) |
+| Säule 1 (spectral gaps) | `pt_spectral_gaps.py` | Level repulsion GUE/GOE | **A** (Fez, Job `d8jeuhdv8cos73f6pqc0`) |
+| Säule 2 (G-apparatus) | `pt_transmission_sweep.py` | Transmission spectrum | **A** (deterministic, offline A) |
 | Säule 3 (Prime states) | `pt_prime_state.py` | Schmidt entropy scaling | **A−** (Fez + statevector) |
 | Säule 4 (GF(5) qudits) | `pt_ququint_vqe.py` | Prime-qudit encoding | offline (A−) |
 
