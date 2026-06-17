@@ -9,7 +9,7 @@ Sibling-Topologie:
   CURRENT (primary):   RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md (Sections 1-9 + §10)
   CURRENT (master):    SYNTHESIS_2026_06_10.md (Sections A-Q)
   CURRENT (master):    QUANTUM_ARCHITECTURE_IMPLEMENTATION.md (Mermaid-Architektur + QPU-Updates)
-  CURRENT (preprint):  LATORE_TENSION_NOTE.md (Säule 3 Latorre-Spannung + §11 Asymptotik)
+  CURRENT (preprint):  LATORE_TENSION_NOTE.md (Pillar 3 Latorre tension + §11 Asymptotics)
   REFERENCE:           CLAUDE.md, GEMINI.md, PLAN.md
   SUPERSEDED:          QUANTUM_ARCHITECTURE_BRIDGE.md (frozen 6/8), SAEULE1_FEZ_BLOCKED.md (resolved 6/17)
   EXTERN:              QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md
@@ -496,11 +496,11 @@ graph TD
 | Path A: Theoretical Refinement (Grant iHarmonic) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Section 6.3 (Steelman-Antithesis-Test, Grade C) |
 | Path B: High-Fidelity Simulation (Zeraoulia) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) Sections 6.5.1–6.5.17 (PT-symmetrische Erweiterung, A−) |
 | Path C: Hardware Error Mitigation (Fez) | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Sections J–Q (chronologische Fez-Addenda) |
-| A2ca: Asymptotik N=10^4..10^6, H_C bestätigt | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) §11 (α sinkt monoton) |
+| A2ca: Asymptotics N=10^4..10^6, H_C confirmed | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) §11 (α decreases monotonically) |
 | A2ca17: TOKEN2-Wende | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) §"Update 2026-06-17 17:25 UTC" |
 | A2ca18: H_Im_h1 echt QPU-bestaetigt | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) §Q.5 |
 | A2ca19: Test-Bug-Fix (Prereg-Loeschung) | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) §10.7 |
-| Mermaid-Architektur (Säulen 1–4) | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) |
+| Mermaid architecture (Pillars 1–4) | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) |
 | Strategische Vektoren | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Section C |
 | SciMind-Mandate | [`CLAUDE.md`](CLAUDE.md) |
 
