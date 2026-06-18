@@ -1,0 +1,37 @@
+{
+  "prereg_file": "pt_spectral_scaling_rl2_prereg.json",
+  "backend": "ibm_fez",
+  "instance": "open-instance",
+  "token": "IBMQ_TOKEN2",
+  "gamma": 0.02,
+  "shots": 1024,
+  "resilience_level": 2,
+  "n_qubits_list": [
+    2,
+    3,
+    4
+  ],
+  "method": "3 sequenzielle Estimator-Jobs (n=2,3,4) mit RL=2 (ZNE) auf Fez/TOKEN2",
+  "jobs": [
+    {
+      "n_qubits": 2,
+      "label": "n2_rl2",
+      "estimator_job_id": "d8pnudmkodhs73825ek0",
+      "resilience_level": 2
+    },
+    {
+      "n_qubits": 3,
+      "label": "n3_rl2",
+      "estimator_job_id": "d8pnue6gbcrc73f2b1r0",
+      "resilience_level": 2
+    },
+    {
+      "n_qubits": 4,
+      "label": "n4_rl2",
+      "estimator_job_id": "d8pnueekodhs73825el0",
+      "resilience_level": 2
+    }
+  ],
+  "submission_timestamp": "2026-06-18 05:17:12 UTC",
+  "status": "submitted"
+}

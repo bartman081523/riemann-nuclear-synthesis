@@ -1,0 +1,22 @@
+{
+  "prereg_file": "pt_rem_prereg.json",
+  "backend": "ibm_fez",
+  "n_qubits": 2,
+  "gamma": 0.02,
+  "shots": 1024,
+  "method": "2 sequenzielle Estimator-Jobs (no-REM vs REM) auf n=2 Jacobi-Block",
+  "jobs": [
+    {
+      "use_rem": false,
+      "label": "norem",
+      "estimator_job_id": "d8pnv0q01fac73d21ap0"
+    },
+    {
+      "use_rem": true,
+      "label": "rem",
+      "estimator_job_id": "d8pnv16gbcrc73f2b2dg"
+    }
+  ],
+  "submission_timestamp": "2026-06-18 05:18:28 UTC",
+  "status": "submitted"
+}

@@ -1,0 +1,21 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-18 07:17:06,657: Loading account with the given token. A saved account will not be used.
+======================================================================
+SPECTRAL-SCALING RL=2 RE-RUN auf Fez/TOKEN2
+======================================================================
+Backend: ibm_fez, n_qubits: [2, 3, 4], RL=2
+Prereg: pt_spectral_scaling_rl2_prereg.json
+======================================================================
+
+Prereg hypotheses: ['H_Algorithmus_Bias_Klein_nach_QEC', 'H_Block_Diag_Invariance_Post_QEC']
+Connected: ibm_fez (156 qubits, status=active)
+
+--- Sweep n_qubits=2 ---
+  Estimator Job ID (n=2, RL=2, n2_rl2): d8pnudmkodhs73825ek0
+
+--- Sweep n_qubits=3 ---
+  Estimator Job ID (n=3, RL=2, n3_rl2): d8pnue6gbcrc73f2b1r0
+
+--- Sweep n_qubits=4 ---
+  Estimator Job ID (n=4, RL=2, n4_rl2): d8pnueekodhs73825el0
+
+Job IDs saved: pt_spectral_scaling_rl2_token2_job_ids.json

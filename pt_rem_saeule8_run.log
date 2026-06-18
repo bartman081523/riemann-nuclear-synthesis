@@ -1,0 +1,18 @@
+qiskit_runtime_service._discover_account:WARNING:2026-06-18 07:18:23,654: Loading account with the given token. A saved account will not be used.
+======================================================================
+REM-TEST QPU-SWEEP auf Fez/TOKEN2
+======================================================================
+Backend: ibm_fez, n=2
+Prereg: pt_rem_prereg.json
+======================================================================
+
+Prereg hypotheses: ['H_REM_Reduziert_Bias', 'H_REM_Kein_Effekt']
+Connected: ibm_fez (156 qubits, status=active)
+
+--- Sweep no-REM (Ref) ---
+  Estimator Job ID (REM=False, norem): d8pnv0q01fac73d21ap0
+
+--- Sweep with-REM ---
+  Estimator Job ID (REM=True, rem): d8pnv16gbcrc73f2b2dg
+
+Job IDs saved: pt_rem_token2_job_ids.json

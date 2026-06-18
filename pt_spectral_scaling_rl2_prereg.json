@@ -1,0 +1,38 @@
+{
+  "preregistered_at": "2026-06-17 21:25 UTC",
+  "purpose": "Re-Run des Spectral-Scaling-Tests (§10.11) mit resilience_level=2 (Zero-Noise Extrapolation), um den Hardware-Bias-Anteil zu eliminieren und den reinen Algorithmus-Bias zu isolieren.",
+  "rationale": "§10.12 zeigte H_QEC_Eliminates_Bias PASS (3.1x Bias-Reduktion auf n=2). Hypothese: Diese Reduktion ist konsistent über n=2,3,4. Wenn ja, ist der Algorithmus-Bias-Anteil (post-QEC) in der gleichen Größenordnung für alle n, was die Jacobi-Block-Invarianz noch sauberer validiert.",
+  "hypotheses": {
+    "H_Algorithmus_Bias_Klein_nach_QEC": {
+      "description": "Nach RL=2 ZNE ist |bias| < 0.025 für alle n ∈ {2, 3, 4}.",
+      "implication": "Algorithmus-Bias-Anteil ist klein (0.021 war n=2) und unabhängig von n.",
+      "test_statistic": "max_n |bias_RL2_n|",
+      "threshold": "< 0.025"
+    },
+    "H_Block_Diag_Invariance_Post_QEC": {
+      "description": "QPU-<A>-Werte nach RL=2 sind in einem 2σ-Band konsistent über n=2,3,4.",
+      "implication": "Jacobi-Block-Invarianz bleibt auch nach QEC-Bias-Elimination bestehen — die algebraische Identität ist nicht durch QEC-Overhead gestört.",
+      "test_statistic": "max_n |QPU_n - mean(QPU)|",
+      "threshold": "< 2σ"
+    }
+  },
+  "decision_rule": [
+    "3 sequenzielle Estimator-Jobs auf Fez/TOKEN2, n ∈ {2, 3, 4}, resilience_level=2, 1024 shots.",
+    "Vergleiche mit statevector-Referenz und mit RL=1-Ergebnissen aus §10.11.",
+    "PASS H_Algorithmus_Bias_Klein_nach_QEC wenn alle 3 Bias-Werte |bias| < 0.025.",
+    "PASS H_Block_Diag_Invariance_Post_QEC wenn alle 3 QPU-<A>-Werte im 2σ-Band der mean liegen."
+  ],
+  "method": {
+    "ansatz": "n_local(n, 'ry', 'cx', 'linear', reps=1)",
+    "theta": "[0.523, 1.21, -0.45, 0.88] (zyklisch erweitert)",
+    "observable": "A (Jacobi-Kopplungs-Matrix)",
+    "shots": 1024,
+    "resilience_level": 2,
+    "backend": "ibm_fez",
+    "instance": "open-instance",
+    "token": "IBMQ_TOKEN2"
+  },
+  "qpu_evidence_grade": "A (Replikation mit QEC)",
+  "expected_qpu_cost_minutes": 5,
+  "expected_qpu_cost_jobs": 3
+}

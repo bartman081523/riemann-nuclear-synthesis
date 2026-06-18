@@ -1,0 +1,41 @@
+{
+  "preregistered_at": "2026-06-18 07:20 UTC",
+  "purpose": "Readout-Error-Mitigation (REM) Test: Trennt Readout-Bias von Gate-Bias. ZNE (RL=2) eliminiert Gate-Bias, REM eliminiert Readout-Bias. Direkter Vergleich: ohne-Mitigation vs nur-REM.",
+  "rationale": "§10.12 zeigte, dass ZNE (resilience_level=2) den Bias um 3.1x reduziert. Aber ZNE adressiert GATE-Error, nicht READOUT-Error. Wenn der verbleibende Algorithmus-Bias (0.021) ein Readout-Error ist, sollte REM ihn ähnlich reduzieren. Wenn der Algorithmus-Bias unabhängig von QEC/REM ist, bleibt er konstant.",
+  "hypotheses": {
+    "H_REM_Reduziert_Bias": {
+      "description": "Readout-Error-Mitigation (T-REx) reduziert |bias| auf < 0.025.",
+      "implication": "Readout-Error ist ein signifikanter Bias-Beitrag; REM ist eine alternative Mitigation zu ZNE.",
+      "test_statistic": "|bias_REM|",
+      "threshold": "< 0.025"
+    },
+    "H_REM_Kein_Effekt": {
+      "description": "REM reduziert |bias| nicht unter 0.025 (gleicher Algorithmus-Anteil wie ZNE).",
+      "implication": "Algorithmus-Bias ist unabhängig von QEC/REM, also weder Gate- noch Readout-dominiert. Echte algorithmische Quelle.",
+      "test_statistic": "|bias_REM|",
+      "threshold": ">= 0.025"
+    }
+  },
+  "decision_rule": [
+    "2 sequenzielle Estimator-Jobs auf Fez/TOKEN2, n=2, RL=1 (Gate-Mitigation aus), 1024 shots.",
+    "Job 1: ohne REM (Referenz = §10.12 RL=1, no QEC).",
+    "Job 2: mit REM (measure_mitigation=True).",
+    "Vergleiche |bias_noREM| und |bias_REM|.",
+    "PASS H_REM_Reduziert_Bias wenn |bias_REM| < 0.025.",
+    "Cross-check: Vergleich mit ZNE (RL=2) zeigt, ob REM oder ZNE effektiver ist."
+  ],
+  "method": {
+    "ansatz": "n_local(2, 'ry', 'cx', 'linear', reps=1)",
+    "theta": [0.523, 1.21, -0.45, 0.88],
+    "observable": "A (Jacobi-Kopplungs-Matrix)",
+    "shots": 1024,
+    "resilience_level": 1,
+    "measure_mitigation": "True (für REM-Job)",
+    "backend": "ibm_fez",
+    "instance": "open-instance",
+    "token": "IBMQ_TOKEN2"
+  },
+  "qpu_evidence_grade": "A (Bias-Quellen-Triangulation)",
+  "expected_qpu_cost_minutes": 3,
+  "expected_qpu_cost_jobs": 2
+}
