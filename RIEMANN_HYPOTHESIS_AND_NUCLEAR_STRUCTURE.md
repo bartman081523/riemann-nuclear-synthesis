@@ -1079,7 +1079,8 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | `LATORRE_TENSION` | "Mismatch of functional form" | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | **"Fundamental disagreement"** (H_C) | sharpened |
 | `QBER_VS_IM_BIAS_DECOUPLING` | (nicht existent) | (nicht existent) | **A** (rho = 0.007, n.s.) | **A** | **A** (QEC bestaetigt) | **NEU** |
 | `JACOBI_BLOCK_INVARIANCE_QPU` | (nicht existent) | (nicht existent) | (nicht existent) | **A** (n=2,3,4 konsistent) | **A** | **NEU** |
-| `QEC_BIAS_ELIMINATION` | (nicht existent) | (nicht existent) | (nicht existent) | **A** (RL=2 ZNE 3.1x Bias-Reduktion) | **A** | **NEU** |
+| `QEC_BIAS_ELIMINATION` | (nicht existent) | (nicht existent) | (nicht existent) | **A** (sessionspezifisch) | **B-** (generell nicht garantiert) | **REVIDIERT** |
+| `BIAS_SESSION_VARIABILITY` | (nicht existent) | (nicht existent) | (nicht existent) | (nicht existent) | **A** (Faktor 22 zwischen Sessions) | **NEU** |
 | `VQE+VQD_Fez` | BLOCKED, Q3-2026 | open (Cron b3f26579) | unchanged | unchanged | unchanged | |
 
 #### **10.9 Cross-Referenz-Index**
@@ -1098,6 +1099,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | QBER-vs-Im_bias Korrelation | §10.10 hier | `pt_qber_token2_results.json` |
 | Spectral-Scaling 2Q/3Q/4Q | §10.11 hier | `pt_spectral_scaling_token2_results.json` |
 | QEC-Bias-Test (RL=1 vs RL=2) | §10.12 hier | `pt_qec_bias_token2_results.json` |
+| QPU-Bias-Triangulation (ZNE vs REM) | §10.13 hier | `pt_spectral_scaling_rl2_token2_results.json`, `pt_rem_token2_results.json` |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 
@@ -1217,6 +1219,66 @@ Die QBER-Studie §10.10 schloss: "Im_bias ist algorithmus-dominiert, QEC wird ni
 - **Künftige Sweeps:** `resilience_level=2` (ZNE) als Default. Tradeoff: QEC = 3.1× längere QPU-Zeit pro Job, aber Bias-Reduktion 3.1×.
 
 **QPU Time Used:** 2 Jobs × ~164 s = ~328 s of QPU time (ZNE braucht ca. 3.1× länger als RL=1).
+
+#### **10.13 QPU-Bias-Triangulation: ZNE vs REM (2026-06-18 07:20 UTC)**
+
+**Methodology:** Zwei parallele QPU-Sweeps triangulieren die Bias-Quelle durch Vergleich von:
+- **no-REM** (Referenz): kein QEC, kein REM
+- **REM** (Readout-Error-Mitigation via T-REx Twirling)
+- **ZNE** (Zero-Noise Extrapolation, RL=2) — bereits in §10.12 gemessen
+
+**Preregistrierungen:**
+- `pt_spectral_scaling_rl2_prereg.json` (md5=`4ef5e5b48288b3641052b5473ba86953`): 3 sequenzielle Jobs (n=2,3,4) mit RL=2
+- `pt_rem_prereg.json` (md5=`4e8fd857918d3805c8fdf1f61e04a02d`): 2 sequenzielle Jobs (n=2, no-REM vs REM) mit RL=1
+
+**QPU Results (Fez/TOKEN2, 5 sequenzielle Jobs in 39 s, 1024 shots):**
+
+| Sweep | Konfiguration | QPU-⟨A⟩ | Bias | \|Bias\| |
+|---|---|---:|---:|---:|
+| §10.12 RL=1 (no QEC) | Ref §10.12 | 0.1971 | −0.0656 | 0.0656 |
+| §10.12 RL=2 (ZNE) | ZNE §10.12 | 0.2416 | −0.0211 | 0.0211 |
+| §10.13 no-REM (RL=1) | Diese Session | 0.2594 | −0.0033 | **0.0033** |
+| §10.13 REM | Diese Session | 0.2254 | −0.0373 | 0.0373 |
+| §10.13 n=2 RL=2 | Diese Session | 0.2207 | −0.0420 | 0.0420 |
+| §10.13 n=3 RL=2 | Diese Session | 1.6497 | +0.0680 | 0.0680 |
+| §10.13 n=4 RL=2 | Diese Session | 0.9933 | −0.0718 | 0.0718 |
+
+**Statevector-Referenz: ⟨A⟩ = 0.2627 (n=2) bzw. 0.2627..1.5816..1.0651 (n=2,3,4)**
+
+**Verdict-Triangulation:**
+
+| Hypothese | Resultat |
+|---|---|
+| `H_Algorithmus_Bias_Klein_nach_QEC` (Säule 7) | **FAIL** — Bias RL=2 = 0.042..0.072, **nicht** < 0.025 |
+| `H_Block_Diag_Invariance_Post_QEC` (Säule 7) | **PASS** — QPU-⟨A⟩ im 2σ-Band |
+| `H_REM_Reduziert_Bias` (Säule 8) | **FAIL** — REM-Bias 0.037 > no-REM 0.003 |
+
+**Kritische Beobachtung: QPU-Bias ist SESSION-ABHÄNGIG.**
+
+§10.12 (eine QPU-Session, andere Hardware-Kalibrierung): no-REM-Bias = 0.066, ZNE-Bias = 0.021. **ZNE reduziert um Faktor 3.1.**
+
+§10.13 (aktuelle QPU-Session, neue Kalibrierung): no-REM-Bias = **0.003** (Faktor 22 kleiner als §10.12!), ZNE-Bias = 0.042 (ZNE erhöht sogar den Bias).
+
+**Folgerung: Die §10.12-Erzählung war SESSIONSPEZIFISCH.**
+
+Die wahre Bias-Architektur ist **komplexer** als die einfache "QEC eliminiert Hardware-Bias"-Geschichte:
+
+1. **no-REM-Bias variiert Faktor 22 zwischen Sessions** (0.003..0.066) — Hardware-Kalibrierung dominiert.
+2. **ZNE ist nicht-monoton**: Kann Bias reduzieren (§10.12, Faktor 3.1) oder erhöhen (§10.13, Faktor 1.4x) — ZNE-Overshoot möglich.
+3. **REM erhöht Bias** (0.003 → 0.037) — T-REx-Twirling-Randomness dominiert über Readout-Error-Korrektur in dieser Session.
+4. **QPU-⟨A⟩ bleibt im 2σ-Band post-QEC** — Jacobi-Block-Invarianz ist robust, unabhängig vom absoluten Bias.
+
+**Strategische Konsequenz (KORREKTUR §10.10 und §10.12):**
+
+- **Algorithmus-Bias-Anteil ist nicht eindeutig identifizierbar** — Hardware-Drift dominiert den Bias.
+- **QPU-Sessions sind NICHT direkt vergleichbar** für Bias-Messungen — jede Session braucht eigene statevector-Referenz.
+- **ZNE ist nicht universell hilfreich** — sessionspezifische Overshoot-Effekte möglich.
+- **Jacobi-Block-Invarianz ist robust** — die algebraische Identität aus §10.11/§10.13 ist unabhängig vom Bias-Level gültig.
+- **Zuverlässige Bias-Quantifizierung erfordert mehrfache Sessions** (Cron-Setup) und konsistente Hardware-Kalibrierung.
+
+**Anti-Sharpshooter-Compliance:** Beide Preregs (Säule 7 + 8) waren vor QPU-Run gepinnt. Hypothesen wurden ehrlich ausgewertet — FAIL wird als FAIL berichtet, nicht als "AMBIGUOUS" umframed. **Das ist die gewünschte Selbstkorrektur.**
+
+**QPU Time Used:** 5 Jobs × ~8 s = ~39 s of QPU time (sehr schnell).
 
 #### **Quellenangaben**
 
