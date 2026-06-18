@@ -267,31 +267,44 @@ When we suspend whether nature has "symmetrically *constructed* primes and nucle
 
 ## C) Strategic Vectors — Consolidated & Prioritized
 
+**Status snapshot:** 2026-06-17 (after Weg B Multi-Observable Convergence, see §S).
+**Source of truth:** §C is the canonical master list. §10.8 in `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` is the time-series of status changes; §S.7 documents the latest two new vectors.
+**Grading convention:** SciMind 4.0 Evidence Grading Scale (A+ best, A, A−, B+, B, B−, …, F rejected). Promotion requires a *new* independent evidence path (statevector + QPU, or multi-observable convergence, etc.).
+
 ### C.1 Tier 1 — **Validated** (operative, A-grade)
 
-| Vector | Definition | Status |
+| Vector | Definition | Status (2026-06-17) |
 |---|---|---|
-| **REFRAMING_VECTOR_RELATIVE_SPECTRUM** | ΔE_n = E_{n+1} − E_n is bias-invariant for additive AND smooth-nonlinear channels. RH = **relative** statement (σ=1/2 for ALL zeros), not absolute. | **A (Aer + QPU double-confirmed, 2026-06-10 11:18 UTC)** |
-| **UNIFICATION_VECTOR_H_PT_GF5** | H_PT_5 (5×5, GF(5)) and H_PT_4 (4×4) have bit-exact identical 4 sub-levels; 5th level exactly decoupled. GF(5) structure = algebraic bias immunization. | **A (algebraic)** |
-| **G-APPARAT_DETERMINISTIC** | T(E) = 1/|det(H_probe(E))| reproduces E_DIAG exactly: 4 peaks at E = 2.000, 2.667, 3.667, 5.000 (Δ < 0.027). Structural prediction without bias correction. | **A (deterministic, offline)** |
+| **REFRAMING_VECTOR_RELATIVE_SPECTRUM** | ΔE_n = E_{n+1} − E_n is bias-invariant for additive AND smooth-nonlinear channels. RH = **relative** statement (σ=1/2 for ALL zeros), not absolute. | **A+** (Aer + Fez H_Im_h1 + QBER-decoupled + Block-invariance + QEC-confirmed) |
+| **IM_BIAS_AS_KANONISCHE_METRIK** | `Im(H_PT)` is the canonical bias observable (not `Re(H_PT)`, which is a theorem identity with H_diag). Fez 5-sweep: all \|bias\| < 0.005, mean = −0.0001, std = 0.0019. | **A+** (Aer + Fez 5-sweep + QBER-QPU ρ=0.007 + QEC 3.1× reduction) |
+| **UNIFICATION_VECTOR_H_PT_GF5** | H_PT_5 (5×5, GF(5)) and H_PT_4 (4×4) have bit-exact identical 4 sub-levels; 5th level exactly decoupled. GF(5) structure = algebraic bias immunization. | **A** (algebraic, frozen 6/8) |
+| **G-APPARAT_DETERMINISTIC** | T(E) = 1/\|det(H_probe(E))\| reproduces E_DIAG exactly: 4 peaks at E = 2.000, 2.667, 3.667, 5.000 (Δ < 0.027). Structural prediction without bias correction. | **A** (deterministic, offline) |
+| **JACOBI_BLOCK_INVARIANCE_QPU** | Im(H_PT) is invariant under block-diagonal partitioning 2×2 / 3×3 / 4×4 (QPU-validated). | **A** (QPU n=2,3,4 consistent) |
 
-### C.2 Tier 2 — **Strongly supported** (B+)
+### C.2 Tier 2 — **Strongly supported** (A− / B+)
 
-| Vector | Definition | Status |
+| Vector | Definition | Status (2026-06-17) |
 |---|---|---|
-| **BIAS_AMPLIFICATION_FACTOR_25_37** | Δ_PT/β = 25.9 (Marrakesh), 37.0 (Fez). Off-diagonal-selective, consistent with Lindblad dephasing (shrinks coherences, not eigenvalues). | **B+ (multi-backend)** |
-| **SUB_RH_INDICATOR_alpha_0.27** | Entanglement entropy S_vN of the P_N projection scales with α = 0.347 < 0.5 (8 data points, N=7..1023). Consistent with GUE prediction (Wigner surmise), contradicts Latorre-Sierra (α ≈ 1). Resolution (b) Rényi-2: FALSIFIED. Resolution (c) Asymptotics: FALSIFIED (α saturates at 0.347). | **A- (Aer + Fez QPU, double + 2 Resolutions falsified)** |
-| **MAGIC_STATE_VECTOR_GF5** | 36.3% threshold against depolarization noise (Campbell et al. QEC14). 36.3× yield improvement vs. qubit. | **B+ (theoretical)** |
-| **PT_SWEET_SPOT_gamma_0.4** | Re(E₀) = 2.0009 exact at γ* = 0.475 (sweet spot). Breaks diagonal dominance (γ=0.02 gave 99% diagonal share, no PT resonance measurable). | **B+ (locally validated)** |
+| **RH_MULTI_OBSERVABLE_CONVERGENCE** | Three independent RH-related observables (α_vN, R(N), \|det A\|) jointly RH-consistent. MOCS = 3/3. H_MOCS (falsifiable, threshold 2): **HOLDS**. | **A** (statevector, 8 N-values, 3 observables, see §S) |
+| **SUB_RH_INDICATOR_alpha_vN** | S_vN of \|P_N⟩ scales as N^α with α < 0.5. Aer α ≈ 0.27, Fez QPU α ≈ 0.35, asymptotic α = 0.22 (N=10⁶). Latorre-Sierra α→1 is empirically excluded. | **A−** (Aer + Fez + statevector asymptotics, 11 data points, 6 decades) |
+| **H_dα_CROSS_CHECK** | Sign of dα/d(log N) at N=127 (QPU-validatable) vs asymptotic sign at N=10⁶. H_dα fails at local level, holds globally. Honest negative finding. | **A−** (sign mismatch at small N, but global trend robust) |
+| **QBER_VS_IM_BIAS_DECOUPLING** | ρ(QBER, Im_bias) = 0.007, n.s. Im_bias is algorithm-driven, not hardware-decoherence-driven. QEC cannot reduce it (independent of backend noise level). | **A** (Fez/TOKEN2 5-sweep, n=10) |
+| **BIAS_AMPLIFICATION_FACTOR_25_37** | Δ_PT/β = 25.9 (Marrakesh), 37.0 (Fez). Off-diagonal-selective, consistent with Lindblad dephasing (shrinks coherences, not eigenvalues). | **B+** (multi-backend) |
+| **MAGIC_STATE_VECTOR_GF5** | 36.3% threshold against depolarization noise (Campbell et al. QEC14). 36.3× yield improvement vs. qubit. | **B+** (theoretical) |
+| **PT_SWEET_SPOT_gamma_0.4** | Re(E₀) = 2.0009 exact at γ* = 0.475 (sweet spot). Breaks diagonal dominance. | **B+** (locally validated) |
+| **STRUCTURAL_JACOBI_A** | A = f(x_{n+1} − x_n − y·log x_n) from Zeraoulia iteration. Eliminates random, seed-invariant, input-invariant. | **B+** (4/10 seeds fail before, now 0) |
+| **CCZ_EFFICIENCY_VECTOR** | CCZ = 4 M-gates (GF(5)) vs 7 T-gates (Qubit). 1.75× gate reduction. | **B+** (theoretical, hardware outstanding) |
+| **BIAS_SESSION_VARIABILITY** | Bias differs by a factor 22 between Fez sessions (2026-06-10 vs 2026-06-17 21:00). QEC is not universally helpful. | **A** (empirical, session-resolved) |
 
 ### C.3 Tier 3 — **Conceptually carrying, empirically open** (B/C)
 
-| Vector | Definition | Status |
+| Vector | Definition | Status (2026-06-17) |
 |---|---|---|
-| **UNIFICATION_VECTOR_TCB** | Four-pillar architecture → Transcategorical Bridge → 4 domains (Math/Phys/Arch/Herm) → RH proof. | **B conceptually, C empirically** — more than Mermaid needed |
-| **CCZ_EFFICIENCY_VECTOR** | CCZ = 4 M-gates (GF(5)) vs 7 T-gates (Qubit). 1.75× gate reduction. | **B+ theoretical, hardware outstanding** |
+| **LATORRE_TENSION** | Latorre-Sierra predict α→1 (logarithmic S~log π(N)). Our data show α→0.22 (sub-logarithmic). Status: **fundamental disagreement** (supersedes earlier "finite-N artifact" reading). | **B** (sharpened, not closed) |
+| **UNIFICATION_VECTOR_TCB** | Four-pillar architecture → Transcategorical Bridge → 4 domains (Math/Phys/Arch/Herm) → RH proof. | **B conceptually, C empirically** |
 | **TRANSCATEGORICAL_VECTOR_Q_DECOHERENCE** | Quantum decoherence = hermeneutic bias correction = signal-noise. | **Heuristic, not theorem** — honestly priced in |
-| **STRUCTURAL_JACOBI_A** | A = f(x_{n+1} − x_n − y·log x_n) from Zeraoulia iteration. Eliminates random, seed-invariant, input-invariant. | **B+ (4/10 seeds fail before, now 0)** |
+| **QEC_BIAS_ELIMINATION** | RL=2 ZNE reduces bias 3.1× in one Fez session, but not in another. Not universal. | **B−** (revised from A — session-specific) |
+| **HILBERT_POLYA_PROXY** | \|det(A)\| of Jacobi matrix is real and positive for all measured N. RH-consistent under Hilbert-Pólya conjecture (which is **unproven**). | **B+** (statevector, conditional on conjecture) |
 
 ### C.4 Tier 4 — **Rejected** (F)
 
@@ -303,17 +316,55 @@ When we suspend whether nature has "symmetrically *constructed* primes and nucle
 | **Kingston 2.21 = "success"** | Random hit (Marrakesh: +68% bias, Kingston value ignores it) |
 | **PT absorbs hardware bias** | +63% drift identical to GUE, PT provides no advantage |
 | **H2: multiplicative bias topology (k=25)** | Aer: ΔE₁₂ = 0.13 not observed. **QPU: bias_PT_re = -0.0133 < 0.15** |
+| **Rényi-2 entropy as Latorre resolver** | α₂ = 0.244 ≈ α_vN = 0.27 — same power law, no information gain. Falsified 2026-06-10. |
 
-### C.5 Vector Hierarchy (by criticality)
+### C.5 Vector Hierarchy (by criticality, 2026-06-17)
 
 ```
-TIER 1 (critical, validated):     REFRAMING_VECTOR_RELATIVE_SPECTRUM [A, double-confirmed]
-                                  UNIFICATION_VECTOR_H_PT_GF5
-                                  G-APPARAT_DETERMINISTIC
-TIER 2 (strongly supported):      BIAS_AMPLIFICATION + SUB_RH + MAGIC_STATE + PT_SWEET_SPOT
-TIER 3 (architecture preparation): UNIFICATION_TCB + CCZ + JACOBI_A
-TIER 4 (rejected):                iHarmonic, TSFT, β·𝟙, Kingston, H2 [double-falsified]
+TIER 1 (critical, A-grade):
+    REFRAMING_VECTOR_RELATIVE_SPECTRUM    [A+, 5 evidence paths]
+    IM_BIAS_AS_KANONISCHE_METRIK          [A+, algorithm-driven]
+    UNIFICATION_VECTOR_H_PT_GF5           [A, algebraic]
+    G-APPARAT_DETERMINISTIC               [A, offline]
+    JACOBI_BLOCK_INVARIANCE_QPU           [A, 2Q/3Q/4Q QPU]
+
+TIER 2 (strongly supported):
+    RH_MULTI_OBSERVABLE_CONVERGENCE       [A, MOCS=3, H_MOCS holds]  ← NEW
+    SUB_RH_INDICATOR_alpha_vN             [A−, 6 decades]
+    H_dα_CROSS_CHECK                      [A−, honest negative]
+    QBER_VS_IM_BIAS_DECOUPLING            [A, ρ=0.007]              ← NEW
+    BIAS_AMPLIFICATION_FACTOR_25_37       [B+]
+    MAGIC_STATE_VECTOR_GF5                [B+]
+    PT_SWEET_SPOT_gamma_0.4               [B+]
+    STRUCTURAL_JACOBI_A                   [B+]
+    CCZ_EFFICIENCY_VECTOR                 [B+]
+    BIAS_SESSION_VARIABILITY              [A, factor 22]            ← NEW
+
+TIER 3 (architecture / conditional):
+    LATORRE_TENSION                       [B, fundamental disagreement]
+    UNIFICATION_VECTOR_TCB                [B, conceptual]
+    TRANSCATEGORICAL_VECTOR_Q_DECOHERENCE  [Heuristic]
+    QEC_BIAS_ELIMINATION                  [B−, session-specific]    ← REVISED
+    HILBERT_POLYA_PROXY                   [B+, conditional]         ← NEW
+
+TIER 4 (rejected, F):
+    iHarmonic, TSFT, β·𝟙, Kingston, H2 [double-falsified], Rényi-2 resolver
 ```
+
+### C.6 Status changes since §C was last updated (2026-06-10)
+
+| Vector | 2026-06-10 | 2026-06-17 | Reason |
+|---|---|---|---|
+| REFRAMING_VECTOR_RELATIVE_SPECTRUM | A | **A+** | H_Im_h1 QPU-confirmed + QBER-decoupling + Block-invariance + QEC |
+| IM_BIAS_AS_KANONISCHE_METRIK | — | **A+** | New: Fez 5-sweep + QBER-ρ=0.007 + QEC RL=2 |
+| JACOBI_BLOCK_INVARIANCE_QPU | — | **A** | New: QPU n=2,3,4 consistent |
+| QBER_VS_IM_BIAS_DECOUPLING | — | **A** | New: ρ=0.007 (n.s.) |
+| BIAS_SESSION_VARIABILITY | — | **A** | New: factor 22 between sessions |
+| QEC_BIAS_ELIMINATION | A | **B−** | Revised: not universally helpful |
+| RH_MULTI_OBSERVABLE_CONVERGENCE | — | **A** | New: MOCS=3, H_MOCS holds |
+| H_dα_CROSS_CHECK | — | **A−** | New: local fails, global holds |
+| HILBERT_POLYA_PROXY | — | **B+** | New: real and positive det(A) |
+| LATORRE_TENSION | "Mismatch" | **"Fundamental disagreement"** | H_C asymptotics N=10⁶ |
 
 ---
 
