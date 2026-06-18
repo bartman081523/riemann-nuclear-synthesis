@@ -1,0 +1,29 @@
+{
+  "prereg_id": "pt_rh_multi_observable_v1",
+  "title": "Multi-Observable RH Convergence Measurement",
+  "date_locked": "2026-06-17",
+  "methodology": "SciMind 4.0 (Anti-Sharpshooter: preregistration before main())",
+  "scope": {
+    "observable_a": "Schmidt entropy scaling alpha_vN(N)",
+    "observable_b": "Latorre-ratio R(N) = S_vN(P_N) / log pi(N)",
+    "observable_c": "Hilbert-Pólya proxy: det of Jacobi matrix A (prime-index differences)"
+  },
+  "n_values": [7, 15, 31, 63, 127, 255, 511, 1023],
+  "bipartition": "balanced (n//2 vs n - n//2) on prime-state |P_N>",
+  "prime_state_construction": "Grover-like over primes <= N, oracle U_f|p>|0> = |p>|is_prime(p)>",
+  "statevector_backend": "qiskit_aer (no QPU, no noise model)",
+  "rh_consistency_thresholds": {
+    "alpha_vN": {"rh_consistent_if": "< 0.5", "asymptotic_target": "< 0.3"},
+    "R_N": {"rh_consistent_if": "R(N) < 1 for all measured N (sub-logarithmic)",
+            "rh_inconsistent_if": "R(N) ~ 1 (logarithmic, Latorre prediction)"},
+    "det_A": {"rh_consistent_if": "|det(A)| > 0 and real",
+              "rh_inconsistent_if": "det(A) ~ 0 or complex (zeta-zero signature)"}
+  },
+  "mocs_definition": "MOCS = count of RH-consistent observables in {a, b, c}",
+  "falsifiable_statement": "H_MOCS: MOCS >= 2 after measurement on N in [7, 1023]",
+  "outputs": ["pt_rh_multi_observable_results.json", "pt_rh_multi_observable_log.txt"],
+  "tests": "tests/test_pt_rh_multi_observable.py (validates each observable on small N)",
+  "constitutional_principle": "statevector-first, QPU-second (operational policy in README.md)",
+  "do_not_modify_after_lock": true,
+  "md5_uniqueness": "to be filled after write"
+}

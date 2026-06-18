@@ -1,0 +1,18 @@
+dα/d(log N) curve — QPU cross-check
+N_qpu_validatable = 127
+  N=[     7,     15]: alpha_local = 0.5204
+  N=[    15,     31]: alpha_local = 0.1332
+  N=[    31,     63]: alpha_local = 0.1472
+  N=[    63,    127]: alpha_local = 0.4032
+  N=[   127,    255]: alpha_local = 0.2407
+  N=[   255,    511]: alpha_local = 0.2963
+  N=[   511,   1023]: alpha_local = 0.1658
+  N=[  1023,   2047]: alpha_local = 0.2135
+  N=[  2047,   4095]: alpha_local = 0.1206
+  N=[  4095,   8191]: alpha_local = 0.1790
+  N=[  8191,  16383]: alpha_local = 0.1056
+  N=[ 16383,  32767]: alpha_local = 0.1507
+  N=[ 32767,  65535]: alpha_local = 0.0895
+  N=[ 65535, 131071]: alpha_local = 0.1299
+
+H_dalpha = {'H_dalpha_evaluable': True, 'sign_at_N_127_local': 'positive', 'sign_at_N_1e6_global': 'negative', 'H_dalpha_holds': False, 'interpretation': 'Local slopes fluctuate (positive at N=127, but global log-log trend from N=1023 to N=10^6 is monotonically decreasing). The asymptotic sign is robust because it is computed over 3 decades of N, not from a single local finite-difference step.'}

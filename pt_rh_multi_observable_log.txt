@@ -1,0 +1,7 @@
+Multi-Observable RH Convergence Measurement
+alpha_vN = 0.2658
+MOCS = 3
+  observable_a_alpha_rh_consistent: True
+  observable_b_R_rh_consistent: True
+  observable_c_det_rh_consistent: True
+h_MOCS_rejected = False
