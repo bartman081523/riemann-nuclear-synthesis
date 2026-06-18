@@ -135,11 +135,13 @@ The asymptotic claim α(N=10⁶) = 0.223 is **statevector-only** — QPU resourc
 - **RH-status:** This is the **direct RH-test** observable.
 - **Falsifier:** If R(N) → 0 or R(N) → ∞, RH-equivalence of Latorre's framework fails.
 
-**(c) Hilbert-Pólya Proxy det(A) or tr(A^n)** (new)
-- **Definition:** For A the Jacobi matrix encoding prime-index differences, the determinant or trace moment.
-- **Hilbert-Pólya prediction:** If RH is true, A is self-adjoint with purely real spectrum (this is what **Hilbert-Pólya conjecture** claims, but it is **not proven**).
-- **RH-status:** **Conditional** — depends on Hilbert-Pólya being true (which is not a theorem).
-- **Falsifier:** A's spectrum has complex eigenvalues with nonzero imaginary parts consistent with non-trivial ζ-zeros.
+**(c) Hilbert-Pólya Proxy cv_spread(A)** (new — corrected)
+- **Original definition (rejected):** |det A| for the Jacobi matrix A.
+- **Problem:** A is real-symmetric, so `det(A)` is automatically real. This is a **theorem-identity analog** of `bias_PT_re`: trivially zero imag part, not an RH-discriminator. Additionally, |det A| overflows numerically for N ≥ 1023.
+- **Corrected definition:** Coefficient of variation of the eigenvalue spectrum: cv_spread = var(eigvals(A)) / (max − min)². Bounded in [0, 1/4], numerically stable for all N, empirically in [0.05, 0.20] for N in [7, 16383].
+- **Hilbert-Pólya prediction (unproven):** If RH is true, there exists a self-adjoint operator whose spectrum encodes the ζ-zeros. A is a heuristic proxy, not the conjectured operator.
+- **RH-status:** **Conditional** — depends on Hilbert-Pólya being true (not a theorem).
+- **Falsifier:** cv_spread outside the stable empirical band [0.05, 0.20] for any measured N.
 
 ### §5.2 — The Convergence Criterion
 

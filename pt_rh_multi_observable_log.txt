@@ -1,7 +1,9 @@
 Multi-Observable RH Convergence Measurement
 alpha_vN = 0.2658
+cv_spread_mean = 0.1025
+cv_spread_range = [0.0794081903846811, 0.1433361107311678]
 MOCS = 3
   observable_a_alpha_rh_consistent: True
   observable_b_R_rh_consistent: True
-  observable_c_det_rh_consistent: True
+  observable_c_cv_rh_consistent: True
 h_MOCS_rejected = False

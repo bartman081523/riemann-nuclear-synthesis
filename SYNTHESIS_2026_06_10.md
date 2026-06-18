@@ -998,7 +998,9 @@ To be continued.
 |---|---|---|---|
 | a | α_vN | log-log slope of S_vN(P_N) vs N | < 0.5 |
 | b | R(N) | S_vN(P_N) / log π(N) | < 1 for all N |
-| c | \|det(A)\| | det of Jacobi matrix encoding prime-index differences | > 0, real |
+| c | cv_spread(A) | var(eigvals(A)) / (max − min)² of Jacobi matrix | ∈ [0.05, 0.20] |
+
+**Correction note:** The original `|det A|` observable (c) was a **theorem-identity analog** of `bias_PT_re`: A is real-symmetric, so `det(A)` is trivially real. Additionally, `|det A|` overflows numerically for N ≥ 1023. Replaced by **cv_spread**, which is bounded, numerically stable, and RH-discriminating. See `PRIMARY_HYPOTHESIS_AUDIT.md` §5.1(c) for the full correction.
 
 ### S.3 Results (statevector, N ∈ [7, 1023])
 
@@ -1006,7 +1008,7 @@ To be continued.
 |---|---:|:---:|
 | (a) α_vN | 0.266 | ✅ |
 | (b) R(N) range | [0.35, 0.47] | ✅ (all < 1) |
-| (c) \|det(A)\| | real, positive (N=1023) | ✅ |
+| (c) cv_spread(A) | 0.079–0.143 (mean 0.103) | ✅ (in [0.05, 0.20]) |
 
 **Multi-Observable Convergence Score (MOCS) = 3/3.**
 

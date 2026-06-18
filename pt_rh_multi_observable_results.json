@@ -20,7 +20,8 @@
       "S_normalized": 0.8112781244591329,
       "R_N": 0.40563906222956647,
       "abs_det_A": 98.99999999999999,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.1433361107311678
     },
     {
       "N": 15,
@@ -32,7 +33,8 @@
       "S_normalized": 0.6030938154820827,
       "R_N": 0.46661707109006867,
       "abs_det_A": 10224.999999999998,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.1284585050097737
     },
     {
       "N": 31,
@@ -44,7 +46,8 @@
       "S_normalized": 0.6643015454346869,
       "R_N": 0.3840524217075645,
       "abs_det_A": 56366037923.00018,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.10291373401141408
     },
     {
       "N": 63,
@@ -56,7 +59,8 @@
       "S_normalized": 0.4916097868935377,
       "R_N": 0.35368246675191817,
       "abs_det_A": 3.040413893325847e+22,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.09743638974633594
     },
     {
       "N": 127,
@@ -68,7 +72,8 @@
       "S_normalized": 0.6521865504262321,
       "R_N": 0.39492977845399657,
       "abs_det_A": 9.86905944137435e+47,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.0794081903846811
     },
     {
       "N": 255,
@@ -80,7 +85,8 @@
       "S_normalized": 0.5785092806521447,
       "R_N": 0.4020994540273201,
       "abs_det_A": 1.5372386312880075e+100,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.08853676294658555
     },
     {
       "N": 511,
@@ -92,7 +98,8 @@
       "S_normalized": 0.710820525852913,
       "R_N": 0.4308060078062219,
       "abs_det_A": 7.528343157532134e+210,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.09086480741698962
     },
     {
       "N": 1023,
@@ -104,16 +111,22 @@
       "S_normalized": 0.6380058725597657,
       "R_N": 0.42956041403977596,
       "abs_det_A": Infinity,
-      "imag_det_A": 0.0
+      "imag_det_A": 0.0,
+      "cv_spread_A": 0.08941133455950992
     }
   ],
   "alpha_vN": 0.2658212701252552,
   "log_const": -1.0097412844122882,
+  "cv_spread_mean": 0.10254572935080722,
+  "cv_spread_range": [
+    0.0794081903846811,
+    0.1433361107311678
+  ],
   "mocs": 3,
   "verdicts": {
     "observable_a_alpha_rh_consistent": true,
     "observable_b_R_rh_consistent": true,
-    "observable_c_det_rh_consistent": true
+    "observable_c_cv_rh_consistent": true
   },
   "h_MOCS_rejected": false
 }

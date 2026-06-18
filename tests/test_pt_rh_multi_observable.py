@@ -95,21 +95,39 @@ class TestHilbertPolyaObservable:
     def test_hilbert_polya_proxy_returns_real_for_small_input(self):
         from pt_rh_multi_observable import hilbert_polya_proxy
         primes = [2, 3, 5, 7, 11]
-        abs_det, imag_det = hilbert_polya_proxy(primes)
+        abs_det, imag_det, cv_spread = hilbert_polya_proxy(primes)
         assert abs_det > 0
         assert abs(imag_det) < 1e-9
+        assert 0 <= cv_spread <= 0.25  # bounded by 1/4
 
     def test_hilbert_polya_proxy_handles_single_prime(self):
         from pt_rh_multi_observable import hilbert_polya_proxy
-        abs_det, imag_det = hilbert_polya_proxy([2])
+        abs_det, imag_det, cv_spread = hilbert_polya_proxy([2])
         assert abs_det == 2.0
         assert imag_det == 0.0
+        # single prime: spread=0, cv_spread=0 (defined as 0)
+        assert cv_spread == 0.0
+
+    def test_hilbert_polya_proxy_is_numerically_stable(self):
+        """cv_spread must not overflow for N up to 4095."""
+        from pt_rh_multi_observable import hilbert_polya_proxy
+        from pt_prime_state import sieve_primes
+        for N in [127, 511, 1023, 2047, 4095]:
+            primes = sieve_primes(N)
+            abs_det, imag_det, cv_spread = hilbert_polya_proxy(primes)
+            import math
+            assert math.isfinite(cv_spread), f"cv_spread overflow at N={N}"
+            assert 0 < cv_spread < 0.25
 
     def test_evaluate_hilbert_polya_threshold(self):
         from pt_rh_multi_observable import evaluate_hilbert_polya
-        assert evaluate_hilbert_polya(1.0, 0.0) is True
-        assert evaluate_hilbert_polya(1e-10, 0.0) is False  # below tol
-        assert evaluate_hilbert_polya(1.0, 0.5) is False   # imag part too large
+        # In band [0.05, 0.20]
+        assert evaluate_hilbert_polya(0.10) is True
+        assert evaluate_hilbert_polya(0.05) is True
+        assert evaluate_hilbert_polya(0.20) is True
+        # Out of band
+        assert evaluate_hilbert_polya(0.001) is False
+        assert evaluate_hilbert_polya(0.50) is False
 
 
 class TestMOCSScore:
@@ -117,26 +135,26 @@ class TestMOCSScore:
 
     def test_mocs_all_consistent(self):
         from pt_rh_multi_observable import mocs
-        score = mocs(0.3, [0.4, 0.5], 1.0, 0.0)
+        score = mocs(0.3, [0.4, 0.5], 0.10)
         assert score == 3
 
     def test_mocs_only_alpha(self):
         from pt_rh_multi_observable import mocs
-        # alpha good, R bad (>=1), det bad
-        score = mocs(0.3, [1.5, 0.5], 0.0, 0.0)
+        # alpha good, R bad (>=1), cv_spread out of band
+        score = mocs(0.3, [1.5, 0.5], 0.50)
         assert score == 1
 
     def test_mocs_none_consistent(self):
         from pt_rh_multi_observable import mocs
-        score = mocs(0.7, [1.5, 2.0], 0.0, 1.0)
+        score = mocs(0.7, [1.5, 2.0], 0.50)
         assert score == 0
 
     def test_mocs_in_valid_range(self):
         from pt_rh_multi_observable import mocs
         for alpha in [0.1, 0.3, 0.5, 0.9]:
             for R in [[0.1, 0.2], [0.5, 1.5], [1.0, 1.1]]:
-                for d, im in [(1.0, 0.0), (0.0, 0.0), (1.0, 0.5)]:
-                    s = mocs(alpha, R, d, im)
+                for cv in [0.05, 0.10, 0.30, 0.50]:
+                    s = mocs(alpha, R, cv)
                     assert 0 <= s <= 3
 
 
@@ -149,12 +167,18 @@ class TestMeasureAll:
         assert "N_sweep" in result
         assert "rows" in result
         assert "alpha_vN" in result
+        assert "cv_spread_mean" in result
+        assert "cv_spread_range" in result
         assert "mocs" in result
         assert "verdicts" in result
         assert "h_MOCS_rejected" in result
         assert len(result["rows"]) == 8
         assert 0 <= result["mocs"] <= 3
         assert isinstance(result["h_MOCS_rejected"], bool)
+        # cv_spread must be bounded and finite
+        assert 0 < result["cv_spread_mean"] < 0.25
+        assert result["cv_spread_range"][0] <= result["cv_spread_mean"]
+        assert result["cv_spread_mean"] <= result["cv_spread_range"][1]
 
     def test_measure_all_mocs_matches_verdicts(self):
         from pt_rh_multi_observable import measure_all
@@ -163,7 +187,7 @@ class TestMeasureAll:
         expected_score = sum([
             v["observable_a_alpha_rh_consistent"],
             v["observable_b_R_rh_consistent"],
-            v["observable_c_det_rh_consistent"],
+            v["observable_c_cv_rh_consistent"],
         ])
         assert result["mocs"] == expected_score
 
