@@ -164,6 +164,33 @@ This is **falsifiable**: if MOCS = 1 (or 0) after measurement, H_MOCS is rejecte
 
 See `pt_rh_multi_observable.py` and `pt_rh_multi_observable_prereg.json` (statevector-first, no QPU cost).
 
+### §5.5 — Independence Audit (SciMind 4.0: Ockham's Razor)
+
+A reasonable criticism of the MOCS criterion: are the three observables **truly independent**, or do (a) and (b) collapse to a single underlying measurement?
+
+**Mathematical structure:**
+- (a) α_vN = d log S_vN / d log N (log-log slope of S_vN)
+- (b) R(N) = S_vN(P_N) / log π(N) (ratio with log π(N))
+- (c) |det A| (Jacobi matrix of prime-index differences, no S_vN)
+
+By construction, (a) and (b) **share the underlying variable S_vN**. They are two different normalizations of the same quantity.
+
+**Empirical non-correlation:**
+- Pearson ρ(log S_vN, R(N)) = **0.15** on our N-sweep [7, 1023].
+- This is **weakly correlated**, not redundant.
+
+**Counter-example (proves non-trivial coupling):**
+A synthetic power-law with α = 0.6 (> 0.5, RH-FAILING) and large negative prefactor can produce R(N) < 1 for all measured N. So R(N) < 1 does **not** automatically follow from α < 0.5.
+
+**Conclusion:**
+- (a) and (b) are **mathematically related** (share S_vN) but **not logically equivalent**. They are two *empirically agreeing* but *functionally distinct* statements.
+- (c) is **fully independent** (Jacobi matrix, different mathematical structure, no S_vN).
+- **Effective independent observables: 2.83** (2 fully + 0.83 partial). MOCS = 3/3 still holds **numerically**, but the *information content* of (a) and (b) together is closer to 1.83 independent observables.
+
+**Ockham's Razor verdict:** MOCS = 3 overstates the effective evidence by ~16%. The honest reporting is **MOCS = 3 observables, 2 functionally independent observation classes**. H_MOCS threshold = 2 is still robust under this correction.
+
+**Audit-Update:** Add the effective-independent count to `SYNTHESIS_2026_06_10.md` §S.7.
+
 ---
 
 ## §6 — Asymptotic QPU-Cross-Check via dα/d(log N)

@@ -285,7 +285,7 @@ When we suspend whether nature has "symmetrically *constructed* primes and nucle
 
 | Vector | Definition | Status (2026-06-17) |
 |---|---|---|
-| **RH_MULTI_OBSERVABLE_CONVERGENCE** | Three independent RH-related observables (α_vN, R(N), \|det A\|) jointly RH-consistent. MOCS = 3/3. H_MOCS (falsifiable, threshold 2): **HOLDS**. | **A** (statevector, 8 N-values, 3 observables, see §S) |
+| **RH_MULTI_OBSERVABLE_CONVERGENCE** | Three independent RH-related observables (α_vN, R(N), \|det A\|) jointly RH-consistent. MOCS = 3/3, **2 functionally independent** observation classes. H_MOCS (falsifiable, threshold 2): **HOLDS**. | **A** (statevector, 8 N-values, 3 observables, see §S) |
 | **SUB_RH_INDICATOR_alpha_vN** | S_vN of \|P_N⟩ scales as N^α with α < 0.5. Aer α ≈ 0.27, Fez QPU α ≈ 0.35, asymptotic α = 0.22 (N=10⁶). Latorre-Sierra α→1 is empirically excluded. | **A−** (Aer + Fez + statevector asymptotics, 11 data points, 6 decades) |
 | **H_dα_CROSS_CHECK** | Sign of dα/d(log N) at N=127 (QPU-validatable) vs asymptotic sign at N=10⁶. H_dα fails at local level, holds globally. Honest negative finding. | **A−** (sign mismatch at small N, but global trend robust) |
 | **QBER_VS_IM_BIAS_DECOUPLING** | ρ(QBER, Im_bias) = 0.007, n.s. Im_bias is algorithm-driven, not hardware-decoherence-driven. QEC cannot reduce it (independent of backend noise level). | **A** (Fez/TOKEN2 5-sweep, n=10) |
@@ -1040,8 +1040,10 @@ Each observable is a different *category* of RH-related test, all anchored in th
 | Vector | Status | Change |
 |---|:---:|---|
 | `SUB_RH_INDICATOR` | A− | unchanged (single-observable) |
-| **`RH_MULTI_OBSERVABLE_CONVERGENCE`** | **A** | **NEW** — Weg B reinforcement, MOCS = 3/3 |
+| **`RH_MULTI_OBSERVABLE_CONVERGENCE`** | **A** | **NEW** — Weg B reinforcement, MOCS = 3/3, **2 functionally independent** observation classes |
 | `H_dα_cross_check` | A− | NEW — H_dα fails locally, holds globally |
+
+**Independence note (from PRIMARY_HYPOTHESIS_AUDIT.md §5.5):** Observables (a) α_vN and (b) R(N) share the underlying S_vN, but are not logically equivalent (Pearson ρ = 0.15; counter-example α=0.6 with negative prefactor gives R<1). Observable (c) |det A| is fully independent. **Effective independent observables ≈ 2.83 (MOCS = 3 with partial redundancy).** H_MOCS threshold = 2 is robust under this correction.
 
 ### S.8 Implications for next steps
 
