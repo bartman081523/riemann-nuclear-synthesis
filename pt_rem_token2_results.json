@@ -1,0 +1,42 @@
+{
+  "prereg_file": "pt_rem_prereg.json",
+  "qpu_A_noREM": 0.2593876062335636,
+  "qpu_A_REM": 0.225420816481816,
+  "sv_A": 0.2627087944483092,
+  "bias_noREM": -0.003321188214745585,
+  "bias_REM": -0.03728797796649319,
+  "abs_bias_noREM": 0.003321188214745585,
+  "abs_bias_REM": 0.03728797796649319,
+  "REM_reduction_factor": 0.08906860591180325,
+  "ZNE_comparison": {
+    "ZNE_abs_bias": 0.02110464232745865,
+    "ZNE_reduction_factor": 0.32186267351255177
+  },
+  "H_REM_Reduziert_Bias": {
+    "test": "|bias_REM| < 0.025",
+    "PASS": false
+  },
+  "sweep_metadata": {
+    "prereg_file": "pt_rem_prereg.json",
+    "backend": "ibm_fez",
+    "n_qubits": 2,
+    "gamma": 0.02,
+    "shots": 1024,
+    "method": "2 sequenzielle Estimator-Jobs (no-REM vs REM) auf n=2 Jacobi-Block",
+    "jobs": [
+      {
+        "use_rem": false,
+        "label": "norem",
+        "estimator_job_id": "d8pnv0q01fac73d21ap0"
+      },
+      {
+        "use_rem": true,
+        "label": "rem",
+        "estimator_job_id": "d8pnv16gbcrc73f2b2dg"
+      }
+    ],
+    "submission_timestamp": "2026-06-18 05:18:28 UTC",
+    "status": "submitted"
+  },
+  "analysis_timestamp": "2026-06-18 05:20:07 UTC"
+}

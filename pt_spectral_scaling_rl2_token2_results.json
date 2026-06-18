@@ -1,0 +1,87 @@
+{
+  "prereg_file": "pt_spectral_scaling_rl2_prereg.json",
+  "qpu_A_RL2": {
+    "2": 0.22069280426359028,
+    "3": 1.6496505922216749,
+    "4": 0.9932543352688884
+  },
+  "sv_A": {
+    "2": 0.2627087944483092,
+    "3": 1.5816116394038113,
+    "4": 1.0650581575288975
+  },
+  "biases_RL2": {
+    "2": -0.04201599018471891,
+    "3": 0.06803895281786354,
+    "4": -0.07180382226000914
+  },
+  "abs_biases_RL2": {
+    "2": 0.04201599018471891,
+    "3": 0.06803895281786354,
+    "4": 0.07180382226000914
+  },
+  "biases_RL1": {
+    "2": -0.030683015768004224,
+    "3": -0.05123261346067376,
+    "4": -0.04680600387882117
+  },
+  "bias_reduction_factor": {
+    "2": 0.730269967055627,
+    "3": 0.7529894470571966,
+    "4": 0.6518595028177154
+  },
+  "H_Algorithmus_Bias_Klein_nach_QEC": {
+    "test": "max_n |bias_RL2_n| < 0.025",
+    "max_abs_bias": 0.07180382226000914,
+    "PASS": false
+  },
+  "H_Block_Diag_Invariance_Post_QEC": {
+    "test": "QPU-<A>_RL2 in 2\u03c3-Band",
+    "values": [
+      0.22069280426359028,
+      1.6496505922216749,
+      0.9932543352688884
+    ],
+    "mean": 0.9545325772513845,
+    "std": 0.5840117697726592,
+    "PASS": true
+  },
+  "sweep_metadata": {
+    "prereg_file": "pt_spectral_scaling_rl2_prereg.json",
+    "backend": "ibm_fez",
+    "instance": "open-instance",
+    "token": "IBMQ_TOKEN2",
+    "gamma": 0.02,
+    "shots": 1024,
+    "resilience_level": 2,
+    "n_qubits_list": [
+      2,
+      3,
+      4
+    ],
+    "method": "3 sequenzielle Estimator-Jobs (n=2,3,4) mit RL=2 (ZNE) auf Fez/TOKEN2",
+    "jobs": [
+      {
+        "n_qubits": 2,
+        "label": "n2_rl2",
+        "estimator_job_id": "d8pnudmkodhs73825ek0",
+        "resilience_level": 2
+      },
+      {
+        "n_qubits": 3,
+        "label": "n3_rl2",
+        "estimator_job_id": "d8pnue6gbcrc73f2b1r0",
+        "resilience_level": 2
+      },
+      {
+        "n_qubits": 4,
+        "label": "n4_rl2",
+        "estimator_job_id": "d8pnueekodhs73825el0",
+        "resilience_level": 2
+      }
+    ],
+    "submission_timestamp": "2026-06-18 05:17:12 UTC",
+    "status": "submitted"
+  },
+  "analysis_timestamp": "2026-06-18 05:19:30 UTC"
+}

@@ -72,7 +72,7 @@ def main():
     # Vergleich mit ZNE
     with open("pt_qec_bias_token2_results.json") as f:
         zne_data = json.load(f)
-    zne_bias = zne_data["abs_biases"][2]
+    zne_bias = zne_data["abs_biases"]["2"]
     zne_ratio = zne_data["ratio_RL2_vs_RL1"]
     print(f"\nZum Vergleich: ZNE (RL=2) |Bias| = {zne_bias:.4f} (3.1x Reduktion vs no-REM)")
     print(f"  REM:        |Bias| = {abs_bias_rem:.4f}")
