@@ -488,6 +488,9 @@ graph TD
     style A2ca19e fill:#5f5,stroke:#333,stroke-width:2px
 ```
 
+![Investigation Plan Flowchart](figures/investigation_plan.png)
+
+
 ## Cross-Reference Index
 
 | Investigation Path | Detail-Dokumentation |

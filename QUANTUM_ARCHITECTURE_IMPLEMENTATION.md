@@ -100,6 +100,9 @@ graph TD
     style FAIL1 fill:#f55,stroke:#333,stroke-width:2px
 ```
 
+![QAI Block 1](figures/qai_block_1.png)
+
+
 **Expected metrics:**
 - E_0..E_3 from **one** 5-pub run
 - ΔE_n directly from peak distances of the potential basis
@@ -181,6 +184,9 @@ graph TD
     style REJ fill:#f55,stroke:#333,stroke-width:2px
 ```
 
+![QAI Block 2](figures/qai_block_2.png)
+
+
 **Expected metrics:**
 - T(E) has resonance peaks at E = 2.00, 2.69, 3.40, 4.14
 - ΔE_n from peak distances, **completely independent** of the VQE optimizer
@@ -261,6 +267,9 @@ graph TD
     style RH3 fill:#fc9,stroke:#333,stroke-width:2px
     style RH4 fill:#fc9,stroke:#333,stroke-width:2px
 ```
+
+![QAI Block 3](figures/qai_block_3.png)
+
 
 **Expected metrics:**
 - S(|P_N⟩) grows characteristically with N
@@ -356,6 +365,9 @@ graph TD
     style FAIL fill:#f55,stroke:#333,stroke-width:2px
 ```
 
+![QAI Block 4](figures/qai_block_4.png)
+
+
 **Expected metrics:**
 - ΔE_n from 5×5 GF(5) simulation vs. 4×4 qubit result
 - Bias algebraically eliminated (no β·𝟙 correction needed)
@@ -383,6 +395,9 @@ graph LR
     style RH fill:#5f5,stroke:#333,stroke-width:4px
 ```
 
+![QAI Block 5](figures/qai_block_5.png)
+
+
 ## Strategischer Vektor
 
 ```mermaid
@@ -402,6 +417,9 @@ graph TD
     style NOW fill:#f9f,stroke:#333,stroke-width:2px
     style RH fill:#5f5,stroke:#333,stroke-width:4px
 ```
+
+![QAI Block 6](figures/qai_block_6.png)
+
 
 ## Quellenangaben
 
