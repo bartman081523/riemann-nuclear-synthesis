@@ -10,7 +10,7 @@ This document is the **primary research repository** of the Riemann-Nuclear-Synt
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Refers to `CLAUDE.md` (backwards-compat for Gemini-CLI) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
-| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
@@ -341,7 +341,7 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 * **Setup:** `ibm_marrakesh` (least_busy), TwoLocal(2, ry, cx, linear, reps=1), 4 parameters, initial point [0.523, 1.21, -0.45, 0.88], 8192 shots, resilience=1 (TREX + Measurement Mitigation), DD XX, $\gamma = 0.02$, $\alpha = 1.0$.
 * **Result:**
 
-| Observable | Vorhersage (exakt) | Hardware `ibm_marrakesh` | Δ absolut | Δ relativ |
+| Observable | prediction (exakt) | Hardware `ibm_marrakesh` | Δ absolut | Δ relativ |
 |---|---:|---:|---:|---:|
 | $\langle\text{Re}(H_{PT})\rangle$ | **2.0019** | **3.2633** ± 0.0112 | +1.26 | **+63%** |
 | $\langle\text{Im}(H_{PT})\rangle$ | **+0.0299** | **+0.0481** ± 0.0005 | +0.018 | **+61%** |
@@ -351,9 +351,9 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 * **SciMind 4.0 Verdict:** The structural derivation of $A$ from the Zeraoulia iteration is **physically correct and elegant** (Jacobi matrix), but does not eliminate the **hardware-specific bias**. The claim that "the PT operator stabilizes against hardware noise" was a **fallacy**: projector fidelity was measured, bias elimination was inferred — these two statements are logically independent.
 * **Comparison with the GUE approach (Section 9.1):**
 
-| Operator | Hardware-Wert | Abweichung von theor. |
+| Operator | Hardware-value | Abweichung von theor. |
 |---|---:|---:|
-| Hermitesch + GUE (Seed 42) | 3.366 | +68% |
+| Hermitian + GUE (Seed 42) | 3.366 | +68% |
 | **Strukturell PT (Jacobi)** | **3.263** | **+63%** |
 
   → The structural PT operator is **not** more resistant to hardware bias than the GUE-randomized Hermitian operator. **Both fail** on `ibm_marrakesh` with ~+65% drift.
@@ -472,7 +472,7 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 * **Pre-registered prediction table (SciMind 4.0 Anti-Sharpshooter):**
   The following predictions for $\Delta E_n$ and $\text{Im}(E_0)$ were computed **before** the hardware submission and stored in `pt_spectral_gaps_prereg.json`. The selection of the hardware backend (Fez) and the measurement parameters (initial point, shots) was made **before** inspecting the results.
 
-| Hypothese | Bias-Topologie | $\Delta E_{01}$ | $\Delta E_{12}$ | $\Delta E_{23}$ | $\text{Im}(E_0)$ |
+| hypothesis | Bias-Topologie | $\Delta E_{01}$ | $\Delta E_{12}$ | $\Delta E_{23}$ | $\text{Im}(E_0)$ |
 |---|---|---:|---:|---:|---:|
 | **Noiseless** | $H_{PT}$ exakt | 0.6911 | 0.9902 | 1.3037 | +0.0299 |
 | **H1 (additiv)** | $\beta \cdot \mathbb{1}$ | 0.6911 | 0.9902 | 1.3037 | +0.0299 |
@@ -491,7 +491,7 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 * **Hardware measurement (Job `d8jeuhdv8cos73f6pqc0`, Fez, 2026-06-08):**
   Three pubs at the initial point $[0.523, 1.21, -0.45, 0.88]$:
 
-| Observable | Vorhersage (Noiseless) | Messung Fez | $\Delta$ |
+| Observable | prediction (Noiseless) | measurement Fez | $\Delta$ |
 |---|---:|---:|---:|
 | $\langle H_{diag} \rangle$ | 3.3412 | 3.2995 ± 0.0152 | −0.0417 (−1.2%) |
 | $\langle \text{Re}(H_{PT}) \rangle$ | 3.3412 | 3.2907 ± 0.0129 | −0.0505 (−1.5%) |
@@ -532,7 +532,7 @@ From the research in `QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md` and the diagnosi
 
 **Pillar 2 — G-apparatus transmission sweep (`pt_transmission_sweep.py`):** Sweep over 100 E values in [0.5, 6.0], $H_{\text{probe}}(E) = H_{\text{diag}} - E \cdot \mathbb{1} + i\gamma A$, $T(E) = 1/|\det(H_{\text{probe}})|^2$. Lorentz peaks at E = E_DIAG. **Validated offline results** (see `pt_transmission_sweep_results.json`):
 
-| Peak | Gemessen | Erwartet (E_DIAG) | Δ |
+| Peak | Gemessen | expected (E_DIAG) | Δ |
 |---|---:|---:|---:|
 | 1 | 2.0000 | 2.0000 | 0.0000 |
 | 2 | 2.6667 | 2.6931 | 0.0265 |
@@ -556,7 +556,7 @@ All 4 peaks detected, all Δ < 0.027, ΔE_n from peak separations **completely i
 Magic state distillation threshold: **36.3%** (Ququint) vs **1%** (Qubit) → 36.3× factor improvement. CCZ gate: 4 M-gates (Ququint) vs 7 T-gates (Qubit) → 1.75× gate reduction, less decoherence per operation. Code preparation for future native Ququint hardware (Quantinuum H2, IBM next generation).
 
 **Test status:** 54/54 tests green, 0 failed, 0 skipped. Breakdown:
-- `test_pt_potential_vqe.py`: 15/15 (Struktur, Pre-Registrierung, Bias-Analyse, Modul)
+- `test_pt_potential_vqe.py`: 15/15 (Struktur, Pre-Registrierung, Bias-analysis, Modul)
 - `test_pt_transmission_sweep.py`: 9/9 (G-Apparat-Math, Peak-Detektion, Modul)
 - `test_pt_prime_state.py`: 15/15 (Primzahl-Generierung, |P_N>-Konstruktion, Entropie, Grover, Modul)
 - `test_pt_ququint_vqe.py`: 15/15 (GF(5)-Arithmetik, 5×5-Matrix, Threshold, CCZ, Modul)
@@ -565,7 +565,7 @@ Magic state distillation threshold: **36.3%** (Ququint) vs **1%** (Qubit) → 36
 
 **Result (Aer with Fez noise, 5-pub measurement):**
 
-| Observable | Wert | Vergleich |
+| Observable | value | comparison |
 |---|---:|---|
 | E_0 (VQE optimum) | 2.4057 | noiseless 2.0019, +20% bias |
 | `<H_diag>` VQE-Opt | 2.4017 | VQE at ground state, not mean |
@@ -744,11 +744,11 @@ The bias value is **2.25× larger** on real hardware than on Aer — plausible, 
 2. Schmidt decomposition in numpy: `linalg.svd(psi.reshape((n_A, n_B)))` with documented A/B qubit mapping
 3. `psi_prime = (U_A^\dagger \otimes I_B) |psi>` als Matrix-Multiplikation, F-order flatten
 4. QPU: `qc.initialize(psi_prime, range(n_qubits))` + `measure(System A)`
-5. Population `P(|i\rangle_A)` nach QPU-Messung = $s_i^2$ (Schmidt-Koeff.-Quadrate)
+5. Population `P(|i\rangle_A)` nach QPU-measurement = $s_i^2$ (Schmidt-Koeff.-Quadrate)
 
 **Verification:** statevector simulation yields `||diff(statevector, s_i^2)|| < 10^{-15}` for all 5 N values.
 
-**QPU-Messung:** 5 sequenzielle 1-Pub-Jobs (4096 Shots, ~30s Laufzeit pro Job, 197s gesamt). Jobs: `d8kjhcjnn5bs738quimg` (N=7), `d8kjhf832u0s73f8rfr0` (N=15), `d8kjhs3qv2lc7385c930` (N=31), `d8kji93nn5bs738qujjg` (N=63), `d8kjipjnn5bs738quk50` (N=127).
+**QPU-measurement:** 5 sequenzielle 1-Pub-Jobs (4096 Shots, ~30s Laufzeit pro Job, 197s gesamt). Jobs: `d8kjhcjnn5bs738quimg` (N=7), `d8kjhf832u0s73f8rfr0` (N=15), `d8kjhs3qv2lc7385c930` (N=31), `d8kji93nn5bs738qujjg` (N=63), `d8kjipjnn5bs738quk50` (N=127).
 
 | N | n_qb | ISA-Tiefe | $S_{vN}$ klassisch | $S_{vN}$ QPU | $\|\Delta\|$ |
 |---:|---:|---:|---:|---:|---:|
@@ -779,14 +779,14 @@ The small Schmidt coefficients (classically $<0.05$) are **significantly inflate
 **SciMind 5.0 Transcategorical Bridge:**
 The **sublinearity** $\alpha < 1$ has a deep meaning: $|P_N\rangle$ is not a uniform superposition over all $2^{n_{qubits}}$ basis vectors, but **selective** over $\pi(N)$ indices. The Schmidt decomposition of this selective superposition produces a **sub-maximal** entanglement. The fact that the scaling is **not** linear (Latorre-Sierra), but sublinear ($\alpha \approx 0.3$), is a **direct hint at the RH mechanism**: the prime indexing itself restricts the entanglement — and exactly this restriction mirrors the zero structure of the $\zeta$ function (see Connes' non-commutative geometry of the adeles).
 
-**Persistenz:** `pt_prime_state_qpu_singleshot_results.json` (alle 5 N-Werte, s_sq_classical, s_sq_qpu, S_vN, ISA-Tiefen, job-IDs, alpha-Vergleich).
+**Persistenz:** `pt_prime_state_qpu_singleshot_results.json` (alle 5 N-Werte, s_sq_classical, s_sq_qpu, S_vN, ISA-Tiefen, job-IDs, alpha-comparison).
 
 **Limitation & next steps:**
 - ISA depths up to 841 (N=127) show significant decoherence. For N=255+ (8 qubits) ISA depth would be >> 1500 — **noise-limited**.
 - QPU measures $S_{vN}^{QPU} > S_{vN}^{klassisch}$ consistently → bias in the direction of **higher** entropy, so the true Schmidt entropy of the **noiseless** state is $S_{vN} \le S_{vN}^{QPU}$ for all N. The **actual** $\alpha$ is **possibly even smaller** than 0.27, not larger.
 - **VQE-optimum measurement on Fez (Pillar 1)** is still pending — either repair manually (5-pub script) or resubmit. Currently: 6-7 min QPU time consumed (N=7 to N=127), daily limit 10 min → **2-3 min left**, tight.
 
-#### **6.5.15 Saeule 1 VQE-Optimum QPU-Messung auf Fez/TOKEN2 (2026-06-10 12:19 UTC)**
+#### **6.5.15 Saeule 1 VQE-Optimum QPU-measurement auf Fez/TOKEN2 (2026-06-10 12:19 UTC)**
 
 After the successful single-shot measurement (Section 6.5.13) the 5-pub measurement at the VQE optimum was re-run separately. The VQE input were the parameters found from `pt_potential_vqe_minimal.py` (3 iter, 2048 shots): $E_0 = 2.3610$ (noiseless $E_0 = 2.0019$, 18% above optimum).
 
@@ -797,7 +797,7 @@ After the successful single-shot measurement (Section 6.5.13) the 5-pub measurem
 | $\langle \text{Im}(H_{PT})\rangle$ | — | **0.0131** | 0.0158 |
 | **`bias_PT_re`** | **−0.0133** ✓ H1/H3 | **−0.0714** ⚠ medium | — |
 
-**Befund:**
+**finding:**
 - `|bias_PT_re| = 0.0714` is **just** > 0.05 (H1/H3 threshold) and clearly < 0.15 (H2 threshold) → **Verdict: MEDIUM — partial H2 influence**
 - Compared to the initial point (|bias|=0.013), the bias at the VQE optimum is **5× larger** — counter-intuitive.
 
@@ -982,22 +982,22 @@ The **four-pillar architecture** (Section 6.5.9) is documented separately in `QU
 
 **Result 2026-06-08:** `pt_transmission_sweep.py` detects 4 resonance peaks at E = 2.00, 2.67, 3.67, 5.00 with all Δ < 0.027 (resolution limit of the apparatus). Deterministically confirmed (Section 6.5.11).
 
-**Strategischer Vektor `G_APPARAT_DETERMINISTIC`:** **A**.
+**Strategic Vector `G_APPARAT_DETERMINISTIC`:** **A**.
 
 #### **10.3 Pillar 3 — Prime States (Schmidt Entropy Scaling)**
 
 **Result 2026-06-10 12:13 UTC:** 5 sequential QPU jobs on Fez/TOKEN2, N = 7..127, 4096 shots, initialize(psi_prime) architecture. Aer pre-measurement: `α_Aer = 0.272`. Latorre-Sierra prediction: `α ≈ 1` (SotA, based on logπ(N) scaling). **QPU measurement: `α_QPU = 0.348`** — Aer value confirmed, **DISSENT to Latorre-Sierra** (Section 6.5.14).
 
-**Strategischer Vektor `SUB_RH_INDICATOR`:** Aer + Fez doppelt validiert → **A−** (Stand 2026-06-10).
+**Strategic Vector `SUB_RH_INDICATOR`:** Aer + Fez doppelt validiert → **A−** (Stand 2026-06-10).
 
-#### **10.4 Latorre-Sierra-Spannung: 3 Resolutionen (Section 6.5.16/17)**
+#### **10.4 Latorre-Sierra-tension: 3 Resolutionen (Section 6.5.16/17)**
 
-Drei formale Resolutionen der scheinbaren Spannung getestet:
+Drei formale Resolutionen der scheinbaren tension getestet:
 - **(b) Rényi-2** instead of vN: `α_2_Aer = 0.244 ≈ α_vN_Aer = 0.272` → **Falsified** (Rényi correction does not explain the tension).
-- **(c) Finite-N-Asymptotik:** N = 255..1023 offline — α stabilisiert sich bei 0.347 ab N ≥ 255.
-- **Lokale Steigung der Latorre-Kurve** `S = log₂π(N)` ist im selben Band wie unsere Messung (0.17-0.40 vs. 0.347).
+- **(c) Finite-N-asymptotics:** N = 255..1023 offline — α stabilisiert sich bei 0.347 ab N ≥ 255.
+- **Lokale Steigung der Latorre-Kurve** `S = log₂π(N)` ist im selben Band wie unsere measurement (0.17-0.40 vs. 0.347).
 
-**Verdict 2026-06-10:** Latorre-Spannung ist **Mismatch funktionaler Form** (nicht fundamentaler Konflikt). Strategischer Vektor: REFRAMED.
+**Verdict 2026-06-10:** Latorre-tension ist **Mismatch funktionaler Form** (nicht fundamentaler Konflikt). Strategic Vector: REFRAMED.
 
 #### **10.5 Asymptotics N=10⁴..10⁶ (statevector-first) — H_C confirmed**
 
@@ -1022,11 +1022,11 @@ Drei formale Resolutionen der scheinbaren Spannung getestet:
 
 **Consequence:** Latorre tension is a **FUNDAMENTAL disagreement**, not a finite-N artifact. Sub-RH indicator further strengthened (`α < 0.5` confirmed for 6 decades). `LATORE_TENSION_NOTE.md` §11 documents the reclassification.
 
-**Strategischer Vektor `SUB_RH_INDICATOR`:** **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).
+**Strategic Vector `SUB_RH_INDICATOR`:** **A−** (Aer + Fez + statevector asymptotics, 11 Datenpunkte, 6 Dekaden).
 
 #### **10.6 Im-Bias Reanalysis — Theorem Correction + QPU Confirmation (2026-06-17)**
 
-**Theoretischer Befund 2026-06-17 12:45 UTC:**
+**Theoretischer finding 2026-06-17 12:45 UTC:**
 ```python
 ||[H_diag, Re(H_PT)]||_F = 0.0   # exakt
 eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
@@ -1067,7 +1067,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 
 **Tests:** 173/173 green (as of 2026-06-17 17:25 UTC).
 
-#### **10.8 Strategische Vektoren — Gesamtstatus 2026-06-17 17:25 UTC**
+#### **10.8 Strategic Vectors — Gesamtstatus 2026-06-17 17:25 UTC**
 
 | Vektor | Status 2026-06-08 | Status 2026-06-17 17:25 UTC | Status 2026-06-17 19:50 UTC (QBER) | Status 2026-06-17 20:14 UTC (Spectral-Scaling) | Status 2026-06-17 21:16 UTC (QEC-Bias) | Promotion |
 |---|---|---|---|---|---|
@@ -1085,14 +1085,14 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 
 #### **10.9 Cross-Referenz-Index**
 
-| Befund | Hauptdoku | Detail-Doku |
+| finding | Hauptdoku | Detail-Doku |
 |---|---|---|
 | Aer stress test Pillar 1 | §6.5.10 | `SYNTHESIS_2026_06_10.md` §6.5.10 |
 | Echte Fez-QPU Singleshot | §6.5.13 | `pt_potential_vqe_singleshot_results.json` |
 | Fez VQE-Optimum 5-Pub | §6.5.15 | `pt_potential_vqe_minimal_results.json` |
 | Fez Schmidt entropy Pillar 3 | §6.5.14 | `pt_prime_state_qpu_singleshot_results.json` |
-| Latorre-Spannung 3 Resolutionen | §6.5.16/17 | `LATORE_TENSION_NOTE.md` |
-| Asymptotik H_C | §10.5 hier | `pt_asymptotic_N1e6_results.json` |
+| Latorre-tension 3 Resolutionen | §6.5.16/17 | `LATORE_TENSION_NOTE.md` |
+| asymptotics H_C | §10.5 hier | `pt_asymptotic_N1e6_results.json` |
 | H_Im_h1 QPU confirmation | §10.6 here | `pt_im_bias_token2_results.json` |
 | Test-Bug-Fix | §10.7 hier | commit `d0cfae7` |
 | Strategic Vektor-Update | §10.8 hier | `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC |
@@ -1158,7 +1158,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | 3 | +0.02997029 | +0.02748322 | 6.14 × 10⁻⁵ |
 | 4 | +0.02994539 | +0.02749304 | 7.12 × 10⁻⁵ |
 
-**Schwelle 1e-6 war zu streng** — die 2x2-Block-Eigenwerte zeigen eine **echte 2.-Ordnung-Embedding-Korrektur von ~7 × 10⁻⁵**. Diese ist **nicht-trivial** (2 Größenordnungen über numerischer Präzision), aber **QPU-irrelevant** (2 Größenordnungen unter QPU-Auflösung 0.005). Prereg wurde reframed (1e-6 → 1e-3), Schwelle ist PASS.
+**Schwelle 1e-6 war zu streng** — die 2x2-Block-eigenvalues zeigen eine **echte 2.-Ordnung-Embedding-Korrektur von ~7 × 10⁻⁵**. Diese ist **nicht-trivial** (2 Größenordnungen über numerischer Präzision), aber **QPU-irrelevant** (2 Größenordnungen unter QPU-Auflösung 0.005). Prereg wurde reframed (1e-6 → 1e-3), Schwelle ist PASS.
 
 **QPU Results (Fez/TOKEN2, 4 sequenzielle Jobs in 91 s, 1024 shots):**
 
@@ -1174,7 +1174,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 
 **Strategic implications:**
 
-1. **QPU-Bias-Vorzeichen ist strukturell**: konstant negativ über alle $n$ → Bias ist **systematisch depolarisierend**, nicht zufällig. Dies ist die *erste* QPU-Validierung der **Bias-Asymmetrie** (Säule 1, Vektor `IM_BIAS_AS_KANONISCHE_METRIK`).
+1. **QPU-Bias-Vorzeichen ist strukturell**: konstant negativ über alle $n$ → Bias ist **systematisch depolarisierend**, nicht zufällig. Dies ist die *erste* QPU-validation der **Bias-Asymmetrie** (Pillar 1, Vektor `IM_BIAS_AS_KANONISCHE_METRIK`).
 2. **Jacobi-Block-Invarianz ist QPU-bestätigt**: $\langle A\rangle$ ist über $n \in \{2, 3, 4\}$ strukturell stabil (CV = 0.58, 2σ-Band überdeckt alle 3 Punkte). Die algebraische Identität `H_PT_5 = block_diag(H_PT_4, 5)` aus `pt_ququint_vqe.py` ist damit auch QPU-konsistent.
 3. **Embedding-Korrektur 2. Ordnung** ist real (statevector zeigt 7e-5), aber QPU-irrelevant. Die Korrektur kommt daher, dass die Jacobi-Off-Diagonal-Kopplungen `(f(E_i) - f(E_j))/(E_i - E_j)` *alle* Niveaus miteinander koppeln — der 2x2-Block ist *nicht* exakt block-diagonal in der ursprünglichen Konstruktion.
 4. **QPU-Zeit-Bilanz**: 4 Jobs × ~23 s = ~91 s wall-clock (Bereich QPU-Sparmodus). Niedrigster QPU-Verbrauch im Projekt bisher.
@@ -1183,7 +1183,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 
 #### **10.12 QEC-Bias-Test: H_QEC_Eliminates_Bias PASS (2026-06-17 21:16 UTC)**
 
-**Methodology:** Direkter Vergleich von `resilience_level=1` (no QEC) und `resilience_level=2` (Zero-Noise Extrapolation) auf demselben n=2 Jacobi-Block mit denselben theta-Parametern. §10.10 schloss aus der QBER-Studie "Error mitigation will not reduce Im_bias" — dieser Test prüft die Vorhersage direkt auf der QPU.
+**Methodology:** Direkter comparison von `resilience_level=1` (no QEC) und `resilience_level=2` (Zero-Noise Extrapolation) auf demselben n=2 Jacobi-Block mit denselben theta-Parametern. §10.10 schloss aus der QBER-Studie "Error mitigation will not reduce Im_bias" — dieser Test prüft die prediction direkt auf der QPU.
 
 **Preregistration:** `pt_qec_bias_prereg.json` (md5=`5a45d33c2d89ca07720f11bee00bc08d`) committed BEFORE QPU submission. Drei Hypothesen:
 - `H_QEC_Eliminates_Bias`: ratio = |bias_RL2| / |bias_RL1| < 0.5
@@ -1205,16 +1205,16 @@ Statevector-Referenz: ⟨A⟩ = 0.2627
 
 **Implikation: Korrektur §10.10 QBER-Studie.**
 
-Die QBER-Studie §10.10 schloss: "Im_bias ist algorithmus-dominiert, QEC wird nicht helfen." Diese Aussage war **zu stark**. Die korrekte Auflösung:
+Die QBER-Studie §10.10 schloss: "Im_bias ist algorithmus-dominiert, QEC wird nicht helfen." Diese statement war **zu stark**. Die korrekte Auflösung:
 
 1. **QBER misst keine direkte Bias-Kausalität.** Die QBER-Studie zeigte, dass der variable Bias-Anteil (über θ variierend) nicht mit QBER korreliert (ρ = 0.007) — das bleibt korrekt.
 2. **Es gibt aber einen konstanten Hardware-Anteil** des Bias (depolarisierender Kanal), der unabhängig von θ ist und durch QEC eliminiert werden kann.
 3. **Der Algorithmus-Anteil** des Bias ist nur 0.021 (nach QEC) — also 1/3 des Gesamtbias.
 4. **Bias-Zerlegung:** Im_bias = Im_bias_hardware (0.045, QEC-eliminierbar) + Im_bias_algorithmus (0.021, QEC-resistent).
 
-**Strategische Konsequenz für künftige QPU-Runs:**
+**Strategische consequence für künftige QPU-Runs:**
 
-- **QEC ist ESSENZIELL** für RH-relevante QPU-Validierung, weil der Algorithmus-Bias nur 1/3 des Gesamtbias ausmacht.
+- **QEC ist ESSENZIELL** für RH-relevante QPU-validation, weil der Algorithmus-Bias nur 1/3 des Gesamtbias ausmacht.
 - **QPU-Sparmodus aus §10.10** muss revidiert werden: niedrigere Shots allein reduzieren NICHT den Hardware-Bias-Anteil — QEC ist nötig.
 - **Künftige Sweeps:** `resilience_level=2` (ZNE) als Default. Tradeoff: QEC = 3.1× längere QPU-Zeit pro Job, aber Bias-Reduktion 3.1×.
 
@@ -1222,7 +1222,7 @@ Die QBER-Studie §10.10 schloss: "Im_bias ist algorithmus-dominiert, QEC wird ni
 
 #### **10.13 QPU-Bias-Triangulation: ZNE vs REM (2026-06-18 07:20 UTC)**
 
-**Methodology:** Zwei parallele QPU-Sweeps triangulieren die Bias-Quelle durch Vergleich von:
+**Methodology:** Zwei parallele QPU-Sweeps triangulieren die Bias-Quelle durch comparison von:
 - **no-REM** (Referenz): kein QEC, kein REM
 - **REM** (Readout-Error-Mitigation via T-REx Twirling)
 - **ZNE** (Zero-Noise Extrapolation, RL=2) — bereits in §10.12 gemessen
@@ -1247,13 +1247,13 @@ Die QBER-Studie §10.10 schloss: "Im_bias ist algorithmus-dominiert, QEC wird ni
 
 **Verdict-Triangulation:**
 
-| Hypothese | Resultat |
+| hypothesis | Resultat |
 |---|---|
-| `H_Algorithmus_Bias_Klein_nach_QEC` (Säule 7) | **FAIL** — Bias RL=2 = 0.042..0.072, **nicht** < 0.025 |
-| `H_Block_Diag_Invariance_Post_QEC` (Säule 7) | **PASS** — QPU-⟨A⟩ im 2σ-Band |
-| `H_REM_Reduziert_Bias` (Säule 8) | **FAIL** — REM-Bias 0.037 > no-REM 0.003 |
+| `H_Algorithmus_Bias_Klein_nach_QEC` (Pillar 7) | **FAIL** — Bias RL=2 = 0.042..0.072, **nicht** < 0.025 |
+| `H_Block_Diag_Invariance_Post_QEC` (Pillar 7) | **PASS** — QPU-⟨A⟩ im 2σ-Band |
+| `H_REM_Reduziert_Bias` (Pillar 8) | **FAIL** — REM-Bias 0.037 > no-REM 0.003 |
 
-**Kritische Beobachtung: QPU-Bias ist SESSION-ABHÄNGIG.**
+**Kritische observation: QPU-Bias ist SESSION-ABHÄNGIG.**
 
 §10.12 (eine QPU-Session, andere Hardware-Kalibrierung): no-REM-Bias = 0.066, ZNE-Bias = 0.021. **ZNE reduziert um Faktor 3.1.**
 
@@ -1268,15 +1268,15 @@ Die wahre Bias-Architektur ist **komplexer** als die einfache "QEC eliminiert Ha
 3. **REM erhöht Bias** (0.003 → 0.037) — T-REx-Twirling-Randomness dominiert über Readout-Error-Korrektur in dieser Session.
 4. **QPU-⟨A⟩ bleibt im 2σ-Band post-QEC** — Jacobi-Block-Invarianz ist robust, unabhängig vom absoluten Bias.
 
-**Strategische Konsequenz (KORREKTUR §10.10 und §10.12):**
+**Strategische consequence (KORREKTUR §10.10 und §10.12):**
 
 - **Algorithmus-Bias-Anteil ist nicht eindeutig identifizierbar** — Hardware-Drift dominiert den Bias.
-- **QPU-Sessions sind NICHT direkt vergleichbar** für Bias-Messungen — jede Session braucht eigene statevector-Referenz.
+- **QPU-Sessions sind NICHT direkt vergleichbar** für Bias-measurements — jede Session braucht eigene statevector-Referenz.
 - **ZNE ist nicht universell hilfreich** — sessionspezifische Overshoot-Effekte möglich.
 - **Jacobi-Block-Invarianz ist robust** — die algebraische Identität aus §10.11/§10.13 ist unabhängig vom Bias-Level gültig.
 - **Zuverlässige Bias-Quantifizierung erfordert mehrfache Sessions** (Cron-Setup) und konsistente Hardware-Kalibrierung.
 
-**Anti-Sharpshooter-Compliance:** Beide Preregs (Säule 7 + 8) waren vor QPU-Run gepinnt. Hypothesen wurden ehrlich ausgewertet — FAIL wird als FAIL berichtet, nicht als "AMBIGUOUS" umframed. **Das ist die gewünschte Selbstkorrektur.**
+**Anti-Sharpshooter-Compliance:** Beide Preregs (Pillar 7 + 8) waren vor QPU-Run gepinnt. Hypothesen wurden ehrlich ausgewertet — FAIL wird als FAIL berichtet, nicht als "AMBIGUOUS" umframed. **Das ist die gewünschte Selbstkorrektur.**
 
 **QPU Time Used:** 5 Jobs × ~8 s = ~39 s of QPU time (sehr schnell).
 

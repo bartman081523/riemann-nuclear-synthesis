@@ -14,7 +14,7 @@ Integrates four architecture concepts from `QUANTUM_COMPUTING_AND_PRIMES_RESEARC
 
 The current setup (Zeraoulia + IBM hardware) fails at three structural points:
 
-| Problem | Ursache | Konsequenz |
+| Problem | cause | consequence |
 |---|---|---|
 | VQE finds only E_0 | TwoLocal(2 qubit) too inexpressive | E_1..E_3 not measurable |
 | Hardware bias +62% | 2-qubit system, many coherences | absolute energies unreliable |
@@ -26,14 +26,14 @@ The four architectures from the research overview offer **concrete solutions** f
 
 ```mermaid
 graph TD
-    Start([Riemann-Hypothese]) --> SA[SciMind 4.0/5.0 Audit]
+    Start([Riemann-hypothesis]) --> SA[SciMind 4.0/5.0 Audit]
 
-    SA --> P1[Säule 1: Primzahl-Quantenoszillator]
-    SA --> P2[Säule 2: G-Apparat]
-    SA --> P3[Säule 3: Prime States]
-    SA --> P4[Säule 4: Prime-Qudit-Architektur]
+    SA --> P1[Pillar 1: Primzahl-Quantenoszillator]
+    SA --> P2[Pillar 2: G-Apparat]
+    SA --> P3[Pillar 3: Prime States]
+    SA --> P4[Pillar 4: Prime-Qudit-Architektur]
 
-    %% === Säule 1: Holografisches Potenzial ===
+    %% === Pillar 1: Holografisches Potenzial ===
     P1 --> P1a[SLM-formiertes Potenzial V(x)]
     P1a --> P1b[Energieniveaus = Zeraoulia-Iteration E_n]
     P1b --> P1c[Atome in optischen Gittern Rb-87 / Na-23]
@@ -41,7 +41,7 @@ graph TD
     P1d -- JA --> P1e[Resonanzen = E_n exakt]
     P1d -- NEIN --> P1f[Iterative Inversion des Potenzials]
 
-    %% === Säule 2: G-Apparat (Primzahlfilter) ===
+    %% === Pillar 2: G-Apparat (Primzahlfilter) ===
     P2 --> P2a[Streupotenzial mit V_p als Barriere]
     P2a --> P2b[Energie E_ein einstrahlen]
     P2b --> P2c{Transmission T(E) messen}
@@ -50,14 +50,14 @@ graph TD
     P2d --> P2f[Kaskade mit Glueckszahlen-Potenzial]
     P2f --> P2g[AND-Gatter: Lucky AND Prime]
 
-    %% === Säule 3: Prime States im Hilbert-Raum ===
+    %% === Pillar 3: Prime States im Hilbert space ===
     P3 --> P3a[Superposition |P_N> = sum Primes<=N |p>]
     P3a --> P3b[Grover-Oracle = Miller-Rabin-Test]
     P3b --> P3c[QFT auf |P_N> anwenden]
     P3c --> P3d[Chebyshev-Bias extrahieren]
-    P3c --> P3e[Zwillingsprimzahl-Zustand |Twin>]
+    P3c --> P3e[Zwillingsprimzahl-state |Twin>]
 
-    %% === Säule 4: Prime-Qudit-Architektur ===
+    %% === Pillar 4: Prime-Qudit-Architektur ===
     P4 --> P4a[Dimension d = 5 Ququint, GF(5)]
     P4a --> P4b[Stabilisator-Codes auf GF(5)]
     P4b --> P4c[Threshold 36.3% fuer Magic State Destillation]
@@ -69,16 +69,16 @@ graph TD
     I1 --> I1a[QPU misst Resonanz-Peaks direkt]
     I1a --> I1b[Delta E_n = Peak-Abstaende, bias-invariant]
 
-    P2d --> I2[RHEINFILTER: Transmissions-basierte Eigenwert-Bestimmung]
+    P2d --> I2[RHEINFILTER: Transmissions-basierte eigenvalue-Bestimmung]
     I2 --> I2a[VQE ersetzt durch T(E) Sweep]
     I2a --> I2b[Kein Penalty noetig, alle Niveaus auf einmal]
 
-    P3d --> I3[PRIMZAHL-REGISTER: Zustand-Konstruktion]
+    P3d --> I3[PRIMZAHL-REGISTER: state-Konstruktion]
     I3 --> I3a[Verschränkungsentropie als RH-Indikator]
 
     P4e --> I4[QUQUINT-BACKEND: d=5 GF(5) statt 2-Qubit]
     I4 --> I4a[H_PT in GF(5) - exakte Bias-Elimination]
-    I4a --> I4b[Unser 4-dim Jacobi A -> d=5 Erweiterung]
+    I4a --> I4b[Unser 4-dim Jacobi A -> d=5 extension]
 
     %% === Convergence: Transcategorical Bridge ===
     I1b & I2b & I3a & I4b --> TCI[Transcategorical Bridge]
@@ -95,7 +95,7 @@ graph TD
 
     R1 & R2 & R3 & R4 --> SUCCESS[SUCCESS: Hilbert-Pólya-Operator realisiert]
 
-    %% === Strategische Vektoren ===
+    %% === Strategic Vectors ===
     P1 -.SHORT-TERM.-> I1
     P2 -.MID-TERM.-> I2
     P3 -.LONG-TERM.-> I3

@@ -8,9 +8,9 @@ Living technical implementation document. Mermaid architecture diagrams + chrono
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
-| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | Theorie (Sections 1–9) + Operational Findings Log (§10) |
+| [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | theory (Sections 1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
-| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-Spannung + §11 Asymptotik |
+| [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 aktiv |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Diagramm-Ideen historisch |
@@ -27,7 +27,7 @@ Common data source: `pt_structural.E_DIAG` (Zeraoulia levels) and
 
 ---
 
-## Säule 1: `pt_potential_vqe.py` — Holographic Potential (short-term)
+## Pillar 1: `pt_potential_vqe.py` — Holographic Potential (short-term)
 
 **Solves:** VQE only finds E_0. Penalty-VQE for E_1..E_3 fails.
 **Idea:** Variational ansatz as a **potential basis**, not as an E_0 search. The
@@ -57,7 +57,7 @@ graph TD
     O3 --> O4[apply_layout fuer isa_real, isa_imag, isa_diag]
 
     %% === Pre-Registrierung ===
-    V4 --> PR1[Vorhersage H1/H2/H3 generieren]
+    V4 --> PR1[prediction H1/H2/H3 generieren]
     PR1 --> PR2[Speichere pt_potential_vqe_prereg.json]
     PR2 --> PR3[E_noiseless = linalg.eigvals H_PT]
     PR3 --> PR4[Delta E_n_pred, Im E_n_pred]
@@ -77,18 +77,18 @@ graph TD
     OPT2 --> JOB
     OPT1 -- cost < threshold --> OPT3[Optimum erreicht]
 
-    %% === Analyse ===
+    %% === analysis ===
     OPT3 --> A1[Extrahiere E_meas aus Pub 1-3]
     A1 --> A2[Extrahiere E_meas random aus Pub 4-5]
     A2 --> A3[Berechne Delta E_n_meas]
-    A3 --> A4{Vergleich mit H1/H2/H3?}
+    A3 --> A4{comparison mit H1/H2/H3?}
     A4 -- H1 / H3 --> PASS1[CONFIRMED: Delta E_n bias-invariant]
     A4 -- H2 --> FAIL1[REJECTED: Hardware-Bias ist multiplikativ]
 
     %% === Output ===
     PASS1 --> OUT1[Speichere pt_potential_vqe_results.json]
     PASS1 --> OUT2[Log: pt_potential_vqe_log.txt]
-    PASS1 --> OUT3[Bias-Analyse: beta_diag, bias_PT_re, bias_PT_im]
+    PASS1 --> OUT3[Bias-analysis: beta_diag, bias_PT_re, bias_PT_im]
     FAIL1 --> OUT1
     OUT1 --> End([SUCCESS: Alle E_n in 1 Lauf])
 
@@ -110,7 +110,7 @@ graph TD
 
 ---
 
-## Säule 2: `pt_transmission_sweep.py` — G-Apparatus (mid-term)
+## Pillar 2: `pt_transmission_sweep.py` — G-Apparatus (mid-term)
 
 **Solves:** Local minima of the VQE optimizer. Penalty logic is too complex.
 **Idea:** Sweep the **incident energy E_in** through the Zeraoulia potential.
@@ -161,8 +161,8 @@ graph TD
     PP2 --> PP3[find_peaks in T E mit prominence 0.05]
     PP3 --> PP4[Peaks_meas = E_0_meas, E_1_meas, E_2_meas, E_3_meas]
 
-    %% === Vergleich mit Preregistrierung ===
-    PP4 --> CMP1{Vergleich Peaks_meas mit Peaks_pred?}
+    %% === comparison mit Preregistrierung ===
+    PP4 --> CMP1{comparison Peaks_meas mit Peaks_pred?}
     CMP1 -- alle 4 in ±0.1 --> CONF[CONFIRMED: E_n exakt aus Potenzial]
     CMP1 -- 2-3 Peaks --> PART[PARTIAL: manche Niveaus unterdrueckt]
     CMP1 -- 0-1 Peaks --> REJ[REJECTED: Sweep zu grob]
@@ -194,7 +194,7 @@ graph TD
 
 ---
 
-## Säule 3: `pt_prime_state.py` — Prime States (long-term)
+## Pillar 3: `pt_prime_state.py` — Prime States (long-term)
 
 **Solves:** Need an RH indicator that is **not** based on eigenvalues.
 **Idea:** Construct $\lvert P_N\rangle = \sum_{p\le N} \lvert p\rangle$ in the
@@ -209,8 +209,8 @@ graph TD
     %% === Primzahl-Generierung ===
     L2 --> P1[Sieb des Eratosthenes bis N=127]
     P1 --> P2[P_N = 2, 3, 5, 7, ..., 127]
-    P2 --> P3[Anzahl pi N = 31 Primzahlen]
-    P3 --> P4[Berechne log 2 N und log log N fuer Asymptotik]
+    P2 --> P3[number pi N = 31 Primzahlen]
+    P3 --> P4[Berechne log 2 N und log log N fuer asymptotics]
 
     %% === Quanten-Register-Konstruktion ===
     P4 --> R1[Encoding: prime p zu binaer 7-bit]
@@ -218,7 +218,7 @@ graph TD
     R2 --> R3[Oracle U_f: |p>|0> -> |p>|is_prime p>]
     R3 --> R4[Diffuser: 2|psi_init><psi_init| - I]
     R4 --> R5[Grover-Iteration G = Diffuser · Oracle]
-    R5 --> R6[Anzahl Iterationen: r ~ pi/4 · sqrt 2^7 = 11]
+    R5 --> R6[number Iterationen: r ~ pi/4 · sqrt 2^7 = 11]
 
     %% === Konstruktion |P_N> ===
     R6 --> C1[Wende G^r auf |psi_init> an]
@@ -240,10 +240,10 @@ graph TD
     SW4 -- ja --> SW1
     SW4 -- nein --> SW5[5 Datenpunkte S N vs N]
 
-    %% === Theoretische Vorhersage ===
-    SW5 --> T1[Latorre-Sierra-Vorhersage: S ~ log pi N / 2]
+    %% === Theoretische prediction ===
+    SW5 --> T1[Latorre-Sierra-prediction: S ~ log pi N / 2]
     T1 --> T2[Berechne theoretische Kurve]
-    T2 --> T3[Vergleich Mess vs Theorie]
+    T2 --> T3[comparison Mess vs theory]
 
     %% === RH-Test ===
     T3 --> RH1{Bestimme Skalierungsexponent alpha}
@@ -278,7 +278,7 @@ graph TD
 
 ---
 
-## Säule 4: `pt_ququint_vqe.py` — Prime Qudits GF(5) (parallel)
+## Pillar 4: `pt_ququint_vqe.py` — Prime Qudits GF(5) (parallel)
 
 **Solves:** Hardware bias +62% on the 2-qubit system.
 **Idea:** Instead of 2 qubits (dimension 4) → **1 ququint** (dimension 5) over
@@ -310,9 +310,9 @@ graph TD
 
     %% === Variational Ansatz fuer Ququint ===
     H4 --> V1[Ansatz: U theta = PROD_k exp -i theta_k H_k]
-    V1 --> V2[H_k zufaellig in GF 5 unitär]
+    V1 --> V2[H_k zufaellig in GF 5 unitary]
     V2 --> V3[Initial-Params: theta_0 = 0]
-    V3 --> V4[Anzahl Params: n_layers x 25]
+    V3 --> V4[number Params: n_layers x 25]
 
     %% === VQE-Loop in GF 5 ===
     V4 --> E1{cost = <psi theta|H_PT_5|psi theta> ?}
@@ -321,14 +321,14 @@ graph TD
     E3 --> E1
     E1 -- cost < threshold --> E4[Konvergiert: E_0_GF5 gefunden]
 
-    %% === Spektrum-Berechnung ===
+    %% === Spektrum-computation ===
     E4 --> S1[linalg.eigvals H_PT_5 exakt]
     S1 --> S2[Sortiere E_n nach Real-Teil]
     S2 --> S3[Extrahiere E_0, E_1, E_2, E_3, E_4]
     S3 --> S4[Berechne Delta E_n_GF5]
 
-    %% === Bias-Analyse ===
-    S4 --> B1{Vergleich mit 2-Qubit-Resultat?}
+    %% === Bias-analysis ===
+    S4 --> B1{comparison mit 2-Qubit-Resultat?}
     B1 --> B2[Delta E_n_GF5 vs Delta E_n_qubit aus pt_spectral_gaps]
     B2 --> B3{Abweichung in 2 Qubit?}
     B3 -- ja --> CONF[CONFIRMED: GF 5 ist bias-invariant]
@@ -379,17 +379,17 @@ graph TD
 
 ```mermaid
 graph LR
-    S1[Säule 1<br/>Potenzial] -->|E_n exakt| TCB[Transcategorical<br/>Bridge]
-    S2[Säule 2<br/>G-Apparat] -->|T E Resonanz| TCB
-    S3[Säule 3<br/>Prime States] -->|Verschränkung| TCB
-    S4[Säule 4<br/>Ququint] -->|Bias-Elimination| TCB
+    S1[Pillar 1<br/>Potenzial] -->|E_n exakt| TCB[Transcategorical<br/>Bridge]
+    S2[Pillar 2<br/>G-Apparat] -->|T E Resonanz| TCB
+    S3[Pillar 3<br/>Prime States] -->|Verschränkung| TCB
+    S4[Pillar 4<br/>Ququint] -->|Bias-Elimination| TCB
 
     TCB --> Q[Quantenphysik<br/>GUE + PT + T2]
     TCB --> Z[Zahlentheorie<br/>Zeraoulia + Lücken]
     TCB --> G[Galois-Struktur<br/>GF d + MUBs]
     TCB --> H[Hermeneutik<br/>Epoché + Vorurteil]
 
-    Q & Z & G & H --> RH([RH-Beweis<br/>aus 4 Säulen])
+    Q & Z & G & H --> RH([RH-proof<br/>aus 4 Pillars])
 
     style TCB fill:#f9c,stroke:#333,stroke-width:3px
     style RH fill:#5f5,stroke:#333,stroke-width:4px
@@ -398,14 +398,14 @@ graph LR
 ![QAI Block 5](figures/qai_block_5.png)
 
 
-## Strategischer Vektor
+## Strategic Vector
 
 ```mermaid
 graph TD
-    NOW[Stand 2026-06-08] --> S1[Säule 1: pt_potential_vqe.py<br/>~1 Woche, 1 QPU-Run]
-    NOW --> S2[Säule 2: pt_transmission_sweep.py<br/>~2 Wochen, 100 Runs parallel]
-    NOW --> S3[Säule 3: pt_prime_state.py<br/>~4 Wochen, 5 Runs]
-    NOW --> S4[Säule 4: pt_ququint_vqe.py<br/>~3 Wochen, Simulation]
+    NOW[Stand 2026-06-08] --> S1[Pillar 1: pt_potential_vqe.py<br/>~1 Woche, 1 QPU-Run]
+    NOW --> S2[Pillar 2: pt_transmission_sweep.py<br/>~2 Wochen, 100 Runs parallel]
+    NOW --> S3[Pillar 3: pt_prime_state.py<br/>~4 Wochen, 5 Runs]
+    NOW --> S4[Pillar 4: pt_ququint_vqe.py<br/>~3 Wochen, Simulation]
 
     S1 --> MID[Mid-Term<br/>Section 6.5.9]
     S4 --> MID
@@ -435,7 +435,7 @@ implementation). The tests are in `tests/` (54 tests, **all green**).
 
 ### Test status per pillar
 
-| Säule | Test file | Number | Status |
+| Pillar | Test file | Number | Status |
 |---|---|---:|---|
 | 1: Holographic Potential | `test_pt_potential_vqe.py` | 15 | 15/15 green |
 | 2: G-Apparatus | `test_pt_transmission_sweep.py` | 9 | 9/9 green |
@@ -445,17 +445,17 @@ implementation). The tests are in `tests/` (54 tests, **all green**).
 
 ### Validated offline results
 
-**Säule 2 (G-Apparatus, `pt_transmission_sweep_results.json`):**
+**Pillar 2 (G-Apparatus, `pt_transmission_sweep_results.json`):**
 - 4 peaks detected at E = 2.000, 2.667, 3.667, 5.000
 - All Δ < 0.027 from E_DIAG (expected values)
 - Peak detection via `scipy.signal.find_peaks` with prominence=0.05
 
-**Säule 3 (Prime States, `pt_prime_state_results.json`):**
+**Pillar 3 (Prime States, `pt_prime_state_results.json`):**
 - Scaling exponent α = 0.2719 (Sub-RH indicator)
 - RH-consistent prediction would be α ≈ 1
 - Confirms physical expectation: uniform superposition scales with π(N)/dim
 
-**Säule 4 (Prime Qudits GF(5), `pt_ququint_vqe_results.json`):**
+**Pillar 4 (Prime Qudits GF(5), `pt_ququint_vqe_results.json`):**
 - H_PT_5 (5×5) and H_PT_4 (4×4) have **bit-exact identical** 4 sublevels
 - 5th level exactly decoupled (E_4 = 5.000 + 0.000j)
 - Magic state distillation: 36.3% (ququint) vs 1% (qubit) = 36.3× improvement
@@ -486,7 +486,7 @@ test quality than if the tests had been written after the implementation
 
 ### QPU execution plan
 
-| Säule | Script | Backend | Status | Submission |
+| Pillar | Script | Backend | Status | Submission |
 |---|---|---|---|---|
 | 1 | `pt_potential_vqe.py` | ibm_fez (TOKEN1) | READY, but quota blocked | 3 attempts failed (`bzmtvyu13`, `b0pekypf3`, `bf3yqz8tt`) |
 | 1-Aer | `pt_aer_stress_saeule1.py` | Aer+Fez noise | **DONE** | 11/11 tests green, `bias_PT_re = 0.0059`, H1/H3 HIGH |
@@ -496,10 +496,10 @@ test quality than if the tests had been written after the implementation
 | 3 | `pt_prime_state.py` | (offline DONE) | **DONE: α = 0.2719 (Sub-RH)** | 15/15 tests green |
 | 4 | `pt_ququint_vqe.py` | (no QPU) | Offline simulator | 15/15 tests green |
 
-Säule 4 runs completely as a simulator (no QPU time consumed) and prepares
+Pillar 4 runs completely as a simulator (no QPU time consumed) and prepares
 the architecture for future native ququint hardware.
 
-### Säule 2 offline result (2026-06-08)
+### Pillar 2 offline result (2026-06-08)
 
 `pt_transmission_sweep.py` main() was run offline on 2026-06-08.
 The G-apparatus is deterministic (`T(E) = 1/|det(H_probe(E))|`), no QPU needed.
@@ -512,7 +512,7 @@ The G-apparatus is deterministic (`T(E) = 1/|det(H_probe(E))|`), no QPU needed.
 
 Persisted in `pt_transmission_sweep_results.json`.
 
-### Säule 3 offline result (2026-06-08)
+### Pillar 3 offline result (2026-06-08)
 
 `pt_prime_state.py` main() was run offline on 2026-06-08 for
 N ∈ {7, 15, 31, 63, 127} (Mersenne range 2^k − 1).
@@ -528,7 +528,7 @@ structural correlation between prime sparsity and spectral gap statistics.
 
 Persisted in `pt_prime_state_results.json`.
 
-### Aer stress-test result (Säule 1, 2026-06-08)
+### Aer stress-test result (Pillar 1, 2026-06-08)
 
 Since the IBM Open Plan for Fez is blocked (3 attempts failed due to
 quota exhaustion), `pt_aer_stress_saeule1.py` was run as a
@@ -552,7 +552,7 @@ validated at Aer level. Generalization to real hardware is pending
 
 Persisted in `pt_aer_stress_saeule1_results.json`.
 
-### Säule 1 real QPU measurement (2026-06-10 11:18 UTC, Fez/TOKEN2)
+### Pillar 1 real QPU measurement (2026-06-10 11:18 UTC, Fez/TOKEN2)
 
 With the new account (TOKEN2) the QPU submission could be carried out on
 2026-06-10 at 11:18 UTC despite the Open Plan quota blockade on TOKEN1.
@@ -579,7 +579,7 @@ more moderate than the original Marrakesh measurement (+63%, Section 6.5.4). The
 
 Persisted in `pt_potential_vqe_singleshot_results.json`.
 
-### Säule 1 VQE optimum QPU (2026-06-10 12:19 UTC, Fez/TOKEN2)
+### Pillar 1 VQE optimum QPU (2026-06-10 12:19 UTC, Fez/TOKEN2)
 
 5 sequential 1-pub jobs at the VQE optimum (3 iterations, E0=2.36, suboptimal):
 
@@ -604,7 +604,7 @@ VQE in Q3 2026.
 
 Persisted in `pt_potential_vqe_5pub_results.json`.
 
-### Säule 3 real QPU measurement (2026-06-10 12:13 UTC, Fez/TOKEN2)
+### Pillar 3 real QPU measurement (2026-06-10 12:13 UTC, Fez/TOKEN2)
 
 Schmidt entropy $S_{vN}$ of $|P_N\rangle$ measured on real Fez hardware.
 5 sequential 1-pub jobs (`pt_prime_state_qpu_run.py`), 4096 shots,
@@ -646,7 +646,7 @@ remains intact.
 
 **Persisted in** `pt_prime_state_qpu_singleshot_results.json`.
 
-### Säule 3 N-extension + Latorre-Sierra resolution tests (2026-06-10, offline Aer)
+### Pillar 3 N-extension + Latorre-Sierra resolution tests (2026-06-10, offline Aer)
 
 **Motivation:** Three plausible resolutions of the Latorre-Sierra discrepancy
 (arXiv:1302.6245 says $\alpha\approx 1$, we measure $\alpha\approx 0.27$) were
@@ -803,7 +803,7 @@ statevector fallback.**
 **0.0133 = hardware bias of decoherence**. Both confirm H1/H3.
 
 **Statevector-first architecture confirmed:** numpy is the deterministic truth,
-QPU only as sampling wrapper. The methodology established since Säule 1 pays off.
+QPU only as sampling wrapper. The methodology established since Pillar 1 pays off.
 
 ### Asymptotics N=10⁴..10⁶ (`pt_asymptotic_N1e6.py`)
 
@@ -838,7 +838,7 @@ $\alpha < 0.5$ now confirmed for $N \in [7, 10^6]$ — **six decades**.
 
 **Updated table:**
 
-| Säule | Test file | Number | Status |
+| Pillar | Test file | Number | Status |
 |---|---|---:|---|
 | 1: Holographic Potential | `test_pt_potential_vqe.py` | 15 | 15/15 green |
 | 2: G-Apparatus | `test_pt_transmission_sweep.py` | 9 | 9/9 green |
@@ -848,7 +848,7 @@ $\alpha < 0.5$ now confirmed for $N \in [7, 10^6]$ — **six decades**.
 | 3-Modelle | `test_pt_three_models.py` | 9 | 9/9 green |
 | N255 | `test_pt_prime_state_N255.py` | 18 | 18/18 green |
 | VQE-5pub | `test_pt_potential_vqe_5pub.py` | 18 | 18/18 green |
-| Asymptotik | `test_pt_asymptotic_N1e6.py` | 27 | 27/27 green |
+| asymptotics | `test_pt_asymptotic_N1e6.py` | 27 | 27/27 green |
 | **Total** | | **150** | **150/150 green** |
 
 ### Strategic vector update
@@ -915,7 +915,7 @@ old metric was a **sampling-noise quantifier**, not a bias topology test.
 - If Fez then shows `|bias| > 0.020`: hardware decay signal (NEW FINDING)
 - If Fez then shows `|bias| < 0.005`: H_Im_h1 confirmed, REFRAMING to A+
 
-### Säule 1 redefined
+### Pillar 1 redefined
 
 - Before: "VQE+VQD at optimum" with `bias_PT_re` metric
 - After: "Im-bias sweep over θ" with
