@@ -53,8 +53,10 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 
 | Account | Backend | Status | Last run |
 |---|---|---|---|
-| `IBMQ_TOKEN` | `ibm_fez` (156 qb) | ⚠️ Quota-blocked | 2026-06-08 |
-| `IBMQ_TOKEN2` | `ibm_fez` (156 qb) | ✅ Open | 2026-06-17 |
+| `IBMQ_TOKEN` | `ibm_fez` (156 qb) | ⚠️ False-positive quota (see §T) | 2026-06-19 |
+| `IBMQ_TOKEN2` | `ibm_fez` (156 qb) | ⚠️ Quota-blocked | 2026-06-17 |
+
+**Note 2026-06-19:** TOKEN1 diagnose returns `has_quota=true` but VQE+VQD (13 calls × 8192 shots) is still blocked. Diagnose-akzeptanz ≠ QPU-run-bereitschaft. Cron b3f26579 (1.7.2026) is the canonical reset trigger; `pt_vqe_vqd_statevector.py` is the statevector-first fallback (see `SYNTHESIS_2026_06_10.md` §T).
 
 **Operational policy:** QPU time is scarce — all statevector-first validations must precede any QPU submission. Preregistration before `main()` is required for every QPU script (Anti-Sharpshooter Protocol).
 
