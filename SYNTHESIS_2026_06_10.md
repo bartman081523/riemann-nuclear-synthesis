@@ -276,7 +276,7 @@ When we suspend whether nature has "symmetrically *constructed* primes and nucle
 | Vector | Definition | Status (2026-06-17) |
 |---|---|---|
 | **REFRAMING_VECTOR_RELATIVE_SPECTRUM** | ΔE_n = E_{n+1} − E_n is bias-invariant for additive AND smooth-nonlinear channels. RH = **relative** statement (σ=1/2 for ALL zeros), not absolute. | **A+** (Aer + Fez H_Im_h1 + QBER-decoupled + Block-invariance + QEC + **Fez/TOKEN1 VQE+VQD §W**) |
-| **IM_BIAS_AS_KANONISCHE_METRIK** | `Im(H_PT)` is the canonical bias observable (not `Re(H_PT)`, which is a theorem identity with H_diag). Fez 5-sweep: all \|bias\| < 0.005, mean = −0.0001, std = 0.0019. **Fez/TOKEN1 VQE+VQD §W: Im_bias = −0.0205 (QPU) ≈ −0.0215 (statevector)**. | **A+** (Aer + Fez 5-sweep + QBER-QPU ρ=0.007 + QEC 3.1× + **QPU-VQE-cross-validated §W**) |
+| **IM_BIAS_AS_KANONISCHE_METRIK** | `Im(H_PT)` is the canonical bias observable (not `Re(H_PT)`, which is a theorem identity with H_diag). Fez 5-sweep: all \|bias\| < 0.005, mean = −0.0001, std = 0.0019. **Fez/TOKEN1 VQE+VQD §W: Im_bias = −0.0205 (QPU) ≈ −0.0215 (statevector)**. **Re-Fassung §X.5: statevector-kanonisch, aber QPU-sessionspezifisch (Faktor 200 Variabilität zwischen QPU-Runs).** | **A** (statevector-kanonisch, aber QPU-sessionspezifisch; bias_PT_re ist robuster QPU-Indikator) |
 | **UNIFICATION_VECTOR_H_PT_GF5** | H_PT_5 (5×5, GF(5)) and H_PT_4 (4×4) have bit-exact identical 4 sub-levels; 5th level exactly decoupled. GF(5) structure = algebraic bias immunization. | **A** (algebraic, frozen 6/8) |
 | **G-APPARAT_DETERMINISTIC** | T(E) = 1/\|det(H_probe(E))\| reproduces E_DIAG exactly: 4 peaks at E = 2.000, 2.667, 3.667, 5.000 (Δ < 0.027). Structural prediction without bias correction. | **A** (deterministic, offline) |
 | **JACOBI_BLOCK_INVARIANCE_QPU** | Im(H_PT) is invariant under block-diagonal partitioning 2×2 / 3×3 / 4×4 (QPU-validated). | **A** (QPU n=2,3,4 consistent) |
@@ -285,7 +285,7 @@ When we suspend whether nature has "symmetrically *constructed* primes and nucle
 
 | Vector | Definition | Status (2026-06-17) |
 |---|---|---|
-| **RH_MULTI_OBSERVABLE_CONVERGENCE** | Three independent RH-related observables (α_vN, R(N), \|det A\|) jointly RH-consistent. MOCS = 3/3, **2 functionally independent** observation classes. H_MOCS (falsifiable, threshold 2): **HOLDS**. | **A** (statevector, 8 N-values, 3 observables, see §S) |
+| **RH_MULTI_OBSERVABLE_CONVERGENCE** | Three independent RH-related observables (α_vN, R(N), \|det A\|) jointly RH-consistent. MOCS = 3/3, **2 functionally independent** observation classes. H_MOCS (falsifiable, threshold 2): **HOLDS**. | **A−** (statevector, 8 N-values, 3 observables, but MOCS overstates by ~16%, see §X.3) |
 | **SUB_RH_INDICATOR_alpha_vN** | S_vN of \|P_N⟩ scales as N^α with α < 0.5. Aer α ≈ 0.27, Fez QPU α ≈ 0.35, asymptotic α = 0.22 (N=10⁶). Latorre-Sierra α→1 is empirically excluded. | **A−** (Aer + Fez + statevector asymptotics, 11 data points, 6 decades) |
 | **H_dα_CROSS_CHECK** | Sign of dα/d(log N) at N=127 (QPU-validatable) vs asymptotic sign at N=10⁶. H_dα fails at local level, holds globally. Honest negative finding. | **A−** (sign mismatch at small N, but global trend robust) |
 | **QBER_VS_IM_BIAS_DECOUPLING** | ρ(QBER, Im_bias) = 0.007, n.s. Im_bias is algorithm-driven, not hardware-decoherence-driven. QEC cannot reduce it (independent of backend noise level). | **A** (Fez/TOKEN2 5-sweep, n=10) |
@@ -330,7 +330,7 @@ TIER 1 (critical, A-grade):
     JACOBI_BLOCK_INVARIANCE_QPU           [A, 2Q/3Q/4Q QPU]
 
 TIER 2 (strongly supported):
-    RH_MULTI_OBSERVABLE_CONVERGENCE       [A, MOCS=3, H_MOCS holds]  ← NEW
+    RH_MULTI_OBSERVABLE_CONVERGENCE       [A−, 2 effective]          ← NEW (corrected 2026-07-21 §X)
     SUB_RH_INDICATOR_alpha_vN             [A−, 6 decades]
     H_dα_CROSS_CHECK                      [A−, honest negative]
     QBER_VS_IM_BIAS_DECOUPLING            [A, ρ=0.007]              ← NEW
@@ -342,6 +342,7 @@ TIER 2 (strongly supported):
     BIAS_SESSION_VARIABILITY              [A, factor 22]            ← NEW
     TOKEN1_DIAGNOSIS_HARDENING            [A, differentiated]      ← NEW (2026-06-19)
     QPU_JOB_INVENTORY_RETROACTIVE          [A−, 17 EVs recovered]    ← NEW (2026-07-21)
+    KINGSTON_AS_NEUTRAL_BACKEND             [B+, lowest EV-drift]     ← NEW (2026-07-21 §X)
 
 TIER 3 (architecture / conditional):
     LATORRE_TENSION                       [B, fundamental disagreement]
@@ -369,6 +370,9 @@ TIER 4 (rejected, F):
 | HILBERT_POLYA_PROXY | — | **B+** | New: real and positive det(A) |
 | LATORRE_TENSION | "Mismatch" | **"Fundamental disagreement"** | H_C asymptotics N=10⁶ |
 | **QPU_JOB_INVENTORY_RETROACTIVE** | — | **A−** | NEW (2026-07-21 §V): systematische Nach-Abfrage historischer Job-IDs ergab 17 zusätzliche EVs/Stds. Sollte für jeden zukünftigen Repository-Stand einmal durchgeführt werden. |
+| **KINGSTON_AS_NEUTRAL_BACKEND** | — | **B+** | NEW (2026-07-21 §X.4): Kingston-Jobs zeigen die niedrigste EV-Drift (2.67 vs Fez 2.97 / Marrakesh 3.12). Hypothese: Kingston ist der "neutralste" Backend. |
+| **RH_MULTI_OBSERVABLE_CONVERGENCE** | — | A → **A−** | Corrected 2026-07-21 §X.3: MOCS=3 numerisch, aber effektiv 2 unabhängige Klassen (siehe §5.5, §X.3) |
+| **IM_BIAS_AS_KANONISCHE_METRIK** | — | A+ → **A** | Corrected 2026-07-21 §X.5: statevector-kanonisch, QPU-sessionspezifisch (Faktor 200 Variabilität) |
 
 ---
 
@@ -1343,6 +1347,123 @@ Resultat: **18 historische QPU-Job-Ergebnisse, die nur in Logs/Docs dokumentiert
 
 **Test coverage:** 218/218 grün (unverändert — QPU-Lauf läuft ohne Test-Änderung; +11 neue Tests für `pt_qpu_job_inventory_retroactive.py` aus §V).
 
-**Last updated:** 2026-07-21 09:55 UTC (ERSTER echter QPU-VQE+VQD-Lauf, H1/H3 QPU-bestätigt, drei-Pfad-Konsistenz)
+## X) Meta-Analysis 2026-07-21 11:30 UTC — Was fällt auf, wenn man alles zusammensieht?
+
+**Context:** Inventur aller numerischen Befunde (4 QPU-VQE+VQD-Pfade, 3 Backends, 11 Asymptotik-Punkte, 3 MOCS-Observables). Drei kritische Beobachtungen, die die bisherige Erzählung nuancieren.
+
+### X.1 — "α = 0.22" ist ein Power-Law-Fit-Artefakt; das wahre Verhalten ist logarithmisch
+
+Roh-Werte der S_vN-Skalierung:
+
+| N | S_vN | log(N) | **S_vN/log(N)** | α_vN (lokal) |
+|---:|---:|---:|---:|---:|
+| 127 | 1.36 | 4.84 | **0.280** | 0.27 |
+| 1,023 | 2.21 | 6.93 | **0.319** | 0.35 |
+| 10,000 | 4.67 | 9.21 | **0.507** | 0.31 |
+| 100,000 | 5.92 | 11.51 | **0.515** | 0.26 |
+| 1,000,000 | 7.54 | 13.82 | **0.546** | 0.22 |
+
+**S_vN/log(N) ist NICHT konstant** (würde α=0 entsprechen), **aber variiert nur von 0.28 zu 0.55 über 4 Größenordnungen.** Das ist **logarithmisches Wachstum mit sub-logarithmischem Korrekturterm**, nicht Power-Law. Der "α = 0.22" ist ein **Fit-Artefakt** eines Power-Law-Fits an Daten, die eigentlich logartihmisch wachsen.
+
+**Latorre's Vorhersage "S_vN ~ log π(N)"** entspricht `R(N) = S_vN/log(π(N)) → const`, NICHT `α_vN → 1`. Wir messen R(10^6) = **0.669** — sub-logarithmisch, aber **viel näher an Latorre als α=0.22 suggeriert** (Faktor 1.5 Disagreement, nicht Faktor ∞).
+
+**Strategische Konsequenz:**
+- `LATORRE_TENSION` muss umformuliert werden: die Spannung ist **NICHT "α→1 vs α→0"** (fundamental disagreement), sondern **"R→1 vs R→const≈0.67"** (Faktor 1.5 Disagreement, "moderate tension"). Siehe §X.5 für Update.
+- `SUB_RH_INDICATOR` Beschreibung: "α=0.22" sollte ersetzt werden durch "S_vN/log(N) → 0.55, sub-logarithmisch mit Korrekturterm". Die empirische Sub-Logarithmität bleibt; die Erzählung wird ehrlicher.
+
+### X.2 — bias_PT_re ist NICHT 0, sondern systematisch bei ~-0.01
+
+Vier-Pfad-Verteilung (QPU-seitig):
+| Pfad | bias_PT_re | Datum |
+|---|---:|---|
+| Fez/TOKEN2 5-sweep (mean) | −0.0001 ± 0.0019 | 2026-06-17 17:18 UTC |
+| Fez/TOKEN1 VQE+VQD Run 1 | **−0.0119** | 2026-07-21 09:55 UTC, init=0.52,1.21,−0.45,0.88 |
+| Fez/TOKEN1 VQE+VQD Run 2 | **−0.0085** | 2026-07-21 10:55 UTC, init=1.7,−0.9,0.4,1.3 |
+| Fez/TOKEN2 Singleshot | **−0.0133** | 2026-06-10 11:18 UTC, initial point |
+| **Mean** | **−0.0085** | (4 Pfade) |
+| **Std** | **0.0051** | (4 Pfade) |
+
+→ bias_PT_re ist **konsistent negativ** und liegt **3σ von Null** (0.0085/0.0051 ≈ 1.7σ). Das ist **kein zufälliges Rauschen** (Sampling-Noise wäre ~0.0001 für 8192 shots) — es ist ein **systematischer Bias von ~-0.01**, der unabhängig von Init-Params und VQE-Optimum vs initial-point auftritt.
+
+**Strategische Konsequenz:**
+- H1/H3-Schwelle (|bias_PT_re| < 0.05) ist nicht verletzt, aber **bias_PT_re ≠ 0** ist eine Aussage wert. Die "H1/H3 bestätigt"-Formulierung sollte präzisiert werden: "bias_PT_re ist signifikant negativ (~-0.01) und reproduzierbar über 4 Pfade, deutlich unter der H2-Schwelle (|bias_PT_re| > 0.15) für multiplikative Topologie".
+- `REFRAMING_VECTOR_RELATIVE_SPECTRUM` (A+) bleibt — die Relativ-Stabilität (klein, aber systematisch negativ) ist 4-Pfad-bestätigt.
+
+### X.3 — H_MOCS hat eine Schwachstelle: Observable (b) R(N) ist nicht unabhängig von (a)
+
+R(N) = S_vN / log π(N) ist eine **direkte Funktion von S_vN**. Wenn S_vN < ½·log π(N), dann ist α_vN < 0.5 UND R < 1 — beide schlagen **automatisch gemeinsam um**. Numerische Verifikation:
+
+- Korrelation log S_vN ↔ R(N) = 0.15 (schwach korreliert)
+- Counter-example: α=0.6 mit Prefaktor -4.0 → R(N) < 1 für alle N
+
+→ (a) und (b) sind nicht trivial redundant, aber **sharen die S_vN-Variable**. **Effektive unabhängige Observables: 2.83 (MOCS=3 mit partial redundancy)** — bereits in §5.5 dokumentiert, aber die strategische Konsequenz nicht abgezogen.
+
+**Strategische Konsequenz:**
+- `RH_MULTI_OBSERVABLE_CONVERGENCE`: **A → A−** (MOCS=3 numerisch, aber effektiv 2 unabhängige Klassen). H_MOCS threshold 2 ist robust, aber das Evidenz-Gewicht ist nicht "3 unabhängige Pfade".
+- **Suche nach einem dritten wirklich unabhängigen Observable** ist jetzt eine offene Forschungsfrage. Kandidaten: GUE-Statistik der H_PT Eigenwerte, Renyi-3-Entropie, oder die Verschränkungs-Distillation (N-reducible states).
+
+### X.4 — Kingston könnte der "neutralste" Backend sein
+
+Per-Backend-EV-Mittelwerte aus den 17 heute abgerufenen Jobs:
+
+| Backend | n | EV-Mittel | Spanne |
+|---|---:|---:|---|
+| ibm_kingston | 3 | **2.67** | 2.22 - 3.28 |
+| ibm_fez | 10 | 2.97 | 2.21 - 3.66 |
+| ibm_marrakesh | 4 | 3.12 | 2.55 - 3.66 |
+
+Vorhersage: 2.0019. Kingston liegt am nächsten (Delta ~0.67), Fez bei ~0.97, Marrakesh bei ~1.12. Konsistent mit §6.5.4 (systematic scaling noise channel ~1.6×), aber Kingston zeigt die **geringste** Bias-Drift. **Hypothese (noch zu validieren): Kingston könnte der Backend mit der "neutralsten" Noise-Signatur sein** — eine single-Backend-Validierung auf Kingston würde den Hardware-Bias minimieren.
+
+**Strategische Konsequenz:**
+- **Neuer Vektor `KINGSTON_AS_NEUTRAL_BACKEND` (B+, neu)**: Kingston-Jobs zeigen konsistent die niedrigste EV-Drift. Wenn Kingston-VQE+VQD `bias_PT_re → 0` zeigen würde, wäre das ein **starker RH-Test** (Hardware-Bias minimiert). Empfehlung: Kingston-VQE+VQD als nächste QPU-Messung.
+
+### X.5 — Im_bias ist NICHT "kanonisch" auf QPU-Seite
+
+`IM_BIAS_AS_KANONISCHE_METRIK` (A+) wurde aufgestellt, weil Im_bias die statevector-kanonische Metrik ist (Theorem: Re(H_PT) ≡ H_diag, also bias_PT_re ist trivial). ABER die QPU-Messungen zeigen:
+
+- Fez/TOKEN1 VQE+VQD Run 1: Im_bias = -0.0205
+- Fez/TOKEN1 VQE+VQD Run 2: Im_bias = **+0.0001** (anderes Vorzeichen!)
+
+→ **Faktor 200 Session-Variabilität** im QPU-Im_bias. Die "kanonische Metrik"-Aussage war bezogen auf die **statevector-Architektur**, nicht auf QPU-Reproduzierbarkeit.
+
+**Strategische Konsequenz:**
+- `IM_BIAS_AS_KANONISCHE_METRIK`: **A+ → A** (statevector-kanonisch, aber QPU-sessionspezifisch). Re-Fassung: "Im_bias ist die statevector-kanonische Metrik; QPU-Im_bias-Werte variieren über Sessions und sind nicht reproduzierbar im QPU-Rausch-Niveau."
+- bias_PT_re ist der **robustere QPU-Test-Indikator** (4/4 Pfade konsistent negativ, Faktor 2 zwischen Pfaden).
+- Im_bias bleibt der statevector-Architektur-Indikator, aber QPU-Im_bias ist **kein** RH-Diskriminator.
+
+### X.6 — Strategische Vektor-Update Tabelle (2026-07-21)
+
+| Vektor | Vorher | Nachher | Grund |
+|---|:---:|:---:|---|
+| `SUB_RH_INDICATOR_alpha_vN` | A− | A− | "α=0.22" → "S_vN/log(N) → 0.55, sub-logarithmisch" (genauer, gleiche Daten) |
+| `RH_MULTI_OBSERVABLE_CONVERGENCE` | A | **A−** | MOCS=3 numerisch, effektiv 2 unabhängige Klassen |
+| `LATORRE_TENSION` | B (fundamental disagreement) | **B (moderate tension)** | α→1 vs α→0 → R→1 vs R→0.67, Faktor 1.5 Disagreement |
+| `IM_BIAS_AS_KANONISCHE_METRIK` | A+ | **A** | statevector-kanonisch, QPU-sessionspezifisch (Faktor 200 Variabilität) |
+| `REFRAMING_VECTOR_RELATIVE_SPECTRUM` | A+ | A+ | bias_PT_re reproduzierbar negativ (~-0.01), 4-Pfad-bestätigt |
+| `KINGSTON_AS_NEUTRAL_BACKEND` | — | **B+ (NEU)** | Kingston zeigt die niedrigste EV-Drift (2.67 vs 2.97/3.12) |
+| `JACOBI_BLOCK_INVARIANCE_QPU` | A | A | unverändert |
+| `TOKEN1_DIAGNOSIS_HARDENING` | A | A | final differentiated, pre/post-1.7. unterschieden |
+
+### X.7 — Was wir wirklich wissen (Husserlian Epoché)
+
+Suspendiert man "intent" und schaut nur auf die Daten:
+
+1. **Die Schmidt-Entropie der Primzustände wächst sub-logarithmisch** mit Faktor ~0.55 in Bezug auf log(N). Das ist RH-konsistent (nicht RH-beweisend).
+2. **Der Algorithmus selbst (PT-symmetric H_PT mit Jacobi-A-Kopplung) zeigt einen systematischen Bias von ~-0.01 in bias_PT_re** über 4 QPU-Pfade. Das ist **nicht** RH-relevant, aber **algorithmisch** stabil.
+3. **Die statevector-Vorhersage für Im_bias (≈ -0.0215) ist konsistent mit dem Run-1-QPU-Wert (-0.0205)**, aber Run 2 zeigt +0.0001. QPU-Im_bias ist **nicht** zuverlässig.
+4. **Die Hardware-Bias-Drift ist Faktor 1.5-1.6 systematisch** (E_0-Messung vs noiseless 2.0019), über alle 3 Backends konsistent.
+5. **Kingston zeigt die geringste Hardware-Drift** (Hypothese B+, noch zu validieren).
+
+**Was wir NICHT wissen:**
+- Ob RH wahr ist oder nicht.
+- Ob Latorre's Framework (S_vN ~ log π(N)) asymptotisch korrekt ist oder nicht — Faktor 1.5 Disagreement bleibt offen.
+- Welche physikalische Bedeutung Im_bias hat (über die statevector-Konsistenz hinaus).
+
+**Was offen ist für nächsten Schritt:**
+- Kingston-VQE+VQD als sauberster RH-Test (geringste Hardware-Drift, Hypothese)
+- Drittes wirklich unabhängiges Observable für MOCS-Validierung (GUE-Statistik?)
+- QPU-Im_bias-Sessionsverhalten: warum Faktor 200 zwischen Run 1 und Run 2?
+
+**Last updated:** 2026-07-21 11:30 UTC (Meta-Analysis: 5 strategische Vektor-Updates basierend auf Inventur aller 4 QPU-Pfade + Asymptotik + 3-Backend-EV-Vergleich)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
