@@ -60,20 +60,20 @@ def schmidt_entropy_qubit_vs_ququint(N):
         S_qubit = 0.0
 
     # 1-Ququint (5-dim) — Prime-State in 5-dim, dann 2x3 Bipartition
-    # durch Padding auf 6-dim. Wichtig: padding-Komponente muss
-    # |padding|^2 = 1 - |P_N|^2 sein, damit die Norm erhalten bleibt.
+    # durch Padding auf 6-dim. Wichtig: nur Primzahlen < 5 passen in 5-dim.
+    # Bei N=5 z.B. ist primes=[2,3,5], aber p=5 ist out of bounds.
+    # Wir normalisieren mit der Anzahl der tatsächlich eingefügten Einträge.
     P_N_5qubit = np.zeros(5, dtype=complex)
+    n_inserted = 0
     for p in primes:
         if p < 5:
             P_N_5qubit[p] = 1.0
-    pi_N_5qubit = min(len(primes), 5)
-    if pi_N_5qubit > 0:
-        P_N_5qubit /= math.sqrt(pi_N_5qubit)
+            n_inserted += 1
+    if n_inserted > 0:
+        P_N_5qubit /= math.sqrt(n_inserted)
     # 5 dim factorisiert nicht 2*3, also 6-dim Padding für 2x3-Bipartition
-    # PADDING: Einheitsvektor in der 6. Komponente mit Magnitude
-    # sqrt(1 - sum_{k<5} |P_N_5qubit[k]|^2) = sqrt(1 - 1) = 0, weil
-    # P_N_5qubit bereits normiert ist. Daher: padding-Amplitude = 0,
-    # Bipartition 2x3 ist effektiv nur das 5-dim-Signal.
+    # PADDING: Nullen in der 6. Komponente, da P_N_5qubit bereits normiert ist
+    # und das Padding die Norm erhält.
     # Echtes Padding wäre sqrt(1 - |P_N|^2) in der 6. Komponente.
     psi_padded = np.zeros(6, dtype=complex)
     psi_padded[:5] = P_N_5qubit
