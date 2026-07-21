@@ -392,7 +392,7 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 |---|---|---:|---:|---|---:|---:|
 | `ibm_marrakesh` | d8j9ch1e8nrc73bj8r80 | 2.5488 ± 0.0077 | **+0.0488** | d8j9lhlv8cos73f6icr0 | 3.3034 ± 0.0101 | 0.0473 ± 0.0005 |
 | `ibm_fez` | d8j9chtv8cos73f6i060 | 2.5348 ± 0.0134 | **+0.0348** | d8j9lim6983c73dt29pg | 3.2885 ± 0.0154 | 0.0490 ± 0.0005 |
-| `ibm_kingston` | d8j9ch9e8nrc73bj8r9g | (QUEUED) | — | d8j9li5v8cos73f6ics0 | (QUEUED) | — |
+| `ibm_kingston` | d8j9ch9e8nrc73bj8r9g | 2.5200 ± 0.0178 | **+0.0200** | d8j9li5v8cos73f6ics0 | 3.2797 ± 0.0212 | (siehe §6.5.6a) |
 
 * **β correction applied:**
 
@@ -400,6 +400,9 @@ Since the standard shell model, with only 2 fundamental parameters (potential de
 |---|---:|---:|---:|---:|
 | `ibm_marrakesh` | 3.3034 | +0.0488 | **3.2546** | **+62.5%** |
 | `ibm_fez` | 3.2885 | +0.0348 | **3.2537** | **+62.5%** |
+| `ibm_kingston` | 3.2797 | +0.0200 | **3.2597** | **+62.8%** |
+
+**Update 2026-07-21:** The Kingston jobs (`d8j9ch9e8nrc73bj8r9g`, `d8j9li5v8cos73f6ics0`) were marked `(QUEUED)` on 2026-06-08; a retroactive IBM Quantum fetch on 2026-07-21 (after the 1.7.2026 quota reset) confirmed both as DONE with `<H_ref> = 2.5200 ± 0.0178` and `<Re(H_PT)> = 3.2797 ± 0.0212`. **All three backends now agree** on a β-corrected `<Re(H_PT)> ≈ 3.25–3.26` (62.5–62.8% above the prediction), strengthening the cross-backend falsification of the β-correction hypothesis.
 
 * **Critical finding:** The β correction does not change the H_PT bias **significantly** (corrected ≈ 3.25 instead of 3.30, a reduction of only 1.5%). The H_PT bias is **NOT** explainable by a constant backend offset — the naive hypothesis $H_{eff} = H_{PT} - \beta \mathbb{1}$ is **falsified**.
 * **Diagnosis:**
