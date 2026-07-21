@@ -1,0 +1,27 @@
+{
+  "ccz_phases_k3_mod_5": [
+    0,
+    1,
+    3,
+    2,
+    4
+  ],
+  "magic_state_phases_arg_2pi_over_5": [
+    0.0,
+    0.4,
+    0.8,
+    1.2,
+    1.6
+  ],
+  "h_pt_5_default_gamma": 0.02,
+  "h_pt_5_y_default": 1.0,
+  "h_pt_5_diag_5_levels": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791,
+    5.0
+  ],
+  "vqe_default_gamma": 0.02,
+  "vqe_default_maxiter": 20
+}

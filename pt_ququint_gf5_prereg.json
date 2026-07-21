@@ -1,0 +1,11 @@
+{
+  "field_axioms_verified": [
+    "GF5(0) + GF5(a) = GF5(a)",
+    "GF5(1) * GF5(a) = GF5(a)",
+    "GF5(a) * GF5(a).inverse() = GF5(1) for a != 0",
+    "no zero divisors (5 is prime)",
+    "commutativity, associativity, distributivity"
+  ],
+  "multiplicative_group": "(Z/5Z)* = {1, 2, 3, 4} cyclic of order 4, generators 2, 3",
+  "dft_matrix_unitarity": "F @ F.conj().T = N * I (5 * I for N=5)"
+}
