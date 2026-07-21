@@ -1,0 +1,35 @@
+{
+  "backend": "ibm_fez",
+  "token_used": "IBMQ_TOKEN (TOKEN1-Front)",
+  "gamma": 0.02,
+  "alpha": 1.0,
+  "shots": 8192,
+  "n_vqe_iters": 10,
+  "vqe_result": {
+    "E0_meas": 2.1645350625215123,
+    "E0_params": [
+      1.4436007309240704,
+      -1.3138656214828723,
+      0.9759072465379355,
+      1.8849279229403024
+    ],
+    "E0_noiseless": 2.0019
+  },
+  "measurement_at_vqe_optimum": {
+    "H_diag_meas": 2.1809962200449498,
+    "H_diag_noiseless_mean": 3.3412,
+    "Re_PT_meas": 2.17247246569962,
+    "Im_PT_meas": 0.03003274212843888,
+    "Im_PT_noiseless_at_ground": 0.0299
+  },
+  "bias_analysis": {
+    "beta_diag": -1.1602037799550504,
+    "bias_PT_re_minus_diag": -0.008523754345329593,
+    "Im_bias": 0.00013274212843887925
+  },
+  "job_ids": [
+    "d9fjbraneu4c739pmaqg"
+  ],
+  "verdict": "H1/H3_bestaetigt (|bias_PT_re| < 0.05)",
+  "prereg_file": "pt_vqe_vqd_prereg.json"
+}

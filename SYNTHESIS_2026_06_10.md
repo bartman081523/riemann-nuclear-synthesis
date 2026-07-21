@@ -1326,8 +1326,9 @@ Resultat: **18 historische QPU-Job-Ergebnisse, die nur in Logs/Docs dokumentiert
 | Fez/TOKEN2 Singleshot (initial point) | 2026-06-10 11:18 UTC | −0.0133 | n/a | H1/H3 ✓ |
 | Statevector (VQE-optimum, 10 iter) | 2026-06-17 / 07-21 | +0.0000 | −0.0215 | H1/H3 ✓ (theorem) |
 | **Fez/TOKEN1 VQE+VQD (VQE-optimum, 10 iter)** | **2026-07-21 09:55 UTC** | **−0.0119** | **−0.0205** | **H1/H3 ✓** |
+| **Fez/TOKEN1 VQE+VQD Run 2** (VQE-optimum, andere init-params) | **2026-07-21 10:55 UTC** | **−0.0085** | **+0.0001** | **H1/H3 ✓** |
 
-→ **Drei unabhängige Pfade** (TOKEN2 QPU, statevector-exakt, TOKEN1 QPU-VQE) konvergieren auf `bias_PT_re ∈ [−0.013, +0.000]` und `Im_bias ∈ [−0.022, −0.020]`. Die statevector-truth aus §P (Im_bias ist die kanonische Metrik) ist QPU-bestätigt.
+→ **Vier unabhängige Pfade** (TOKEN2 QPU, statevector-exakt, TOKEN1 QPU-VQE-1, TOKEN1 QPU-VQE-2) konvergieren auf `bias_PT_re ∈ [−0.013, +0.000]`. Die statevector-truth aus §P (Im_bias ist die kanonische Metrik) ist QPU-bestätigt — aber **Im_bias zeigt Session-Variabilität** (Run 1: −0.0205, Run 2: +0.0001, Faktor ~200 zwischen den beiden QPU-Runs, deutlich jenseits des QPU-Sampling-Noise). Reproducibility von bias_PT_re ist robust; Reproducibility von Im_bias ist **nicht** trivial (siehe §10.10/§10.12 Erzählung REVIDIERT).
 
 **Strategische Implikation:**
 - `REFRAMING_VECTOR_RELATIVE_SPECTRUM`: **A+ (vierfache Validierung)** — Aer + Fez/TOKEN2 Singleshot + Statevector-VQE + **Fez/TOKEN1 VQE+VQD**.
