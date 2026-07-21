@@ -1,0 +1,255 @@
+[
+  {
+    "job_id": "d8j9lhlv8cos73f6icr0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_marrakesh",
+    "creation_date": "2026-06-08 12:34:46.685764+02:00",
+    "data": {
+      "evs": 3.30339237712758,
+      "stds": 0.010062228582545168
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j5j7u6983c73dste00",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_kingston",
+    "creation_date": "2026-06-08 07:56:47.523755+02:00",
+    "data": {
+      "evs": 2.2157482362814127,
+      "stds": 0.00946064286309086
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8r2drq01fac73d3qet0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-20 07:36:47.343858+02:00",
+    "data": {
+      "evs": 2.49884648622492,
+      "stds": 0.01207884254158244
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j9li5v8cos73f6ics0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_kingston",
+    "creation_date": "2026-06-08 12:34:48.856025+02:00",
+    "data": {
+      "evs": 3.2796938143183167,
+      "stds": 0.021173850418207286
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j5kotv8cos73f6d5dg",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_marrakesh",
+    "creation_date": "2026-06-08 08:00:03.179889+02:00",
+    "data": {
+      "evs": 3.3655466798508997,
+      "stds": 0.009593895421798828
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j9ch9e8nrc73bj8r9g",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_kingston",
+    "creation_date": "2026-06-08 12:15:33.688883+02:00",
+    "data": {
+      "evs": 2.5200346936363935,
+      "stds": 0.01776801592858377
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j9lim6983c73dt29pg",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-08 12:34:50.924236+02:00",
+    "data": {
+      "evs": 3.2885457182613003,
+      "stds": 0.015400223387827552
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8po7reab0ds73dpdflg",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-18 07:36:45.564401+02:00",
+    "data": {
+      "evs": 2.299048882514992,
+      "stds": 0.013059320835084407
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d9fh0bqneu4c739pivh0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-07-21 08:22:39.372153+02:00",
+    "data": {
+      "evs": 2.3577598723461626,
+      "stds": 0.03603058011694939
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j90eu6983c73dt1ek0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_marrakesh",
+    "creation_date": "2026-06-08 11:49:47.887892+02:00",
+    "data": {
+      "evs": 3.2633275676891267,
+      "stds": 0.011160866958650494
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j9chtv8cos73f6i060",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-08 12:15:35.210810+02:00",
+    "data": {
+      "evs": 2.534784946113289,
+      "stds": 0.013386906070250967
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8j9ch1e8nrc73bj8r80",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_marrakesh",
+    "creation_date": "2026-06-08 12:15:32.068240+02:00",
+    "data": {
+      "evs": 2.548831259767936,
+      "stds": 0.007658993181323188
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8qdaseab0ds73dqbca0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-19 07:36:49.709765+02:00",
+    "data": {
+      "evs": 2.219282886103406,
+      "stds": 0.04758807258822839
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8kins3qv2lc7385bbj0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN2",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-10 11:18:40.871935+02:00",
+    "data": {
+      "evs": 3.604521765906033,
+      "stds": 0.02177857874313336
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8kinubqv2lc7385bbm0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN2",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-10 11:18:49.527259+02:00",
+    "data": {
+      "evs": 3.6558931303414366,
+      "stds": 0.03415286301563376
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8pbjqq01fac73d1gc0g",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN2",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-17 17:14:51.352612+02:00",
+    "data": {},
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8kigobnn5bs738qtc3g",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN2",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-10 11:03:29.819516+02:00",
+    "data": {
+      "evs": 3.6261898435258804,
+      "stds": 0.020462829744900473
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8kio0832u0s73f8qhs0",
+    "status": "DONE",
+    "account": "IBMQ_TOKEN2",
+    "backend": "ibm_fez",
+    "creation_date": "2026-06-10 11:18:57.927098+02:00",
+    "data": {
+      "evs": 3.5912058196789243,
+      "stds": 0.02228821832959952
+    },
+    "data_extraction_error": ""
+  },
+  {
+    "job_id": "d8p97gi9m3dc738pilb0",
+    "status": "CANCELLED",
+    "account": "?",
+    "backend": "?",
+    "data": {},
+    "error": "'Unable to retrieve result for job d8p97gi9m3dc738pilb0. Job was cancelled.'"
+  },
+  {
+    "job_id": "d8p7sa8q90bc73e7e2ng",
+    "status": "CANCELLED",
+    "account": "?",
+    "backend": "?",
+    "data": {},
+    "error": "'Unable to retrieve result for job d8p7sa8q90bc73e7e2ng. Job was cancelled.'"
+  },
+  {
+    "job_id": "d8p9njugbcrc73f1mc4g",
+    "status": "CANCELLED",
+    "account": "?",
+    "backend": "?",
+    "data": {},
+    "error": "'Unable to retrieve result for job d8p9njugbcrc73f1mc4g. Job was cancelled.'"
+  },
+  {
+    "job_id": "d8p9itmgbcrc73f1m4t0",
+    "status": "CANCELLED",
+    "account": "?",
+    "backend": "?",
+    "data": {},
+    "error": "'Unable to retrieve result for job d8p9itmgbcrc73f1m4t0. Job was cancelled.'"
+  },
+  {
+    "job_id": "d8ji5crnn5bs738plgj0",
+    "status": "CANCELLED",
+    "account": "?",
+    "backend": "?",
+    "data": {},
+    "error": "'Unable to retrieve result for job d8ji5crnn5bs738plgj0. Job was cancelled.'"
+  }
+]
