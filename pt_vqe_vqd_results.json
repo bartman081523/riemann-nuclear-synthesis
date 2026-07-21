@@ -1,34 +1,35 @@
 {
-  "backend": "statevector_simulator (lokal, da Fez blockiert)",
-  "token_used": "n/a (statevector-first Architektur)",
+  "backend": "ibm_fez",
+  "token_used": "IBMQ_TOKEN (TOKEN1-Front)",
   "gamma": 0.02,
   "alpha": 1.0,
-  "shots_equivalent": 8192,
+  "shots": 8192,
   "n_vqe_iters": 10,
-  "method": "COBYLA statevector, exakte Eigenwerte",
   "vqe_result": {
-    "E0_meas": 2.147155413167466,
+    "E0_meas": 2.1398203106629032,
     "E0_params": [
-      -0.10429557196547518,
-      0.31712019104984424,
-      -0.8033260712535257,
-      -0.08637344921169077
+      -0.10039260373380426,
+      0.31547161200836626,
+      -0.7794084485021391,
+      -0.09555937796511249
     ],
-    "E0_noiseless": 2.0018501462716807
+    "E0_noiseless": 2.0019
   },
   "measurement_at_vqe_optimum": {
-    "H_diag_meas": 2.147155413167466,
+    "H_diag_meas": 2.1577507852679036,
     "H_diag_noiseless_mean": 3.3412,
-    "Re_PT_meas": 2.147155413167466,
-    "Im_PT_meas": 0.00841237421001852,
-    "Im_PT_noiseless_at_ground": 0.02994539229037302
+    "Re_PT_meas": 2.145828476862593,
+    "Im_PT_meas": 0.009395361635620568,
+    "Im_PT_noiseless_at_ground": 0.0299
   },
   "bias_analysis": {
-    "beta_diag": -1.194044586832534,
-    "bias_PT_re_minus_diag": 0.0,
-    "Im_bias": -0.0215330180803545
+    "beta_diag": -1.1834492147320965,
+    "bias_PT_re_minus_diag": -0.011922308405310833,
+    "Im_bias": -0.02050463836437943
   },
-  "verdict": "H1/H3 bestaetigt (|bias_PT_re| < 0.05)",
-  "prereg_file": "pt_vqe_vqd_prereg.json",
-  "note": "Statevector-Wahrheit fuer statevector-first Architektur. Auf Fez wuerde dasselbe Experiment (bei offenem Kontingent) vergleichbare Resultate liefern, mit zusaetzlichem Hardware-Bias. Die Differenz statevector-vs-Fez quantifiziert den Bias-Beitrag der Hardware-Dekohaerenz."
+  "job_ids": [
+    "d9fidihhtsac739fg3n0"
+  ],
+  "verdict": "H1/H3_bestaetigt (|bias_PT_re| < 0.05)",
+  "prereg_file": "pt_vqe_vqd_prereg.json"
 }
