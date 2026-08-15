@@ -1521,8 +1521,134 @@ Suspendiert man "intent" und schaut nur auf die Daten:
 | 3 (Empirical) | `tests/test_pt_ququint_empirical.py` | 15 | ✅ |
 | Bestand | `tests/test_pt_ququint_vqe.py` | 15 | ✅ |
 | **Total Ququint** | (4 Dateien) | **89** | **89/89 grün** |
-| **Projekt gesamt** | (15 Dateien) | **292** | **292/292 grün** |
+| **Projekt gesamt** | (16 Dateien) | **307** | **307/307 grün** |
 
-**Last updated:** 2026-07-21 (Ququint Architecture Expansion: 89 neue Tests, 3 strategische Vektor-Updates, CCZ-Fidelität empirisch validiert)
+**Last updated:** 2026-08-15 (§Z: Comparator-Pattern + chagpt-zeta.txt Review + SV-NS-02)
+
+---
+
+## Z) Addendum 2026-08-15 — Comparator-Pattern + chagpt-zeta.txt Review
+
+### Z.1 Ausgangslage
+
+Der User hat zwei externe Quellen zur Bewertung vorgelegt:
+
+1. **`chagpt-zeta.txt`** (1062 Zeilen, ~36 KB): Ein methodischer Vergleich zwischen diesem Repository und `anthropics/zeta-23-lean`, plus ein Steelman-Test der Prime-State-Entropie-Hypothese mit anschliessender Phase-03-Skizze.
+2. **`anthropics/zeta-23-lean`**: Eine Lean-4-Formalisierung des ">2/3 der Nullstellen auf der kritischen Linie"-Resultats, mit Theorems A–E, `RHLinalg`-Namespace, und einem **Comparator-Pattern** für trusted-vs-untrusted-Verifikation.
+
+User-Direktive: **"Lasse uns das als gutes aber unvollständiges Beispiel nehmen."** Also nicht die Mathematik übernehmen, sondern die **methodischen Patterns** extrahieren und als konkretes Werkzeug in das Repository einbauen.
+
+### Z.2 Bewertung chagpt-zeta.txt — substantiell, nicht Quatsch
+
+**Was methodisch wertvoll ist:**
+
+1. **Strukturelle Vergleichsanalyse riemann-nuclear-synthesis ↔ zeta-23-lean.** Numerisch belegt: `G_NS = ΨΨ†` (N=127, rank-7, det=0, `tr(G²)=961/331 ≈ 0.344433`) ist *nicht* identisch mit `G_Z23 = ⟨φ_k, φ_l⟩_{ν_X}` (rank-8, det≈4.63×10⁴). Beide sind aber Gram-Konstruktionen über arithmetischer Information. **Saubere Trennung von "ähnlich" und "gleich".**
+
+2. **Adversarialer Nullmodell-Test der Prime-State-Entropie.** Das ist methodisch genau das, was SciMind 4.0 Steelman verlangt. Vier Nullmodelle:
+   - random aus gleichen Dichten → Prime-State ist signifikant weniger entangled (ΔS ≈ 0.6 bei N=16383)
+   - random odd → Paritäts-Steelman: ΔS ≈ 0.03
+   - random mod-6 / mod-30 / mod-210 → Wheel-Steelman: ΔS = 0.02432 nach mod-210
+   
+   Das **mod-210-Steelman-Ergebnis** ist substanziell: nach Elimination trivialer Restklassenstruktur bleibt ein kleiner Prime-spezifischer Rest. Das ist **keine Bestätigung** der Hypothese, aber auch keine Falsifikation — es ist eine **C-Grade Evidenz mit klarem Rest-Effekt**.
+
+3. **BIC-Vergleich logarithmisch vs. power-law.** `ΔBIC = 0.192` → das Power-Law mit drei Parametern `(a, c, α)` gewinnt seinen Komplexitätsnachteil gegenüber dem Log-Modell mit zwei Parametern `(a, b)` praktisch nicht zurück. **Korrektur** der bisherigen Forschungsrichtung: das gefittete `α ≈ 0.035` ist ein **finite-size-Artefakt**, kein universelles Skalenexponent. Diese Beobachtung überlappt mit §X (Meta-Analyse), die bereits "`α=0.22` ist Fit-Artefakt" diagnostiziert hat.
+
+4. **Strategischer Vektor SV-NS-02 (vorgeschlagen, hier aufgenommen):**
+   > "Welche arithmetische Information bleibt in der Prime-State-Spektralstruktur übrig, nachdem einfache Restklassen- und Dichteeffekte entfernt wurden?"
+
+   Konkret: Phase 03 soll **spektra Momente** `Tr(G^k)` für Prime-State und Zeta-Prime-Side gegen das mod-210-Steelman-Nullmodell testen. Das ist **stringenter** als Entropie zu vergleichen, weil Momente die gesamte Spektralverteilung erfassen.
+
+**Was in chagpt-zeta.txt fehlt:**
+
+- Vollständige Quellenangaben (paper, Lean-Konstanten, exakte Definitionen)
+- Reproduzierbarer End-to-End-Code (nur Fragmente, kein runnable Skript)
+- Formale Definition des Wheel-Operators (was bedeutet mod-210 in der konkreten Implementierung?)
+- Test-Definitionen gegen Steelman-Nullmodelle (keine pytest-Suite, kein audit-trail)
+
+**Fazit chagpt-zeta.txt:** Wertvoll als **methodischer Denkanstoss**, aber unvollständig. Nicht direkt in den Code übernehmen — sondern die richtungsweisenden Ideen (SV-NS-02, mod-210-Steelman, spektrale Momente) als strategische Vektoren dokumentieren und in einer kontrollierten Test-Umgebung selbst reproduzieren.
+
+### Z.3 Was aus zeta-23-lean methodisch übernommen wurde
+
+Von den vier identifizierten Patterns (siehe Z.4) wurde **Pattern A (Comparator: Trusted Statement / Untrusted Solution)** als konkretes Werkzeug umgesetzt. Die anderen drei (B: RHLinalg self-contained namespace, C: `decide` für finite kernel checks, D: Axiom-whitelist per `#print axioms`) sind bereits in unserer Architektur implizit vorhanden und werden hier nur dokumentiert.
+
+#### Pattern A: Comparator
+
+In `zeta-23-lean/comparator/`:
+
+- `Challenge.lean` deklariert Theorem-Statements mit `:= by sorry` (**trusted spec**)
+- `Solution.lean` hat dieselben Statements byte-für-byte, bewiesen durch Delegation an die Bibliothek (**untrusted proof**)
+- Comparator-Runner prüft: (i) Statement-Identität, (ii) Axiom-Whitelist `[propext, Classical.choice, Quot.sound]`, (iii) Kernel-Replay
+
+#### Python-Analogie: `pt_prereg_audit.py`
+
+Unser prereg/result-Pattern ist natürlich genau dieses Schema — aber bisher ohne strukturelle Erzwingung. Jetzt implementiert:
+
+- `pt_prereg_audit.py` (~240 Zeilen, 0 experimentelle Imports)
+- `tests/test_pt_prereg_audit.py` (15 Tests, TDD-rot → grün)
+- API:
+  - `audit_prereg_structure(prereg)` → validiert `md5`, `decision_rule`, `predictions`
+  - `compare_statement_sets(prereg, result)` → prüft Statement-Identität (extra keys OK, missing → INCONCLUSIVE)
+  - `evaluate_decision_rule(rule, measurements)` → sandboxed eval, AND/OR-Übersetzung
+  - `audit_run(prereg_path, result_path)` → voller Pipeline-Lauf, Verdict: `CONFIRMED | REFUTED | INCONCLUSIVE`
+
+**Wichtigste Eigenschaft — Axiom-Whitelist (TestAxiomWhitelist):** `pt_prereg_audit.py` importiert **kein** experimentelles Modul (`pt_vqe_vqd`, `pt_im_bias`, `pt_prime_state`, `pt_qpu_*`, `pt_aer_stress`, `pt_qec_bias`). Das ist die Python-Übersetzung der Lean-Regel "Mathlib only on trusted side".
+
+**Sandbox-Sicherheit:** `evaluate_decision_rule` evaluiert die Regel in einer `eval()`-Umgebung, die nur `abs, min, max, round, True, False` und die Variablen aus `measurements` sieht. Keine Imports möglich.
+
+#### Sofort anwendbar
+
+Bestehende `pt_*_prereg.json`/`pt_*_results.json`-Paare können jetzt durch `pt_prereg_audit.py --prereg X --result Y --out verdict.json` auditiert werden. Empfohlener erster Test: `pt_vqe_vqd_token1` mit seinem Run1-Resultat (Job `d9fidihhtsac739fg3n0`).
+
+### Z.4 Die drei anderen Patterns — dokumentiert, nicht implementiert
+
+| Pattern | zeta-23-lean | Riemann-Project-Status |
+|---|---|---|
+| **B: Self-contained algebra namespace** | `RHLinalg` ist algebraischer Kern (§3), geschrieben **vor** Integration mit analytischen Inputs | Implizit vorhanden: `pt_structural.py` (Jacobi-A, E_DIAG) ist der algebraische Kern, der VOR allen QPU/Simulator-Skripten existiert und nur Mathlib-Analoge (numpy) verwendet |
+| **C: `decide` for finite kernel checks** | 256 integer enclosures + 255 row inequalities via `decide` im Lean-Kernel | Nicht umgesetzt. Könnte als `pt_finite_kernel_check.py` für GF(5)-Axiome, PT-Symmetrie-Eigenschaften, finite Positiv-Definitheit-Checks dienen — **nächste Iteration** |
+| **D: `#print axioms` whitelist** | Top-Level-Theorems dependieren nur auf `[propext, Classical.choice, Quot.sound]` | Nicht direkt übersetzbar (Python hat keine Axiom-Audit-Mechanik), aber `TestAxiomWhitelist` in `test_pt_prereg_audit.py` ist die funktionale Entsprechung: "audit module imports no experimental code" |
+
+### Z.5 Strategic-Vector-Updates
+
+Aus Z.2 (chagpt-zeta.txt) und Z.3 (Pattern A) ergeben sich drei neue strategische Vektoren:
+
+| ID | Beschreibung | Quelle | Grade |
+|---|---|---|---|
+| **SV-NS-02** | Spectral Residual: spektrale Momente `Tr(G^k)` nach Wheel-Kontrolle | chagpt-zeta.txt (Phase-03-Skizze) | C |
+| **SV-AUDIT-01** | Comparator-Pattern für alle prereg/result-Paare | zeta-23-lean Pattern A | A |
+| **SV-NULLMODEL-01** | mod-210-Wheel-Steelman als Standardtest für arithmetische Hypothesen | chagpt-zeta.txt Experiment C | B |
+
+`SV-AUDIT-01` ist die direkte Übersetzung von Pattern A in unsere Infrastruktur. Empfohlener **erster Massen-Audit**: alle bestehenden `pt_*_prereg.json` mit korrespondierenden `pt_*_results.json` durch `audit_run` schicken, Status-Tabelle in §C.6 ergänzen.
+
+### Z.6 Test-Statistik
+
+| Suite | Tests | Status |
+|---|---:|---|
+| Bestehend (vor §Z) | 292 | ✅ |
+| **Neu: `tests/test_pt_prereg_audit.py`** | **15** | **✅** |
+| **Projekt gesamt** | **307** | **307/307 grün** |
+
+### Z.7 Was NICHT aus chagpt-zeta.txt übernommen wurde
+
+- Die "50-Phasen-Forschungszyklus"-Spezifikation — die ist eine Empfehlung, kein Code. Sie widerspricht unserer etablierten hypothesen-audit-zentrierten Workflow-Struktur und würde eine eigene Plan-Datei benötigen (siehe `INVESTIGATION_PLAN.md`).
+- Die Phase-03-Implementation (Spektralmoment-Vergleich Prime-State vs Zeta-Prime-Side) — das wäre ein neues `pt_spectral_moments.py` mit reproduzierbaren Tests gegen das mod-210-Steelman-Nullmodell. **Vorgeschlagen für die nächste Session**, nicht in §Z umgesetzt (würde den Rahmen sprengen).
+- Die "wiederkehrende Aufgabe" — wäre ein Cron-Job, aber wir haben aktuell keinen Scheduler-Anker im Repo. Stattdessen: SV-AUDIT-01 macht dasselbe on-demand.
+
+### Z.8 Anti-Sharpshooter-Check (§Z selbst)
+
+Wurde §Z selbst nach SciMind 4.0 auditiert?
+
+- **Steelman Mandate:** ✅ Die mod-210-Steelman-Methode aus chagpt-zeta.txt IST die Steelman-Anwendung — wir übernehmen die Methode, nicht die Schlussfolgerung.
+- **Ockham's Quantified Razor:** ✅ Pattern A wurde ausgewählt, weil es die *strukturelle Erzwingung* der existierenden prereg/result-Trennung liefert, ohne neue freie Parameter.
+- **Anti-Sharpshooter:** ✅ Pattern A selbst ist anti-sharpshooter by design — die decision_rule muss VOR der Messung im prereg stehen, sonst wird die Audit-Pipeline INCONCLUSIVE.
+- **Complexity Audit:** ✅ Keine neuen Konstanten in `pt_prereg_audit.py`. Sandbox-Whitelist ist endlich (6 Namen).
+
+### Z.9 Offene Punkte
+
+1. **SV-NS-02 konkret umsetzen:** `pt_spectral_moments.py` mit `Tr(G^k)` für k=2,3,4 für Prime-State (mit/ohne mod-210-Filter) und ein Zeta-Prime-Side-Toy-Modell (analog zu chagpt-zeta.txt §5–6).
+2. **Pattern C (`decide`-Analogon):** `pt_finite_kernel_check.py` für GF(5)-Axiome und PT-Symmetrie-Eigenschaften.
+3. **Audit-Backfill:** alle bestehenden prereg/result-Paare durch `pt_prereg_audit.audit_run` schicken, Tabelle in §C.6.
+4. **SciMind-Audit der §Z-Implementation selbst** (zweiter Pass, nicht-selbst-referentiell).
+
+**Last updated:** 2026-08-15 (§Z: Comparator-Pattern + chagpt-zeta.txt Review + SV-NS-02)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

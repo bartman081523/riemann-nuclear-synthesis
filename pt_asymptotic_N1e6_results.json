@@ -74,7 +74,7 @@
       "S_vN": 4.672241830479666,
       "S_2": 3.4920940525904736,
       "n_schmidt_nonzero": 65,
-      "computation_seconds": 0.0074462890625
+      "computation_seconds": 0.007878303527832031
     },
     {
       "N": 100000,
@@ -84,7 +84,7 @@
       "S_vN": 5.924327731498289,
       "S_2": 4.314272340036849,
       "n_schmidt_nonzero": 129,
-      "computation_seconds": 0.13108444213867188
+      "computation_seconds": 0.12990427017211914
     },
     {
       "N": 1000000,
@@ -94,9 +94,9 @@
       "S_vN": 7.539223986336283,
       "S_2": 5.014721348193617,
       "n_schmidt_nonzero": 513,
-      "computation_seconds": 2.9624314308166504
+      "computation_seconds": 3.027378797531128
     }
   ],
   "verdict": "H_C (anderes Power-Law)",
-  "total_runtime_seconds": 3.101879358291626
+  "total_runtime_seconds": 3.1661312580108643
 }
