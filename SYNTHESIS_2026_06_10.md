@@ -1758,9 +1758,197 @@ eigentliche Wert des decide-Analogons, über die Audit-Funktion hinaus.
 |---|---:|---|
 | Bestehend (vor §Z) | 292 | ✅ |
 | `tests/test_pt_prereg_audit.py` (§Z) | 15 | ✅ |
-| **Neu: `tests/test_pt_finite_kernel_check.py`** | **32** | **✅** |
-| **Projekt gesamt** | **339** | **339/339 grün** |
+| `tests/test_pt_finite_kernel_check.py` (§Z.10) | 32 | ✅ |
+| `tests/test_pt_ququint_entanglement.py` (§Z.11) | 30 | ✅ |
+| **Neu: `tests/test_pt_ququint_ibmq.py`** | **33** | **✅** |
+| **Projekt gesamt** | **402** | **402/402 grün** |
 
-**Last updated:** 2026-09-15 (§Z.10: Pattern C decide-Analogon implementiert, 339 Tests)
+---
+
+## §Z.11 — Zwei-Ququint-Verschränkung (EXPERIMENT 029, statevector only)
+
+**Modul:** `pt_ququint_entanglement.py` · **Tests:** `tests/test_pt_ququint_entanglement.py` (30)
+**Ausgangsfrage (User):** „Machen wir eigentlich mit Ququint numerisches Entanglement?"
+
+### Z.11.1 Befund vor §Z.11: Verschränkung nur in eingeschränkter Form
+
+Vor diesem Experiment existierte im Ququint-Stack **keine echte Zwei-Ququint-Verschränkung**:
+
+1. `pt_ququint_empirical.schmidt_entropy_qubit_vs_ququint` misst Schmidt-Entropie eines
+   **einzelnen** 5-dim Qudits über eine **aufgeprägte** 2×3-Bipartition mit 5→6-Dim
+   Zero-Padding — die Bipartition ist imposed, kein genuines Tensorprodukt.
+2. `ccz_gate_5` ist eine **Single-Qudit-Diagonalphase** exp(iπ·k³ mod 5) — diagonal
+   auf einem einzigen Qudit, also **nicht verschränkend**.
+
+### Z.11.2 Neue Zustände (genuine 5⊗5 = 25 dim, kein Padding)
+
+| Zustand | Definition | S (Schmidt, ln) | C | N |
+|---|---|---:|---:|---:|
+| `max_entangled_phi` | (1/√5)Σ_k\|k,k⟩ | ln 5 ≈ 1.6094 | √1.6 ≈ 1.2649 | 2.0 |
+| `ghz_two_ququint` | (\|0,0⟩+\|4,4⟩)/√2 | ln 2 ≈ 0.6931 | 1.0 | 0.5 |
+| `weyl_bell_state(1)` | (I + X⊗X†)\|0,0⟩/\|·\| = (\|0,0⟩+\|1,4⟩)/√2 | ln 2 | 1.0 | 0.5 |
+| `phi_from_weyl` | (1/√5)Σ_k (X⊗X†)^k\|0,0⟩ = (1/√5)Σ_k\|k,−k⟩ | ln 5 | √1.6 | 2.0 |
+| Produkt \|0,0⟩ | Referenz unten | 0 | 0 | 0 |
+| `separable_dephased_phi` | ρ_sep = (1/5)Σ_k\|kk⟩⟨kk\| (KONFUND) | — | — | **0** |
+
+**Maße:** Schmidt-Spektrum über die **natürliche** Bipartition (reshape 25→5×5, kein Padding),
+natürlicher Logarithmus (konsistent mit §Z.5-Stack); universal Concurrence für reine
+Zustände C = √(2(1−Tr ρ_A²)) mit Maximum √1.6 (d=5-Skala, **nicht** die Qubit-Skala —
+C=1 ist der Zwei-Term-GHZ, nicht das d=5-Maximum); Negativity N = (‖ρ^T_B‖₁−1)/2.
+
+**Weyl-Verbindung (Kern-Ergebnis):** die kernel-verifizierte Verschiebungsalgebra
+(§Z.10: X⁵=I, X†X=I exakt) erzeugt Verschränkung **nur durch Superpositionen von
+Verschiebungen**: (I + (X⊗X†)^0)\|0,0⟩ = 2\|0,0⟩ ist Produktzustand (k=0-Testfall),
+erst die Zwei-Term-Superposition (I + X⊗X†)\|0,0⟩ ist Bell-verschränkt, und die
+volle Orbit-Summe Σ_k (X⊗X†)^k\|0,0⟩ ist maximal verschränkt. Eine einzelne
+Weyl-Verschiebung eines Produkt-Basiszustands ist **nie** verschränkend.
+
+### Z.11.3 Konfund-Lektion: Populationen bezeugen keine Verschränkung
+
+|φ⟩ und ρ_sep haben **identische** Computational-Basis-Populationen (1/5 auf den
+fünf Diagonalpositionen) und liefern mit gleichem Seed **identische** multinomiale
+Shot-Counts (n=50 000, seed 42: bit-identisch) — aber Negativity **2 vs 0**.
+
+**Konsequenz für zukünftige QPU-Implementationen:** Computational-Basis-Shots
+allein können Verschränkung im Zwei-Ququint-System nicht bezeugen (Apophenia-
+Gefahr: „identische Histogramme" wären als Verschränkungs-Nachweis fehlgelesen
+worden). Erst Kohärenz-sensitive Maße (Partialtransposition / Mehrbasen-Messungen)
+können das. Grading: **A** (analytisch exakt + 30 TDD-Tests; keine QPU-Kosten).
+
+Hinweis (Float-Subtilität): \|1/√5\|² vs 1/5 unterscheiden sich in der letzten ULP;
+der Konfund-Report kanonisiert die Populationsvektoren auf 12 Dezimalstellen für
+den Bit-exakten Sampling-Vergleich (mathematisch exakt identisch).
+
+**PPT-Note:** in 5×5 ist PPT necessary-but-NOT-sufficient; für ρ_sep ist Separabilität
+konstruktiv manifest (explizite Konvexkombination von Produktprojektoren), daher
+ist N=0 hier beweisbar korrekt, nicht nur PPT-agnostisch.
+
+### Z.11.4 Anti-Sharpshooter-Check (§Z.11 selbst)
+
+- **Steelman:** ✅ Verglichen gegen den etablierten Stack (pt_ququint_empirical/
+  pt_ququint_simulator), nicht gegen Strohmann: Padding-Bipartition und
+  Single-Qudit-CCZ wurden als SotA-Zustand zuerst charakterisiert (§Z.11.1).
+- **Ockham's Quantified Razor:** ✅ Keine freien Parameter; alle Schwellwerte sind
+  analytische Exaktwerte (ln 5, √1.6, 2, 0.5, 0).
+- **Anti-Sharpshooter:** ✅ Alle Erwartungswerte standen im TDD-rot-Lauf **vor**
+  der Implementierung fest (30 Tests inkl. exakter Pins 0.8, ln 5, √1.6, 2.0).
+- **Complexity Audit:** ✅ Wiederverwendung des kernel-verifizierten `pauli_x_5`
+  statt neuer X-Matrix; Sampling über einen vektorisierten `rng.multinomial`-Aufruf.
+
+### Z.11.5 Test-Statistik (Update zu Z.10.6)
+
+Bestand 339 + **30 neu** = **369/369 grün** (0.31 s neue Suite; Gesamtsuite 1.68 s).
+
+---
+
+## §Z.12 — Ququint auf IBMQ, Phase 1: 3-Qubit-Emulation + Konditionaler Weyl-Witness (EXPERIMENT 030, simulator only)
+
+**Modul:** `pt_ququint_ibmq.py` · **Tests:** `tests/test_pt_ququint_ibmq.py` (33)
+**Ausgangsfrage (User):** „Können wir die Vorteile von Ququint auf IBMQ bringen — dass auf IBMQ
+die statistisch saubere Ququint-Architektur läuft?"
+**Scope:** numpy-only, statevector/density-matrix, **KEINE QPU-Kosten** (Phase 1 von 3).
+
+### Z.12.1 Randbedingung und Architektur
+
+Die öffentliche IBMQ-API exponiert nur Qubits (2 Level); die Transmon-Niveaus |2⟩,|3⟩,|4⟩
+eines echten Ququints sind nicht ansteuerbar. Sauberer Weg: **Emulation** — ein Ququint wird
+in ein 3-Qubit-Register kodiert (8 dim: 5 logische Zustände 000..100, 3 Leakage-Zustände
+101/110/111 = Verwerfung mit gemeldeter Rejection-Rate). Zwei Ququints = **6 Qubits, 64 dim**.
+Die logische Ebene (25 dim) bleibt exakt §Z.11 (`pt_ququint_entanglement`); dieses Modul ist
+die Emulations-Ebene.
+
+**Kernel-Verifikation (6/6 Checks):** encoded X₅ (8×8-Permutation: 5-Zyklus + Leakage-Fixpunkte),
+encoded Z₅ (diag(ω^k) auf logisch, 1 auf Leakage), DFT-5-Block (ω^{jk}/√5, Identität auf
+Leakage) — die Restriktionen auf den 5-dim-Code-Raum stimmen exakt mit der kernel-auditierten
+Schicht aus §Z.10 (`pauli_x_5`, `pauli_z_5`) überein; X⁵ = Z⁵ = I₈ gilt auf vollem 8-dim.
+
+### Z.12.2 Strukturfund: Die GF(5)-Weyl-Algebra bricht an Leakage (nicht nur Amplitudenverlust)
+
+Die Relation ZX = ωXZ gilt im encodierten 8-dim-Raum **nur auf dem logischen Subraum**.
+Auf Leakage-Zuständen bricht sie **zwingend**: der encodierte X hat dort Fixpunkte (bzw.
+Orbits ≠ Länge 5), und eine Ordnung-5-Phasen-Struktur kann auf solchen Orbits nicht
+existieren — die Relation verlangt X-Orbits der Länge 5 bei Phasenfortschritt ω. Residuum
+auf |5⟩: ‖ZX − ωXZ‖ über den Leakage-Block > 1.0 (Betrag |1−ω| = 2 sin(π/5) ≈ 1.1756).
+**Konsequenz:** Emulation ist algebra-treu auf dem CODE-SPACE; Leakage ist nicht „verlorene
+Amplitude", sondern **algebra-brechend** — daher ist Leakage-Rejection Pflicht, die Rate
+wird gemeldet (Tests fixieren beides: Relation exakt auf logisch, Bruch > 1.0 auf Leakage).
+
+### Z.12.3 Witness-Korrektur und Design (ehrlich, konditional)
+
+**Korrektur gegenüber dem Chat-Vorschlag (offengelegt):** der ursprünglich diskutierte
+Weyl-Korrelator-Witness F = (1/5)(1+Σ_j⟨X^j⊗X^{-j}⟩) mit Korrelatoren 1 auf |φ⟩ ist
+**mathematisch falsch** — ⟨φ|X^j⊗X^{-j}|φ⟩ = δ_{2j≡0 mod 5} = 0 für j=1..4 (d=5): die
+Korrelatoren unterscheiden |φ⟩ und ρ_sep **nicht**. Korrekt ist die **DFT-Basis-Messung**:
+
+- Messung **C** (computational): Populationen — |φ⟩ und ρ_sep sind identisch (§Z.11-Konfund
+  überlebt das Encoding exakt, getestet mit atol 1e-15).
+- Messung **D** (DFT-Basis, U = F⊗F†): wegen (F⊗F†)|φ⟩ = |φ⟩ (DFT-Invarianz von Φ) hat |φ⟩
+  das DFT-Histogramm 5 × 1/5 auf den Diagonal-Outcomes (a,a); ρ_sep ist in DFT-Basis
+  uniform 1/25 über die 25 logischen Outcomes; der Produktzustand |0,0⟩ teilt dieses
+  Histogramm (dokumentierte Degeneration — beide separabel, beide an der Schranke).
+- Witness **V = Σ_a p̃(a,a)** (DFT-Diagonalgewicht): **V(|φ⟩) = 1.0, V(ρ_sep) = 1/5,
+  V(Produkt) = 1/5**. Separabilitätsschranke: für Zustände mit maximal-korrelierten
+  Computational-Populationen (Support auf {|kk⟩}) ist die einzigige separable Extension
+  ρ_sep(p), und deren DFT-Diagonalgewicht ist exakt Σ_k p_k/5 = 1/5. Also: V > 1/5 bezeugt
+  Verschränkung — **conditional on maximally-correlated support**.
+
+**Konditionalität (Anti-Apophenia):** V allein ist KEIN unbedingter Witness — der Produktzustand
+χ_a⊗χ'_a erreicht V = 1, hat aber andere Computational-Populationen und wird von Messung C
+ausgeschlossen. Kein Ein-Setting-Witness fängt alle verschränkten Zustände (das wäre
+Tomographie); das preregistrierte Ziel ist das §Z.11-Konfund-Paar |φ⟩ vs ρ_sep.
+Zwei-Term-Zustände (GHZ/Weyl-Bell) sind bewusst **außerhalb des Witness-Scopes**: ihre
+Kohärenz lebt in der Computational-Basis, nicht in der DFT-Basis (V(GHZ) ≈ 0.008).
+
+**Subtilität mit Wert für die QPU-Interpretation:** auf dem Ideal-Simulator liegt die
+GESAMTE Verteilung von |φ⟩ auf den 5 Diagonal-Bins — V ist dort **deterministisch 1.0 mit
+SE ≈ 0** (alle 8192 Shots landen auf Diagonal-Bins; v_hat = 1.0 exakt). Jede reale
+Abweichung von 1.0 auf Hardware ist damit direkt Rausch-Signal (Gewichtsverlust in Off-
+Diagonal/Leakage), während ρ_sep bei 0.198 ± 0.004 (n=8192, seed 42) an der Schranke
+verbleibt. Die Regel `v_hat − 4·SE > 1/5` trennt das Paar bei n=8192 korrekt.
+
+### Z.12.4 Implementation, Regression-Fix, Testabdeckung
+
+- `embed_logical_state`: reshape-basierte exakte Kodierung (Index k·5+l → k·8+l) — Roundtrip
+  gegen §Z.11-Zustände mit atol 1e-15 getestet.
+- `reject_leakage` mit **Regression-Fix**: die naive Summe „A-Leak-Teilsumme + B-Leak-Teilsumme"
+  zählt die 9 doppelt-leakigen Positionen (beide Ququints leakage) doppelt; korrigiert auf
+  Differenz n_rejected = Σcounts − n_kept, mit neuem Test (Zustand mit 1/3 Gewicht auf
+  doppelt-leakiger Position, rate ≈ 2/3, Summen-Bilanz exakt 60 000).
+- `witness_from_shots`: vektorisiertes Multinomial + Bootstrap-SE (n_boot=1000, einsum über
+  Diagonal-Slices), liefert v_hat/SE/Schranke/v_exact — **entscheidet NICHT** (Anti-
+  Sharpshooter: die Entscheidungsregel gehört ins Prereg, Phase 3, Felder md5/
+  decision_rule/predictions via `pt_prereg_audit.py`).
+- 33 Tests: Encoding (3), Encodierte Operatoren (7), Encodierte Zustände (5), Messungs-
+  Histogramme (5), Witness (4), Shots/Leakage (7), Phase-1-Guards (2).
+
+### Z.12.5 Anti-Sharpshooter-Check (§Z.12 selbst) + Scope-Abweichung
+
+- **Steelman:** ✅ Verifizierung gegen die kernel-auditierte Schicht (§Z.10), nicht gegen
+  eine neue Ad-hoc-X-Matrix; Konfund-Paar aus §Z.11 unverändert übernommen.
+- **Ockham's Razor:** ✅ Keine freien Parameter; Schranke 1/5 ist analytisch exakt.
+- **Anti-Sharpshooter:** ✅ Alle Pins (V-Werte, DFT-Invarianz, Uniformität 1/25, Bruch > 1.0,
+  rate 2/3) standen im TDD-rot-Lauf vor der Implementierung fest.
+- **Complexity Audit / Offengelegte Abweichung:** ⚠️ Phase 1 versprach im Plan auch
+  „gemessene Gate-Counts der Synthese" — diese sind **auf Phase 2 verschoben** (numpy-only,
+  Transpilation gehört dort hin). Die CCZ-Fidelity-These ((1−p/1.75)⁴ vs (1−p)⁷) bleibt
+  dadurch UNBERÜHRT hypothetisch — exakt die Anti-Sharpshooter-Haltung.
+- **Witness-Formel-Korrektur** (Z.12.3) ist als solche offengelegt, nicht kaschiert.
+
+### Z.12.6 Roadmap (Phase 2 + 3, warten auf Freigabe)
+
+- **Phase 2 (Aer + Transpilation):** Readout-Noise + Depolarizing auf dem 6-Qubit-Register,
+  transpilierte Gate-Counts der X₅/Z₅/F₅-Synthesen (der ehrliche CCZ-Vorteil-Test), ρ_sep
+  als Konfund-Kontrolle in JEDER Stress-Run.
+- **Phase 3 (Prereg → 1 QPU-Job):** MD5/decision_rule/predictions gefrieren → EIN Job auf
+  Fez (6 Qubits, 8192 Shots, beide Zustände im selben Job via Batching, TOKEN2 unberührt,
+  initialize-Architektur lt. Säule 3 erprobt).
+
+### Z.12.7 Test-Statistik (Update zu Z.10.6)
+
+Bestand 369 + **33 neu** = **402/402 grün** (0.34 s neue Suite; Gesamtsuite 1.33 s).
+
+---
+
+**Last updated:** 2026-09-15 (§Z.12: Ququint auf IBMQ Phase 1 — 3-Qubit-Emulation + konditionaler DFT-Witness, 402 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
