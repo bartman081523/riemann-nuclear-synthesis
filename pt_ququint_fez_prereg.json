@@ -1,0 +1,85 @@
+{
+ "experiment": "032-ququint-fez-phase3",
+ "registered_before": "Kein Hardware-Zugriff dieses Experiments fand vor diesem Freeze statt — alle Zahlen stammen aus der Phase-2-Aer-STRESS-Kurve.",
+ "backend": "ibm_fez",
+ "token_account": "TOKEN1 (IBMQ_TOKEN); TOKEN2 unberuehrt",
+ "n_shots": 8192,
+ "n_circuits": 12,
+ "circuit_order": [
+  "phi_C",
+  "phi_D",
+  "sep_C_0",
+  "sep_C_1",
+  "sep_C_2",
+  "sep_C_3",
+  "sep_C_4",
+  "sep_D_0",
+  "sep_D_1",
+  "sep_D_2",
+  "sep_D_3",
+  "sep_D_4"
+ ],
+ "run_config": {
+  "optimization_level": 3,
+  "dynamical_decoupling": "XX",
+  "resilience": "none (raw SamplerV2 counts)"
+ },
+ "decision_rule": "phi_margin_pass AND sep_margin_pass AND confound_pass",
+ "predictions": {
+  "phi_margin_pass": true,
+  "sep_margin_pass": true,
+  "confound_pass": true,
+  "phi_margin": 0.5840264877973111,
+  "sep_margin": -0.022891546221750825,
+  "confound_max_diff": 0.011083984374999994
+ },
+ "prediction_bands": {
+  "phi_margin": {
+   "band": [
+    0.031297237332560374,
+    0.6773878666169415
+   ],
+   "prediction": "strikt positiv im ganzen Fenster (Verschränkung gewitzt)"
+  },
+  "sep_margin": {
+   "band": [
+    -0.07217471655344979,
+    -0.016394646652426598
+   ],
+   "prediction": "strikt negativ im ganzen Fenster (Kontrolle nie geflaggt)"
+  },
+  "confound_max_diff": {
+   "band": [
+    0.009008789062499994,
+    0.0195068359375
+   ],
+   "prediction": "<= 0.05 im Fenster (Populations-Konfund kontrolliert)"
+  }
+ },
+ "decision_rule_semantics": {
+  "phi_margin_pass": "phi_margin = v_hat - 4*SE - 1/5 > 0",
+  "sep_margin_pass": "sep_margin < 0 (Kontrolle korrekt NICHT geflaggt)",
+  "confound_pass": "confound_max_diff <= 0.05"
+ },
+ "witness_definition": "V = sum_a p~(a,a) nach Messung D (U = F (x) F-dagger); Separabilitaetsschranke 1/5; margin = v_hat - 4*SE - 1/5",
+ "stress_model": {
+  "type": "stress (not a calibrated Fez model)",
+  "readout": 0.01,
+  "two_q_ratio": 10.0,
+  "grid_slice": [
+   0.0001,
+   0.0003,
+   0.001,
+   0.003
+  ],
+  "grid_full_phase2": [
+   0.0,
+   0.0001,
+   0.0003,
+   0.001,
+   0.003,
+   0.01
+  ]
+ },
+ "md5": "18fb1e62a3dd71c6f595416cdd40bcc1"
+}
