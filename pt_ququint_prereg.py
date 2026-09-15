@@ -192,13 +192,17 @@ def verify_prereg_md5(doc):
 
 
 def load_frozen_prereg(path=PREREG_PATH):
-    """Laedt das Freeze-Dokument (flat, mit top-level md5) und verifiziert es."""
+    """Laedt das Freeze-Dokument (flat, mit top-level md5) und verifiziert es.
+
+    Liefert das Payload-Dict selbst (das Dokument IST flat: Payload + md5
+    auf Top-Level, per audit_prereg_structure-Kontrakt).
+    """
     with open(path, encoding="utf-8") as f:
         doc = json.load(f)
     if not verify_prereg_md5(doc):
         raise ValueError(f"Prereg-md5-MISMATCH in {path} — Payload wurde nach "
                          "dem Freeze veraendert (Tamper-Detektion)")
-    return doc["payload"]
+    return doc
 
 
 def build_emulated_result():
