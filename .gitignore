@@ -38,6 +38,9 @@ monitor.pid
 *.png
 !zeraoulia_spectral_plot.png
 
+# External review clones (working-assets, not repo truth)
+zeta-23-lean-review/
+
 # OS
 .DS_Store
 Thumbs.db

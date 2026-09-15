@@ -1645,10 +1645,122 @@ Wurde §Z selbst nach SciMind 4.0 auditiert?
 ### Z.9 Offene Punkte
 
 1. **SV-NS-02 konkret umsetzen:** `pt_spectral_moments.py` mit `Tr(G^k)` für k=2,3,4 für Prime-State (mit/ohne mod-210-Filter) und ein Zeta-Prime-Side-Toy-Modell (analog zu chagpt-zeta.txt §5–6).
-2. **Pattern C (`decide`-Analogon):** `pt_finite_kernel_check.py` für GF(5)-Axiome und PT-Symmetrie-Eigenschaften.
+2. ~~**Pattern C (`decide`-Analogon):** `pt_finite_kernel_check.py` für GF(5)-Axiome und PT-Symmetrie-Eigenschaften.~~ → erledigt, siehe §Z.10.
 3. **Audit-Backfill:** alle bestehenden prereg/result-Paare durch `pt_prereg_audit.audit_run` schicken, Tabelle in §C.6.
 4. **SciMind-Audit der §Z-Implementation selbst** (zweiter Pass, nicht-selbst-referentiell).
 
-**Last updated:** 2026-08-15 (§Z: Comparator-Pattern + chagpt-zeta.txt Review + SV-NS-02)
+### Z.10 Addendum 2026-09-15 — Pattern C umgesetzt: `pt_finite_kernel_check.py` (decide-Analogon)
+
+**TDD, 32 neue Tests, 339/339 grün.** Übersetzung der `LawN256.lean`-Struktur
+aus `zeta-23-lean-review/` (dort: 256 ganzzahlige Enclosures extern per
+Intervall-Arithmetik erzeugt, im Lean-Kernel nur per `decide` nachgeprüft)
+auf die GF(5)/PT-Ebene des Projekts.
+
+#### Z.10.1 Struktur: UNTRUSTED GENERATOR vs TRUSTED KERNEL
+
+Modul `pt_finite_kernel_check.py`, hart geteilt durch die Marker-Zeile
+`# === UNTRUSTED GENERATOR ===`:
+
+| Seite | Inhalt | Vertrauen |
+|---|---|---|
+| **Generator** (nach Marker) | Claims via Projektcode: `pt_ququint_gf5.GF5`-Tabellen, `pt_ququint_simulator.pauli_x_5/pauli_z_5` (float), PT-Exemplare als rationale Form-Daten. Serialisiert exakt (Ganzzahlen, Brüche, rationale Enclosures) nach `pt_finite_kernel_claims.json` | **UNTRUSTED** (float + Projektcode) |
+| **Kernel** (vor Marker) | stdlib-only (`hashlib/json/sys/fractions`): rohe int-Operatoren mod 5, zyklotomischer Ring, exakt rationale Matrizen. Re-deriviert JEDE der 28 Aussagen aus den aufgezeichneten Daten | **TRUSTED**, unabhängiger Code-Pfad |
+
+Code-Pfad-Unabhängigkeit ist per Test erzwingt (`TestKernelIndependence`):
+der Kernel-Sektion des Quelltextes werden `numpy`, `qiskit`, `pt_*`-Importe
+per Marker-Split per Test verboten; der Generator-Sektion werden dieselben
+Importe per Test GEFORDERT. Korrektur gegenüber der ersten Version: der
+Docstring enthielt die Marker-Zeichenkette selbst, weshalb der Split
+ursprünglich im Docstring landete und den Audit trivial machte — der
+Marker ist jetzt `# === UNTRUSTED GENERATOR ===` (mit Kommentar-Präfix).
+
+#### Z.10.2 Die 28 Verdicts (25 CONFIRMED / 3 REFUTED)
+
+| Gruppe | n | Inhalt |
+|---|---:|---|
+| `gf5_axioms` | 10 | Abschluss/Kommutativität/Assoziativität/Distributivität/Identitäten/Inverse — Kernel prüft die GF5-Klassen-Tabellen gegen **rohe int-Arithmetik mod 5** UND tabellen-intern (125 Tripel). Mutationstests belegen: ein bughaftes `GF5.__add__` würde `closure_add` REFUTED setzen — die Lücke, dass die bestehenden Axiom-Tests die GF5-Klasse MIT der GF5-Klasse prüfen, ist geschlossen |
+| `ququint_displacement` | 5 | X⁵=I, Z⁵=I, X†X=I, Z†Z=I, ZX=ωXZ — exakt über die aufgezeichneten Matrizen |
+| `exactness_enclosures` | 3 | X5-Float-Einträge exakt 0.0/1.0 (Imaginärteil explizit geprüft), Z5-Nebendiagonale exakt 0, Z5-Diagonale in rationalen Enclosures (Halbbreite 1e-12). **EnclOK-Analogon:** `Fraction(float)` ist die exakte Binärdarstellung — die Mitgliedschaft float∈[lo,hi] verliert nichts; die *Verschärftheit* der Enclosures gegen die wahren Einheitswurzeln bleibt displayed hypothesis (wie in LawN256.lean) |
+| `dft` | 1 | Σ_k ω^{k(j−l)} = 5·δ_jl für alle 25 Paare (j,l) — das exakte Fundament von `dft∘idft = id` in `pt_ququint_gf5.py`; Kernel berechnet alle Summen selbst |
+| `pt_algebra` | 9 | P²=I; Kriterium P·H·P == conj(H) (⟺ [H,PT]=0 mit T=konjugation) und Hermitizität für 3 exakt rationale Exemplare + Real-/Imaginär-Zerlegung P·H·P−conj(H) == (P·D·P−D) + iγ·(P·A·P+A) |
+
+Die 3 REFUTED sind **dokumentierte Funde, keine Fehler** (exaktifiziert,
+nicht narrativ):
+
+1. **`dimer_canonical_hermitian`** — der kanonische PT-Dimer
+   [[1+i/2, 3/2],[3/2, 1−i/2]] ist nicht-Hermitisch (per Design, erfüllt
+   aber P·H·P == conj(H) exakt).
+2. **`project_form_pt_symmetric`** — die generische Projektform
+   H = D + iγA mit reell-symmetrischem A erfüllt das strenge Kriterium
+   **NICHT**: P·H·P − conj(H) = (P·D·P − D) + iγ·(P·A·P + A), und für
+   symmetrisches A mit Reversal-P ist {A,P} = 0 unmöglich. Die
+   Projektterminologie „PT-symmetrische Extension" ist **PT-TYP**
+   (Hermitian/anti-Hermitian-Split als Observablen), nicht strenge
+   PT-Symmetrie. Grading: **A** (exakte rationale Arithmetik, kein float).
+3. **`project_form_hermitian`** — nicht-Hermitisch (per Design, γ≠0).
+
+Dazu das positiv exaktifizierte Gegenstück zur Konstruktionsfehler-Notiz
+(Forschungsdokument, „i·anti-Hermitian = Hermitian"): mit
+**A = [[0,1],[−1,0]]** (antikommutiert mit P) ist H = D + iγA zugleich
+strikt PT-symmetrisch UND Hermitisch (`anticommuted_form_*` CONFIRMED ×2)
+— die exakte Form der „numerischen Lucky-Hit"-Klasse.
+
+#### Z.10.3 Ring-Subtilität: Gruppenring vs echter zyklotomischer Ring
+
+Der DFT-Test fing im TDD-Lauf einen **echten mathematischen Fehler**: die
+erste Kernel-Implementierung rechnete im Gruppenring
+Z[x]/(x⁵−1) (Rang 5, zyklische Faltung). Dort ist
+1+ω+ω²+ω³+ω⁴ = Φ₅(ω) **≠ 0** — ein von Null verschiedener Nullteiler
+(denn (ω−1)·Σω^k = ω⁵−1 = 0). Die DFT-Orthogonalität gilt dort nicht:
+alle 20 Summen für j≠l ergaben (1,1,1,1,1).
+
+Korrektur: der Kernel rechnet im **echten zyklotomischen Ring**
+Z[ζ₅] = Z[x]/(Φ₅(x)), Φ₅ = x⁴+x³+x²+x+1 (Rang 4, Basis {1,ω,ω²,ω³},
+ω⁴ = −1−ω−ω²−ω³, ω⁵ = 1 folgt). Dort ist Σω^k = 0 exakt und
+Σ_k ω^{k(j−l)} = 5·δ_jl exakt für alle (j,l). Neue Kernel-Tests
+dokumentieren beide Fakten (`test_sum_of_all_powers_vanishes`,
+`test_norm_of_omega4_is_one`). Epistemische Note: ein
+Entscheidungs-Kernel, der dieselbe Arithmetik nochmal läuft (statt
+narrativ zu behaupten), fängt genau diese Klasse von
+„theoretisch plausibel, strukturell falsch"-Fehlern — das ist der
+eigentliche Wert des decide-Analogons, über die Audit-Funktion hinaus.
+
+#### Z.10.4 Weitere Kernel-Details
+
+- **Komplexe rationale Zahlen** als (Fraction, Fraction)-Paare; alle
+  PT-Identitäten exakt rational, kein float-Spielraum.
+- **Fraction(float)-Exaktheit:** Python-Konstruktion `Fraction(f)` ist die
+  exakte Binärdarstellung des floats — der Enclosure-Membership-Check ist
+  daher entscheidungsartig exakt (keine Toleranz-Parameter).
+- **Fingerprint:** `claims_sha256` = sha256 über
+  `json.dumps(claims, sort_keys=True)`; Mutationstest belegt
+  Fingerprint-Änderung bei Manipulation; JSON-Roundtrip verlustfrei
+  (Result aus Disk gleich Result aus Memory).
+- **Result-Dateien im Repo:** `pt_finite_kernel_claims.json`
+  (sha256 `a03aed4c2e2f0f53...`) und `pt_finite_kernel_check_result.json`.
+
+#### Z.10.5 Anti-Sharpshooter-Check (§Z.10 selbst)
+
+- **Steelman:** ✅ Verglichen gegen das SotA (LawN256.lean), nicht gegen
+  ein Strohmann-Muster: EnclOK-Semantik (Mitgliedschaft kernel-exakt,
+  Verschärftheit displayed) 1:1 übernommen statt vereinfacht.
+- **Ockham's Quantified Razor:** ✅ Keine neuen freien Parameter
+  (Enclosure-Halbbreite 1e-12 ist die einzige Wahl, displayed).
+- **Anti-Sharpshooter:** ✅ Alle 28 Verdicts inkl. der 3 REFUTED waren im
+  TDD-rot-Lauf **vor** der Implementierung als Konstanten registriert
+  (`EXPECTED_REFUTED_NAMES`).
+- **Complexity Audit:** ✅ Kernel stdlib-only, 4-Dim-Ring nötig und
+  ausreichend (kein Ad-hoc-Toleranzparameter).
+
+#### Z.10.6 Test-Statistik (Update zu §Z.6)
+
+| Suite | Tests | Status |
+|---|---:|---|
+| Bestehend (vor §Z) | 292 | ✅ |
+| `tests/test_pt_prereg_audit.py` (§Z) | 15 | ✅ |
+| **Neu: `tests/test_pt_finite_kernel_check.py`** | **32** | **✅** |
+| **Projekt gesamt** | **339** | **339/339 grün** |
+
+**Last updated:** 2026-09-15 (§Z.10: Pattern C decide-Analogon implementiert, 339 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

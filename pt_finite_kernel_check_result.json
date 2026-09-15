@@ -1,0 +1,178 @@
+{
+  "claims_sha256": "a03aed4c2e2f0f537c6577bf16324a83ddb6e299e46871908794b920e9740f8f",
+  "claims_total": 28,
+  "confirmed": 25,
+  "generator": "pt_finite_kernel_check.generate_claims",
+  "pattern": "C (finite kernel check, decide-analogue, zeta-23-lean LawN256 structure)",
+  "refuted": 3,
+  "verdicts": [
+    {
+      "detail": "add_table == (a+b) mod 5, rohe Ganzzahloperator-Arithmetik",
+      "group": "gf5_axioms",
+      "name": "closure_add",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "mul_table == (a*b) mod 5, rohe Ganzzahloperator-Arithmetik",
+      "group": "gf5_axioms",
+      "name": "closure_mul",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "add_table[a][b] == add_table[b][a], alle 25 Paare",
+      "group": "gf5_axioms",
+      "name": "commutativity_add",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "mul_table[a][b] == mul_table[b][a], alle 25 Paare",
+      "group": "gf5_axioms",
+      "name": "commutativity_mul",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "125 Tripel, rein tabellen-intern",
+      "group": "gf5_axioms",
+      "name": "associativity_add",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "125 Tripel, rein tabellen-intern",
+      "group": "gf5_axioms",
+      "name": "associativity_mul",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "125 Tripel a*(b+c) == a*b + a*c, tabellen-intern",
+      "group": "gf5_axioms",
+      "name": "distributivity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "0 als additives Identitaetselement",
+      "group": "gf5_axioms",
+      "name": "additive_identity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "1 als multiplikatives Identitaetselement",
+      "group": "gf5_axioms",
+      "name": "multiplicative_identity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "a * a^{-1} == 1 mod 5 fuer alle a != 0",
+      "group": "gf5_axioms",
+      "name": "multiplicative_inverses",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "X^5 == I, exakt in Z[omega] (zyklische Verschiebung)",
+      "group": "ququint_displacement",
+      "name": "x_pow5_is_identity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "Z^5 == I, exakt in Z[omega] (omega^{5k} = 1)",
+      "group": "ququint_displacement",
+      "name": "z_pow5_is_identity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "X^dagger X == X X^dagger == I, exakt (Permutationsmatrix)",
+      "group": "ququint_displacement",
+      "name": "x_is_unitary",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "Z^dagger Z == Z Z^dagger == I, exakt (|omega^k|^2 = 1 in Z[omega])",
+      "group": "ququint_displacement",
+      "name": "z_is_unitary",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "Z X == omega X Z, exakt in Z[omega] (Weyl-Relation mod 5)",
+      "group": "ququint_displacement",
+      "name": "z_commutation_relation",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "X5-Float-Eintraege exakt 0.0/1.0 (reell), gleich der int-Matrix",
+      "group": "exactness_enclosures",
+      "name": "x5_entries_exact",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "Z5-Nebendiagonaleintr\u00e4ge exakt 0+0j",
+      "group": "exactness_enclosures",
+      "name": "z5_offdiagonal_exact_zero",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "Z5-Diagonale in rationalen Enclosures (Fraction(float) exakt); Verschaerftheit gegen wahre Einheitswurzeln = displayed hypothesis",
+      "group": "exactness_enclosures",
+      "name": "z5_diagonal_in_enclosures",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "25 Identitaeten sum_k omega^(k(j-l)) == 5*delta_jl, kernel-seitig in Z[omega] berechnet",
+      "group": "dft",
+      "name": "dft_orthogonality_5delta",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "P^2 == I, exakt (Reversal-Permutation)",
+      "group": "pt_algebra",
+      "name": "p_square_is_identity",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "P H P == conj(H) (<=> [H, PT] = 0), exakt rational",
+      "group": "pt_algebra",
+      "name": "dimer_canonical_pt_symmetric",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "H^dagger == H, exakt rational",
+      "group": "pt_algebra",
+      "name": "dimer_canonical_hermitian",
+      "verdict": "REFUTED"
+    },
+    {
+      "detail": "P H P == conj(H) (<=> [H, PT] = 0), exakt rational",
+      "group": "pt_algebra",
+      "name": "project_form_pt_symmetric",
+      "verdict": "REFUTED"
+    },
+    {
+      "detail": "H^dagger == H, exakt rational",
+      "group": "pt_algebra",
+      "name": "project_form_hermitian",
+      "verdict": "REFUTED"
+    },
+    {
+      "detail": "P H P == conj(H) (<=> [H, PT] = 0), exakt rational",
+      "group": "pt_algebra",
+      "name": "anticommuted_form_pt_symmetric",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "H^dagger == H, exakt rational",
+      "group": "pt_algebra",
+      "name": "anticommuted_form_hermitian",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "P H P - conj(H) == (P D P - D) + i*gamma*(P A P + A), exakt",
+      "group": "pt_algebra",
+      "name": "project_form_criterion_split",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "detail": "P H P - conj(H) == (P D P - D) + i*gamma*(P A P + A), exakt",
+      "group": "pt_algebra",
+      "name": "anticommuted_form_criterion_split",
+      "verdict": "CONFIRMED"
+    }
+  ]
+}
