@@ -1,0 +1,25 @@
+{
+ "status": "CONFIRMED",
+ "statement_coincidence": true,
+ "decision_rule_holds": true,
+ "extra_in_result": [
+  "backend",
+  "bands_hold",
+  "decision_rule",
+  "emulated",
+  "isa_gate_report",
+  "job_id",
+  "leakage_rate_phi_C",
+  "leakage_rate_phi_D",
+  "leakage_rate_sep_C",
+  "leakage_rate_sep_D",
+  "n_circuits",
+  "n_shots",
+  "phi_se",
+  "phi_v_hat",
+  "rule_holds",
+  "sep_se",
+  "sep_v_hat",
+  "shots_per_circuit"
+ ]
+}

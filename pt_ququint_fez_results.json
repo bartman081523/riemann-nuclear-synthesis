@@ -1,0 +1,173 @@
+{
+ "phi_margin_pass": true,
+ "sep_margin_pass": true,
+ "confound_pass": true,
+ "phi_margin": 0.403871662232513,
+ "sep_margin": -0.041184594281943876,
+ "confound_max_diff": 0.015283203125000006,
+ "phi_v_hat": 0.625244140625,
+ "phi_se": 0.0053431195981217565,
+ "sep_v_hat": 0.16611328125,
+ "sep_se": 0.0018244688829859663,
+ "leakage_rate_phi_C": 0.0224609375,
+ "leakage_rate_sep_C": 0.002685546875,
+ "leakage_rate_phi_D": 0.16796875,
+ "leakage_rate_sep_D": 0.1366455078125,
+ "n_shots": 8192,
+ "n_circuits": 12,
+ "emulated": false,
+ "decision_rule": "phi_margin_pass AND sep_margin_pass AND confound_pass",
+ "bands_hold": {
+  "phi_margin": true,
+  "sep_margin": true,
+  "confound_max_diff": true
+ },
+ "backend": "ibm_fez",
+ "job_id": "dakjk9hhvn6c73cvr1cg",
+ "shots_per_circuit": 8192,
+ "isa_gate_report": {
+  "circuit_names": [
+   "phi_C",
+   "phi_D",
+   "sep_C_0",
+   "sep_C_1",
+   "sep_C_2",
+   "sep_C_3",
+   "sep_C_4",
+   "sep_D_0",
+   "sep_D_1",
+   "sep_D_2",
+   "sep_D_3",
+   "sep_D_4"
+  ],
+  "per_circuit": {
+   "phi_C": {
+    "ops": {
+     "rz": 20,
+     "sx": 16,
+     "cz": 7,
+     "measure": 6,
+     "x": 3,
+     "barrier": 1
+    },
+    "two_q": 7,
+    "depth": 23
+   },
+   "phi_D": {
+    "ops": {
+     "sx": 226,
+     "rz": 203,
+     "cz": 81,
+     "measure": 6,
+     "x": 5,
+     "barrier": 1
+    },
+    "two_q": 81,
+    "depth": 175
+   },
+   "sep_C_0": {
+    "ops": {
+     "measure": 6,
+     "barrier": 1
+    },
+    "two_q": 0,
+    "depth": 1
+   },
+   "sep_C_1": {
+    "ops": {
+     "measure": 6,
+     "x": 2,
+     "barrier": 1
+    },
+    "two_q": 0,
+    "depth": 2
+   },
+   "sep_C_2": {
+    "ops": {
+     "measure": 6,
+     "x": 2,
+     "barrier": 1
+    },
+    "two_q": 0,
+    "depth": 2
+   },
+   "sep_C_3": {
+    "ops": {
+     "measure": 6,
+     "x": 4,
+     "barrier": 1
+    },
+    "two_q": 0,
+    "depth": 2
+   },
+   "sep_C_4": {
+    "ops": {
+     "measure": 6,
+     "x": 2,
+     "barrier": 1
+    },
+    "two_q": 0,
+    "depth": 2
+   },
+   "sep_D_0": {
+    "ops": {
+     "sx": 184,
+     "rz": 171,
+     "cz": 58,
+     "measure": 6,
+     "x": 1,
+     "barrier": 1
+    },
+    "two_q": 58,
+    "depth": 126
+   },
+   "sep_D_1": {
+    "ops": {
+     "sx": 184,
+     "rz": 171,
+     "cz": 58,
+     "measure": 6,
+     "x": 1,
+     "barrier": 1
+    },
+    "two_q": 58,
+    "depth": 126
+   },
+   "sep_D_2": {
+    "ops": {
+     "sx": 186,
+     "rz": 172,
+     "cz": 58,
+     "measure": 6,
+     "barrier": 1
+    },
+    "two_q": 58,
+    "depth": 126
+   },
+   "sep_D_3": {
+    "ops": {
+     "sx": 180,
+     "rz": 171,
+     "cz": 54,
+     "measure": 6,
+     "barrier": 1
+    },
+    "two_q": 54,
+    "depth": 119
+   },
+   "sep_D_4": {
+    "ops": {
+     "sx": 180,
+     "rz": 172,
+     "cz": 54,
+     "measure": 6,
+     "barrier": 1
+    },
+    "two_q": 54,
+    "depth": 119
+   }
+  },
+  "total_two_q": 370
+ },
+ "rule_holds": true
+}
