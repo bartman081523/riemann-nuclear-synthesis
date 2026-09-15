@@ -2082,6 +2082,150 @@ Phase2Report (1), Phase2Guards (3).
 
 ---
 
-**Last updated:** 2026-09-15 (§Z.13: Ququint auf IBMQ Phase 2 — Aer-Noise + Transpilation, 45-cx-Budget, 428 Tests)
+## §Z.14 — Ququint auf IBMQ, Phase 3: Prereg-Freeze + Fez-QPU-Lauf (EXPERIMENT 032, ibm_fez)
+
+### Z.14.1 Randbedingung und Anti-Sharpshooter-Kette
+
+Phase 3 schließt die Serie ab: die in Z.13.5 erzeugten STRESS-Vorhersagen wurden
+als md5-gefrorrenes Prereg committed (b77974f), BEVOR irgendein Hardware-Datum
+existierte; dann lief EIN Fez-Job (TOKEN1 = `IBMQ_TOKEN`, TOKEN2 unberührt).
+Die Kette in Commits:
+
+1. **Phase 3a (b77974f):** `pt_ququint_prereg.py` + `pt_ququint_fez_prereg.json`
+   — Freeze mit md5 `18fb1e62a3dd71c6f595416cdd40bcc1`, FLAT-Format
+   (`{...payload..., "md5"}` auf Top-Level, weil `pt_prereg_audit`
+   `audit_prereg_structure` md5/decision_rule/predictions auf Top-Level
+   verlangt; keine Zeitstempel im gehashten Payload).
+2. **Phase 3b (6c26585):** `pt_ququint_fez.py` — der Runner; `run_phase3` ist
+   die EINZIGE Funktion mit Netz-Zugriff, lädt das Prereg md5-verifiziert
+   VOR jedem Backend-Kontakt.
+3. **Phase 3c (9d73edc):** `pt_ququint_fez_results.json` +
+   `pt_ququint_fez_audit.json` — das Hardware-Resultat.
+
+Guard-Tests pinnen die Struktur: `SamplerV2(` genau 1× (nur in `run_phase3`,
+nach dem `load_frozen_prereg`-Aufruf); `IBMQ_TOKEN2` kommt im Quellcode nicht
+vor; Backend-Name `ibm_fez` gepinnt.
+
+### Z.14.2 Prereg-Payload (Phase 3a, TDD, 20 Tests)
+
+- **Decision Rule:** `phi_margin_pass AND sep_margin_pass AND confound_pass`
+  (in der sandboxed `evaluate_decision_rule`-Grammatik verifiziert; alle drei
+  Aussagen als True-Konstanten registriert).
+- **Bänder über das 4-Punkt-Grid p1 ∈ {1e-4, 3e-4, 1e-3, 3e-3}** (aus der
+  Phase-2-Kurve, seed 42, ausschließlich Simulator-Daten):
+  margin(φ) [0.0313, 0.6774], margin(ρ_sep) [−0.0722, −0.0164],
+  confound [0.0090, 0.0195].
+- **Punktvorhersagen am STRESS-Punkt 3e-4:** margin(φ) +0.5840,
+  margin(ρ_sep) −0.0229, confound 0.0111.
+- **Pipeline-Validierung in Emulation:** `audit_run(frozen prereg, emuliertes
+  Phase-2-Result)` → CONFIRMED; phi-Fail → REFUTED (beides getestet, VOR
+  Hardware).
+
+### Z.14.3 ISA-Kosten auf dem echten Fez-Target (Phase 3b)
+
+Offline-Probe (GenericBackendV2, 27 Qubits, rz/sx/x/ecr): 12 Circuits in
+0.77 s; phi_D 45 two-q-Gates — exakt das Phase-2-Soll (Z.13.2), kein
+SWAP-Blowup. Auf dem ECHTEN Fez-Target (156 Qubits, eigene Coupling-Map)
+steigt das Budget:
+
+| Circuit | Phase-2-Soll (cx, Z.13.2) | Fez-ISA (2q) | depth |
+|---|---|---|---|
+| phi_C | 7 | **7** | 23 |
+| phi_D | 45 | **81** (+80%) | 175 |
+| sep_C (je) | 0 | **0** | 1 |
+| sep_D_0 | 38 | **58** | 126 |
+| Total (12) | — | **370** | — |
+
+Die Präparations-Seite überlebt exakt (7 und 0 identisch); die DFT-Messrotation
+braucht auf dem realen Coupling-Map-Routing SWAPs → 81 statt 45. Ehrliche
+Konsequenz: das effektive Noise-Niveau des Fez-Laufs liegt näher am
+Phase-2-Punkt p1 = 1e-3 als am Vorhersage-Punkt 3e-4 (Interpolation s. Z.14.4).
+Der lokale SamplerV2-Testpfad benutzt `AerSimulator(method="statevector")`:
+die density_matrix-Methode von Aer kennt `cry` nicht (leere Counts →
+Broadcast-Fehler in BackendSamplerV2); die ISA-Circuits für den echten Job
+enthalten nur rz/sx/x/ecr + measure — dort unmaterial.
+
+### Z.14.4 Der Fez-Lauf (Phase 3c): CONFIRMED, alle 3 Bänder gehalten
+
+Job `dakjk9hhvn6c73cvr1cg` (ibm_fez, 12 Circuits × 8192 Shots, EIN Job,
+Submitted 2026-09-15, ~90 s bis Result):
+
+| Größe | Prereg (3e-4) | Band | Fez beobachtet | Band hält |
+|---|---|---|---|---|
+| V(φ) | 0.8021 ± 4·0.0045 | — | **0.6252** ± 4·0.0053 | — |
+| margin(φ) | +0.5840 | [0.0313, 0.6774] | **+0.4039** | ✓ |
+| V(ρ_sep) | 0.1847 ± 4·0.0019 | — | **0.1661** ± 4·0.0018 | — |
+| margin(ρ_sep) | −0.0229 | [−0.0722, −0.0164] | **−0.0412** | ✓ |
+| confound_max_diff | 0.0111 | [0.0090, 0.0195] | **0.0153** | ✓ |
+
+**Verdict (pt_prereg_audit.audit_run): CONFIRMED** — statement_coincidence
+und decision_rule_holds beide True, alle drei Bands gehalten. Die zwei
+Zeugen-Klassen trennen auf realer Hardware um Faktor ~3.8 (0.625 vs 0.166)
+mit ~80σ bzw. ~23σ Abstand zur Schranke 1/5 — trotz +80% ISA-Budget und
+trotz DFT-Leakage:
+
+| Leakage-Rate | φ_C | ρ_sep_C | φ_D | ρ_sep_D |
+|---|---|---|---|---|
+| außerhalb 25-Bin-Logikraum | 2.2% | 0.27% | **16.8%** | **13.7%** |
+
+Die DFT-Rotation verschiebt ~15% der Population in die 39 Leakage-Bins —
+der Witness auf den 25 Logik-Bins hält das trotzdem (die Leakage ist
+klassisch gemischt, drückt V Richtung uniform, nicht Richtung False-Positive;
+Z.13.4-Befund 2 bestätigt sich in Hardware). **Ehrliche Kalibrier-Lektüre
+(post-hoc, NICHT Teil des Preregs):** alle drei beobachteten Werte liegen
+zwischen den Kurvenpunkten 3e-4 und 1e-3, nahe p1 ≈ 1e-3 (margin(φ) 0.404
+gegen +0.584/+0.361; confound 0.0153 gegen 0.0111/0.0132) — konsistent mit
+dem höheren ISA-Budget (81 statt 45 2q-Gates). Die STRESS-Kurve funktioniert
+damit rückwärts als grober Kalibrier-Interpolant; kalibriert ist sie dadurch
+nicht (Bänder bleiben der echte Vertrag).
+
+### Z.14.5 SciMind-Bewertung
+
+- **Anti-Sharpshooter:** vollständig erfüllt — Predictions aus Phase-2-
+  Simulator-Daten, md5-gefrorren und committed VOR Hardware (b77974f →
+  9d73edc), Band-Prüfung maschinell via audit_run, kein ex-post-Fitting.
+- **Steelman:** getestet gegen das SotA-Modell "Depolarizing+Readout auf
+  transpilierten Circuits" (Phase 2), nicht gegen einen Strohmann.
+- **Ockham quantifiziert:** keine freien Parameter im Witness selbst; das
+  STRESS-Modell hat genau 2 Parameter (p1, ro) + ratio, alle VORab
+  festgelegt und dokumentiert als nicht kalibriert.
+- **Grade: A−** für "Die Ququint-Encodierung + DFT-Basis-Witness trennt
+  verschränkt vs. separabel auf realer IBM-Hardware mit Prereg-Bändern".
+  Abzüge: EIN Job, EIN Backend, kein Error Mitigation (ZNE etc.), DFT-
+  Leakage ~15% unbehandelt, Kalibrier-Lektüre post-hoc. Der Befund ist
+  Architektur-Evidenz (Encodierung überlebt reale 2q-Gate-Raten), KEINE
+  Riemann-Aussage.
+
+### Z.14.6 Implementation, Test-getriebene Bug-Funde, Test-Statistik
+
+Bug-Funde dieses Phases (jeder durch Tests abgefangen):
+
+1. **Flat-Format-KeyError:** nach der FLAT-Umstellung des Freeze lieferte
+   `load_frozen_prereg` noch `doc["payload"]` (KeyError) — der einzige Test,
+   der die Funktion ausführte, war der gemockte `run_phase3`-Orchestrierungs-
+   Test (20er-Suite grün, weil sie das Freeze nicht lud); Fix: `return doc`.
+2. **Mock-Verträge:** der Test mockte `generate_preset_pass_manager` als
+   Funktion statt Objekt mit `.run()`, und FakeSampler hatte kein
+   `options`-Attribut (DD-Options-Pfad) — beide Mock-Verträge an die echte
+   SamplerV2/StagedPassManager-API angeglichen.
+3. **Edit-Werkzeug-Falle (prozedural, nicht testbar):** ein `old_string` mit
+   End-Suffix `return doc` prefix-matchte innerhalb `return doc["payload"]`
+   und ließ das Residuum stehen — Ursache von Bug 1; Fixes an Return-Statements
+   brauchen eindeutigen umgebenden Kontext.
+
+Bands-vs-Ideal-Lektion: ideale Aer-Counts sind SAUBERER als das STRESS-Band
+annimmt (alle drei bands_hold False, rule_holds True) — die Bänder sind
+Modell-Treue-Meldung, nicht die Entscheidung; auf dem STRESS-Punkt selbst
+halten alle drei (eigener Test).
+
+Bestand 428 + **20** (Phase 3a) + **17** (Phase 3b) = **465/465 grün**
+(Gesamtsuite 7.9 s). Neue Suiten: test_pt_ququint_prereg.py (StressPredictions
+5, PreregPayload 5, Freeze 4, PipelineInEmulation 3, PreregGuards 3),
+test_pt_ququint_fez.py (Token 2, CountsParsing 3, Evaluate 5, IsaBatch 2,
+LocalEndToEnd 1, RunPhase3Mocked 1, FezGuards 3).
+
+---
+
+**Last updated:** 2026-09-15 (§Z.14: Ququint Phase 3 abgeschlossen — Prereg-Freeze + EIN Fez-Job CONFIRMED, alle 3 Bänder gehalten, 465 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
