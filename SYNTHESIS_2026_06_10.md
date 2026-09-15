@@ -1760,8 +1760,9 @@ eigentliche Wert des decide-Analogons, über die Audit-Funktion hinaus.
 | `tests/test_pt_prereg_audit.py` (§Z) | 15 | ✅ |
 | `tests/test_pt_finite_kernel_check.py` (§Z.10) | 32 | ✅ |
 | `tests/test_pt_ququint_entanglement.py` (§Z.11) | 30 | ✅ |
-| **Neu: `tests/test_pt_ququint_ibmq.py`** | **33** | **✅** |
-| **Projekt gesamt** | **402** | **402/402 grün** |
+| `tests/test_pt_ququint_ibmq.py` (§Z.12) | 33 | ✅ |
+| **Neu: `tests/test_pt_ququint_ibmq_aer.py`** | **26** | **✅** |
+| **Projekt gesamt** | **428** | **428/428 grün** |
 
 ---
 
@@ -1949,6 +1950,138 @@ Bestand 369 + **33 neu** = **402/402 grün** (0.34 s neue Suite; Gesamtsuite 1.3
 
 ---
 
-**Last updated:** 2026-09-15 (§Z.12: Ququint auf IBMQ Phase 1 — 3-Qubit-Emulation + konditionaler DFT-Witness, 402 Tests)
+## §Z.13 — Ququint auf IBMQ, Phase 2: Aer-Noise + Transpilation (EXPERIMENT 031, simulator only)
+
+### Z.13.1 Randbedingung und Architektur
+
+Fortsetzung von §Z.12 (User-Freigabe "ok" zu Commit + Phase 2). Phase 2 läuft KOMPLETT
+auf `AerSimulator(method="density_matrix")` (64×64, seeded reproduzierbar) — **keine
+QPU-Kosten, kein echter Backend-Zugriff** (Quellcode-Guard: kein IBM-Provider-Import,
+getestet). Die Phase-1-Encodierung wird zu qiskit-Circuits übersetzt:
+
+- **|φ⟩-Präparation** (6 Qubits, exakt statevector-verifiziert gegen
+  `phi_max_encoded`, atol 1e-10): RY(θ) auf q2 mit **cos(θ/2) = 2/√5** (d.h.
+  θ = 2·arccos(2/√5) — RY nutzt HALBWINKEL; der erste Implementierungsversuch
+  mit θ = arccos(2/√5) lieferte Gewichtung 0.947/0.053 statt 4/5, 1/5 und wurde
+  vom Statevector-Test abgefangen), X-Sandwich, 2× CRY(π/2), 3× CX-Kopie nach B.
+- **ρ_sep-Kontrolle:** 5 reine X-Gate-Circuits |kk⟩ — **0 Zwei-Qubit-Gates**. Die
+  Gleichgewichts-Mischung ist exakt `separable_dephased_encoded` (atol 1e-15).
+- **Messung D:** U = F (x) F† via `UnitaryGate` (F auf Register A, F† auf B).
+- **Qubit-Layout / Index-Konvention:** qiskit little-endian, A = (q0,q1,q2), B =
+  (q3,q4,q5); 64-dim Index = k + 8·l = `logical_index(l, k)` — **ggü. Phase 1
+  A↔B getauscht**. Für die in Phase 2/3 verwendeten Zustände unmaterial (|φ⟩ und
+  ρ_sep sind unter A↔B invariant, Support auf der Diagonalen); für asymmetrische
+  Zustände (z.B. Weyl-Bell) müsste die Abbildung explizit gemacht werden. Der
+  DFT-Rotationstest auf |φ⟩ fängt qubit-ordering-Fehler nur teilweise (φ ist
+  unter beiden Konventionen DFT-invariant) — dokumentiert, nicht kaschiert.
+- **Job-Layout: 12 Circuits** = {φ_C, φ_D, sep_C×5, sep_D×5} — exakt die
+  Batch-Struktur, die Phase 3 als EINEN Fez-Job einreicht. Transpilation
+  EINMAL auf die Basis (rz, sx, x, cx), optimization_level=2,
+  seed_transpiler=7, gecacht (lru_cache).
+
+### Z.13.2 Gate-Counts und Präparations-Asymmetrie (empirisch, Fez-Basis rz/sx/x/cx)
+
+| Circuit | cx | rz | sx | x | depth |
+|---|---|---|---|---|---|
+| φ-Präparation | **7** | 9 | 10 | 1 | 18 |
+| DFT-Rotation F (x) F† | **38** | 128 | 84 | 0 | 75 |
+| φ_D (Präp.+Rotation) | **45** | 137 | 94 | 1 | 92 |
+| sep_C (max über 5) | **0** | — | — | — | — |
+
+Die Transpiler-Counts sind **versionsabhängig und werden nicht exakt gepinnt** —
+die Tests pinnen nur Struktur (sep_C = 0 cx; φ/DFT brauchen cx; φ_D ≥ φ_C).
+Zwei ehrliche Kosten-Aussagen:
+
+1. **Präparations-Asymmetrie:** |φ⟩ kostet 7 cx, ρ_sep kostet 0 cx. Die
+   Verschränkungserzeugung IST der teure Teil — das ist der QPU-Vorteil-Test
+   in Reinform: (1−p)⁷ für den φ-Pfad vs. (1−p)⁰ für den ρ_sep-Pfad.
+2. **Die DFT-Messrotation dominiert das Budget:** 38 von 45 cx (≈ 5.4× die
+   Präparationskosten). Ein generisches 8×8-Unitary kostet ~19 cx pro Register
+   (Shende-Markov-Bullock-Bound: 20). Error-Budget Messung D am Fez-Punkt:
+   45 × 10 × 3e-4 = **0.135** — die Zeugen-Messung D ist der Kosten-Treiber,
+   nicht die Verschränkung selbst.
+
+### Z.13.3 CCZ-These: OUT OF SCOPE (Verfeinerung ggü. §Z.12.6)
+
+§Z.12.6 nannte Phase 2 "den ehrlichen CCZ-Vorteil-Test ((1−p/1.75)⁴ vs (1−p)⁷)".
+Das war zu weit gegriffen und wird hier korrigiert: die Emulation transpiliert
+zu CX — **ein natives CCZ-Gate existiert in der 3-Qubit-Emulation nicht, die
+CCZ-Fidelity-These ist not testable in emulation**. Phase 2 testet nur die
+Synthese-Overhead-Seite (Gate-Counts + Error-Budget, s. Z.13.2); die native-CCZ-
+Seite ((1−p/1.75)⁴) bleibt hypothetisch und braucht natives Qudit-Hardware-CCZ.
+Das Modul dokumentiert diese Ausgrenzung (getesteter Guard: "not testable in
+emulation" im Quellcode).
+
+### Z.13.4 STRESS-Noise-Kurve (ro=1e-2, ratio=10, n=8192, seed=42)
+
+Modell: Depolarizing p1 auf (rz, sx, x), 10·p1 auf cx, Readout 1e-2 auf allen
+6 Qubits. **STRESS heißt: nicht kalibriert** — bewusst konservativ (rz ist auf
+Hardware virtuell, wird hier aber als 1q-Fehler gezählt). Vorhersagen sind
+BÄNDER, keine Punktvorhersagen.
+
+| p1 | V(φ) | SE | margin φ | V(ρ_sep) | margin ρ_sep | confound |
+|---|---|---|---|---|---|---|
+| 0 | 0.9379 | 0.0027 | **+0.7271** | 0.1945 | −0.0133 | 0.0084 |
+| 1e-4 | 0.8911 | 0.0034 | +0.6774 | 0.1912 | −0.0164 | 0.0090 |
+| **3e-4 (Fez-nah)** | **0.8021** | 0.0045 | **+0.5840** | **0.1847** | **−0.0229** | **0.0111** |
+| 1e-3 | 0.5828 | 0.0054 | +0.3611 | 0.1709 | −0.0366 | 0.0132 |
+| 3e-3 | 0.2504 | 0.0048 | +0.0313 | 0.1348 | −0.0722 | 0.0195 |
+| 1e-2 | 0.0862 | 0.0032 | −0.1265 | 0.0908 | −0.1151 | 0.0549 |
+
+Vier strukturelle Befunde (alle im 3-Punkt-Grid [0, 3e-4, 3e-3] getestet):
+
+1. **V(φ) fällt streng monoton** (0.938 → 0.891 → 0.802 → 0.583 → 0.250 → 0.086),
+   konsistent mit dem Error-Budget (cx≈45: (1−3e-3·10)⁴⁵ ≈ 0.25 ✓ am Punkt 3e-3).
+2. **Kein False Positive bei extremer Noise:** V(ρ_sep) bleibt über das GANZE
+   Grid unter der Schranke (Depolarizing drückt Richtung uniform → V → 5/64 ≈
+   0.078 < 1/5, analytisch getestet). Bei p1=1e-2 fällt sogar V(φ) UNTER die
+   Schranke (−0.1265) — extreme Noise tötet das Signal, statt es zu fälschen.
+3. **Trennschärfe-Grenze ehrlich markiert:** am Punkt 3e-3 ist margin(φ) nur
+   noch +0.031 (dünn); **nicht gepinnt** (transpiler-count-abhängig). Der
+   robuste Arbeitsbereich der Zeugen-Messung D ist p1 ≲ 1e-3.
+4. **Konfund-Kontrolle** ≤ 0.05 im Fez-nahen Bereich (max 0.0195 bei 3e-3);
+   bei p1=1e-2 steigt sie auf 0.0549 — die Konfund-Prüfung selbst ist nur im
+   Fez-nahen Bereich aussagekräftig (dokumentiert, nicht kaschiert).
+
+### Z.13.5 Prereg-Feeding für Phase 3 (Anti-Sharpshooter)
+
+`prereg_draft` (STRESS-Punkt p1 = 3e-4, n = 8192, seed = 42):
+
+- **V(φ):** 0.8021 ± 4·0.0045 → Vorhersageband [0.78, 0.83] unter dem
+  STRESS-Modell; Regel-Kandidat: `v_hat − 4·SE > 1/5` (margin +0.584).
+- **V(ρ_sep):** 0.1847 ± 4·0.0019 (margin −0.0229); gepoolt über 5 Circuits
+  (n_eff = 40960, ehrliches 5-Multinomial-Bootstrap).
+- **confound_max_diff:** 0.0111 (Schranke 0.05).
+- **Kernfrage der Phase 3** (vorab beantwortet aus Phase 2): unter Fez-nahen
+  STRESS-Raten bleibt die Regel trennend mit großem Abstand (Δmargin ≈ 0.61).
+- **Caveat bleibt:** das ist ein STRESS-Band, kein kalibrierte Vorhersage —
+  die Phase-3-Predictions müssen als Band um diese Werte gefroren werden,
+  und die Fez-Kalibrierdaten (Readout/CX-Fehler aus dem Backend-Properties)
+  werden VOR Job-Submission geprüft (falls verfügbar, ohne QPU-Zeit zu
+  verbrauchen).
+
+### Z.13.6 Implementation, Test-getriebene Bug-Funde, Test-Statistik
+
+Vier Bugs wurden von den Tests abgefangen (jeder ein Beleg für den TDD-Loop):
+
+1. **RY-Halbwinkel:** θ = arccos(2/√5) statt 2·arccos(2/√5) — Gewichtung
+   0.947/0.053 statt 4/5, 1/5 (Statevector-Test gegen `phi_max_encoded`).
+2. **Guard-Literal:** "qiskit_ibm" stand wörtlich im eigenen Docstring und
+   löschte den No-Backend-Import-Guard selbst aus (Guard-Test).
+3. **Bootstrap-Akkumulator:** (n_boot,)-Shape statt (n_boot, 64) im
+   5-Multinomial-Resampling (Broadcast-Fehler).
+4. **Counts vs. Wahrscheinlichkeiten:** `run_witness` übergab normalisierte
+   Histogramme, `witness_from_counts` erwartet Counts (Summe = n_shots) —
+   n_shots kollabierte auf 1, SE auf ~0.24, alle Margins kippten
+   (empirisch sichtbar an V(φ) = 0.9379 bei SE = 0.2413).
+
+Bestand 402 + **26 neu** = **428/428 grün** (neue Suite 4.2 s; Gesamtsuite 5.1 s).
+Test-Klassen: ExactPreparation (5), JobLayout (3), Transpilation (4),
+NoiseModel (3), WitnessFromCounts (3), NoiselessRun (2), NoiseSweep (2),
+Phase2Report (1), Phase2Guards (3).
+
+---
+
+**Last updated:** 2026-09-15 (§Z.13: Ququint auf IBMQ Phase 2 — Aer-Noise + Transpilation, 45-cx-Budget, 428 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
