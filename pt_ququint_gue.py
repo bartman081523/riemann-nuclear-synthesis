@@ -438,9 +438,14 @@ def run_v3():
 
 def main():
     res = run_v3()
+    doc = load_frozen_prereg()
+    res["prereg_md5"] = doc["md5"]
+    res["post_hoc_note"] = (
+        "Kurven nach dem Freeze (md5 %s, commit e6253c9) berechnet; "
+        "Kontroll-Gates zuerst geprueft." % doc["md5"]
+    )
     with open("pt_gue_v3_results.json", "w", encoding="utf-8") as fh:
         json.dump(res, fh, indent=2)
-    doc = load_frozen_prereg()
     print("VERDICT:", res["verdict"])
     print(f"Kontrollen ok: {res['controls_ok']} | "
           f"GUE25={res['controls']['gue_25']:.4f} "
