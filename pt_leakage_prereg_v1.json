@@ -1,0 +1,83 @@
+{
+  "experiment": "032-ququint-v1-leakage-sieve",
+  "registered_before": "Der Blick auf die 39-Bin-Leakage-Struktur der Fez-Counts fand VOR diesem Freeze nicht statt (nur die aggregierten leakage_rate_* aus \u00a7Z.14 sind bekannt). Counts-Fetch ist ein 0-QPU-Re-Fetch des abgeschlossenen Phase-3c-Jobs.",
+  "source_job_id": "dakjk9hhvn6c73cvr1cg",
+  "source_commit": "9d73edc",
+  "hypothesis": "H-STAR-2 Layer 1: DFT-Leakage ist strukturiert UND mod-5-Residue-geordnet (Sieb-Fingerprint). Mechanismus: F5-Phasen-Degeneriertheit x ~ x+5 (mod 5) in der kompilierten DFT-Rotation.",
+  "steelman": "Random-Unitary/Haar: Leakage gleichverteilt \u00fcber die 39 Au\u00dfen-Bins \u2014 Dirichlet(1)-Null plus Permutations-Null \u00fcber Residue-Labels plus Prep-Level-Negativkontrolle (phi_C+sep_C).",
+  "decision_rule": "t1_structured AND t2_sieve_r0 AND t3_mod5_dominant",
+  "analysis_plan": {
+    "positive_family": "phi_D + gepooltes sep_D (DFT-Rotation, Leakage 16.8% / 13.7% in \u00a7Z.14)",
+    "negative_control": "phi_C + gepooltes sep_C (Prep-Level, 2.2% / 0.3%) \u2014 soft, kein Decision-Gate",
+    "n_circuits": 12,
+    "circuit_order": [
+      "phi_C",
+      "phi_D",
+      "sep_C_0",
+      "sep_C_1",
+      "sep_C_2",
+      "sep_C_3",
+      "sep_C_4",
+      "sep_D_0",
+      "sep_D_1",
+      "sep_D_2",
+      "sep_D_3",
+      "sep_D_4"
+    ]
+  },
+  "predictions": {
+    "t1_structured": true,
+    "t2_sieve_r0": true,
+    "t3_mod5_dominant": true
+  },
+  "prediction_bands": {
+    "r0_share_sieve_band": [
+      0.3333333333333333,
+      0.5
+    ],
+    "t1_p_uniform_band": [
+      0.0,
+      0.01
+    ]
+  },
+  "thresholds": {
+    "r0_share_min": 0.3833333333333333,
+    "ordering": "c0 > c1 AND c0 > c2",
+    "t1_p_uniform_max": 0.01,
+    "z_floor": 2.0
+  },
+  "contrast_family": [
+    "val5_r0",
+    "val6_r1",
+    "val7_r2",
+    "sideA",
+    "sideB",
+    "other_low",
+    "other_high"
+  ],
+  "nulls": {
+    "uniform_chisq": "chi2 df=38 ueber die 39 Leakage-Bins",
+    "dirichlet_haar": "Dirichlet(1) x 2000 Samples (Haar/Random-Unitary-Steelman fuer T1)",
+    "permutation_labels": "Residue-Labels permutiert x 2000 (Null fuer r0_share)",
+    "negative_control": "phi_C+sep_C Prep-Level-Leakage, qualitativ"
+  },
+  "verdict_map": {
+    "REFUTED_UNIFORM": "NOT t1",
+    "PARTIAL_STRUKTUR_KEIN_SIEB": "t1 AND t3 AND NOT t2",
+    "PARTIAL_KEIN_MOD5": "t1 AND NOT t3",
+    "CONFIRMED": "t1 AND t2 AND t3"
+  },
+  "geometry": {
+    "logical_bins": 25,
+    "leakage_bins": 39,
+    "single_leak_bins": 30,
+    "double_leak_bins": 9,
+    "residue_class_sizes": [
+      10,
+      10,
+      10
+    ],
+    "index_convention": "idx = k + 8*l (qiskit little-endian); k = q0..q2, l = q3..q5"
+  },
+  "md5": "6a0ed3948a2a8eb0724c9c43dd2afb6b"
+}
