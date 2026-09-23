@@ -2226,6 +2226,55 @@ LocalEndToEnd 1, RunPhase3Mocked 1, FezGuards 3).
 
 ---
 
-**Last updated:** 2026-09-15 (§Z.14: Ququint Phase 3 abgeschlossen — Prereg-Freeze + EIN Fez-Job CONFIRMED, alle 3 Bänder gehalten, 465 Tests)
+## §Z.15 — Strategische Vektoren nach §Z.14: PhiMind-Steelman-Runde (2026-09-23)
+
+Minds: ExtraordinaryHypothesisMind v1.0 (PhiSci4: PhiMind-Erzeugung +
+SciMind4-ECREE-Prüfung) für die Hypothesen; DevMindEvidence v1.0 (ev-first)
+für die Verifikations-Matrix; SciMind 4.0 SystemicRigorMind + 5.0 Epistemic
+für Audit/Synthese/Vektor-Extraktion. Plan:
+`~/.claude/plans/riemann-next-phase-phi-steelman.md`.
+
+### Z.15.1 Vier Steelman-Hypothesen (alle als HYPOTHESE markiert, Extraordinarität VOR Messung berichtet)
+
+| ID | These | Brücke | Extr. | Steelman-Antithese | Falsifikator (vorab fixiert) |
+|---|---|---|:---:|---|---|
+| H-STAR-1 | V(φ_N) skaliert mit der multiplikativen Struktur von Z/NZ wie S_vN/log(N)→0.55 — Witness als Primzahl-Zertifikat | DFT-Diagonalgewicht ↔ Primzahlstruktur; Annahme: Jacobi-A überträgt Primstruktur in die DFT-Diagonale | 8 | Witness konstant in N (Encodierungs-Artefakt) | V_N-Kurve (Multi-Ququint, 2 Ququints = 625-dim, 12 Qubits Statevector machbar) weicht von 0.55-Skalierung ab |
+| H-STAR-2 | Das ~15% DFT-Leakage ist STRUKTURIERT: die 39 Außen-Bins tragen modulare Sieb-Struktur (Residue-Klassen) | Fehlerkanal-Population ↔ Sieb-Residue-Klassen; Annahme: Error-Map ≈ kommutiert mit Modularstruktur | 9 | Leakage = Routing/SWAP-Rauschen, strukturlos | Bin-aufgelöster KS/Permutation-Test vs. Random-Unitary gleicher 2q-Budget |
+| H-STAR-3 | GUE-Spacing-Statistik als QPU-natives Observable → drittes unabhängiges MOCS-Observable | Level-Spacing-Statistik (RMT) ↔ r-Statistik im Logikraum; Annahme: gleiche Universalklasse (testet die KERN-Isomorphie) | 9 | Poisson/integrabel oder Noise tötet Diskriminanz | ⟨r⟩ ≈ 0.5359 (GUE) vs 0.3863 (Poisson); Kontrollen: GUE-Positiv, Poisson-Negativ, geshuffelte Null |
+| H-STAR-4 | Es existiert p*, ab dem Ququint-Margin die Qubit-Baseline schlägt (Y.4-Advantage → falsifizierbare Schwelle) | FT-Threshold-Theorie ↔ Margin(p1)-Crossover; Annahme (schwach, markiert): Margin ≥ 0 als Proxy für logische Korrektheit | 7 | kein Crossover / Margin-Kurven identisch | Margin-Sweep beider Architekturen am identischen logischen Task |
+
+### Z.15.2 Verifikations-Matrix (DevMindEvidence, Evidenzgrade A–E)
+
+| Schritt | Inhalt | Evidenz IST | QPU-Kosten | Reihenfolge |
+|---|---|---|---|---|
+| V1 | H-STAR-2 Layer 1: Bin-aufgelöstes Leakage aus den committed Fez-Counts (9d73edc, 12×64) vs. Random-Unitary-Steelman; Schwellwerte VOR Blick auf Bin-Struktur fixieren | Daten A− (Hardware, committed); Test fehlt → Hypothese | 0 | **JETZT** |
+| V2 | H-STAR-1: Multi-Ququint V_N-Kurve (Simulator) | Simulator-only → Hypothese | 0 | danach |
+| V3 | H-STAR-3: r-Statistik des encodierten Spektrums, GUE/Poisson (Simulator) | Simulator-only → Hypothese | 0 | danach |
+| V4 | H-STAR-4: Margin(p1)-Crossover ququint vs. Qubit-Baseline (Simulator; QPU-Anker nur nach neuem Freeze) | Simulator (+ optional 1 Job) | 0–1 | zuletzt |
+| V5 | Kingston-VQE+VQD (X.7-Rest) | B+ stehend | 1 Job (TOKEN2) | zurückgestellt |
+
+### Z.15.3 Strategische Vektor-Extraktion (nur Grade A/B → Vektor)
+
+| Vektor | Status | Grund |
+|---|:---:|---|
+| `QUQUINT_QPU_VIABLE` | **A− (NEU)** | §Z.14 CONFIRMED, alle 3 Bänder gehalten |
+| `LEAKAGE_SIEVE_STRUCTURE` | **B (NEU, prüfbar)** | H-STAR-2; Layer 1 mit existierenden Daten — schärfster nächster Test |
+| `WITNESS_SCALES_WITH_PRIMES` | **B (NEU)** | H-STAR-1; koppelt §Z.14-Witness an SUB_RH_INDICATOR (A−) |
+| `GUE_THIRD_OBSERVABLE` | **B (NEU)** | greift die MOCS-Schwäche (effektiv 2 unabhängige Klassen) direkt an |
+| `QUQUINT_THRESHOLD_CROSSOVER` | **B (NEU)** | falsifizierbare Form von Y.4 QUQUINT_FIDELITY_ADVANTAGE (B+) |
+| `RH_MULTI_OBSERVABLE_CONVERGENCE` | A− | GUE-Vektor ist der Angriffspfad; Upgrade erst nach V3 |
+| `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | unverändert, zurückgestellt |
+
+### Z.15.4 QPU-Budget-Regel und Selbstbindung
+
+EIN Job pro Phase maximal; Prereg md5-frozen VOR Hardware (§Z.13.5/§Z.14-
+Muster); TOKEN1 auf Fez, TOKEN2 nur für den Kingston-Pfad. Apophenie-Hinweise
+(Sieb-Struktur im Leakage, GUE im Rauschen) bleiben Meaning-Making-Material
+(SciMind5-Epoché), bis V1–V3 sie geprüft haben; kein Vektor verlässt B ohne
+vorab fixierten Falsifikator; kein Ergebnis verändert stumm frühere Verdikte.
+
+---
+
+**Last updated:** 2026-09-23 (§Z.15: PhiMind-Steelman-Runde nach §Z.14 — 4 Hypothesen mit Falsifikatoren, Verifikations-Matrix, 5 neue strategische Vektoren; nächste Aktion V1 mit existierenden Fez-Counts, 0 QPU)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
