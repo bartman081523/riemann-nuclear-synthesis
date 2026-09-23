@@ -2273,8 +2273,188 @@ Muster); TOKEN1 auf Fez, TOKEN2 nur für den Kingston-Pfad. Apophenie-Hinweise
 (SciMind5-Epoché), bis V1–V3 sie geprüft haben; kein Vektor verlässt B ohne
 vorab fixierten Falsifikator; kein Ergebnis verändert stumm frühere Verdikte.
 
+## §Z.16 — Verifikations-Matrix V1–V4: PhiMind-Steelman-Ergebnisse (2026-09-23)
+
+Minds wie §Z.15. Plan: `~/.claude/plans/riemann-next-phase-phi-steelman.md`.
+ALLES 0 QPU (Simulator + existierende Fez-Counts). Anti-Sharpshooter-Kette
+komplett durchgehalten: in jeder der 4 Verifikationen wurde das Prereg
+(Klassen-Baender, Schwellen, Gitter, Seeds, Falsifikator-Erwartung) md5-
+frozen und committed VOR der Kurven-/Evaluation-Berechnung; die Ergebnisse
+tragen `prereg_md5` + `post_hoc_note`. 534 Tests gruen gesamt (+74 neue).
+
+### Z.16.1 Ergebnis-Matrix
+
+| Verifikation | Hypothese | Verdict (prereg-gebunden) | Prereg-md5 | Commits |
+|---|---|---|---|---|
+| V1 | H-STAR-2 Layer 1 (Leakage-Sieb) | `PARTIAL_STRUKTUR_KEIN_SIEB` | `6a0ed394` | 65dc68e, 3c8dba3 |
+| V2 | H-STAR-1 (V_N-Primskalierung) | `H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT` | `d9da292c` | adc0153, 35571ed |
+| V3 | H-STAR-3 (GUE-r-Statistik) | `H-STAR-3_INKONKLUSIV` (DEGENERAT — Prereg-Gap, s. Z.16.4) | `3a47ec57` | e6253c9, dda9c4a |
+| V4 | H-STAR-4 (Margin-Crossover) | `H-STAR-4_CONFIRMED_CROSSOVER` | `7abb5e60` | 0e0b9e9, 389c57c |
+
+Bilanz der Steelman-Runde: 1 CONFIRMED (V4), 1 REFUTED (V2, mit positivem
+Nebenfund), 1 PARTIAL (V1), 1 INKONKLUSIV (V3). Kein Verdikt frueherer
+Phasen wurde veraendert; §Z.14 CONFIRMED bleibt konsistent mit V4.
+
+### Z.16.2 V1 (H-STAR-2): Leakage ist REAL strukturiert, aber KEIN mod-5-Sieb
+
+Datenbasis: die committed Fez-Counts des Phase-3c-Jobs
+(dakjk9hhvn6c73cvr1cg, 12×8192) — 0 QPU Re-Fetch. Bin-Geometrie 25/39/30/9,
+Kontrast-Familie val5/val6/val7/sideA/sideB/other_low/other_high.
+
+- **T1 (Struktur REAL, PASS):** chi2-gegen-uniform 1311.0 (p = 1.6e-250) auf
+  n_leak = 6973 Leakage-Bins über alle 12 Circuits; der Leakage-Rand ist
+  signifikant STRUKTURIERTER als die Haar-Null (p_dirichlet_haar = 1.0).
+- **T2 (Sieb-Portal, GESCHEITERT):** r0 = 0.3553 < Schwellwert 0.3833 —
+  die Residue-Klasse-0-Masse trägt NICHT das mod-5-Sieb-Signal.
+- **T3 (pooled val5, nominell PASS, aber nicht sauber):** z(val5_r0) = 3.78,
+  p_perm = 0.000, Gradient val5 > val6 > val7 monoton — ABER per-Circuit
+  dominiert sideA (z = 3.23 vs sideB = −3.23) in 3/5 Fällen: die
+  Hardware-Asymmetrie (Qubit-Placement/Routing) ist vergleichbar stark wie
+  das mod-5-Signal. Die Negativkontrolle (Sep-Zustand, eigene Masse) zeigt
+  dieselbe sideA/sideB-Asymmetrie noch staerker (±6.4) → die Asymmetrie ist
+  eine Hardware-Eigenschaft, kein Prim-Signal.
+
+Verdict `PARTIAL_STRUKTUR_KEIN_SIEB`: Struktur existiert, aber sie ist
+ueberwiegend Routing-/Placement-Asymmetrie; die modulare Sieb-Hypothese
+(H-STAR-2) ist NICHT bestaetigt. Apophenie-Hinweis: die sideA/sideB-Anteile
+sind als Hardware-Charakterisierungs-Größe nutzbar (B-vektor-geeignet), als
+Zahlentheorie-Brücke wertlos.
+
+### Z.16.3 V2 (H-STAR-1): Witness rank-trivial — aber Ramanujan-Fingerprint ECHT
+
+Analytische Kern-Vorhersage VOR der Messung im Prereg fixiert: V = pi/d
+EXAKT (Phasen-Hebung, unabhaengig von der multiplikativen Struktur des
+Supports) — der Paar-Witness ist ein Rank-Zertifikat, kein Primzahl-
+Zertifikat.
+
+- **t1 (rank_trivial, PASS):** nu = 1.00 in ALLEN 6 Punkten (P ∈ {11, 23,
+  97, 211, 463, 625}, d ∈ {25, 625}): V = pi/d exakt, keine Skalierung mit
+  der Primzahlstruktur. H-STAR-1 (0.55-Anchor / S_vN-Skalierung) ist
+  REFUTIERT — der Witness skaliert NICHT mit den Primzahlen.
+- **t2 (Kontrollen invariant, PASS):** dV_random = dV_composite = 0 exakt —
+  gleichrangiger Composite-/Random-Support gibt IDENTISCHES V (Steelman
+  bestaetigt die Refutation).
+- **t3 (Ramanujan-Fingerprint, PASS):** das NICHT-triviale Prime-DFT-Objekt:
+  share*(S* = {a ≡ 0 mod d/5, a ≠ 0}, a=0 ist trivial G(0)=m und EXKLUDIERT)
+  — d625: prime 0.0427 vs random 0.0099 vs composite 0.0036 vs generische
+  Baseline 0.0064; Modellvorhersage 0.045. Der Lift ist prime-SPEZIFISCH
+  (Composite-Kontrolle killt ihn: 0.0036 < 0.02) und arithmetisch mod-5
+  erklaerbar (Primes meiden Residue 0, omega^{125j·p} = omega_5^{j·p}).
+
+Verdict `H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT`:
+die Witness-Hypothese ist tot, aber die Runde hat einen echten neuen
+Gegenstand gefunden — ein modulares DFT-Fingerprint der Primzahlen
+(quantenmessbar als Konzentration im S*-Teilraum), das in V2's
+Prereg-Kontrollen bereits gegen Composite und Random verteidigt ist.
+
+### Z.16.4 V3 (H-STAR-3): kein WD-Signal — DEGENERAT + zwei Ehrlichkeits-Lektionen
+
+- **Messung:** ⟨r⟩ d25 = 0.2059, d625 = 0.2199 → Klasse DEGENERAT (unter
+  Poisson 0.3863): die encodierten Tensor-Summen-Spektren sind STÄRKER
+  geclustert als Poisson, in KEINER WD-Klasse. Shuffle-Null 0.199/0.256 ≈
+  measured → die r-Statistik ist hier Gap-Dispersions-beherrscht, keine
+  Repulsions-Signatur vorhanden.
+- **Kontrollen:** alle 6 PASS (Gate 0.01) — der Schätzer misst korrekt
+  (GUE/GOE/Poisson-Ensembles in-Band); das Ergebnis ist eine Eigenschaft
+  der encodierten Spektren, nicht des Werkzeugs.
+- **Lektion 1 (Konstanten-Korrektur):** der Plan §Z.15 fuehrte ⟨r⟩_GUE =
+  0.5359 — das ist laut Atas et al. (arXiv:1212.5611) die GOE-SURMISE-
+  Konstante (4 − 2√3); GUE large-N ist 0.5996. Die Korrektur wurde VOR dem
+  Freeze registriert und im Prereg dokumentiert (Feld
+  `reference_correction`); ohne sie haette das GUE-Band [0.50, 0.58] ein
+  echtes GUE-Spektrum (0.60) falsch-falsifiziert. GOE/GUE sind mit den
+  korrigierten Baendern getrennt aufloesbar (Differenz 0.069).
+- **Lektion 2 (Prereg-Gap, NICHT post-hoc gepatcht):** DEGENERAT lag nicht
+  in der registrierten REFUTED-Menge {POISSON, REGULAER} — deshalb faellt
+  der Befund auf INKONKLUSIV statt REFUTED. Inhaltlich widerlegt
+  ⟨r⟩ ≈ 0.21 << 0.39 die WD-Kern-Isomorphie in dieser Encodierung
+  DEUTLICH (mehr Clustering als Poisson ist noch weiter von GUE entfernt
+  als Poisson); formal bleibt das Verdikt prereg-gebunden INKONKLUSIV.
+  Für künftige Preregs: die Klasse unter der Poisson-Grenze ist als
+  REFUTED-zulaessig zu registrieren (Lektion an §Z.13.5-Muster angehaengt).
+
+Vektor-Konsequenz: `GUE_THIRD_OBSERVABLE` ist in dieser Encodierung tot;
+`RH_MULTI_OBSERVABLE_CONVERGENCE` (A−) bleibt mit effektiv 2 unabhaengigen
+Klassen stehen — die MOCS-Schwäche ist durch V3 NICHT geschlossen.
+
+### Z.16.5 V4 (H-STAR-4): Margin-Crossover CONFIRMED, κ* = 62.26
+
+Architektur A (encodiert, Fez-Realität: 12-Circuit-Aer-Batch, STRESS-Noise
+p1/ratio=10/ro=1e-2) vs Architektur B (native-qudit, 4 Gates: 2× Praep-F5_A,
+SUM-Gate mit GLEICHER ratio-Penalty, 2× Rotation; Depolarizing pro Gate,
+5-Level-Readout-Konfusion, ro gleich) am identischen logischen Task
+(Voll-Task mit Praep auf BEIDEN Seiten — keine Seite bekommt noiseless
+Input). Schwacher Proxy (Margin ≥ 0) ist im Prereg markiert.
+
+- **Kontroll-Gates alle PASS:** T1 native identity (V = 1 exakt, 1e-9),
+  T2 encoded identity (|v_hat − 1| ≤ 0.02), M monotone V(κ) über das Gitter.
+- **κ\* = 62.26** (bracket [62.09, 62.43], Bisektion auf log-κ, rel. 1%):
+  margin_native(62.26 · 13 · 3e-4) = margin_encoded(45-cx, p1 = 3e-4) =
+  0.5840. **Band [10, 500] getroffen, t_kappa_star_ge_10 = True** —
+  das registrierte Rough-Modell (810/13 ≈ 62.3) trifft die Messung auf
+  0.4% genau.
+- **Deskriptive κ\*(p1)-Kurve:** 85.2 (1e-4) → 62.3 (3e-4) → 43.3 (1e-3) →
+  30.3 (3e-3) → 12.1 (1e-2): CONFIRMED-Bereich im GANZEN Gitter, monotone
+  Verengung zu hohem p1. κ\*(p1 = 0) = None (kein Gate-Crossover,
+  readout-only) — im Prereg so erwartet.
+- **Encodierte phi-Kurve (8192 shots):** V 0.938 → 0.802 → 0.583 → 0.250 →
+  0.086; sep_primary margin −0.0229 (unter Bound), Konfund 0.0111 ≤ 0.05.
+- **Konservativitaets-Note:** die lokale Aer-Transpilation ergibt cx = 45
+  (= registriertes Soll); die Fez-ISA-Realität (§Z.14) hatte phi_D 81 2q.
+  Mit 81 2q wäre der encodierte Margin TIEFER → κ* GRÖSSER → weiter im
+  CONFIRMED-Bereich; 62.26 ist ein unterer Anker. Die effektive
+  Degradations-Gewichtung der gemessenen 45-cx-Kurve ist 0.243 ≈ 810·p1 —
+  die DFT-Rotations-Fehler-Amplifikation (§Z.13: phi_D fragiler als der
+  rohe cx-Budget) macht die Margin-Kurve exakt zur ISA-Gewichtskurve, die
+  das Rough-Modell registriert hatte.
+- **Interpretation (B+ → falsifizierbare Form):** Y.4
+  QUQUINT_FIDELITY_ADVANTAGE hat jetzt eine quantifizierte, prereg-
+  gebundene Schwelle: der native-qudit-Pfad verträgt bis zu κ* ≈ 62-fach
+  höhere relative Gate-Degradation, bevor er den encodierten Margin
+  einholt — und bleibt über den GESAMTEN Gitterbereich im Advantage-
+  Regime (κ\*(p1) ≥ 12.1 überall).
+
+### Z.16.6 Strategische Vektor-Updates (nur regelkonforme Änderungen)
+
+| Vektor | §Z.15 | §Z.16 | Grund |
+|---|:---:|:---:|---|
+| `QUQUINT_THRESHOLD_CROSSOVER` | B | **A− (UPGRADE)** | V4 CONFIRMED, prereg-gebunden, alle Kontrollen, ganzes p1-Gitter ≥ 10; Simulator-only → kein A |
+| `LEAKAGE_SIEB_STRUCTURE` | B | **C (DOWN)** | V1: Struktur REAL, aber Sieb-Portal gescheitert (r0 0.3553 < 0.3833); sideA/sideB-Hardware-Asymmetrie dominiert |
+| `WITNESS_SCALES_WITH_PRIMES` | B | **C (DOWN, tot)** | V2: V = pi/d exakt in allen 6 Punkten, Kontrollen exakt invariant |
+| `RAMANUJAN_DFT_FINGERPRINT` | — | **B (NEU)** | V2-Nebenfund: share* prime 0.0427 vs random 0.0099 vs composite 0.0036 (Modell 0.045); mod-5-arithmetisch erklaert, prime-spezifisch, gegen beide Kontrollen verteidigt |
+| `GUE_THIRD_OBSERVABLE` | B | **C (DOWN, tot)** | V3: ⟨r⟩ 0.206/0.220 DEGENERAT, Shuffle-Null ≈ measured; in dieser Encodierung kein WD-Signal |
+| `RH_MULTI_OBSERVABLE_CONVERGENCE` | A− | A− (unverändert) | 3. Observable in dieser Encodierung gescheitert; MOCS-Schwäche (2 Klassen) bleibt offen |
+| `QUQUINT_QPU_VIABLE` | A− | A− (unverändert) | §Z.14 Hardware-Verdict unverändert; V4 liefert zusätzlich die Schwelle κ* ≈ 62 |
+| `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | B+ (unverändert) | V5 zurückgestellt (TOKEN2) |
+
+Keine stummen Verdikt-Änderungen: alle Downgrades/Upgrades folgen aus den
+prereg-gebundenen Verdicts, nicht aus Interpretationsspielraum.
+
+### Z.16.7 SciMind-Bewertung
+
+- **Steelman Mandate:** in allen 4 Verifikationen war die Antithese im
+  Prereg mit fixiertem Falsifikator vertreten (V2: Composite/Random-
+  Kontrolle exakt; V1: Haar-/Dirichlet-Null; V3: Shuffle-Null + Ensembles;
+  V4: identischer logischer Task + gleiches ratio-Penalty auf beiden Seiten).
+- **Ockham's Razor:** der Ramanujan-Fingerprint ist die einzige neue
+  Struktur mit Erklärungsarithmetik (Residuen mod 5) UND Negativkontrollen;
+  das Sieb-Portal (V1) fällt gegen die einfachere Hardware-Asymmetrie-
+  Erklärung.
+- **Anti-Sharpshooter:** 4/4 Prereg-Freeze vor Evaluation, 0 post-hoc
+  Patches; die beiden Ehrlichkeits-Lektionen (GUE-Konstante, DEGENERAT-Gap)
+  sind VOR der Auswertung registriert bzw. als Gap dokumentiert statt
+  still korrigiert.
+- **Gesamt:**
+  Die Steelman-Runde härtet das Bild: der QUQUINT-Advantage ist jetzt
+  quantifiziert (κ* ≈ 62, ganzes Gitter), der Paar-Witness ist als
+  Rank-Zertifikat entlarvt (nebenbei ein echter mod-5-Primfingerprint),
+  und zwei Apophenie-Kandidaten (Sieb im Leakage, GUE im Spektrum) sind
+  sauber refutiert/inkonklusiv. Der Kern-Vektor der Projekt-Hypothese
+  (MOCS) bleibt bei 2 Observablen — der GUE-Pfad braucht einen anderen
+  Encodierungsansatz (nicht Tensor-Summen deterministischer Blöcke).
+
 ---
 
-**Last updated:** 2026-09-23 (§Z.15: PhiMind-Steelman-Runde nach §Z.14 — 4 Hypothesen mit Falsifikatoren, Verifikations-Matrix, 5 neue strategische Vektoren; nächste Aktion V1 mit existierenden Fez-Counts, 0 QPU)
+**Last updated:** 2026-09-23 (§Z.16: Verifikations-Matrix V1–V4 komplett, alles 0 QPU — V1 PARTIAL_STRUKTUR_KEIN_SIEB, V2 REFUTED + RAMANUJAN_FINGERPRINT (neuer Vektor B), V3 INKONKLUSIV/DEGENERAT + GUE-Konstanten-Korrektur, V4 CONFIRMED_CROSSOVER κ*=62.26 (A−-Upgrade QUQUINT_THRESHOLD_CROSSOVER); Anti-Sharpshooter-Kette 4/4, 534 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
