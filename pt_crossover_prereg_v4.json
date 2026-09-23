@@ -1,0 +1,87 @@
+{
+  "experiment": "032-ququint-v4-margin-crossover",
+  "registered_before": "Vorwissen: die Phase-2-Aer-Kurve (§Z.13) liefert den encodierten phi-Margin am Fez-Punkt p1=3e-4 (v_hat ca. 0.62-0.66) — die ENCODIERTE Seite ist Prior, nicht Resultat dieses Experiments. Die NATIVE margin-Kurve und kappa* wurden vor diesem Freeze NICHT berechnet. Rough-Modell (nur Fehlergewichte): encodiert 81*ratio*p1 = 810*p1, nativ (3*1+1*10)*kappa*p1 = 13*kappa*p1 -> kappa*_rough ≈ 62; Vorhersage-Band [10, 500].",
+  "hypothesis": "H-STAR-4: Es existiert p* bzw. kappa*, ab dem der Ququint-Witness-Margin den Qubit-Baseline-Margin schlaegt (Threshold-Crossover, Y.4 QUQUINT_FIDELITY_ADVANTAGE als falsifizierbare Schwelle).",
+  "weak_assumption": "SCHWACH (Plan-Pflicht): margin >= 0 ist ein notwendiger, nicht hinreichender Proxy fuer logische Korrektheit. Der Crossover betrifft den Margin als Reporting-Groesse, nicht die logische Fehlerrate selbst.",
+  "steelman": "Kein Crossover: die native Margin-Kurve faellt so schnell wie die encodierte (margin_ququint ≡ margin_qubit) — kappa* < 1, native Gates muessten besser als Qubit-Gates sein, um gleichzuziehen.",
+  "decision_rule": "kappa_star >= 10 -> CONFIRMED; kappa_star < 1 -> REFUTED; sonst SCHWACH; kein Crossover -> INKONKLUSIV (nach Kontroll-Gates T1/T2/M)",
+  "architectures": {
+    "A_encoded": "6 Qubits, volles phi_D-Circuit (Praep + DFT-Rotation), STRESS-Noise wie Phase 2: Depolarizing p1 (1q) / ratio*p1 (cx, ratio 10), Readout ro=1e-2; AerSimulator density_matrix, 12-Circuit-Batch, witness_from_counts. ISA-Budget phi_D 81 2q (Beobachtung §Z.14) vs Prereg-Soll 45; der V4-Lauf re-transpiliert deterministisch und BERICHTET den Count.",
+    "B_native": "2 Ququints (d=5), 25-dim numpy density matrix; 4 native Gates: F5_A (Praep, kappa*p1), SUM (2-Qudit, kappa*ratio*p1 — dieselbe Ratio wie A), F5_A (Rotation), F5+_B (Rotation); Readout 5-Level-Konfusion pro Qudit mit Rate ro (GLEICH zu A). Depolarizing pro Gate (1-eps)*U rho U+ + eps*I_25/25.",
+    "plan_formulation_note": "'2 Gates x kappa-Degradation' (Plan) = die 2 nativen Witness-Rotations-Gates; der registrierte Voll-Task addiert 2 Praep-Gates auf BEIDEN Seiten (keine Seite bekommt noiseless Input — Anti-Sharpshooter).",
+    "fairness": [
+      "Readout-Rate ro identisch (1e-2 pro Qubit/Qudit-Level).",
+      "2-Qudit-Gate erhaelt dieselbe Ratio-Penalty (10) wie die encodierte Seite — KEINE native Schonung.",
+      "Praeparation auf beiden Seiten im Budget (Voll-Task).",
+      "Depolarizing-Ziel I/d: nativ I_25/25 (V-Boden 0.2), encodiert I_64/64 (V-Boden 5/64) — struktureller Vorteil des kleineren Hilbert-Raums, Teil des Vergleichs."
+    ]
+  },
+  "kappa_star_definition": "kappa* mit margin_native(kappa, p1=3e-4) = margin_encoded(p1=3e-4); Bisektion auf log-kappa, rel. Genauigkeit 1%, Bracket-Suche im registrierten Gitter; kein Bracket -> INKONKLUSIV.",
+  "predictions": {
+    "t_kappa_star_ge_10": true
+  },
+  "thresholds": {
+    "kappa_refuted_max": 1.0,
+    "kappa_confirmed_min": 10.0,
+    "kappa_tol_rel": 0.01,
+    "prediction_band": [
+      10.0,
+      500.0
+    ],
+    "control_identity_tol": 0.02,
+    "p1_primary": 0.0003,
+    "ro": 0.01,
+    "ratio": 10.0,
+    "n_shots": 8192,
+    "n_boot": 1000,
+    "phi_d_cx_soll": 45
+  },
+  "grids": {
+    "kappa_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      25.0,
+      50.0,
+      100.0,
+      200.0,
+      400.0,
+      800.0
+    ],
+    "p1_grid_descriptive": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "kappa_sweep_curves_descriptive": [
+      1.0,
+      10.0,
+      100.0
+    ]
+  },
+  "seeds": {
+    "seed_aer": 42,
+    "seed_shots_native": 20260924,
+    "seed_boot_native": 9871
+  },
+  "controls": {
+    "T1_native_identity": "kappa=0, p1=0, ro=0 -> v_exact = 1.0 (Tol 1e-9) — (F (x) F+)|phi> = |phi> (Phase-1-Pin)",
+    "T2_encoded_identity": "Aer phi_D bei p1=0, ro=0 -> |v_hat - 1| <= 0.02 (2 sigma, 8192 Shots)",
+    "M_monotonicity": "Analytisches V(kappa) ueber das Gitter strikt fallend",
+    "gate": "Kontrollfehler -> EVALUATION_INVALID"
+  },
+  "verdict_map": {
+    "H-STAR-4_REFUTED_KEIN_CROSSOVER": "kappa* < 1",
+    "H-STAR-4_SCHWACH_CROSSOVER": "1 <= kappa* < 10",
+    "H-STAR-4_CONFIRMED_CROSSOVER": "kappa* >= 10",
+    "H-STAR-4_INKONKLUSIV": "kein Crossover im Gitter"
+  },
+  "qpu": "0 QPU (Simulator only); QPU-Anker nur nach neuem Freeze (§Z.13.5-Muster).",
+  "md5": "7abb5e60100bd666e8bf93730e33f458"
+}
