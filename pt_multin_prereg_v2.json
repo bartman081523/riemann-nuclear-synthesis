@@ -1,0 +1,56 @@
+{
+  "experiment": "032-ququint-v2-vn-scaling",
+  "registered_before": "Analytische Vorarbeit: V_N = pi/d fuer Diagonal-Support ist VOR diesem Freeze abgeleitet (Phasen-Hebung omega^{ap} omega^{-ap} = 1). Die numerische Kurve wurde vor dem Freeze NICHT berechnet; das Prereg fixiert die Schwellen beider moeglichen Ausgaenge.",
+  "hypothesis": "H-STAR-1: V(\u03c6_N) skaliert mit der multiplikativen Struktur von Z/NZ wie S_vN/log(N) -> 0.55 \u2014 der Witness als Primzahl-Zertifikat. Steelman: Witness konstant in N (Encodierungs-Artefakt, rank-trivial).",
+  "anchor": "S_vN/log(N) der |P_N>-Zustaende: 0.28 (N=127) -> 0.55 (N=1e6), sub-logarithmisch (\u00a7X.1, A-)",
+  "decision_rule": "t1_rank_trivial AND t2_controls_invariant",
+  "sweep": [
+    [
+      11,
+      25
+    ],
+    [
+      23,
+      25
+    ],
+    [
+      97,
+      625
+    ],
+    [
+      211,
+      625
+    ],
+    [
+      463,
+      625
+    ],
+    [
+      625,
+      625
+    ]
+  ],
+  "predictions": {
+    "t1_rank_trivial": true,
+    "t2_controls_invariant": true
+  },
+  "thresholds": {
+    "nu_tolerance": 0.05,
+    "control_tolerance": 1e-09,
+    "ramanujan_share_star_min": 0.025,
+    "control_share_star_max": 0.02
+  },
+  "ramanujan_statistic": {
+    "definition": "share_star = Masse der Klasse S* = {a \u2261 0 mod d/5, a \u2260 0} im Einzelregister-DFT-Profil",
+    "why_nontrivial": "a=0 ist trivial (G(0) = m fuer JEDEN Support, p(0) = m/d = V). S* ohne a=0 misst die Primzahl-Residuen mod 5: omega^{125j\u00b7p} = omega_5^{j\u00b7p}. Primzahlen meiden Residue 0 (nur p=5) -> G(125j) \u2248 1 - (pi-1)/4 \u2248 -27 (d=625), |G|^2 \u2248 743 vs. generisch m = 114.",
+    "model_share_star_d625": 0.045,
+    "generic_baseline_d625": 0.0064,
+    "d25_status": "deskriptiv (m=9 fluktuationsbeherrscht; Ramanujan-Modell sagt KEINEN Lift: |G(5j)|^2 \u2248 5.06 < m = 9)"
+  },
+  "verdict_map": {
+    "H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL": "t1 AND t2",
+    "H-STAR-1_SURVIVES": "NOT t1",
+    "RAMANUJAN_FINGERPRINT": "share_star(prim, d625) >= 0.025 AND share_star(rand) < 0.02 AND share_star(comp) < 0.02"
+  },
+  "md5": "d9da292c7863810840b86ae2f069a365"
+}
