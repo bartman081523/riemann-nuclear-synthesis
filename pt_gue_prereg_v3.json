@@ -1,0 +1,89 @@
+{
+  "experiment": "032-ququint-v3-gue-rstat",
+  "registered_before": "Die encodierten r-Statistiken (25/625-dim) wurden vor diesem Freeze NICHT berechnet; nur die Referenzkonstanten (GUE 0.5359, Poisson 0.3863, GOE 0.5307) und die 5x5-Blockstruktur aus Experiment 005/006/011 sind Vorwissen. Die Falsifikator-Erwartung (REGULAER/POISSON, nicht GUE) ist als Vorhersage fixiert — ein GUE-Befund waere die Ueberraschung.",
+  "hypothesis": "H-STAR-3: Das encodierte H_PT-Spektrum liegt in der Wigner-Dyson-Repulsions-Klasse (wie die Zeta-Nullstellen, Montgomery/Odlyzko) -> drittes unabhaengiges MOCS-Observable. Annahme: die Encodierung erhaelt die Universalklasse.",
+  "steelman": "Tensor-Summen DETERMINISTISCHER strukturierter 5x5-Spektren erzeugen generisch keine WD-Repulsion: erwartet REGULAER (quasi-harmonisch) oder POISSON.",
+  "encoding": {
+    "block": "H_PT_5(gamma) = H_diag_5 + i*gamma*A_5 (Experiment 011; entkoppeltes 5. Niveau E=5.0 exakt)",
+    "d25": "H_PT_5(g1) (x) I + I (x) H_PT_5(g2) -> {E_i + F_j}",
+    "d625": "4-fache Tensor-Summe -> 5^4 = 625 Summen",
+    "statistic_convention": "Re-Teile, Sortierung nach Re (wie pt_spectral_gaps Delta-E-Konvention)"
+  },
+  "decision_rule": "t25_gue_band AND t625_gue_band (nach Kontroll-Gates)",
+  "reference_correction": "Der Plan §Z.15 fuehrt <r>_GUE = 0.5359 — laut Atas et al. (arXiv:1212.5611, PRL 110, 084101 (2013)) ist das die GOE-SURMISE-Konstante (4 - 2 sqrt(3) = 0.53590); GUE ist 0.5996 (large-N). Eigene Schaetzer-Validierung vor dem Freeze: GOE d=1000 -> 0.5314, GUE d=1000 -> 0.6013, Poisson -> 0.3857. Die Baender sind auf die korrigierten Werte zentriert; ohne die Korrektur wuerde ein echtes GUE-Spektrum (0.60) als REGULAER falsch-falsifiziert. Korrigiert VOR der Kurven-berechnung und VOR diesem Freeze.",
+  "gamma_family": [
+    0.002,
+    0.02,
+    0.2
+  ],
+  "families": {
+    "d25": "alle Paare g1 < g2 (3 Konfigurationen; (g1,g2) und (g2,g1) sind spektral identisch)",
+    "d625": "alle 4-Tupel mit >= 2 verschiedenen Werten (78; wiederholte gamma erzeugen exakte Zwillingssummen, Kollaps vor der Statistik)",
+    "diag_configs_excluded_reason": "exakte Tensor-Symmetrie-Degenerationen"
+  },
+  "predictions": {
+    "t25_gue": false,
+    "t625_gue": false
+  },
+  "thresholds": {
+    "gue_band": [
+      0.565,
+      0.63
+    ],
+    "goe_band": [
+      0.5,
+      0.565
+    ],
+    "poisson_band": [
+      0.34,
+      0.45
+    ],
+    "regular_min": 0.7,
+    "degenerate_max": 0.34,
+    "collapse_tol": 1e-09,
+    "control_tol": 0.01,
+    "control_references": {
+      "gue": 0.5996,
+      "goe": 0.5307,
+      "poisson": 0.3863,
+      "gse_documented": 0.6744
+    }
+  },
+  "controls": {
+    "gue_25": [
+      200,
+      "Ginibre-Hermitisch (beta=2)"
+    ],
+    "goe_25": [
+      200,
+      "Ginibre-Reell (beta=1)"
+    ],
+    "poisson_25": [
+      200,
+      "iid-uniform sortiert"
+    ],
+    "gue_625": [
+      50,
+      "Ginibre-Hermitisch (beta=2)"
+    ],
+    "goe_625": [
+      50,
+      "Ginibre-Reell (beta=1)"
+    ],
+    "poisson_625": [
+      50,
+      "iid-uniform sortiert"
+    ],
+    "gate": "Kontrollfehler -> EVALUATION_INVALID"
+  },
+  "nulls": {
+    "shuffle": "Gap-Folge permutiert x 200 (seed 20260923), deskriptiv — trennt Repulsion von Gap-Dispersion"
+  },
+  "verdict_map": {
+    "H-STAR-3_CONFIRMED_GUE_KLASSE": "cls25 == GUE AND cls625 == GUE",
+    "H-STAR-3_TEILWEISE_WD_GOE": "beide in {GUE, GOE}, mind. 1x GOE",
+    "H-STAR-3_REFUTED": "cls in {POISSON, REGULAER} (mind. 1 dim)",
+    "H-STAR-3_INKONKLUSIV": "sonst (GRAU/DEGENERAT/LEER)"
+  },
+  "md5": "3a47ec57dfaee495e95b459b3ce48da3"
+}
