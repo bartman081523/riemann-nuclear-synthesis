@@ -2453,7 +2453,7 @@ prereg-gebundenen Verdicts, nicht aus Interpretationsspielraum.
   (MOCS) bleibt bei 2 Observablen — der GUE-Pfad braucht einen anderen
   Encodierungsansatz (nicht Tensor-Summen deterministischer Blöcke).
 
-## §Z.17 — Paket 1: α-Trennungstest auf der echten ISA-Klasse (EXPERIMENT 033, 2026-09-24, 0 QPU)
+## §Z.17 — Pakete 1–2: α-Trennungstest (EXPERIMENT 033) + Ramanujan-Fingerprint-Replikation (EXPERIMENT 034), 2026-09-24, 0 QPU
 
 **Frage (Prereg):** §Z.16/V4 lieferte κ* = 62.26 auf dem lokal transpilierten
 45-cx-phi_D-Circuit (Rohgewicht 450·p1) mit impliziter Amplifikation
@@ -2549,8 +2549,80 @@ schließt am Primärpunkt auf 0.3%). Evidenzgrad des Gesamtbefunds: **B**
 (prereg-gebunden, 8 Kontrollen, C-V4-Anker; simulator-only, ein
 Encodierungs-Punkt → kein A).
 
+**Paket 2 — Ramanujan-Fingerprint-Replikation (EXPERIMENT 034, 2026-09-24,
+0 QPU):**
+
+- **Frage (Prereg):** Der V2-Nebenfund (§Z.16, Vektor
+  RAMANUJAN_DFT_FINGERPRINT, B) war EINMAL gemessen (d = 625, EIN P-Set):
+  share*(prime) = 0.0427 vs random 0.0099 vs composite 0.0036. Repliziert
+  der mod-5-Fingerprint über das volle (P, d)-Gitter, oder war er eine
+  Fluktuation des Einzelpunkts (Steelman-Antithese)?
+- **Exakte Modell-Herleitung VOR dem Freeze** (Referenzkonstanten-Lektion,
+  im Modul verifiziert statt aus dem Plan übernommen): für a ∈ S* =
+  {a ≡ 0 mod d/5, a ≠ 0} gilt G(a) = n₀ + Σ n_r·ω₅^{jr}; Uniform-Äquipartition
+  der Nicht-5-Primes (n_r = (m−1)/4, n₀ = 1 — nur p = 5 ≡ 0 mod 5) gibt
+  G(a) = (5−m)/4 für alle 4 Klassen → **share*_model = (m−5)²/(4·d·m)**.
+  Das V2-Prereg führte das CRUDE-Modell m/(4d) = 0.045; exakt ist 0.041688;
+  V2 gemessen → ratio 1.0248, im Band [0.8, 1.25] — die Korrektur ändert
+  das V2-Urteil NICHT (GUE-Lektion-Muster, VOR dem Freeze dokumentiert).
+- **Registrierte Struktur (md5 `a2fc4875e10dd198e95d4996b1692759`,
+  committet VOR Auswertung):** Gate π ≥ 79 → genau 5 Punkte
+  (401/463/541/599/625), aus zwei a-priori-Kriterien: (1)
+  Fluktuationsskalierung ~1/m vom V2-Anker (2.5% bei m = 114; Residuen-Counts
+  sind O(1)-deviant, nicht O(√m)) → ±25%-Band fair ab m ≈ 40; (2)
+  Random-Overlap-Sicherheit (share*_random hat O(1)-relative Streuung, V2:
+  1.54× generisch) verlangt band_lo ≥ ~3× generisch → m ≥ 62, Marge → 79.
+  Band [0.8, 1.25]·model je Punkt; Falsifikator: ≥ 2/5 außerhalb ODER
+  Kontroll-Overlap; **PARTIAL als registrierte Mittelklasse**
+  (DEGENERAT-Lektion: Klassen zwischen REPLICATED und REFUTED explizit
+  benennen). Zwei registrierte NEGATIV-Vorhersagen des Modells: Transition
+  m = 25 (P = 97): (m−5)² = 16m exakt → Modell = generisch 4/d — KEINE
+  Trennung vorhergesagt; Unterdrückung m = 16 (P = 53): Modell 0.0030 UNTER
+  generisch 0.0064; m = 5 (P = 11, d = 25): exakte Null.
+- **Kontrollen 5/5 grün:** T1/T2/T3 V2-Anker bit-genau reproduziert
+  (prime 0.04272280701754398, random seed 20260923, composite 0.00356491…);
+  T4 Modell exakt (11881/285000; Transition 4/625); T5 Gate-Set frozen.
+- **Messung (reine Arithmetik, deterministisch):** **Verdikt:
+  H-RAM-2_REPLICATED_FINGERPRINT** — alle 5 gated Punkte im Band, Ratios
+  (gemessen/Modell) 1.062 / 1.019 / 1.006 / 1.018 / 1.025; KEIN Overlap
+  (random max 0.0075 @ 599 vs band_lo 0.0318; composite max 0.0036 vs
+  Limit 0.0222 = band_lo(401)).
+- **Deskriptive Struktur (trägt kein Gate):** share*(prime) steigt monoton
+  mit m (0.0056 @ m=4 → 0.0427 @ m=114) und die parameterfreie Modellkurve
+  folgt über zwei Größenordnungen. Die Transition-NEGATIV-Vorhersage
+  bestätigt: (97, 625) ratio 1.20, gemessen 0.0077 nahe generisch 0.0064 —
+  der Fingerprint verschwindet am Übergangspunkt, wie die Arithmetik es
+  verlangt. (53, 625, m = 16): gemessen exakt generisch 0.0064 (Modell
+  sagte 0.0030 — Richtung stimmt, Wert nicht; kleine m sind O(1)-
+  fluktuationsbeherrscht, registriert). d25 (m = 5/9) fluktuationsbeherrscht
+  wie registriert (ratio 6.0 bei m = 9; exakte-Null-Vorhersage bei m = 5
+  vom ganzen Support getragen).
+- **Vektor-Update: RAMANUJAN_DFT_FINGERPRINT B → B+** — repliziert über
+  das Gitter, exaktes Modell prädiktiv, Negativ-Kontrolle (Transition)
+  bestätigt, Kontrollfamilie vollständig (Positiv = bit-genauer V2-Anker;
+  Negativ = Transition/Unterdrückung/Composite; Struktur-Null = Random je
+  Punkt). Deckel: deterministische Arithmetik (kein QPU-Test), die
+  physikalische Brücken-Relevanz (Nuklear-Encodierung) bleibt offen → kein A.
+- **Ehrliche Grenzen:** die Bandfairness-Skalierung (~1/m) ist vom EINEN
+  V2-Anker extrapoliert und war selbst Registrierung, nicht Messung; der
+  Random-Overlap-Gate schützt nur gegen HIGH-random (LOW-random — hier
+  0.0008–0.0080 über die Punkte — ist unbedenklich, macht aber die
+  Random-Spalte je Punkt zu einer Ein-Sample-Größe); das Modell hat null
+  freie Parameter, aber auch keine Fehlertheorie außer der O(1)-Deviation-
+  Annahme — ein Punkt mit Ratio außerhalb [0.8, 1.25] wäre als
+  Fluktuation ODER Modellbruch lesbar gewesen (daher die PARTIAL-Klasse).
+
+**SciMind-Bewertung (Paket 2):** Steelman (Antithese „Einzelpunkt-Fluktuation"
+explizit über das Gitter getestet und verworfen); Anti-Sharpshooter (Modell
+VOR dem Freeze im Modul hergeleitet und gegen die V2-Anker verifiziert,
+Gate-Kriterien a priori registriert, Freeze committet vor Auswertung);
+Ockham (null freie Parameter — der Modellwert folgt aus n₀ = 1 und
+Äquipartition); Systemic Coherence (der Fingerprint fügt sich in die
+§Z.16-Linie: DFT-Diagonalraum als Beobachtungsebene, in der Primzahl-Arithmetik
+sichtbar wird). Evidenzgrad: **B+**.
+
 ---
 
-**Last updated:** 2026-09-24 (§Z.17: Paket 1 α-Trennungstest EXPERIMENT 033 — H-ALPHA INKONKLUSIV/neues Modell: κ_eff(ISA) = 93.96, α_isa = 1.5462 außerhalb beider Prereg-Bänder; vorregistrierte Dekomposition schließt ISA auf 0.3% (ungebuchte 1q-Gates), 45-cx Rest = Routing-Surplus 1.19; V4-Verdikt unverändert, Mechanismus-Erzählung revidiert; 545 Tests)
+**Last updated:** 2026-09-24 (§Z.17: Pakete 1–2 — EXPERIMENT 033 α-Trennungstest INKONKLUSIV/neues Modell: κ_eff(ISA) = 93.96, α_isa = 1.5462 außerhalb beider Prereg-Bänder, Dekomposition schließt ISA auf 0.3% (ungebuchte 1q-Gates), 45-cx Rest = Routing-Surplus 1.19, V4-Verdikt unverändert/Mechanismus revidiert; EXPERIMENT 034 Ramanujan-Replikation REPLICATED: alle 5 gated Punkte (π ≥ 79) im Band [0.8,1.25]·(m−5)²/(4dm) mit Ratios 1.006–1.062, Transition-NEGATIV-Vorhersage bestätigt, RAMANUJAN_DFT_FINGERPRINT B → B+; 558 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
