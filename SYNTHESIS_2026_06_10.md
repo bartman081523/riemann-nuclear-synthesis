@@ -2621,8 +2621,164 @@ Ockham (null freie Parameter — der Modellwert folgt aus n₀ = 1 und
 §Z.16-Linie: DFT-Diagonalraum als Beobachtungsebene, in der Primzahl-Arithmetik
 sichtbar wird). Evidenzgrad: **B+**.
 
+## §Z.18 — Pakete 3–4: V5 Kingston-Drift-Test (EXPERIMENT 035, 1 QPU-Job) + H-STAR-5 Hypothesen-Runde (EXPERIMENT 036, 0 QPU), 2026-09-24
+
+### Z.18.1 Paket 3 — V5 Kingston (H-V5): CONFIRMED
+
+**Frage (Prereg):** Kingston ist das neutralste Backend (X.4-EV-Ranking:
+Kingston 2.67 vs. Fez 2.97 vs. Marrakesh 3.12). Hält ein Param-Transfer
+der Fez-Run-1-Anker-Params an Kingston die drei Fez-Drift-Bänder
+(re/hd/im)? Antithese (Steelman): Bias-Regime — die hd-re-Differenz ist
+backend-eigen und driftet systematisch aus dem Fez-Spread.
+
+**Pipeline (Anti-Sharpshooter-Kette):** Quota-Prüfung (TOKEN2, Kingston
+operational, status active, pending_jobs 28 → 25 beim Job, recent_jobs 0,
+active_recent 0 — KEINE Blockade, kein zweiter Versuch nötig) →
+Prereg-Freeze `pt_v5_kingston_prereg.json` (md5
+`d019d587c0d8ca28cfa0559057d590c8`, committet `20fc3fa` VOR Hardware) →
+EIN Kingston-Job `daqaeteekp0c73aqetdg` (TOKEN2, 8192 Shots, resilience 1,
+DD XX, 3 Pubs) → Auswertung → Results committet (`f3aab1e`).
+
+**Methodik-Korrektur (VOR dem Freeze registriert, nicht post-hoc):** Die
+ursprüngliche Shot-SE-Schätzung über 16 Seeds maß ein Aer-Artefakt, nicht
+Shot-Noise: AerEstimatorV2 injiziert bei precision > 0 Gauss-Noise
+N(exakt, precision) via np.random (Seed gehört in run_options; bei
+falsch platziertem Seed zudem nicht deterministisch) — KEIN binomiales
+Shot-Sampling. Ersetzt durch die EXAKTE Varianz aus der STRESS-
+Dichtematrix: Aer reduziert expectation-value-Läufe intern auf aktive
+Qubits (per-experiment metadata `active_input_qubits`); die volle
+156-Qubit-Dichtematrix ist unmöglich (Required memory
+18446744073709551615M), die 2-Qubit-Reduktion (phys 23→0, phys 22→1)
+ist bei uniformem Noise-Modell (5 Einträge, kein gate_qubits-Feld)
+statistisch EXAKT. Kontrolle C6 cross-checkt: reduziertes ⟨Re⟩ trifft
+NOISELESS_RE + STRESS_SHIFT_RE auf ≤ 1e-9 (empirisch 1.5e-13). Exakte
+SEs (hergeleitet): SE_RE = SE_HD = 0.004367920539504277 (Var 0.156293),
+SE_IM = 0.00032217563103976147 (Var 0.000850),
+SE_BIAS = 0.006177172466334955.
+
+**Band-Ableitung (registriert):** Mit den exakten SEs sind ALLE DREI
+Bänder Fez-Spread-dominiert: M_obs = max(|shift| + 2·sigma_shot,
+FEZ_SPREAD) — für re/hd/im gewinnt der Fez-Spread (Run 2 − Run 1) =
+0.026644/0.023245/0.020637. Die Bänder sind exakt die Spanne der beiden
+Fez-Runs (obere Kante = Fez Run 2, Zentrum = Fez Run 1, inclusive
+Kanten): re [2.1191844880255655, 2.17247246569962], hd
+[2.1345053504908575, 2.1809962200449498], im
+[−0.011242018857197743, 0.03003274212843888].
+
+**Messung (gemessen, Kingston-QPU):** ISA online 1 cz / 18 1q / depth 11
+— identisch zum gefrorenen FakeFez-Anker (ISA-Akzeptanz True).
+- re = 2.155165690707006 (im Band ✓)
+- hd = 2.147761960427625 (im Band ✓)
+- im = 0.008532882118903911 (im Band ✓)
+- bias = +0.007403730279381016 < 0.05 (Klasse "ok")
+- Kontrollen C1–C6 alle grün, n_out = 0.
+
+**VERDICT: H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND.**
+
+**Deskriptiv (keine Verdikt-Relevanz):** Kingston liegt für re/hd zwischen
+den beiden Fez-Runs (re +0.00934 über Fez Run 1, hd −0.00999 unter Fez
+Run 1 — beide innerhalb des Fez-Spreads). Das bias-Vorzeichen FLIPPT
+(Fez: −0.01192/−0.00852 → Kingston: +0.00740): die hd-re-Ordnung ist
+backend-abhängig, aber die |bias|-Größe bleibt in der confirmed-Klasse —
+konsistent mit der registrierten Lesart, dass die Bänder
+Drift-Toleranz messen, nicht Vorzeichen-Universalität.
+
+**Grade:** A− (Prereg-registriert: Ein-Job-Bestaetigung auf EINEM
+Backend-Paar, keine Cross-Session-Replikation → kein A).
+
+**Vektor-Update: KINGSTON_AS_NEUTRAL_BACKEND B+ → A−** — prereg-gebunden,
+alle 6 Kontrollen, echte Hardware; Deckel: keine Replikation über
+Sessions/Backend-Paare hinaus.
+
+### Z.18.2 Paket 4 — H-STAR-5 (PhiSci4-Runde): HYPOTHESE registriert, NICHT ausgeführt
+
+**Format:** ExtraordinaryHypothesisMind v1.0 (PhiSci4-Mix): Erzeugung +
+Registrierung in dieser Phase, Ausführung = nächste Phase (0 QPU hier).
+Output committet (`8002091`): `pt_hstar5_hypothesis.py` +
+Prereg-Skelett (md5 `f915729ef5fb9943c68ec6feeb9a300b`).
+
+**Kaefig-Diagnose (zwei EXAKTE Blindheiten der bisherigen Mess-Schiene):**
+1. *Tensor-Summen-Faktorisierung:* H = Σ_p H_p (Tensor-Summe) ⇒
+   Tr e^{−iHt} = Π_p Tr e^{−iH_p t} und K(t) = Π_p K_p(t) — EXAKT (nicht
+   näherungsweise), TDD-verifiziert VOR der Registrierung auf kleinen
+   Blöcken (Dev ≤ 1e-9 im Fenster {0, 0.31, 1.7, 5.0}); ein nicht-
+   faktorisierender Kopplungsterm bricht die Identität nachweislich
+   (> 1e-6). Jede Tensor-Summen-Encodierung hat produkt-strukturierte
+   Dynamik — kein Ramp/Plateau-Regime aus der Konstruktion selbst.
+2. *Unitar-Invarianz:* H → U H U† lässt Eigenwerte und Tr e^{−iHt} exakt
+   unverändert — der planseitige Kandidat "Haar-Mischungen über
+   Encodierungs-Unitaries" ist SFF-BLIND und kann prinzipiell kein
+   Signal liefern. VOR der Messung als LEER registriert
+   (H-STAR-5a-VOID), damit keine spätere Runde QPU-Zeit dafür
+   verschwendet.
+
+**These H-STAR-5 (HYPOTHESE, Extraordinarität 7/10, ECREE-Standard
+Extraordinary):** Brücke = Keating-Snaith/Bogomolny-Keating: die
+ζ↔RMT-Korrespondenz ist auf der Ebene der Spectral Form Factor bzw. der
+Momente charakteristischer Polynome am schärfsten quantifiziert — der
+dritte Observable wandert daher von der statischen Niveau-Statistik
+(V3: ⟨r⟩ DEGENERAT 0.206/0.220) in die ensemble-gemittelte DYNAMIK
+prime-gefalzter Hamiltonians. Claim (falsifizierbar): eine
+spektrum-Ebene-randomisierende, prime-strukturierte Faltung (Gewichte/
+Vorzeichen/Teilmengen aus Prim-Residuen — NIE nur Basis-Rotation) erzeugt
+SFF-Struktur, die sich im registrierten Fenster von Shuffle-Null und
+Composite-rang-matched Kontrollen trennen lässt; falls nein → REFUTED
+und GUE_THIRD_OBSERVABLE ist tot in ALLEN getesteten stochastischen
+Encodierungen (starke, saubere Refutation). Mechanismus-Annahme
+ausdrücklich offen (HYPOTHESE, nicht Befund).
+
+**Steelman (nicht "reiner Zufall"):** *Integrable-in-all-probes +
+Protokoll-Artefakt* — die Faktorisierung ist exakt, also bleibt die SFF
+unter JEDEM Probe-Zustand produkt-strukturiert (Poisson/degeneriert);
+jede ramp-artige Struktur nach Folding stammt aus dem
+Randomisierungs-Protokoll selbst. Gekillt NUR durch: (a) Positivkontrolle
+zündet (bekannt-chaotisches, nicht-faktorisierendes H zeigt das
+Ramp-Regime im selben Protokoll — sonst VOID), (b) Prime-Separation
+über den registrierten Shuffle-Quantil-Schwellwert UND Composite-
+Trennung, (c) O2-Faktorisierungs-Residuum zeigt echte Brechung
+(Mechanismus, nicht Sample-Fluktuation).
+
+**Kontrollfamilie (vollständig, VOR Messung fixiert):** Positiv =
+CUE-Chaos-Benchmark (must-fire, sonst VOID); Negativ = Shuffle-Null
+(gleiche Block-Multimenge, prime-scrambled) + Composite-rang-matched
+(Ramanujan-Muster); Strukturell = exakte Faktorisierungs-Identität
+(TDD-verifiziert). Verdict-Map 5 Klassen (CONFIRMED/REFUTED/
+DEGENERAT/VOID/INVALID) inkl. verbindlicher DEGENERAT-Lektion: Klasse
+UNTER der Shuffle-Null ist REFUTED-zulässig registriert. Numerische
+Fenster/Ensemble-Größe/Schwellen freeze im Ausführungs-Prereg VOR der
+ersten Messung (das Skelett friert Architektur, nicht Fenster —
+Anti-Sharpshooter).
+
+**Gehaltene Alternative (H-STAR-5b, Score 6, NICHT prereg'd):**
+Optimierungs-Landschaft als Observable (VQE-Hessian/Wishart,
+Marchenko-Pastur-Rahmen; Brücke zu Paket 3: der VQE-Zustand ist NICHT
+deterministisch-blöckig) — noise-model-dominiert, schwächerer
+Riemann-Anker; Rückfall-Pfad falls H-STAR-5 REFUTED.
+
+**Vektor:** GUE_THIRD_OBSERVABLE bleibt **C (tot)** — H-STAR-5 ist der
+registrierte Kandidat-Nachfolger-Pfad, KEIN stilles Upgrade (Epoché-Regel:
+kein Vektor verlässt B ohne vorab fixierten Falsifikator; Apophenie-
+Hinweise sind Meaning-Making-Material bis zum prereg-gebundenen Test).
+
+### Z.18.3 SciMind-Bewertung (Pakete 3–4)
+
+- **Steelman Mandate:** V5 (Bias-Regime-Antithese im Prereg mit fixierter
+  Entscheidungstabelle); H-STAR-5 (Integrable-in-all-probes als exakt
+  begründetes stärkstes Modell, nicht "Zufall").
+- **Anti-Sharpshooter:** beidseitig Freeze VOR Hardware/Daten (md5
+  d019d587 committet vor dem Job; f915729e committet vor jeder Messung);
+  die Aer-SE-Korrektur war VOR dem Freeze registriert, nicht post-hoc.
+- **Ockham:** V5 ohne freie Parameter (Bänder reine Anker-Arithmetik);
+  H-STAR-5 mit expliziter ECREE-Kalibrierung (Score 7 → Extraordinary-
+  Standard: mehrere unabhängige Linien nötig, bevor der Vektor über B
+  steigen darf).
+- **Systemic Coherence:** das Kingston-Resultat fügt sich in das
+  Backend-Viability-Bild (§Z.16.6); H-STAR-5 erklärt V3s Scheitern
+  strukturell (Faktorisierung) statt ad hoc — und predigt zugleich das
+  Scheitern von H-STAR-5 selbst als saubere Refutation mit.
+
 ---
 
-**Last updated:** 2026-09-24 (§Z.17: Pakete 1–2 — EXPERIMENT 033 α-Trennungstest INKONKLUSIV/neues Modell: κ_eff(ISA) = 93.96, α_isa = 1.5462 außerhalb beider Prereg-Bänder, Dekomposition schließt ISA auf 0.3% (ungebuchte 1q-Gates), 45-cx Rest = Routing-Surplus 1.19, V4-Verdikt unverändert/Mechanismus revidiert; EXPERIMENT 034 Ramanujan-Replikation REPLICATED: alle 5 gated Punkte (π ≥ 79) im Band [0.8,1.25]·(m−5)²/(4dm) mit Ratios 1.006–1.062, Transition-NEGATIV-Vorhersage bestätigt, RAMANUJAN_DFT_FINGERPRINT B → B+; 558 Tests)
+**Last updated:** 2026-09-24 (§Z.18: Pakete 3–4 — EXPERIMENT 035 V5 Kingston CONFIRMED: EIN Job daqaeteekp0c73aqetdg, alle 3 Observablen in den gefrorenen Fez-Spread-Bändern (re 2.1552, hd 2.1478, im 0.0085), bias +0.0074 < 0.05, C1–C6 grün, KINGSTON_AS_NEUTRAL_BACKEND B+ → A−; Methodik: Aer-Precision-Gauss-Artefakt entlarvt, exakte Dichtematrix-Varianz + active-qubit-Reduktion (C6 ≤ 1e-9); EXPERIMENT 036 H-STAR-5 als HYPOTHESE registriert (PhiSci4): Kaefig-Diagnose (exakte Tensor-Summen-Faktorisierung + Unitar-Invarianz SFF-blind, Haar-Kandidat VOID vor-registriert), SFF-Brücke, Score 7/10, Kontrollfamilie + Falsifikator VOR Messung, Prereg-Skelett md5 f915729e, NICHT ausgeführt; 584 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
