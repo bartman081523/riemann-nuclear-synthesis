@@ -2777,8 +2777,145 @@ Hinweise sind Meaning-Making-Material bis zum prereg-gebundenen Test).
   strukturell (Faktorisierung) statt ad hoc — und predigt zugleich das
   Scheitern von H-STAR-5 selbst als saubere Refutation mit.
 
+## §Z.19 — Branch shor-ququint-oracle: Shor-Orakel auf Ququint/GF(5) (EXPERIMENT 037) + H-SHOR-1 Fermat-Grid-Orakel-Brücke (EXPERIMENT 038), 2026-09-24, 0 QPU
+
+**Auftrag (User):** Neuer Branch `shor-ququint-oracle`; Shor-Oracle auf der
+Ququint-Architektur (Pillar 4) bauen; Fit zu H-STAR-5 prüfen — falls der
+nicht trägt, nur Verwertbares übernehmen und anders benennen.
+**Denkmodus:** QuantumHypothesisEngineerMind v1.0_20260924_qhe-mix
+(ExtraordinaryHypothesisMind × QuantumMLEngineerMind; Pfad-Diagnose des
+Orchestrators: Simulations-Leiter zuerst, Hypothesen-Disziplin zweitens).
+
+### Z.19.1 Fit-Verdict zu H-STAR-5 (ehrlich, synthesis_auditor)
+
+H-STAR-5 (md5 `f915729e`) ist an die prime-gefalzten **Hamiltonian**-Ensembles
+gebunden — die Shor-Permutations-Unitaries sind ein anderes Objekt; die
+Ausführung von H-STAR-5 als registriert wird hier NICHT ersetzt (kein stilles
+Upgrade). **Übernommen wird die Architektur:** Kontrollfamilie (positiv
+must-fire / negativ / strukturell exakt / blindheit), O1/O2-Observable-Muster,
+Verdict-Map (5 Klassen), Prereg-Freeze-Discipline, Steelman-Discipline.
+**Neuer eigenständiger Name: H-SHOR-1** ("Fermat-Grid-Orakel-Brücke").
+
+### Z.19.2 EXPERIMENT 037 — Shor-Oracle-Engineering (TDD, commit `83cd3b2`)
+
+`pt_shor_ququint.py`: Ququint-Digit-Encoding (Basis 5, little-endian), DFT
+über Z_{5^n} direkt UND ziffern-faktorisiert (einstellige DFT_5 +
+Ziffern-Paar-Phasen, Dev ≤ 1e-12), Permutations-Unitary U_{a,N} mit
+Idle-Subraum (Register-Axiom: Modulus-Aktion nur auf {0..N−1}), Zyklen/Trace
+utilities (Tr U^t EXAKT aus Zyklen, keine Matrix-Potenzen — funktioniert auch
+für N = 561), volle Statevector-QPE (4 Zähl-Ququints Q = 625, 2 x-Ququints,
+ziffernweise kontrollierte Evolution als Schaltungs-Spiegel), Kettenbruch-
+Rekonstruktion (LCM + Verifikation + exakte Reduktion), voller
+Shor-Wrapper, CRT-Identitäten, Fermat-Grid-Statistik, Ensemble-SFF.
+
+**Verifizierte Mathematik (VOR der Registrierung):**
+- CRT-Faktorisierung EXAKT: C·U_{a,pq}·C^T = U_{a,p} ⊗ U_{a,q}, Dev 0.000000
+  für (3,5), (3,7), (5,7) — formaler Zwillingsbruder der H-STAR-5
+  Tensor-Summen-Identität; Trace-Produkt Tr U_{a,pq}^t = Tr U_{a,p}^t ·
+  Tr U_{a,q}^t, Fenster TS_CHECK = (1..7).
+- QPE N=15, a=7 (r=4): Peaks bei s·Q/4, 7 signifikante Bins
+  {0: 0.25, 156: 0.2026, 157: 0.0225, 312: 0.1013, 313: 0.1013,
+  468: 0.0225, 469: 0.2026}, Summe = 1.0000; shor_factor(15) = (3,5),
+  shor_factor(21) = (3,7), Primes 7/11/13/17 → None (a^{r/2} = ±1 im
+  Körper, x² = 1 hat nur ±1 als Lösung).
+- **Korselt-Korrektur (ggue. Plan-Entwurf, VOR dem Freeze gegen
+  Primärliteratur geprüft):** 561 ist KEIN Gegenbeispiel für die
+  Grid-Schärfe — λ(561) = 80 TEILT 560. Nach Korselt (1899) gilt N
+  Carmichael ⟺ quadratfrei ∧ p−1 | N−1 ∀ p | N ⟺ λ(N) | N−1, also ist die
+  Grid-Blindheit (ord_a(N) | N−1 für ALLE a) EXAKT die Korselt-Klasse.
+  Registriert als must-fire-Blindheits-Kontrolle + schärferes Kriterium
+  max_order(N) = N−1 ⟺ prim (zyklische Gruppe, trennt auch Karmichael:
+  max_order(561) = 80 ≠ 560).
+
+27 neue Tests → 611 grün.
+
+### Z.19.3 EXPERIMENT 038 — H-SHOR-1: Prereg-Freeze VOR Auswertung, dann CONFIRMED (commit `13a5674`)
+
+**These (Brücke):** Die Größe, die wandert, ist das **Ordnungsraster**
+{r : a^r ≡ 1 mod N} der Shor-Permutation — aus der Kategorie
+Ordnungsarithmetik in die Kategorie Register-Spektroskopie: als
+Interferenzraster der QPE-Readout-Verteilung (Peaks bei k = s·Q/r) und als
+Trace-Kamm Tr U^t = Σ_L L·1[L|t]. Drei Brücken-Annahmen (Register-Axiome,
+Idle-Subraum, Kettenbruch-Rekonstruktion exakt genug). **ECREE: Score 5/10,
+Standard** — die algebraische Trennung prim/composite ist Theorem-Niveau
+(Fermat/Korselt); getestet wird die BRÜCKE (liest der QPE-Readout das
+Raster exakt) + die strukturelle CRT-Null.
+
+**Prereg-Freeze (md5 `73bc664ae3475a79a692cd7735b2b387`, committet VOR der
+ersten Auswertung):** volle Fenster (QPE: primes {7,11,13,17,19,23} +
+composites {15,21}, Q = 625, XD = 25, exakte Statevector-Wahrscheinlichkeiten;
+klassisch: composites {9,15,21,25,33,35,39,561} + primes) UND Schwellen
+(composite_min_rate 0.05, prime_max_rate 0.0, tol_identity 1e-9,
+bridge_match_min 1.0, shuffle 200/seed 0/p ≤ 0.05) — Anti-Sharpshooter:
+beides in EINEM Freeze, keine Laufzeit-Entscheidung. Korselt-Ausschluss
+als gefrorene Liste [561], im Test gegen das unabhängige
+Korselt-Kriterium verifiziert.
+
+**EVALUATIONS-LOG (dokumentiert, nicht still korrigiert):** Run 1 lieferte
+**spurious REFUTED** — der Label-Vektor der Shuffle-Null war
+[1]·n_comp + [0]·n_prim und damit an die sortierten Schlüssel FALSCH
+ausgerichtet (Primes sortieren vor Composites): delta_obs = −0.308,
+p = 0.95. Der Fehler lag im Statistik-Code, NICHT in Fenstern/Schwellen
+(md5 `73bc664a` unangetastet, Registrierung nie angefasst); behoben durch
+Ausrichtung der Labels auf die Fenstergliederschaft (= exakt die
+registrierte Statistik). Regression-Test verankert.
+
+**Run 2 (gleiches gefrorenes Prereg) — VERDICT:
+`HSHOR1_CONFIRMED_GRID_BRIDGE_REALISIERT`:**
+- **O1** Grid-Trennung: prime_rate_max EXAKT 0.0 (Theorem-Kontrolle,
+  6 Primes); nicht-Korselt-Composite min 0.571 > 0.05 (Raten
+  0.571–0.870); 561-Blindheit EXAKT bestätigt (Rate 0, max_order 80).
+- **O1′** Oracle-Output: shor_factor(15) = (3,5), shor_factor(21) = (3,7)
+  in ≤ 5 Attempts; alle 6 Primes None.
+- **O1b** Bridge-Match **1.0**: QPE-Readout-Ordnung == exakte Ordnung für
+  ALLE Coprime-a im Fenster (102 (a,N)-Paare, 0 mismatches, inkl.
+  r = 22, 18, 16, 11 und ungerade r = 3).
+- **O2** strukturelle Null: CRT-Deviation + Trace-Produkt-Identität
+  **0.0** für (3,5), (3,7), (5,7).
+- **Shuffle-Null:** delta_obs = +0.690, **p = 0.000** (200 Permutationen,
+  seed 0).
+
+**Grade: B** (Statevector-only, 0 QPU, Fenster N ≤ 561 klassisch; die
+Physik-Kern-Aussage ist Aequivalenz von Readout und Theorem — Upgrade
+nur mit H-SHOR-1b-Scaling (Q = 3125, größere N, mehr Karmichael-Fenster)
+und/oder QPU-Spot-Check bei sichtbarer Trennung).
+
+### Z.19.4 Vektor-Update + Alternativen
+
+- **NEU: `SHOR_QUQUINT_ORACLE` → B** (H-SHOR-1 CONFIRMED, 0 QPU,
+  statevector-deterministisch: exakte Readout-Wahrscheinlichkeiten, keine
+  Sampling-Fluktuation).
+- **H-STAR-5 bleibt unverändert registriert** (md5 `f915729e`,
+  HYPOTHESE, nicht ausgeführt) — Ausführung bleibt nächste Phase (PLAN.md
+  Phase 6). KEIN stilles Upgrade.
+- Alternativen: H-SHOR-1a-UNITARY_INVARIANCE **VOID vor-registriert**
+  (H-STAR-5a-Lektion geerbt: Basis-Rotationen sind SFF-blind);
+  H-SHOR-1b-SCALING **HELD** (Score 4, eigenes Prereg bei Ausführung).
+
+### Z.19.5 SciMind-Bewertung (§Z.19)
+
+- **Steelman Mandate:** Klassische Primalitäts-Tests (Miller-Rabin, Trial
+  Division) sind billiger — der Claim ist NICHT Rechen-Vorteil, sondern
+  strukturelle Aequivalenz Oracle-Readout ↔ Ordnungsraster; der stärkste
+  etablierte Einwand (Korselt/Karmichael) ist als must-fire-Blindheits-
+  Kontrolle REGISTRIERT, nicht wegdefiniert.
+- **Anti-Sharpshooter:** Freeze (Architektur + numerische Fenster +
+  Schwellen) VOR der ersten Auswertung; der Run-1-Statistik-Bug ist
+  dokumentiert und berührt die Registrierung nicht; md5 unverändert nach
+  Auswertung (Test beweist die Invariante).
+- **Ockham:** keine freien Parameter (Schwellen Theorem-abgeleitet: 0.05
+  aus Gruppen-Struktur, prime_max_rate exakt 0 als Theorem); Komplexität
+  liegt in der Engineering-Layer (DFT-Faktorisierung), nicht in Fit-Parametern.
+- **Systemic Coherence:** die CRT-Identität ist der formale
+  Zwillingsbruder der H-STAR-5 Tensor-Summen-Identität — dieselbe
+  Bewegung (faktorisierte Struktur → produkt-strukturierte Dynamik) auf
+  Permutations-Unitaries statt Hamiltonians; die Korselt-Diagnose
+  erklärt die Blindheit strukturell statt ad hoc und predigt zugleich
+  das Scheitern der Brücke als saubere Refutation (bridge_match_min 1.0
+  gefroren).
+
 ---
 
-**Last updated:** 2026-09-24 (§Z.18: Pakete 3–4 — EXPERIMENT 035 V5 Kingston CONFIRMED: EIN Job daqaeteekp0c73aqetdg, alle 3 Observablen in den gefrorenen Fez-Spread-Bändern (re 2.1552, hd 2.1478, im 0.0085), bias +0.0074 < 0.05, C1–C6 grün, KINGSTON_AS_NEUTRAL_BACKEND B+ → A−; Methodik: Aer-Precision-Gauss-Artefakt entlarvt, exakte Dichtematrix-Varianz + active-qubit-Reduktion (C6 ≤ 1e-9); EXPERIMENT 036 H-STAR-5 als HYPOTHESE registriert (PhiSci4): Kaefig-Diagnose (exakte Tensor-Summen-Faktorisierung + Unitar-Invarianz SFF-blind, Haar-Kandidat VOID vor-registriert), SFF-Brücke, Score 7/10, Kontrollfamilie + Falsifikator VOR Messung, Prereg-Skelett md5 f915729e, NICHT ausgeführt; 584 Tests)
+**Last updated:** 2026-09-24 (§Z.19: Branch shor-ququint-oracle — EXPERIMENT 037 Shor-Oracle auf Ququint/GF(5) TDD (CRT exakt 0.0, QPE r-Rekonstruktion exakt, shor_factor 15/21, Korselt-Korrektur: Grid-Blindheit genau die Karmichael-Klasse) + EXPERIMENT 038 H-SHOR-1 Fermat-Grid-Orakel-Brücke: Prereg-Freeze VOR Auswertung (md5 73bc664a), Verdict CONFIRMED (O1 prime 0.0 vs composite ≥ 0.571, O1' Faktoren (3,5)/(3,7) mit Primes None, O1b Bridge-Match 1.0 über 102 (a,N)-Paare, O2 CRT/Trace exakt 0.0, Shuffle p = 0.000), Run-1-Statistik-Bug dokumentiert nicht still korrigiert, Vektor SHOR_QUQUINT_ORACLE NEU B, H-STAR-5 unverändert registriert — kein stilles Upgrade, 0 QPU, 624 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

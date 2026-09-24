@@ -1140,6 +1140,28 @@ Vektor-Upgrades: `QUQUINT_THRESHOLD_CROSSOVER` B → **A−**; Downs:
   Basis-Kandidat spektral-blind = VOID vor-registriert). Ausführung = nächste
   Phase (Ausführungs-Prereg VOR erster Messung).
 
+#### Branch `shor-ququint-oracle` (§Z.19/20, 2026-09-24, 0 QPU)
+
+- **EXPERIMENT 037 (Shor-Oracle-Engineering, TDD, commit `83cd3b2`):**
+  `pt_shor_ququint.py` — Digit-Encoding, DFT über Z_{5^n} (direkt +
+  ziffern-faktorisiert, Dev ≤ 1e-12), Permutations-Unitary U_{a,N} mit
+  Idle-Subraum, Tr U^t exakt aus Zyklen, Statevector-QPE (Q = 625, XD = 25)
+  + Kettenbruch-Rekonstruktion, Shor-Wrapper. CRT-Identität
+  C·U_{a,pq}·C^T = U_{a,p} ⊗ U_{a,q} **Dev 0.0**; shor_factor(15) = (3,5),
+  (21) = (3,7), Primes → None. Korselt-Korrektur: Grid-Blindheit EXAKT
+  die Karmichael-Klasse (λ(561) = 80 | 560).
+- **EXPERIMENT 038 (H-SHOR-1 "Fermat-Grid-Orakel-Brücke", commit
+  `13a5674`):** Prereg-Freeze VOR Auswertung (md5 `73bc664a`, Fenster +
+  Schwellen in EINEM Freeze); Verdict **CONFIRMED** — O1 prime 0.0 vs.
+  composite ≥ 0.571, 561-Blindheit exakt, O1' Faktoren mit Primes None,
+  O1b Bridge-Match **1.0** (102 (a,N)-Paare, 0 mismatches), O2 CRT/Trace
+  **exakt 0.0**, Shuffle p = 0.000. Run-1-Statistik-Bug (Shuffle-Labels
+  falsch ausgerichtet) dokumentiert, nicht still korrigiert — md5
+  unangetastet. Architecture-Reuse von H-STAR-5 (md5 `f915729e`
+  unverändert, kein stilles Upgrade); Vektor `SHOR_QUQUINT_ORACLE` NEU
+  **B**; H-SHOR-1a VOID vor-registriert, H-SHOR-1b HELD (Score 4).
+  624 Tests (+13).
+
 ```mermaid
 graph TD
     P4[Pillar 4: Ququint GF5<br/>2026-07-21] --> VQE[QPU-VQE+VQD Fez TOKEN1<br/>d9fidihhtsac739fg3n0<br/>E_0 2.1398, H1/H3 CONFIRMED]
@@ -1149,8 +1171,10 @@ graph TD
     Z16 --> Z17[§Z.17<br/>033 α INKONKLUSIV<br/>034 Ramanujan REPLICATED B+]
     Z14 --> Z18[§Z.18<br/>035 V5 Kingston CONFIRMED<br/>036 H-STAR-5 HYPOTHESE]
     Z18 --> NEXT[nächste Phase:<br/>H-STAR-5 Ausführung<br/>Prereg -> Aer -> QPU-Spot]
+    Z18 --> SHOR[Branch shor-ququint-oracle<br/>037 Shor-Oracle + 038 H-SHOR-1<br/>CONFIRMED, Bridge-Match 1.0<br/>0 QPU]
 
     style VQE fill:#5f5,stroke:#333,stroke-width:3px
+    style SHOR fill:#5f5,stroke:#333,stroke-width:2px
     style Z14 fill:#5f5,stroke:#333,stroke-width:2px
     style NEXT fill:#fc9,stroke:#333,stroke-width:3px
 ```

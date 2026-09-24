@@ -1,7 +1,7 @@
 # Riemann–Nuclear Synthesis
 
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/bartman081523/riemann-nuclear-synthesis)
-[![Tests](https://img.shields.io/badge/Tests-584%2F584%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-624%2F624%20passing-brightgreen.svg)](tests/)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org)
 [![Qiskit](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
@@ -22,6 +22,7 @@
 | 4 — Margin crossover (§Z.16/V4) | Aer, 0 QPU | κ\* = 62.26 (Rough model 62.31, 0.1%) | **A−** |
 | 4 — Ramanujan fingerprint (§Z.17/034) | d₆₂₅ grid + gated replication | exakt model (m−5)²/(4dm), 5/5 gated points in band, no control overlap | **B+** |
 | 4 — Kingston drift test (§Z.18/V5) | `ibm_kingston`, prereg md5 `d019d587` | all 3 observables in frozen bands, bias +0.0074 < 0.05 | **A−** |
+| 4 — Shor-Oracle + H-SHOR-1 (§Z.19/037–038) | Ququint statevector, 0 QPU, prereg md5 `73bc664a` | Verdict CONFIRMED: CRT null exactly 0, QPE↔order bridge match 1.0 (102 pairs), factors (3,5)/(3,7), Korselt blindness theorem-exact | **B** |
 
 The **Latorre–Sierra prediction** of linear entanglement scaling (`α → 1`) is **empirically excluded** in `N ∈ [10³, 10⁶]`. See [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) §11.
 
@@ -43,7 +44,7 @@ echo "IBMQ_TOKEN=your_token_here" > .env
 echo "IBMQ_TOKEN2=your_second_token_here" >> .env
 
 # Run the test suite
-python3 -m pytest tests/ -q   # 584/584 passing
+python3 -m pytest tests/ -q   # 624/624 passing
 
 # Reproduce the asymptotic scaling (statevector, no QPU cost)
 python3 pt_asymptotic_N1e6.py   # alpha(N=10^6) = 0.223
@@ -61,6 +62,8 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | `IBMQ_TOKEN2` | `ibm_kingston` (156 qb) | ✅ Open | 2026-09-24 |
 
 **Update 2026-09-24:** Ququint-Arc complete (§Z.11–18). TOKEN1 carried the §Z.11–14 QPU confirmation (Job `dakjk9hhvn6c73cvr1cg`, 12 circuits × 8192 shots, all 3 prereg bands held, md5 `18fb1e62` frozen before hardware); the 2026-07-21 **first real QPU-VQE+VQD run on Fez/TOKEN1** (Job `d9fidihhtsac739fg3n0`, E_0 = 2.1398, bias_PT_re = −0.0119, H1/H3 QPU-confirmed) preceded it. TOKEN2 moved to `ibm_kingston` for the V5 drift test (Job `daqaeteekp0c73aqetdg`, all 3 observables inside frozen bands, bias +0.0074 — backend-neutral, bias sign flips backend-dependently). Three-path consistency: Fez/TOKEN2 Singleshot 2026-06-10 + Statevector VQE-opt + Fez/TOKEN1 VQE+VQD. See [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) §Z.11–18.
+
+**Branch `shor-ququint-oracle` (2026-09-24, 0 QPU):** Shor-Oracle on the Ququint/GF(5) architecture (EXPERIMENT 037, TDD) + registered hypothesis **H-SHOR-1 "Fermat-Grid-Oracle-Bridge"** (EXPERIMENT 038): prereg frozen BEFORE evaluation (md5 `73bc664a`), verdict **CONFIRMED** — CRT structural null exactly 0, QPE-readout ↔ order-grid bridge match **1.0** (102 (a,N) pairs, 0 mismatches), shor_factor(15) = (3,5) / (21) = (3,7) with primes → None, Korselt/Carmichael blindness theorem-exact (561: λ = 80 | 560), shuffle p = 0.000. H-STAR-5 (md5 `f915729e`) remains unchanged — architecture reuse only, no silent upgrade. See §Z.19 / §10.20.
 
 **Operational policy:** QPU time is scarce — all statevector-first validations must precede any QPU submission. Preregistration before `main()` is required for every QPU script (Anti-Sharpshooter Protocol).
 
