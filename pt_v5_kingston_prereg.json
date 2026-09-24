@@ -1,0 +1,150 @@
+{
+  "experiment": "035-ququint-v5-kingston-drift",
+  "hypothesis": "H-V5",
+  "steelman": "Backend-Drift verschiebt Energie/Gap ausserhalb der Prereg-Baender: Kingston misst nicht die Fez-Anker, sondern ein backend-eigenes Bias-Regime (EV-Tabelle X.4: Kingston 2.67 vs Fez 2.97 vs Marrakesh 3.12).",
+  "registered_before": {
+    "param_transfer": "EIN Job erzwingt Param-Transfer statt Online-VQE (ein COBYLA-Loop waeren ~11 sequenzielle Jobs): die drei Pubs werden an den committeten Fez-Run-1-Optimum-Params [-0.10039260373380426, 0.31547161200836626, -0.7794084485021391, -0.09555937796511249] gemessen (Job d9fidihhtsac739fg3n0).",
+    "theorem_identity": "Re(H_PT) \u2261 H_diag als Operatoren (C1, Matrix- und Pauli-Ebene) \u2014 der gemessene bias_PT_re ist der Shot-Kontrast identischer Observablen (Fez Run 1 -0.0119, Run 2 -0.0085), kein Operator-Effekt.",
+    "threshold_reuse": "Schwellen 0.05/0.15 aus dem committeten Prereg vom 2026-06-08 WIEDERVERWENDET, nicht neu erfunden (Anti-Sharpshooter).",
+    "vqd_honest_re_registration": "Hardware-VQD scheitert dokumentiert (COBYLA-Lokalminima, pt_vqe_vqd.py-Docstring); statt eines Schein-VQD-Gap wird bias_PT_re als Diskriminator registriert \u2014 das Fez-Protokoll leitete Delta deterministisch aus H_diag her.",
+    "im_bias_descriptive": "Im-Bias ist KEIN Gate (X.5: Session-Variabilitaet Faktor 200; Fez Run 1 -0.0205, Run 2 +0.0001); nur deskriptiv.",
+    "e0_definition": "E0 := Re-Pub an den Fez-Params (param-transfer). Fez-E0_meas 2.139820 ist der VQE-Loop-Wert und nicht param-identisch mit dem 3-Pub-Re-Messwert 2.145828.",
+    "spectrum_split": "min Re(spec(H_PT)) = 2.0018501462716807 (H1-Modellziel, committet) ist NICHT der Boden von Re(H_PT) = H_diag (exakt min(E_DIAG) = 2.0); der Ansatz erreicht noiseless 2.13778 \u2014 der Drift-Test ist Anker-relativ, nicht Boden-relativ.",
+    "band_derivation": "M_obs = max(|shift_STRESS| + 2*sigma_shot, |Fez run2 - run1|); Fez-Spread param-mismatched, konservativ. Alle drei Komponenten gefroren: STRESS-Shift (ISA + Noise p1=3e-4, ro=1e-2, ratio=10), Shot-SE exakt aus der STRESS-Dichtematrix (reduzierter 2-Qubit-Circuit, Var = Tr(rho O^2) - <O>^2, SE = sqrt(Var)/sqrt(8192); Aer reduziert die 156-Qubit-ISA intern auf aktive Qubits, uniform Noise macht die Reduktion statistisch exakt, C6 cross-checkt 1e-9). Bewusst NICHT die AerEstimator-Precision-Semantik: precision>0 injiziert N(exakt, precision)-Gauss-Noise, kein binomiales Shot-Sampling.",
+    "shot_se_analytic": "sigma_shot ist die exakte Varianz aus der STRESS-Dichtematrix, nicht ein sd-Schaetzer ueber Seeds; Ergebnis: alle drei Baender sind Fez-Spread-dominiert (2*sigma_shot + |shift| < Spread fuer re/hd/im), d.h. die Baender sind genau die Spanne der beiden Fez-Runs (obere Kante = Fez Run 2).",
+    "grade_expectation": "Ein-Job-Bestaetigung ist ein A- Kandidat, NICHT A (eine Session, keine Cross-Session-Replikation)."
+  },
+  "anchors": {
+    "fez_run1": {
+      "job_id": "d9fidihhtsac739fg3n0",
+      "re": 2.145828476862593,
+      "hd": 2.1577507852679036,
+      "im": 0.009395361635620568,
+      "bias": -0.011922308405310833,
+      "e0_loop": 2.1398203106629032
+    },
+    "fez_run2": {
+      "job_id": "d9fjbraneu4c739pmaqg",
+      "re": 2.17247246569962,
+      "hd": 2.1809962200449498,
+      "im": 0.03003274212843888,
+      "bias": -0.008523754345329593
+    },
+    "fez_spread": {
+      "re": 0.026643988837027344,
+      "hd": 0.023245434777046103,
+      "im": 0.02063738049281831,
+      "bias": 0.0033985540599812403
+    },
+    "noiseless": {
+      "re": 2.13778084208,
+      "im": 0.008960976233,
+      "e0_h1": 2.0018501462716807,
+      "e0_diag": 2.0
+    },
+    "stress_shift": {
+      "re": 0.007975119242,
+      "im": 0.000111359004
+    },
+    "shot_se": {
+      "re": 0.004367920539504277,
+      "hd": 0.004367920539504277,
+      "im": 0.00032217563103976147,
+      "bias": 0.006177172466334955
+    }
+  },
+  "thresholds": {
+    "bias_confirmed": 0.05,
+    "bias_refuted": 0.15,
+    "shots": 8192,
+    "band_shot_sigma": 2.0,
+    "stress": {
+      "p1": 0.0003,
+      "ro": 0.01,
+      "ratio": 10.0
+    },
+    "online_depth_max": 40,
+    "online_2q_names": [
+      "cz",
+      "ecr",
+      "cx"
+    ]
+  },
+  "bands": {
+    "re": [
+      2.1191844880255655,
+      2.17247246569962
+    ],
+    "hd": [
+      2.1345053504908575,
+      2.1809962200449498
+    ],
+    "im": [
+      -0.011242018857197743,
+      0.03003274212843888
+    ]
+  },
+  "isa_acceptance": {
+    "offline_frozen": {
+      "two_q": 1,
+      "one_q": 18,
+      "names": [
+        "cz"
+      ],
+      "depth": 11
+    },
+    "online": {
+      "two_q": 1,
+      "names": [
+        "cz",
+        "ecr",
+        "cx"
+      ],
+      "depth_max": 40
+    }
+  },
+  "controls": {
+    "C1_theorem_identity": "Re(H_PT) \u2261 H_diag exakt (Matrix + Pauli) \u2014 sonst INVALID",
+    "C2_noiseless_anchors": "noiseless an Fez-Params: Re=H_diag=2.137780842080, Im=0.008960976233, bias exakt 0",
+    "C3_spectrum_split": "Boden(H_real) = 2.0 exakt UND H1-Ziel 2.0018501462716807 reproduziert (Trennung der beiden Groessen)",
+    "C4_isa_offline_anchor": "FakeFez-ISA gefroren: 1 cz, 18 1q, Tiefe 11 (seed 7)",
+    "C5_stress_baseline": "STRESS-Shift reproduziert gefroren (+0.007975119242 Re, +0.000111359004 Im, bias exakt 0)",
+    "C6_reduction_exact": "Reduzierter 2-Qubit-Pfad \u2261 Full-Path: <Re> aus der STRESS-Dichtematrix trifft 2.145755961322 (1e-9) und shot_se() trifft die gefrorenen SE-Konstanten exakt",
+    "gate": "Kontrollfehler -> EVALUATION_INVALID"
+  },
+  "verdict_map": {
+    "CONFIRMED": "H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND",
+    "BIAS_MITTEL": "H-V5_INNERHALB_BAENDER_BIAS_MITTELKLASSE",
+    "MITTEL": "H-V5_MITTEL_EIN_OBSERVABLE_AUSSEN",
+    "REFUTED": "H-V5_REFUTED_DRIFT",
+    "INVALID": "EVALUATION_INVALID_KONTROLLE_GESCHEITERT"
+  },
+  "decision_table": [
+    "Kontrollen fail -> EVALUATION_INVALID",
+    "0 Observablen aussen & |bias| < 0.05 -> CONFIRMED",
+    "0 Observablen aussen & 0.05 <= |bias| < 0.15 -> BIAS_MITTEL",
+    "genau 1 Observable aussen & |bias| < 0.05 -> MITTEL",
+    "sonst (>=2 aussen ODER 1 aussen + bias >= 0.05 ODER |bias| >= 0.15) -> REFUTED_DRIFT"
+  ],
+  "protocol": {
+    "estimator": "EstimatorV2 (mode=backend)",
+    "pubs": [
+      "Re(H_PT)",
+      "H_diag",
+      "Im(H_PT)"
+    ],
+    "resilience_level": 1,
+    "dynamical_decoupling": "XX",
+    "one_job": true
+  },
+  "qpu": {
+    "backend": "ibm_kingston",
+    "token": "IBMQ_TOKEN2 (NIEMALS echo/committen; TOKEN1 bleibt Fez-Pfad)",
+    "quota_check_first": true,
+    "one_job": true
+  },
+  "seeds": {
+    "transpiler": 7
+  },
+  "md5": "d019d587c0d8ca28cfa0559057d590c8"
+}
