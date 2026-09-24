@@ -1060,6 +1060,10 @@ deleted from the working tree.
 | 2026-06-17 13:00 | 150 | 9 | baseline |
 | 2026-06-17 13:08 | 172 | 10 | +22 (Im-Bias) |
 | **2026-06-17 17:25** | **173** | **10** | **+1 (regression test prereg protection)** |
+| 2026-08-15 | 339 | — | PATTERN C finite-kernel-check (commit `3fa7081`) |
+| 2026-09-15 | 465 | — | §Z.11–14 (commits `f75c994` → `d85bcfe`) |
+| 2026-09-23 | 534 | — | Steelman V1–V4 (§Z.15/16, +74) |
+| **2026-09-24** | **584** | — | **Pakete 1–4 (§Z.17/18)** |
 
 ### Commits (as of 2026-06-17 17:25 UTC)
 
@@ -1075,13 +1079,93 @@ deleted from the working tree.
 - **`d0cfae7` — FIX 17:25: test bug pt_potential_vqe_prereg.json deleted,
   + regression test** (NEW)
 
-### Next steps (Q3 2026)
+### Update 2026-07-21 → 2026-09-24 — Ququint-Arc (Pillar 4 + §Z.11–18)
 
-1. **VQE+VQD on Fez/TOKEN2** (switch to `pt_vqe_vqd_token2.py`) — statevector
-   value bias_PT_re = 0.000 confirmed, now QPU validation
-2. **Latorre tension preprint** (Q3 2026) — H_C is statevector-validated for 6
-   decades, Aer + Fez double-validated
-3. **Sub-RH indicator promotion** to A? — if VQE+QPU+sweeps are consistent,
-   promotion to A
-4. **TOKEN1 backup** retained — in case of TOKEN2 failure (quota) still one
+#### QPU-VQE+VQD-Meilenstein (2026-07-21, Fez/TOKEN1)
+
+- **ERSTER echter QPU-VQE+VQD-Lauf** nach 31 Tagen Blockade (TOKEN1 echt offen,
+  18 historische Jobs retroaktiv inventarisiert): Job `d9fidihhtsac739fg3n0`,
+  **E_0 = 2.1398**, `bias_PT_re = −0.0119` → **H1/H3 QPU-confirmed**.
+- **Drei-Pfad-Konsistenz:** Fez/TOKEN2 Singleshot (2026-06-10) + Statevector
+  VQE-Optimum + Fez/TOKEN1 VQE+VQD.
+- Run 2 (gleicher Tag): Reproduzierbarkeit + Session-Variabilität
+  (Meta-Analysis, 5 strategische Vektor-Updates).
+- **Pillar 4 implementiert (Prime Qudits GF(5)):** GF(5)-Polynom-Ring,
+  GF(5)-Gates + Ququint-Quantensimulator, empirische 2-Qubit-vs-1-Ququint-
+  Vergleiche; `H_PT_5 = H_PT_4` bit-genau. 133 neue Tests → 402 grün.
+- **2026-08-15:** Comparator-Pattern-Review + PATTERN C finite-kernel-check
+  (zeta-23-lean, 339 grün).
+
+#### QUQUINT auf IBMQ (§Z.11–14, 2026-09-15) — Fez CONFIRMED
+
+| Phase | Experiment | Inhalt | QPU |
+|---|---|---|---|
+| §Z.11 | 029 | Zwei-Ququint-Verschränkung (statevector, 12 qubits) | 0 |
+| §Z.12 | 030 | 3-Qubit-Emulation + konditionaler Weyl-Witness | 0 |
+| §Z.13 | 031 | Aer-Noise + Transpilation; 45-cx-Budget | 0 (Aer) |
+| §Z.14 | 032 | Prereg-Freeze md5 `18fb1e62` vor Hardware; Fez-Lauf | **1** |
+
+Fez-Job `dakjk9hhvn6c73cvr1cg` (12 Circuits × 8192 Shots, TOKEN1): phi V =
+0.625 > 1/5, sep V = 0.166 < 1/5, Konfund 0.015 → **CONFIRMED, alle 3
+Prereg-Bänder gehalten**. ISA-Budget 370 2q (phi_D 81 vs Soll 45).
+Vektoren: `QUQUINT_QPU_VIABLE` **A−**, `LEAKAGE_SIEVE_STRUCTURE` **B** (465 grün).
+
+#### Steelman-Runde V1–V4 (§Z.15/16, 2026-09-23, 0 QPU)
+
+4/4 Prereg-Freeze; Bilanz 1 CONFIRMED (V4: **κ\* = 62.26**, Rough-Modell 62.31),
+1 REFUTED mit Nebenfund (V2: Witness rank-trivial + **Ramanujan-Fingerprint**,
+Vektor **B** NEU), 1 PARTIAL (V1: Struktur real, Sieb-Portal gescheitert),
+1 INKONKLUSIV (V3: DEGENERAT, GUE-Konstante 0.5359 → 0.5996 korrigiert).
+Vektor-Upgrades: `QUQUINT_THRESHOLD_CROSSOVER` B → **A−**; Downs:
+`LEAKAGE_SIEVE_STRUCTURE`, `WITNESS_SCALES_WITH_PRIMES`, `GUE_THIRD_OBSERVABLE`
+→ C. 534 Tests (+74).
+
+#### Pakete 1–4 (§Z.17/18, 2026-09-24)
+
+- **EXPERIMENT 033 (α-Trennungstest, md5 `206b074c`):** INKONKLUSIV —
+  α_isa = 1.5462 außerhalb beider Bänder; ISA schließt auf 0.3%, 45-cx nicht
+  (Routing-Surplus ≈ 128 Einheiten). V4-Verdikt unverändert, Mechanismus
+  revidiert.
+- **EXPERIMENT 034 (Ramanujan-Replikation, md5 `a2fc4875`):** REPLICATED —
+  exaktes Uniform-Modell (m−5)²/(4dm), alle 5 gated Punkte im Band, kein
+  Kontroll-Overlap. Vektor `RAMANUJAN_DFT_FINGERPRINT` B → **B+**.
+- **EXPERIMENT 035 (V5 Kingston, md5 `d019d587` vor Hardware):** CONFIRMED —
+  Job `daqaeteekp0c73aqetdg` (TOKEN2, 8192 Shots), ISA = FakeFez-Anker,
+  alle 3 Observablen in den gefrorenen Bändern, bias +0.0074 < 0.05.
+  Vektor `KINGSTON_AS_NEUTRAL_BACKEND` B+ → **A−**. Methodik-Korrektur:
+  Aer-precision>0 ist Gauss-Noise-Injektion, kein Shot-Sampling.
+- **EXPERIMENT 036 (H-STAR-5, md5 `f915729e`):** HYPOTHESE registriert, NICHT
+  ausgeführt (0 QPU) — SFF-Brücke (Keating-Snaith), Score 7/10, Käfig-Diagnose
+  mit zwei exakten Blindheiten (Tensor-Summen-Faktorisierung exakt; Haar-
+  Basis-Kandidat spektral-blind = VOID vor-registriert). Ausführung = nächste
+  Phase (Ausführungs-Prereg VOR erster Messung).
+
+```mermaid
+graph TD
+    P4[Pillar 4: Ququint GF5<br/>2026-07-21] --> VQE[QPU-VQE+VQD Fez TOKEN1<br/>d9fidihhtsac739fg3n0<br/>E_0 2.1398, H1/H3 CONFIRMED]
+    P4 --> Z11[§Z.11-13<br/>Verschränkung + Emulation<br/>+ Aer-Noise 0 QPU]
+    Z11 --> Z14[§Z.14 Fez-Lauf<br/>dakjk9hhvn6c73cvr1cg<br/>CONFIRMED, alle Bänder]
+    Z14 --> Z16[§Z.15/16 Steelman V1-V4<br/>κ* = 62.26 CONFIRMED<br/>Ramanujan-Fingerprint NEU]
+    Z16 --> Z17[§Z.17<br/>033 α INKONKLUSIV<br/>034 Ramanujan REPLICATED B+]
+    Z14 --> Z18[§Z.18<br/>035 V5 Kingston CONFIRMED<br/>036 H-STAR-5 HYPOTHESE]
+    Z18 --> NEXT[nächste Phase:<br/>H-STAR-5 Ausführung<br/>Prereg -> Aer -> QPU-Spot]
+
+    style VQE fill:#5f5,stroke:#333,stroke-width:3px
+    style Z14 fill:#5f5,stroke:#333,stroke-width:2px
+    style NEXT fill:#fc9,stroke:#333,stroke-width:3px
+```
+
+![QAI Block 7 — Ququint-Arc](figures/qai_block_7.png)
+
+### Next steps (Q3/Q4 2026, Stand 2026-09-24)
+
+1. **H-STAR-5 ausführen** (nächste Phase, registriert): Ausführungs-Prereg mit
+   numerischen Fenstern/Ensemble-Größe/Schwellwerten freeze VOR der ersten
+   Messung → Aer-Ensemble (0 QPU) → QPU-Spot-Check nur bei sichtbarer
+   Prime-Trennung; Rückfall-Pfad H-STAR-5b (VQE-Hessian/Wishart)
+2. **Latorre tension preprint** — arXiv-Text steht (`latorre_tension_arxiv.tex`),
+   α-Inhalte unverändert; Testzahl-Aktualisierung
+3. **TOKEN1 backup** retained — in case of TOKEN2 failure (quota) still one
    account
+4. ~~VQE+VQD on Fez~~ — **DONE 2026-07-21** (`d9fidihhtsac739fg3n0`)
+5. ~~Sub-RH indicator promotion~~ — **A− bleibt A−** (keine neue Evidenz)

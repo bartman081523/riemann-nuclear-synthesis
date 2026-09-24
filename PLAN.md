@@ -2,14 +2,14 @@
 
 ## Document Map
 
-Historical execution roadmap. Phases 1–3 completed since 2026-06-08; **Phase 4 (Im-Bias + statevector-first)** active since 2026-06-17.
+Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung)** next.
 
 | Datei | Status | Rolle |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Verweist auf `CLAUDE.md` |
 | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **CURRENT (primary)** | theory (Sections 1–9) + Operational Findings Log (§10) |
-| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Z, inkl. §Z.11–18 Ququint-Arc) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
 | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
@@ -61,8 +61,31 @@ To finalize the research document by auditing missing theories, refining existin
     4. Strategic vector `IM_BIAS_AS_KANONISCHE_METRIK` promoted to **A**, `REFRAMING_VECTOR_RELATIVE_SPECTRUM` to **A+**.
 - **Result:** Asymptotics N=10⁴..10⁶ (statevector) confirm H_C (alpha decreases monotonically with N), Latorre tension classified as **fundamental disagreement** (`LATORE_TENSION_NOTE.md` §11). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Q.5, `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 17:25 UTC.
 
+## Phase 5 (2026-07-21 → 2026-09-24): QUQUINT/Pillar 4 (GF(5)) + QPU-Arc §Z.11–18 — DONE
+
+- **Goal:** Fourth pillar — Ququint GF(5) prime-state architecture, from simulator (bit-exact H_PT_5 = H_PT_4) over QPU confirmation (§Z.14) to the Steelman round (§Z.15/16, V1–V4) and the four follow-up packages (§Z.17/18).
+- **Milestones:**
+    1. **QPU-VQE+VQD first (2026-07-21, Fez/TOKEN1):** Job `d9fidihhtsac739fg3n0`, E_0 = 2.1398, bias_PT_re = −0.0119, H1/H3 QPU-confirmed; three-path consistency (Singleshot + Statevector + VQE+VQD).
+    2. **Pillar 4 GF(5) phases 1–3:** polynomial ring + gates + simulator, H_PT_5 = H_PT_4 bit-exact, 133 new tests → 402 green.
+    3. **§Z.11–14 (EXPERIMENT 029–032, 2026-09-15, Fez/TOKEN1):** Prereg md5 `18fb1e62` frozen BEFORE hardware; Fez-Lauf `dakjk9hhvn6c73cvr1cg` (12 circuits × 8192 shots): phi V = 0.625 > 1/5, sep V = 0.166 < 1/5, Konfund 0.015 ≤ 0.05 → **CONFIRMED**, all 3 prereg bands held. ISA 370 2q (phi_D 81 vs Soll 45) → leakage table. Vectors: `QUQUINT_QPU_VIABLE` **A−**, `LEAKAGE_SIEVE_STRUCTURE` **B**.
+    4. **§Z.15/16 Steelman V1–V4 (2026-09-23, 0 QPU):** 4/4 Prereg-Freeze before evaluation. V1 PARTIAL_STRUKTUR_KEIN_SIEB (md5 `6a0ed394`), V2 H-STAR-1_REFUTED + RAMANUJAN_FINGERPRINT **B** NEU (md5 `d9da292c`), V3 INKONKLUSIV_DEGENERAT (GUE-Konstante 0.5359 → 0.5996, md5 `3a47ec57`), V4 CONFIRMED κ\* = 62.26 (Rough model 62.31, 0.1%; md5 `7abb5e60`). `QUQUINT_THRESHOLD_CROSSOVER` B → **A−**.
+    5. **§Z.17/18 Packages 1–4 (EXPERIMENT 033–036, 2026-09-24):** 033 α-Trennungstest INKONKLUSIV (α_isa = 1.5462 outside both bands; ISA closes 0.3%, mechanism revised — Routing-Surplus ≈ 128 units); 034 Ramanujan REPLICATED (exact model (m−5)²/(4dm), ratio 1.0248, 5/5 gated points in band, no control overlap; vector → **B+**); 035 V5 Kingston CONFIRMED (Job `daqaeteekp0c73aqetdg`, TOKEN2, bias +0.0074 < 0.05, `KINGSTON_AS_NEUTRAL_BACKEND` B+ → **A−**; Aer-methodology correction: precision>0 is Gauss noise, not shot sampling); 036 H-STAR-5 HYPOTHESE registered, not executed (md5 `f915729e`, Score 7/10, Keating–Snaith bridge, Haar candidate pre-registered as VOID `H-STAR-5a`).
+- **Result:** Pillar 4 QPU-viable (A−); 584 tests green. Full detail: `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.14–10.19, `SYNTHESIS_2026_06_10.md` §Z.11–18, `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 2026-07-21 → 2026-09-24.
+
+## Phase 6 (NEXT): H-STAR-5 execution
+
+- **Goal:** Execute the H-STAR-5 hypothesis (md5 `f915729e`, §Z.18/EXPERIMENT 036) — Keating–Snaith bridge observable O1 = K_prime(t2)/K_prime(t1) + O2 factorization residuum, with the control family (CUE-must-fire / Shuffle+Composite / structural).
+- **Steps:**
+    1. Execution prereg (freeze before any evaluation; skeleton md5 `f915729e` fixed).
+    2. Aer-ensemble simulation (0 QPU) — QPU spot-check only if visible prime separation appears.
+    3. Control family must fire correctly (Positiv CUE must-fire, else VOID; Negativ Shuffle+Composite; Strukturell exact) — apophenia guard.
+    4. Fallback: H-STAR-5b (VQE-Hessian/Wishart landscape as observable, Score 6).
+- **Status:** NOT STARTED (0 QPU so far). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.18, memory `project-next-phase-hstar5-execution`.
+
 ## Execution Schedule (historical)
 1. Farrell Audit → ✅ DONE (Phase 1)
 2. Grant Refinement → ✅ DONE (Phase 2)
 3. Zeraoulia Simulation → ✅ DONE (Phase 3)
 4. QPU-validierte Im-Bias → ✅ DONE (Phase 4, 2026-06-17)
+5. QUQUINT/Pillar 4 + §Z.11–18 → ✅ DONE (Phase 5, 2026-07-21 → 2026-09-24)
+6. H-STAR-5-Ausführung → ⏳ NEXT (Phase 6)

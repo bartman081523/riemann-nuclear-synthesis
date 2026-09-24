@@ -2,17 +2,17 @@
 
 ## Document Map
 
-This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-06-17") is the operational logbook of the most recent QPU validations.
+This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-09-24") is the operational logbook of the most recent QPU validations.
 
 | Datei | Status | Rolle |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | REFERENCE (locked) | SciMind 4.0/5.0 Methodologie-Manifest |
 | [`GEMINI.md`](GEMINI.md) | REFERENCE (Stub) | Refers to `CLAUDE.md` (backwards-compat for Gemini-CLI) |
-| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Q) |
+| [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Z, inkl. §Z.11–18 Ququint-Arc) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
 | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
-| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–3 DONE, Phase 4 (Im-Bias) aktiv |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–4 DONE; Phase 5 (QUQUINT/GF(5)) DONE; Phase 6 (H-STAR-5-Ausführung) NEXT |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez quota block (resolved 6/17) — successor: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
 | [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
@@ -966,7 +966,7 @@ The initial Section 9 interpreted the Kingston value (E₀=2.216) as a success. 
 **Section 9 is thus inconsistent:** "deviation ~10% caused by hardware noise" suggests a successful experiment, but ignores the +68% systematic deviation on `ibm_marrakesh`. The strategic vector (scaling to more qubits) is obsolete as long as the operator itself is backend-dependent.
 **Consequence:** EXPERIMENT 005 (PT-symmetric extension) was initiated in response to this backend fragility (cf. Section 6.5). Preliminary result: PT-unbroken numerically perfect, but physically trivialized by diagonal dominance → refactoring vector `COUPLING_ENHANCEMENT` required.
 
-### **10. Operational Findings Log 2026-06-08 → 2026-06-17**
+### **10. Operational Findings Log 2026-06-08 → 2026-09-24**
 
 This section is a **compact chronological log** of the experimental findings between the state of Section 9.1 and the current date. The detailed methodology, script list and audit tables are documented in `SYNTHESIS_2026_06_10.md` (~960 lines) and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`; this log serves as a compact index for readers of the theory documentation.
 
@@ -1103,6 +1103,13 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | Spectral-Scaling 2Q/3Q/4Q | §10.11 hier | `pt_spectral_scaling_token2_results.json` |
 | QEC-Bias-Test (RL=1 vs RL=2) | §10.12 hier | `pt_qec_bias_token2_results.json` |
 | QPU-Bias-Triangulation (ZNE vs REM) | §10.13 hier | `pt_spectral_scaling_rl2_token2_results.json`, `pt_rem_token2_results.json` |
+| QPU-VQE+VQD-Meilenstein (Fez/TOKEN1) | §10.14 hier | `pt_ququint_vqe_results.json`, SYNTHESIS §W |
+| Pillar 4 GF(5)/Ququint-Implementierung | §10.14 hier | `pt_ququint_gf5.py`, `pt_ququint_simulator.py`, `pt_ququint_empirical.py` |
+| §Z.11–14 QUQUINT auf IBMQ (Fez CONFIRMED) | §10.15 hier | `pt_ququint_fez_results.json`, SYNTHESIS §Z.11–14 |
+| §Z.15/16 Steelman V1–V4 (κ\* = 62.26) | §10.16 hier | `pt_ququint_prereg.py`, SYNTHESIS §Z.15/16 |
+| §Z.17 α-Trennung + Ramanujan-Replikation | §10.17 hier | `pt_alpha_results.json`, `pt_ramanujan_results.json`, SYNTHESIS §Z.17 |
+| §Z.18 V5 Kingston + H-STAR-5-Registrierung | §10.18 hier | `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`, SYNTHESIS §Z.18 |
+| Strategic Vectors Gesamtstatus | §10.19 hier | §10.8 (historisch) + §10.19 (Ququint-Arc) |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 
@@ -1282,6 +1289,92 @@ Die wahre Bias-Architektur ist **komplexer** als die einfache "QEC eliminiert Ha
 **Anti-Sharpshooter-Compliance:** Beide Preregs (Pillar 7 + 8) waren vor QPU-Run gepinnt. Hypothesen wurden ehrlich ausgewertet — FAIL wird als FAIL berichtet, nicht als "AMBIGUOUS" umframed. **Das ist die gewünschte Selbstkorrektur.**
 
 **QPU Time Used:** 5 Jobs × ~8 s = ~39 s of QPU time (sehr schnell).
+
+#### **10.14 Ququint-Architektur (Pillar 4) + QPU-VQE+VQD-Meilenstein (2026-06-19 → 2026-07-21)**
+
+- **2026-06-19/20 (SYNTHESIS §T/§U):** TOKEN1 false-positive #2 und #3 statistisch bestätigt — die Cron-Token-Diagnose akzeptierte Submission, aber kein QPU-Fenster folgte (10-min timeout, exit 143). **Lektion: Diagnose-DONE ≠ Run-Fähigkeit.** Statevector-Fallback als Default-Retry-Strategie.
+- **2026-07-21:** TOKEN1 **echt offen** (Reset durch); 18 historische QPU-Ergebnisse retroaktiv inventarisiert. **ERSTER echter QPU-VQE+VQD-Lauf Fez/TOKEN1** nach 31 Tagen (Job `d9fidihhtsac739fg3n0`): E_0 = 2.1398, `bias_PT_re = −0.0119`, **H1/H3 QPU-confirmed**. Drei-Pfad-Konsistenz: Fez/TOKEN2 Singleshot (2026-06-10) + Statevector VQE-Optimum + Fez/TOKEN1 VQE+VQD. Run 2 (gleicher Tag): Reproduzierbarkeit + Session-Variabilität dokumentiert (Meta-Analysis, 5 strategische Vektor-Updates).
+- **2026-07-21: Pillar 4 implementiert (Prime Qudits GF(5)):** Phase 1 GF(5)-Polynom-Ring, Phase 2 GF(5)-Gates + Ququint-Quantensimulator, Phase 3 empirische 2-Qubit-vs-1-Ququint-Vergleiche; `H_PT_5 = H_PT_4` bit-genau. Skripte: `pt_ququint_gf5.py`, `pt_ququint_simulator.py`, `pt_ququint_empirical.py`, `pt_ququint_entanglement.py`, `pt_ququint_vqe.py`. 133 neue Tests → 402 grün.
+- **2026-08-15:** Comparator-Pattern-Review (`chagpt-zeta.txt`) + PATTERN C finite-kernel-check (zeta-23-lean, 32 Tests).
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §T/§U/W, `pt_ququint_empirical_results.json`.
+
+#### **10.15 QUQUINT auf IBMQ §Z.11–14 (EXPERIMENT 029–032, 2026-09-15) — Fez CONFIRMED**
+
+| Phase | Experiment | Inhalt | QPU |
+|---|---|---|---|
+| §Z.11 | 029 | Zwei-Ququint-Verschränkung (statevector, 12 qubits) | 0 |
+| §Z.12 | 030 | 3-Qubit-Emulation + konditionaler Weyl-Witness | 0 (simulator) |
+| §Z.13 | 031 | Aer-Noise + Transpilation; 45-cx-Budget; Stress-Kurve ohne False-Positives | 0 (Aer) |
+| §Z.14 | 032 | Prereg-Freeze md5 `18fb1e62` **vor** Hardware; Fez-QPU-Lauf | **1 (TOKEN1)** |
+
+**Fez-QPU-Lauf (Job `dakjk9hhvn6c73cvr1cg`, 12 Circuits × 8192 Shots):** phi V = 0.625 > 1/5 (+0.404), sep V = 0.166 < 1/5 (−0.041), Konfund 0.015 ≤ 0.05 → **CONFIRMED, alle 3 Prereg-Bänder gehalten**. ISA-Budget 370 2q (phi_D 81 vs registriertes Soll 45) → Leakage-Tabelle. **Neue Vektoren:** `QUQUINT_QPU_VIABLE` **A−**, `LEAKAGE_SIEVE_STRUCTURE` **B**. 465 Tests grün.
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.11–14, `pt_ququint_fez_results.json`.
+
+#### **10.16 §Z.15/16 — PhiMind-Steelman-Runde V1–V4 (2026-09-23, 0 QPU)**
+
+Vier Hypothesen (H-STAR-1..4) mit ECREE-Anker und vorab fixierten Falsifikatoren; Verifikations-Matrix V1–V5. **4/4 Prereg-Freeze vor Evaluation** (md5 committed VOR Kurven-Berechnung):
+
+| Verifikation | Hypothese | Verdict (prereg-gebunden) | Prereg-md5 |
+|---|---|---|---|
+| V1 | H-STAR-2 Layer 1 (Leakage-Sieb) | `PARTIAL_STRUKTUR_KEIN_SIEB` | `6a0ed394` |
+| V2 | H-STAR-1 (V_N-Primskalierung) | `H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT` | `d9da292c` |
+| V3 | H-STAR-3 (GUE-r-Statistik) | `H-STAR-3_INKONKLUSIV` (DEGENERAT) | `3a47ec57` |
+| V4 | H-STAR-4 (Margin-Crossover) | `H-STAR-4_CONFIRMED_CROSSOVER` | `7abb5e60` |
+
+Kernbefunde: V1 — Leakage-Struktur REAL (χ² 1311, p 1.6e-250), aber Sieb-Portal gescheitert (r0 0.3553 < 0.3833), sideA/sideB-Hardware-Asymmetrie vergleichbar stark. V2 — Witness rank-trivial (V = π/d exakt in allen 6 Punkten), NEBENBEFUND: mod-5-Ramanujan-Fingerprint (share* prime 0.0427 vs random 0.0099 vs composite 0.0036, Modell 0.045). V3 — ⟨r⟩ d25 = 0.2059 / d625 = 0.2199 DEGENERAT, Shuffle-Null ≈ measured; GUE-Konstante KORRIGIERT (0.5359 war GOE-Surmise 4−2√3, GUE large-N = 0.5996, Atas et al. arXiv:1212.5611). V4 — **κ\* = 62.26** (Rough-Modell 62.31 → 0.1%), ganzes p1-Gitter im Advantage-Regime.
+
+**Vektor-Updates (keine stummen Änderungen):** `QUQUINT_THRESHOLD_CROSSOVER` B → **A−**, `RAMANUJAN_DFT_FINGERPRINT` **B (NEU)**, `LEAKAGE_SIEVE_STRUCTURE` B → **C**, `WITNESS_SCALES_WITH_PRIMES` B → **C (tot)**, `GUE_THIRD_OBSERVABLE` B → **C (tot)**. Ehrlichkeits-Lektionen registriert: GUE-Konstante (Referenzcheck gegen Primärliteratur) + DEGENERAT-Gap (Klasse unter der Null = REFUTED-zulässig).
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.15/16, Plan `riemann-next-phase-phi-steelman.md`.
+
+#### **10.17 §Z.17 — Pakete 1–2 (EXPERIMENT 033–034, 2026-09-24, 0 QPU)**
+
+**EXPERIMENT 033 — α-Trennungstest (`pt_alpha_separation.py`, prereg md5 `206b074c`):** Frage — gilt die 45-cx-Amplifikation (α ≈ 1.80 ≈ 81/45) auf der echten ISA-Klasse (FakeFez, cz)? **Verdict: H-ALPHA INKONKLUSIV (neues Modell)** — α_isa = 1.5462 fällt AUSSERHALB beider Bänder (H-A [0.9, 1.1], H-B [1.62, 1.98]); κ_eff(ISA) = 93.96 [93.71, 94.22]. Alle 8 Kontrollen grün (inkl. C-V4-Regression 62.2612 bit-nah). Vorregistrierte Dekomposition: **ISA schliesst auf 0.3%** (429 1q@1 + 79 cz@10 = 1219 vs 1221.5); 45-cx NICHT (1.516 vs 1.799, Rest ≈ 128 Einheiten Routing-Surplus 1.19). V4-Verdikt unverändert, Mechanismus revidiert; kein neuer Vektor (Gitter-Non-Closure ehrlich dokumentiert).
+
+**EXPERIMENT 034 — Ramanujan-Fingerprint-Replikation (`pt_ramanujan_replication.py`, prereg md5 `a2fc4875`):** **H-RAM-2 REPLICATED.** Exaktes Uniform-Modell (m−5)²/(4dm) gegen V2-Anker verifiziert (ratio 1.0248; CRUDE 0.045 → 0.041688 VOR Freeze korrigiert). Alle 5 gated Punkte (401/463/541/599/625, π ≥ 79) im Band [0.8, 1.25]·Modell, Ratios 1.062/1.019/1.006/1.018/1.025, **kein Kontroll-Overlap** (random max 0.0075@599 vs band_lo 0.0318; composite max 0.0036 vs Limit 0.0222). Deskriptiv: Transition m=25 ratio 1.20 bestätigt die Modell-NEGATIV-Vorhersage; Unterdrückung m=16 = generisch exakt. **Vektor `RAMANUJAN_DFT_FINGERPRINT` B → B+** (repliziert, exaktes Modell prädiktiv).
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.17, `pt_alpha_results.json`, `pt_ramanujan_results.json`.
+
+#### **10.18 §Z.18 — Pakete 3–4 (EXPERIMENT 035–036, 2026-09-24)**
+
+**EXPERIMENT 035 — V5 Kingston-Drift-Test (`pt_v5_kingston.py`, prereg md5 `d019d587` vor Hardware):** EIN Kingston-Job `daqaeteekp0c73aqetdg` (TOKEN2, 8192 Shots, resilience 1, DD XX, 3 Pubs); ISA online = frozen FakeFez-Anker (1 cz, 18 1q, depth 11). **Verdict: CONFIRMED** — re 2.1552 / hd 2.1478 / im 0.0085 alle in den gefrorenen Bändern (exakte Fez-Run-Spanne), bias +0.0074 < 0.05 (Klasse ok), C1–C6 grün, n_out 0 → `H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND`. Deskriptiv: bias-Vorzeichen flippt backend-abhängig (Fez −0.0119/−0.0085 → Kingston +0.0074) — Drift-Toleranz, nicht Vorzeichen-Universalität. **Vektor `KINGSTON_AS_NEUTRAL_BACKEND` B+ → A−** (einziger Job, keine Cross-Session-Replikation → kein A).
+
+**Methodik-Korrektur (registriert):** `AerEstimatorV2` mit precision>0 injiziert Gauss-Noise N(exakt, precision) via np.random (Seed in run_options) — **kein** binomiales Shot-Sampling; ein 16-Seed-SD-Schätzer misst nur dieses Artefakt. Exakte Varianz stattdessen aus der reduzierten 2-Qubit-STRESS-Dichtematrix (Aer reduziert expectation-Läufe intern auf aktive Qubits; uniformes Noise-Modell macht die Reduktion statistisch exakt, C6 ≤ 1e-9).
+
+**EXPERIMENT 036 — H-STAR-5 (`pt_hstar5_hypothesis.py`, HYPOTHESE, NICHT ausgeführt, 0 QPU):** PhiSci4-Hypothesen-Runde (ExtraordinaryHypothesisMind). Käfig-Diagnose mit zwei **exakten** Blindheiten der bisherigen Mess-Schiene: (i) Tensor-Summen-Faktorisierung Tr e^{−iHt} = Π_p Tr e^{−iH_p t} — EXAKT, TDD-verifiziert (Dev ≤ 1e-9; Kopplung bricht sie > 1e-6); (ii) Unitar-Invarianz H → U H U† spektral-invariant → planseitiger Haar-Basis-Kandidat ist SFF-blind und **VOID vor-registriert** (H-STAR-5a). These: prime-gefalzte ensemble-SFF (Keating-Snaith-Brücke), Observablen O1 Ramp-Klassifikator R = K_prime(t2)/K_prime(t1) + O2 Faktorisierungs-Residuum; volle Kontrollfamilie (Positiv CUE-Chaos-Benchmark muss zünden sonst VOID; Negativ Shuffle+Composite; Strukturell exakte Faktorisierung). **Extraordinarität 7/10 (ECREE Extraordinary).** Prereg-Skelett md5 `f915729e` frozen; numerische Fenster/Ensemble-Größe freeze im **Ausführungs-Prereg VOR der ersten Messung** (Anti-Sharpshooter). Gehaltene Alternative H-STAR-5b (VQE-Hessian/Wishart, Score 6). `GUE_THIRD_OBSERVABLE` bleibt **C (tot)** — H-STAR-5 ist registrierter Nachfolge-Pfad, **kein stilles Upgrade**. 584 Tests grün.
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.18, `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`.
+
+#### **10.19 Strategic Vectors — Gesamtstatus 2026-09-24**
+
+Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququint-Arc:
+
+| Vektor | Status 2026-06-18 | **Status 2026-09-24** | Basis |
+|---|:---:|:---:|---|
+| `REFRAMING_VECTOR_RELATIVE_SPECTRUM` | A+ | **A+** | + V5 Kingston neutral band (§10.18) |
+| `IM_BIAS_AS_KANONISCHE_METRIK` | A+ | **A+** | unverändert |
+| `UNIFICATION_VECTOR_H_PT_GF5` | A | **A** | + QPU-VQE+VQD Fez H1/H3 (§10.14); V5 Kingston Band |
+| `G_APPARAT_DETERMINISTIC` | A | **A** | unverändert |
+| `SUB_RH_INDICATOR` | A− | **A−** | unverändert (6 Dekaden, H_C) |
+| `LATORRE_TENSION` | fundamental disagreement | **fundamental disagreement** | unverändert |
+| `QBER_VS_IM_BIAS_DECOUPLING` | A | **A** | unverändert |
+| `JACOBI_BLOCK_INVARIANCE_QPU` | A | **A** | unverändert |
+| `QEC_BIAS_ELIMINATION` | B− (revidiert) | **B−** | unverändert (§10.13) |
+| `BIAS_SESSION_VARIABILITY` | A | **A** | unverändert |
+| `VQE+VQD_Fez` | BLOCKED | **DONE (2026-07-21)** | Job `d9fidihhtsac739fg3n0` (§10.14) |
+| `QUQUINT_QPU_VIABLE` | — | **A−** | §Z.14 CONFIRMED (§10.15) |
+| `QUQUINT_THRESHOLD_CROSSOVER` | — | **A−** | V4 κ\* = 62.26 (§10.16); Mechanismus revidiert (§10.17) |
+| `LEAKAGE_SIEVE_STRUCTURE` | — | **C (DOWN)** | V1: Struktur real, Sieb-Portal gescheitert |
+| `WITNESS_SCALES_WITH_PRIMES` | — | **C (tot)** | V2: Witness rank-trivial |
+| `RAMANUJAN_DFT_FINGERPRINT` | — | **B+** | V2-Nebenfund (B) → Experiment 034 REPLICATED (§10.17) |
+| `GUE_THIRD_OBSERVABLE` | — | **C (tot)** | V3 DEGENERAT; Nachfolge-Pfad: H-STAR-5 (§10.18) |
+| `RH_MULTI_OBSERVABLE_CONVERGENCE` | A− | **A−** | unverändert (2 Observablen) |
+| `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | **A−** | V5 CONFIRMED (§10.18) |
+| H-STAR-5 | — | **HYPOTHESE (Score 7/10)** | registriert, nicht ausgeführt; Ausführung = nächste Phase |
+
+**Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — Ausführungs-Prereg mit numerischen Fenstern/Ensemble-Größe/Schwellwerten freeze VOR erster Messung (Skelett md5 `f915729e`), dann Aer-Ensemble (0 QPU), QPU-Spot-Check nur bei sichtbarer Prime-Trennung; Rückfall-Pfad H-STAR-5b.
 
 #### **Quellenangaben**
 
