@@ -2453,8 +2453,104 @@ prereg-gebundenen Verdicts, nicht aus Interpretationsspielraum.
   (MOCS) bleibt bei 2 Observablen — der GUE-Pfad braucht einen anderen
   Encodierungsansatz (nicht Tensor-Summen deterministischer Blöcke).
 
+## §Z.17 — Paket 1: α-Trennungstest auf der echten ISA-Klasse (EXPERIMENT 033, 2026-09-24, 0 QPU)
+
+**Frage (Prereg):** §Z.16/V4 lieferte κ* = 62.26 auf dem lokal transpilierten
+45-cx-phi_D-Circuit (Rohgewicht 450·p1) mit impliziter Amplifikation
+α_45 ≈ 1.80 ≈ 81/45. Gilt diese Amplifikation auch auf der ECHTEN ISA-Klasse
+(FakeFez-Transpilation, cz statt cx), oder ist das Rough-Modell (α_isa = 1)
+dort direkt prädiktiv — oder keins von beiden?
+
+**Anti-Sharpshooter-Kette:** Plan (2026-09-24, Bänder VOR jedem ISA-Messlauf
+fixiert) → Smoke (Maschinen-Validierung; margin ≈ 0.4977 beim Freeze BEKANNT,
+Bänder NICHT angepasst; der sep-Kontroll-Gate wurde VOR dem Freeze ersetzt:
+sep-margin > 0 → Witness-Null-Trennung phi > sep + 0.1, da sep_D auf
+Aer-STRESS unter dem 0.2-Boden fällt — der alte Gate stammte aus der
+Phase-3-QPU-Entscheidungsregel; Anpassung im Prereg dokumentiert) →
+Freeze `pt_alpha_prereg.json` (md5 `206b074c6bd6676d300fb8cff7d062e1`,
+committet VOR Auswertung) → Auswertung → Ergebnisse committet.
+
+**Registrierte Modelle (Bänder aus Plan-Arithmetik, c = 79 frozen):**
+- H-A „Rough-Modell direkt prädiktiv": κ_eff = 10c/13 = 60.77,
+  ±10%-Band [54.69, 66.85] (α_isa = 1.0 → [0.9, 1.1]).
+- H-B „Kompoundierung der 45-cx-Amplifikation": κ_eff = 18c/13 = 109.38,
+  Band [98.45, 120.32] (α_isa = 1.8 → [1.62, 1.98]).
+- INKONKLUSIV: außerhalb beider → neues Modell (deskriptive Dekomposition
+  VORREGISTRIERT als Verfeinerungs-Kandidat, nicht verdikt-relevant).
+- Plan-Zaune [50, 80]/[90, 140]: Outer-Sanity-only, Verdikt folgt den
+  α-Bändern (so registriert).
+- natives Gewicht: (ratio+3)·κ·p1 = 13κ·p1 (3× 1q-Gates F5_A_prep/F5_A_rot/
+  F5dag_B_rot + 1× SUM_2q; exakt V4-Konvention).
+
+**Kontrollen (8/8 grün):** T1/T2/T2-45 noiseless-Anker (ISA-Reduktion auf 6
+aktive Qubits: Mess-Mapping erhalten, noiseless V = 1.0000); M native
+monoton; G1 Counts (phi_D = 79 cz frozen, Akzeptanz [76, 86] um den echten
+Fez-Wert 81; sep_C zwei-Qubit-frei); G2 Witness-Null-Trennung; K Konfund
+0.0106 ≤ 0.05; **C-V4-Regression: κ_eff(45cx) = 62.2612 reproduziert das
+kommittierte V4-κ* 62.26124** (dieselben Seeds/Pfade).
+
+**Messung (p1 = 3e-4, 8192 Shots, seed 42, FakeFez ISA + Aer lokal):**
+- ISA phi_D: V = 0.7177, SE = 0.0050, margin = 0.4977.
+- **κ_eff(ISA) = 93.96, Bracket [93.71, 94.22] → α_isa = 1.5462.**
+- **Verdikt: H-ALPHA_INKONKLUSIV_NEUES_MODELL** — außerhalb beider Bänder
+  (93.96 < 98.45; α 1.546 < 1.62), aber INNERHALB der H-B-Zaune [90, 140]
+  (Flag True, Sanity-only — genau die registrierte Trennung zwischen
+  Zaune-Flag und Verdikt).
+- Beide registrierten Modelle sind damit im registrierten Sinne
+  falsifiziert: das Rough-Modell (α=1) wird WEIT verfehlt (1.55 ≫ 1), die
+  Kompoundierung (1.8) knapp unterschritten (−4.6% unter der Band-Unterkante).
+
+**α ist NICHT konstant über das p1-Gitter (wie V4):**
+
+| p1 | α_isa | α_45 |
+|---|---|---|
+| 1e-4 | 2.163 | 2.462 |
+| 3e-4 | **1.546** | **1.799** |
+| 1e-3 | 1.093 | 1.251 |
+| 3e-3 | 0.616 | 0.875 |
+| 1e-2 | 0.203 | 0.349 |
+
+α_isa < α_45 an JEDIM Punkt — die ISA-Klasse amplifiziert LESS als der
+lokale 45-cx-Transpile, aber beide weit über 1 bei kleinem p1.
+
+**Vorregistrierte deskriptive Dekomposition (1q-Gewicht-Buchhaltung):**
+- **ISA schließt auf 0.3%:** W_eff/p1 = 13·93.96 = 1221.5. Buchhaltung
+  79 cz @ ratio 10 (= 790) + 429 1q-Gates @ 1 (198 rz + 228 sx + 3 x =
+  429) = 1219 → α_descr = 1.5430 vs gemessen 1.5462. **Die ISA-Amplifikation
+  ist die UNGEBUCHTEN 1q-Gates — keine mysteriöse Kompoundierung.**
+- **45-cx schließt NICHT:** W_eff/p1 = 809.4; Buchhaltung 45 cx @ 10 +
+  232 1q = 682 → α_descr = 1.516 vs gemessen 1.799. Rest ≈ 128
+  Gewichtseinheiten (Faktor 1.19) — der eigentliche Routing-Surplus der
+  lokalen Transpilation.
+- **Revision der Z.16.5-Erzählung:** das V4-„ISA-Surplus α ≈ 81/45" ist
+  KEINE Eigenschaft der ISA-Klasse; α_45 = 1.80 zerfällt in
+  Gate-Buchhaltung (→ 1.52) × Routing-Surplus (→ 1.19). Die
+  Rough-Modell-Koinzidenz 810 ≈ 13κ* war die punktweise Koinzidenz von
+  450 (2q) + 232 (1q) + 128 (Routing) ≈ 810 — zwei Effekte, nicht ein
+  Gesetz. **Das V4-Verdikt (CONFIRMED_CROSSOVER, κ* ≈ 62, konservatives
+  Band [10, 500]) bleibt UNVERÄNDERT** — nur die Mechanismus-Erzählung wird
+  revidiert (dokumentiert, keine stille Änderung).
+- **Grenze der Dekomposition (ehrlich):** die Buchhaltung schließt am
+  Primärpunkt (0.3%), NICHT über das Gitter — α_isa(p1) variiert 2.16 →
+  0.20, ein p1-abhängiges Residuum beider Vorzeichen. Das
+  Verfeinerungs-Modell der nächsten Phase muss daher p1-strukturiert sein
+  (Fehler-Ausbreitung/Landschaft, nicht reine Gate-Zählung). **Kein neuer
+  Vektor** — ein Befund, der sein eigenes Buchhaltungs-Gesetz beim ersten
+  Gitter-Test bereits widerlegt, trägt keinen Vektornamen; er ist als
+  Kandidat vorregistriert.
+
+**SciMind-Bewertung:** Steelman (beide registrierten Modelle mit fixiertem
+Falsifikator; INKONKLUSIV war als drittes registriertes Outcome
+vorherbenannt, nicht post-hoc); Anti-Sharpshooter (Smoke-Disclosure VOR
+Freeze, Bänder unangetastet, Kontroll-Ersatz dokumentiert, Freeze committet
+vor Auswertung); Ockham (die Dekomposition eliminiert die
+„Kompoundierungs"-Annahme: die einfachste Erklärung — ungezählte 1q-Gates —
+schließt am Primärpunkt auf 0.3%). Evidenzgrad des Gesamtbefunds: **B**
+(prereg-gebunden, 8 Kontrollen, C-V4-Anker; simulator-only, ein
+Encodierungs-Punkt → kein A).
+
 ---
 
-**Last updated:** 2026-09-23 (§Z.16: Verifikations-Matrix V1–V4 komplett, alles 0 QPU — V1 PARTIAL_STRUKTUR_KEIN_SIEB, V2 REFUTED + RAMANUJAN_FINGERPRINT (neuer Vektor B), V3 INKONKLUSIV/DEGENERAT + GUE-Konstanten-Korrektur, V4 CONFIRMED_CROSSOVER κ*=62.26 (A−-Upgrade QUQUINT_THRESHOLD_CROSSOVER); Anti-Sharpshooter-Kette 4/4, 534 Tests)
+**Last updated:** 2026-09-24 (§Z.17: Paket 1 α-Trennungstest EXPERIMENT 033 — H-ALPHA INKONKLUSIV/neues Modell: κ_eff(ISA) = 93.96, α_isa = 1.5462 außerhalb beider Prereg-Bänder; vorregistrierte Dekomposition schließt ISA auf 0.3% (ungebuchte 1q-Gates), 45-cx Rest = Routing-Surplus 1.19; V4-Verdikt unverändert, Mechanismus-Erzählung revidiert; 545 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
