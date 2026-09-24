@@ -1,0 +1,320 @@
+{
+  "experiment": "034-ququint-ramanujan-replication",
+  "prereg_path": "pt_ramanujan_prereg.json",
+  "controls": {
+    "T1_v2_anchor_prime": true,
+    "T2_v2_anchor_random": true,
+    "T3_v2_anchor_composite": true,
+    "T4_model_exact": true,
+    "T5_gate_set": true
+  },
+  "controls_ok": true,
+  "rows": [
+    {
+      "P": 11,
+      "d": 25,
+      "m": 5,
+      "share_prime": 0.07999999999999982,
+      "share_random": 0.16000000000000003,
+      "share_composite": 0.08,
+      "model": 0.0,
+      "generic": 0.16,
+      "lift_model": 0.0,
+      "gated": false,
+      "seed": 20260924,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 23,
+      "d": 25,
+      "m": 9,
+      "share_prime": 0.10666666666666638,
+      "share_random": 0.15111111111111122,
+      "share_composite": 0.06222222222222222,
+      "model": 0.017777777777777778,
+      "generic": 0.16,
+      "lift_model": 0.1111111111111111,
+      "gated": false,
+      "seed": 20260925,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 7,
+      "d": 625,
+      "m": 4,
+      "share_prime": 0.005600000000000002,
+      "share_random": 0.005600000000000093,
+      "share_composite": 0.005599999999999995,
+      "model": 0.0001,
+      "generic": 0.0064,
+      "lift_model": 0.015625,
+      "gated": false,
+      "seed": 20260926,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 53,
+      "d": 625,
+      "m": 16,
+      "share_prime": 0.006400000000000034,
+      "share_random": 0.007400000000000174,
+      "share_composite": 0.0023999999999999915,
+      "model": 0.003025,
+      "generic": 0.0064,
+      "lift_model": 0.47265625,
+      "gated": false,
+      "seed": 20260927,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 97,
+      "d": 625,
+      "m": 25,
+      "share_prime": 0.007680000000000079,
+      "share_random": 0.0012800000000001586,
+      "share_composite": 0.0006399999999999997,
+      "model": 0.0064,
+      "generic": 0.0064,
+      "lift_model": 1.0,
+      "gated": false,
+      "seed": 20260928,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 199,
+      "d": 625,
+      "m": 46,
+      "share_prime": 0.015791304347826156,
+      "share_random": 0.004313043478261044,
+      "share_composite": 0.0022260869565217173,
+      "model": 0.014617391304347827,
+      "generic": 0.0064,
+      "lift_model": 2.2839673913043477,
+      "gated": false,
+      "seed": 20260929,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 211,
+      "d": 625,
+      "m": 47,
+      "share_prime": 0.01586382978723406,
+      "share_random": 0.008034042553191185,
+      "share_composite": 0.0019063829787233835,
+      "model": 0.015012765957446808,
+      "generic": 0.0064,
+      "lift_model": 2.345744680851064,
+      "gated": false,
+      "seed": 20260930,
+      "kind": "prime",
+      "flags": {
+        "band": null,
+        "random_overlap": null,
+        "composite_overlap": null,
+        "outside": null
+      }
+    },
+    {
+      "P": 401,
+      "d": 625,
+      "m": 79,
+      "share_prime": 0.029448101265823555,
+      "share_random": 0.0027139240506327228,
+      "share_composite": 0.0025113924050632857,
+      "model": 0.027726582278481012,
+      "generic": 0.0064,
+      "lift_model": 4.332278481012659,
+      "gated": true,
+      "seed": 20260931,
+      "kind": "prime",
+      "flags": {
+        "band": true,
+        "random_overlap": false,
+        "composite_overlap": false,
+        "outside": false
+      }
+    },
+    {
+      "P": 463,
+      "d": 625,
+      "m": 90,
+      "share_prime": 0.03271111111111206,
+      "share_random": 0.006933333333333128,
+      "share_composite": 0.003377777777777792,
+      "model": 0.03211111111111111,
+      "generic": 0.0064,
+      "lift_model": 5.017361111111111,
+      "gated": true,
+      "seed": 20260932,
+      "kind": "prime",
+      "flags": {
+        "band": true,
+        "random_overlap": false,
+        "composite_overlap": false,
+        "outside": false
+      }
+    },
+    {
+      "P": 541,
+      "d": 625,
+      "m": 100,
+      "share_prime": 0.0363200000000007,
+      "share_random": 0.000799999999999959,
+      "share_composite": 0.0027200000000000323,
+      "model": 0.0361,
+      "generic": 0.0064,
+      "lift_model": 5.640625,
+      "gated": true,
+      "seed": 20260933,
+      "kind": "prime",
+      "flags": {
+        "band": true,
+        "random_overlap": false,
+        "composite_overlap": false,
+        "outside": false
+      }
+    },
+    {
+      "P": 599,
+      "d": 625,
+      "m": 109,
+      "share_prime": 0.04042568807339458,
+      "share_random": 0.007544954128440811,
+      "share_composite": 0.0028477064220183454,
+      "model": 0.03969174311926606,
+      "generic": 0.0064,
+      "lift_model": 6.201834862385321,
+      "gated": true,
+      "seed": 20260934,
+      "kind": "prime",
+      "flags": {
+        "band": true,
+        "random_overlap": false,
+        "composite_overlap": false,
+        "outside": false
+      }
+    },
+    {
+      "P": 625,
+      "d": 625,
+      "m": 114,
+      "share_prime": 0.04272280701754398,
+      "share_random": 0.0030035087719298826,
+      "share_composite": 0.0035649122807017617,
+      "model": 0.041687719298245614,
+      "generic": 0.0064,
+      "lift_model": 6.513706140350878,
+      "gated": true,
+      "seed": 20260935,
+      "kind": "prime",
+      "flags": {
+        "band": true,
+        "random_overlap": false,
+        "composite_overlap": false,
+        "outside": false
+      }
+    }
+  ],
+  "composite_rows": [
+    {
+      "P": 15,
+      "d": 625,
+      "m": 6,
+      "share_prime": 0.003733333333333336,
+      "share_random": 0.009066666666666667,
+      "share_composite": 0.00106666666666667,
+      "model": 6.666666666666667e-05,
+      "generic": 0.0064,
+      "lift_model": 0.010416666666666666,
+      "gated": false,
+      "seed": 20261924,
+      "kind": "composite_control",
+      "flags": null
+    },
+    {
+      "P": 121,
+      "d": 625,
+      "m": 30,
+      "share_prime": 0.010133333333333454,
+      "share_random": 0.004266666666666684,
+      "share_composite": 0.0021333333333333334,
+      "model": 0.008333333333333333,
+      "generic": 0.0064,
+      "lift_model": 1.3020833333333333,
+      "gated": false,
+      "seed": 20261925,
+      "kind": "composite_control",
+      "flags": null
+    },
+    {
+      "P": 341,
+      "d": 625,
+      "m": 68,
+      "share_prime": 0.02578823529411798,
+      "share_random": 0.008847058823529787,
+      "share_composite": 0.0017882352941176007,
+      "model": 0.02334705882352941,
+      "generic": 0.0064,
+      "lift_model": 3.6479779411764706,
+      "gated": false,
+      "seed": 20261926,
+      "kind": "composite_control",
+      "flags": null
+    },
+    {
+      "P": 625,
+      "d": 625,
+      "m": 114,
+      "share_prime": 0.04272280701754398,
+      "share_random": 0.0007578947368420653,
+      "share_composite": 0.0035649122807017617,
+      "model": 0.041687719298245614,
+      "generic": 0.0064,
+      "lift_model": 6.513706140350878,
+      "gated": true,
+      "seed": 20261927,
+      "kind": "composite_control",
+      "flags": null
+    }
+  ],
+  "composite_overlap_limit": 0.02218126582278481,
+  "verdict": "H-RAM-2_REPLICATED_FINGERPRINT",
+  "prereg_md5": "a2fc4875e10dd198e95d4996b1692759",
+  "post_hoc_note": "Gitter nach dem Freeze (md5 a2fc4875e10dd198e95d4996b1692759) berechnet; Kontrollen zuerst; reine Arithmetik (deterministisch), 0 QPU."
+}
