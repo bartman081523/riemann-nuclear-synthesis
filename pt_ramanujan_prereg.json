@@ -1,0 +1,165 @@
+{
+  "experiment": "034-ququint-ramanujan-replication",
+  "hypothesis": "H-RAM-2: Der mod-5-Fingerprint (Primes meiden Residuenset S* = {a \u2261 0 mod d/5, a \u2260 0} im DFT-Diagonalraum; share* \u2248 (pi-5)^2/(4\u00b7d\u00b7pi) aus der Uniform-Residuen-Arithmetik) repliziert \u00fcber das (P, d)-Gitter mit Trennung zu random- UND composite-Kontrolle in ALLEN gated Punkten.",
+  "steelman": "Antithese: Der V2-Treffer war eine Fluktuation des Einzelpunkts (d625, EIN P-Set); \u00fcber das Gitter kollabiert share*(prime) auf die Random-/Composite-Baseline (generisch 4/d).",
+  "registered_before": {
+    "plan": "~/.claude/plans/riemann-phase-post-z16-alpha-ramanujan-kingston-gue.md, Paket 2",
+    "plan_date": "2026-09-24",
+    "model_derivation": "Exakte Uniform-Residuen-Arithmetik im Modul hergeleitet UND gegen die V2-Anker verifiziert VOR diesem Freeze (Prereg-Lektion): share*_model = (pi-5)^2/(4\u00b7d\u00b7pi); G(a) = (5-m)/4 f\u00fcr alle 4 S*-Klassen.",
+    "reference_correction": "V2-prereg fuehrte das CRUDE Modell m/(4d) = 0.045 (d=625); das exakte Uniform-Modell liefert 0.041688. V2 gemessen 0.04272280701754398 -> ratio 1.0248, im registrierten Band [0.8, 1.25] \u2014 die Korrektur \u00e4ndert das V2-Urteil NICHT (GUE-Lektion-Muster: Korrektur VOR dem Freeze dokumentiert).",
+    "gate_set_justification": "GATE_MIN_PI = 79 aus zwei VOR dem Freeze abgeleiteten Kriterien: (1) Prim-Band-Fluktuation skaliert als 1/m vom V2-Anker (2.5% bei m=114; Residuen-Counts O(1)-deviant) -> \u00b125%-Band fair f\u00fcr m >= ~40; (2) Random-Overlap-Sicherheit: share*_random ~ 4/d mit O(1)-relativer Streuung (V2: 1.54\u00d7 generisch) verlangt band_lo >= ~3\u00d7 generisch -> m >= 62; registrierte Marge -> pi >= 79. Gated: genau 5 Punkte (401, 463, 541, 599, 625) \u2014 Plan-Format \">= 2 von >= 5\" erf\u00fcllt.",
+    "transition_prediction": "Registrierte NEGATIV-Vorhersage: bei m=25 (P=97, d=625) ist (m-5)^2 = 16m exakt -> share*_model = 4/d = generisch: das Modell sagt KEINE Prime-Trennung am Transition-Punkt (deskriptiv, kein Gate). Bei m=16 (P=53) sagt das Modell share* UNTER der generischen Baseline (Unterdr\u00fcckung); bei m=5 (P=11, d=25) die exakte Null.",
+    "descriptive_policy": "Alle Punkte mit pi(P) < 79 sind deskriptiv (Modell-Vorhersage wird berichtet, kein Gate) \u2014 d25 vollst\u00e4ndig deskriptiv (V2-Lektion: m=9 fluktuationsbeherrscht)."
+  },
+  "prime_points": [
+    [
+      11,
+      25
+    ],
+    [
+      23,
+      25
+    ],
+    [
+      7,
+      625
+    ],
+    [
+      53,
+      625
+    ],
+    [
+      97,
+      625
+    ],
+    [
+      199,
+      625
+    ],
+    [
+      211,
+      625
+    ],
+    [
+      401,
+      625
+    ],
+    [
+      463,
+      625
+    ],
+    [
+      541,
+      625
+    ],
+    [
+      599,
+      625
+    ],
+    [
+      625,
+      625
+    ]
+  ],
+  "composite_points": [
+    [
+      15,
+      625
+    ],
+    [
+      121,
+      625
+    ],
+    [
+      341,
+      625
+    ],
+    [
+      625,
+      625
+    ]
+  ],
+  "d_grid": [
+    25,
+    625
+  ],
+  "pi_by_point": {
+    "11,25": 5,
+    "23,25": 9,
+    "7,625": 4,
+    "53,625": 16,
+    "97,625": 25,
+    "199,625": 46,
+    "211,625": 47,
+    "401,625": 79,
+    "463,625": 90,
+    "541,625": 100,
+    "599,625": 109,
+    "625,625": 114
+  },
+  "model_share_star": {
+    "11,25": 0.0,
+    "23,25": 0.017777777777777778,
+    "7,625": 0.0001,
+    "53,625": 0.003025,
+    "97,625": 0.0064,
+    "199,625": 0.014617391304347827,
+    "211,625": 0.015012765957446808,
+    "401,625": 0.027726582278481012,
+    "463,625": 0.03211111111111111,
+    "541,625": 0.0361,
+    "599,625": 0.03969174311926606,
+    "625,625": 0.041687719298245614
+  },
+  "gated_points": [
+    "401,625",
+    "463,625",
+    "541,625",
+    "599,625",
+    "625,625"
+  ],
+  "thresholds": {
+    "band": [
+      0.8,
+      1.25
+    ],
+    "gate_min_pi": 79,
+    "falsifier_min_outside": 2,
+    "composite_overlap_limit": 0.02218126582278481,
+    "v2_share_star_tol": 1e-09
+  },
+  "seeds": {
+    "random_base": 20260924,
+    "seed_rule": "RANDOM_SEED_BASE + Index in PRIME_POINTS",
+    "v2_anchor_seed": 20260923
+  },
+  "v2_anchors": {
+    "share_star_prime_d625": 0.04272280701754398,
+    "share_star_random_d625": 0.009880701754386056,
+    "share_star_composite_d625": 0.0035649122807017617,
+    "crude_model_d625": 0.045,
+    "exact_model_d625": 0.041687719298245614,
+    "prereg_md5": "d9da292c7863810840b86ae2f069a365"
+  },
+  "controls": {
+    "T1_v2_anchor_prime": "share*(prime, 625, 625) == V2-kommittiert (0.04272280701754) innerhalb 1e-09 (bit-genau, reine Arithmetik)",
+    "T2_v2_anchor_random": "share*(random, 625, 625, seed 20260923) == V2-kommittiert (0.00988070175439)",
+    "T3_v2_anchor_composite": "share*(composite, 625, 625) == V2-kommittiert (0.00356491228070)",
+    "T4_model_exact": "model(625,625) == 109^2/(4\u00b7625\u00b7114) exakt (1e-12) und model(97,625) == 4/625 exakt (Transition)",
+    "T5_gate_set": "gated Punkte == [401, 463, 541, 599, 625] auf d=625, alle pi >= 79; d25 ausschlie\u00dflich deskriptiv",
+    "gate": "Kontrollfehler -> EVALUATION_INVALID"
+  },
+  "falsifier": {
+    "rule": ">= 2 von 5 gated Prim-Punkten au\u00dferhalb [0.8, 1.25]\u00b7model ODER Kontroll-Overlap (random >= band_lo an einem gated Punkt ODER composite >= band_lo(401))",
+    "partial_class": "GENAU 1 Punkt au\u00dferhalb, kein Overlap -> PARTIAL (registrierte Mittelklasse, Fluktuationstoleranz \u2014 DEGENERAT-Lektion: Klassen zwischen REPLICATED und REFUTED explizit registriert)"
+  },
+  "verdict_map": {
+    "REPLICATED": "H-RAM-2_REPLICATED_FINGERPRINT",
+    "PARTIAL": "H-RAM-2_PARTIAL_EIN_PUNKT_AUSSEN",
+    "REFUTED": "H-RAM-2_REFUTED_FINGERPRINT_KOLLABIERT",
+    "INVALID": "EVALUATION_INVALID_KONTROLLE_GESCHEITERT"
+  },
+  "qpu": "0 QPU (reine numpy-Arithmetik, kein Quantum-Stack-Import)",
+  "plan": "~/.claude/plans/riemann-phase-post-z16-alpha-ramanujan-kingston-gue.md",
+  "md5": "a2fc4875e10dd198e95d4996b1692759"
+}
