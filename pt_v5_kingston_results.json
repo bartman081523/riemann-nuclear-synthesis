@@ -1,0 +1,69 @@
+{
+  "experiment": "035-ququint-v5-kingston-drift",
+  "prereg_md5": "d019d587c0d8ca28cfa0559057d590c8",
+  "quota": {
+    "backend": "ibm_kingston",
+    "status": "active",
+    "operational": true,
+    "pending_jobs": 25,
+    "recent_jobs": 0,
+    "active_recent": 0
+  },
+  "controls": {
+    "C1_theorem_identity": true,
+    "C2_noiseless_anchors": true,
+    "C3_spectrum_split": true,
+    "C4_isa_offline_anchor": true,
+    "C5_stress_baseline": true,
+    "C6_reduction_exact": true
+  },
+  "online_isa": {
+    "two_q": 1,
+    "one_q": 18,
+    "names": [
+      "cz"
+    ],
+    "depth": 11
+  },
+  "isa_accept": true,
+  "job_id": "daqaeteekp0c73aqetdg",
+  "meas": {
+    "re": 2.155165690707006,
+    "hd": 2.147761960427625,
+    "im": 0.008532882118903911,
+    "bias": 0.007403730279381016
+  },
+  "detail": {
+    "n_out": 0,
+    "flags": {
+      "re": {
+        "value": 2.155165690707006,
+        "band": [
+          2.1191844880255655,
+          2.17247246569962
+        ],
+        "in_band": true
+      },
+      "hd": {
+        "value": 2.147761960427625,
+        "band": [
+          2.1345053504908575,
+          2.1809962200449498
+        ],
+        "in_band": true
+      },
+      "im": {
+        "value": 0.008532882118903911,
+        "band": [
+          -0.011242018857197743,
+          0.03003274212843888
+        ],
+        "in_band": true
+      }
+    },
+    "bias": 0.007403730279381016,
+    "bias_class": "ok"
+  },
+  "verdict": "H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND",
+  "post_hoc_note": "Auswertung ausschliesslich gegen die gefrorenen Baender/Schwellen (md5 d019d587c0d8ca28cfa0559057d590c8)."
+}
