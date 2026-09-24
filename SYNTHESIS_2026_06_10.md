@@ -2391,8 +2391,8 @@ Input). Schwacher Proxy (Margin ≥ 0) ist im Prereg markiert.
 - **κ\* = 62.26** (bracket [62.09, 62.43], Bisektion auf log-κ, rel. 1%):
   margin_native(62.26 · 13 · 3e-4) = margin_encoded(45-cx, p1 = 3e-4) =
   0.5840. **Band [10, 500] getroffen, t_kappa_star_ge_10 = True** —
-  das registrierte Rough-Modell (810/13 ≈ 62.3) trifft die Messung auf
-  0.4% genau.
+  das registrierte Rough-Modell (810/13 = 62.31) trifft die Messung auf
+  0.1% genau (62.31 liegt im Bisektions-Bracket [62.09, 62.43]).
 - **Deskriptive κ\*(p1)-Kurve:** 85.2 (1e-4) → 62.3 (3e-4) → 43.3 (1e-3) →
   30.3 (3e-3) → 12.1 (1e-2): CONFIRMED-Bereich im GANZEN Gitter, monotone
   Verengung zu hohem p1. κ\*(p1 = 0) = None (kein Gate-Crossover,
