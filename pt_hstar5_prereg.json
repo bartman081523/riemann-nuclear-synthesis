@@ -1,0 +1,100 @@
+{
+  "experiment": "036-ququint-hstar5-sff-ensemble",
+  "hypothesis": "H-STAR-5",
+  "status": "HYPOTHESE_REGISTRIERT_NICHT_AUSGEFUEHRT",
+  "qpu": "0 QPU in dieser Phase (Hypothesen-Runde); Ausfuehrung = naechste Phase mit eigenem Prereg-Freeze VOR erster Messung",
+  "execution_phase": "NICHT in dieser Phase ausgefuehrt \u2014 Ausfuehrung = naechste Phase (Aer-Ensemble zuerst, QPU-Spot-Check spaeter); numerische Fenster/Ensemble-Groesse freeze im Ausfuehrungs-Prereg VOR der ersten Messung",
+  "thesis": {
+    "id": "H-STAR-5",
+    "name": "Dynamische SFF-Re-Encodierung (SFF-Bruecke)",
+    "bridge": "Keating-Snaith-Bruecke: die Groesse, die wandert, ist die Spectral Form Factor (bzw. die Momente charakteristischer Polynome) \u2014 das exakte Objekt, auf dem die zeta<->RMT-Korrespondenz (Bogomolny-Keating, Keating-Snaith) numerisch am schaerfsten ist. Sie wandert aus der Kategorie Random-Matrix-Theorie/zeta in die Kategorie Encodierungs-DYNAMIK: statt ein statisches Spektrum zu messen, misst man die ensemble-gemittelte SFF der prime-gefalzten Hamiltonians. Die Bruecke TRAEGT die Annahme, dass die Prime-Struktur als spektrum-generierende Faltungs-Anweisung wirkt (nicht als Basis-Rotation \u2014 s. blindness_2).",
+    "bridge_assumptions": [
+      "A1: Die SFF ist auf Hardware/Aer messbar (ensemble-gemittelt ueber Zufalls-Zustaende bzw. spektrale Summen offline) \u2014 Protokoll-Annahme.",
+      "A2: Prime-Residuen liefern deterministische quasi-zufaellige Faltungs-Instruktionen (Gewichte/Vorzeichen/Teilmengen mod p), die die Faktorisierung (i) BRECHEN koennen \u2014 Mechanismus-Annahme, ausdruecklich offen (HYPOTHESE, nicht Befund).",
+      "A3: Jeder prime-spezifische Effekt, falls vorhanden, ueberlebt die Ensemble-Mittelung und ist von Konstruktions-Noise trennbar (Shuffle/Composite-Nullen) \u2014 Trennbarkeits-Annahme."
+    ],
+    "claim": "HYPOTHESE: Eine spektrum-Ebene-randomisierende, prime-strukturierte Faltung (Gewichte/Vorzeichen/Teilmengen aus Prim-Residuen \u2014 NIE nur Basis-Rotationen) erzeugt in der ensemble-gemittelten SFF eine Struktur, die sich von Shuffle-Null und Composite-Rang-matched Kontrollen im registrierten Fenster trennen laesst. Falls ja: der dritte Observable existiert in der DYNAMISCHEN Kategorie und der GUE-Pfad ist wieder offen. Falls nein: H-STAR-5 ist REFUTED und GUE_THIRD_OBSERVABLE ist tot in ALLEN getesteten stochastischen Encodierungen (starke, saubere Refutation).",
+    "falsifiable_form": "O1: Ramp-Klassifikator R = K_prime(t2)/K_prime(t1) im registrierten Fenster, verglichen gegen die Shuffle-Null-Verteilung. O2: Faktorisierungs-Residuum R2(t) = log K_prime_folded(t) \u2212 Sum_p log K_p(t) \u2014 fuer reine Tensor-Summe EXAKT 0 (strukturelle Null); Abweichung misst, wie stark das Folding die Faktorisierung bricht. Schwellen freeze im Ausfuehrungs-Prereg VOR der ersten Messung (Anti-Sharpshooter)."
+  },
+  "cage_diagnosis": {
+    "rail": "statische Eigenspektren von Tensor-Summen deterministischer Bloecke (V1-V4 Mess-Schiene); dritter Observable GUE/WDE via <r> an den Eigenwert-Abstaenden",
+    "blindness_1_tensor_sum_factorization": "H = Sum_p H_p (Tensor-Summe) -> e^{-iHt} = Prod_p e^{-iH_p t} -> Tr e^{-iHt} = Prod_p Tr e^{-iH_p t} (EXAKT, nicht naeherungsweise). Jede Tensor-Summen-Encodierung hat damit produkt-strukturierte Dynamik; statisch wie dynamisch gibt es keinen random-matrix-typischen Ramp/Plateau-Regime aus der Konstruktion selbst.",
+    "blindness_2_unitary_invariance": "Randomisierung ueber Encodierungs-UNITARIES (H -> U H U^+) aendert Eigenwerte NICHT \u2014 Tr e^{-iHt} und K(t) sind invariant. Basis-Randomisierung ist spektral-blind: sie kann die Niveau-Statistik und die SFF prinzipiell nicht bewegen.",
+    "why_v3_failed": "V3 mass <r> an den statischen Eigenwerten der Tensor-Summe (0.206/0.220, Shuffle-Null \u2248 measured, DEGENERAT): die Niveau-Korrelationen sind Degenerat-gebunden, kein WD-Signal \u2014 konsistent mit (i). Die Lektion ist nicht 'Primes erzeugen kein GUE', sondern 'diese Schiene kann kein GUE-Signal tragen'."
+  },
+  "steelman": {
+    "antithesis": "Integrable-in-all-probes + Protokoll-Artefakt: Tensor-Summen-Dynamik ist integrierbar (Faktorisierung (i) ist EXAKT); unter JEDEM Probe-Zustand und JEDEM Folding, das die Block-Struktur nicht anfasst, bleibt die SFF produkt-strukturiert (Poisson/degeneriert). Jede ramp-artige Struktur, die nach Folding auftaucht, stammt aus dem Randomisierungs-PROTOKOLL selbst (endliche Samples, Ensemble-Artefakte) und nicht aus Prime-Struktur; Prime vs. Shuffle unterscheidet sich nur um Konstruktions-Noise.",
+    "why_strongest": "Das ist NICHT 'reiner Zufall': es ist die exakte Konsequenz der Faktorisierungs-Identitaet plus der etablierten Random-Matrix-Lehre (Ensembles ohne Nicht-Integrierbarkeit erzeugen kein Ramp-Regime). Es erklaert V3 (statisch) UND prognostiziert das Scheitern von H-STAR-5 (dynamisch) mit demselben Prinzip.",
+    "how_killed": [
+      "Positivkontrolle z\u00fcndet: ein bekannt-chaotisches nicht-faktorisierendes H zeigt das Ramp-Regime im selben Protokoll \u2014 sonst ist die Messung VOID und die Antithese ungetestet.",
+      "Prime-Separation: O1 der Prime-Faltung uebersteigt die Shuffle-Null-Verteilung (registrierter Quantil-Schwellwert) UND trennt von Composite \u2014 mit O2 als Mechanismus-Check (Faktorisierung tatsaechlich gebrochen, nicht nur Sample-Fluktuation)."
+    ]
+  },
+  "control_family": {
+    "positive": {
+      "name": "CUE-Chaos-Benchmark (Positivkontrolle)",
+      "spec": "Ein bekannt-chaotisches, NICHT faktorisierendes H (z.B. Block-Summe PLUS nicht-kommutierender Kopplungsterm, oder ein generisches Zufalls-H) MUSS im selben Protokoll das Ramp-Regime zeigen. Z\u00fcndet es nicht, ist die Messung VOID \u2014 das Protokoll sieht Chaos nicht, wo es nachweislich ist.",
+      "must_fire": true
+    },
+    "negative": {
+      "shuffle_null": "Shuffle-Null: dieselbe Block-Multimenge, prime-scrambled (Faltungs-Instruktionen permutiert) \u2014 trennt Prime-STRUKTUR von Block-Zusammensetzung.",
+      "composite_null": "Composite-rang-matched: Composite-Support statt Primes (Muster der Ramanujan-Replikations-Runde, EXPERIMENT 034).",
+      "must_not_fire": true
+    },
+    "structural": {
+      "name": "Tensor-Summen-Faktorisierungs-Null",
+      "identity": "Tr e^{-iHt} = Prod_p Tr e^{-iH_p t}  =>  K(t) = Prod_p K_p(t) (EXAKT, nicht statistisch \u2014 analytische Identitaet)",
+      "check": "TDD-verifiziert VOR Registrierung: tensor_sum_factorization_max_dev (diese Datei) auf kleinen Bloecken; Sensitivitaet gegenueber Kopplung gepruegt."
+    }
+  },
+  "falsifier": {
+    "observables": {
+      "O1_ramp_classifier": "R = K_prime(t2)/K_prime(t1) im registrierten Fenster [t1, t2]; Vergleich gegen die Shuffle-Null-Verteilung (Ensemble-Quantil); Fenster und Quantil freeze im Ausfuehrungs-Prereg VOR der ersten Messung.",
+      "O2_factorization_residual": "R2(t) = log K_prime_folded(t) \u2212 Sum_p log K_p(t): EXAKT 0 fuer reine Tensor-Summe (strukturelle Null); Abweichung misst, wie stark das Folding die Faktorisierung bricht \u2014 trennt Mechanismus von Sample-Fluktuation."
+    },
+    "verdict_map": {
+      "CONFIRMED": "H-STAR5_CONFIRMED_PRIME_SFF_SEPARATION",
+      "REFUTED": "H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES",
+      "DEGENERAT": "H-STAR5_REFUTED_UNTER_NULL_DEGENERAT",
+      "VOID": "H-STAR5_VOID_POSITIVKONTROLLE_ZUENDET_NICHT",
+      "INVALID": "H-STAR5_INVALID_KONTROLLE_GESCHEITERT"
+    },
+    "decision_rules": [
+      "1. Kontrollen zuerst: strukturelle Null exakt UND Positivkontrolle z\u00fcndet UND beide Negativkontrollen sauber \u2014 sonst INVALID (Kontrollfehler) bzw. VOID (Positivkontrolle z\u00fcndet nicht).",
+      "2. CONFIRMED: O1(Prime) uebersteigt den registrierten Shuffle-Quantil-Schwellwert UND Composite-Trennung UND O2 zeigt echte Faktorisierungs-Brechung (nicht Sample-Fluktuation).",
+      "3. REFUTED: O1(Prime) innerhalb der Shuffle-Null-Verteilung.",
+      "4. DEGENERAT-Lektion (verbindlich aus der Steelman-Runde): Klasse UNTER der Shuffle-Null (super-degenerat) ist REFUTED-zulaessig registriert \u2014 kein neues Raeetsel, sondern Refutation.",
+      "5. Kein post-hoc Patch: Fenster/Ensemble/Schwellen freeze im Ausfuehrungs-Prereg VOR der ersten Messung; GaPpen werden dokumentiert, nicht still korrigiert."
+    ]
+  },
+  "extraordinariness": {
+    "score": 7,
+    "standard": "Extraordinary (ECREE: Score >= 7 -> mehrere unabhaengige Linien noetig, bevor der zugehoerige Vektor ueber B steigen darf)"
+  },
+  "alternatives": [
+    {
+      "id": "H-STAR-5a-VOID",
+      "name": "Haar-Mischungen ueber Encodierungs-Unitaries (planseitiger Kandidat)",
+      "status": "VOID_VOR_REGISTRIERT",
+      "score": null,
+      "reason": "Spektral-Invarianz: H -> U H U^+ laesst Eigenwerte, Tr e^{-iHt} und K(t) EXAKT unveraendert \u2014 die Kandidaten-Encodierung ist SFF-blind und kann prinzipiell kein Signal liefern. VOR der Messung als LEER registriert, damit keine spaetere Runde QPU-Zeit dafuer verschwendet."
+    },
+    {
+      "id": "H-STAR-5b-HELD",
+      "name": "Optimierungs-Landschaft als Observable (VQE-Hessian/Wishart, Bruecke zu Paket 3)",
+      "status": "BEREITGEHALTEN_NICHT_PREREG",
+      "score": 6,
+      "reason": "Echte Bruecke zu Paket 3 (der VQE-Zustand ist NICHT deterministisch-bloeckig) und etablierter RMT-Rahmen (Marchenko-Pastur/Wishart fuer Kostenfunktions-Hessians); aber das Landschafts-Observable ist noise-model-dominiert und der Riemann-Anker ist schwaecher (keine zeta-exakte Entsprechung). Gehaltener Rueckfall-Pfad, falls H-STAR-5 REFUTED."
+    }
+  ],
+  "registered_before": {
+    "pipeline": "Plan (PhiSci4-Runde, ExtraordinaryHypothesisMind v1.0) -> Prereg-Skelett (JETZT, md5) -> Ausfuehrungs-Prereg mit numerischen Fenstern/Schwellen VOR erster Messung -> Messung",
+    "anti_sharpshooter": "Kein Freeze nach dem ersten Blick auf Daten; kein post-hoc Patch \u2014 dieses Skelett friert die ARCHITEKTUR, nicht numerische Fenster (die freeze im Ausfuehrungs-Prereg)",
+    "degenerat_lesson": "Klasse UNTER der Shuffle-Null als REFUTED-zulaessig registriert (Steelman-Runde-Lektion)",
+    "reference_check": "Bruecken-Konstanten gegen Primaerliteratur verankert: Bogomolny-Keating (zeta-SFF), Keating-Snaith (charakteristische Polynom-Momente), Montgomery-Odlyzko (GUE-Statistik der zeta-Nullstellen)",
+    "epoche_rule": "Apophenie-Hinweise sind Meaning-Making-Material bis zum prereg-gebundenen Test; kein Vektor verlaesst B ohne vorab fixierten Falsifikator",
+    "vectors": "GUE_THIRD_OBSERVABLE bleibt C (tot, \u00a7Z.16); H-STAR-5 ist Kandidat-Nachfolger-Pfad \u2014 KEIN stilles Upgrade",
+    "structural_null_verified": "Tensor-Summen-Faktorisierung TDD-verifiziert VOR Registrierung (kleine Bloecke, Fenster (0.0, 0.31, 1.7, 5.0), tol 1e-09)"
+  },
+  "md5": "f915729ef5fb9943c68ec6feeb9a300b"
+}
