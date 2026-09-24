@@ -1,0 +1,154 @@
+{
+  "experiment": "EXPERIMENT_038_HSHOR1_FERMAT_GRID_BRIDGE",
+  "hypothesis": "H-SHOR-1",
+  "name": "Fermat-Grid-Orakel-Bru-cke (Shor-Oracle auf Ququint/GF(5))",
+  "status": "HYPOTHESE_PREREG_GEFROREN_VOR_AUSWERTUNG",
+  "qpu": "0 QPU in dieser Phase (klassische Enumeration + Statevector-QPE); QPU-Spot-Check nur spaeter bei sichtbarer Trennung",
+  "thesis": {
+    "id": "H-SHOR-1",
+    "name": "Fermat-Grid-Orakel-Bru-cke (Shor-Oracle auf Ququint/GF(5))",
+    "bridge": "Die Groesse, die wandert: das Ordnungsraster {r : a^r = 1 mod N} der Shor-Permutation U_{a,N} \u2014 in der Kategorie Ordnungsarithmetik definiert \u2014 erscheint im Ququint-Register als Interferenzraster der QPE-Readout-Verteilung (Peaks bei k = s*Q/r, Tr U^t = sum_L L*[L|t] als Trace-Kamm) und damit in der Kategorie Register-Spektroskopie. Die Bruecke ist dieselbe Bewegung wie in H-STAR-5 (Tensor-Summen-Identitaet), hier auf PERMUTATIONS-UNITARIES statt auf gefalzten Hamiltonians.",
+    "bridge_assumptions": [
+      "Register-Axiome: 5^n_x >= N (x-Register) und 5^n_count >= N^2 (Zaehlregister); die Modulus-Aktion gilt nur auf dem encodierten Traeger {0..N-1}",
+      "Idle-Subraum-Axiom: x >= N bleibt unberuehrt (Permutationseinbettung U_{a,N} in das 5^n_x-Register)",
+      "Rekonstruktions-Axiom: Kettenbruch-Rekonstruktion liest r aus den endlichen QPE-Peaks exakt genug (Peak-Nenner teilen r; LCM + Verifikation a^r = 1 mod N + exakte Reduktion)"
+    ],
+    "claim": "Der QPE-Readout auf dem Ququint-Register reproduziert das Ordnungsraster exakt (Bridge-Match 1.0 im gefrorenen Fenster); die Grid-Statistik trennt prim/composite theorem-niveau (Prime: Rate 0, nicht-Korselt-Composite: Rate > Schwelle); der volle Shor-Weg faktorisiert die Composites im Fenster und liefert NIE einen nichttrivialen Faktor fuer Primes; die CRT-Faktorisierung ist die exakte strukturelle Null.",
+    "falsifiable_form": "O1: Grid-Verletzungsrate (ord_a(N) | N-1?) \u2014 Prime exakt 0 (Theorem-Fehler -> INVALID), nicht-Korselt-Composite > 0.05, 561 (Korselt) = 0 als Blindheits-Kontrolle. O1': QPE-Readout \u2014 Bridge-Match (qpe_order.r == order_mod) = 1.0 im Fenster und shor_factor: Composites faktorisiert, Primes None. O2: CRT- und Trace-Identitaet <= 1e-9. Shuffle-Null: Label-Permutation, p <= 0.05. Verletzung von O1'/O2/Shuffle -> REFUTED auch bei klassisch korrekter Algebra (Steelman-Runde-Lektion)."
+  },
+  "cage_diagnosis": {
+    "structural_identity": "CRT-Faktorisierung C U_{a,pq} C^T = U_{a,p} (x) U_{a,q} und Trace-Produkt-Identitaet Tr U_{a,pq}^t = Tr U_{a,p}^t * Tr U_{a,q}^t \u2014 EXAKT (dev 0.0, TDD-verifiziert VOR Registrierung, Fenster (1, 2, 3, 4, 5, 6, 7), tol 1e-9). Formaler Zwillingsbruder der H-STAR-5 Tensor-Summen-Identitaet.",
+    "blindness_1_fermat_grid_korselt": "Das O1-Fermat-Grid (ord_a(N) | N-1) ist blind auf EXAKT der Korselt-Klasse: Korselt \u27fa N quadratfrei \u2227 p-1 | N-1 fuer alle p | N \u27fa lambda(N) | N-1 \u27fa alle Orders teilen N-1. 561 = 3*11*17: lambda = 80 teilt 560 -> Rate 0 wie bei Primes. Die Blindheit ist THEOREM-genau abgegrenzt und feuert als must-fire-Blindheits-Kontrolle: schlaegt sie an (Rate != 0), ist die Diagnose falsch -> INVALID.",
+    "blindness_2_unitary_invariance": "Basis-/Unitaer-Rotationen des Registers sind spektral blind (H-STAR-5a-Lektion, geerbt): jeder Kandidat, der nur auf einer rotierten Darstellung basiert, bleibt VOID (H-SHOR-1a).",
+    "sharper_discriminator": "max_order(N) = N-1 \u27fa prim (zyklische Einheitengruppe, primitive Wurzel existiert) \u2014 trennt auch die Korselt-Klasse (561: max_order = 80 != 560) und ist das registrierte Ersatz-Kriterium, wo O1 blind ist."
+  },
+  "steelman": {
+    "classical_primality": "Klassische Primalitaets-Tests (Miller-Rabin, Trial Division) entscheiden prim/composite billiger und deterministischer \u2014 der Claim ist NICHT Rechen-Vorteil, sondern die strukturelle Aequivalenz Oracle-Readout \u2194 Ordnungsraster auf der Ququint-Architektur.",
+    "korselt_carmichael": "Die Korselt-Klasse (Karmichael-Zahlen, 561 registriert) ist die theorem-bekannte blinde Klasse von Fermat-Gittern \u2014 der staerkste etablierte Einwand gegen O1. Er wird als must-fire-Blindheits-Kontrolle REGISTRIERT, nicht wegdefiniert.",
+    "not_the_claim": "Kein Claim ueber kryptografische Praxisrelevanz (N <= 561, Statevector); kein Claim ueber Shor-Skalierung auf echte RSA-Groessen; kein Claim ueber QPU-Vorteil (0 QPU)."
+  },
+  "control_family": {
+    "positive_must_fire": "Primes im Fenster: Grid-Rate EXAKT 0 (Fermat, Theorem) und shor_factor -> None (a^{r/2} = +-1 im Koerper). Z\u00fcndet nicht -> INVALID (Setup falsch) bzw. VOID (strukturell gebrochen).",
+    "negative_must_not_fire": "Shuffle-Null: Label-Permutation prime/composite ueber das klassische Fenster (Gruppengroessen fix, 200 Permutationen, seed 0) \u2014 die beobachtete Trennung muss oberhalb des 0.95-Quantils liegen (p <= 0.05).",
+    "structural_exact": "CRT-Faktorisierung + Trace-Produkt-Identitaet fuer (3,5), (3,7), (5,7): dev <= 1e-9 im Fenster TS_CHECK = (1, 2, 3, 4, 5, 6, 7). Verletzt -> VOID.",
+    "blindness_control": "561 (Korselt): Grid-Rate 0 UND max_order 80 != 560. Feuert nicht -> die registrierte CAGE-Diagnose ist falsch -> INVALID."
+  },
+  "falsifier": {
+    "windows": {
+      "qpe": {
+        "n_count": 4,
+        "n_x": 2,
+        "Q": 625,
+        "XD": 25,
+        "primes": [
+          7,
+          11,
+          13,
+          17,
+          19,
+          23
+        ],
+        "composites": [
+          15,
+          21
+        ],
+        "a_samples": "alle Coprime a in [2, N-1]",
+        "max_attempts": 5,
+        "readout": "exakte Statevector-Wahrscheinlichkeiten (Phase A, kein Sampling-Noise)"
+      },
+      "classical": {
+        "primes": [
+          7,
+          11,
+          13,
+          17,
+          19,
+          23
+        ],
+        "composites": [
+          9,
+          15,
+          21,
+          25,
+          33,
+          35,
+          39,
+          561
+        ],
+        "korselt_excluded": [
+          561
+        ],
+        "method": "Order-Enumeration via Zyklen (keine Matrizen)"
+      }
+    },
+    "thresholds": {
+      "composite_min_rate": 0.05,
+      "prime_max_rate": 0.0,
+      "tol_identity": 1e-09,
+      "crt_pairs": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "shuffle_max_p": 0.05,
+      "n_shuffle": 200,
+      "shuffle_seed": 0,
+      "bridge_match_min": 1.0
+    },
+    "observables": {
+      "O1_grid_rate": "Grid-Verletzungsrate: Anteil der Coprime-a mit ord_a(N) NICHT teiler von N-1 (klassisch exakt aus Orders). Prime: 0 (Theorem); nicht-Korselt-Composite: > 0.05; 561 (Korselt): 0 als registrierte Blindheit.",
+      "O1p_oracle_output": "Voller Shor-Weg (shor_factor) im QPE-Fenster: Composites faktorisiert (nichttrivialer Faktor in <= 5 Attempts), Primes None. DAS ist die Oracle-Ebene des Bruecken-Claims.",
+      "O1b_bridge_match": "QPE-Readout-Ordnung qpe_order(a,N).r == order_mod(a,N) fuer JEDES Coprime-a im QPE-Fenster (Bridge-Match = 1.0): die KERN-Aussage der Bruecke (Readout = Ordnungsraster).",
+      "O2_crt_residual": "CRT-Faktorisierungs-Deviation + Trace-Produkt-Identitaet fuer N = pq: strukturelle Null, exakt 0 \u2014 misst, dass die Faktorisierungs-Struktur Identitaet ist, nicht Fluktuation."
+    },
+    "verdict_map": {
+      "CONFIRMED": "HSHOR1_CONFIRMED_GRID_BRIDGE_REALISIERT",
+      "REFUTED": "HSHOR1_REFUTED_READOUT_TRAEGT_RASTER_NICHT",
+      "DEGENERAT": "HSHOR1_DEGENERAT_KEINE_TRENNUNG_IM_FENSTER",
+      "VOID": "HSHOR1_VOID_STRUKTURELL_IDENTITAET_GEBROCHEN",
+      "INVALID": "HSHOR1_INVALID_KONTROLLE_GESCHEITERT"
+    },
+    "decision_rules": [
+      "1. Kontrollen zuerst: strukturelle Null (O2) exakt UND Positivkontrolle (Prime-Rate 0, Theorem) UND Blindheits-Kontrolle (561: Rate 0, max_order 80) \u2014 sonst VOID/INVALID.",
+      "2. CONFIRMED: O1-Trennung im klassischen Fenster (nicht-Korselt-Composite > 0.05, Prime = 0) UND O1' (Oracle-Output) im QPE-Fenster UND O1b Bridge-Match = 1.0 UND Shuffle p <= 0.05.",
+      "3. REFUTED: der QPE-Readout traegt das Raster nicht (Bridge-Match < 1.0, Prime faktorisiert, oder Composite nicht faktorisiert) \u2014 REFUTED-zulaessig auch bei klassisch korrekter Algebra (Steelman-Runde-Lektion: unter der Null ist REFUTED zulaessig).",
+      "4. DEGENERAT: keine Trennung im klassischen Fenster (Composite-Rate unter Schwelle) \u2014 Bruecke ohne Inhalt.",
+      "5. Kein post-hoc Patch: Fenster/Schwellen sind in DIESEM Prereg gefroren (md5), VOR der ersten Auswertung; Luecken werden dokumentiert, nicht still korrigiert."
+    ]
+  },
+  "alternatives": {
+    "H-SHOR-1a-UNITARY_INVARIANCE": {
+      "status": "VOID",
+      "score": null,
+      "note": "Basis-/Unitaer-Rotationen sind SFF-blind (H-STAR-5a-Lektion) \u2014 vorab als VOID registriert."
+    },
+    "H-SHOR-1b-SCALING": {
+      "status": "HELD",
+      "score": 4,
+      "note": "Ausweitung: Q = 3125 (5 Count-Ququints), groessere N und mehr Karmichael-Fenster \u2014 held, eigenes Prereg bei Ausfuehrung."
+    }
+  },
+  "extraordinariness": {
+    "score": 5,
+    "standard": "Standard (Score 5/10, ECREE-Verhaeltnis: die algebraische Trennung prim/composite ist Theorem-Niveau \u2014 Fermat, Korselt; getestet wird die BRUECKE: liest der QPE-Readout das Ordnungsraster exakt genug, und haelt die strukturelle CRT-Null)"
+  },
+  "registered_before": {
+    "pipeline": "Plan (QuantumHypothesisEngineerMind v1.0_20260924_qhe-mix, Pfad B) -> Engineering-Layer EXPERIMENT 037 TDD (611 Tests gruen) -> DIESER Freeze (md5) -> Auswertung mit gefrorenen Schwellen",
+    "anti_sharpshooter": "Fenster UND Schwellen freeze VOR der ersten Auswertung; run_evaluation laedt das GEFRORENE Prereg mit md5-Verifikation und bricht bei Verletzung ab",
+    "reference_check": "Bruecken-Konstanten gegen Primaerliteratur: Fermat (kleiner Satz), Korselt-Kriterium (1899: N Karmichael \u27fa quadratfrei \u2227 p-1 | N-1 fuer alle p | N \u27fa lambda | N-1), Shor (Ordnungsfindung + Kettenbrueche), CRT (Ring-Isomorphie)",
+    "korselt_correction": "KORREKTUR ggue. Plan-Entwurf: 561 ist KEIN Gegenbeispiel fuer die Grid-Schaerfe (lambda = 80 TEILT 560) \u2014 die Grid-Blindheit ist genau die Korselt-Klasse (Theorem). Registriert als Blindheit + Schaerferes Kriterium max_order; geaendert VOR dem Freeze, nicht nach Daten.",
+    "degenerat_lesson": "Klasse UNTER der Null als REFUTED-zulaessig registriert (Steelman-Runde-Lektion, verbindlich)",
+    "structural_null_verified": "CRT-Identitaeten TDD-verifiziert VOR Registrierung (EXPERIMENT 037: dev 0.000000 fuer (3,5), (3,7), (5,7); Fenster (1, 2, 3, 4, 5, 6, 7), tol 1e-9)",
+    "vectors": "H-STAR-5 bleibt unver\u00e4ndert registriert (md5 f915729e); H-SHOR-1 ist eigenstaendiger Kandidat-Pfad mit eigenem Namen (User-Vorgabe: 'nenne es anders')"
+  },
+  "md5": "73bc664ae3475a79a692cd7735b2b387"
+}
