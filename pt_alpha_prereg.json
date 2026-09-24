@@ -1,0 +1,160 @@
+{
+  "experiment": "033-ququint-alpha-separation",
+  "hypothesis": "H-ALPHA",
+  "question": "Gilt die V4-Amplifikation alpha\u22481.80 auch auf der ISA-Klasse (FakeFez-Transpilation, cz statt cx), oder ist das Rough-Modell (alpha_isa=1) direkt pr\u00e4diktiv? kappa_eff = native Bisektion auf margin_isa am Punkt p1=3e-4.",
+  "registered_before": {
+    "plan": "~/.claude/plans/riemann-phase-post-z16-alpha-ramanujan-kingston-gue.md, Paket 1",
+    "plan_date": "2026-09-24",
+    "bands_fixed_in_plan": "alpha-B\u00e4nder [0.9,1.1]/[1.62,1.98] (\u00b110%) und Plan-Zaune [50,80]/[90,140] VOR jedem ISA-Messlauf im Plan festgelegt",
+    "smoke_disclosure": "STRESS-Smoke (p1=3e-4, 8192 Shots, seed 42) zur Maschinen-Validierung VOR diesem Freeze: phi_D margin \u2248 0.4977 (kappa_eff-Interpolation \u2248 93-95). Der Wert war beim Freeze BEKANNT; die B\u00e4nder stammen aus dem Plan (vor dem Smoke) und wurden NICHT angepasst. Der sep-Kontroll-Gate wurde VOR dem Freeze ersetzt (sep-margin>0 \u2192 Witness-Null-Trennung phi>sep+0.1), da der Smoke zeigte, dass sep_D auf Aer-STRESS-Level unter dem 0.2-Boden faellt (58 cz im sep_D-Circuit) \u2014 der alte Gate stammt aus der QPU-Entscheidungsregel (Phase 3, Hardware). Kette: Plan -> Smoke (Validierung + Kontroll-Anpassung) -> Freeze -> Auswertung."
+  },
+  "architectures": {
+    "A_isa": {
+      "transpile": "FakeFez preset opt level 3, seed_transpiler=7",
+      "phi_d_two_q_frozen": 79,
+      "acceptance": [
+        76,
+        86
+      ],
+      "real_fez_reference": 81,
+      "per_circuit_two_q": {
+        "phi_C": 7,
+        "phi_D": 79,
+        "sep_C_0": 0,
+        "sep_C_1": 0,
+        "sep_C_2": 0,
+        "sep_C_3": 0,
+        "sep_C_4": 0,
+        "sep_D_0": 58,
+        "sep_D_1": 58,
+        "sep_D_2": 58,
+        "sep_D_3": 58,
+        "sep_D_4": 58
+      },
+      "two_q_gate_names": [
+        "cz"
+      ],
+      "noise_model": "STRESS: p1 auf rz/sx/x, ratio*p1 auf allen 2q-Namen des Batches, Readout ro (symmetrisch 2x2) \u2014 Konvention wie pt_ququint_ibmq_aer",
+      "reduction": "Circuits auf aktive Qubits reduziert (Mess-Mapping erhalten; noiseless V = 1.0000 verifiziert) \u2014 Aer density_matrix 64x64, derselbe Engine-Pfad wie V4."
+    },
+    "B_native": "native_gate_plan: F5_A_prep/SUM_2q/F5_A_rot/F5dag_B_rot, Gewicht (ratio+3)*kappa*p1 = 13*kappa*p1 (ratio=10) \u2014 exakt V4",
+    "reference_45": {
+      "phi_d_cx": 45,
+      "kappa_star_v4_committed": 62.26124150876291,
+      "role": "Regression-Anker: kappa_eff_45 muss das kommittierte V4-kappa* reproduzieren (dieselben Seeds/Pfade)"
+    },
+    "fairness": [
+      "identischer logischer Task (Phi-Pr\u00e4paration + DFT-Rotation + Messung)",
+      "identische Readout-Rate ro auf beiden Seiten",
+      "2q-Ratio-Penalty ratio*p1 auch nativ (SUM_2q-Gate)",
+      "identische Witness-Pipeline (witness_from_counts, seed 9871)"
+    ]
+  },
+  "predictions": {
+    "alpha_isa_point_H-A": 1.0,
+    "alpha_isa_point_H-B": 1.8,
+    "kappa_eff_points": {
+      "H-A": 60.76923076923077,
+      "H-B": 109.38461538461539
+    },
+    "kappa_eff_none_at_p1_zero": true
+  },
+  "thresholds": {
+    "p1_primary": 0.0003,
+    "ro": 0.01,
+    "ratio": 10.0,
+    "n_shots": 8192,
+    "n_boot": 1000,
+    "band_tol_rel": 0.1,
+    "alpha_band_H-A": [
+      0.9,
+      1.1
+    ],
+    "alpha_band_H-B": [
+      1.62,
+      1.9800000000000002
+    ],
+    "isa_count_accept": [
+      76,
+      86
+    ],
+    "confound_limit": 0.05,
+    "v4_tol_rel": 0.01
+  },
+  "bands_kappa_eff": {
+    "H-A": [
+      54.69230769230769,
+      66.84615384615385
+    ],
+    "H-B": [
+      98.44615384615385,
+      120.32307692307694
+    ]
+  },
+  "fences_kappa_eff": {
+    "H-A": [
+      50.0,
+      80.0
+    ],
+    "H-B": [
+      90.0,
+      140.0
+    ],
+    "role": "outer-sanity-only: Zaune-Verletzung wird als Flag berichtet, das Verdikt folgt den alpha-B\u00e4ndern"
+  },
+  "grids": {
+    "kappa_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      25.0,
+      50.0,
+      100.0,
+      200.0,
+      400.0,
+      800.0
+    ],
+    "p1_grid_descriptive": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "descriptive_note": "kappa_eff(p1) und alpha_isa(p1) sind DESKRIPTIV; Entscheidung nur am p1=3e-4-Punkt"
+  },
+  "seeds": {
+    "aer": 42,
+    "transpile": 7,
+    "boot_phi": 9871,
+    "boot_sep": 9872,
+    "native_shots": 20260924,
+    "native_boot": 9871
+  },
+  "controls": {
+    "T1_native_noiseless": "native v_exact == 1 (Tol 1e-12)",
+    "T2_isa_noiseless": "ISA-Batch p1=0, ro=0: phi v_hat >= 0.99",
+    "T2_45_noiseless": "45-cx-Batch p1=0, ro=0: phi v_hat >= 0.99",
+    "M_native_monotone": "native margins monoton fallend im kappa-Gitter (Tol 1e-3)",
+    "G1_isa_counts": "phi_D two_q in [76,86]; alle sep_C two_q == 0",
+    "G2_sep_isa": "phi v_hat > sep v_hat + 0.1 (ISA, p1=3e-4) \u2014 Witness-Null-Trennung auf STRESS-Level; der sep-margin>0-Gate stammt aus der QPU-Entscheidungsregel (Phase 3, Hardware) und wurde VOR dem Freeze ersetzt (Smoke-Erkenntnis: sep_D v_hat unter dem 0.2-Boden bei 58 cz), dokumentiert in registered_before",
+    "K_confound_isa": "confound_max_diff (ISA, p1=3e-4) <= 0.05",
+    "C_v4_regression": "kappa_eff_45 == kommittiertes V4-kappa* (62.26124151) innerhalb 1%",
+    "gate": "Kontrollfehler -> EVALUATION_INVALID"
+  },
+  "verdict_map": {
+    "H-ALPHA-A": "H-ALPHA-A_ROHGEWICHT_PREDIKTIV",
+    "H-ALPHA-B": "H-ALPHA-B_KOMPOUNDIERT",
+    "H-ALPHA-INKONKLUSIV": "H-ALPHA_INKONKLUSIV_NEUES_MODELL",
+    "EVALUATION_INVALID": "EVALUATION_INVALID_KONTROLLE_GESCHEITERT"
+  },
+  "weak_assumption": "SCHWACH-Proxy wie V4: margin >= 0 als Crossover-Kriterium ist schw\u00e4cher als eine Punktvorhersage; die B\u00e4nder oben sind die eigentliche Prereg-Entscheidung.",
+  "post_hoc_analysis_pre_registered": "FALLS INKONKLUSIV: deskriptive 1q-Gewicht-Dekomposition (sx/rz-Counts * p1 addiert zum Rohgewicht) ist als Modell-Verfeinerungs-Kandidat f\u00fcr die N\u00c4CHSTE Phase vorregistriert \u2014 deskriptiv, NICHT verdikt-relevant, keine Band-Anpassung.",
+  "qpu": "0 QPU (FakeFez offline + Aer lokal)",
+  "plan": "~/.claude/plans/riemann-phase-post-z16-alpha-ramanujan-kingston-gue.md",
+  "md5": "206b074c6bd6676d300fb8cff7d062e1"
+}
