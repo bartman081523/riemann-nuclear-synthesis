@@ -2,7 +2,7 @@
 
 ## Document Map
 
-Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung)** next.
+Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung) completed 2026-09-25 — Phase 6a REFUTED (§Z.20/§10.21)**.
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -72,15 +72,16 @@ To finalize the research document by auditing missing theories, refining existin
     5. **§Z.17/18 Packages 1–4 (EXPERIMENT 033–036, 2026-09-24):** 033 α-Trennungstest INKONKLUSIV (α_isa = 1.5462 outside both bands; ISA closes 0.3%, mechanism revised — Routing-Surplus ≈ 128 units); 034 Ramanujan REPLICATED (exact model (m−5)²/(4dm), ratio 1.0248, 5/5 gated points in band, no control overlap; vector → **B+**); 035 V5 Kingston CONFIRMED (Job `daqaeteekp0c73aqetdg`, TOKEN2, bias +0.0074 < 0.05, `KINGSTON_AS_NEUTRAL_BACKEND` B+ → **A−**; Aer-methodology correction: precision>0 is Gauss noise, not shot sampling); 036 H-STAR-5 HYPOTHESE registered, not executed (md5 `f915729e`, Score 7/10, Keating–Snaith bridge, Haar candidate pre-registered as VOID `H-STAR-5a`).
 - **Result:** Pillar 4 QPU-viable (A−); 584 tests green. Full detail: `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.14–10.19, `SYNTHESIS_2026_06_10.md` §Z.11–18, `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` Update 2026-07-21 → 2026-09-24.
 
-## Phase 6 (NEXT): H-STAR-5 execution
+## Phase 6 (DONE — REFUTED): H-STAR-5 execution
 
 - **Goal:** Execute the H-STAR-5 hypothesis (md5 `f915729e`, §Z.18/EXPERIMENT 036) — Keating–Snaith bridge observable O1 = K_prime(t2)/K_prime(t1) + O2 factorization residuum, with the control family (CUE-must-fire / Shuffle+Composite / structural).
 - **Steps:**
-    1. Execution prereg (freeze before any evaluation; skeleton md5 `f915729e` fixed).
-    2. Aer-ensemble simulation (0 QPU) — QPU spot-check only if visible prime separation appears.
-    3. Control family must fire correctly (Positiv CUE must-fire, else VOID; Negativ Shuffle+Composite; Strukturell exact) — apophenia guard.
-    4. Fallback: H-STAR-5b (VQE-Hessian/Wishart landscape as observable, Score 6).
-- **Status:** NOT STARTED (0 QPU so far). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.18, memory `project-next-phase-hstar5-execution`.
+    1. Execution prereg (freeze before any evaluation; skeleton md5 `f915729e` fixed). → ✅ DONE — v1 (md5 `aa8e77cc`) nach Design-Entdeckung abgebrochen OHNE Verdict; v2 (md5 `837dae2c`) VOR der Messung gefroren.
+    2. Aer-ensemble simulation (0 QPU) — QPU spot-check only if visible prime separation appears. → ✅ DONE (klassisches Ensemble; keine sichtbare Trennung → QPU entfällt).
+    3. Control family must fire correctly (Positiv CUE must-fire, else VOID; Negativ Shuffle+Composite; Strukturell exact) — apophenia guard. → ✅ DONE, alle Kontrollen erfüllt (GUE 3.977, Poisson 0.946, strukturell 5.13e-13, Composite im Band).
+    4. Fallback: H-STAR-5b (VQE-Hessian/Wishart landscape as observable, Score 6). → bleibt registrierte Alternative (nicht ausgelöst).
+- **Verdict:** **REFUTED** (`H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`, 2026-09-25) — R_prime = 1.434783 im Shuffle-Band [0.798882, 1.882509] (15 distinkte Null-Werte, Perzentil 82.5%, unter q97.5); O2-Mechanismus echt (2.2515, 234/234 Paare) ohne Prime-Trennung; eps-Ladder deskriptiv (0.05 → 1.234, 0.5 → 1.021). Zwischendurch entdeckt + bewiesen: das **S₄-Schluss-Theorem** (Familiensummen über positions-permutations-abgeschlossenen Familien sind Orbit-invariant im Zeichen-Muster — v1-Design konnte nicht diskriminieren; Fix: kanonische 12er-Repräsentantenfamilie, Zeichen-Regel unangetastet).
+- **Status:** ✅ DONE — Phase 6a REFUTED (sauber); Phase 6b (Aer A1) nicht ausgelöst. Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.20, `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.21, `pt_hstar5_phase6a_v2_results.json`.
 
 ## Execution Schedule (historical)
 1. Farrell Audit → ✅ DONE (Phase 1)
@@ -88,4 +89,4 @@ To finalize the research document by auditing missing theories, refining existin
 3. Zeraoulia Simulation → ✅ DONE (Phase 3)
 4. QPU-validierte Im-Bias → ✅ DONE (Phase 4, 2026-06-17)
 5. QUQUINT/Pillar 4 + §Z.11–18 → ✅ DONE (Phase 5, 2026-07-21 → 2026-09-24)
-6. H-STAR-5-Ausführung → ⏳ NEXT (Phase 6)
+6. H-STAR-5-Ausführung → ✅ DONE — REFUTED (Phase 6a, 2026-09-25)

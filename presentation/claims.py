@@ -743,19 +743,25 @@ _CL.append(Claim(
     scenes=("act10_verdict_ladder",)))
 
 _CL.append(Claim(
+    # Registrierung: Extraordinaritaet 7/10 (§Z.18). Phase 6a ausgefuehrt
+    # 2026-09-25 (§10.21): VERDICT REFUTED (sauber, Kontrollen zuerst).
     id="hstar5_score", value="Score 7/10",
-    display="H-STAR-5: registered, {}", label=Label.HYPOTHESIS,
+    display="H-STAR-5 (registered at {}): REFUTED (Phase 6a)",
+    label=Label.DOC_FROZEN,
     source=Source(kind=Kind.DOC_FROZEN,
                   file="RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
                   line=1375, anchor="HYPOTHESE (Score 7/10)"),
     scenes=("act10_verdict_ladder",)))
 
 _CL.append(Claim(
-    id="hstar5_md5", value="f915729e",
-    display="md5 {} — not yet measured", label=Label.HYPOTHESIS,
+    # Ausfuehrungs-Prereg v2 (S₄-Schluss-Fix), frozen VOR der Messung;
+    # Skelett-Anker f915729e unveraendert (§10.21)
+    id="hstar5_md5", value="837dae2c",
+    display="exec-prereg md5 {} (skeleton f915729e) — REFUTED",
+    label=Label.DOC_FROZEN,
     source=Source(kind=Kind.DOC_FROZEN,
                   file="RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
-                  line=1378, anchor="f915729e"),
+                  line=1408, anchor="837dae2c19476eae0e7d13550c1e66f1"),
     scenes=("act10_verdict_ladder",)))
 
 _CL.append(Claim(
@@ -787,7 +793,10 @@ _CL.append(Claim(
     scenes=("act4_qpu_timeline",)))
 
 _CL.append(Claim(
-    id="test_count", value=642,
+    # 046c1cc: 642 — auf hstar5-execution: +26 Execution-Tests -> 668;
+    # v2 (S₄-Schluss-Fix): +3 Miniatur-Theorem-Tests -> 671
+    # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
+    id="test_count", value=671,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

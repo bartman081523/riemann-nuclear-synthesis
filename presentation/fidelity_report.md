@@ -67,13 +67,13 @@ Every claim recomputed from its committed source at build time.
 | v3_rmean | doc-frozen | C | act9_failure_board | `'0.2059'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1326 |
 | gue_correction | doc-frozen | C | act9_failure_board | `'0.5996'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1326 |
 | vector_ladder | doc-frozen | — | act10_verdict_ladder | `'10.19 Strategic Vectors'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1350 |
-| hstar5_score | hypothesis | — | act10_verdict_ladder | `'Score 7/10'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1375 |
-| hstar5_md5 | hypothesis | — | act10_verdict_ladder | `'f915729e'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1378 |
+| hstar5_score | doc-frozen | — | act10_verdict_ladder | `'Score 7/10'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1375 |
+| hstar5_md5 | doc-frozen | — | act10_verdict_ladder | `'837dae2c'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1408 |
 | date_fez_singleshot | doc-frozen | — | act4_qpu_timeline | `'2026-06-10'` | doc README.md:64 |
 | date_vqd | doc-frozen | — | act4_qpu_timeline | `'2026-07-21'` | doc README.md:64 |
 | date_fez_phi | doc-frozen | — | act4_qpu_timeline | `'2026-09-15'` | doc README.md:61 |
 | date_kingston | doc-frozen | — | act4_qpu_timeline | `'2026-09-24'` | doc README.md:62 |
-| test_count | measured | — | act1_title, act10_verdict_ladder | `642` | live test collection |
+| test_count | measured | — | act1_title, act10_verdict_ladder | `671` | live test collection |
 
 ## Criteria shown before results (explanation_scaffold)
 

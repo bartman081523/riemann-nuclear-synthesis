@@ -1,0 +1,14 @@
+Kontrollen: R_GUE=3.977 (Gate 3.5-6.5, ok=True) R_Poisson=0.946 (Gate 0.2-1.8, ok=True) strukturell=True (max 5.13e-13)
+  shuffle 10/200 R=1.0830
+  shuffle 20/200 R=1.0830
+  shuffle 30/200 R=1.1881
+  shuffle 40/200 R=1.0830
+  shuffle 50/200 R=1.0830
+  shuffle 60/200 R=1.0830
+  shuffle 70/200 R=1.0830
+  shuffle 80/200 R=1.0830
+  shuffle 90/200 R=1.0830
+  shuffle 100/200 R=1.0830
+  shuffle 110/200 R=1.0830
+  shuffle 120/200 R=1.0830
+  shuffle 130/200 R=1.0830

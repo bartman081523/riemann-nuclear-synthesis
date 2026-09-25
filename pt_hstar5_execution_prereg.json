@@ -1,0 +1,81 @@
+{
+  "experiment": "036-ququint-hstar5-sff-ensemble-phase6a",
+  "hypothesis": "H-STAR-5",
+  "status": "AUSFUEHRUNG_PREREG_GEFROREN_VOR_MESSUNG",
+  "qpu": 0,
+  "skeleton_md5": "f915729ef5fb9943c68ec6feeb9a300b",
+  "skeleton_path": "pt_hstar5_prereg.json",
+  "scope": "Phase 6a: exakte klassische SFF-Ensembles (0 QPU, numpy). Phase 6b (Aer-Protokoll-Validierung A1) nur bei sichtbarer Prime-Separation; QPU-Spot-Check nur danach (PLAN.md Phase 6).",
+  "construction": {
+    "blocks": "H_PT_ququint(gamma) 5x5 PT-Bloecke (EXPERIMENT 011)",
+    "gamma_family": [
+      0.002,
+      0.02,
+      0.2
+    ],
+    "config_family": "pt_ququint_gue.family_configs_625 (78, EXPERIMENT 032 Registrierung)",
+    "operator_V": "A_5 (Jacobi, real-symmetrisch, pt_ququint_vqe)",
+    "folding": "H_folded = kron_sum(blocks) + eps*Sum_{a<b} s_ab*(A_5 (x) A_5) an Positionen (a,b)",
+    "sign_rule": "+1 falls (p_b mod p_a) quadratischer Rest mod p_a (inkl. 0=0*0), sonst -1",
+    "prime_set_4": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "composite_set_4": [
+      4,
+      6,
+      8,
+      9
+    ],
+    "eps_primary": 0.25,
+    "eps_ladder_deskriptiv": [
+      0.05,
+      0.5
+    ],
+    "spectrum_convention": "Re-Teile der Eigenwerte, KEIN Kollaps (SFF sieht Multiplizitaeten) \u2014 Projektkonvention EXPERIMENT 032; frei von Wachstums-Artefakten nicht-hermitescher Eigenwerte",
+    "unfolding_rule": "t_H_c = 2*pi/Median der POSITIVEN Luecken (> 1e-12) des UNGEFALTETEN Tensor-Summen-Re-Spektrums der Konfiguration c \u2014 exakte Multiplizitaeten (identische Bloecke bei wiederholtem gamma) ergeben Luecken exakt 0 und werden fuer die Regel ausgeschlossen; die SFF selbst sieht alle Multiplizitaeten (kein Kollaps). Identische Regel fuer alle Familien (Prime/Shuffle/Composite/Kontrollen)",
+    "tau_grid": [
+      0.1,
+      0.5,
+      2.0
+    ],
+    "k_norm": "|Sum_k exp(-i*Re(E_k)*t)|^2 / d",
+    "o2_raw_k": "R2(t) = log K_raw_folded(t) - Sum_p log K_p(t) (raw, ohne d-Normierung \u2014 sonst keine exakte Null)"
+  },
+  "observables": {
+    "O1": "R = <K>(tau2)/<K>(tau1), <K> = Mittel ueber die 78-Konfigurationsfamilie \u2014 bridge-getreu (Keating-Snaith: ensemble-gemittelte SFF)",
+    "O1b_deskriptiv": "Median der Per-Konfigurations-Ratios",
+    "O2": "Median von |R2| ueber gueltige (Config, tau)-Paare der PRIME-Instanzen; skip falls K < 1e-12; Mechanismus-Check, nicht Verdict-Ersatz"
+  },
+  "thresholds": {
+    "n_shuffle": 200,
+    "null_seed": 20260923,
+    "q_upper": 0.975,
+    "q_lower": 0.025,
+    "n_controls": 100,
+    "gue_gate": [
+      3.5,
+      6.5
+    ],
+    "poisson_gate": [
+      0.2,
+      1.8
+    ],
+    "o2_mechanism_threshold": 1e-06,
+    "o2_min_valid_pairs": 100,
+    "identity_tol": 1e-09,
+    "k_factor_floor": 1e-12
+  },
+  "verdict_logic": {
+    "rule_1_kontrollen_zuerst": "strukturelle Null exakt UND GUE-Gate UND Poisson-Gate UND Composite im Shuffle-Band \u2014 sonst VOID (GUE z\u00fcndet nicht) bzw. INVALID (Kontrollfehler)",
+    "rule_2_confirmed": "R_prime > q_upper UND O2-Mechanismus UND Composite im Band",
+    "rule_3_refuted": "R_prime im Shuffle-Band [q_lower, q_upper]",
+    "rule_4_degenerat": "R_prime < q_lower (super-degenerat, REFUTED-zulaessig, Steelman-Lektion)",
+    "rule_5_kein_post_hoc_patch": "Fenster/Ensemble/Schwellen eingefroren VOR der ersten Messung; GaPPen dokumentiert, nicht still korrigiert"
+  },
+  "compute_calibration": "VOR der ersten Auswertung kalibriert (Compute, keine Daten): zgeev 625x625 komplex ~0.47 s -> 78 Prime + 2*78 eps-Ladder + 78 Composite + 200*78 Shuffle = 15,912 Dekompositionen ~2.1 h CPU, 0 QPU; Kontrollen 2*100 zheevd ~40 s. Checkpoint/Resume pro Shuffle-Instanz.",
+  "instantiierungs_noten": "GaPPen dokumentiert (kein stiller Patch): (1) 25-dim-Stufe enthaelt nur 1 Paar -> Shuffle-Null waere identitaets-Permutation; Stufe entfaellt. (2) Die registrierte Faltung ist die VORZEICHEN-Instanz ('Vorzeichen aus Prim-Residuen'); Gewichte/Teilmengen bleiben unregistrierte Varianten. (3) 3125-dim (5 Bloecke) aus Compute-Budget nicht in dieser Phase; das 5-elementige Composite-Aequivalent waere (4,6,8,9,10). (4) Kontroll-n 100 (V3: 50) fuer Gate-Robustheit des Ramp-Klassifikators, vor der ersten Auswertung registriert. (5) Composite-Rang-Matching: die 4 kleinsten Komposita (4,6,8,9) auf denselben 4 Block-Positionen gegen (2,3,5,7) \u2014 gleiche Anzahl, benachbarte Groessenordnung, 6 Paare wie beim Prime-Fold. (6) Verwerfungs-Regel: Instanz aus dem r_median-Baustein ausgeschlossen falls K(tau1) < 1e-12 (destruktive Interferenz im Referenzpunkt); das Ensemble-O1 (mean k2/mean k1) verwirft nicht.",
+  "md5": "aa8e77cc3bbd88a0307f3a9f44ccd0c0"
+}

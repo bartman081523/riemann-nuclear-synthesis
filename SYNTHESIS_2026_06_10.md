@@ -2916,6 +2916,130 @@ und/oder QPU-Spot-Check bei sichtbarer Trennung).
 
 ---
 
-**Last updated:** 2026-09-24 (§Z.19: Branch shor-ququint-oracle — EXPERIMENT 037 Shor-Oracle auf Ququint/GF(5) TDD (CRT exakt 0.0, QPE r-Rekonstruktion exakt, shor_factor 15/21, Korselt-Korrektur: Grid-Blindheit genau die Karmichael-Klasse) + EXPERIMENT 038 H-SHOR-1 Fermat-Grid-Orakel-Brücke: Prereg-Freeze VOR Auswertung (md5 73bc664a), Verdict CONFIRMED (O1 prime 0.0 vs composite ≥ 0.571, O1' Faktoren (3,5)/(3,7) mit Primes None, O1b Bridge-Match 1.0 über 102 (a,N)-Paare, O2 CRT/Trace exakt 0.0, Shuffle p = 0.000), Run-1-Statistik-Bug dokumentiert nicht still korrigiert, Vektor SHOR_QUQUINT_ORACLE NEU B, H-STAR-5 unverändert registriert — kein stilles Upgrade, 0 QPU, 624 Tests)
+## §Z.20 — Phase 6a: H-STAR-5-Ausführung (EXPERIMENT 039, Branch `hstar5-execution`, 0 QPU): REFUTED — mit S₄-Schluss-Theorem als Lerngewinn, 2026-09-25
+
+### Z.20.1 v1-Freeze und Abbruch (Design-Entdeckung VOR Verdict)
+
+- v1-Ausführungs-Prereg frozen (md5 `aa8e77cc3bbd88a0307f3a9f44ccd0c0`,
+  Skelett-Anker `f915729e`) — O1 auf der vollen 78er-Familie
+  (family_configs_625). Lauf gestartet; bei Shuffle 131/200 abgebrochen:
+  ALLE 132 Shuffle-Instanzen zeigten nur 2 Atome (R = 1.082955 n = 110,
+  R = 1.188108 n = 22) — 9 Dezimalstellen identisch. Physikalisch
+  unmöglich → kein Bug-Verdacht vor Diagnose, aber keine Evidenz.
+- Systematische Diagnose (alles einzeln verifiziert, kein Code-Fehler):
+  Generator ✓ (distinkte ±1-Tupel), Loop ✓ (perm korrekt übergeben),
+  Faltung ✓ (64-Muster-Enumeration: 23 distinkte R, Multiplizitäten =
+  S₃-Orbit-Größen 1/2/3/5/6), eps ✓ (0.25, kein Rebinding). Entscheidendes
+  Experiment: 54/78 Konfigurationen mit O(1)-Schwankungen der
+  Per-Konfigurations-k (Beispiel cfg (0.002, 0.002, 0.02, 0.002): k1
+  1.322968 → 1.036295, k2 0.764966 → 2.031714), trotzdem Familiensumme
+  invariant bis 5.8e-11 → EXAKTE Symmetrie, keine Fluktuation.
+
+### Z.20.2 Das S₄-Schluss-Theorem (bewiesen, nicht gemessen)
+
+Die 78er-Familie ist unter Block-Positions-Permutationen σ ∈ S₄
+abgeschlossen. Für den gefalteten Hamiltonian gilt k(σ(cfg), s) =
+k(cfg, σ·s) (unitäre Äquivalenz via Positions-Permutations-Konjugation).
+Daher ist JEDE Familiensumme (mean k1, mean k2, Median der per-config-r)
+Orbit-invariant im Zeichen-Muster. Die 15 Zwei-Minus-Muster fallen in
+genau 2 S₄-Orbits: benachbart (12 Muster, −1-Positionen teilen einen
+Vertex) und disjunkt (3 Muster, perfekte Matchings). Prime- UND
+Composite-Zeichen liegen beide im benachbarten Orbit → composite_o1 =
+o1_prime bit-exakt → die Composite-Kontrolle ist ZAHNLOS. Empirie:
+110/132 = 83.3% ≈ 12/15 Orbit-Anteil; 2 Atome = die 2 Orbits.
+
+Konsequenz: die v1-Konstruktion KANN nicht diskriminieren — unabhängig
+von eps, τ, Seeds. Ein fertig gelaufener v1-Lauf hätte ein
+SINNLOSES REFUTED gemeldet (R_prime = Atom des benachbarten Orbits =
+q_lower; nicht oberhalb q_upper). **Kein Verdict aus v1** — Design-
+Artefakt, keine Evidenz. v1-Artefakte archiviert (`*_v1_degenerate.*`).
+
+### Z.20.3 v2: kanonische Familie (Abweichung registriert VOR der Messung)
+
+Fix: ein sortierter Repräsentant je γ-Multimenge (12 nicht-konstante
+4-Tupel über (0.002, 0.02, 0.2), gleiche Gewichte) — **Zeichen-Regel
+UNVERÄNDERT**; O2 bleibt auf der vollen 78er-Familie
+(Per-Konfigurations-Residuum, keine Familiensumme — vom Theorem
+unberührt). Die 78er-Poolung war eine akzidentelle Orbit-gewichtete
+Mischung; gleiche Gewichte über den 12 distinkten Spektren sind das
+sauberere registrierte Ensemble. Empirische Verifikation VOR dem
+Freeze: alle 15 Zwei-Minus-Muster → 15 DISTINKTE R (Bereich
+0.799–1.883) — die Null ist reich. v2-Prereg frozen md5
+`837dae2c19476eae0e7d13550c1e66f1` (Skelett-Anker `f915729e`
+unverändert; supersedes `aa8e77cc`; Abweichung im Feld
+`deviation_reason` dokumentiert — kein stiller Patch).
+
+### Z.20.4 Run — VERDICT: `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`
+
+Kontrollen zuerst (Regel 1, alle erfüllt): strukturelle Null 5.13e-13
+≤ 1e-9; GUE-Positivkontrolle R = 3.977 (Gate 3.5–6.5); Poisson 0.946
+(Gate 0.2–1.8); Composite 1.541942 IM Shuffle-Band (korrekt
+nicht-zündend — die Kontrolle hat jetzt Zähne und zündet NICHT).
+
+- **O1** R_prime = **1.434783** (k1_mean 0.97507, k2_mean 1.39902);
+  Shuffle-Band [0.798882, 1.882509] (n = 200, **15 distinkte Werte** —
+  exakt die 15 Zwei-Minus-Muster; v1: 2 Atome), Median 1.246724;
+  Perzentil-Rang 82.5% — INNERHALB des Bands, unter q97.5. Regel 3
+  greift → REFUTED.
+- **O2 (Mechanismus-Check, nicht Verdict-Ersatz):** Median |R2| =
+  2.2515, 234/234 gültige Paare (≥ 100) — die Faltung BRICHT die
+  Faktorisierungs-Identität echt (> 1e-6), aber das gefaltete Spektrum
+  zeigt KEINE Prime-abhängige Steifigkeit über der Null.
+- **eps-Ladder (deskriptiv):** eps 0.05 → O1 1.234; eps 0.5 → O1
+  1.021 — mehr Kopplung schiebt R Richtung 1 (Mischung), kein
+  Prime-Signatur-Muster.
+- **o1b (deskriptiv, nicht verdict-relevant):** Median der
+  per-config-Ratios 1.663 — kein ex-post-Upgraden (Anti-Sharpshooter).
+
+**Interpretation (diszipliniert):** Der Ramp-Klassifikator R trennt
+nicht zwischen dem Prime-Residuen-Zeichen und anderen Zeichenzuordnungen
+derselben Multimenge. Die prime-gefalzte ensemble-SFF
+(Keating-Snaith-Brücke auf DIESER Konstruktion) trägt keine erkennbare
+Prime-Struktur in den gefrorenen Fenstern (τ ∈ {0.1, 0.5, 2.0}·t_H).
+Das REFUTED ist MEANINGFUL: reiche Null, Kontrollen mit Zähnen, echter
+Mechanismus-Check. H-STAR-5b (VQE-Hessian/Wishart, Score 6, nicht
+prereg'd) bleibt registrierte Alternative; Phase 6b (Aer-Protokoll-
+Validierung A1) NICHT ausgelöst (keine sichtbare Trennung), QPU-Spot-
+Check entfällt.
+
+### Z.20.5 Vektor-Update
+
+- **H-STAR-5 → REFUTED (Phase 6a, sauber)** — Ausführungs-Prereg md5
+  `837dae2c` VOR der Auswertung gefroren; Registrierungs-Skelett
+  `f915729e` unverändert. `GUE_THIRD_OBSERVABLE` bleibt **C (tot)** —
+  kein stilles Upgrade.
+- **Lerngewinn: das S₄-Schluss-Theorem** (bewiesen, nicht gemessen —
+  kein Grade-Minting): Ensemble-SFF-Statistiken über
+  positions-permutations-abgeschlossenen Konfigurationsfamilien sind
+  blind gegen Zeichen-Orbit-Struktur; registrierte Ensemble-Preregs
+  brauchen Orbit-Aufbruch (ein Repräsentant je Multimenge, gleiche
+  Gewichte). Registriert als Design-Lektion für kommende
+  Ensemble-Preregs (Steelplan-Äquivalent zur H-STAR-5a-Lektion:
+  Basis-Rotationen sind SFF-blind).
+- **Vektorleiter:** H-STAR-5: HYPOTHESE (Score 7/10) → REFUTED
+  (Phase 6a); §10.21 in RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md.
+
+### Z.20.6 SciMind-Bewertung (§Z.20)
+
+- **Anti-Sharpshooter:** der Design-Flaw wurde VOR dem Verdict
+  entdeckt (beim Diagnose-Lauf, nicht nach der Auswertung); die
+  Abweichung wurde als NEUES Prereg (v2, md5 `837dae2c`) dokumentiert
+  und VOR der Messung gefroren, nie still gepatcht; v1-Artefakte
+  archiviert, volle Abbruch-Spur in §10.21.
+- **Steelman Mandate:** die Null ist die exakt registrierte
+  Zeichen-Permutations-Verteilung (15 Muster, 200 Draws) — der
+  stärkste Einwand ("jedes andere Zeichen-Muster tut es auch") ist
+  IN der Null, nicht wegdefiniert.
+- **Ockham:** keine freien Parameter; die kanonische Familie ist
+  strukturell (Repräsentant je Multimenge), nicht gefittet.
+- **Apophenie-Management:** der Perzentil-Rang 82.5% (oberes Drittel)
+  ist VERSUCHUNG für ein ex-post-"Fast bestätigt" — verworfen: das
+  registrierte Fenster ist q97.5, die Null enthält das Prime-Muster
+  selbst (Identitäts-Draw), ein Grenzwert-Argument wäre ein stiller
+  Fenster-Wechsel. REFUTED bleibt REFUTED.
+
+---
+
+**Last updated:** 2026-09-25 (§Z.20: Branch hstar5-execution — Phase 6a H-STAR-5-Ausführung EXPERIMENT 039: v1-Prereg (md5 aa8e77cc) nach Design-Entdeckung abgebrochen OHNE Verdict → S₄-Schluss-Theorem bewiesen (Familiensummen über positions-permutations-abgeschlossenen Familien sind Orbit-invariant im Zeichen-Muster; Prime/Composite im selben benachbarten Orbit → Composite-Kontrolle zahnlos; 132 Shuffle-Instanzen = 2 Atome) → v2 kanonische 12er-Familie frozen VOR der Messung (md5 837dae2c, Skelett f915729e unverändert, Abweichung dokumentiert) → VERDICT `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES` (R_prime 1.434783 im Band [0.798882, 1.882509], 15 distinkte Null-Werte, Perzentil 82.5%, O2-Mechanismus echt 2.2515/234 Paare, Kontrollen zuerst alle erfüllt) → Vektor H-STAR-5 REFUTED (kein stilles Upgrade, GUE_THIRD_OBSERVABLE bleibt C tot), Phase 6b/QPU nicht ausgelöst, 0 QPU, 671 Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

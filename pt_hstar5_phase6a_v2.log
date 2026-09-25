@@ -1,0 +1,22 @@
+Kontrollen: R_GUE=3.977 (Gate 3.5-6.5, ok=True) R_Poisson=0.946 (Gate 0.2-1.8, ok=True) strukturell=True (max 5.13e-13)
+  shuffle 10/200 R=1.5419
+  shuffle 20/200 R=0.7989
+  shuffle 30/200 R=1.3548
+  shuffle 40/200 R=1.8496
+  shuffle 50/200 R=1.2958
+  shuffle 60/200 R=0.7989
+  shuffle 70/200 R=1.1815
+  shuffle 80/200 R=1.3823
+  shuffle 90/200 R=1.1815
+  shuffle 100/200 R=1.4348
+  shuffle 110/200 R=1.1815
+  shuffle 120/200 R=1.1516
+  shuffle 130/200 R=0.7989
+  shuffle 140/200 R=1.3548
+  shuffle 150/200 R=1.4348
+  shuffle 160/200 R=1.1815
+  shuffle 170/200 R=1.8825
+  shuffle 180/200 R=1.2467
+  shuffle 190/200 R=1.8825
+  shuffle 200/200 R=1.8825
+VERDICT: REFUTED (H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES) R_prime=1.4348 Band [0.7989, 1.8825]

@@ -12,7 +12,7 @@ This document is the **primary research repository** of the Riemann-Nuclear-Synt
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
 | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
 | [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
-| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–4 DONE; Phase 5 (QUQUINT/GF(5)) DONE; Phase 6 (H-STAR-5-Ausführung) NEXT |
+| [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–4 DONE; Phase 5 (QUQUINT/GF(5)) DONE; Phase 6 (H-STAR-5-Ausführung) DONE — Phase 6a REFUTED (§10.21) |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez quota block (resolved 6/17) — successor: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
 | [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | REFERENCE (extern) | Externe Forschungs-Literatur (95 KB) |
@@ -1372,10 +1372,10 @@ Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququin
 | `GUE_THIRD_OBSERVABLE` | — | **C (tot)** | V3 DEGENERAT; Nachfolge-Pfad: H-STAR-5 (§10.18) |
 | `RH_MULTI_OBSERVABLE_CONVERGENCE` | A− | **A−** | unverändert (2 Observablen) |
 | `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | **A−** | V5 CONFIRMED (§10.18) |
-| H-STAR-5 | — | **HYPOTHESE (Score 7/10)** | registriert, nicht ausgeführt; Ausführung = nächste Phase |
+| H-STAR-5 | HYPOTHESE (Score 7/10) | **REFUTED (Phase 6a)** | Ausgeführt 2026-09-25, 0 QPU, sauber (Kontrollen zuerst erfüllt); Verdict-Klasse `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`; S₄-Schluss-Theorem als Lerngewinn (§10.21) |
 | `SHOR_QUQUINT_ORACLE` | — | **B (H-SHOR-1 CONFIRMED)** | Branch `shor-ququint-oracle` (§10.20) |
 
-**Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — Ausführungs-Prereg mit numerischen Fenstern/Ensemble-Größe/Schwellwerten freeze VOR erster Messung (Skelett md5 `f915729e`), dann Aer-Ensemble (0 QPU), QPU-Spot-Check nur bei sichtbarer Prime-Trennung; Rückfall-Pfad H-STAR-5b. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
+**Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — **ERLEDIGT (§10.21, REFUTED)**; Phase 6b (Aer-Protokoll-Validierung A1) nicht ausgelöst (keine sichtbare Prime-Trennung), QPU-Spot-Check entfällt. Rückfall-Pfad H-STAR-5b (Score 6, nicht prereg'd) bleibt registrierte Alternative. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
 
 #### **10.20 Shor-Orakel auf Ququint/GF(5) + H-SHOR-1 Fermat-Grid-Orakel-Bru-cke (Branch `shor-ququint-oracle`, 2026-09-24, 0 QPU)**
 
@@ -1388,6 +1388,83 @@ Hypothesen-Disziplin (ECREE, Kontrollfamilie, Prereg-Freeze) zweitens.
 **EXPERIMENT 038 — H-SHOR-1 (`pt_hshor1.py`, Prereg md5 `73bc664ae3475a79a692cd7735b2b387` VOR der ersten Auswertung, commit `13a5674`):** These: die wandernde Größe ist das **Ordnungsraster** {r : a^r ≡ 1 mod N} — als QPE-Interferenzraster (Peaks k = s·Q/r) und Trace-Kamm; ECREE **Score 5/10, Standard** (die algebraische Trennung ist Theorem-Niveau; getestet wird die Brücke). Fenster + Schwellen in EINEM Freeze (Anti-Sharpshooter): QPE primes {7,11,13,17,19,23} / composites {15,21}, Q = 625, XD = 25, exakte Statevector-Wahrscheinlichkeiten; klassisch {9,15,21,25,33,35,39,561}; Korselt-Ausschluss als gefrorene Liste [561] (im Test gegen das unabhängige Kriterium verifiziert); Schwellen composite ≥ 0.05, prime = 0 exakt, bridge_match_min 1.0, shuffle 200/seed 0/p ≤ 0.05, tol 1e-9. **EVALUATIONS-LOG (dokumentiert, nicht still korrigiert):** Run 1 spurious REFUTED — Shuffle-Label-Vektor falsch an die sortierten Schlüssel ausgerichtet (delta_obs = −0.308, p = 0.95); Fehler im Statistik-Code, Registrierung (md5 `73bc664a`) unangetastet; Regression-Test verankert. **Run 2 — VERDICT `HSHOR1_CONFIRMED_GRID_BRIDGE_REALISIERT`:** O1 prime_rate_max 0.0 / composite min 0.571 > 0.05 / 561-Blindheit exakt (Rate 0, max_order 80); O1′ Faktoren (3,5)/(3,7), Primes None; O1b **Bridge-Match 1.0** (102 (a,N)-Paare, 0 mismatches, inkl. r = 22/18/16/11); O2 CRT/Trace **exakt 0.0**; Shuffle delta_obs +0.690, **p = 0.000**. **Grade B** (Statevector-only). Vektor **`SHOR_QUQUINT_ORACLE` NEU → B**; H-STAR-5 unverändert registriert (md5 `f915729e`, kein stilles Upgrade); H-SHOR-1a-UNITARY_INVARIANCE VOID vor-registriert, H-SHOR-1b-SCALING HELD (Score 4). 624 Tests grün.
 
 **Quellen:** `SYNTHESIS_2026_06_10.md` §Z.19, `pt_shor_ququint.py`, `pt_hshor1.py`, `pt_hshor1_prereg.json`.
+
+#### **10.21 H-STAR-5-Ausführung Phase 6a (EXPERIMENT 039, Branch `hstar5-execution`, 2026-09-25, 0 QPU): REFUTED + S₄-Schluss-Theorem**
+
+Denkmodus: Ausführungs-Disziplin (Anti-Sharpshooter) — Prereg-Freeze VOR
+der ersten Prime-vs-Null-Auswertung, Abweichungen als NEUES Prereg
+dokumentiert, nie still gepatcht.
+
+**Ablauf (vollständige Spur):** v1-Ausführungs-Prereg frozen (md5
+`aa8e77cc3bbd88a0307f3a9f44ccd0c0`, O1 auf der vollen 78er-Familie) →
+Lauf gestartet → bei Shuffle 131/200 abgebrochen: ALLE 132
+Shuffle-Instanzen nur 2 Atome (R = 1.082955 n = 110, R = 1.188108
+n = 22, 9 Dezimalstellen identisch) → systematische Diagnose
+(Generator/Loop/Faltung/eps einzeln verifiziert, 64-Muster-Enumeration:
+23 distinkte R mit Multiplizitäten = S₃-Orbit-Größen; 54/78
+Konfigurationen mit O(1)-Schwankungen der Per-Konfigurations-k, die sich
+in der Familiensumme bis 5.8e-11 exakt heben) → **S₄-Schluss-Theorem**
+bewiesen (s. u.) → v1 ohne Verdict archiviert (`*_v1_degenerate.*`) →
+v2-Prereg frozen **VOR der Messung** (md5 `837dae2c19476eae0e7d13550c1e66f1`,
+Skelett-Anker `f915729e` unverändert, supersedes `aa8e77cc`, Abweichung
+im Feld `deviation_reason`) → Run → Verdict.
+
+**Das S₄-Schluss-Theorem (bewiesen, nicht gemessen):** Die
+78er-Familie (alle nicht-konstanten 4-Tupel über 3 γ-Werte) ist unter
+Block-Positions-Permutationen σ ∈ S₄ abgeschlossen. Für den gefalteten
+Hamiltonian gilt k(σ(cfg), s) = k(cfg, σ·s) (unitäre Äquivalenz via
+Positions-Permutations-Konjugation). Daher ist JEDE Familiensumme
+(mean k1, mean k2, Median der per-config-r) Orbit-invariant im
+Zeichen-Muster. Die 15 Zwei-Minus-Muster fallen in genau 2 S₄-Orbits:
+benachbart (12 Muster, −1-Positionen teilen einen Vertex) und disjunkt
+(3 Muster, perfekte Matchings). Prime- UND Composite-Zeichen liegen
+beide im benachbarten Orbit → composite_o1 = o1_prime bit-exakt → die
+Composite-Kontrolle ist zahnlos. Empirie: 110/132 = 83.3% ≈ 12/15
+Orbit-Anteil. Konsequenz: v1 konnte nicht diskriminieren (unabhängig
+von eps, τ, Seeds). **Design-Lektion:** registrierte Ensemble-SFF-Preregs
+brauchen Orbit-Aufbruch (ein Repräsentant je Multimenge), sonst sind
+Familiensummen blind gegen Zeichen-Orbit-Struktur.
+
+**v2-Design:** O1/Composite/eps-Ladder/Shuffle auf der kanonischen
+Familie (12 sortierte Repräsentanten je γ-Multimenge, gleiche Gewichte,
+Zeichen-Regel UNVERÄNDERT); O2 unverändert auf der vollen 78er-Familie
+(Per-Konfigurations-Residuum, keine Familiensumme — vom Theorem
+unberührt). Verifikation VOR dem Freeze: alle 15 Zwei-Minus-Muster →
+15 DISTINKTE R (Bereich 0.799–1.883) — die Null ist reich.
+
+**Run (0 QPU, 2,514 zgeev ≈ 17 min, Kontrollen zuerst — alle erfüllt):
+strukturelle Null 5.13e-13 ≤ 1e-9; GUE R = 3.977 (Gate 3.5–6.5);
+Poisson 0.946 (Gate 0.2–1.8); Composite 1.541942 IM Shuffle-Band
+(korrekt nicht-zündend).**
+
+- **O1:** R_prime = **1.434783** (k1_mean 0.97507, k2_mean 1.39902);
+  Shuffle-Band [0.798882, 1.882509] (n = 200, **15 distinkte Werte**,
+  Median 1.246724); Perzentil-Rang 82.5% — INNERHALB des Bands, unter
+  q97.5. **VERDICT: `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`.**
+- **O2 (Mechanismus, nicht Verdict-Ersatz):** Median |R2| = 2.2515,
+  234/234 gültige Paare — die Faltung BRICHT die
+  Faktorisierungs-Identität echt (> 1e-6), aber das gefaltete Spektrum
+  zeigt KEINE Prime-abhängige Steifigkeit über der Null.
+- **eps-Ladder (deskriptiv):** eps 0.05 → O1 1.234; eps 0.5 → O1
+  1.021 — mehr Kopplung schiebt R Richtung 1 (Mischung), kein
+  Prime-Signatur-Muster.
+- **o1b (deskriptiv, nicht verdict-relevant):** Median der
+  per-config-Ratios 1.663 — kein ex-post-Upgraden (Anti-Sharpshooter).
+
+**Interpretation (diszipliniert):** Der Ramp-Klassifikator trennt nicht
+zwischen dem Prime-Residuen-Zeichen und anderen Zeichenzuordnungen
+derselben Multimenge. Die prime-gefalzte ensemble-SFF
+(Keating-Snaith-Brücke auf DIESER Konstruktion) trägt keine erkennbare
+Prime-Struktur in den gefrorenen Fenstern. Das REFUTED ist MEANINGFUL:
+reiche Null (15 distinkte Werte statt 2 Atome), Kontrollen mit Zähnen,
+echter Mechanismus-Check. Phase 6b (Aer A1) nicht ausgelöst; QPU
+entfällt. H-STAR-5b (VQE-Hessian/Wishart, Score 6) bleibt registrierte
+Alternative. `GUE_THIRD_OBSERVABLE` bleibt C (tot) — kein stilles
+Upgrade. 671 Tests grün (668 + 3 Vorab-Failures cf0601c unverändert).
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.20, `pt_hstar5_execution.py`,
+`pt_hstar5_execution_prereg_v2.json` (md5 `837dae2c`),
+`pt_hstar5_phase6a_v2_results.json`, `pt_hstar5_phase6a_v1_degenerate.*`.
 
 #### **Quellenangaben**
 
