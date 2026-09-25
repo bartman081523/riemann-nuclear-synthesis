@@ -44,3 +44,10 @@ zeta-23-lean-review/
 # OS
 .DS_Store
 Thumbs.db
+
+# Presentation media (re-renderable, not repo truth)
+presentation/media/
+presentation/__pycache__/
+
+# manim default media dir (stray text-mobject cache, regenerated on demand)
+media/
