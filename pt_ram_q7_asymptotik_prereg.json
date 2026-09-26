@@ -1,0 +1,249 @@
+{
+  "experiment": "041-ram-q-asymptotik",
+  "hypothesis": "H-RAM-Q-2",
+  "registered_before": "Baustein B2 VOR dem Freeze im Modul hergeleitet (q-universelle EXAKTidentitaet): share* = (m-q*n0)^2/((q-1)dm) + q*sigma^2/(dm) mit sigma^2 = Klassendispersion \u2014 Verallgemeinerung der q=3-Zweiklassen-Identitaet (EXPERIMENT 040, md5 bd9dfee7) auf ALLE q; verifiziert gegen die gefrorenen q=5- (034, md5 a2fc4875) und q=3-Konstanten. Die DFT-Profil-Messung der q=7-Punkte wurde VOR diesem Freeze NICHT berechnet; der Freeze bindet registrierte Sieb-Counts, EXAKTE B2-Vorhersagen, Baender, Residual- und d-Invarianz-Schranken, Kontrollfamilie und Verdict-Map.",
+  "model": {
+    "general_identity": "share*_q = (m-q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m) EXAKT fuer alle ganzzahligen Counts; sigma^2 = sum_{r=1}^{q-1} (n_r - A/(q-1))^2, A = m - n0",
+    "ratio_identity": "gemessen/Modell = 1 + q(q-1)*sigma^2/(m-q)^2 (n0=1, m>q)",
+    "structural_corollary": "ratio >= 1 IMMER (sigma^2 >= 0) \u2014 einseitiges Band, nur der obere Rand 1.25 ist Falsifikator",
+    "d_invariance_theorem": "d*share**m haengt NUR von den Counts mod q ab \u2014 exakt fuer alle d=q^k, inkl. Wraparound P >> d",
+    "q3_specialization": "sigma^2 = 2*delta^2 -> gefrorene Zweiklassen-Identitaet aus 040",
+    "q5_specialization": "sigma^2 = 0 (Aequipartition) -> gefrorene 034-Formel (m-5)^2/(4dm)"
+  },
+  "asymptotic_theorem_b3": {
+    "statement": "ratio - 1 = q(q-1)*sigma^2/(m-q)^2 -> 0 fuer P -> unendlich, q fest (PNT-AP)",
+    "unconditional": "Siegel-Walfisz (ineffektiv): ratio - 1 = O(e^{-c sqrt(log x)} log^2 x) -> 0; das Band [0.8, 1.25] liegt schliesslich vollstaendig",
+    "grh_effective": "sigma_r = O(sqrt(x) log^2 x) -> ratio - 1 = O(log^6 x / x)",
+    "heuristic_deskriptiv": "Chebyshev/Rubinstein-Sarnak-Bias c*sqrt(x)/log x -> ratio - 1 ~ C/x mit C = q(q-1)^2 c^2 = O(1), Log-Log-Slope ~ -1 \u2014 DESKRIPTIVE Erwartung, kein Gate",
+    "epistemic_point": "kleines m ist das HARTE Ende (relativer Race-Term maximal); das empirische Fenster ist die konservative Seite, nicht die optimistische"
+  },
+  "extraordinarity_score": {
+    "score": 6,
+    "max": 10,
+    "reason": "Out-of-Family in ZWEI Dimensionen gleichzeitig (q=7 nie gemessen \u2014 6 Race-Klassen ohne Zweiklassen-Kollaps; P >> d Wraparound-Regime nie gemessen) mit EXAKT-Vorhersagen aus reiner Algebra. Aber: die Band-Punkte sind asymptotisch erzwungen (B3) \u2014 der scharfe Inhalt ist die Identitaet (Residual) und die d-Invarianz bei Wraparound, nicht das Band. Theorem-Konsistenz, kein Grade-Minting (B-Klasse)."
+  },
+  "q7_family": {
+    "q": 7,
+    "d_grid": [
+      49,
+      2401
+    ],
+    "phi_q_classes": 6,
+    "note": "6 Race-Klassen \u2014 die q=3-Zweiklassen-Kollaps-Identitaet existiert hier NICHT; B2 ist der einzige Weg zur exakten Vorhersage"
+  },
+  "prime_points": [
+    {
+      "P": 17,
+      "d": 49,
+      "pi": 7,
+      "model": 0.0,
+      "band_lo": null,
+      "band_hi": null,
+      "gated": false,
+      "role": "null_deskriptiv",
+      "residue_counts_mod7": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "sigma2": 2.0,
+      "b2_share_exact": 0.04081632653061224,
+      "ratio_pred_exact": null
+    },
+    {
+      "P": 10000,
+      "d": 2401,
+      "pi": 1229,
+      "model": 0.08434262597618047,
+      "band_lo": 0.06747410078094439,
+      "band_hi": 0.10542828247022559,
+      "gated": true,
+      "role": "band",
+      "residue_counts_mod7": [
+        1,
+        203,
+        203,
+        209,
+        202,
+        211,
+        200
+      ],
+      "sigma2": 93.33333333333333,
+      "b2_share_exact": 0.08456403268369668,
+      "ratio_pred_exact": 1.0026250867216149
+    },
+    {
+      "P": 100000,
+      "d": 2401,
+      "pi": 9592,
+      "model": 0.6648622177164852,
+      "band_lo": 0.5318897741731882,
+      "band_hi": 0.8310777721456065,
+      "gated": true,
+      "role": "band",
+      "residue_counts_mod7": [
+        1,
+        1593,
+        1584,
+        1613,
+        1601,
+        1604,
+        1596
+      ],
+      "sigma2": 493.5,
+      "b2_share_exact": 0.6650122151633372,
+      "ratio_pred_exact": 1.0002256068142465
+    },
+    {
+      "P": 1000000,
+      "d": 2401,
+      "pi": 78498,
+      "model": 5.448007817868924,
+      "band_lo": 4.358406254295139,
+      "band_hi": 6.810009772336155,
+      "gated": true,
+      "role": "band",
+      "residue_counts_mod7": [
+        1,
+        13063,
+        13065,
+        13105,
+        13069,
+        13105,
+        13090
+      ],
+      "sigma2": 1936.8333333333335,
+      "b2_share_exact": 5.448079752751495,
+      "ratio_pred_exact": 1.0000132038875449
+    },
+    {
+      "P": 10000000,
+      "d": 2401,
+      "pi": 664579,
+      "model": 46.13112592487373,
+      "band_lo": 36.904900739898984,
+      "band_hi": 57.663907406092164,
+      "gated": true,
+      "role": "band",
+      "residue_counts_mod7": [
+        1,
+        110653,
+        110771,
+        110815,
+        110776,
+        110787,
+        110776
+      ],
+      "sigma2": 15782.0,
+      "b2_share_exact": 46.13119515917365,
+      "ratio_pred_exact": 1.0000015008153071
+    }
+  ],
+  "model_by_point": {
+    "17@49": 0.04081632653061224,
+    "10000@2401": 0.08456403268369668,
+    "100000@2401": 0.6650122151633372,
+    "1000000@2401": 5.448079752751495,
+    "10000000@2401": 46.13119515917365
+  },
+  "gated_points": [
+    [
+      10000,
+      2401
+    ],
+    [
+      100000,
+      2401
+    ],
+    [
+      1000000,
+      2401
+    ],
+    [
+      10000000,
+      2401
+    ]
+  ],
+  "gate": {
+    "criteria": [
+      "Alle 4 Band-Punkte liegen auf d=7^4=2401 mit m >= pi(10^4) = 1229; Separations-Kriterium: band_lo >= 3x generisch (generisch = (q-1)/d = 6/2401 = 0.00249896; band_lo(10^4) = 0.8 * 0.084341 = 0.067473, Faktor ~27 ueber generisch).",
+      "(17,49) ist rein deskriptiv (m = q = 7: Modell-Null, gemessen = q*sigma^2/(dm) = 2/49 EXAKT via B2)."
+    ]
+  },
+  "thresholds": {
+    "band_lo": 0.8,
+    "band_hi": 1.25,
+    "residual_tol": 1e-10,
+    "d_inv_tol": 1e-10,
+    "null_tol": 1e-12,
+    "anchor_tol": 1e-12,
+    "tolerance": 1e-09
+  },
+  "deskriptive_expectations": [
+    {
+      "name": "slope_q3",
+      "prediction": "Log-Log-Slope von ratio-1 ueber das Skan-Gitter in [\u22121.5, \u22120.5] (Heuristik C/x mit C = 3*4*c^2, c = O(1))",
+      "kind": "heuristik_kein_gate"
+    },
+    {
+      "name": "slope_q5",
+      "prediction": "Log-Log-Slope von ratio-1 ueber das Skan-Gitter in [\u22121.5, \u22120.5] (C = 5*16*c^2)",
+      "kind": "heuristik_kein_gate"
+    },
+    {
+      "name": "c_max",
+      "prediction": "C(P) = P*(ratio-1) <= 1e4 auf allen Skan-Punkten (Bindung gegen Bias-Drift Richtung Siegel-Null-Skala x^{2 beta - 1})",
+      "kind": "heuristik_kein_gate"
+    },
+    {
+      "name": "envelope",
+      "prediction": "ratio-1(10^7) < ratio-1(10^3) fuer q in {3,5} (Konvergenz-Richtung, nicht Monotonie)",
+      "kind": "heuristik_kein_gate"
+    }
+  ],
+  "controls": {
+    "t1_q5_anchor": "B2-Ratio bei (625, 625), q=5 (Counts mod 5 via rq.residue_counts, Sieb-Arithmetik): 1 + 20*sigma^2/(m-5)^2 muss den V2-Anker reproduzieren: |ratio_B2 - V2_SHARE_STAR_PRIME_COMMITTED/rr.model_share_star(625,625)| relativ <= 1e-12 \u2014 der bislang unbemerkte q=5-Race-Term erklaert die 034-Ratio 1.0248 exakt",
+    "t2_q3_bridge": "B2 \u2261 delta_identity_analytic auf den GEFRORENEN q=3-Prereg-Counts (EXPERIMENT 040 md5 bd9dfee7, md5-verifiziert geladen): rel. Differenz <= 1e-15 an allen 21 Punkten \u2014 keine neue Messung, nur Algebra-Konsistenz",
+    "t3_d_invariance_q3": "d*share invariant bei (729, 729), q=3, ueber d in {9, 81, 729} im Schnellpfad, rel. <= 1e-9 (Spiegel der Phase-7-Kontrolle an der Skala)",
+    "t4_ratio_ge_1_structural": "ratio >= 1 - 1e-12 an allen Skan- und q=7-Band-Punkten (Strukturkorollar; Verletzung = Algorithmus-/Praemissen-Bug -> INVALID, nicht REFUTED",
+    "t5_gate_set_frozen": "gated Set = genau die 4 registrierten Punkte auf d=2401",
+    "t6_null_points_exact": "m=q-Null-Punkte: gemessen == q*sigma^2/(dm) exakt (tol 1e-12) an (17,49) q=7 UND (5,9) q=3 (Schnellpfad) \u2014 der Race-Term IST die gesamte Masse"
+  },
+  "verdict_map": {
+    "H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED": "alle 4 Band-Punkte im Band UND Residual <= 1e-10 an allen q=7-Punkten UND d-Invarianz <= 1e-10 UND T1-T6 gruen",
+    "H-RAM-Q-2_PARTIAL": "exakt 1 Band-Punkt ausserhalb, Rest gruen",
+    "H-RAM-Q-2_REFUTED_Q_UNIVERSALITAET_KOLLABIERT": ">= 2 Band-Punkte ausserhalb ODER Residual > 1e-10 ODER d-Invarianz gebrochen (T4 -> INVALID, nicht REFUTED)",
+    "EVALUATION_INVALID_KONTROLLE_GESCHEITERT": "T1/T2/T3/T5/T6 gescheitert oder T4 verletzt (Anker/Algebra/Struktur) \u2014 Auswertung void"
+  },
+  "scan_registration": {
+    "q_values": [
+      3,
+      5
+    ],
+    "d_by_q": {
+      "3": 729,
+      "5": 625
+    },
+    "p_grid": [
+      1000,
+      10000,
+      100000,
+      1000000,
+      10000000
+    ],
+    "p_extension_deskriptiv": 100000000,
+    "note": "Skans sind DESKRIPTIV (B3-Konvergenzverifikation), keine Band-Gates; Slope/C/envelope als deskriptive Erwartungen registriert"
+  },
+  "qpu": "0 QPU \u2014 reine Arithmetik (numpy-Sieb + FFT), offline, kein Quanten-SDK",
+  "plan": "~/.claude/plans/riemann-phase-ram-q-zyklizitaet.md",
+  "q3_reference_chain": {
+    "experiment_040_prereg_md5": "bd9dfee77b9fada8a230347f9d45f5a7",
+    "experiment_034_prereg_md5": "a2fc4875e10dd198e95d4996b1692759",
+    "v2_share_star_prime_committed": 0.04272280701754398
+  },
+  "md5": "704916f946beedf49c51ab6bc9bf37bd"
+}
