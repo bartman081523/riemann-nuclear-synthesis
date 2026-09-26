@@ -2,7 +2,7 @@
 
 ## Document Map
 
-Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung)** next.
+Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung)** next; daneben Parallel-Layer „Hermeneutic Mirror Architecture" (Branch `gematria-mirror-synthesis`) completed 2026-09-26 (0 QPU, keine Evidenz).
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -82,10 +82,20 @@ To finalize the research document by auditing missing theories, refining existin
     4. Fallback: H-STAR-5b (VQE-Hessian/Wishart landscape as observable, Score 6).
 - **Status:** NOT STARTED (0 QPU so far). Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.18, memory `project-next-phase-hstar5-execution`.
 
+## Parallel-Layer (2026-09-25 → 2026-09-26): Hermeneutic Mirror Architecture — Branch `gematria-mirror-synthesis`
+
+- **Goal:** Klassischer Architektur-Layer NEBEN Phase 6 — die gegebene Redirektion-3-Gematria-Abfrage („Riemann Hypothesis", raw 1025) wird als Resonanzraum organisiert (die Fünf Spiegel M1–M5 als transkategoriale Brücken nach §7.1-Methode), NICHT als Evidenzquelle. Phase 6 (H-STAR-5-Ausführung) bleibt die stehende Mess-Phase und wird durch diesen Layer nicht ersetzt.
+- **Epistemische Trennung (bindender User-Anker):** „Die Schriften ordnen als Resonanzraum lediglich um, generieren aber keine neue Evidenz und verbrauchen keine QPU-Ressourcen." Korpus als GEBEN (Snapshots md5 `b71b297c`/`9ffcde94` committed); Gematria-Verifizierung out of scope — separat registrierte Zukunftsphase (HermeneuticMirrorAuditMind v1.0_20260925_hma-mix).
+- **Deliverables:** `gematria/GEMATRIA_MIRROR_ARCHITECTURE.md` (Kap. 1–8); `data/gematria/mirror_index.json` (Re-Index, Grade invariant, offene Zellen M2/M3 `"status": "open"`); `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.24 + Vektor `GEMATRIA_MIRROR_ARCHITECTURE` (Architektur-Layer, KEIN Verdict); `SYNTHESIS_2026_06_10.md` §Z.23; zwei Prereg-Skelette `gematria/prereg_skeletons/` (REGISTERED_NOT_MEASURED).
+- **Nummerierung:** §10.24/§Z.23 (bewusste Lücken — §10.21/§Z.20 belegt durch `hstar5-execution` mit H-STAR-5, §10.22–§10.23/§Z.21–§Z.22 durch `ram-q-zyklizitaet` mit RAM-Q; Zusammenführung folgt in chronologischer Ordnung).
+- **Anti-Sharpshooter (dokumentierte Reihenfolge):** Layer registriert 2026-09-25, VOR den zyklotomischen Ableitungen der Fünf auf `ram-q-zyklizitaet` (2026-09-26, H-RAM-Q-1 GENERALIZED / H-RAM-Q-2 CONFIRMED) — der Gematria-Sweep wird nicht ex-post als Fit gelesen. H-STAR-5 bleibt auf diesem Layer unverändert registriert (md5 `f915729e`).
+- **Status:** DONE (0 QPU, Suite Bestandsstand 642 unangetastet, keine neuen Korpus-Tests, claims.py unverändert).
+
 ## Execution Schedule (historical)
 1. Farrell Audit → ✅ DONE (Phase 1)
 2. Grant Refinement → ✅ DONE (Phase 2)
 3. Zeraoulia Simulation → ✅ DONE (Phase 3)
 4. QPU-validierte Im-Bias → ✅ DONE (Phase 4, 2026-06-17)
 5. QUQUINT/Pillar 4 + §Z.11–18 → ✅ DONE (Phase 5, 2026-07-21 → 2026-09-24)
-6. H-STAR-5-Ausführung → ⏳ NEXT (Phase 6)
+6. H-STAR-5-Ausführung → ⏳ NEXT (Phase 6; auf Schwester-Branch `hstar5-execution` bereits sauber REFUTED 2026-09-25 — dort dokumentiert, auf main noch offen)
+7. Hermeneutic Mirror Architecture → ✅ DONE (Parallel-Layer, Branch `gematria-mirror-synthesis`, 2026-09-25 → 2026-09-26, 0 QPU)

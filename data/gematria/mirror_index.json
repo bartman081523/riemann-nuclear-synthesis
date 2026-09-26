@@ -1,0 +1,415 @@
+{
+  "schema_note": "Maschinen-lesbarer Re-Index der Fünf Spiegel (Paket 3, Plan riemann-gematria-mirror-synthesis). Der Index ist positions-, nicht wertändernd: er verankert Projekt-Befunde (Grade UNVERÄNDERT übernommen) an den hermeneutischen Spiegeln. Er generiert keine Evidenz, prüft den Korpus nicht und rechnet keine Gematria-Werte.",
+  "generated": "2026-09-26",
+  "branch": "gematria-mirror-synthesis",
+  "base_branch": "shor-ququint-oracle @ 046c1cc",
+  "mind": "MirrorArchitectMind v1.0_20260925_tma-mix",
+  "primary_doc": "gematria/GEMATRIA_MIRROR_ARCHITECTURE.md",
+  "provenance": {
+    "corpus_full": {
+      "path": "data/gematria/riemann_hypothesis_full.json",
+      "size_bytes": 430028,
+      "md5": "b71b297c479e9cff8a03a5e97476a31b"
+    },
+    "corpus_compact": {
+      "path": "data/gematria/riemann_hypothesis_compact.json",
+      "size_bytes": 78724,
+      "md5": "9ffcde94214b437811617b285dec5989"
+    },
+    "note": "md5s sind gegebene Provenienz, kein Test prüft sie. Korpus wird als GEBEN übernommen; Verifizierung (Basisraten/Dekoy/Integrität) ist eine separat registrierte Zukunftsphase (HermeneuticMirrorAuditMind v1.0_20260925_hma-mix)."
+  },
+  "epistemic_status": {
+    "qpu_used": 0,
+    "tests_added": 0,
+    "suite_state": "642 (Bestandsstand, claims.py unangetastet)",
+    "evidence_generated": false,
+    "grade_invariance": "alle Grade unverändert; der Re-Index ist nur positionsändernd",
+    "user_anchor": "Die Schriften ordnen als Resonanzraum lediglich um, generieren aber keine neue Evidenz und verbrauchen keine QPU-Ressourcen."
+  },
+  "query_given": {
+    "phrase": "Riemann Hypothesis",
+    "gsum_raw": 1025,
+    "gsum_adjusted": 1033,
+    "adjust_constant_metadata": 137.035999177,
+    "els_chain_stats": {
+      "els_items": 258,
+      "matched": 238,
+      "no_exact_match": 20,
+      "errors": 0,
+      "per_culture": {
+        "Bible": [54, 53, 1, 0],
+        "Mahabharata": [18, 18, 0, 0],
+        "Quran": [68, 68, 0, 0],
+        "Rig Veda": [10, 10, 0, 0],
+        "Tao": [27, 27, 0, 0],
+        "Torah": [39, 21, 18, 0],
+        "Tripitaka": [42, 41, 1, 0]
+      }
+    },
+    "find_verses_hits": 518,
+    "xor_resonances": 39,
+    "xor_parameters": {
+      "verses_processed": 150,
+      "results_per_verse": 2,
+      "xor_depth": 2,
+      "translation_enabled": false
+    }
+  },
+  "mirrors": [
+    {
+      "id": "M1",
+      "name": "Morphologie der Leere",
+      "text_given": {
+        "channel": "find_verses",
+        "ref": "B01,K01,V02",
+        "text": "וחשך עלפני תהום",
+        "meaning": "Und Finsternis auf der Tiefe (Genesis 1:2)",
+        "words": 3,
+        "frequency": 1,
+        "gsum": 1025
+      },
+      "wandering_quantity": "die Leere — Lücken/Zwischenräume als Träger von Stabilität",
+      "bridge_categories": [
+        "Quantenmechanik: Band-Lücken, Magic Numbers, dünn besetzter Hilbert-Raum",
+        "Zahlentheorie: Lücken zwischen Zeta-Nullstellen / Primzahlen",
+        "Schrift: die unbeschriebene Tiefe vor dem ersten Wort"
+      ],
+      "index": [
+        {
+          "finding": "Morphology of Emptiness (Projekt-eigenes Vorläufer-Prinzip der Brücken-Methode)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§7.1",
+          "grade": null
+        },
+        {
+          "finding": "α-Asymptotik: Entropie wächst wie N^0.22 — dünn besetzter Hilbert-Raum",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.5",
+          "grade": "A−",
+          "vector": "SUB_RH_INDICATOR"
+        },
+        {
+          "finding": "Pillar 1: Im-Bias als kanonische Metrik (das Unbewegliche unter dem Strom)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.3",
+          "grade": "A+",
+          "vector": "IM_BIAS_AS_KANONISCHE_METRIK"
+        },
+        {
+          "finding": "Magic Numbers / Band-Lücken (Kapitel warnt selbst vor direkter Zuordnung — Ockham)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§4.1",
+          "grade": null
+        },
+        {
+          "finding": "GUE/Lücken: chaotic but rigorously deterministic",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§8",
+          "grade": null
+        }
+      ],
+      "nicht_behauptungen": [
+        "keine Vorhersage über Lücken-Verteilungen aus dem Textwert",
+        "keine Kausalität Schrift→Physik",
+        "α wird nirgends aus 1025 abgeleitet",
+        "§4.1 nicht als gestützte Zuordnung geführt"
+      ],
+      "scores": {
+        "resonanz": 8,
+        "extraordinaritaet_starke_lesart": 9,
+        "extraordinaritaet_starke_lesart_behauptet": false,
+        "schwache_lesart": 3
+      },
+      "open_cells": [],
+      "cross_branch_notes": []
+    },
+    {
+      "id": "M2",
+      "name": "Basis Fünf",
+      "text_given": {
+        "channel": "xor_resonance",
+        "ref": "Book 1, Chapter 1, Verse 3",
+        "derivation_given": "verse_sum 1373 − query_gematria 1025 = main_target_gematria 348",
+        "hits": [
+          { "text": "חמש", "meaning": "fünf", "frequency": 77 },
+          { "text": "ישלח", "frequency": 24 }
+        ],
+        "bitplane_variations_given": [
+          { "depth": 1, "target": 349, "hits": ["עלרגליו (349, f6)", "וגשם (909, f8 — registrierte Integritäts-Sonderbarkeit, nicht verfolgt)"] },
+          { "depth": 2, "target": 350, "hits": ["שמי (350, f40)"] }
+        ]
+      },
+      "wandering_quantity": "die Basis — Radix 5 als tragende Struktur",
+      "bridge_categories": [
+        "Arithmetik: GF(5), Basis-5-Digit-Encoding, DFT über Z_{5^n}",
+        "Quanten-Register: Q = 625 = 5⁴ (Ququint)",
+        "Schrift: das Wort fünf als häufigster Treffer des XOR-Ziels 348"
+      ],
+      "index": [
+        {
+          "finding": "Pillar 4 GF(5)/Ququint — QPU-Lauf, alle 3 Prereg-Bänder gehalten",
+          "doc": "SYNTHESIS_2026_06_10.md",
+          "section": "§Z.14",
+          "grade": "A−",
+          "vector": "QUQUINT_QPU_VIABLE",
+          "prereg_md5": "18fb1e62"
+        },
+        {
+          "finding": "Margin-Crossover κ* = 62.26 (Bracket [62.09, 62.43])",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.16 / §Z.16.5",
+          "grade": "A−",
+          "vector": "QUQUINT_THRESHOLD_CROSSOVER",
+          "prereg_md5": "7abb5e60"
+        },
+        {
+          "finding": "Ramanujan-DFT-Fingerprint (m−5)²/(4dm) — repliziert, keine Kontroll-Überlappung",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.17",
+          "grade": "B+",
+          "vector": "RAMANUJAN_DFT_FINGERPRINT"
+        },
+        {
+          "finding": "Q = 625 = 5⁴ als QPE-Register; Basis-5-Digit-Encoding; DFT über Z_{5^n}",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.20 / §Z.19",
+          "grade": "B",
+          "vector": "SHOR_QUQUINT_ORACLE",
+          "prereg_md5": "73bc664a"
+        }
+      ],
+      "nicht_behauptungen": [
+        "keine Vorhersage aus 348",
+        "keine Behauptung, die Schrift kennzeichne GF(5)",
+        "keine Verifikation der XOR-Arithmetik (out of scope)",
+        "וגשם-909-Bitplane-Treffer als gegebene Sonderbarkeit registriert, nicht als Signal"
+      ],
+      "scores": {
+        "resonanz": 8,
+        "extraordinaritaet_starke_lesart": 9,
+        "extraordinaritaet_starke_lesart_behauptet": false,
+        "schwache_lesart": 3
+      },
+      "open_cells": [
+        {
+          "cell": "Zufalls-Matrix-Anteil des ELS-Sweeps anderer Kulturen",
+          "status": "open",
+          "prereg_skeleton": "gematria/prereg_skeletons/M2_els_random_matrix_share_prereg.json"
+        }
+      ],
+      "cross_branch_notes": [
+        {
+          "branch": "ram-q-zyklizitaet",
+          "date": "2026-09-26",
+          "content": "Die Fünf im Fingerprint wurde dort parallel/unabhängig zyklotomisch ABGELEITET (H-RAM-Q-1 GENERALIZED, EXPERIMENT 040, A−: Atom n₀=1 + Klassenanzahl q−1) und q-universal verifiziert (H-RAM-Q-2 CONFIRMED, EXPERIMENT 041, B: q=7 blind im Band, d-Invarianz 1.4e-16, 0 QPU).",
+          "epistemic_rule": "dokumentierte Reihenfolge, kein ex-post-Fit des Sweeps; Schwester-Grade werden auf diesem Branch NICHT übernommen (kein stiller Verdict-Import)"
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "name": "Abstoßung",
+      "text_given": {
+        "channel": "find_verses",
+        "ref": "B01,K04,V15",
+        "text": "הכותאתו כלמצאו",
+        "meaning": "Genesis 4:15, Kainsmal: damit ihn nicht erschlüge, wer ihn fände",
+        "words": 2,
+        "frequency": 1
+      },
+      "wandering_quantity": "die Schutzweite — Abstoßung diskreter Objekte",
+      "bridge_categories": [
+        "Quantenmechanik: Level Repulsion (Niveaus weichen einander aus)",
+        "Zahlentheorie: Montgomery-Pair-Correlation der Zeta-Nullstellen",
+        "Schrift: das Schutzgebot (nichts kommt zu nahe, ohne markiert zu werden)"
+      ],
+      "index": [
+        {
+          "finding": "Wigner Level Repulsion (Kernspektroskopie)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§3.2",
+          "grade": null
+        },
+        {
+          "finding": "Montgomery–Dyson-Konjektur (Nullstellen ⟷ GUE)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§3.3",
+          "grade": null
+        },
+        {
+          "finding": "Wigner-Surmise U-238 (Steelman-Datengrundlage)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§5.2",
+          "grade": null
+        },
+        {
+          "finding": "GUE-Konstanten: ⟨r⟩ 0.5359 = GOE-Surmise (4−2√3, Atas et al. arXiv:1212.5611); GUE large-N 0.5996 — Korrektur VOR der Messung",
+          "doc": "SYNTHESIS_2026_06_10.md",
+          "section": "§Z.16",
+          "grade": null
+        },
+        {
+          "finding": "Margin-Crossover κ* = 62.26",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.16 / §Z.16.5",
+          "grade": "A−",
+          "vector": "QUQUINT_THRESHOLD_CROSSOVER"
+        },
+        {
+          "finding": "GUE Third Observable (tot) — der Layer ändert daran nichts",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.19",
+          "grade": "C",
+          "vector": "GUE_THIRD_OBSERVABLE"
+        }
+      ],
+      "nicht_behauptungen": [
+        "keine neue Spektral-Hypothese aus dem Vers",
+        "keine Umdeutung der GUE-Konstanten",
+        "C-Grade von GUE_THIRD_OBSERVABLE bleibt unverändert"
+      ],
+      "scores": {
+        "resonanz": 6,
+        "extraordinaritaet_starke_lesart": 9,
+        "extraordinaritaet_starke_lesart_behauptet": false,
+        "schwache_lesart": 3
+      },
+      "open_cells": [
+        {
+          "cell": "Zufalls-Matrix-Anteil des ELS-Sweeps anderer Kulturen",
+          "status": "open",
+          "prereg_skeleton": "gematria/prereg_skeletons/M3_els_random_matrix_share_prereg.json"
+        }
+      ],
+      "cross_branch_notes": []
+    },
+    {
+      "id": "M4",
+      "name": "Die Elle der Präzision",
+      "text_given": {
+        "channel": "find_verses",
+        "ref": "B01,K06,V16",
+        "text": "לתבה ואלאמה תכלנה",
+        "meaning": "Genesis 6:16, Arche: auf eine Elle sollst du sie vollenden",
+        "words": 3,
+        "frequency": 1
+      },
+      "wandering_quantity": "das Maß — die vollendete, vorgegebene Zahl",
+      "bridge_categories": [
+        "Bauanleitung: vollendete Elle als abgeschlossenes Maß",
+        "Methodik: Prereg-Freeze (Band VOR der Messung fixiert, danach nicht verhandelbar)",
+        "Gebotsform: das Maß als unverrückbare Vorgabe"
+      ],
+      "index": [
+        {
+          "finding": "SciMind 4.0: Ockham quantifiziert, Anti-Sharpshooter, Komplexitäts-Audit",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§6.1",
+          "grade": null
+        },
+        {
+          "finding": "Metric Evaluation — Resonanz ≠ Evidenz (Präzedenz der getrennten Spalten)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§7.3",
+          "grade": null
+        },
+        {
+          "finding": "QEC-Bias-Elimination (ZNE RL=2, Bias 3.1× reduziert; Erzählung später revidiert)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.10",
+          "grade": "B−",
+          "vector": "QEC_BIAS_ELIMINATION"
+        },
+        {
+          "finding": "Bias-Session-Variabilität (Faktor 22 zwischen Sessions)",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§10.12",
+          "grade": "A",
+          "vector": "BIAS_SESSION_VARIABILITY"
+        },
+        {
+          "finding": "Prereg-Freeze-md5s VOR jeder Messung committet: 18fb1e62 (§Z.14), 7abb5e60 (§Z.16), 73bc664a (§Z.19), f915729e (§Z.18)",
+          "doc": "SYNTHESIS_2026_06_10.md",
+          "section": "§Z.14/§Z.16/§Z.18/§Z.19",
+          "grade": null
+        }
+      ],
+      "nicht_behauptungen": [
+        "keine neue Messung, kein neues Band, kein neues Prereg für bestehende Vektoren",
+        "die Elle begründet keine Methode, sie spiegelt sie"
+      ],
+      "scores": {
+        "resonanz": 7,
+        "extraordinaritaet_starke_lesart": 9,
+        "extraordinaritaet_starke_lesart_behauptet": false,
+        "schwache_lesart": 3
+      },
+      "open_cells": [],
+      "cross_branch_notes": [
+        {
+          "branch": "hstar5-execution",
+          "date": "2026-09-25",
+          "content": "H-STAR-5 wurde dort sauber REFUTED (0 QPU; R_prime 1.4348 im Shuffle-Band, Perzentil 82.5%) — Beleg kompromissloser Anti-Sharpshooter-Methodik.",
+          "epistemic_rule": "Methodik-Zeugnis ZITIERT, nicht übernommen: auf DIESEM Branch bleibt H-STAR-5 unverändert registriert/nicht ausgeführt (md5 f915729e)"
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "name": "Ordnung im Chaos",
+      "text_given": {
+        "channel": "xor_resonance",
+        "ref": "Book 1, Chapter 1, Verse 13",
+        "derivation_given": "verse_sum 1902 − query_gematria 1025 = main_target_gematria 879",
+        "hits": [
+          { "text": "כהאמר יהוה אלהי ישראל", "meaning": "So spricht der HERR, Gott Israels (Botenformel)", "frequency": 27 },
+          { "text": "אתמחלת", "frequency": 2 }
+        ]
+      },
+      "wandering_quantity": "das Raster — Ordnung hinter dem Strom",
+      "bridge_categories": [
+        "Botenformel: festes Sprech-Raster unter wechselndem Inhalt",
+        "Ordnungsraster: {r : a^r ≡ 1 mod N} als QPE-Interferenzraster",
+        "Deterministisches Chaos: primes are subject to a deterministic chaos"
+      ],
+      "index": [
+        {
+          "finding": "H-SHOR-1 Ordnungsraster: QPE-Order-Grid + Bridge-Match 1.0; Korselt-Blindheit exakt (λ(561)=80 teilt 560, Karmichael)",
+          "doc": "SYNTHESIS_2026_06_10.md",
+          "section": "§Z.19 / §10.20",
+          "grade": "B",
+          "vector": "SHOR_QUQUINT_ORACLE",
+          "prereg_md5": "73bc664a"
+        },
+        {
+          "finding": "Deterministic chaos der Primzahlen",
+          "doc": "RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+          "section": "§8",
+          "grade": null
+        }
+      ],
+      "nicht_behauptungen": [
+        "keine neue Faktorisierungs-Hypothese aus dem Vers",
+        "die Botenformel wird nicht als Kryptographie-Behauptung gelesen",
+        "H-SHOR-1 bleibt bei B"
+      ],
+      "scores": {
+        "resonanz": 7,
+        "extraordinaritaet_starke_lesart": 9,
+        "extraordinaritaet_starke_lesart_behauptet": false,
+        "schwache_lesart": 3
+      },
+      "open_cells": [],
+      "cross_branch_notes": []
+    }
+  ],
+  "numbering_note": {
+    "riemann": "§10.24 (nicht §10.21 — belegt durch hstar5-execution; §10.22–§10.23 durch ram-q-zyklizitaet)",
+    "synthesis": "§Z.23 (nicht §Z.20 — belegt durch hstar5-execution; §Z.21–§Z.22 durch ram-q-zyklizitaet)",
+    "gaps_deliberate": true
+  },
+  "future_phase_registered": {
+    "name": "Verifizierungs-Phase (HermeneuticMirrorAuditMind v1.0_20260925_hma-mix)",
+    "scope": "Basisraten-, Dekoy- und Integritäts-Prüfung des Korpus — EXKLUSIV dort, nicht in diesem Branch"
+  }
+}

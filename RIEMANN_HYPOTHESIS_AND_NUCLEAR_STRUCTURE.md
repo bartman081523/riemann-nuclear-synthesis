@@ -1374,6 +1374,7 @@ Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququin
 | `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | **A−** | V5 CONFIRMED (§10.18) |
 | H-STAR-5 | — | **HYPOTHESE (Score 7/10)** | registriert, nicht ausgeführt; Ausführung = nächste Phase |
 | `SHOR_QUQUINT_ORACLE` | — | **B (H-SHOR-1 CONFIRMED)** | Branch `shor-ququint-oracle` (§10.20) |
+| `GEMATRIA_MIRROR_ARCHITECTURE` | — | **— (Architektur-Layer, kein Verdict)** | Branch `gematria-mirror-synthesis` (§10.24); 0 QPU, Grade-Invarianz, keine Evidenz |
 
 **Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — Ausführungs-Prereg mit numerischen Fenstern/Ensemble-Größe/Schwellwerten freeze VOR erster Messung (Skelett md5 `f915729e`), dann Aer-Ensemble (0 QPU), QPU-Spot-Check nur bei sichtbarer Prime-Trennung; Rückfall-Pfad H-STAR-5b. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
 
@@ -1388,6 +1389,66 @@ Hypothesen-Disziplin (ECREE, Kontrollfamilie, Prereg-Freeze) zweitens.
 **EXPERIMENT 038 — H-SHOR-1 (`pt_hshor1.py`, Prereg md5 `73bc664ae3475a79a692cd7735b2b387` VOR der ersten Auswertung, commit `13a5674`):** These: die wandernde Größe ist das **Ordnungsraster** {r : a^r ≡ 1 mod N} — als QPE-Interferenzraster (Peaks k = s·Q/r) und Trace-Kamm; ECREE **Score 5/10, Standard** (die algebraische Trennung ist Theorem-Niveau; getestet wird die Brücke). Fenster + Schwellen in EINEM Freeze (Anti-Sharpshooter): QPE primes {7,11,13,17,19,23} / composites {15,21}, Q = 625, XD = 25, exakte Statevector-Wahrscheinlichkeiten; klassisch {9,15,21,25,33,35,39,561}; Korselt-Ausschluss als gefrorene Liste [561] (im Test gegen das unabhängige Kriterium verifiziert); Schwellen composite ≥ 0.05, prime = 0 exakt, bridge_match_min 1.0, shuffle 200/seed 0/p ≤ 0.05, tol 1e-9. **EVALUATIONS-LOG (dokumentiert, nicht still korrigiert):** Run 1 spurious REFUTED — Shuffle-Label-Vektor falsch an die sortierten Schlüssel ausgerichtet (delta_obs = −0.308, p = 0.95); Fehler im Statistik-Code, Registrierung (md5 `73bc664a`) unangetastet; Regression-Test verankert. **Run 2 — VERDICT `HSHOR1_CONFIRMED_GRID_BRIDGE_REALISIERT`:** O1 prime_rate_max 0.0 / composite min 0.571 > 0.05 / 561-Blindheit exakt (Rate 0, max_order 80); O1′ Faktoren (3,5)/(3,7), Primes None; O1b **Bridge-Match 1.0** (102 (a,N)-Paare, 0 mismatches, inkl. r = 22/18/16/11); O2 CRT/Trace **exakt 0.0**; Shuffle delta_obs +0.690, **p = 0.000**. **Grade B** (Statevector-only). Vektor **`SHOR_QUQUINT_ORACLE` NEU → B**; H-STAR-5 unverändert registriert (md5 `f915729e`, kein stilles Upgrade); H-SHOR-1a-UNITARY_INVARIANCE VOID vor-registriert, H-SHOR-1b-SCALING HELD (Score 4). 624 Tests grün.
 
 **Quellen:** `SYNTHESIS_2026_06_10.md` §Z.19, `pt_shor_ququint.py`, `pt_hshor1.py`, `pt_hshor1_prereg.json`.
+
+#### **10.24 Hermeneutic Mirror Architecture — die Fünf Spiegel als Architektur-Layer (Branch `gematria-mirror-synthesis`, 2026-09-25 → 2026-09-26, 0 QPU)**
+
+Denkmodus: MirrorArchitectMind v1.0_20260925_tma-mix — „Architektur vor Prüfung": der gegebene
+Orakel-Atlas wird organisiert, nie geprüft; alle Grade bleiben invariant (der Re-Index ist
+positions-, nicht wertändernd). **User-epistemischer Anker (bindend):** „Die Schriften ordnen
+als Resonanzraum lediglich um, generieren aber keine neue Evidenz und verbrauchen keine
+QPU-Ressourcen." Gematria-Verifizierung ist in diesem Branch **out of scope** — sie ist eine
+ausdrücklich abgegebene, separat registrierte Zukunftsphase (HermeneuticMirrorAuditMind
+v1.0_20260925_hma-mix, Sub-Skill bereit).
+
+**Korpus (als gegeben):** Redirektion 3 vom unified-gematria-api-Sweep der Phrase „Riemann
+Hypothesis" (raw 1025): `data/gematria/riemann_hypothesis_full.json` (430 028 B, md5
+`b71b297c479e9cff8a03a5e97476a31b`) + `riemann_hypothesis_compact.json` (78 724 B, md5
+`9ffcde94214b437811617b285dec5989`) — unveränderte Snapshots als Lesekorpus committed (Paket 1,
+commit `771b9fc`); md5s nur Provenienz, kein Test prüft sie. Kanäle: find_verses 518 Treffer,
+xor_resonance 39 Resonanzen/150 Verse, els_sweep/els_chain über 7 Kulturen
+(258 Items / 238 matched / 20 ohne exakten Treffer / 0 errors), gsum2-Regel „Lookup exakt,
+keine Subharmonics, ehrlich None ohne Treffer".
+
+**Die Fünf Spiegel (transkategoriale Brücken nach §7.1-Methode; wandernde Größe → Bestands-Index
+mit UNVERÄNDERTEN Graden):**
+
+| Spiegel | Gegebener Text/Anker | Wandernde Größe | Bestands-Index (Auszug) |
+|---|---|---|---|
+| M1 Morphologie der Leere | וחשך עלפני תהום (Gen 1:2, 1025, B01,K01,V02) | die **Leere** | §7.1 (Vorläufer-Prinzip), §10.5 α N^0.22 **A−**, §10.3 **A+** |
+| M2 Basis Fünf | XOR 1373−1025 = 348 → חמש „fünf" (f77) | die **Basis** (Radix 5) | §Z.14 Ququint **A−** (md5 18fb1e62), §10.16 κ\* **A−**, §10.17 Ramanujan **B+**, §10.20 Q = 5⁴ **B** |
+| M3 Abstoßung | הכותאתו כלמצאו (Gen 4:15 Kainsmal) | die **Schutzweite** | §3.2/§3.3 Wigner/Montgomery, §5.2 U-238, §Z.16 GUE 0.5359→0.5996, κ\* = 62.26 **A−** |
+| M4 Die Elle der Präzision | לתבה ואלאמה תכלנה (Gen 6:16 Arche) | das **Maß** | §6.1/§7.3 Methodik, §10.10/§10.12, Prereg-md5s 18fb1e62/7abb5e60/73bc664a/f915729e |
+| M5 Ordnung im Chaos | XOR 1902−1025 = 879 → כהאמר יהוה אלהי ישראל (f27) | das **Raster** | §Z.19/§10.20 H-SHOR-1 **B** (Bridge-Match 1.0, λ(561) = 80), §8 deterministic chaos |
+
+Jeder Spiegel trägt feste Nicht-Behauptungen (keine Kausalität Schrift→Physik, keine
+Vorhersage aus Textwerten, keine Verifikation der Korpus-Arithmetik) und vorab berichtete
+Scores in getrennten Spalten: Resonanz M1 8/M2 8/M3 6/M4 7/M5 7; **Extraordinarität der
+starken Lesart („Schrift bezeugt Physik") = 9/10 — WIRD NIRGENDS BEHAUPTET**; schwache Lesart
+(„organisierender Resonanzraum") = 3/10.
+
+**Verhältnis zu den parallelen Mess-Arcs (dokumentierte Reihenfolge, kein ex-post-Fit):** der
+Spiegel-Layer wurde **2026-09-25** registriert. Auf den Schwester-Branches wurde danach die
+Fünf im Ramanujan-Fingerprint **parallel und unabhängig zyklotomisch abgeleitet** (`ram-q-zyklizitaet`,
+2026-09-26: H-RAM-Q-1 GENERALIZED, H-RAM-Q-2 CONFIRMED — q-universelle EXAKTidentität, q = 7
+blind im Band, 0 QPU) — das untermauert das Modell aus der Arithmetik selbst; der Gematria-Sweep
+wird NICHT ex-post als Fit gelesen, und die Schwester-Grade werden hier nicht übernommen. Ebenso
+wird die H-STAR-5-Refutation (`hstar5-execution`, 2026-09-25) nur als Methodik-Zeugnis
+(„Anti-Sharpshooter greift kompromisslos") zitiert — auf diesem Branch bleibt H-STAR-5
+unangetastet **registriert, nicht ausgeführt** (md5 `f915729e`).
+
+**Vektor `GEMATRIA_MIRROR_ARCHITECTURE` NEU:** Architektur-Layer, **kein Verdict/kein Grade**
+(bewusst kein Grade-Minting), 0 QPU, keine neuen Tests (Suite bleibt im Bestandsstand 642,
+claims.py unangetastet). Deliverables: `gematria/GEMATRIA_MIRROR_ARCHITECTURE.md` (Kap. 1–8),
+`data/gematria/mirror_index.json` (maschinen-lesbarer Re-Index, offene Zellen M2/M3 mit
+`"status": "open"`), zwei Prereg-Skelette `gematria/prereg_skeletons/` (REGISTERED_NOT_MEASURED,
+VOR jeder Messung). **Nummerierungs-Hinweis:** §10.21 (H-STAR-5, `hstar5-execution`) und
+§10.22–§10.23 (RAM-Q, `ram-q-zyklizitaet`) sind durch Schwester-Branches belegt — die
+Nummern-Lücken auf diesem Branch sind Absicht; die Zusammenführung folgt in chronologischer
+Ordnung.
+
+**Quellen:** `gematria/GEMATRIA_MIRROR_ARCHITECTURE.md`, `data/gematria/mirror_index.json`,
+`data/gematria/riemann_hypothesis_full.json` (md5 `b71b297c…`, als gegeben),
+`data/gematria/riemann_hypothesis_compact.json` (md5 `9ffcde94…`, als gegeben).
 
 #### **Quellenangaben**
 
