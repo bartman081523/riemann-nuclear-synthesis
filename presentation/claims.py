@@ -797,9 +797,12 @@ _CL.append(Claim(
     # v2 (S₄-Schluss-Fix): +3 Miniatur-Theorem-Tests -> 671;
     # ram-q-zyklizitaet: +26 RAM-Q-Tests (23 + 3 Post-Freeze-Pinning) -> 697;
     # Phase 8 (asymptotik): +19 (15 + 4 Post-Freeze-Pinning) -> 716;
-    # Phase 9 (H-RAM-Q-3 Freeze A): +12 -> 728
+    # Phase 9 (H-RAM-Q-3 Freeze A): +12 -> 728;
+    # Stage-2 Aer-Bein (EXPERIMENT 042): +47 -> 776; +12 ISA-Runner-Tests
+    # +1 run_stage2-Serialize-Regression -> 789; +2 w_B-Domain-Fix-Pins
+    # (Sub-Domain/Exact-Exclusion, unclipped Gate) -> 791
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=728,
+    id="test_count", value=791,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

@@ -27,6 +27,15 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Phase-2-STRESS-Zahlen (§Z.13.5 demo, seed=42, n=8192, ro=1e-2, ratio=10) —
 # hier als externe Pins notiert, gegen die build_predictions() verifiziert wird.
+# PROVENANZ (worktree-verifiziert am 3a-Freeze-Commit b77974f): phi_margin +
+# confound_max_diff Bänder stammen bit-exakt aus der Phase-2-Stress-Kurve
+# (pt_crossover_v4_results.json, encoded.curve, Slice p1∈[1e-4,3e-3] —
+# testet test_bands_provenance_from_crossover_v4_curve). Das sep-Band stammt
+# aus der Freeze-Zeit-Rekompuation (ibmq_aer-Kette; ihre Kurve wurde nicht
+# persistiert, Abstand der Endpunkte 2.8e-4/4.9e-4). Die Rekompuation läuft
+# über die ZWEITE Pipeline (ibmq_aer.run_witness, seed 42) — ein
+# unabhängiger Sampling-Draw mit deterministischem Drift ≤ 1.2e-3 in phi
+# (gemessen: 1.12e-3 am 3e-3-Ende); deshalb Toleranz 2e-3.
 PHI_MARGIN_BAND = [0.0313, 0.6774]
 SEP_MARGIN_BAND = [-0.0722, -0.0164]
 CONFOUND_BAND = [0.0090, 0.0195]
@@ -41,9 +50,46 @@ class TestStressPredictions:
     def test_bands_match_phase2_numbers(self):
         import pt_ququint_prereg as pr
         sp = pr.stress_predictions()
-        assert sp["bands"]["phi_margin"] == pytest.approx(PHI_MARGIN_BAND, abs=1e-3)
-        assert sp["bands"]["sep_margin"] == pytest.approx(SEP_MARGIN_BAND, abs=1e-3)
-        assert sp["bands"]["confound_max_diff"] == pytest.approx(CONFOUND_BAND, abs=1e-3)
+        assert sp["bands"]["phi_margin"] == pytest.approx(PHI_MARGIN_BAND, abs=2e-3)
+        assert sp["bands"]["sep_margin"] == pytest.approx(SEP_MARGIN_BAND, abs=2e-3)
+        assert sp["bands"]["confound_max_diff"] == pytest.approx(CONFOUND_BAND, abs=2e-3)
+
+    def test_bands_provenance_from_crossover_v4_curve(self):
+        # PROVENANZ (worktree-verifiziert am 3a-Freeze-Commit b77974f):
+        # Die FROZENEN JSON-Bänder (phi_margin + confound_max_diff) sind die
+        # min/max der Phase-2-Stress-Kurve — bit-exakt aus der kommittierten
+        # crossover-v4-Datei (encoded.curve, Slice p1∈[1e-4,3e-3]).
+        # Die v4-Kurve trägt KEIN sep (nur sep_primary am Fez-Punkt,
+        # margin -0.022891546221750825 — bit-exakt der Prereg-fez-point).
+        # Das sep-Band stammt aus der Freeze-Zeit-Rekompuation (ibmq_aer-
+        # Kette, unverändert seit 45ef401); ihre vollständige Kurve wurde
+        # bei Phase 2 NICHT persistiert. Die gefrorene Kette reproduziert
+        # die Endpunkte deterministisch innerhalb 4.9e-4 (gemessen).
+        # Die Rekompuation über DIESE Kette (stress_predictions()) driftet
+        # deterministisch gegen die JSON-Bänder: phi ≤ 1.12e-3 (gemessen
+        # am 3e-3-Ende), sep ≤ 4.9e-4, confound bit-exakt — getestet in
+        # test_bands_match_phase2_numbers (Toleranz 2e-3).
+        with open("pt_ququint_fez_prereg.json", encoding="utf-8") as fh:
+            doc = json.load(fh)
+        with open("pt_crossover_v4_results.json", encoding="utf-8") as fh:
+            curve = json.load(fh)["encoded"]["curve"]
+        slice_pts = [c for c in curve
+                     if c["p1"] in (1e-4, 3e-4, 1e-3, 3e-3)]
+        bands = doc["prediction_bands"]
+        # phi + confound: frozen JSON bit-exakt == v4-Kurven-min/max (1e-12)
+        assert bands["phi_margin"]["band"] == pytest.approx(
+            [min(c["phi"]["margin"] for c in slice_pts),
+             max(c["phi"]["margin"] for c in slice_pts)], abs=1e-12)
+        assert bands["confound_max_diff"]["band"] == pytest.approx(
+            [min(c["confound_max_diff"] for c in slice_pts),
+             max(c["confound_max_diff"] for c in slice_pts)], abs=1e-12)
+        # sep: Freeze-Zeit-Kette (nicht persistiert) — Rekompuation nahe
+        import pt_ququint_prereg as pr
+        sp = pr.stress_predictions()
+        assert bands["sep_margin"]["band"] == pytest.approx(
+            sp["bands"]["sep_margin"], abs=2e-3)
+        assert bands["sep_margin"]["band"] == pytest.approx(
+            [-0.07217471655344979, -0.016394646652426598], abs=1e-12)
 
     def test_band_signs_robust_across_window(self):
         # der Kern der Preregistration: über dem GANZEN Fez-nahen Fenster

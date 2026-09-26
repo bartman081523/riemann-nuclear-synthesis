@@ -168,8 +168,11 @@ def test_native_estimator_parity_with_phase2_witness_from_counts():
     # 64-Bin-Vektor auf das Null-Bin 63, waehrend Bin 24 dort als
     # Binomialzug gezogen wird -> die Bootstrap-Sequenz divergiert leicht.
     # Struktur-Paritaet (dieselbe Pipeline) haelt; Bit-Paritaet ist nicht
-    # erreichbar. Gemessene Differenz: 1.2e-4 (beide um 0.0044-0.0045).
-    assert abs(mine["se"] - phase2["se"]) <= 2e-4
+    # erreichbar. Gemessene feste Divergenz: 2.17e-4
+    # (0.00021718521216059893, worktree-verifiziert: identisch am
+    # Phase-4-Intro-Commit 0e0b9e9 — der fruehere Kommentar-Wert 1.2e-4
+    # war ein Pre-Commit-Stand). Toleranz 3e-4.
+    assert abs(mine["se"] - phase2["se"]) <= 3e-4
     assert abs(mine["margin"] - phase2["margin"]) <= 1e-3
     assert mine["bound"] == WITNESS_BOUND
 
