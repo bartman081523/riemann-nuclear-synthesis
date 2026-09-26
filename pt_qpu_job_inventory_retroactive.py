@@ -16,7 +16,9 @@ Method:
   1. Scan all pt_*_results.json + pt_*_job_ids.json + *.log files for
      20-char IBM Qiskit job IDs (pattern: d + 19 alphanumerics).
   2. Filter out MD5-hash false positives (heuristic: body context
-     contains "md5=" or path/error markers).
+     contains "md5="/md5-markers or path/error markers, OR the 20-char
+     match is followed by >= 6 hex digits — a fragment of a longer hash,
+     since real job IDs are exactly 20 characters).
   3. Cross-reference: which IDs are NOT in any _results.json (= not
      yet downloaded)?
   4. For each not-yet-downloaded ID, probe IBM Quantum (TOKEN1 first,
@@ -92,16 +94,21 @@ def scan_job_ids_in_files():
 def filter_false_positives(records):
     """Filter out MD5-hash fragments and path/error-context false positives.
 
-    Heuristic: if all context strings for an ID contain "md5=" or a
-    filesystem path (.local/lib, site-packages), it's likely a false
-    positive, not a real IBM Qiskit job ID.
+    Heuristic: an ID is a false positive if ALL its context strings carry
+    an md5/path marker OR show a hex continuation directly after the ID —
+    a real IBM Qiskit job ID is EXACTLY 20 characters, so a match that is
+    followed by more hex digits is a fragment of a longer hash (e.g. a
+    32-char counts_md5 whose context line says "raw fetched: d19f..."
+    without any "md5=" marker; REGRESSION EXPERIMENT 042, Fez-Raw).
     """
     real = {}
     fake = {}
     for jid, sources in records.items():
+        marker = ("md5=", "md5:", "counts_md5", ".local/lib",
+                  "site-packages", "QiskitRuntime")
+        cont = re.compile(re.escape(jid) + r"[0-9a-f]{6}")
         all_md5_or_path = all(
-            ("md5=" in ctx or ".local/lib" in ctx
-             or "site-packages" in ctx or "QiskitRuntime" in ctx)
+            (any(m in ctx for m in marker) or cont.search(ctx) is not None)
             for _, ctx in sources
         )
         if all_md5_or_path:

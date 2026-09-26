@@ -76,6 +76,45 @@ class TestFilterFalsePositives:
         assert "d8j9chtv8cos73f6i060" in real
         assert "d58c346ab90fdee98f30" in fake
 
+    def test_filter_removes_hex_continuation_fragment(self):
+        # REGRESSION (EXPERIMENT 042, Fez-Raw): der 32-stellige counts_md5
+        # ("d19f4a563d88e0cf3ffd4b187a10ca73") liefert beim Scan ein
+        # 20-Zeichen-Fragment ohne "md5="-Kontext ("raw fetched: d19f...").
+        # Ein echter Job-ID ist GENAU 20 Zeichen — folgt dem Match eine
+        # Hex-Fortsetzung (>= 6 Zeichen), ist es ein Hash-Fragment.
+        from pt_qpu_job_inventory_retroactive import filter_false_positives
+        records = {
+            "d19f4a563d88e0cf3ffd": [
+                ("pt_ram_q_fez_run.log",
+                 "[qpu] raw fetched: d19f4a563d88e0cf3ffd4b187a10ca73 "
+                 "(58 circuits)"),
+                ("pt_ram_q_hardware_raw.json",
+                 '"counts_md5": "d19f4a563d88e0cf3ffd4b187a10ca73"'),
+            ],
+            "darq1stvr3kc73ej96ig": [
+                ("pt_ram_q_fez_run.log",
+                 "[qpu] submitted darq1stvr3kc73ej96ig (58 circuits)"),
+                ("pt_downloaded_job_results.json",
+                 '"job_id": "darq1stvr3kc73ej96ig"'),
+            ],
+        }
+        real, fake = filter_false_positives(records)
+        assert "darq1stvr3kc73ej96ig" in real
+        assert "d19f4a563d88e0cf3ffd" in fake
+
+    def test_filter_keeps_real_job_with_mixed_contexts(self):
+        # Eine echte Job-ID mit EINEM md5-Kontext und EINEM job_id-Kontext
+        # bleibt real (All-Quantil: nur wenn ALLE Kontexte md5/pfadig sind).
+        from pt_qpu_job_inventory_retroactive import filter_false_positives
+        records = {
+            "darq1stvr3kc73ej96ig": [
+                ("log.txt", "counts_md5: darq1stvr3kc73ej96ig"),
+                ("res.json", '"job_id": "darq1stvr3kc73ej96ig"'),
+            ],
+        }
+        real, _ = filter_false_positives(records)
+        assert "darq1stvr3kc73ej96ig" in real
+
 
 class TestFindDownloaded:
     """Verify cross-referencing with already-downloaded results."""

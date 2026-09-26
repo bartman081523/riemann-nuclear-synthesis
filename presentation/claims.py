@@ -800,9 +800,11 @@ _CL.append(Claim(
     # Phase 9 (H-RAM-Q-3 Freeze A): +12 -> 728;
     # Stage-2 Aer-Bein (EXPERIMENT 042): +47 -> 776; +12 ISA-Runner-Tests
     # +1 run_stage2-Serialize-Regression -> 789; +2 w_B-Domain-Fix-Pins
-    # (Sub-Domain/Exact-Exclusion, unclipped Gate) -> 791
+    # (Sub-Domain/Exact-Exclusion, unclipped Gate) -> 791; +12 QPU-Raw-Modul-
+    # Tests (Raw-Vertrag/Resume/Guards, EXPERIMENT 042) -> 803; +2 Inventar-
+    # Filter-Regressionstests (Hex-Fortsetzung/Mixed-Kontext, Fez-Raw) -> 805
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=791,
+    id="test_count", value=805,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
