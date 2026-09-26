@@ -15,6 +15,7 @@ registriert werden — gemessene q=3-DFT-Profile nicht. Der q=5-Anker
 (V2_SHARE_STAR_PRIME_COMMITTED) und dient nur T1/T2 als Rueckkopplung.
 """
 
+import functools
 import json
 import math
 import os
@@ -376,3 +377,53 @@ def test_offline_guard_no_qiskit_no_token():
     assert "IBMQ_TOKEN" not in src
     assert "QiskitRuntimeService" not in src
     assert "SamplerV2" not in src and "EstimatorV2" not in src
+
+
+# === Post-Freeze-Pinning (die kommittierte Auswertung ist deterministisch:
+# Freeze-Commit 19c99c3 + Harness-Fix 211acac VOR der verwerteten Auswertung;
+# q=3-Messwerte sind seit dem Freeze-Commit legitime Test-Objekte) ===
+
+@functools.lru_cache(maxsize=1)
+def _evaluation():
+    return rq.run_evaluation()
+
+
+def test_evaluation_verdict_pinned():
+    """Verdict + Kontrollen der Auswertung gepinnt (Regression gegen
+    spaetere Harness-Aenderungen; das gefrorene Prereg ist die Quelle)."""
+    res = _evaluation()
+    assert res["verdict"] == rq.VERDICT_GENERALIZED
+    assert res["gated_total"] == 8
+    assert res["gated_outside"] == 0
+    assert res["prereg_md5"] == "bd9dfee77b9fada8a230347f9d45f5a7"
+    for key in ("t1_backcompat_q5", "t2_v2_anchor", "t3_d_scaling",
+                "t4_control_overlap", "t5_gate_set_frozen",
+                "t6_alternatives"):
+        assert res["controls"][key] is True, f"Kontrolle {key} nicht True"
+
+
+def test_gated_ratios_in_band_and_delta_decomposition():
+    """Alle 8 gated Ratios im Band UND exakt 1 + 12*delta^2/(m-3)^2
+    (Zweiklassen-Kollaps, jetzt auf den ECHTEN Prime-Profilen)."""
+    res = _evaluation()
+    gated = [r for r in res["rows"] if r["gated"]]
+    assert len(gated) == 8
+    for row in gated:
+        assert rq.BAND_LO <= row["ratio"] <= rq.BAND_HI, \
+            f"P={row['P']}: ratio {row['ratio']} ausserhalb des Bands"
+        m = row["pi"]
+        expected = 1.0 + 12.0 * row["delta"] ** 2 / (m - 3) ** 2
+        assert math.isclose(row["ratio"], expected, rel_tol=1e-9), \
+            f"delta^2-Zerlegung failt bei P={row['P']}"
+    # Registrierte Vorhersage am kleinsten gated Punkt (109, 729):
+    # ratio = 1 + 12/676 exakt
+    r109 = next(r for r in gated if r["P"] == 109)
+    assert math.isclose(r109["ratio"], 1.0 + 12.0 / 676.0, rel_tol=1e-12)
+
+
+def test_delta_identity_residual_bound():
+    """Zweiklassen-Identitaet auf den ECHTEN Profilen: Residual auf
+    Fließkomma-Rauschen (gemessen 3.2e-16; Schranke 1e-12 weit frei)."""
+    res = _evaluation()
+    worst = max(abs(r["delta_identity_residual"]) for r in res["rows"])
+    assert worst < 1e-12

@@ -530,7 +530,10 @@ def run_evaluation(prereg_path=PREREG_PATH):
             "ratio": ratio,
             "band_lo": entry["band_lo"], "band_hi": entry["band_hi"],
             "gated": entry["gated"],
-            "in_band": (entry["band_lo"] <= ratio <= entry["band_hi"])
+            # Band in Share-Space gegen die gefrorenen Schwellen
+            # (aequivalent zu BAND_LO <= ratio <= BAND_HI, da
+            # band_lo = BAND_LO*model > 0)
+            "in_band": (entry["band_lo"] <= measured <= entry["band_hi"])
                        if ratio is not None else None,
             "delta": (counts[1] - counts[2]) / 2.0,
             "delta_identity_residual": residual,
