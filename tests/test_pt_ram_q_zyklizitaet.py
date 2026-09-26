@@ -218,6 +218,20 @@ def test_composite_limit_matches_smallest_gated():
     assert math.isclose(rq.composite_limit(), 0.0127903, rel_tol=1e-4)
 
 
+def test_smallest_gated_selection_is_109_729():
+    """T6-Regression: Auswahl ueber GATED Punkte (nicht ueber alle — (5,9)
+    hat Modell-Null und wuerde den Ratio-Zweig in eine Division durch 0
+    laufen lassen)."""
+    payload = rq.build_prereg_payload()
+    gated = [e for e in payload["prime_points"] if e["gated"]]
+    smallest = min(gated, key=lambda e: e["P"])
+    assert (smallest["P"], smallest["d"]) == (109, 729)
+    assert smallest["model"] > 0.0
+    # und T6 selbst: crude_fixed_4 / Modell = 0.5 < band_lo am gated Punkt
+    assert rq.alt_crude_fixed_4(109, 729, 3) / smallest["model"] \
+        < rq.BAND_LO
+
+
 def test_point_roles():
     assert rq.point_role(5, 9) == "exakte_null_deskriptiv"
     assert rq.point_role(7, 9) == "suppression_deskriptiv"

@@ -587,7 +587,8 @@ def run_evaluation(prereg_path=PREREG_PATH):
     t5 = ([list(p) for p in doc["gated_points"]]
           == [[P, d] for P, d in PRIME_POINTS if is_gated_q3(P, d)])
     # T6: Alternativmodell diskriminiert (ratio 0.5 < band_lo-Faktor)
-    smallest_gated = min(doc["prime_points"], key=lambda e: e["P"])
+    smallest_gated = min((e for e in doc["prime_points"] if e["gated"]),
+                         key=lambda e: e["P"])
     t6 = (alt_crude_fixed_4(smallest_gated["P"], smallest_gated["d"], q)
           / smallest_gated["model"] < BAND_LO)
     controls = {
