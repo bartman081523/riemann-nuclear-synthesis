@@ -3171,8 +3171,132 @@ Vorhersage δ² ≤ (m−3)²/48.
   das Band-Verhalten der Race-Terms und die klassenübergreifende Strukturübertragung.
   Fingerprint bleibt B+; GENERALIZED gilt für H-RAM-Q-1, nicht für die RH.
 
+## §Z.22 — Branch ram-q-zyklizitaet: RAM-Q Asymptotik bis unendlich — q-universelle EXAKTidentität B2 + q=7-Blindtest H-RAM-Q-2 (EXPERIMENT 041), 2026-09-26, 0 QPU
+
+### Z.22.1 User-Direktive und Dreischichten-Design
+
+User (wörtlich): *"mache autonom weiter, bitte. und wir testen ja nur bis 1 million.
+unsere theorie sollte aber bis unendlich halten."* — Die empirische Reichweite endete bei
+N = 10⁶ (α-Asymptotik) bzw. P, d ≤ 729 (RAM-Q-Fingerprint). Phase 8 schließt die
+Finitheits-Lücke in drei Schichten: (i) **d → ∞ exakt** (d-Invarianz-Theorem in B2,
+geprüft bei P = 10⁷ ≫ d = 2401), (ii) **P → ∞** (asymptotisches Theorem B3 + deskriptive
+Skans bis 10⁸), (iii) **q → ∞** (B2 ist q-universal; blinder Out-of-Family-Test bei q=7).
+Anti-Sharpshooter: q=7-Prereg mit registrierten Sieb-Counts und EXAKTEN B2-Vorhersagen
+wurde VOR der ersten q=7-DFT-Messung gefroren und committet.
+
+### Z.22.2 Der Baustein B2 — q-universelle EXAKTidentität (VOR dem Freeze hergeleitet)
+
+G(kd/q) = n₀ + Σ_{r=1}^{q−1} n_r·ω_q^{kr} hängt NUR von den Residuen mod q ab — für ALLE
+P und ALLE d = q^k, inkl. Wraparound P ≫ d. Mit σ² = Σ_{r=1}^{q−1}(n_r − A/(q−1))²,
+A = m − n₀, gilt für ALLE ganzzahligen Counts-Vektoren EXAKT:
+
+  share*_q = [(q−1)n₀² − 2n₀A + qΣn_r² − A²]/(dm) = (m − q·n₀)²/((q−1)·d·m) + q·σ²/(dm)
+
+- q=3: σ² = 2δ² → gefrorene Zweiklassen-Identität (§Z.21) als Spezialfall (Brücke T2).
+- q=5 Äquipartition: σ² = 0 → gefrorene 034-Formel als Spezialfall.
+- **q=5 Race-Term erklärt die 034-Ratio 1.0248 EXAKT** (1 + 20σ²/(m−5)²; counts mod 5
+  bei P=625: [1,26,31,29,27], σ² = 14.75; Differenz zur committeten Konstante 2.9e-15,
+  T1-Anker) — die Ratio war nie ein Fit-Residual, sondern Residuen-Dispersion.
+- **Strukturkorollar: ratio ≥ 1 IMMER** (σ² ≥ 0) — einseitiges Band; oberer Rand 1.25
+  ist der einzige echte Falsifikator.
+- **d-Invarianz-Theorem: d·share*·m hängt NUR von den Counts mod q ab** — exakt für
+  alle d = q^k; T3 aus Phase 7 war ein Theorem-Check ohne eigenen empirischen Inhalt,
+  hier im NEUEN Regime P ≫ d geprüft.
+
+**Konventionsbefund VOR dem Freeze (verhinderte einen Post-Freeze-Harness-Bug):**
+`mn.single_register_profile` renormalisiert; Parseval gibt Σ_a|G(a)|² = d·Σ_r n_r²
+(= d·m nur bei n_r ∈ {0,1}). ALLE 21 gefrorenen 040-Punkte hatten P ≤ d → dort war die
+Renormalisierung ein stummer No-op. Direkt gemessen: (211,81) Residual 6.5e-2,
+(307,81) 1.25e-1 unter mn-Pfad — die gefrorene Identität BRICHT bei Wraparound unter
+renormalisierter Konvention. Phase 8 misst ABSOLUT |G|²/(dm) (FFT über den
+Count-Vektor mod d; d-lange DFT unabhängig von m — mn's np.outer wäre d·m-groß und bei
+10⁸ unbrauchbar). Share-Werte > 1 bei P ≫ d sind unter absoluter Konvention erwartet;
+der Ratio ist die normierte Observable.
+
+**Baustein B3 (asymptotisch, Theorem-Schicht):** ratio − 1 = q(q−1)σ²/(m−q)² → 0 für
+P → ∞. UNBEDINGT via Siegel–Walfisz (ineffektiv): für jede feste q liegt das Band
+[0.8, 1.25] schließlich vollständig — die Theorie hält bis unendlich. UNTER GRH:
+ratio − 1 = O(log⁶x/x). Heuristik (Chebyshev/Rubinstein–Sarnak): ratio − 1 ~ C/x mit
+C = O(1) → Slope ≈ −1. Registrierte deskriptive Erwartungen (KEINE Gates):
+slope ∈ [−1.5, −0.5], C = P(ratio−1) ≤ 1e4, Envelope fallend. Epistemisch: kleine m
+sind die HÄRTERE Seite; asymptotisch wird das Modell exakt.
+
+### Z.22.3 Freeze + Commit 1 VOR jeder q=7-Messung
+
+Prereg md5 `704916f946beedf49c51ab6bc9bf37bd` gefroren und committet (`5990245`) VOR
+der ersten q=7-DFT-Messung: Punkte (17,49) null-deskriptiv (ungated, registrierte
+Erwartung 2/49 = q·σ²/(dm)) + Band-Punkte 10⁴/10⁵/10⁶/10⁷ auf d=2401 mit registrierten
+Sieb-Counts, EXAKTEN b2_share_exact-Vorhersagen und ratio_pred 1.002625 → 1.000002
+(monotone Konvergenz bereits in der Registrierung sichtbar). Bänder 0.8/1.25 in
+Share-Space, Falsifikator ≥ 2 von 4, d-Invarianz-Checks {49, 2401} an jedem gated
+Punkt, Extraordinarität 6/10 VOR Messung (out-of-family in ZWEI Dimensionen
+gleichzeitig: q=7 UND P ≫ d; die Band-Punkte sind asymptotisch erzwungen — scharfer
+Inhalt ist Identitäts-Residual + d-Invarianz bei Wraparound). Kontrollen T1–T6;
+Skans q ∈ {3,5} P = 10³..10⁷ prereg + 10⁸ Erweiterung; 0 QPU. Anti-Peeking: die
+Test-Suite berechnete VOR dem Freeze KEINE q=7-DFT-Profile und keine Prime-DFT in
+Wraparound-Regimen (synthetische Counts; T1 bindet an die committeten 034-Konstanten).
+Anders als Phase 7 traten KEINE Harness-Bugs zutage: der erste Lauf war direkt
+verwertbar — die Kontrollfamilie T1–T6 diente als eingebautes Smoke-Gate, und alle
+registrierten Erwartungen (positiv UND negativ) trafen die Prereg-Werte exakt.
+
+### Z.22.4 Run — VERDICT: `H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED`
+
+- **4/4 gated im Band, 0 außen** (Falsifikator ≥ 2 nie getriggert); alle 6 Kontrollen
+  grün (T1-Anker-Differenz 2.9e-15, T2 worst rel diff 0.0, T3 1.1e-16, T6 residuals
+  0.0/2.8e-17).
+- **Identität bei Wraparound EXAKT:** max |share − b2_share_exact| = 1.8e-15 über alle
+  5 q=7-Punkte (Schranke 1e-10) — B2 hält im Regime, wo die mn-Konvention brechen würde.
+- **d-Invarianz bei Wraparound EXAKT:** max Residual 1.4e-16 über (10⁴..10⁷) ×
+  {49, 2401}; share skaliert exakt 1/d (share_d49 = 49 × share_d2401) — die scharfste
+  neue Prüfung.
+- **q=7-Blindtest:** (17,49) gemessen = 2/49 EXAKT (residual 0.0 — registrierte
+  Negativ-Erwartung: Race-Term IST die Masse, Modell-Null m=q); Band-Ratios
+  1.002625086721615 (10⁴) → 1.0002256068142468 (10⁵) → 1.000013203887545 (10⁶) →
+  1.0000015008153071 (10⁷) — alle exakt die registrierten ratio_pred-Werte.
+- **Asymptotik deskriptiv:** Slope q=3 −1.0766, q=5 −1.0568 (registriertes Band
+  [−1.5, −0.5] — Rubinstein–Sarnak-Heuristik C/x sichtbar); C_max 5.4 (q=3) bzw. 33.7
+  (q=5) ≤ 1e4; Envelope monoton fallend; 10⁸-Erweiterung: ratio 1.0000000159 (q=3) bzw.
+  1.0000000395 (q=5), C_p = 1.59 bzw. 3.95 — die Race-Konstante bleibt O(1)-klein.
+
+### Z.22.5 Vektor-Update
+
+- **H-RAM-Q-2 → CONFIRMED (B-Klasse, 0 QPU)** — Grading VOR der Messung festgelegt:
+  B2/B3 sind bewiesene Arithmetik (KEIN A-Mint — die 1e-15/1e-16-Residualexaktheit
+  verifiziert die Identität, nicht eine physikalische These); der q=7-Test verifiziert
+  sie out-of-family (blinde Vorhersage in zwei neuen Dimensionen), aber die Band-Punkte
+  sind asymptotisch erzwungen. Die empirische Substanz: Identität hält bei Wraparound,
+  d-Invarianz hält im neuen Regime, ratio − 1 ~ C/x mit O(1)-C deskriptiv sichtbar.
+- **RAMANUJAN_DFT_FINGERPRINT bleibt B+; H-RAM-Q-1 bleibt GENERALIZED (A−)** — keine
+  stillen Upgrades. Die Slope-Messung selbst bleibt zukünftige eigene Hypothese
+  (kein Gate in diesem Prereg).
+- **Lerngewinn (Methodik):** die Wraparound-Konvention (ABSOLUT |G|²/(dm), keine
+  Renormalisierung) wurde VOR dem Freeze als Design-Entscheidung gefasst und im
+  Modul-Docstring dokumentiert — die Klasse "Post-Freeze-Harness-Bug" wurde diesmal
+  präemptiv geschlossen statt nachträglich gefixt (Gegenstück zu §Z.21.3).
+- **Vektorleiter:** H-RAM-Q-2: NEU → CONFIRMED (Phase 8, 0 QPU); §10.23 in
+  RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md.
+
+### Z.22.6 SciMind-Bewertung (§Z.22)
+
+- **Anti-Sharpshooter:** Freeze-Commit `5990245` VOR jeder q=7-Messung; die
+  Konventionsentscheidung wurde VOR dem Freeze aus direkter numerischer Prüfung
+  ((211,81), (307,81)) abgeleitet und dokumentiert — nie an Daten angepasst; die
+  deskriptiven Asymptotik-Erwartungen (Slope-Band, C_max) wurden registriert, aber
+  bewusst NICHT als Verdict-Gates eingesetzt (Heuristik ≠ Theorem).
+- **Steelman Mandate:** kein Alternativmodell nötig — B2 ist eine EXAKTidentität, der
+  Vergleichspunkt ist die gefrorene 034/040-Klasse selbst (T1/T2 bit-exakt); der
+  einseitige Ratio-Band-Rand 1.25 ist der einzige echte Falsifikator und wurde
+  registriert.
+- **Ockham:** Null freie Parameter. σ² ist Sieb-Arithmetik, die Zerlegung
+  Modell + Race-Term ist Theorem; die 034-Ratio 1.0248 ist damit vollständig erklärt
+  (2.9e-15) — ein Fit-Residual weniger in der Kette.
+- **Apophenie-Management:** die Slope-Werte −1.0766/−1.0568 könnten als "Messung der
+  Rubinstein–Sarnak-Konstante" überinterpretiert werden — sie sind deskriptiv (2
+  Dekaden, oszillierende Race-Bias), kein Gate, keine Konstanten-Kalibration; die
+  scharfe Aussage bleibt die EXAKTidentität bei Wraparound und die d-Invarianz.
+
 ---
 
-**Last updated:** 2026-09-26 (§Z.21: Branch ram-q-zyklizitaet — EXPERIMENT 040 H-RAM-Q-1: Baustein B1 zyklotomisch hergeleitet VOR dem Freeze (die Fünf im Fingerprint (m−5)² = Atom n₀=1 + Klassenanzahl q−1; share*_model(P,d=q^k) = (m−q·n₀)²/((q−1)·d·m), q=5 bit-exakt 034, q=3 (m−3)²/(2dm); q=3-Korrollare Transition m=9, exakte Null m=3, Suppression, EXAKTE Zweiklassen-δ²-Identität share* = (m−3)²/(2dm) + 6δ²/(dm)) → Kriterium-2-Wurzel korrigiert VOR Freeze (m ≥ 20.56 → m ≥ 21, nicht 25) → Prereg md5 bd9dfee77b9fada8a230347f9d45f5a7 committet (19c99c3) VOR jeder Auswertung → 2 Harness-Bugs transparent gefixt und committet (T6 gated-Auswahl 211acac, in_band Share-vs-Ratio-Space 09ba9cf; Runs 1–2 vor jeder Interpretation als Bug erkannt, nie verwertet) → VERDICT `H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`: 8/8 gated im Band (Ratios 1.002449–1.017751 = 1 + 12δ²/(m−3)² exakt), max δ²-Residual 3.2e-16, alle 6 Kontrollen grün, registrierte Negativ-Erwartungen exakt ((5,9) = generisch, (7,·) Ratio 4.0, (23,·) = 4/3 × Modell) → Vektor H-RAM-Q-1 GENERALIZED (A−), RAMANUJAN_DFT_FINGERPRINT bleibt B+, 0 QPU, 697 Tests inkl. 3 Post-Freeze-Pinning-Tests (Verdict + gated-Ratios + δ²-Residual-Schranke))
+**Last updated:** 2026-09-26 (§Z.22: Branch ram-q-zyklizitaet — EXPERIMENT 041 H-RAM-Q-2: User-Direktive "theorie sollte bis unendlich halten" → Dreischichten-Design (d → ∞ exakt, P → ∞ via B3, q → ∞ via q=7-Blindtest) → Baustein B2 q-universelle EXAKTidentität (share* = (m−q·n₀)²/((q−1)dm) + qσ²/(dm) für ALLE Counts; Strukturkorollar ratio ≥ 1 IMMER; d-Invarianz-Theorem; q=5-Race-Term erklärt die 034-Ratio 1.0248 EXAKT aus σ² = 14.75, Differenz 2.9e-15) → Konventionsbefund VOR Freeze: mn-Renormalisierung bricht bei Wraparound (direkt gemessen (211,81) 6.5e-2), alle 21 gefrorenen 040-Punkte waren P ≤ d (stummer No-op) → ABSOLUTE Konvention |G|²/(dm) via FFT über Count-Vektor → Prereg md5 704916f946beedf49c51ab6bc9bf37bd committet (5990245) VOR jeder q=7-Messung ((17,49) null-deskriptiv 2/49 + Band 10⁴..10⁷ auf d=2401, ratio_pred 1.002625 → 1.000002, Extraordinarität 6/10, Kontrollen T1–T6) → VERDICT `H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED`: 4/4 gated im Band, 0 außen, max Identitäts-Residual 1.8e-15 bei P ≫ d, d-Invarianz-Residual 1.4e-16 (share skaliert exakt 1/d), (17,49) = 2/49 exakt, Slopes −1.0766/−1.0568 im registrierten Band, C_p bei 10⁸ = 1.59/3.95 O(1) → Vektor H-RAM-Q-2 CONFIRMED (B, kein A-Mint — Theorem-Schicht), Fingerprint bleibt B+, H-RAM-Q-1 bleibt A−, 0 QPU, 716 Tests inkl. 4 Post-Freeze-Pinning-Tests)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

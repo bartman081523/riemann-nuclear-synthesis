@@ -1374,6 +1374,8 @@ Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququin
 | `KINGSTON_AS_NEUTRAL_BACKEND` | B+ | **A−** | V5 CONFIRMED (§10.18) |
 | H-STAR-5 | HYPOTHESE (Score 7/10) | **REFUTED (Phase 6a)** | Ausgeführt 2026-09-25, 0 QPU, sauber (Kontrollen zuerst erfüllt); Verdict-Klasse `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`; S₄-Schluss-Theorem als Lerngewinn (§10.21) |
 | `SHOR_QUQUINT_ORACLE` | — | **B (H-SHOR-1 CONFIRMED)** | Branch `shor-ququint-oracle` (§10.20) |
+| H-RAM-Q-1 | — | **GENERALIZED (A−)** | Die Fünf zyklotomisch abgeleitet: Atom n₀=1 + Klassenanzahl q−1; q=3 trifft 8/8, δ²-Identität exakt (§10.22) |
+| H-RAM-Q-2 | — | **CONFIRMED (B)** | Asymptotik bis unendlich: B2 q-universelle EXAKTidentität, q=7 blind im Band, d-Invarianz bei P ≫ d, ratio → 1 wie C/x (§10.23) |
 
 **Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — **ERLEDIGT (§10.21, REFUTED)**; Phase 6b (Aer-Protokoll-Validierung A1) nicht ausgelöst (keine sichtbare Prime-Trennung), QPU-Spot-Check entfällt. Rückfall-Pfad H-STAR-5b (Score 6, nicht prereg'd) bleibt registrierte Alternative. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
 
@@ -1537,6 +1539,105 @@ Strukturübertragung (5 → 3 als Test der Ableitung, nicht als Fit).
 **Quellen:** `SYNTHESIS_2026_06_10.md` §Z.21, `pt_ram_q_zyklizitaet.py`,
 `pt_ram_q_prereg.json` (md5 `bd9dfee7`), `pt_ram_q_results.json`,
 `pt_ram_q_run.log`, Commits `19c99c3`/`211acac`/`09ba9cf`.
+
+## §10.23 — RAM-Q Asymptotik bis unendlich: q-universelle EXAKTidentität B2 + q=7-Blindtest H-RAM-Q-2 (EXPERIMENT 041, Branch `ram-q-zyklizitaet`, 2026-09-26, 0 QPU)
+
+**Phase 8 (QUQUINT-Ramanujan-Linie).** User-Direktive (wörtlich): *"mache autonom
+weiter, bitte. und wir testen ja nur bis 1 million. unsere theorie sollte aber bis
+unendlich halten."* — Die empirische Reichweite endete bei N = 10⁶ (α-Asymptotik) bzw.
+P, d ≤ 729 (RAM-Q-Fingerprint). Phase 8 schließt die Finitheits-Lücke in drei Schichten:
+(i) **d → ∞ exakt** (d-Invarianz-Theorem in B2, geprüft bei P = 10⁷ ≫ d = 2401),
+(ii) **P → ∞** (asymptotisches Theorem B3 + deskriptive Skans bis 10⁸),
+(iii) **q → ∞** (B2 ist q-universal; blinder Out-of-Family-Test bei q=7).
+
+**Baustein B2 (q-universelle EXAKTidentität, VOR dem Freeze hergeleitet):** Die
+Amplitude G(kd/q) = n₀ + Σ_{r=1}^{q−1} n_r·ω_q^{kr} hängt NUR von den Residuen mod q ab —
+für ALLE P und ALLE d = q^k, inkl. Wraparound P ≫ d. Mit σ² = Σ_{r=1}^{q−1}(n_r −
+A/(q−1))², A = m − n₀, gilt für ALLE ganzzahligen Counts-Vektoren EXAKT (keine Näherung):
+
+  share*_q = [(q−1)n₀² − 2n₀A + qΣn_r² − A²]/(dm) = **(m − q·n₀)²/((q−1)·d·m) + q·σ²/(dm)**
+
+- q=3: σ² = 2δ² → die gefrorene Zweiklassen-Identität §10.22 als Spezialfall (Brücke T2).
+- q=5 Äquipartition: σ² = 0 → die gefrorene 034-Formel als Spezialfall.
+- **q=5 Race-Term: 1 + 20σ²/(m−5)² erklärt die 034-Ratio 1.0248 EXAKT** (Differenz
+  2.9e-15 gegen die committete Konstante V2_SHARE_STAR_PRIME_COMMITTED/model_share_star,
+  T1-Anker) — die Ratio war nie ein Fit-Residual, sondern Residuen-Dispersion
+  (counts mod 5 bei P=625: [1,26,31,29,27], σ² = 14.75).
+- **Strukturkorollar: ratio ≥ 1 IMMER** (σ² ≥ 0) — das Band ist einseitig; der obere
+  Rand 1.25 ist der einzige echte Falsifikator.
+- **d-Invarianz-Theorem: d·share*·m hängt NUR von den Counts mod q ab** — exakt für
+  alle d = q^k. T3 aus Phase 7 war damit ein Theorem-Check ohne eigenen empirischen
+  Inhalt; hier wird es im NEUEN Regime P ≫ d geprüft.
+
+**Konventionsbefund VOR dem Freeze (verhinderte einen Post-Freeze-Harness-Bug):**
+`mn.single_register_profile` renormalisiert (`prof/prof.sum()`); Parseval gibt
+Σ_a|G(a)|² = d·Σ_r n_r² (= d·m nur wenn alle n_r ∈ {0,1}). ALLE 21 gefrorenen 040-Punkte
+hatten P ≤ d → dort war die Renormalisierung ein stummer No-op. Direkt gemessen:
+(211,81) Residual 6.5e-2, (307,81) 1.25e-1 unter mn-Pfad — die gefrorene Identität
+BRICHT dort. Phase 8 misst daher die ABSOLUTE Konvention |G|²/(dm) ohne Renormalisierung
+(FFT über den Count-Vektor mod d, Skalierbarkeit: d-lange DFT unabhängig von m; mn's
+np.outer wäre d·m-groß). Unter absoluter Konvention sind Share-Werte > 1 bei P ≫ d
+erwartet ( extensive Spektralmasse ~ m/(d·(q−1))-Ordnung); der Ratio ist die
+normierte Observable.
+
+**Baustein B3 (asymptotisches Theorem):** ratio − 1 = q(q−1)·σ²/(m−q)² → 0 für
+P → ∞, q fest. UNBEDINGT (Siegel–Walfisz, ineffektiv): |n_r − ā| = O(x·e^{−c√log x}) →
+ratio − 1 → 0 — für jede feste q liegt das Band [0.8, 1.25] schließlich vollständig;
+die Theorie hält bis unendlich. UNTER GRH (effektiv): ratio − 1 = O(log⁶x/x). Heuristik
+(Chebyshev/Rubinstein–Sarnak): ratio − 1 ~ C/x mit C = O(1) → Log-Log-Slope ≈ −1.
+Registrierte deskriptive Erwartungen (KEINE Verdict-Gates): slope ∈ [−1.5, −0.5],
+C = P·(ratio−1) ≤ 1e4, Envelope fallend. Epistemisch: kleine m sind die HÄRTERE Seite
+(relativer Race-Term maximal); asymptotisch wird das Modell exakt.
+
+**Prereg (md5 `704916f946beedf49c51ab6bc9bf37bd`, committet `5990245` VOR jeder
+q=7-Messung):** q=7-Punkte (17,49) null-deskriptiv (ungated; registrierte Erwartung
+2/49 = q·σ²/(dm)) + Band-Punkte 10⁴/10⁵/10⁶/10⁷ auf d=2401 mit registrierten
+Sieb-Counts und EXAKTEN B2-Vorhersagen (b2_share_exact) samt ratio_pred
+1.002625 → 1.000002 (monotone Konvergenz bereits in der Registrierung sichtbar).
+Bänder 0.8/1.25 in Share-Space; Falsifikator ≥ 2 von 4 außen; d-Invarianz-Checks
+{49, 2401} an jedem gated Punkt; Extraordinarität 6/10 VOR Messung (out-of-family in
+ZWEI Dimensionen gleichzeitig: q=7 UND P ≫ d; die Band-Punkte sind asymptotisch
+erzwungen — scharfer Inhalt ist Identitäts-Residual + d-Invarianz bei Wraparound);
+Kontrollen T1 q=5-Anker-Tie, T2 q=3-Brücke auf den GEFRORENEN 040-Counts, T3
+d-Invarianz q=3, T4 ratio ≥ 1 strukturell, T5 Gate-Set gefroren, T6 Null-Punkte exakt;
+Skans q ∈ {3,5} über P = 10³..10⁷ prereg + 10⁸ deskriptive Erweiterung; 0 QPU
+(reine Arithmetik, offline, kein Quanten-SDK).
+
+**Run — VERDICT: `H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED` (4/4 gated im
+Band, 0 außen, alle 6 Kontrollen grün; erster und einziger Lauf, direkt verwertbar —
+die Kontrollfamilie T1–T6 diente als eingebautes Smoke-Gate).**
+- **Identität bei Wraparound EXAKT:** max |share − b2_share_exact| = 1.8e-15 über
+  alle 5 q=7-Punkte (Fließkomma-Rauschen; Schranke 1e-10) — B2 hält im neuen Regime
+  P ≫ d, wo die mn-Renormalisierung die Identität brechen würde.
+- **d-Invarianz bei Wraparound EXAKT:** max Residual 1.4e-16 über
+  (10⁴, 10⁵, 10⁶, 10⁷) × {49, 2401}; share skaliert exakt 1/d (share_d49 = 49 ×
+  share_d2401) — die scharfste neue Prüfung, 0 QPU, Sieb 10⁷ in ~1 s.
+- **q=7-Blindtest:** (17,49) gemessen = 2/49 EXAKT (residual 0.0 — Race-Term IST die
+  Masse, registrierte Negativ-Erwartung); Band-Ratios 1.002625086721615 (10⁴),
+  1.0002256068142468 (10⁵), 1.000013203887545 (10⁶), 1.0000015008153071 (10⁷) —
+  alle im Band, alle exakt die registrierten ratio_pred-Werte.
+- **Asymptotik deskriptiv bestätigt:** Slope q=3 −1.0766, q=5 −1.0568 (Band
+  [−1.5, −0.5]; Rubinstein–Sarnak-Heuristik C/x sichtbar); C_max 5.4 (q=3) bzw.
+  33.7 (q=5) ≤ 1e4; Envelope monoton fallend; 10⁸-Erweiterung: ratio 1.0000000159
+  (q=3) bzw. 1.0000000395 (q=5), C_p = 1.59 bzw. 3.95 — die Race-Konstante bleibt
+  O(1)-klein.
+
+**Interpretation (diszipliniert, Grading VOR der Messung festgelegt):**
+H-RAM-Q-2 = **B-Klasse** (KEIN A-Mint): B2 und B3 sind bewiesene Arithmetik — die
+1e-15/1e-16-Residualexaktheit verifiziert die Identität, nicht eine physikalische
+These; der q=7-Test verifiziert sie out-of-family (blinde Vorhersage in zwei neuen
+Dimensionen gleichzeitig), aber die Band-Punkte sind asymptotisch erzwungen. Die
+empirische Substanz: (i) die Identität hält bei Wraparound (Konventionsbefund war
+real, nicht theoretisch), (ii) d-Invarianz hält im neuen Regime, (iii) die
+Konvergenz ratio − 1 ~ C/x mit O(1)-C ist deskriptiv sichtbar und mit der
+Rubinstein–Sarnak-Heuristik konsistent. Die Slope-Messung selbst bleibt
+zukünftige eigene Hypothese (kein Gate in diesem Prereg). Vektoren: H-RAM-Q-2
+eigener Status CONFIRMED (B); `RAMANUJAN_DFT_FINGERPRINT` bleibt B+; H-RAM-Q-1
+bleibt GENERALIZED (A−) — keine stillen Upgrades.
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.22, `pt_ram_q_asymptotik.py`,
+`pt_ram_q7_asymptotik_prereg.json` (md5 `704916f9`), `pt_ram_q_asymptotik_results.json`,
+`pt_ram_q_asymptotik_run.log`, Commit `5990245`.
 
 #### **Quellenangaben**
 

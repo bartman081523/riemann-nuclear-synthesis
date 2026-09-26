@@ -1,0 +1,11 @@
+VERDICT: H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED
+gated: 4 total, 0 outside
+max residual: 1.776e-15
+max d-invariance residual: 1.424e-16
+q=3: slope -1.0766 (band [-1.5, -0.5]), C_max 5.399
+q=5: slope -1.0568 (band [-1.5, -0.5]), C_max 33.69
+q7 17@49: model 0.000000 measured 0.040816 ratio None in_band None
+q7 10000@2401: model 0.084343 measured 0.084564 ratio 1.002625086721615 in_band True
+q7 100000@2401: model 0.664862 measured 0.665012 ratio 1.0002256068142468 in_band True
+q7 1000000@2401: model 5.448008 measured 5.448080 ratio 1.000013203887545 in_band True
+q7 10000000@2401: model 46.131126 measured 46.131195 ratio 1.0000015008153071 in_band True

@@ -15,6 +15,7 @@ bindet gegen die bereits committeten 034-Konstanten
 (V2_SHARE_STAR_PRIME_COMMITTED) — Rueckkopplung wie 040 T1/T2.
 """
 
+import functools
 import json
 import math
 import os
@@ -361,3 +362,104 @@ def test_offline_guard():
     src = open("pt_ram_q_asymptotik.py", encoding="utf-8").read()
     for banned in ("qiskit", "IBMQ_TOKEN", "os.environ"):
         assert banned not in src
+
+# === Post-Freeze-Pinning (analog Phase 7): die committete Results-Datei
+# bindet Verdict, Kontrollen, Wraparound-Identitaet und Scan-Erwartungen;
+# ein leichter Live-Recompute belegt, dass sie aus DEMSELBEN Code-Pfad
+# stammt wie das aktuelle Modul (42s-Auswertung selbst NICHT doppelt). ===
+
+RESULTS_PATH = os.path.join(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))), "pt_ram_q_asymptotik_results.json")
+
+
+@functools.lru_cache(maxsize=1)
+def _results():
+    with open(RESULTS_PATH, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def test_evaluation_results_pinned():
+    """Verdict, Kontrollen, md5, Residuals + Wraparound-Identitaet gepinnt."""
+    res = _results()
+    assert res["verdict"] == ra.VERDICT_CONFIRMED
+    assert res["gated_total"] == 4 and res["gated_outside"] == 0
+    assert res["prereg_md5"] == "704916f946beedf49c51ab6bc9bf37bd"
+    for key in ("t1_q5_anchor", "t2_q3_bridge", "t3_d_invariance_q3",
+                "t4_ratio_ge_1_structural", "t5_gate_set_frozen",
+                "t6_null_points_exact"):
+        assert res["controls"][key] is True, f"Kontrolle {key} nicht True"
+    # Identitaets-Residual auf Fließkomma-Rauschen (gemessen 1.8e-15)
+    assert res["max_residual"] < 1e-10
+    # d-Invarianz bei Wraparound (P=1e7 >> d=2401) — die scharfste
+    # neue Pruefung: gemessen 1.4e-16
+    assert res["max_d_inv_residual"] < 1e-10
+    # Null-Punkt (17,49): gemessen = 2/49 EXAKT (Race-Term IST die Masse)
+    null_row = next(r for r in res["q7_rows"] if r["P"] == 17)
+    assert null_row["gated"] is False and null_row["in_band"] is None
+    assert null_row["ratio_measured"] is None
+    assert abs(null_row["share_measured"] - 2.0 / 49.0) <= 1e-15
+    assert null_row["share_measured"] == null_row["b2_share_exact"]
+    assert null_row["residual"] == 0.0
+    # Band-Punkte: ratio_measured trifft ratio_pred_exact, alle im Band
+    gated_rows = [r for r in res["q7_rows"] if r["gated"]]
+    assert [r["P"] for r in gated_rows] == [10 ** k for k in (4, 5, 6, 7)]
+    for r in gated_rows:
+        assert r["in_band"] is True
+        assert math.isclose(r["ratio_measured"], r["ratio_pred_exact"],
+                            rel_tol=1e-12), f"P={r['P']}"
+        assert r["residual"] < 1e-10
+
+
+def test_d_invariance_wraparound_pinned():
+    """d-Invarianz bei Wraparound: d*share*m identisch ueber {49,2401},
+    share skaliert exakt 1/d; Live-Recompute bei P=1e4 aus DEMSELBEN Pfad."""
+    res = _results()
+    m = 1229  # pi(1e4), registriert
+    for row in res["d_invariance"]:
+        d1, d2 = row["d_pair"]
+        # Invariante d*share*m ueber beide d identisch
+        v1, v2 = d1 * row["share_d49"] * m, d2 * row["share_d2401"] * m
+        assert abs(v1 - v2) <= 1e-8 * max(1.0, abs(v1))
+        # Skalierung share ~ 1/d exakt (49 = d1/d2-Faktor)
+        assert abs(row["share_d49"] / row["share_d2401"] - 49.0) <= 1e-9
+    # Live-Recompute (P=1e4, beide d) aus measure_share trifft die Datei
+    s49, _, _ = ra.measure_share(10 ** 4, 49, 7)
+    s2401, _, _ = ra.measure_share(10 ** 4, 2401, 7)
+    row = res["d_invariance"][0]
+    assert abs(s49 - row["share_d49"]) <= 1e-12
+    assert abs(s2401 - row["share_d2401"]) <= 1e-12
+    assert abs(s49 / s2401 - 49.0) <= 1e-9
+
+
+def test_pinned_fft_matches_mn_small_p():
+    """Kleines P < d (kein Wraparound): FFT-Pfad ≡ mn-Pfad (Renormalisierung
+    No-op) — Bindung an die 040-Konvention, hier am q=5-Punkt (97, 625)."""
+    s_fft, counts, m = ra.measure_share(97, 625, 5)
+    primes = ps.sieve_primes(97)
+    assert m == len(primes) == 25
+    prof_mn = mn.single_register_profile(primes, 625)
+    s_mn = rq.share_star_q(prof_mn, 625, 5)
+    assert abs(s_fft - s_mn) <= 1e-12
+    # und B2 trifft den kleinen Prime-Punkt exakt (Race-Term sichtbar)
+    assert abs(s_fft - ra.unified_identity_share(counts, 625)) <= 1e-14
+    assert ra.unified_ratio(counts) > 1.0  # counts [1,5,7,7,5]: sigma2 > 0
+
+
+def test_pinned_scans_and_extension():
+    """Skans q in {3,5}: Slope im registrierten Band, C_max unter Schranke,
+    1e8-Erweiterung deskriptiv (ratio >= 1, C_p klein, Envelope fallend)."""
+    res = _results()
+    for q, d in (("3", 729), ("5", 625)):
+        sc = res["scans"][q]
+        assert sc["slope_in_registered_band"] is True
+        assert ra.SLOPE_BAND[0] <= sc["slope"] <= ra.SLOPE_BAND[1]
+        assert sc["c_max_ok"] is True
+        assert sc["envelope_decreasing"] is True
+        ext = sc["extension_row_deskriptiv"]
+        assert ext["d"] == d and ext["pi"] == 5761455
+        assert ext["ratio"] >= 1.0
+        assert ext["c_p"] <= ra.C_MAX
+        # ratio trifft die B2-Identitaet aus den registrierten Counts
+        b2 = ra.unified_identity_share(ext["residue_counts"], ext["d"])
+        assert abs(ext["share_b2"] - b2) <= 1e-9 * max(1.0, b2)
+        assert abs(ext["ratio"] - b2 / ext["model"]) <= 1e-12

@@ -1,0 +1,450 @@
+{
+  "experiment": "041-ram-q-asymptotik",
+  "hypothesis": "H-RAM-Q-2",
+  "verdict": "H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED",
+  "prereg_md5": "704916f946beedf49c51ab6bc9bf37bd",
+  "qpu_jobs": 0,
+  "q7_rows": [
+    {
+      "P": 17,
+      "d": 49,
+      "pi": 7,
+      "residue_counts_mod7": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "sigma2": 2.0,
+      "model": 0.0,
+      "b2_share_exact": 0.04081632653061224,
+      "share_measured": 0.04081632653061224,
+      "residual": 0.0,
+      "gated": false,
+      "role": "null_deskriptiv",
+      "in_band": null,
+      "ratio_measured": null,
+      "ratio_pred_exact": null
+    },
+    {
+      "P": 10000,
+      "d": 2401,
+      "pi": 1229,
+      "residue_counts_mod7": [
+        1,
+        203,
+        203,
+        209,
+        202,
+        211,
+        200
+      ],
+      "sigma2": 93.33333333333333,
+      "model": 0.08434262597618047,
+      "b2_share_exact": 0.08456403268369668,
+      "share_measured": 0.0845640326836967,
+      "residual": 1.3877787807814457e-17,
+      "gated": true,
+      "role": "band",
+      "in_band": true,
+      "ratio_measured": 1.002625086721615,
+      "ratio_pred_exact": 1.0026250867216149
+    },
+    {
+      "P": 100000,
+      "d": 2401,
+      "pi": 9592,
+      "residue_counts_mod7": [
+        1,
+        1593,
+        1584,
+        1613,
+        1601,
+        1604,
+        1596
+      ],
+      "sigma2": 493.5,
+      "model": 0.6648622177164852,
+      "b2_share_exact": 0.6650122151633372,
+      "share_measured": 0.6650122151633373,
+      "residual": 1.1102230246251565e-16,
+      "gated": true,
+      "role": "band",
+      "in_band": true,
+      "ratio_measured": 1.0002256068142468,
+      "ratio_pred_exact": 1.0002256068142465
+    },
+    {
+      "P": 1000000,
+      "d": 2401,
+      "pi": 78498,
+      "residue_counts_mod7": [
+        1,
+        13063,
+        13065,
+        13105,
+        13069,
+        13105,
+        13090
+      ],
+      "sigma2": 1936.8333333333335,
+      "model": 5.448007817868924,
+      "b2_share_exact": 5.448079752751495,
+      "share_measured": 5.448079752751497,
+      "residual": 1.7763568394002505e-15,
+      "gated": true,
+      "role": "band",
+      "in_band": true,
+      "ratio_measured": 1.000013203887545,
+      "ratio_pred_exact": 1.0000132038875449
+    },
+    {
+      "P": 10000000,
+      "d": 2401,
+      "pi": 664579,
+      "residue_counts_mod7": [
+        1,
+        110653,
+        110771,
+        110815,
+        110776,
+        110787,
+        110776
+      ],
+      "sigma2": 15782.0,
+      "model": 46.13112592487373,
+      "b2_share_exact": 46.13119515917365,
+      "share_measured": 46.13119515917365,
+      "residual": 0.0,
+      "gated": true,
+      "role": "band",
+      "in_band": true,
+      "ratio_measured": 1.0000015008153071,
+      "ratio_pred_exact": 1.0000015008153071
+    }
+  ],
+  "identity_residuals": [
+    {
+      "P": 17,
+      "d": 49,
+      "residual": 0.0
+    },
+    {
+      "P": 10000,
+      "d": 2401,
+      "residual": 1.3877787807814457e-17
+    },
+    {
+      "P": 100000,
+      "d": 2401,
+      "residual": 1.1102230246251565e-16
+    },
+    {
+      "P": 1000000,
+      "d": 2401,
+      "residual": 1.7763568394002505e-15
+    },
+    {
+      "P": 10000000,
+      "d": 2401,
+      "residual": 0.0
+    }
+  ],
+  "d_invariance": [
+    {
+      "P": 10000,
+      "d_pair": [
+        49,
+        2401
+      ],
+      "residual": 1.3998205010125482e-16,
+      "share_d49": 4.143637601501139,
+      "share_d2401": 0.0845640326836967
+    },
+    {
+      "P": 100000,
+      "d_pair": [
+        49,
+        2401
+      ],
+      "residual": 1.4240275760331315e-16,
+      "share_d49": 32.58559854300352,
+      "share_d2401": 0.6650122151633373
+    },
+    {
+      "P": 1000000,
+      "d_pair": [
+        49,
+        2401
+      ],
+      "residual": 0.0,
+      "share_d49": 266.9559078848233,
+      "share_d2401": 5.448079752751497
+    },
+    {
+      "P": 10000000,
+      "d_pair": [
+        49,
+        2401
+      ],
+      "residual": 1.313812197787849e-16,
+      "share_d49": 2260.428562799509,
+      "share_d2401": 46.13119515917365
+    }
+  ],
+  "gated_total": 4,
+  "gated_outside": 0,
+  "max_residual": 1.7763568394002505e-15,
+  "max_d_inv_residual": 1.4240275760331315e-16,
+  "scans": {
+    "3": {
+      "rows": [
+        {
+          "P": 1000,
+          "d": 729,
+          "pi": 168,
+          "residue_counts": [
+            1,
+            80,
+            87
+          ],
+          "sigma2": 24.5,
+          "model": 0.11114785420340977,
+          "share_b2": 0.11174799137762101,
+          "ratio": 1.0053994490358127,
+          "c_p": 5.399449035812687
+        },
+        {
+          "P": 10000,
+          "d": 729,
+          "pi": 1229,
+          "residue_counts": [
+            1,
+            611,
+            617
+          ],
+          "sigma2": 18.0,
+          "model": 0.838825324435426,
+          "share_b2": 0.8388855962613609,
+          "ratio": 1.0000718526541572,
+          "c_p": 0.7185265415721176
+        },
+        {
+          "P": 100000,
+          "d": 729,
+          "pi": 9592,
+          "residue_counts": [
+            1,
+            4784,
+            4807
+          ],
+          "sigma2": 264.5,
+          "model": 6.574760588670714,
+          "share_b2": 6.574874066294385,
+          "ratio": 1.0000172595826329,
+          "c_p": 1.7259582632878079
+        },
+        {
+          "P": 1000000,
+          "d": 729,
+          "pi": 78498,
+          "residue_counts": [
+            1,
+            39231,
+            39266
+          ],
+          "sigma2": 612.5,
+          "model": 53.83539102513896,
+          "share_b2": 53.83542313520714,
+          "ratio": 1.0000005964490564,
+          "c_p": 0.5964490563670211
+        },
+        {
+          "P": 10000000,
+          "d": 729,
+          "pi": 664579,
+          "residue_counts": [
+            1,
+            332194,
+            332384
+          ],
+          "sigma2": 18050.0,
+          "model": 455.811385468822,
+          "share_b2": 455.8114972385821,
+          "ratio": 1.000000245210549,
+          "c_p": 2.452105489769707
+        }
+      ],
+      "extension_row_deskriptiv": {
+        "P": 100000000,
+        "d": 729,
+        "pi": 5761455,
+        "residue_counts": [
+          1,
+          2880517,
+          2880937
+        ],
+        "sigma2": 88200.0,
+        "model": 3951.6111111121827,
+        "share_b2": 3951.6111741106724,
+        "ratio": 1.0000000159424822,
+        "c_p": 1.594248222325234
+      },
+      "slope": -1.076649005267182,
+      "slope_in_registered_band": true,
+      "c_max_prereg_grid": 5.399449035812687,
+      "c_max_ok": true,
+      "envelope_decreasing": true
+    },
+    "5": {
+      "rows": [
+        {
+          "P": 1000,
+          "d": 625,
+          "pi": 168,
+          "residue_counts": [
+            1,
+            40,
+            47,
+            42,
+            38
+          ],
+          "sigma2": 44.75,
+          "model": 0.06325952380952381,
+          "share_b2": 0.0653904761904762,
+          "ratio": 1.0336858745154127,
+          "c_p": 33.68587451541272
+        },
+        {
+          "P": 10000,
+          "d": 625,
+          "pi": 1229,
+          "residue_counts": [
+            1,
+            306,
+            309,
+            310,
+            303
+          ],
+          "sigma2": 30.0,
+          "model": 0.4876081366965012,
+          "share_b2": 0.4878034174125305,
+          "ratio": 1.0004004869921825,
+          "c_p": 4.00486992182536
+        },
+        {
+          "P": 100000,
+          "d": 625,
+          "pi": 9592,
+          "residue_counts": [
+            1,
+            2387,
+            2412,
+            2402,
+            2390
+          ],
+          "sigma2": 396.75,
+          "model": 3.832801042535446,
+          "share_b2": 3.8331319432860718,
+          "ratio": 1.0000863339231423,
+          "c_p": 8.633392314227883
+        },
+        {
+          "P": 1000000,
+          "d": 625,
+          "pi": 78498,
+          "residue_counts": [
+            1,
+            19617,
+            19622,
+            19665,
+            19593
+          ],
+          "sigma2": 2694.75,
+          "model": 31.39520012739178,
+          "share_b2": 31.395474758592577,
+          "ratio": 1.000008747553756,
+          "c_p": 8.747553756016657
+        },
+        {
+          "P": 10000000,
+          "d": 625,
+          "pi": 664579,
+          "residue_counts": [
+            1,
+            166104,
+            166212,
+            166230,
+            166032
+          ],
+          "sigma2": 26163.0,
+          "model": 265.8276000150471,
+          "share_b2": 265.8279149572887,
+          "ratio": 1.0000011847612573,
+          "c_p": 11.847612573223643
+        }
+      ],
+      "extension_row_deskriptiv": {
+        "P": 100000000,
+        "d": 625,
+        "pi": 5761455,
+        "residue_counts": [
+          1,
+          1440298,
+          1440496,
+          1440474,
+          1440186
+        ],
+        "sigma2": 65563.0,
+        "model": 2304.5780000017357,
+        "share_b2": 2304.578091038462,
+        "ratio": 1.000000039502558,
+        "c_p": 3.9502557891424317
+      },
+      "slope": -1.0568335759853928,
+      "slope_in_registered_band": true,
+      "c_max_prereg_grid": 33.68587451541272,
+      "c_max_ok": true,
+      "envelope_decreasing": true
+    }
+  },
+  "deskriptive_checks": {
+    "3": {
+      "slope": -1.076649005267182,
+      "slope_in_registered_band": true,
+      "c_max": 5.399449035812687,
+      "envelope_decreasing": true
+    },
+    "5": {
+      "slope": -1.0568335759853928,
+      "slope_in_registered_band": true,
+      "c_max": 33.68587451541272,
+      "envelope_decreasing": true
+    }
+  },
+  "controls": {
+    "t1_q5_anchor": true,
+    "t2_q3_bridge": true,
+    "t3_d_invariance_q3": true,
+    "t4_ratio_ge_1_structural": true,
+    "t5_gate_set_frozen": true,
+    "t6_null_points_exact": true
+  },
+  "control_details": {
+    "t1": {
+      "ratio_b2_q5": 1.0248295598013635,
+      "anchor_ratio": 1.0248295598013664,
+      "abs_diff": 2.886579864025407e-15
+    },
+    "t2_worst_rel_diff": 0.0,
+    "t3_residual": 1.1468970584716332e-16,
+    "t6": {
+      "residual_17_49_q7": 0.0,
+      "residual_5_9_q3": 2.7755575615628914e-17
+    }
+  },
+  "b3_note": "Theorem-Schicht: ratio -> 0 Abweichung unconditionally (Siegel-Walfisz, ineffektiv); effektiv unter GRH O(log^6 x/x); Skans verifizieren die Konvergenzrichtung deskriptiv bis 10^8"
+}
