@@ -3295,8 +3295,135 @@ registrierten Erwartungen (positiv UND negativ) trafen die Prereg-Werte exakt.
   Dekaden, oszillierende Race-Bias), kein Gate, keine Konstanten-Kalibration; die
   scharfe Aussage bleibt die EXAKTidentität bei Wraparound und die d-Invarianz.
 
+## §Z.24 — Branch ram-q-zyklizitaet: H-RAM-Q-3 unter Hardware-Rauschen — Freeze A → Stage-2-Aer → Freeze B → EIN Fez-QPU-Job → gefrorene Auswertung VOID_CALIBRATION (EXPERIMENT 042), 2026-09-26, 1 QPU-Job
+
+**Nummerierungshinweis:** §Z.23/§10.24 sind der Gematria-Spiegel-Layer (Branch
+`gematria-mirror-synthesis`); die Phase-9-Ergebnisse tragen daher §Z.24/§10.25.
+
+### Z.24.1 User-Direktive und Zwei-Freeze-Architektur
+
+User-Direktiven wörtlich: *"okay, mache es auf unser ququint simulation und auf
+ibmq, alles was wir noch nicht mit ququint und ibmq überprüft haben"*; *"Baue das
+Prereg-Skelett für diese q-universelle Identität im Status
+REGISTERED_NOT_MEASURED auf. […] Setze das Skelett auf, damit wir den Zustand vor
+dem ersten QPU-Kontakt absolut sauber einfrieren können"*; Freigabe *"ja, mache
+alle nächsten Schritte autonom weiter"* (deckt Stage-2-Aer → Freeze B → EIN
+Fez-Job → gefrorene Auswertung ab; der Push bleibt separat freizugeben). Die
+Freeze-A-Trennung: der hermeneutische Index strukturiert die Reihenfolge, er
+generiert keine Evidenz; die physikalische Evidenzschicht ist die gefrorene
+Estimator-Kette.
+
+### Z.24.2 Freeze A → Stage-2-Aer → Freeze B
+
+- **Freeze A** (md5 `432d43fe1bc9e2594efd3b35266d2d81`, Commit `425cd14`, VOR
+  jedem QPU-Kontakt): 13 Punkte × 3 Reps + 2 Loschmidt + 3 Negativ-Kontrollen +
+  2 Readout-Cals = 58 Circuits × 8192 Shots, EIN Fez-Job (TOKEN1). Rauschgesetz
+  ratio_hw = κ·(1−1/S)·ratio_true + L_q, κ = P_L/P_ro_ref im selben Job gemessen;
+  Zentrum c(κ̂) = κ̂·(1−1/S)·ratio_true + L_q GEFROREN; w_A = 0.05;
+  KAPPA_CEILING 0.81 (≥ 2 Punkte κ̂ < 0.81 → VOID); Amplification-Ceiling
+  c(1)+w; Negativ-Kontrollen must-not-fire unter der kappa=1-Maximum-Kante
+  (konservativ); verdict_map mit CONFIRMED/COARSE/REFUTED/AMPLIFICATION/VOID/
+  DEGENERAT/INVALID/UNMATCHED.
+- **Stage-2-Aer-Bein** (0 QPU): 13 Punkte × 6 Stresslevel, gefrorenes
+  STRESS-Modell (RO 0.01 + CZ-Depolarisierung ratio×p1). v2-Gesetz PASS
+  (max Residual 0.0276 < TOL_FORM 0.03); v1-Gesetz 595/702 Zellen — genau der
+  registrierte Re-Freeze-Diskriminanz-Fall, der NICHT trat. Freeze-B-Amendment
+  (dokumentiert, nicht still): literal alle-Levels q97.5 = 0.2304 wäre
+  selbst-defeatierend (KAPPA_CEILING war gefroren; das v2-Gesetz versagt
+  strukturimmanent unterhalb 0.81) → Domain-q97.5-Lesart
+  {0, 1e-4, 3e-4} → **w_B = 0.024857401026830286**; beide Lesarten im Result.
+- **Freeze B** (Commit `59c42da`): w_B registriert (0.0249 ≤ w_A, Gate gegen den
+  ungeclippten Wert grün), ISA-Report ECHT gegen ibm_fez: 58 Circuits, total
+  1570 2q (Ceiling 6000), max 76/Circuit (Ceiling 120), ISA_OK.
+
+### Z.24.3 Fez-Lauf, Raw-Commit, gefrorene Auswertung
+
+- **EIN Fez-QPU-Job** (TOKEN1, `darq1stvr3kc73ej96ig`, erstellt
+  2026-09-26 12:39:47): Raw (58 Counts-Sets) + Job-ID + counts_md5
+  (`d19f4a563d88e0cf3ffd4b187a10ca73`) committed (`b5ba31a`) **VOR** der
+  Auswertung (job_integrity §Z.14). Retroaktives Inventar-Tool (EXPERIMENT 025)
+  erhielt die Hex-Fortsetzungs-Heuristik (der 20-Zeichen-Prefix des counts_md5
+  ist ein legitimer Job-ID-Falsch-Positiv; echter Job via --fetch registriert).
+- **Gefrorene Auswertung** (Commit `ff5e2d5`): `pt_ram_q_hardware_eval.py`
+  liest AUSSCHLIESSLICH das committete Raw + gefrorene Prereg-Konstanten —
+  dieselbe Estimator-Kette wie im Aer-Sampled-Bein (n_full über alle 2^n Labels →
+  fold_d → ABSOLUT-FFT-Share → ratio; κ̂ = P_L/P_ro_ref). 26 neue Tests
+  (Synth-Verdict-Zweige + Verdict-Pin NACH dem Lauf — Phase-3c-Disziplin: erst
+  sehen, dann pinnen); 831 Tests grün.
+
+### Z.24.4 Run — VERDICT: `H-RAM-Q-3_VOID_CALIBRATION`
+
+- **Verdict-Inputs:** n_points 13, n_evaluated 13, **n_kappa_low 13**
+  (alle κ̂ < 0.81), n_below_sharp 3, n_above_ceiling_w_b 0, n_in_sharp 7,
+  n_outside_sharp 6, all_in_coarse_w_a False (1 Punkt unter w_A), n_below_coarse 1.
+- **κ̂-Bereich 0.6608–0.8080** — Maximum q3_d9|541 = 0.8080 (um 0.002 am Ceiling),
+  Minimum q5_d25|625 = 0.6608. Per-Punkt (arm|P: ratio_hw / κ̂ / c(κ̂) / res / scharf):
+  q3_d9|109 0.8370/0.7883/0.8028/+0.0341/n; |163 0.7829/0.7673/0.7697/+0.0133/j;
+  |211 0.7807/0.7440/0.7491/+0.0316/n; |307 0.7790/0.7782/0.7890/−0.0100/j;
+  |401 0.7764/0.7995/0.8065/−0.0302/n; |541 0.7481/0.8080/0.8149/−0.0668/n;
+  |625 0.7789/0.7403/0.7452/+0.0336/n; |729 0.7554/0.7746/0.7803/−0.0249/n;
+  q5_d25|401 0.7199/0.6886/0.7335/−0.0136/j; |463 0.6988/0.6735/0.6882/+0.0106/j;
+  |541 0.6931/0.6622/0.6683/+0.0248/j; |599 0.6830/0.6741/0.6887/−0.0056/j;
+  |625 0.7036/0.6608/0.6793/+0.0244/j.
+- **Kontrollen ALLE grün:** t3 zwei Wege max 8.88e-16 (strukturelle Identität hält
+  auf ECHTEN Hardware-Counts exakt); t4 alle Negativ-Kontrollen unter der Kante
+  (0.048–0.629 vs 1.018–1.254); t5 Gate-Set/Transpile/Run-Config exakt; t6
+  Shots/Masse max Dev 0.0; md5 verifiziert → der Void ist KALIBRIER-bedingt,
+  nicht pipeline-bedingt.
+- **Kein Amplification:** 0 Punkte über c(1)+w_B ≈ 1.043 — "Depolarisierung dämpft
+  nur" hielt überall. **Band-Bild nicht verdict-tragend:** 7/13 scharf, 3 unter
+  der scharfen Kante, 1 auch unter der groben.
+
+### Z.24.5 Die κ̂-Physik: Loschmidt-Echo, nicht Readout
+
+Das Defizit kommt vom Echo: die Loschmidt-Circuits tragen ~76 2q Gates
+(ISA-Maximum), per-2q-Survival ≈ 0.778^(1/76) ≈ 0.9967 ≈ (1−ε_C)² mit
+ε_C ≈ 0.17 %/2q-Gate — qualitativ genau das Prereg-Gesetz, aber die Struktur-
+Garantie κ̂ ≥ 0.81 verlangt ε_C ≤ 0.10, die Hardware liefert effektiv ~0.17 %.
+Readout ist klein: ro_hat ~0.33 %/Qubit (4q) bzw. ~0.39 % (5q). Tiefen-Konsistenz:
+min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 — 5q degradiert stärker, konsistent mit
+(1−ε)^nq. Die v2-Diagnostik (nicht verdict-tragend) spiegelt das: b_p_Aer 0.85–0.90
+(4q) vs hardware-real ~0.78; res_v2 q3_d9 überwiegend positiv, q5_d25 alle negativ.
+
+### Z.24.6 Text-Spannung: kappa_floor_void vs verdict_map (dokumentiert, NICHT gelöst)
+
+Die gefrorenen Texte sind nicht deckungsgleich: `kappa_floor_void` sagt
+"Punkt EXKLUDIERT" (einzeln), die verdict_map zählt für CONFIRMED/REFUTED über
+"alle 13" / "≥ 2 der 13". Primaer gilt die WÖRTLICHE verdict_map (Anti-Sharpshooter:
+keine Interpretations-Latte zur Laufzeit); die Exklusions-Lesart (Punkt exkludiert,
+Band-Verdict über die 12) wird als `alternative_lesart_exklusion` mitgerechnet —
+hier nicht aktiv (13 low, nicht 1). Weitere registrierte Lesarten:
+refuted_mit_w_a (1 below coarse → null), amplification_mit_w_a (0). **Verdict-
+Präzedenz** (die Map selbst ordnet nicht; dokumentiert): T4 → DEGENERAT; andere
+Kontrollen → INVALID; ≥ 2 κ̂ < 0.81 → VOID; > Ceiling → INVALID_AMPLIFICATION;
+≥ 2 unter c−w_B → REFUTED; alle scharf + κ̂ ≥ 0.81 → CONFIRMED; grob + ≥ 1 außerhalb
+w_B → COARSE; sonst UNMATCHED (ehrlicher Nicht-Treffer). Void geht vor
+Falsifikation: ein REFUTED wäre bei κ̂-Void nicht beanspruchbar.
+
+### Z.24.7 Vektor-Update
+
+- **H-RAM-Q-3 → VOID (Kalibrierung)** — KEIN Band-Verdict beanspruchbar, KEIN
+  Falsifikation-Claim: REFUTED wäre nur bei gültiger Kalibrierung (κ̂ ≥ 0.81)
+  möglich gewesen. Die Hypothese bleibt unangetastet-unbestätigt; die Identität
+  selbst hielt auf echten Counts exakt (t3). H-RAM-Q-1 bleibt GENERALIZED (A−),
+  H-RAM-Q-2 bleibt CONFIRMED (B) — keine stillen Upgrades oder Downgrades.
+- **Was der Void lehrt (Methodik):** die Struktur-Garantie (κ̂ ≥ 0.81 ⇔ ε_C ≤ 0.10)
+  war in Freeze A analytisch gefroren, aber die TIEFE der Loschmidt-Circuits (~76
+  2q) macht sie für Fez-ε_C (~0.17 %/2q) unerreichbar — die Garantie war ein
+  Kalibrier-Anspruch über die Echo-Tiefe, den die Hardware nicht einlöst. Die
+  nächste Iteration (Echo kürzen oder ε_C ins Zentrum aufnehmen) ist ein NEUES
+  Prereg, kein stiller Patch.
+- **SciMind:** Anti-Sharpshooter — Verdict-Pin erst NACH dem Lauf (Phase-3c);
+  Raw vor Auswertung committed; verdict_map wörtlich, Interpretations-Latte
+  null. Steelman: der Vergleichspunkt ist das gefrorene STRESS-Modell (Aer),
+  das die Form des Hardware-Bilds vorab traf (b_p-Ranges, 5q-schlechter).
+  Ockham: das Defizit braucht KEINEN neuen Freiheitsgrad — (1−ε)^Tiefe erklärt
+  Tiefe- und Arm-Ordnung mit dem ISA-gemessenen ε. Apophenie-Management: das
+  7/13-scharf-Bild ist verführerisch ("fast bestätigt") — es ist nicht
+  verdict-tragend und wird nicht als Teilerfolg gelesen.
+
 ---
 
-**Last updated:** 2026-09-26 (§Z.22: Branch ram-q-zyklizitaet — EXPERIMENT 041 H-RAM-Q-2: User-Direktive "theorie sollte bis unendlich halten" → Dreischichten-Design (d → ∞ exakt, P → ∞ via B3, q → ∞ via q=7-Blindtest) → Baustein B2 q-universelle EXAKTidentität (share* = (m−q·n₀)²/((q−1)dm) + qσ²/(dm) für ALLE Counts; Strukturkorollar ratio ≥ 1 IMMER; d-Invarianz-Theorem; q=5-Race-Term erklärt die 034-Ratio 1.0248 EXAKT aus σ² = 14.75, Differenz 2.9e-15) → Konventionsbefund VOR Freeze: mn-Renormalisierung bricht bei Wraparound (direkt gemessen (211,81) 6.5e-2), alle 21 gefrorenen 040-Punkte waren P ≤ d (stummer No-op) → ABSOLUTE Konvention |G|²/(dm) via FFT über Count-Vektor → Prereg md5 704916f946beedf49c51ab6bc9bf37bd committet (5990245) VOR jeder q=7-Messung ((17,49) null-deskriptiv 2/49 + Band 10⁴..10⁷ auf d=2401, ratio_pred 1.002625 → 1.000002, Extraordinarität 6/10, Kontrollen T1–T6) → VERDICT `H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED`: 4/4 gated im Band, 0 außen, max Identitäts-Residual 1.8e-15 bei P ≫ d, d-Invarianz-Residual 1.4e-16 (share skaliert exakt 1/d), (17,49) = 2/49 exakt, Slopes −1.0766/−1.0568 im registrierten Band, C_p bei 10⁸ = 1.59/3.95 O(1) → Vektor H-RAM-Q-2 CONFIRMED (B, kein A-Mint — Theorem-Schicht), Fingerprint bleibt B+, H-RAM-Q-1 bleibt A−, 0 QPU, 716 Tests inkl. 4 Post-Freeze-Pinning-Tests)
+**Last updated:** 2026-09-26 (§Z.24: Branch ram-q-zyklizitaet — EXPERIMENT 042 H-RAM-Q-3: Zwei-Freeze-Architektur vollzogen (Freeze A md5 432d43fe VOR QPU → Stage-2-Aer 13×6 v2 PASS/v1 595/702 → Freeze B w_B 0.0249 Domain-q97.5 + ISA_OK 1570 2q → EIN Fez-Job darq1stvr3kc73ej96ig 58×8192 TOKEN1, Raw + md5 d19f4a56 committed b5ba31a VOR Auswertung) → gefrorene Auswertung ff5e2d5: VERDICT `H-RAM-Q-3_VOID_CALIBRATION` — alle 13 κ̂ < 0.81 [0.6608–0.8080], Kontrollen t3 (8.88e-16)/t4/t5/t6/md5 alle grün, 0 Amplification, 7/13 scharf nicht verdict-tragend, κ̂-Defizit = Loschmidt-Echo (~76 2q, per-2q-Survival 0.9967, ε_C ~0.17 % > 0.10-Garantie), nicht Readout (0.33–0.39 %/Qubit); Tiefe-Konsistenz min κ̂(4q) 0.7403 > max κ̂(5q) 0.6886; Text-Spannung kappa_floor_void-Exklusion vs verdict_map-Zählung dokumentiert, wörtliche Map primaer; Hypothese unangetastet-unbestätigt, kein Band-Claim; 26 neue Tests, 831 grün)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

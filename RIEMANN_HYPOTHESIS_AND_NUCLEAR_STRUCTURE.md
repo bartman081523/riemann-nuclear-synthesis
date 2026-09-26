@@ -1376,6 +1376,7 @@ Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququin
 | `SHOR_QUQUINT_ORACLE` | — | **B (H-SHOR-1 CONFIRMED)** | Branch `shor-ququint-oracle` (§10.20) |
 | H-RAM-Q-1 | — | **GENERALIZED (A−)** | Die Fünf zyklotomisch abgeleitet: Atom n₀=1 + Klassenanzahl q−1; q=3 trifft 8/8, δ²-Identität exakt (§10.22) |
 | H-RAM-Q-2 | — | **CONFIRMED (B)** | Asymptotik bis unendlich: B2 q-universelle EXAKTidentität, q=7 blind im Band, d-Invarianz bei P ≫ d, ratio → 1 wie C/x (§10.23) |
+| H-RAM-Q-3 | — | **VOID (Kalibrierung)** | Erster Hardware-Test der Identität: alle 13 κ̂ < 0.81 (0.6608–0.8080), Kontrollen grün, kein Band-Verdict beanspruchbar; Defizit = Loschmidt-Echo, nicht Readout (§10.25) |
 
 **Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — **ERLEDIGT (§10.21, REFUTED)**; Phase 6b (Aer-Protokoll-Validierung A1) nicht ausgelöst (keine sichtbare Prime-Trennung), QPU-Spot-Check entfällt. Rückfall-Pfad H-STAR-5b (Score 6, nicht prereg'd) bleibt registrierte Alternative. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
 
@@ -1638,6 +1639,84 @@ bleibt GENERALIZED (A−) — keine stillen Upgrades.
 **Quellen:** `SYNTHESIS_2026_06_10.md` §Z.22, `pt_ram_q_asymptotik.py`,
 `pt_ram_q7_asymptotik_prereg.json` (md5 `704916f9`), `pt_ram_q_asymptotik_results.json`,
 `pt_ram_q_asymptotik_run.log`, Commit `5990245`.
+
+## §10.25 — H-RAM-Q-3 unter Hardware-Rauschen: Freeze A → Stage-2-Aer → Freeze B → EIN Fez-QPU-Job → gefrorene Auswertung **VOID_CALIBRATION** (EXPERIMENT 042, Branch `ram-q-zyklizitaet`, 2026-09-26, 1 QPU-Job)
+
+**Phase 9-Vollzug (QUQUINT-Ramanujan-Linie).** User-Direktive (wörtlich): *"okay,
+mache es auf unser ququint simulation und auf ibmq, alles was wir noch nicht mit
+ququint und ibmq überprüft haben"* + *"Setze das Skelett auf, damit wir den Zustand
+vor dem ersten QPU-Kontakt absolut sauber einfrieren können"* + Freigabe *"ja, mache
+alle nächsten Schritte autonom weiter"*. Die Kette in vier Stufen, jede VOR der
+nächsten committet:
+
+1. **Freeze A** (Prereg md5 `432d43fe1bc9e2594efd3b35266d2d81`, VOR jedem
+   QPU-Kontakt): 13 Punkte (q3_d9: 109/163/211/307/401/541/625/729; q5_d25:
+   401/463/541/599/625), 58 Circuits × 8192 Shots, Rauschgesetz
+   ratio_hw = κ·(1−1/S)·ratio_true + L_q mit κ = P_L/P_ro_ref (gemessen im selben
+   Job, nicht gefittet), Band w_A = 0.05, KAPPA_CEILING 0.81, Amplification-Ceiling
+   c(1)+w, Negativ-Kontrollen must-not-fire, verdict_map mit allen Verdict-Klassen
+   inkl. VOID.
+2. **Stage-2-Aer-Bein** (0 QPU): 13 Punkte × 6 Stresslevel, gefrorenes
+   STRESS-Modell (RO 0.01 + CZ-Depolarisierung ratio×p1, ibm_fez-nativ). v2-Gesetz
+   PASS (max Residual 0.0276 < TOL_FORM 0.03), v1-Gesetz MASSIV gescheitert
+   (595/702 Zellen — die registrierte Diskriminanz, kein Re-Freeze). Freeze-B-Amendment
+   (dokumentiert): Domain-q97.5-Lesart → **w_B = 0.024857401026830286**; literal
+   alle-Levels q97.5 = 0.2304 registriert, aber selbst-defeatierend (KAPPA_CEILING
+   war gefroren, das v2-Gesetz versagt strukturimmanent unterhalb 0.81).
+3. **Freeze B:** w_B committet, ISA-Report ECHT gegen ibm_fez (58 Circuits, total
+   1570 2q, max 76/Circuit — weit unter den Ceilings 6000/120, ISA_OK).
+4. **EIN Fez-QPU-Job** (TOKEN1, `darq1stvr3kc73ej96ig`, 58 Circuits × 8192):
+   Raw + Job-ID + counts_md5 (`d19f4a563d88e0cf3ffd4b187a10ca73`) committed
+   (`b5ba31a`) **VOR** der Auswertung (job_integrity-Vertrag §Z.14). Erst danach
+   die gefrorene Auswertung (`ff5e2d5`) — dieselbe Estimator-Kette wie im
+   Aer-Sampled-Bein, null Interpretations-Latte.
+
+**Run — VERDICT: `H-RAM-Q-3_VOID_CALIBRATION`.** Alle 13 Punkte κ̂ < 0.81
+(Bereich 0.6608–0.8080; Maximum q3_d9|541 = 0.8080, Minimum q5_d25|625 = 0.6608) —
+≥ 2 lösen VOID laut gefrorener Map aus, 13/13 machen es eindeutig.
+
+- **Kontrollen ALLE grün:** t3 (strukturelle Identität, zwei Wege) max Dev 8.88e-16;
+  t4 Negativ-Kontrollen (2× Shuffle (109,d=9), Shuffle + Composite (625,d=25))
+  feuern alle unter der registrierten Kante (measured 0.048–0.629 vs Kante
+  1.018–1.254); t5 Gate-Set/Transpile/Run-Config exakt (1570 2q total, max 76);
+  t6 Shots/Masse exakt (max Dev 0.0); counts_md5 verifiziert. → Der Void ist
+  **kalibrierbedingt, nicht pipeline-bedingt**.
+- **Kein Amplification:** 0 Punkte über dem Ceiling c(1)+w_B (≈ 1.043) — die
+  Struktur-Garantie "Depolarisierung dämpft nur" hielt überall.
+- **Band-Bild (nicht verdict-tragend):** 7/13 Punkte im scharfen Band |res| ≤ w_B,
+  3 unter der scharfen Kante (davon 1 auch unter der groben w_A-Kante), 6 außerhalb
+  scharf. Ratio-Bereich 0.6830–0.8370 gegen Zentren 0.6683–0.8149.
+- **Verdict-Präzedenz** (dokumentiert in §Z.24): T4 → DEGENERAT; andere Kontrollen →
+  INVALID; ≥ 2 κ̂ < 0.81 → VOID; Punkt über Ceiling → INVALID_AMPLIFICATION;
+  ≥ 2 unter c−w_B → REFUTED; alle 13 scharf + κ̂ ≥ 0.81 → CONFIRMED; … Void geht
+  vor jeder Falsifikation — ein REFUTED wäre bei κ̂-Void **nicht** beanspruchbar.
+
+**Physik des Defizits (Diagnostik, nicht verdict-tragend):** Das κ̂-Defizit kommt
+vom **Loschmidt-Echo**, nicht vom Readout. Readout: ro_hat nur ~0.33%/Qubit (4q)
+bzw. ~0.39%/Qubit (5q). Echo: die Loschmidt-Circuits tragen ~76 2q Gates
+(ISA-Maximum), d. h. per-2q-Survival ≈ 0.778^(1/76) ≈ 0.9967 ≈ (1−ε)² — genau das
+(1−ε_C)²-Gesetz des Prereg, aber mit ε_C ≈ 0.17% je 2q-Gate statt der
+Kalibrier-Garantie. Tiefen-Konsistenz: min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 —
+5q degradiert stärker, konsistent mit (1−ε)^nq. Die b_p-Diagnostik spiegelt das
+(Aer-Modell 0.85–0.90 vs Hardware-real ~0.9967^76 ≈ 0.78).
+
+**Was der Void sagt — und was nicht:** Er sagt NICHT, dass H-RAM-Q-3 falsch ist
+(dafür wäre REFUTED nötig: ≥ 2 Punkte unter c−w_B **bei** gültiger Kalibrierung).
+Er sagt NICHT, dass die Identität auf Hardware versagt (t3 hielt auf echten Counts
+exakt; die Shares folgen der Struktur). Er sagt: **die vorab registrierte
+Struktur-Garantie κ̂ ≥ 0.81 wurde von diesem Lauf nicht erfüllt**, also ist kein
+Band-Verdict (CONFIRMED/REFUTED/COARSE) über die Punkte beanspruchbar — die
+Hypothese bleibt unangetastet-unbestätigt. Kein Re-Freeze-Druck auf das Zentrum
+c(κ) (das Zentrum wurde nie verletzt); die nächste Iteration müsste die
+Echo-Suppression kalibrieren (z. B. Echo-Länge kürzen oder ε_C in das Zentrum
+aufnehmen) — das wäre ein NEUES Prereg, kein stiller Patch dieses.
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.24, `pt_ram_q_hardware.py` /
+`_aer.py` / `_qpu.py` / `_eval.py`, `pt_ram_q_hardware_prereg.json` (md5
+`432d43fe`), `pt_ram_q_stage2_results.json` (w_B), `pt_ram_q_isa_report.json`,
+`pt_ram_q_hardware_raw.json` (md5 `d19f4a56`), `pt_ram_q_hardware_eval.json`,
+Commits `425cd14` (Freeze A), `59c42da` (Freeze B), `b5ba31a` (Raw), `ff5e2d5`
+(Verdict).
 
 #### **Quellenangaben**
 
