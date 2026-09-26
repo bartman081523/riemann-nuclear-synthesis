@@ -817,8 +817,11 @@ _CL.append(Claim(
     # + Verdict-Pins) -> 978; +2 Inventory-Filter-Tests (md5-Fragment-
     # Amendment, Fortsetzung nur 5 Zeichen) -> 980; +1 v2-Pin (einseitige
     # Suppression, alle 13 res_v2 negativ) -> 981
+    # 11a Diagnostik-Modul (EXPERIMENT 044-Vorstufe, 0 QPU):
+    # +14 Tests (share_grad/cP/26-Punkte-Laden/gamma-Transfer/
+    # Mechanismus-Pins/Schema) -> 995
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=981,
+    id="test_count", value=995,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
