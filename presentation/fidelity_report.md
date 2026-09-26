@@ -73,7 +73,7 @@ Every claim recomputed from its committed source at build time.
 | date_vqd | doc-frozen | — | act4_qpu_timeline | `'2026-07-21'` | doc README.md:64 |
 | date_fez_phi | doc-frozen | — | act4_qpu_timeline | `'2026-09-15'` | doc README.md:61 |
 | date_kingston | doc-frozen | — | act4_qpu_timeline | `'2026-09-24'` | doc README.md:62 |
-| test_count | measured | — | act1_title, act10_verdict_ladder | `671` | live test collection |
+| test_count | measured | — | act1_title, act10_verdict_ladder | `943` | live test collection |
 
 ## Criteria shown before results (explanation_scaffold)
 

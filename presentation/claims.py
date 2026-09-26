@@ -810,9 +810,10 @@ _CL.append(Claim(
     # nach Re-Freeze R1 (zweistufiges Form-Gate, 0 QPU): +4 -> 915;
     # Freeze B' (w_B'-Registrierung + ECHTER ibm_fez-ISA-Report): +15 -> 930
     # (59 aktiv im 10b-File inkl. 11 Committed-Results-Pins + 1
-    # Provenance-Test; alle Committed-Skips sind jetzt aktiv)
+    # Provenance-Test; alle Committed-Skips sind jetzt aktiv);
+    # 10d-Vorbereitung Fez-Runner-2 (Hardware-Bein-Vertraege, 0 QPU): +13 -> 943
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=930,
+    id="test_count", value=943,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
