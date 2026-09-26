@@ -807,11 +807,12 @@ _CL.append(Claim(
     # VOID_CALIBRATION, EXPERIMENT 042) -> 831;
     # Phase 10 (H-RAM-Q-3b Freeze A', Minimalregister d=q): +24 -> 855;
     # Stage-2b Aer-Bein (EXPERIMENT 043, Minimalregister): +56 -> 911,
-    # nach Re-Freeze R1 (zweistufiges Form-Gate, 0 QPU): +4 -> 915
+    # nach Re-Freeze R1 (zweistufiges Form-Gate, 0 QPU): +4 -> 915;
+    # Freeze B' (w_B'-Registrierung + ECHTER ibm_fez-ISA-Report): +15 -> 930
     # (59 aktiv im 10b-File inkl. 11 Committed-Results-Pins + 1
     # Provenance-Test; alle Committed-Skips sind jetzt aktiv)
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=915,
+    id="test_count", value=930,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
