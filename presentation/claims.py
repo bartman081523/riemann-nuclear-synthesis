@@ -794,9 +794,10 @@ _CL.append(Claim(
 
 _CL.append(Claim(
     # 046c1cc: 642 — auf hstar5-execution: +26 Execution-Tests -> 668;
-    # v2 (S₄-Schluss-Fix): +3 Miniatur-Theorem-Tests -> 671
+    # v2 (S₄-Schluss-Fix): +3 Miniatur-Theorem-Tests -> 671;
+    # ram-q-zyklizitaet: +22 RAM-Q-Tests -> 693
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=671,
+    id="test_count", value=693,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

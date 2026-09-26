@@ -1,0 +1,556 @@
+{
+  "experiment": "040-ram-q-zyklizitaet",
+  "hypothesis": "H-RAM-Q-1",
+  "registered_before": "Baustein B1 VOR dem Freeze im Modul hergeleitet (ATOME-IDENTITAET): share*_model = (m - q*n0)^2/((q-1)*d*m) \u2014 die 'Fuenf' ist (n0=1-Atom) + ((q-1)-Klassenzahl), keine Fit-Konstante. Verifiziert gegen die gefrorenen q=5-Konstanten aus EXPERIMENT 034 (prereg-md5 a2fc4875) bit-exakt. Die gemessenen share*-Werte der 21 Prime-Punkte wurden VOR diesem Freeze NICHT berechnet; der Freeze bindet Verdict-Regelwerk, Gate-Set, Baender, Seeds und Kontrollfamilie.",
+  "model": {
+    "general_formula": "share*_model(P, d=q^k) = (m - q*n0)^2 / ((q-1)*d*m), m = pi(P), n0 = #{p<=P: p\u22610 mod q}",
+    "q5_specialization": "(m-5)^2/(4dm) \u2014 bit-exakt EXPERIMENT 034",
+    "q3_prediction": "(m-3)^2/(2*d*m), d in {9, 81, 729} \u2014 ZAEHLER UND NENNER aendern sich ((q-1)=2, keine freie Konstante 4)",
+    "cyclotomic_core": "sum_{r=1}^{q-1} zeta_q^{j r} = -1 = c_q(j) = mu(q) \u2014 Klassenunabhaengigkeit via ganzzahliger Spur",
+    "q3_exact_deviation_identity": "share*_gemessen = (m-3)^2/(2dm) + 6*delta^2/(d*m), delta = (n1-n2)/2 \u2014 EXAKT (Zwei-Klassen-Kollaps)",
+    "q3_measured_over_model": "1 + 12*delta^2/(m-3)^2 \u2014 monoton in der mod-3-Race-Asymmetrie",
+    "atom_decomposition": "m - q = (m-1) - (q-1): Nicht-q-Primes minus Klassenzahl \u2014 Abweichung von der Aequipartition pro Klasse"
+  },
+  "extraordinarity_score": {
+    "score": 5,
+    "max": 10,
+    "reason": "strukturelle Extrapolation von q=5 auf q=3 mit parameterfreier, abgeleiteter (nicht gefitteter) Formel; aber nur EIN q bisher beobachtet, und die (q-1)-Nenner-Komponente ist eine echte neue Vorhersage (nie bei q\u22605 gemessen). Beweislast: Band-Test an 8 gated Punkten + Transitions-Diskriminierung der Alternativmodelle."
+  },
+  "d_grid": [
+    9,
+    81,
+    729
+  ],
+  "prime_points": [
+    {
+      "P": 5,
+      "d": 9,
+      "pi": 3,
+      "model": 0.0,
+      "band_lo": 0.0,
+      "band_hi": 0.0,
+      "gated": false,
+      "role": "exakte_null_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        0,
+        2
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.2222222222222222
+    },
+    {
+      "P": 7,
+      "d": 9,
+      "pi": 4,
+      "model": 0.013888888888888888,
+      "band_lo": 0.011111111111111112,
+      "band_hi": 0.017361111111111112,
+      "gated": false,
+      "role": "suppression_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        1,
+        2
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.05555555555555555
+    },
+    {
+      "P": 7,
+      "d": 81,
+      "pi": 4,
+      "model": 0.0015432098765432098,
+      "band_lo": 0.0012345679012345679,
+      "band_hi": 0.0019290123456790122,
+      "gated": false,
+      "role": "suppression_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        1,
+        2
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.006172839506172839
+    },
+    {
+      "P": 13,
+      "d": 81,
+      "pi": 6,
+      "model": 0.009259259259259259,
+      "band_lo": 0.007407407407407408,
+      "band_hi": 0.011574074074074073,
+      "gated": false,
+      "role": "suppression_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        2,
+        3
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.012345679012345678
+    },
+    {
+      "P": 19,
+      "d": 81,
+      "pi": 8,
+      "model": 0.019290123456790122,
+      "band_lo": 0.015432098765432098,
+      "band_hi": 0.024112654320987654,
+      "gated": false,
+      "role": "suppression_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        3,
+        4
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.021604938271604937
+    },
+    {
+      "P": 23,
+      "d": 81,
+      "pi": 9,
+      "model": 0.024691358024691357,
+      "band_lo": 0.019753086419753086,
+      "band_hi": 0.030864197530864196,
+      "gated": false,
+      "role": "transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        3,
+        5
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.03292181069958848
+    },
+    {
+      "P": 31,
+      "d": 81,
+      "pi": 11,
+      "model": 0.03591470258136925,
+      "band_lo": 0.028731762065095402,
+      "band_hi": 0.044893378226711564,
+      "gated": false,
+      "role": "ueber_transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        4,
+        6
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.04264870931537598
+    },
+    {
+      "P": 47,
+      "d": 81,
+      "pi": 15,
+      "model": 0.05925925925925926,
+      "band_lo": 0.04740740740740741,
+      "band_hi": 0.07407407407407407,
+      "gated": false,
+      "role": "ueber_transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        6,
+        8
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.06419753086419754
+    },
+    {
+      "P": 71,
+      "d": 81,
+      "pi": 20,
+      "model": 0.08919753086419753,
+      "band_lo": 0.07135802469135803,
+      "band_hi": 0.11149691358024691,
+      "gated": false,
+      "role": "ueber_transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        8,
+        11
+      ],
+      "delta": -1.5,
+      "delta_expectation": 0.09753086419753086
+    },
+    {
+      "P": 7,
+      "d": 729,
+      "pi": 4,
+      "model": 0.00017146776406035664,
+      "band_lo": 0.00013717421124828533,
+      "band_hi": 0.0002143347050754458,
+      "gated": false,
+      "role": "suppression_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        1,
+        2
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.0006858710562414267
+    },
+    {
+      "P": 23,
+      "d": 729,
+      "pi": 9,
+      "model": 0.0027434842249657062,
+      "band_lo": 0.0021947873799725653,
+      "band_hi": 0.003429355281207133,
+      "gated": false,
+      "role": "transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        3,
+        5
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.003657978966620942
+    },
+    {
+      "P": 31,
+      "d": 729,
+      "pi": 11,
+      "model": 0.003990522509041028,
+      "band_lo": 0.0031924180072328227,
+      "band_hi": 0.004988153136301285,
+      "gated": false,
+      "role": "ueber_transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        4,
+        6
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.004738745479486221
+    },
+    {
+      "P": 71,
+      "d": 729,
+      "pi": 20,
+      "model": 0.009910836762688615,
+      "band_lo": 0.007928669410150892,
+      "band_hi": 0.012388545953360768,
+      "gated": false,
+      "role": "ueber_transition_deskriptiv",
+      "residue_counts_mod3": [
+        1,
+        8,
+        11
+      ],
+      "delta": -1.5,
+      "delta_expectation": 0.01083676268861454
+    },
+    {
+      "P": 109,
+      "d": 729,
+      "pi": 29,
+      "model": 0.015987890828248426,
+      "band_lo": 0.012790312662598741,
+      "band_hi": 0.01998486353531053,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        13,
+        15
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.016271699541175914
+    },
+    {
+      "P": 163,
+      "d": 729,
+      "pi": 38,
+      "model": 0.022110316944624935,
+      "band_lo": 0.01768825355569995,
+      "band_hi": 0.02763789618078117,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        18,
+        19
+      ],
+      "delta": -0.5,
+      "delta_expectation": 0.022164464659591362
+    },
+    {
+      "P": 211,
+      "d": 729,
+      "pi": 47,
+      "model": 0.028252050316668127,
+      "band_lo": 0.022601640253334502,
+      "band_hi": 0.03531506289583516,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        22,
+        24
+      ],
+      "delta": -1.0,
+      "delta_expectation": 0.02842716633102764
+    },
+    {
+      "P": 307,
+      "d": 729,
+      "pi": 63,
+      "model": 0.03919263178522438,
+      "band_lo": 0.031354105428179506,
+      "band_hi": 0.04899078973153047,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        29,
+        33
+      ],
+      "delta": -2.0,
+      "delta_expectation": 0.03971520020902737
+    },
+    {
+      "P": 401,
+      "d": 729,
+      "pi": 79,
+      "model": 0.05014672431456304,
+      "band_lo": 0.040117379451650434,
+      "band_hi": 0.0626834053932038,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        37,
+        41
+      ],
+      "delta": -2.0,
+      "delta_expectation": 0.05056345609557049
+    },
+    {
+      "P": 541,
+      "d": 729,
+      "pi": 100,
+      "model": 0.06453360768175583,
+      "band_lo": 0.051626886145404664,
+      "band_hi": 0.08066700960219478,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        47,
+        52
+      ],
+      "delta": -2.5,
+      "delta_expectation": 0.06504801097393689
+    },
+    {
+      "P": 625,
+      "d": 729,
+      "pi": 114,
+      "model": 0.07412822178904051,
+      "band_lo": 0.059302577431232406,
+      "band_hi": 0.09266027723630063,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        54,
+        59
+      ],
+      "delta": -2.5,
+      "delta_expectation": 0.07457945274709407
+    },
+    {
+      "P": 729,
+      "d": 729,
+      "pi": 129,
+      "model": 0.08440999138673558,
+      "band_lo": 0.06752799310938846,
+      "band_hi": 0.10551248923341947,
+      "gated": true,
+      "role": "gated",
+      "residue_counts_mod3": [
+        1,
+        61,
+        67
+      ],
+      "delta": -3.0,
+      "delta_expectation": 0.08498420901521678
+    }
+  ],
+  "model_by_point": {
+    "5@9": 0.0,
+    "7@9": 0.013888888888888888,
+    "7@81": 0.0015432098765432098,
+    "13@81": 0.009259259259259259,
+    "19@81": 0.019290123456790122,
+    "23@81": 0.024691358024691357,
+    "31@81": 0.03591470258136925,
+    "47@81": 0.05925925925925926,
+    "71@81": 0.08919753086419753,
+    "7@729": 0.00017146776406035664,
+    "23@729": 0.0027434842249657062,
+    "31@729": 0.003990522509041028,
+    "71@729": 0.009910836762688615,
+    "109@729": 0.015987890828248426,
+    "163@729": 0.022110316944624935,
+    "211@729": 0.028252050316668127,
+    "307@729": 0.03919263178522438,
+    "401@729": 0.05014672431456304,
+    "541@729": 0.06453360768175583,
+    "625@729": 0.07412822178904051,
+    "729@729": 0.08440999138673558
+  },
+  "gated_points": [
+    [
+      109,
+      729
+    ],
+    [
+      163,
+      729
+    ],
+    [
+      211,
+      729
+    ],
+    [
+      307,
+      729
+    ],
+    [
+      401,
+      729
+    ],
+    [
+      541,
+      729
+    ],
+    [
+      625,
+      729
+    ],
+    [
+      729,
+      729
+    ]
+  ],
+  "gate": {
+    "gate_min_pi": 29,
+    "criteria": [
+      "Kriterium 1 (Band-Fairness): relative Abweichung ~ 12*delta^2/(m-3)^2 mit delta^2 <= (m-3)^2/48 als registrierte ANNAHME (kein q=3-Einzelpunkt-Anker; q=5-Anker: ratio 1.0248); 25%-Band fair fuer m >= 29 (empirisch delta(P=109) = -1, Bindung 3.75).",
+      "Kriterium 2 (Separations-Sicherheit): band_lo >= 3x generisch <=> 0.8*(m-3)^2/(4m) >= 3 <=> (m-3)^2 >= 15m <=> m >= 20.56 (m >= 21, pi(73) = 21) -> registrierte Marge darueber: GATE_MIN_PI = 29 (pi(109) = 29); die Marge ist dem Race-Asymmetrie-Slack bei kleinem m geschuldet (P=7: gemessen/Modell = 4.0), analog q=5 in 034 (Root 19 -> Gate 79).",
+      "NUR d=729 traegt gated Punkte: auf d=81 ist m <= pi(71) = 20 < 21 (Kriterium 2 unerreichbar) -> d81/d9 rein deskriptiv."
+    ]
+  },
+  "thresholds": {
+    "band_lo": 0.8,
+    "band_hi": 1.25,
+    "falsifier_min_outside": 2,
+    "tolerance": 1e-09,
+    "d_scaling_tol": 1e-09
+  },
+  "registered_alternative_models": {
+    "crude_fixed_4": {
+      "formula": "(m-q*n0)^2/(4dm)",
+      "why": "Zaehler-Generalisierung mit eingefrorenem Nenner 4 \u2014 wird vom Band diskriminiert (ratio 0.5 < 0.8 bei q=3)",
+      "values_at_gated": {
+        "109@729": 0.5,
+        "163@729": 0.5,
+        "211@729": 0.5,
+        "307@729": 0.5,
+        "401@729": 0.5,
+        "541@729": 0.5,
+        "625@729": 0.5,
+        "729@729": 0.5
+      }
+    },
+    "no_zero_class": {
+      "formula": "m^2/((q-1)*d*m)",
+      "why": "ohne das Atom n0=1 \u2014 Lift = m/(q-1)^2; an der Transition m=9: 2.25x generisch statt kein Lift -> von der NEGATIV-Vorhersage Transition diskriminiert",
+      "lift_at_transition_m9": 2.25,
+      "values_at_gated": {
+        "109@729": 7.250000000000001,
+        "163@729": 9.5,
+        "211@729": 11.75,
+        "307@729": 15.75,
+        "401@729": 19.75,
+        "541@729": 25.000000000000004,
+        "625@729": 28.500000000000004,
+        "729@729": 32.25
+      }
+    }
+  },
+  "negative_predictions": [
+    {
+      "point": [
+        5,
+        9
+      ],
+      "prediction": "Modell EXAKT 0 (m = q = 3); deskriptive Mess-Erwartung via delta^2-Identitaet: n1=0, n2=2 -> delta=-1 -> gemessen = 2/9 = generisch EXAKT (maximale Race-Asymmetrie kompensiert die Modell-Null)"
+    },
+    {
+      "point": [
+        23,
+        729
+      ],
+      "prediction": "Transition: Modell = generisch EXAKT (2/729, kein Lift); deskriptive Erwartung: gemessen = 2/729 + 6/(729*9) (delta=-1 bei m=9: n1=3, n2=5)"
+    },
+    {
+      "point": [
+        7,
+        729
+      ],
+      "prediction": "Suppression: Modell UNTER generisch (m=4 < 9); deskriptive Erwartung: delta=-0.5 bei P=7 (n1=1 [7], n2=2 [2,5]) -> gemessen = 1/18 = 4x Modell, immer noch unter generisch 2/9 (Race-Asymmetrie dominiert bei kleinem m \u2014 einer der Gruende fuer das Gate m >= 29)"
+    }
+  ],
+  "registered_assumptions": [
+    "Band [0.8, 1.25] ist fuer q=3 registrierte ANNAHME, nicht Kalibration (kein Einzelpunkt-Anker). Fairness-Bedingung aus der delta^2-Identitaet: delta^2 <= (m-3)^2/48.",
+    "Chebyshev-Race-Drift (mod 3) kann das Band brechen \u2014 das ist ein realer Befund (REFUTED/PARTIAL), kein Designfehler.",
+    "Modellgueltigkeit m >= q (P >= 5 fuer q=3); kleinere m rein deskriptiv-crude."
+  ],
+  "controls": {
+    "t1_backcompat_q5": "model_share_star_q/lift_q/generic_baseline_q mit q=5 reproduzieren EXPERIMENT 034 bit-exakt: (625,625) = 109^2/(4*625*114), transition_m(5) = 25 = TRANSITION_M, (11,25) = 0, share_star_q \u2261 mn.share_star",
+    "t2_v2_anchor": "V2-Prime-Anker 0.04272280701754398 bit-exakt via mn.dft_profile(625,625) + share_star_q(.,625,5)",
+    "t3_d_scaling": "d-Skalierungs-Invarianz: d*gemessen invariant fuer gleiches P ueber d in {9,81,729} (P in (7, 23, 31, 71)), tol 1e-9",
+    "t4_control_overlap": "Random (Seeds base+Index) und Composite (rank-matched, erste m Composites) an jedem gated Punkt < band_lo des Punkts; composite_limit = 0.8 * model(109,729)",
+    "t5_gate_set_frozen": "gated Set = genau die 8 registrierten Punkte auf d=729 mit m >= 29; keine nachtraeglichen Ergaenzungen",
+    "t6_alternatives_discriminated": "crude_fixed_4 ratio 0.5 < 0.8 am kleinsten gated Punkt",
+    "random_seed_base": 20260926,
+    "composite_points": [
+      [
+        15,
+        729
+      ],
+      [
+        121,
+        729
+      ],
+      [
+        341,
+        729
+      ],
+      [
+        625,
+        729
+      ]
+    ]
+  },
+  "verdict_map": {
+    "H-RAM-Q-1_Q_DEFORMATION_GENERALIZED": "alle 8 gated Punkte im Band UND Kontrollen gruen",
+    "H-RAM-Q-1_PARTIAL_EIN_PUNKT_AUSSEN": "exakt 1 gated Punkt ausserhalb des Bandes, Kontrollen gruen",
+    "H-RAM-Q-1_REFUTED_Q_DEFORMATION_KOLLABIERT": ">= 2 gated Punkte ausserhalb ODER Kontroll-Overlap (T4)",
+    "EVALUATION_INVALID_KONTROLLE_GESCHEITERT": "T1/T2/T3/T5/T6 gescheitert (Anker/Struktur/Gate-Set/Diskriminierung) \u2014 Auswertung void"
+  },
+  "qpu": "0 QPU \u2014 reine Arithmetik (Einzelregister-DFT-Profil), offline, kein Quanten-SDK",
+  "plan": "~/.claude/plans/riemann-phase-ram-q-zyklizitaet.md",
+  "q5_reference_chain": {
+    "experiment_034_prereg_md5": "a2fc4875e10dd198e95d4996b1692759",
+    "experiment_032_v2_prereg_md5": "d9da292c7863810840b86ae2f069a365",
+    "v2_share_star_prime_committed": 0.04272280701754398,
+    "exact_model_625_625": 0.041687719298245614
+  },
+  "md5": "bd9dfee77b9fada8a230347f9d45f5a7"
+}
