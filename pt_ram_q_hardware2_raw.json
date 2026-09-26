@@ -1,0 +1,1517 @@
+{
+ "experiment": "043-ram-q-minimal-register-echo",
+ "hypothesis": "H-RAM-Q-3b",
+ "status": "QPU_RAW_FETCHED",
+ "backend": "ibm_fez",
+ "job_meta": {
+  "job_id": "dartdg5vr3kc73ejcrgg",
+  "backend": "ibm_fez",
+  "shots_per_circuit": 8192
+ },
+ "transpile": {
+  "optimization_level": 3,
+  "seed_transpiler": 7,
+  "isa_2q_total": 493,
+  "isa_2q_max": 84
+ },
+ "registered_run_config": {
+  "optimization_level": 3,
+  "dynamical_decoupling": "XX",
+  "resilience": "none (raw SamplerV2 counts)"
+ },
+ "fetched_at_utc": "2026-09-26T14:33:06.382521+00:00",
+ "n_circuits": 90,
+ "shots_per_circuit": 8192,
+ "counts_md5": "16ca44bd02f81cf623862b4910ccedf8",
+ "counts": [
+  {
+   "name": "struct_q3_d3_149_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4382,
+    "01": 3430,
+    "00": 326,
+    "11": 54
+   }
+  },
+  {
+   "name": "struct_q3_d3_149_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4436,
+    "01": 3440,
+    "00": 265,
+    "11": 51
+   }
+  },
+  {
+   "name": "struct_q3_d3_149_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4436,
+    "01": 3408,
+    "00": 298,
+    "11": 50
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_149",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8076,
+    "11": 45,
+    "01": 37,
+    "10": 34
+   }
+  },
+  {
+   "name": "struct_q3_d3_197_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 197,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3542,
+    "10": 4331,
+    "00": 271,
+    "11": 48
+   }
+  },
+  {
+   "name": "struct_q3_d3_197_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 197,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3578,
+    "10": 4301,
+    "00": 266,
+    "11": 47
+   }
+  },
+  {
+   "name": "struct_q3_d3_197_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 197,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3576,
+    "10": 4287,
+    "00": 272,
+    "11": 57
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_197",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 197,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8073,
+    "10": 40,
+    "11": 55,
+    "01": 24
+   }
+  },
+  {
+   "name": "struct_q3_d3_251_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 251,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4253,
+    "01": 3657,
+    "11": 57,
+    "00": 225
+   }
+  },
+  {
+   "name": "struct_q3_d3_251_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 251,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4253,
+    "01": 3661,
+    "00": 236,
+    "11": 42
+   }
+  },
+  {
+   "name": "struct_q3_d3_251_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 251,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4198,
+    "01": 3709,
+    "00": 236,
+    "11": 49
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_251",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 251,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7991,
+    "01": 106,
+    "11": 30,
+    "10": 65
+   }
+  },
+  {
+   "name": "struct_q3_d3_347_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 347,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4221,
+    "01": 3728,
+    "11": 55,
+    "00": 188
+   }
+  },
+  {
+   "name": "struct_q3_d3_347_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 347,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4242,
+    "01": 3706,
+    "00": 199,
+    "11": 45
+   }
+  },
+  {
+   "name": "struct_q3_d3_347_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 347,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3714,
+    "10": 4219,
+    "00": 205,
+    "11": 54
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_347",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 347,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7987,
+    "11": 30,
+    "10": 63,
+    "01": 112
+   }
+  },
+  {
+   "name": "struct_q3_d3_433_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 433,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3803,
+    "10": 4166,
+    "00": 176,
+    "11": 47
+   }
+  },
+  {
+   "name": "struct_q3_d3_433_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 433,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3862,
+    "10": 4089,
+    "00": 185,
+    "11": 56
+   }
+  },
+  {
+   "name": "struct_q3_d3_433_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 433,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4163,
+    "01": 3804,
+    "00": 185,
+    "11": 40
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_433",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8084,
+    "01": 33,
+    "10": 33,
+    "11": 42
+   }
+  },
+  {
+   "name": "struct_q3_d3_577_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 577,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4242,
+    "01": 3731,
+    "00": 182,
+    "11": 37
+   }
+  },
+  {
+   "name": "struct_q3_d3_577_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 577,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4204,
+    "01": 3776,
+    "00": 181,
+    "11": 31
+   }
+  },
+  {
+   "name": "struct_q3_d3_577_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 577,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3771,
+    "10": 4203,
+    "00": 177,
+    "11": 41
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_577",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 577,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8068,
+    "11": 46,
+    "10": 39,
+    "01": 39
+   }
+  },
+  {
+   "name": "struct_q3_d3_659_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 659,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3777,
+    "10": 4214,
+    "00": 153,
+    "11": 48
+   }
+  },
+  {
+   "name": "struct_q3_d3_659_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 659,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3727,
+    "10": 4273,
+    "11": 44,
+    "00": 148
+   }
+  },
+  {
+   "name": "struct_q3_d3_659_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 659,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3751,
+    "10": 4249,
+    "00": 137,
+    "11": 55
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_659",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 659,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8044,
+    "11": 64,
+    "01": 51,
+    "10": 33
+   }
+  },
+  {
+   "name": "struct_q3_d3_761_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 761,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3839,
+    "10": 4167,
+    "00": 138,
+    "11": 48
+   }
+  },
+  {
+   "name": "struct_q3_d3_761_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 761,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3806,
+    "10": 4187,
+    "00": 155,
+    "11": 44
+   }
+  },
+  {
+   "name": "struct_q3_d3_761_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "P": 761,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4180,
+    "01": 3828,
+    "00": 135,
+    "11": 49
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_761",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "P": 761,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8075,
+    "11": 51,
+    "01": 35,
+    "10": 31
+   }
+  },
+  {
+   "name": "struct_q5_d5_433_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2212,
+    "001": 1800,
+    "000": 196,
+    "100": 1854,
+    "011": 2026,
+    "111": 21,
+    "110": 56,
+    "101": 27
+   }
+  },
+  {
+   "name": "struct_q5_d5_433_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 2043,
+    "010": 2194,
+    "001": 1882,
+    "100": 1775,
+    "000": 187,
+    "110": 62,
+    "101": 33,
+    "111": 16
+   }
+  },
+  {
+   "name": "struct_q5_d5_433_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2199,
+    "100": 1871,
+    "001": 1842,
+    "011": 2012,
+    "000": 180,
+    "110": 45,
+    "101": 33,
+    "111": 10
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_433",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 233,
+    "000": 7500,
+    "001": 160,
+    "100": 116,
+    "110": 56,
+    "011": 51,
+    "111": 44,
+    "101": 32
+   }
+  },
+  {
+   "name": "struct_q5_d5_499_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 499,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 2006,
+    "010": 2135,
+    "000": 189,
+    "100": 2003,
+    "011": 1782,
+    "111": 18,
+    "110": 36,
+    "101": 23
+   }
+  },
+  {
+   "name": "struct_q5_d5_499_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 499,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1968,
+    "011": 1834,
+    "001": 1971,
+    "101": 25,
+    "000": 179,
+    "010": 2156,
+    "110": 36,
+    "111": 23
+   }
+  },
+  {
+   "name": "struct_q5_d5_499_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 499,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1965,
+    "011": 1788,
+    "100": 2007,
+    "010": 2183,
+    "000": 168,
+    "101": 32,
+    "110": 31,
+    "111": 18
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_499",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "P": 499,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7536,
+    "110": 73,
+    "001": 145,
+    "100": 109,
+    "010": 184,
+    "011": 56,
+    "101": 42,
+    "111": 47
+   }
+  },
+  {
+   "name": "struct_q5_d5_577_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 577,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1939,
+    "010": 2197,
+    "100": 1952,
+    "011": 1847,
+    "000": 156,
+    "101": 30,
+    "111": 21,
+    "110": 50
+   }
+  },
+  {
+   "name": "struct_q5_d5_577_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 577,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2235,
+    "001": 1913,
+    "100": 1918,
+    "011": 1874,
+    "101": 34,
+    "111": 29,
+    "000": 155,
+    "110": 34
+   }
+  },
+  {
+   "name": "struct_q5_d5_577_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 577,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2169,
+    "011": 1887,
+    "100": 1970,
+    "001": 1940,
+    "000": 128,
+    "101": 33,
+    "110": 42,
+    "111": 23
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_577",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "P": 577,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7533,
+    "010": 221,
+    "101": 47,
+    "110": 48,
+    "011": 48,
+    "001": 159,
+    "100": 100,
+    "111": 36
+   }
+  },
+  {
+   "name": "struct_q5_d5_631_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 631,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2371,
+    "100": 1889,
+    "011": 1926,
+    "001": 1779,
+    "111": 21,
+    "101": 27,
+    "000": 145,
+    "110": 34
+   }
+  },
+  {
+   "name": "struct_q5_d5_631_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 631,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2282,
+    "100": 1861,
+    "011": 1914,
+    "001": 1874,
+    "000": 178,
+    "110": 32,
+    "111": 16,
+    "101": 35
+   }
+  },
+  {
+   "name": "struct_q5_d5_631_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 631,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1812,
+    "100": 1944,
+    "010": 2254,
+    "011": 1939,
+    "000": 170,
+    "110": 37,
+    "111": 8,
+    "101": 28
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_631",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "P": 631,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7544,
+    "010": 205,
+    "001": 166,
+    "111": 50,
+    "100": 92,
+    "011": 48,
+    "110": 60,
+    "101": 27
+   }
+  },
+  {
+   "name": "struct_q5_d5_659_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 659,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 2046,
+    "100": 1805,
+    "010": 2282,
+    "001": 1826,
+    "111": 22,
+    "110": 38,
+    "101": 18,
+    "000": 155
+   }
+  },
+  {
+   "name": "struct_q5_d5_659_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 659,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1883,
+    "011": 2000,
+    "010": 2296,
+    "001": 1784,
+    "000": 149,
+    "111": 17,
+    "110": 44,
+    "101": 19
+   }
+  },
+  {
+   "name": "struct_q5_d5_659_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "P": 659,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2280,
+    "011": 2061,
+    "100": 1838,
+    "001": 1738,
+    "000": 158,
+    "110": 58,
+    "111": 24,
+    "101": 35
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_659",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "P": 659,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7574,
+    "010": 168,
+    "001": 149,
+    "100": 105,
+    "111": 48,
+    "101": 41,
+    "011": 44,
+    "110": 63
+   }
+  },
+  {
+   "name": "ladder_q3_d3_149_r2",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": 2,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8027,
+    "01": 61,
+    "10": 55,
+    "11": 49
+   }
+  },
+  {
+   "name": "ladder_q3_d3_149_r4",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": 4,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7774,
+    "01": 196,
+    "11": 131,
+    "10": 91
+   }
+  },
+  {
+   "name": "ladder_q3_d3_149_r8",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": 8,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7434,
+    "01": 344,
+    "11": 225,
+    "10": 189
+   }
+  },
+  {
+   "name": "ladder_q5_d5_433_r2",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": 2,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6903,
+    "010": 459,
+    "001": 201,
+    "011": 199,
+    "111": 72,
+    "100": 163,
+    "110": 145,
+    "101": 50
+   }
+  },
+  {
+   "name": "ladder_q5_d5_433_r4",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": 4,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 627,
+    "000": 5919,
+    "001": 394,
+    "110": 270,
+    "101": 103,
+    "011": 490,
+    "100": 244,
+    "111": 145
+   }
+  },
+  {
+   "name": "ladder_q5_d5_433_r8",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": 8,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 3966,
+    "001": 685,
+    "110": 627,
+    "111": 282,
+    "011": 1017,
+    "010": 871,
+    "100": 493,
+    "101": 251
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_109",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 109,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4135,
+    "01": 3645,
+    "00": 375,
+    "11": 37
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_109",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 109,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8072,
+    "01": 45,
+    "10": 34,
+    "11": 41
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_163",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 163,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 297,
+    "01": 3931,
+    "10": 3929,
+    "11": 35
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_163",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 163,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8087,
+    "11": 35,
+    "01": 41,
+    "10": 29
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_211",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 211,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4191,
+    "01": 3708,
+    "00": 258,
+    "11": 35
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_211",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 211,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8010,
+    "01": 102,
+    "10": 62,
+    "11": 18
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_307",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 307,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3777,
+    "10": 4187,
+    "00": 191,
+    "11": 37
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_307",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 307,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7988,
+    "01": 109,
+    "10": 80,
+    "11": 15
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_401",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 401,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3675,
+    "10": 4276,
+    "00": 205,
+    "11": 36
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_401",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 401,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8063,
+    "10": 30,
+    "11": 52,
+    "01": 47
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_541",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 541,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3781,
+    "10": 4177,
+    "00": 188,
+    "11": 46
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_541",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 541,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8059,
+    "01": 41,
+    "10": 34,
+    "11": 58
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_625",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 625,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3676,
+    "10": 4315,
+    "00": 157,
+    "11": 44
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_625",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 625,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8088,
+    "01": 37,
+    "11": 47,
+    "10": 20
+   }
+  },
+  {
+   "name": "diag_struct_q3_d3_729",
+   "kind": "diagnostik_structure",
+   "arm": "q3_d3",
+   "P": 729,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4292,
+    "01": 3709,
+    "11": 38,
+    "00": 153
+   }
+  },
+  {
+   "name": "diag_loschmidt_q3_d3_729",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q3_d3",
+   "P": 729,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7991,
+    "01": 93,
+    "10": 86,
+    "11": 22
+   }
+  },
+  {
+   "name": "diag_struct_q5_d5_401",
+   "kind": "diagnostik_structure",
+   "arm": "q5_d5",
+   "P": 401,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2433,
+    "001": 1734,
+    "110": 42,
+    "011": 2070,
+    "100": 1680,
+    "000": 185,
+    "111": 22,
+    "101": 26
+   }
+  },
+  {
+   "name": "diag_loschmidt_q5_d5_401",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q5_d5",
+   "P": 401,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7528,
+    "110": 85,
+    "100": 124,
+    "010": 181,
+    "011": 42,
+    "001": 141,
+    "111": 50,
+    "101": 41
+   }
+  },
+  {
+   "name": "diag_struct_q5_d5_463",
+   "kind": "diagnostik_structure",
+   "arm": "q5_d5",
+   "P": 463,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1884,
+    "011": 2080,
+    "100": 1838,
+    "000": 190,
+    "110": 66,
+    "010": 2086,
+    "101": 32,
+    "111": 16
+   }
+  },
+  {
+   "name": "diag_loschmidt_q5_d5_463",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q5_d5",
+   "P": 463,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7529,
+    "101": 39,
+    "100": 101,
+    "001": 170,
+    "010": 181,
+    "011": 43,
+    "110": 93,
+    "111": 36
+   }
+  },
+  {
+   "name": "diag_struct_q5_d5_541",
+   "kind": "diagnostik_structure",
+   "arm": "q5_d5",
+   "P": 541,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1882,
+    "001": 2139,
+    "010": 1977,
+    "011": 1853,
+    "000": 253,
+    "101": 31,
+    "110": 38,
+    "111": 19
+   }
+  },
+  {
+   "name": "diag_loschmidt_q5_d5_541",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q5_d5",
+   "P": 541,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7473,
+    "011": 47,
+    "010": 247,
+    "111": 58,
+    "001": 165,
+    "110": 60,
+    "100": 105,
+    "101": 37
+   }
+  },
+  {
+   "name": "diag_struct_q5_d5_599",
+   "kind": "diagnostik_structure",
+   "arm": "q5_d5",
+   "P": 599,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1986,
+    "011": 1795,
+    "010": 2222,
+    "100": 1932,
+    "000": 153,
+    "110": 65,
+    "111": 22,
+    "101": 17
+   }
+  },
+  {
+   "name": "diag_loschmidt_q5_d5_599",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q5_d5",
+   "P": 599,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7557,
+    "001": 146,
+    "010": 177,
+    "011": 56,
+    "100": 95,
+    "111": 44,
+    "101": 43,
+    "110": 74
+   }
+  },
+  {
+   "name": "diag_struct_q5_d5_625",
+   "kind": "diagnostik_structure",
+   "arm": "q5_d5",
+   "P": 625,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1913,
+    "011": 1804,
+    "010": 2233,
+    "100": 2017,
+    "000": 142,
+    "101": 28,
+    "110": 35,
+    "111": 20
+   }
+  },
+  {
+   "name": "diag_loschmidt_q5_d5_625",
+   "kind": "diagnostik_loschmidt",
+   "arm": "q5_d5",
+   "P": 625,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 7532,
+    "010": 184,
+    "001": 147,
+    "101": 39,
+    "100": 115,
+    "110": 77,
+    "111": 47,
+    "011": 51
+   }
+  },
+  {
+   "name": "ctrl_composite_P149_d3",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 3736,
+    "10": 2087,
+    "01": 2355,
+    "11": 14
+   }
+  },
+  {
+   "name": "ctrl_uniform_q3",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "P": 149,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 2659,
+    "00": 2788,
+    "10": 2721,
+    "11": 24
+   }
+  },
+  {
+   "name": "ctrl_composite_P433_d5",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1715,
+    "000": 1953,
+    "010": 1679,
+    "011": 1293,
+    "001": 1460,
+    "111": 15,
+    "101": 30,
+    "110": 47
+   }
+  },
+  {
+   "name": "ctrl_uniform_q5",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1655,
+    "100": 1663,
+    "010": 1512,
+    "000": 1672,
+    "011": 1649,
+    "101": 13,
+    "110": 25,
+    "111": 3
+   }
+  },
+  {
+   "name": "cal_2q",
+   "kind": "readout_cal",
+   "arm": null,
+   "P": null,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8162,
+    "10": 17,
+    "01": 13
+   }
+  },
+  {
+   "name": "cal_3q",
+   "kind": "readout_cal",
+   "arm": null,
+   "P": null,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 8156,
+    "010": 11,
+    "001": 11,
+    "100": 14
+   }
+  }
+ ]
+}
