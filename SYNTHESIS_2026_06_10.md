@@ -3432,8 +3432,131 @@ Falsifikation: ein REFUTED wäre bei κ̂-Void nicht beanspruchbar.
   7/13-scharf-Bild ist verführerisch ("fast bestätigt") — es ist nicht
   verdict-tragend und wird nicht als Teilerfolg gelesen.
 
+## §Z.25 — H-RAM-Q-3b am Minimalregister (d=q): Option A vollzogen — Freeze A′ → Stage-2b-Aer (Re-Freeze R1) → Freeze B′ → EIN Fez-Job → gefrorene Auswertung **REFUTED** (EXPERIMENT 043, 2026-09-26)
+
+### Z.25.1 User-Direktive + Architektur (Option A, Minimalregister)
+
+Direktive (wörtlich, im Prereg-`user_anchor` eingefroren): Option A über die
+bewiesene d-Invarianz — Register auf die minimalen Repräsentanten (q=3 auf
+d=3, q=5 auf d=5) verdichten, Echo-Tiefe drastisch schrumpfen lassen, damit
+die unverändert gefrorene Garantie κ̂ ≥ 0.81 physikalisch einlösbar wird,
+statt die Metrik nach dem Phase-9-Void rückwirkend aufzuweichen; NEUE P-Werte
+(die 13 alten Ratios sind durch die Reskalierung vorbelastet); Echo-Leiter
+misst das Dämpfungsgesetz statt starrer (1−ε)²-Annahmen; hardwareseitiger
+d-Invarianz-Test über Lauf 1/2 als analytischer Bonus; Option B (Zentrum-Korrektur)
+NUR nachgelagerte Fallback-Lesart. Zweifach-Freeze wie Phase 9: Prereg VOR
+QPU-Kontakt (Status REGISTERED_NOT_MEASURED), Band-Rauschgesetz erst NACH dem
+Stage-2-Aer-Bein (Freeze B′).
+
+### Z.25.2 Freeze-Kette (fünf Stufen, jede vor der nächsten committet)
+
+1. **Freeze A′** (Payload md5 `0b9c9968dc5e99a3cc22962a8b760e44`, `7b93d60`):
+   13 neue Punkte (q3_d3: 149/197/251/347/433/577/659/761; q5_d5:
+   433/499/577/631/659), 90 Circuits × 8192 Shots, EIN Fez-Job (TOKEN1) erst
+   nach Freeze B′. Rauschgesetz UNVERÄNDERT aus Phase 9 übernommen und in
+   Freeze B′ nur verengt. **Shuffle-Inertness-Theorem:** bei d=q ist der Fold
+   die Identität → Label-Permutation lässt ΣN² invariant → die Phase-9-
+   Shuffle-Kontrolle läge IM Prime-Band → KEIN Shuffle-Circuit; Ersatz
+   Composite- + Uniform-Kontrollen (must-not-fire unter der registrierten
+   κ=0.81-Ecke-Kante, konservativ). Dokumentierter Re-Freeze vom
+   Label-Arithmetik-Fix `5b91119b` (0 QPU, Register unverändert).
+2. **Stage-2b-Aer** (0 QPU, `ac9c645`): 13×6 = 702 Zellen → v1 fail 702/702
+   (res_v1 ≈ −0.12 schon bei p1 = 0 — die registrierte Diskriminanz), v2 exakt
+   max 0.0022. Form-Gate-Verletzung am per-Zell-Max des sampled-Beins
+   (0.0396 > 0.03, reines Estimator-Rauschen, max = 3.4σ) → **Re-Freeze R1**
+   (dokumentiert, Trigger = Mess-Befund des eigenen Aer-Beins, 0 QPU):
+   zweistufige Lesart — Gate E exact max |res_v2| ≤ TOL_FORM 0.03, Gate S
+   sampled Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik, kein Gate. Echo-
+   Leiter-Gesetz κ_r = κ_block^r in 9 Domain-Levels (max log-res 0.012).
+3. **Freeze B′** (`421eb4a`, Phase-9-Präzedenz: Payload-md5 unangetastet):
+   **w_B′ = 0.02787029633307472** (Domain-q97.5, unclipped == geclippt) im
+   committed Stage-2b-Results + ISA-Report ECHT gegen ibm_fez: 90 Circuits,
+   493 2q (Ceiling 6000), max 84 = Leiter r8 q5 (Ceiling 120), ISA_OK.
+4. **EIN Fez-QPU-Job** (TOKEN1, `dartdg5vr3kc73ejcrgg`, 90 × 8192, 16:29):
+   Runner (`5ac74f6`), Raw + counts_md5 `16ca44bd02f81cf623862b4910ccedf8`
+   committed (`38a975b`) VOR Auswertung; Inventar-Buchung `047e39b`
+   (Filter-Amendment: md5-Fragment "d02f81cf623862b4910c" liegt INNEN im
+   32-hex, 5 Zeichen Fortsetzung → Hex-Run ≥ 21-Regel).
+5. **Gefrorene Auswertung** (`7483a11`): `pt_ram_q_hardware2_eval.py` liest
+   NUR committetes Raw + gefrorene Konstanten; 36 neue Tests (8 Verdict-Zweige
+   synthetisch, Präzedenz, Diagnostik-Beine, Committed-Pins); 981 grün.
+
+### Z.25.3 Run-Verdict: `H-RAM-Q-3b_REFUTED`
+
+- verdict_inputs: n_points 13, n_evaluated 13, **n_below_sharp 13** (≥ 2-
+  Falsifikator übererfüllt), n_in_sharp 0, **n_kappa_low 0**, n_above_ceiling 0,
+  n_below_coarse_w_a 10 (Lesart refuted_mit_w_a = REFUTED, robust unter w_A).
+- **Kalibrier-Ziel EINLÖST** (Design-Erfolg des Minimalregisters): ALLE 13 κ̂ ≥
+  0.81 — q3 0.9786–0.9904, q5 0.9196–0.9286 (Phase 9: 13/13 < 0.81 → VOID).
+  Kein Void, kein Exklusions-Streit — der REFUTED ist bei gültiger Kalibrierung
+  beanspruchbar. Falsifikator: ALLE 13 unter c(κ̂) − w_B′, res_v1 ∈
+  [−0.0938, −0.0341], EINSEITIG (Suppression), 0 Amplification.
+- Kontrollen ALLE grün: t3 (041-Identität, zwei Wege) 3.55e-15; t4 alle 4
+  Kontrollen unter der registrierten Kante (composite 0.832/0.331 vs 4.085/3.026;
+  uniform 0.006/0.025); t5 exakt (493 2q, max 84, opt 3, seed 7); t6; md5.
+  → Falsifikation NICHT pipeline-bedingt.
+- Per-Punkt (ratio_hw / κ̂ / c(κ̂) / res_v1 / res_v2): q3_d3|149
+  0.9636/0.9895/1.0363/−0.0727/−0.0420; |197 0.9227/0.9891/1.0164/−0.0938/−0.0630;
+  |251 0.9175/0.9790/0.9896/−0.0721/−0.0342; |347 0.9158/0.9786/0.9898/−0.0740/−0.0366;
+  |433 0.9072/0.9904/0.9949/−0.0878/−0.0589; |577 0.9079/0.9885/0.9959/−0.0880/−0.0579;
+  |659 0.9186/0.9855/0.9965/−0.0779/−0.0457; |761 0.9116/0.9893/0.9925/−0.0809/−0.0515;
+  q5_d5|433 0.8792/0.9196/0.9416/−0.0623/−0.0453; |499
+  0.8766/0.9240/0.9375/−0.0608/−0.0401; |577 0.8984/0.9236/0.9379/−0.0395/−0.0202;
+  |631 0.8958/0.9250/0.9438/−0.0480/−0.0293; |659 0.9145/0.9286/0.9486/−0.0341/−0.0159.
+  (w_B′ 0.02787; ALLE res_v2 negativ.)
+
+### Z.25.4 Physik: Arithmetik hielt, Gesetz hielt nicht
+
+- **Auch die gesetzliche v2-Form verfehlt auf Hardware:** res_v2 ∈
+  [−0.0630, −0.0159], ALLE 13 negativ, max 0.0630 > w_B′ 0.02787. Die
+  Aer-kalibrierte Referenz (per-Punkt-Anker ratio_ro_exact + b_P-Steigung
+  q3 1.70–1.79 / q5 1.02–1.04) überschätzt die hardware-Suppression um
+  Größenordnungen (b_P_hw ≈ κ̂ − 1 ≈ 0.02–0.08) — die Referenz ist NICHT nur
+  die registrierte v1-Missifikation.
+- **Mechanismus (Diagnostik):** das Loschmidt-Echo refokussiert
+  kohärente/unäre Prep-Fehler, die der Einweg-Struktur-Circuit voll trägt →
+  κ̂ überschätzt die Struktur-Dämpfung. Suppression ist real (0
+  Amplification), aber zu klein für das Aer-Depolarisierungsmodell.
+- **Echo-Leiter** (nicht verdict-tragend): κ_block q3 0.9879 (max log-res
+  0.0043; ≈ 4 2q/Block), q5 0.9128 (0.0253; r8 0.486; ≈ 14 2q/Block); r=1
+  geteilt mit dem gepaarten Loschmidt — r1-Konsistenz exakt, beide Arme.
+- **d-Invarianz-Bein** (Re-Freeze-Trigger-Analyse NUR, nicht verdict-tragend):
+  13 alte P am Minimalregister neu gemessen → HARDWARE-D_INVARIANZ_VERLETZT
+  (7/13 in W_CROSS 0.09, max |Δ| 0.1701, 11/13 Deltas negativ = die
+  (b_P − ratio_true)·Δκ̂-Skala der v1-Missifikation). Klassischer Kern
+  offline bit-exakt (t3d 3.55e-15, t6d 0.0) — die Verletzung trägt die
+  v1-Signatur, NICHT einen Bruch der idealen d-Invarianz.
+
+### Z.25.5 Vektor-Update
+
+- **H-RAM-Q-3b → REFUTED** — erster verdict-tragend REFUTED der RAM-Q-Serie,
+  mit vollständig grünen Kontrollen: kalibrierseitig sauber (κ̂ alle ≥ 0.81),
+  gesetzesseitig falsifiziert (v1 UND v2 einseitig verfehlt). REFUTED gilt für
+  das Kopplungsgesetz ratio_hw = κ·(1−1/S)·ratio_true + L_q mit
+  Echo-kalibriertem κ̂ auf ibm_fez, NICHT für die Arithmetik: B2
+  (q-universelle Identität) bit-exakt, H-RAM-Q-1 GENERALIZED (A−), H-RAM-Q-2
+  CONFIRMED (B) unangetastet. Die nächste Iteration (Dämpfungsmodell der
+  kohärenten Prep-Fehler oder Echo-refokussierte Kalibrier-Struktur) ist ein
+  NEUES Prereg; Option B bleibt nachgelagert.
+- **Was Phase 10 lehrt (Methodik):** das Minimalregister hat die Struktur-
+  Garantie physikalisch einlösbar gemacht (Phase-9-Designfehler behoben,
+  Echo-Tiefe 30/76 2q → 4/14 2q pro Block) — der Void ist weg, das Verdict
+  ist jetzt beanspruchbar und fällt negativ aus. Genau die Konstellation, die
+  Phase 9 verweigert hatte (Falsifikation bei gültiger Kalibrierung), ist
+  hier real. Steelman: das Aer-Modell traf die Suppressions-Richtung (alle
+  res negativ, keine Amplification), aber nicht die Größenordnung — das
+  Echo refokussiert kohärente Prep-Fehler, Depolarisierung tut das nicht.
+- **SciMind:** Anti-Sharpshooter — Raw vor Auswertung committed, verdict_map
+  wörtlich, Interpretations-Latte null; die v2-Diagnostik wird NICHT als
+  "fast doch ok" gelesen. Ockham: der Mechanismus braucht keinen neuen
+  Freiheitsgrad — refokussierte kohärente Prep-Fehler + gemessenes κ_block
+  (Leiter) erklären κ̂-Überschätzung und d-Inv-Signatur gemeinsam. Apophenie-
+  Management: die Kalibrier-Erfüllung (13/13 ≥ 0.81) ist verführerisch
+  ("Design repariert = Hypothese lebt") — sie macht nur den Verdict
+  beanspruchbar, nicht die Hypothese wahr.
+
 ---
 
-**Last updated:** 2026-09-26 (§Z.24: Branch ram-q-zyklizitaet — EXPERIMENT 042 H-RAM-Q-3: Zwei-Freeze-Architektur vollzogen (Freeze A md5 432d43fe VOR QPU → Stage-2-Aer 13×6 v2 PASS/v1 595/702 → Freeze B w_B 0.0249 Domain-q97.5 + ISA_OK 1570 2q → EIN Fez-Job darq1stvr3kc73ej96ig 58×8192 TOKEN1, Raw + md5 d19f4a56 committed b5ba31a VOR Auswertung) → gefrorene Auswertung ff5e2d5: VERDICT `H-RAM-Q-3_VOID_CALIBRATION` — alle 13 κ̂ < 0.81 [0.6608–0.8080], Kontrollen t3 (8.88e-16)/t4/t5/t6/md5 alle grün, 0 Amplification, 7/13 scharf nicht verdict-tragend, κ̂-Defizit = Loschmidt-Echo (30 2q im 4q-Arm / 76 im 5q-Arm, per-2q-Survival 0.990–0.993 bzw. 0.9946–0.9951, ε ≈ 0.71–1.00 % bzw. 0.49–0.54 %/2q — KORREKTUR armspezifisch, ursprünglich 0.17 % gemischt — > 0.10-Garantie), nicht Readout (0.33–0.39 %/Qubit); Tiefe-Konsistenz min κ̂(4q) 0.7403 > max κ̂(5q) 0.6886; Text-Spannung kappa_floor_void-Exklusion vs verdict_map-Zählung dokumentiert, wörtliche Map primaer; Hypothese unangetastet-unbestätigt, kein Band-Claim; 26 neue Tests, 831 grün)
+**Last updated:** 2026-09-26 (§Z.25: Branch ram-q-zyklizitaet — EXPERIMENT 043 H-RAM-Q-3b: Option A Minimalregister vollzogen — Freeze A′ md5 0b9c9968 VOR QPU (13 neue P q3_d3 149..761 / q5_d5 433..659, Echo-Leiter κ_r = κ_block^r an Ankern 149/433, d-Inv-Bein mit 13 ALTEN P, Shuffle-Inertness-Theorem → keine Shuffle-Kontrolle, Composite/Uniform-Ersatz) → Stage-2b-Aer 702 Zellen (v1 fail 702/702, v2 exakt max 0.0022) + dokumentierter Re-Freeze R1 (zweistufige Lesart: Gate E exact TOL_FORM 0.03, Gate S Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik) → Freeze B′ w_B′ 0.02787029633307472 + ISA2_OK (90 C, 493 2q, max 84) → EIN Fez-Job dartdg5vr3kc73ejcrgg 90×8192 TOKEN1, Raw + md5 16ca44bd committed 38a975b VOR Auswertung, Inventar 047e39b (Filter-Amendment: Hex-Run ≥ 21-Fragmentregel) → gefrorene Auswertung 7483a11: VERDICT `H-RAM-Q-3b_REFUTED` — Kalibrier-Ziel EINLÖST (alle 13 κ̂ ≥ 0.81: q3 0.9786–0.9904, q5 0.9196–0.9286 — kein Void wie Phase 9), 13/13 unter c(κ̂)−w_B′ [−0.0938..−0.0341] EINSEITIG (Suppression), 0 Amplification, Kontrollen t3 (3.55e-15)/t4 (composite 0.832/0.331, uniform 0.006/0.025 unter der 0.81-Ecke-Kante)/t5 (493 2q, max 84)/t6/md5 alle grün; auch die gesetzliche Aer-kalibrierte v2-Form verfehlt (res_v2 [−0.0630..−0.0159] ALLE negativ, max 0.0630 > w_B′); Mechanismus = Loschmidt-Echo refokussiert kohärente/unäre Prep-Fehler (κ̂ überschätzt die Struktur-Dämpfung); Echo-Leiter κ_block q3 0.9879 (log-res 0.0043) / q5 0.9128 (0.0253), r1-Konsistenz exakt; d-Invarianz-Bein HARDWARE-D_INVARIANZ_VERLETZT 7/13, max |Δ| 0.1701, 11/13 negativ = v1-Missifikations-Signatur, klassischer Kern offline bit-exakt (t3d 3.55e-15); erster verdict-tragend REFUTED der RAM-Q-Serie mit vollständig grünen Kontrollen — kalibrierseitig sauber, gesetzesseitig falsifiziert; H-RAM-Q-1 (A−) und H-RAM-Q-2 (B) unangetastet; 36 neue Tests, 981 grün)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

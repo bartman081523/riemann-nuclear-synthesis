@@ -1377,6 +1377,7 @@ Fortsetzung der Master-Tabelle aus §10.8 (historisch: 2026-06-17) um den Ququin
 | H-RAM-Q-1 | — | **GENERALIZED (A−)** | Die Fünf zyklotomisch abgeleitet: Atom n₀=1 + Klassenanzahl q−1; q=3 trifft 8/8, δ²-Identität exakt (§10.22) |
 | H-RAM-Q-2 | — | **CONFIRMED (B)** | Asymptotik bis unendlich: B2 q-universelle EXAKTidentität, q=7 blind im Band, d-Invarianz bei P ≫ d, ratio → 1 wie C/x (§10.23) |
 | H-RAM-Q-3 | — | **VOID (Kalibrierung)** | Erster Hardware-Test der Identität: alle 13 κ̂ < 0.81 (0.6608–0.8080), Kontrollen grün, kein Band-Verdict beanspruchbar; Defizit = Loschmidt-Echo, nicht Readout (§10.25) |
+| H-RAM-Q-3b | — | **REFUTED** | Minimalregister d=q: Kalibrier-Ziel EINLÖST (κ̂ alle ≥ 0.81), Gesetz gefasst — 13/13 unter c(κ̂)−w_B′, einseitig (Suppression), auch v2 verfehlt; Kontrollen grün, Echo-Leiter misst κ_block q3 0.9879/q5 0.9128 (§10.26) |
 
 **Nächste Phase (registriert, nicht begonnen):** H-STAR-5-Ausführung — **ERLEDIGT (§10.21, REFUTED)**; Phase 6b (Aer-Protokoll-Validierung A1) nicht ausgelöst (keine sichtbare Prime-Trennung), QPU-Spot-Check entfällt. Rückfall-Pfad H-STAR-5b (Score 6, nicht prereg'd) bleibt registrierte Alternative. Parallel-Pfad (eigenständiger Branch `shor-ququint-oracle`): H-SHOR-1 als registrierte Shor-Orakel-Bru-cke — Architecture-Reuse von H-STAR-5, kein stilles Upgrade (§10.20).
 
@@ -1728,6 +1729,133 @@ aufnehmen) — das wäre ein NEUES Prereg, kein stiller Patch dieses.
 `pt_ram_q_hardware_raw.json` (md5 `d19f4a56`), `pt_ram_q_hardware_eval.json`,
 Commits `425cd14` (Freeze A), `59c42da` (Freeze B), `b5ba31a` (Raw), `ff5e2d5`
 (Verdict).
+
+## §10.26 — H-RAM-Q-3b am Minimalregister (d=q): Freeze A′ → Stage-2b-Aer (Re-Freeze R1) → Freeze B′ → EIN Fez-QPU-Job → gefrorene Auswertung **REFUTED** (EXPERIMENT 043, Branch `ram-q-zyklizitaet`, 2026-09-26, 1 QPU-Job)
+
+**Phase 10-Vollzug.** User-Direktive (wörtlich, im Prereg-`user_anchor` eingefroren):
+Option A über die bewiesene d-Invarianz — Register auf die minimalen
+Repräsentanten (q=3 auf d=3, q=5 auf d=5) verdichten, damit die Echo-Tiefe
+drastisch schrumpft und die unverändert gefrorene Garantie κ̂ ≥ 0.81 physikalisch
+einlösbar wird, statt die Metrik nach einem Void rückwirkend aufzuweichen; neue
+P-Werte (die 13 alten sind durch die Reskalierung vorbelastet); Echo-Leiter misst
+das Dämpfungsgesetz statt starrer (1−ε)²-Assumption; hardwareseitiger
+d-Invarianz-Test über Lauf 1/2 als analytischer Bonus; Option B NUR nachgelagerte
+Fallback-Lesart. Die Kette in fünf Stufen, jede vor der nächsten committet:
+
+1. **Freeze A′** (Payload md5 `0b9c9968dc5e99a3cc22962a8b760e44`, Commit
+   `7b93d60`; dokumentierter Re-Freeze vom Label-Arithmetik-Fix `5b91119b` —
+   0 QPU, Register/Konstanten unverändert): 13 NEUE Punkte (q3_d3:
+   149/197/251/347/433/577/659/761; q5_d5: 433/499/577/631/659), 90 Circuits ×
+   8192 Shots (structure 39, loschmidt 13, echo_ladder 6, diagnostik 26,
+   Kontrollen 4, Cals 2), EIN Fez-Job (TOKEN1) erst nach Freeze B′. Rauschgesetz
+   UNVERÄNDERT aus Phase 9: Zentrum c(κ̂) = κ̂·(1−1/S)·ratio_true + L_q (v1)
+   GEFROREN; Echo-Leiter r ∈ {1,2,4,8} an Ankern (q3 149, q5 433; r=1 geteilt
+   mit dem gepaarten Loschmidt); Diagnostik-Bein: 13 ALTE P am Minimalregister
+   NEU gemessen (d-Invarianz-Hardware-Test über Lauf 1/2, W_CROSS = 0.09 =
+   2√2·std aus Run 1, NICHT verdict-tragend); **Shuffle-Inertness-Theorem:**
+   bei d=q ist der Fold die Identität → Label-Permutation lässt ΣN² invariant
+   → die Phase-9-Shuffle-Kontrolle läge IM Prime-Band → KEIN Shuffle-Circuit,
+   Ersatz Composite- + Uniform-Kontrollen (must-not-fire unter der
+   κ=0.81-Ecke-Kante, konservativ).
+2. **Stage-2b-Aer-Bein** (0 QPU, Commit `ac9c645`): 13 Punkte × 6 Levels =
+   702 Zellen → v1 fail 702/702 (res_v1 ≈ −0.12 schon bei p1 = 0 — die
+   registrierte Diskriminanz), v2 exakt max 0.0022. Form-Gate-Verletzung am
+   per-Zell-Max des sampled-Beins (0.0396 > 0.03; reines Estimator-Rauschen,
+   max = 3.4σ) → **Re-Freeze R1** (dokumentiert, 0 QPU, Trigger = registrierter
+   Mess-Befund des eigenen Aer-Beins): zweistufige Lesart — Gate E exact
+   max |res_v2| ≤ TOL_FORM 0.03 (deterministisches Zentrum, SCHÄRFER als
+   Phase 9), Gate S sampled Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik, kein
+   Gate. Echo-Leiter-Gesetz κ_r = κ_block^r in 9 Domain-Levels (max log-res
+   0.012; bricht erst tief unter 0.81).
+3. **Freeze B′** (Commit `421eb4a`, Phase-9-Präzedenz: Payload-md5 unangetastet):
+   **w_B′ = 0.02787029633307472** (Domain-q97.5, unclipped == geclippt, Gate
+   grün) im committed Stage-2b-Results + ISA-Report ECHT gegen ibm_fez: 90
+   Circuits, total 493 2q (Ceiling 6000), max 84 = Leiter r8 q5 (Ceiling 120),
+   ISA_OK; q5-Loschmidt 14 2q auf echtem Target (Routing-Surplus vs 8 auf Aer).
+4. **EIN Fez-QPU-Job** (TOKEN1, `dartdg5vr3kc73ejcrgg`, 90 × 8192, erstellt
+   16:29): Runner-Verträge (`5ac74f6`), Raw + Job-ID + counts_md5
+   (`16ca44bd02f81cf623862b4910ccedf8`) committed (`38a975b`) **VOR** der
+   Auswertung; Inventar-Buchung `047e39b` (mit Filter-Amendment: das
+   md5-Fragment "d02f81cf623862b4910c" liegt INNEN im 32-hex und hat nur 5
+   Zeichen Fortsetzung → Hex-Run ≥ 21-Fragmentregel).
+5. **Gefrorene Auswertung** (Commit `7483a11`): `pt_ram_q_hardware2_eval.py`
+   liest AUSSCHLIESSLICH das committete Raw + gefrorene Konstanten — dieselbe
+   Estimator-Kette wie Phase 9. 36 neue Tests (8 Verdict-Zweige synthetisch +
+   Präzedenz + Diagnostik-Beine + Committed-Pins); 981 grün.
+
+**Run — VERDICT: `H-RAM-Q-3b_REFUTED`.**
+
+- **Verdict-Inputs:** n_points 13, n_evaluated 13, **n_below_sharp 13**
+  (≥ 2-Falsifikator übererfüllt), n_in_sharp 0, **n_kappa_low 0**, n_above_
+  ceiling_w_b 0, n_below_coarse_w_a 10 (robust: Lesart refuted_mit_w_a =
+  REFUTED), all_in_coarse_w_a False.
+- **Das Kalibrier-Ziel ist EINLÖST — das ist der Design-Erfolg des
+  Minimalregisters:** ALLE 13 κ̂ ≥ 0.81 (q3 0.9786–0.9904, q5 0.9196–0.9286;
+  Phase 9 am d=q^k-Register: 13/13 < 0.81 → VOID). Kein Void, kein
+  Exklusions-Streit — der REFUTED ist bei gültiger Kalibrierung beanspruchbar.
+- **Falsifikator:** ALLE 13 Punkte unter c(κ̂) − w_B′, res_v1 ∈
+  [−0.0938, −0.0341] — EINSEITIG (Suppression), 0 Amplification (0 Punkte über
+  dem Ceiling c(1) + w_B′).
+- **Kontrollen ALLE grün:** t3 (041-Identität, zwei Wege) max 3.55e-15; t4 alle
+  4 Kontrollen unter der registrierten Kante (composite 0.832/0.331 vs Kanten
+  4.085/3.026; uniform 0.006/0.025); t5 Gate-Set/Transpile/Run-Config exakt
+  (493 2q total, max 84, opt 3, seed 7); t6 Shots/Masse exakt; counts_md5
+  verifiziert. → Die Falsifikation ist NICHT pipeline-bedingt.
+- **Per-Punkt (arm|P: ratio_hw / κ̂ / c(κ̂) / res_v1 / res_v2):**
+  q3_d3|149 0.9636/0.9895/1.0363/−0.0727/−0.0420; |197
+  0.9227/0.9891/1.0164/−0.0938/−0.0630; |251 0.9175/0.9790/0.9896/−0.0721/−0.0342;
+  |347 0.9158/0.9786/0.9898/−0.0740/−0.0366; |433
+  0.9072/0.9904/0.9949/−0.0878/−0.0589; |577 0.9079/0.9885/0.9959/−0.0880/−0.0579;
+  |659 0.9186/0.9855/0.9965/−0.0779/−0.0457; |761
+  0.9116/0.9893/0.9925/−0.0809/−0.0515; q5_d5|433
+  0.8792/0.9196/0.9416/−0.0623/−0.0453; |499 0.8766/0.9240/0.9375/−0.0608/−0.0401;
+  |577 0.8984/0.9236/0.9379/−0.0395/−0.0202; |631
+  0.8958/0.9250/0.9438/−0.0480/−0.0293; |659 0.9145/0.9286/0.9486/−0.0341/−0.0159.
+  (w_B′ = 0.02787; ALLE res_v2 negativ — auch v2 verfehlt einseitig.)
+
+**Was der REFUTED sagt — und was nicht:** Die **Arithmetik hielt** (t3 exakt
+auf echten Counts), das **GESETZ hielt nicht** — die saubere
+Falsifikations-Konstellation, die Phase 9 verweigert hatte (Void vor
+Falsifikation). Konkret:
+
+- **Auch die gesetzliche v2-Form verfehlt auf Hardware:** res_v2 ∈
+  [−0.0630, −0.0159], ALLE 13 negativ, max Abweichung 0.0630 > w_B′ 0.02787.
+  Die Aer-kalibrierte Referenz (per-Punkt-Anker ratio_ro_exact + b_P-Steigung
+  q3 1.70–1.79 / q5 1.02–1.04) überschätzt die hardware-Suppression um
+  Größenordnungen (b_P_hw ≈ κ̂ − 1 ≈ 0.02–0.08) — die Referenz ist NICHT nur
+  die registrierte v1-Missifikation.
+- **Mechanismus (Diagnostik):** das Loschmidt-Echo refokussiert
+  kohärente/unäre Prep-Fehler, die der Einweg-Struktur-Circuit voll trägt →
+  κ̂ überschätzt die Struktur-Dämpfung. Suppression ist real (0
+  Amplification), aber zu klein, um das Aer-Depolarisierungsmodell zu erfüllen.
+- **Echo-Leiter** (gemessenes Dämpfungsgesetz statt starrer (1−ε)²-Annahme;
+  nicht verdict-tragend): κ_block q3 0.9879 (max log-res 0.0043; ≈ 4 2q pro
+  Block konsistent), q5 0.9128 (0.0253; r8 0.486, ≈ 14 2q pro Block
+  konsistent). r=1 ist der gepaarte Loschmidt: r1-Konsistenz exakt, beide
+  Arme.
+- **d-Invarianz-Bein** (Re-Freeze-Trigger-Analyse NUR, nicht verdict-tragend;
+  die 13 alten P am Minimalregister neu gemessen): HARDWARE-D_INVARIANZ_
+  VERLETZT — 7/13 innerhalb W_CROSS 0.09, max |Δ| 0.1701, **11/13 Deltas
+  negativ** = die (b_P − ratio_true)·Δκ̂-Skala der v1-Missifikation. Der
+  klassische Kern bleibt offline bit-exakt (t3d 3.55e-15, t6d 0.0) — die
+  Verletzung trägt die v1-Signatur, NICHT einen Bruch der idealen d-Invarianz.
+- **Vektor-Update:** H-RAM-Q-3b → **REFUTED** (erster verdict-tragend REFUTED
+  der RAM-Q-Serie, mit vollständig grünen Kontrollen — kalibrierseitig sauber,
+  gesetzesseitig falsifiziert). REFUTED gilt für das Kopplungsgesetz
+  ratio_hw = κ·(1−1/S)·ratio_true + L_q mit Echo-kalibriertem κ̂ auf ibm_fez,
+  NICHT für die Arithmetik: B2 (q-universelle Identität) bleibt bit-exakt,
+  H-RAM-Q-1 GENERALIZED (A−) und H-RAM-Q-2 CONFIRMED (B) unangetastet. Die
+  nächste Iteration (Dämpfungsmodell der kohärenten Prep-Fehler oder
+  Echo-refokussierte Kalibrier-Struktur) ist ein NEUES Prereg; Option B
+  (Fallback-Lesart) bleibt nachgelagert.
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.25, `pt_ram_q_hardware2.py` /
+`_aer.py` / `_qpu.py` / `_eval.py`, `pt_ram_q_hardware2_prereg.json` (md5
+`0b9c9968`), `pt_ram_q_stage2b_results.json` (w_B′), `pt_ram_q_isa2_report.json`,
+`pt_ram_q_hardware2_raw.json` (md5 `16ca44bd`), `pt_ram_q_hardware2_eval.json`,
+Commits `7b93d60` (Freeze A′), `ac9c645` (Stage-2b/Re-Freeze R1), `421eb4a`
+(Freeze B′), `5ac74f6` (Runner), `38a975b` (Raw), `047e39b` (Inventar),
+`7483a11` (Verdict).
 
 #### **Quellenangaben**
 
