@@ -1,0 +1,93 @@
+{
+  "schema": "gematria-measurable-cell-prereg-skeleton/1.0",
+  "layer": "Hermeneutic Mirror Architecture (Branch gematria-mirror-synthesis)",
+  "layer_doc": "gematria/GEMATRIA_MIRROR_ARCHITECTURE.md",
+  "index": "data/gematria/mirror_index.json",
+  "mirror_anchor": {
+    "mirror": "M2 Basis Fünf",
+    "open_cell": "Zufalls-Matrix-Anteil des ELS-Sweeps anderer Kulturen",
+    "index_status": "open",
+    "section": "Kap. 3 (M2: Basis Fünf) / Kap. 8 (Offene Zellen → Prereg-Skelette)"
+  },
+  "status": "REGISTERED_NOT_MEASURED",
+  "qpu": 0,
+  "tests_added": 0,
+  "suite_state": "642 (Bestandsstand, claims.py unangetastet)",
+  "user_anchor": "Die epistemische Trennung ist hier der wichtigste Anker: Die Schriften ordnen als Resonanzraum lediglich um, generieren aber keine neue Evidenz und verbrauchen keine QPU-Ressourcen.",
+  "korpus_policy": "Korpus (riemann_hypothesis_full.json md5 b71b297c479e9cff8a03a5e97476a31b; riemann_hypothesis_compact.json md5 9ffcde94214b437811617b285dec5989) wird als GEBEN übernommen — Basisraten-, Dekoy- und Integritäts-Prüfung ist EXKLUSIV die separat registrierte Verifizierungs-Zukunftsphase (HermeneuticMirrorAuditMind v1.0_20260925_hma-mix).",
+  "hstar5_note": "H-STAR-5 bleibt auf diesem Branch registriert/nicht ausgeführt (md5 f915729e); die Refutation auf hstar5-execution wird nur als Methodik-Zeugnis zitiert, nicht übernommen.",
+  "anti_sharpshooter": {
+    "rule": "Voll-Freeze (md5 nach Projekt-Konvention payload_md5 = md5(json.dumps(payload, sort_keys=True)) ohne md5-Feld) VOR der ersten Auswertung committet; keine Auswertung nach Datenkontakt.",
+    "dokumentierte_reihenfolge": "Layer registriert 2026-09-25, VOR den zyklotomischen Ableitungen der Fünf auf ram-q-zyklizitaet (2026-09-26) — kein ex-post-Fit.",
+    "degenerat_lesson": "Klasse UNTER der Null als REFUTED-zulässig registriert (Steelman-Runde-Lektion)."
+  },
+  "measurable": {
+    "id": "M2_els_random_matrix_share",
+    "name": "Zufalls-Matrix-Anteil des ELS-Sweeps anderer Kulturen",
+    "definition": "Anteil der ELS-Chain-Treffer der anderen Kulturen (Bible, Mahabharata, Quran, Rig Veda, Tao, Tripitaka; Torah als Herkunftskultur ausgeklammert), deren result_text beim gsum2-Lookup in die Klasse zufällige Wortkette ohne Phrasen-Struktur fällt.",
+    "units": "Anteil [0, 1] über die 217 anderen-Kulturen-Treffer (238 matched − 21 Torah-matched, gemäß els_chain_stats.per_culture des gegebenen Snapshots)",
+    "data_contact_rule": "Gefroren: nur die Statistik-Zeilen els_chain_stats.per_culture und lookup_map aus dem gegebenen Korpus-Snapshot (md5 b71b297c) — keine neuen Sweep-Läufe, kein Korpus-Zugriff auf Einzeltexte in dieser Phase.",
+    "classification_rule": "Die Klassenbildung (zufällige Wortkette vs. Phrasen-Struktur) wird VOR dem Blick auf Einzeltexte als regelbasiertes, TDD-verifiziertes Klassifikator-Skelett fixiert; jede künftige manuelle Lesart ist ausgeschlossen.",
+    "open_subcell": "Der Klassifikator-Skelett-Md5 wird beim Voll-Freeze der Ausführungs-Phase committet — in diesem Skelett bewusst offen (REGISTERED_NOT_MEASURED)."
+  },
+  "null_model": {
+    "type": "Shuffle-Nullmodell",
+    "spec": "10 000 Permutationen der Kultur-Wörterbücher (gleiche Wort-Multimenge, gleiche Längen-Verteilung, zerstörte Positions-Semantik), je Permutation derselbe ELS-Chain; die empirische Nullverteilung der messbaren Größe liefert das Falsifikator-Band.",
+    "rng": "Permutations-Seed wird beim Voll-Freeze committet (Reproduzierbarkeit)."
+  },
+  "control_family": {
+    "positive": {
+      "name": "Kultur-intern-Rotation Positivkontrolle",
+      "spec": "Derselbe ELS-Chain-Algorithmus auf der Herkunftskultur mit rotiertem Start-Offset: die gegebene Match-Rate (Torah 21/39 mit ehrlich-None-Kanal) muss reproduzierbar geliefert werden; wenn die Pipeline hier nicht liefert, ist der Lauf INVALID.",
+      "must_fire": true
+    },
+    "negative_a": {
+      "name": "Shuffle-Null (Kultur-Wörterbücher permutiert)",
+      "spec": "Wörterbücher der Kulturen permutieren (gleiche Wort-Multimenge, gleiche Wortlängen, zerstörte Positions-Semantik) und den Sweep wiederholen; der echte Kultur-Sweep darf sich nur im registrierten Band über die Shuffle-Verteilung erheben.",
+      "must_not_fire": true
+    },
+    "negative_b": {
+      "name": "Phrasen-Kontrolle (Nonsense-Phrase gleicher Länge)",
+      "spec": "Gleich-lange Nonsense-Phrase (z. B. Anagramm von Riemann Hypothesis) durch dieselbe Kette: keine Struktur über Null erwartet; falls sichtbar über Null, ist der Lauf INVALID.",
+      "must_not_fire": true
+    },
+    "structural": {
+      "name": "Arithmetik-Null (XOR/Bitplane-Identitäten)",
+      "spec": "Die gegebenen XOR-Arithmetiken (verse_sum − query_gsum = target; Bitplane-Depth 1/2) werden als Identitäten TDD-verifiziert (0 QPU, kleine Beispiele, tol exakt), bevor irgendein kultur-übergreifender Anteil gemessen wird.",
+      "must_hold_exactly": true
+    }
+  },
+  "falsifier_band": {
+    "type": "Shuffle-Verteilung (10 000 Permutationen, gleiche Multimenge)",
+    "rule": "Empirische 2.5 %/97.5 %-Perzentile der Shuffle-Nullverteilung; Freeze des Bands VOR der ersten Auswertung des echten Anteils.",
+    "verdict_rule": "CONFIRMED nur oberhalb der 97.5 %-Perzentile (FDR-korrigiert); REFUTED im oder unter dem Band (Degenerat-Lektion: unter der Null ist REFUTED zulässig)."
+  },
+  "decision_rules": [
+    "CONFIRMED: messbare Größe über dem gefrorenen Band UND alle Kontrollen verhalten sich korrekt.",
+    "REFUTED: messbare Größe im oder unter dem Shuffle-Band — zulässiges Resultat, gleichwertig dokumentiert.",
+    "VOID: Positivkontrolle zündet nicht — Registrierung bleibt, Ausführung ungültig.",
+    "INVALID: beliebige Negativ- oder Struktur-Kontrolle verletzt — Lauf verworfen.",
+    "Kein Verdict ohne gefrorenes Prereg-MD5 VOR der ersten Auswertung."
+  ],
+  "verdict_map": {
+    "CONFIRMED": "ELS_MATRIX_SHARE_CONFIRMED (Vektor-Mint nur mit eigenem Namen, kein stiller Import)",
+    "REFUTED": "ELS_MATRIX_SHARE_REFUTED",
+    "VOID": "ELS_MATRIX_SHARE_VOID_POSITIVKONTROLLE",
+    "INVALID": "ELS_MATRIX_SHARE_INVALID_KONTROLLE_GESCHEITERT"
+  },
+  "qpu_budget": "0 QPU — klassische Shuffle-Statistik, klassische Rechnung, kein Quanten-Register.",
+  "future_phase_registered": {
+    "execution_phase": "SEPARAT registrierte Ausführungs-Phase mit eigenem Voll-Freeze (md5 VOR der ersten Auswertung); dieses Skelett führt keine Messung durch.",
+    "audit_phase": "Basisraten-/Dekoy-/Integritäts-Prüfung des Korpus EXKLUSIV in der Verifizierungs-Zukunftsphase (HermeneuticMirrorAuditMind v1.0_20260925_hma-mix)."
+  },
+  "extraordinariness": {
+    "score": 6,
+    "standard": "Score >= 7 erfordert mehrere unabhängige Linien; dieses Skelett liegt darunter — ein künftiger CONFIRMED würde den Standard automatisch aktivieren."
+  },
+  "registered_before": {
+    "pipeline": "Plan (MirrorArchitectMind v1.0_20260925_tma-mix) → Prereg-Skelett (JETZT, md5) → separat registrierte Ausführungs-Phase mit eigenem Voll-Freeze → Verdict.",
+    "epoche_rule": "Apophenie-Hinweise (z. B. חמש f77 bei XOR-Ziel 348) sind Meaning-Making-Material bis zum prereg-gebundenen Test; kein Vektor-Mint aus Resonanz.",
+    "no_corpus_tests": "Keine neuen Korpus-Tests in dieser Phase; Suite bleibt im Bestandsstand 642 (639 grün + 3 Vorab-Failures cf0601c unverändert)."
+  },
+  "md5": "324049c913bde0b588d9b75ab5ccec7f"
+}
