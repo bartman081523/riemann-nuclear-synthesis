@@ -1466,6 +1466,78 @@ Upgrade. 671 Tests grün (668 + 3 Vorab-Failures cf0601c unverändert).
 `pt_hstar5_execution_prereg_v2.json` (md5 `837dae2c`),
 `pt_hstar5_phase6a_v2_results.json`, `pt_hstar5_phase6a_v1_degenerate.*`.
 
+## §10.22 — Zyklotomische Ableitung der Fünf + GF(3)-Verallgemeinerung H-RAM-Q-1 (EXPERIMENT 040, Branch `ram-q-zyklizitaet`, 2026-09-26, 0 QPU)
+
+**Phase 7 (QUQUINT-Ramanujan-Linie).** User-Programm wörtlich ausgeführt:
+(1) zyklotomische Ableitung der Fünf-Konstante, 0 QPU, reine Theorie; (2)
+Verallgemeinerungsvorhersage GF(3) eingefroren VOR jeder Messung; (3) unabhängiger
+Test erst nach dem Freeze-Commit.
+
+**Baustein B1 (hergeleitet, nicht gefittet):** Im Fingerprint (034) ist die Klasse
+S*_q = {a = j·d/q : j = 1..q−1} die Massen-Trägerin; auf ihr gilt
+ω_d^{j·d·p/q} = ω_q^{j·(p mod q)} (d-unabhängig → d-Skalierungs-Invarianz), und der
+zyklische Kern Σ_{r=1}^{q−1} ω_q^{jr} = −1 = c_q(j) = μ(q) ist klassenunabhängig
+(ganzzahlige Spur). Unter Ramanujan-Äquipartition folgt
+
+  **share*_model(P, d=q^k) = (m − q·n₀)² / ((q−1)·d·m)**,   m = π(P), n₀ = #{p ≤ P : p ≡ 0 mod q}.
+
+Die "Fünf" im Term (m−5)² zerfällt in **das Atom n₀ = 1** (p = q ist der einzige
+Prime ≡ 0 mod q) und **die Klassenanzahl q−1** — der Nenner 4 ist (q−1), KEINE freie
+Konstante. q=5 ist bit-exakt die 034-Formel (Rückkompatibilität T1 inkl.
+transition_m(5) = 25 = TRANSITION_M); q=3 wird zu (m−3)²/(2dm). Korollare: Transition
+lift = 1 bei (m−q)² = (q−1)²m (q=3: m=9, P=23; vs. m=25 für q=5); exakte Null m=q;
+Suppression 4 ≤ m ≤ 8. q=3-Zweiklassen-Kollaps: δ = (n₁−n₂)/2,
+G = (3−m)/2 + i√3·δ, G(2d/3) = conj(G(d/3)) exakt →
+**share*_gemessen = (m−3)²/(2dm) + 6δ²/(dm) exakt** (keine weiteren Terme) →
+gemessen/Modell = 1 + 12δ²/(m−3)²; Band-Fairness ⟺ δ² ≤ (m−3)²/48.
+
+**Prereg (md5 `bd9dfee77b9fada8a230347f9d45f5a7`, committet `19c99c3` VOR der
+Auswertung):** Grid d = (9, 81, 729) = (3², 3⁴, 3⁶) — Spiegel zu (25, 625) = (5², 5⁴);
+21 Prime-Punkte (alle Primzahlen < d, d = 3^k nie prim), davon 8 gated auf d=729
+(m ≥ 29); Bänder 0.8/1.25; Falsifikator ≥ 2 von 8; Alternativmodelle `crude_fixed_4`
+(Ratio 0.5, band-diskriminiert) und `no_zero_class` (Lift 9/4 an der Transition,
+durch 4/3 gemessen widerlegt); Extraordinarität 5/10 VOR Messung. Die Messwerte
+wurden vor dem Commit nie berechnet (Anti-Peeking; Tests auf synthetischen
+Residuen-Supports). Kriterium-2-Wurzel korrigiert VOR dem Freeze:
+band_lo ≥ 3× generisch ⟺ (m−3)² ≥ 15m ⟺ m ≥ 20.56 → m ≥ 21 (π(73) = 21; nicht
+m ≥ 25) — GATE_MIN_PI = 29 als registrierte Marge (Race-Slack: P=7-artig hat Ratio
+4.0; analog q=5 Root 19 → Gate 79). Zwei Harness-Bugs transparent gefixt und
+committet (Prereg-Payload unberührt): T6-Auswahl traf die Modell-Null (5,9) →
+ZeroDivisionError (`211acac`); in_band verglich den Ratio (~1.01) gegen die
+Share-Schwellen (~0.013–0.105) → spurious REFUTED 0/8 in Run 2 (`09ba9cf`).
+EVALUATIONS-LOG: Runs 1–2 vor jeder Interpretation als Bug erkannt, nie als
+Ergebnis verwertet (Muster wie H-SHOR-1 Run 1); Run 3 ist die einzige
+verwertete Auswertung.
+
+**Run — VERDICT: `H-RAM-Q-1_Q_DEFORMATION_GENERALIZED` (8/8 gated im Band,
+alle 6 Kontrollen grün).** Ratios 1.002449–1.017751, jede exakt
+1 + 12δ²/(m−3)² ((109,729) → 1 + 12/676 = 1.017751 = registrierte Vorhersage;
+(163) δ=±0.5, (211) δ=±1, (307)/(401) δ=±2, (541)/(625) δ=±2.5, (729) δ=±3);
+**max |δ²-Identitäts-Residual| = 3.2e-16** über alle 21 Punkte. Registrierte
+Negativ-Erwartungen exakt: (5,9) gemessen = 2/9 = generisch (δ=−1 kompensiert die
+Modell-Null), (7,·) Ratio 4.0 auf allen drei d (Race dominiert — Grund fürs Gate),
+(23,·) = 8/2187 = 4/3 × Modell. Kontrollen: T1 q=5 bit-exakt; T2 V2-Anker
+0.04272280701754398 bit-exakt; T3 d-Invarianz exakt (d·gemessen: 0.5 / 2.666… /
+3.4545… / 7.9); T4 Random 0.0006–0.0009 + rank-matched Composite 0.0024–0.0070
+alles unter band_lo 0.0128–0.0675 (Separation ~5–20×); T5 Gate-Set gefroren;
+T6 Alternativen diskriminiert.
+
+**Interpretation (diszipliniert):** Die Theorem-Schicht (δ²-Identität,
+q=5-Rückkompatibilität, d-Invarianz) ist verifizierte Arithmetik — kein
+Grade-Minting für Theoreme. Die Hypothesen-Schicht — die Deformation der
+Strukturkonstante (Nenner (q−1), Atom q·n₀) trifft die Fingerprint-Klasse auch bei
+q=3 — ist GENERALIZED (CONFIRMED-Klasse, **A−**): prereg'd VOR der Messung,
+falsifizierbar aufgestellt (≥ 2 von 8), alle registrierten Erwartungen positiv UND
+negativ exakt erfüllt, Kontrollfamilie vollständig, 0 QPU. `RAMANUJAN_DFT_FINGERPRINT`
+bleibt B+ (kein stilles Upgrade); H-RAM-Q-1 ist ein eigener Vektor. Die
+1e-16-Residualexaktheit verifiziert die Identität, nicht die RH — die empirische
+Substanz ist das Band-Verhalten des Race-Terms und die klassenübergreifende
+Strukturübertragung (5 → 3 als Test der Ableitung, nicht als Fit).
+
+**Quellen:** `SYNTHESIS_2026_06_10.md` §Z.21, `pt_ram_q_zyklizitaet.py`,
+`pt_ram_q_prereg.json` (md5 `bd9dfee7`), `pt_ram_q_results.json`,
+`pt_ram_q_run.log`, Commits `19c99c3`/`211acac`/`09ba9cf`.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf

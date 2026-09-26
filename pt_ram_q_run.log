@@ -1,0 +1,24 @@
+VERDICT: H-RAM-Q-1_Q_DEFORMATION_GENERALIZED
+gated: 8/8 im Band
+Kontrollen: {'t1_backcompat_q5': True, 't2_v2_anchor': True, 't3_d_scaling': True, 't4_control_overlap': True, 't5_gate_set_frozen': True, 't6_alternatives': True}
+P=   5 d=   9 m=  3 desk  model=0.000000 gemessen=0.222222 ratio=-
+P=   7 d=   9 m=  4 desk  model=0.013889 gemessen=0.055556 ratio=4.0000
+P=   7 d=  81 m=  4 desk  model=0.001543 gemessen=0.006173 ratio=4.0000
+P=  13 d=  81 m=  6 desk  model=0.009259 gemessen=0.012346 ratio=1.3333
+P=  19 d=  81 m=  8 desk  model=0.019290 gemessen=0.021605 ratio=1.1200
+P=  23 d=  81 m=  9 desk  model=0.024691 gemessen=0.032922 ratio=1.3333
+P=  31 d=  81 m= 11 desk  model=0.035915 gemessen=0.042649 ratio=1.1875
+P=  47 d=  81 m= 15 desk  model=0.059259 gemessen=0.064198 ratio=1.0833
+P=  71 d=  81 m= 20 desk  model=0.089198 gemessen=0.097531 ratio=1.0934
+P=   7 d= 729 m=  4 desk  model=0.000171 gemessen=0.000686 ratio=4.0000
+P=  23 d= 729 m=  9 desk  model=0.002743 gemessen=0.003658 ratio=1.3333
+P=  31 d= 729 m= 11 desk  model=0.003991 gemessen=0.004739 ratio=1.1875
+P=  71 d= 729 m= 20 desk  model=0.009911 gemessen=0.010837 ratio=1.0934
+P= 109 d= 729 m= 29 GATED model=0.015988 gemessen=0.016272 ratio=1.0178  im Band
+P= 163 d= 729 m= 38 GATED model=0.022110 gemessen=0.022164 ratio=1.0024  im Band
+P= 211 d= 729 m= 47 GATED model=0.028252 gemessen=0.028427 ratio=1.0062  im Band
+P= 307 d= 729 m= 63 GATED model=0.039193 gemessen=0.039715 ratio=1.0133  im Band
+P= 401 d= 729 m= 79 GATED model=0.050147 gemessen=0.050563 ratio=1.0083  im Band
+P= 541 d= 729 m=100 GATED model=0.064534 gemessen=0.065048 ratio=1.0080  im Band
+P= 625 d= 729 m=114 GATED model=0.074128 gemessen=0.074579 ratio=1.0061  im Band
+P= 729 d= 729 m=129 GATED model=0.084410 gemessen=0.084984 ratio=1.0068  im Band

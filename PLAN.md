@@ -2,7 +2,7 @@
 
 ## Document Map
 
-Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung) completed 2026-09-25 — Phase 6a REFUTED (§Z.20/§10.21)**.
+Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung) completed 2026-09-25 — Phase 6a REFUTED (§Z.20/§10.21)**; **Phase 7 (RAM-Q zyklotomische Ableitung + GF(3)-Deformation) completed 2026-09-26 — H-RAM-Q-1 GENERALIZED (§Z.21/§10.22)**.
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -83,6 +83,16 @@ To finalize the research document by auditing missing theories, refining existin
 - **Verdict:** **REFUTED** (`H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES`, 2026-09-25) — R_prime = 1.434783 im Shuffle-Band [0.798882, 1.882509] (15 distinkte Null-Werte, Perzentil 82.5%, unter q97.5); O2-Mechanismus echt (2.2515, 234/234 Paare) ohne Prime-Trennung; eps-Ladder deskriptiv (0.05 → 1.234, 0.5 → 1.021). Zwischendurch entdeckt + bewiesen: das **S₄-Schluss-Theorem** (Familiensummen über positions-permutations-abgeschlossenen Familien sind Orbit-invariant im Zeichen-Muster — v1-Design konnte nicht diskriminieren; Fix: kanonische 12er-Repräsentantenfamilie, Zeichen-Regel unangetastet).
 - **Status:** ✅ DONE — Phase 6a REFUTED (sauber); Phase 6b (Aer A1) nicht ausgelöst. Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.20, `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.21, `pt_hstar5_phase6a_v2_results.json`.
 
+## Phase 7 (DONE — GENERALIZED): RAM-Q zyklotomische Ableitung + GF(3)-Deformation (Branch `ram-q-zyklizitaet`, 2026-09-26)
+
+- **Goal:** User-Programm wörtlich: (1) die Fünf-Konstante im Ramanujan-Fingerprint zyklotomisch ableiten (0 QPU, reine Theorie — Einheitenstruktur/Ramanujan-Summen von Z[ζ_q]); (2) die GF(3)-Verallgemeinerungsvorhersage einfrieren (Zähler → (m−3)²); (3) unabhängiger Test erst nach dem Freeze-Commit.
+- **Steps:**
+    1. Baustein B1 herleiten VOR dem Freeze: share*_model(P, d=q^k) = (m − q·n₀)²/((q−1)·d·m) — die Fünf = Atom n₀=1 + Klassenanzahl q−1; Nenner 4 = (q−1), keine freie Konstante; q=5 bit-exakt 034-Rückkompatibilität; q=3: (m−3)²/(2dm) mit Transition m=9, exakter Null m=3, Suppression 4 ≤ m ≤ 8, EXAKTER Zweiklassen-δ²-Identität share* = (m−3)²/(2dm) + 6δ²/(dm). → ✅ DONE (`pt_ram_q_zyklizitaet.py`, TDD).
+    2. Prereg einfrieren VOR jeder Auswertung. → ✅ DONE — md5 `bd9dfee77b9fada8a230347f9d45f5a7` committet (`19c99c3`); Kriterium-2-Wurzel korrigiert VOR dem Freeze (m ≥ 20.56 → m ≥ 21, nicht 25); 2 Harness-Bugs transparent gefixt und committet (`211acac` T6, `09ba9cf` in_band + 3 Post-Freeze-Pinning-Tests, Prereg unberührt; Runs 1–2 — exit-1 bzw. spurious REFUTED 0/8 — vor jeder Interpretation als Bug erkannt, nie verwertet).
+    3. Auswertung nach dem Freeze-Commit. → ✅ DONE — **VERDICT `H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`**: 8/8 gated im Band (Ratios 1.002449–1.017751 = 1 + 12δ²/(m−3)² exakt), max δ²-Residual 3.2e-16, alle 6 Kontrollen grün (T1 q=5 bit-exakt, T2 V2-Anker bit-exakt, T3 d-Invarianz exakt, T4 Separation ~5–20×, T5 Gate-Set gefroren, T6 Alternativen diskriminiert), registrierte Negativ-Erwartungen exakt ((5,9) = generisch, (7,·) Ratio 4.0, (23,·) = 4/3 × Modell).
+- **Verdict:** **GENERALIZED** (`H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`, 2026-09-26) — die Deformation der Strukturkonstante (Nenner (q−1), Atom q·n₀) trifft die Fingerprint-Klasse auch bei q=3. Vektor H-RAM-Q-1 **A−** (CONFIRMED-Klasse); `RAMANUJAN_DFT_FINGERPRINT` bleibt **B+** (kein stilles Upgrade); Theorem-Schicht (δ²-Identität, Rückkompatibilität, d-Invarianz) = verifizierte Arithmetik, kein Grade-Minting.
+- **Status:** ✅ DONE. Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.21, `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.22, `pt_ram_q_prereg.json` (md5 `bd9dfee7`), `pt_ram_q_results.json`.
+
 ## Execution Schedule (historical)
 1. Farrell Audit → ✅ DONE (Phase 1)
 2. Grant Refinement → ✅ DONE (Phase 2)
@@ -90,3 +100,4 @@ To finalize the research document by auditing missing theories, refining existin
 4. QPU-validierte Im-Bias → ✅ DONE (Phase 4, 2026-06-17)
 5. QUQUINT/Pillar 4 + §Z.11–18 → ✅ DONE (Phase 5, 2026-07-21 → 2026-09-24)
 6. H-STAR-5-Ausführung → ✅ DONE — REFUTED (Phase 6a, 2026-09-25)
+7. RAM-Q zyklotomische Ableitung + GF(3)-Deformation → ✅ DONE — GENERALIZED (Phase 7, 2026-09-26, Branch `ram-q-zyklizitaet`)

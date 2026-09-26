@@ -1,0 +1,442 @@
+{
+  "experiment": "040-ram-q-zyklizitaet",
+  "hypothesis": "H-RAM-Q-1",
+  "prereg_path": "pt_ram_q_prereg.json",
+  "prereg_md5": "bd9dfee77b9fada8a230347f9d45f5a7",
+  "q": 3,
+  "d_grid": [
+    9,
+    81,
+    729
+  ],
+  "rows": [
+    {
+      "P": 5,
+      "d": 9,
+      "pi": 3,
+      "role": "exakte_null_deskriptiv",
+      "model": 0.0,
+      "measured": 0.22222222222222232,
+      "ratio": null,
+      "band_lo": 0.0,
+      "band_hi": 0.0,
+      "gated": false,
+      "in_band": null,
+      "delta": -1.0,
+      "delta_identity_residual": 1.1102230246251565e-16
+    },
+    {
+      "P": 7,
+      "d": 9,
+      "pi": 4,
+      "role": "suppression_deskriptiv",
+      "model": 0.013888888888888888,
+      "measured": 0.05555555555555561,
+      "ratio": 4.000000000000004,
+      "band_lo": 0.011111111111111112,
+      "band_hi": 0.017361111111111112,
+      "gated": false,
+      "in_band": false,
+      "delta": -0.5,
+      "delta_identity_residual": 5.551115123125783e-17
+    },
+    {
+      "P": 7,
+      "d": 81,
+      "pi": 4,
+      "role": "suppression_deskriptiv",
+      "model": 0.0015432098765432098,
+      "measured": 0.0061728395061728435,
+      "ratio": 4.000000000000003,
+      "band_lo": 0.0012345679012345679,
+      "band_hi": 0.0019290123456790122,
+      "gated": false,
+      "in_band": false,
+      "delta": -0.5,
+      "delta_identity_residual": 4.336808689942018e-18
+    },
+    {
+      "P": 13,
+      "d": 81,
+      "pi": 6,
+      "role": "suppression_deskriptiv",
+      "model": 0.009259259259259259,
+      "measured": 0.0123456790123457,
+      "ratio": 1.3333333333333355,
+      "band_lo": 0.007407407407407408,
+      "band_hi": 0.011574074074074073,
+      "gated": false,
+      "in_band": false,
+      "delta": -0.5,
+      "delta_identity_residual": 2.0816681711721685e-17
+    },
+    {
+      "P": 19,
+      "d": 81,
+      "pi": 8,
+      "role": "suppression_deskriptiv",
+      "model": 0.019290123456790122,
+      "measured": 0.021604938271604958,
+      "ratio": 1.120000000000001,
+      "band_lo": 0.015432098765432098,
+      "band_hi": 0.024112654320987654,
+      "gated": false,
+      "in_band": true,
+      "delta": -0.5,
+      "delta_identity_residual": 2.0816681711721685e-17
+    },
+    {
+      "P": 23,
+      "d": 81,
+      "pi": 9,
+      "role": "transition_deskriptiv",
+      "model": 0.024691358024691357,
+      "measured": 0.03292181069958851,
+      "ratio": 1.3333333333333346,
+      "band_lo": 0.019753086419753086,
+      "band_hi": 0.030864197530864196,
+      "gated": false,
+      "in_band": false,
+      "delta": -1.0,
+      "delta_identity_residual": 2.7755575615628914e-17
+    },
+    {
+      "P": 31,
+      "d": 81,
+      "pi": 11,
+      "role": "ueber_transition_deskriptiv",
+      "model": 0.03591470258136925,
+      "measured": 0.04264870931537605,
+      "ratio": 1.1875000000000018,
+      "band_lo": 0.028731762065095402,
+      "band_hi": 0.044893378226711564,
+      "gated": false,
+      "in_band": true,
+      "delta": -1.0,
+      "delta_identity_residual": 6.938893903907228e-17
+    },
+    {
+      "P": 47,
+      "d": 81,
+      "pi": 15,
+      "role": "ueber_transition_deskriptiv",
+      "model": 0.05925925925925926,
+      "measured": 0.06419753086419774,
+      "ratio": 1.0833333333333368,
+      "band_lo": 0.04740740740740741,
+      "band_hi": 0.07407407407407407,
+      "gated": false,
+      "in_band": true,
+      "delta": -1.0,
+      "delta_identity_residual": 2.0816681711721685e-16
+    },
+    {
+      "P": 71,
+      "d": 81,
+      "pi": 20,
+      "role": "ueber_transition_deskriptiv",
+      "model": 0.08919753086419753,
+      "measured": 0.09753086419753088,
+      "ratio": 1.0934256055363323,
+      "band_lo": 0.07135802469135803,
+      "band_hi": 0.11149691358024691,
+      "gated": false,
+      "in_band": true,
+      "delta": -1.5,
+      "delta_identity_residual": 1.3877787807814457e-17
+    },
+    {
+      "P": 7,
+      "d": 729,
+      "pi": 4,
+      "role": "suppression_deskriptiv",
+      "model": 0.00017146776406035664,
+      "measured": 0.0006858710562414271,
+      "ratio": 4.0000000000000036,
+      "band_lo": 0.00013717421124828533,
+      "band_hi": 0.0002143347050754458,
+      "gated": false,
+      "in_band": false,
+      "delta": -0.5,
+      "delta_identity_residual": 4.336808689942018e-19
+    },
+    {
+      "P": 23,
+      "d": 729,
+      "pi": 9,
+      "role": "transition_deskriptiv",
+      "model": 0.0027434842249657062,
+      "measured": 0.003657978966620947,
+      "ratio": 1.3333333333333353,
+      "band_lo": 0.0021947873799725653,
+      "band_hi": 0.003429355281207133,
+      "gated": false,
+      "in_band": false,
+      "delta": -1.0,
+      "delta_identity_residual": 5.204170427930421e-18
+    },
+    {
+      "P": 31,
+      "d": 729,
+      "pi": 11,
+      "role": "ueber_transition_deskriptiv",
+      "model": 0.003990522509041028,
+      "measured": 0.004738745479486224,
+      "ratio": 1.1875000000000009,
+      "band_lo": 0.0031924180072328227,
+      "band_hi": 0.004988153136301285,
+      "gated": false,
+      "in_band": true,
+      "delta": -1.0,
+      "delta_identity_residual": 3.469446951953614e-18
+    },
+    {
+      "P": 71,
+      "d": 729,
+      "pi": 20,
+      "role": "ueber_transition_deskriptiv",
+      "model": 0.009910836762688615,
+      "measured": 0.010836762688614618,
+      "ratio": 1.09342560553634,
+      "band_lo": 0.007928669410150892,
+      "band_hi": 0.012388545953360768,
+      "gated": false,
+      "in_band": true,
+      "delta": -1.5,
+      "delta_identity_residual": 7.806255641895632e-17
+    },
+    {
+      "P": 109,
+      "d": 729,
+      "pi": 29,
+      "role": "gated",
+      "model": 0.015987890828248426,
+      "measured": 0.016271699541176014,
+      "ratio": 1.0177514792899471,
+      "band_lo": 0.012790312662598741,
+      "band_hi": 0.01998486353531053,
+      "gated": true,
+      "in_band": true,
+      "delta": -1.0,
+      "delta_identity_residual": 1.0061396160665481e-16
+    },
+    {
+      "P": 163,
+      "d": 729,
+      "pi": 38,
+      "role": "gated",
+      "model": 0.022110316944624935,
+      "measured": 0.022164464659591633,
+      "ratio": 1.002448979591849,
+      "band_lo": 0.01768825355569995,
+      "band_hi": 0.02763789618078117,
+      "gated": true,
+      "in_band": true,
+      "delta": -0.5,
+      "delta_identity_residual": 2.706168622523819e-16
+    },
+    {
+      "P": 211,
+      "d": 729,
+      "pi": 47,
+      "role": "gated",
+      "model": 0.028252050316668127,
+      "measured": 0.028427166331027962,
+      "ratio": 1.0061983471074494,
+      "band_lo": 0.022601640253334502,
+      "band_hi": 0.03531506289583516,
+      "gated": true,
+      "in_band": true,
+      "delta": -1.0,
+      "delta_identity_residual": 3.226585665316861e-16
+    },
+    {
+      "P": 307,
+      "d": 729,
+      "pi": 63,
+      "role": "gated",
+      "model": 0.03919263178522438,
+      "measured": 0.03971520020902762,
+      "ratio": 1.0133333333333399,
+      "band_lo": 0.031354105428179506,
+      "band_hi": 0.04899078973153047,
+      "gated": true,
+      "in_band": true,
+      "delta": -2.0,
+      "delta_identity_residual": 2.498001805406602e-16
+    },
+    {
+      "P": 401,
+      "d": 729,
+      "pi": 79,
+      "role": "gated",
+      "model": 0.05014672431456304,
+      "measured": 0.05056345609557064,
+      "ratio": 1.0083102493074823,
+      "band_lo": 0.040117379451650434,
+      "band_hi": 0.0626834053932038,
+      "gated": true,
+      "in_band": true,
+      "delta": -2.0,
+      "delta_identity_residual": 1.5265566588595902e-16
+    },
+    {
+      "P": 541,
+      "d": 729,
+      "pi": 100,
+      "role": "gated",
+      "model": 0.06453360768175583,
+      "measured": 0.06504801097393714,
+      "ratio": 1.0079710915081344,
+      "band_lo": 0.051626886145404664,
+      "band_hi": 0.08066700960219478,
+      "gated": true,
+      "in_band": true,
+      "delta": -2.5,
+      "delta_identity_residual": 2.498001805406602e-16
+    },
+    {
+      "P": 625,
+      "d": 729,
+      "pi": 114,
+      "role": "gated",
+      "model": 0.07412822178904051,
+      "measured": 0.0745794527470942,
+      "ratio": 1.006087168249332,
+      "band_lo": 0.059302577431232406,
+      "band_hi": 0.09266027723630063,
+      "gated": true,
+      "in_band": true,
+      "delta": -2.5,
+      "delta_identity_residual": 1.249000902703301e-16
+    },
+    {
+      "P": 729,
+      "d": 729,
+      "pi": 129,
+      "role": "gated",
+      "model": 0.08440999138673558,
+      "measured": 0.08498420901521664,
+      "ratio": 1.0068027210884338,
+      "band_lo": 0.06752799310938846,
+      "band_hi": 0.10551248923341947,
+      "gated": true,
+      "in_band": true,
+      "delta": -3.0,
+      "delta_identity_residual": -1.3877787807814457e-16
+    }
+  ],
+  "controls": {
+    "t1_backcompat_q5": true,
+    "t2_v2_anchor": true,
+    "t3_d_scaling": true,
+    "t4_control_overlap": true,
+    "t5_gate_set_frozen": true,
+    "t6_alternatives": true,
+    "d_scaling_rows": [
+      {
+        "P": 7,
+        "d_times_measured": {
+          "9": 0.5000000000000004,
+          "81": 0.5000000000000003,
+          "729": 0.5000000000000003
+        },
+        "ok": true
+      },
+      {
+        "P": 23,
+        "d_times_measured": {
+          "81": 2.666666666666669,
+          "729": 2.6666666666666705
+        },
+        "ok": true
+      },
+      {
+        "P": 31,
+        "d_times_measured": {
+          "81": 3.4545454545454604,
+          "729": 3.4545454545454573
+        },
+        "ok": true
+      },
+      {
+        "P": 71,
+        "d_times_measured": {
+          "81": 7.900000000000001,
+          "729": 7.900000000000056
+        },
+        "ok": true
+      }
+    ],
+    "overlap_rows": [
+      {
+        "P": 109,
+        "d": 729,
+        "random": 0.0006622203301642883,
+        "composite": 0.0023650726077290777,
+        "band_lo": 0.012790312662598741,
+        "ok": true
+      },
+      {
+        "P": 163,
+        "d": 729,
+        "random": 0.0009385603927515008,
+        "composite": 0.0035376507111400148,
+        "band_lo": 0.01768825355569995,
+        "ok": true
+      },
+      {
+        "P": 211,
+        "d": 729,
+        "random": 0.0007588360622243818,
+        "composite": 0.003910924320695813,
+        "band_lo": 0.022601640253334502,
+        "ok": true
+      },
+      {
+        "P": 307,
+        "d": 729,
+        "random": 0.0011757789535566995,
+        "composite": 0.004833757920177704,
+        "band_lo": 0.031354105428179506,
+        "ok": true
+      },
+      {
+        "P": 401,
+        "d": 729,
+        "random": 0.0017016547724470219,
+        "composite": 0.005973155527773466,
+        "band_lo": 0.040117379451650434,
+        "ok": true
+      },
+      {
+        "P": 541,
+        "d": 729,
+        "random": 0.0057887517146774856,
+        "composite": 0.005953360768175663,
+        "band_lo": 0.051626886145404664,
+        "ok": true
+      },
+      {
+        "P": 625,
+        "d": 729,
+        "random": 0.004115226337448274,
+        "composite": 0.006714316655837266,
+        "band_lo": 0.059302577431232406,
+        "ok": true
+      },
+      {
+        "P": 729,
+        "d": 729,
+        "random": 0.0005742176284811955,
+        "composite": 0.0069544135004946305,
+        "band_lo": 0.06752799310938846,
+        "ok": true
+      }
+    ],
+    "composite_limit": 0.012790312662598741
+  },
+  "gated_outside": 0,
+  "gated_total": 8,
+  "verdict": "H-RAM-Q-1_Q_DEFORMATION_GENERALIZED"
+}

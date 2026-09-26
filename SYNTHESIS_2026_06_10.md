@@ -3040,6 +3040,139 @@ Check entfällt.
 
 ---
 
-**Last updated:** 2026-09-25 (§Z.20: Branch hstar5-execution — Phase 6a H-STAR-5-Ausführung EXPERIMENT 039: v1-Prereg (md5 aa8e77cc) nach Design-Entdeckung abgebrochen OHNE Verdict → S₄-Schluss-Theorem bewiesen (Familiensummen über positions-permutations-abgeschlossenen Familien sind Orbit-invariant im Zeichen-Muster; Prime/Composite im selben benachbarten Orbit → Composite-Kontrolle zahnlos; 132 Shuffle-Instanzen = 2 Atome) → v2 kanonische 12er-Familie frozen VOR der Messung (md5 837dae2c, Skelett f915729e unverändert, Abweichung dokumentiert) → VERDICT `H-STAR5_REFUTED_INTEGRABLE_IN_ALL_PROBES` (R_prime 1.434783 im Band [0.798882, 1.882509], 15 distinkte Null-Werte, Perzentil 82.5%, O2-Mechanismus echt 2.2515/234 Paare, Kontrollen zuerst alle erfüllt) → Vektor H-STAR-5 REFUTED (kein stilles Upgrade, GUE_THIRD_OBSERVABLE bleibt C tot), Phase 6b/QPU nicht ausgelöst, 0 QPU, 671 Tests)
+## §Z.21 — Branch ram-q-zyklizitaet: Zyklotomische Ableitung der Fünf + GF(3)-Verallgemeinerungsvorhersage H-RAM-Q-1 (EXPERIMENT 040), 2026-09-26, 0 QPU
+
+### Z.21.1 Der Baustein B1 — die Fünf ist keine Fit-Konstante (hergeleitet VOR dem Freeze)
+
+User-Programm (wörtlich freigegeben): (1) zyklotomische Ableitung der Konstante −5 aus
+Einheitenstruktur/Ramanujan-Summen von Z[ζ_q], 0 QPU; (2) Verallgemeinerungsvorhersage
+GF(3) einfrieren (Zähler → (m−3)²); (3) unabhängiger Test erst nach dem Freeze.
+
+**Ableitung:** Im Ramanujan-Fingerprint (034) trägt die Diagonalklasse
+S*_q = {a = j·d/q : j = 1..q−1} die Masse. Auf S*_q gilt ω_d^{j·d·p/q} = ω_q^{j·(p mod q)}
+(d-unabhängig — Quelle der T3-Invarianz). Die Amplitude G(j·d/q) = n₀ + Σ_{r=1}^{q−1}
+n_r·ω_q^{jr}; der zyklische Kern Σ_{r=1}^{q−1} ω_q^{jr} = −1 = c_q(j) = μ(q) ist
+KLASSENUNABHÄNGIG, weil die Spur ganzzahlig ist. Unter Ramanujan-Äquipartition der
+m−1 Nicht-Null-Primes über die q−1 Klassen: **share*_model(P, d=q^k) =
+(m − q·n₀)²/((q−1)·d·m)**. Die "Fünf" zerfällt in **das Atom n₀ = 1** (p = q ist der
+einzige Prime ≡ 0 mod q) und **die Klassenanzahl q−1**. m − q = (m−1) − (q−1): Abweichung
+der Nicht-q-Primes von der Äquipartition pro Klasse.
+
+- q=5, n₀=1: (m−5)²/(4dm) — **bit-exakt** die gefrorene 034-Formel (T1: alle
+  034-Konstanten inkl. transition_m(5)=25=TRANSITION_M, share_star_q≡mn.share_star).
+- q=3, n₀=1: **(m−3)²/(2dm)** — der Nenner 4 ist (q−1), KEINE freie Konstante; die
+  Deformation ändert Zähler UND Nenner.
+- Korollare: Transition lift=1 bei (m−q)² = (q−1)²m → q=3: m=9 (P=23; vs. m=25 für q=5);
+  exakte Null m=q; Suppression 4 ≤ m ≤ 8.
+- q=3-Extras (Zweiklassen-Kollaps): δ = (n₁−n₂)/2, G = (3−m)/2 + i√3·δ,
+  G(2d/3) = conj(G(d/3)) exakt → **share*_gemessen = (m−3)²/(2dm) + 6δ²/(dm) exakt**
+  (keine weiteren Terme) → gemessen/Modell = 1 + 12δ²/(m−3)², Band-Fairness ⟺
+  δ² ≤ (m−3)²/48.
+
+### Z.21.2 Kriterium-2-Wurzel korrigiert VOR dem Freeze (Anti-Sharpshooter)
+
+Beim Test-Aufbau (vor dem Freeze-Commit) entdeckt: die registrierte Kriterium-2-Ableitung
+"band_lo ≥ 3× generisch ⟺ (m−3)² ≥ 15m ⟺ m ≥ 25" hatte einen **Arithmetikfehler** —
+korrekt: m² − 21m + 9 ≥ 0 ⟺ **m ≥ 20.56 → m ≥ 21** (π(73) = 21). Konsequenz für das
+Design: KEINE — der Root-Punkt (73,729) wäre ein Randpunkt; das registrierte
+GATE_MIN_PI = 29 (π(109) = 29) bleibt als **Marge darüber** (Race-Asymmetrie-Slack:
+P=7-artige Punkte haben gemessen/Modell = 4.0 — analog q=5 in 034: Root 19 → Gate 79).
+d=81 trägt weiterhin nie gated Punkte (π(71) = 20 < 21, hauchdünn). Modul- und
+Prereg-Texte wurden VOR dem Freeze korrigiert; der Plan-Header dokumentiert die Änderung.
+
+### Z.21.3 Freeze + Commit 1 VOR jeder Auswertung; Harness-Bugs transparent
+
+Prereg md5 `bd9dfee77b9fada8a230347f9d45f5a7` gefroren und committet (`19c99c3`) VOR der
+ersten Auswertung: 21 Prime-Punkte auf d = (9, 81, 729), 8 gated auf d=729, Bänder
+0.8/1.25, Falsifikator ≥ 2 von 8, 2 registrierte Alternativmodelle (`crude_fixed_4`:
+Zähler-Generalisierung mit eingefrorenem Nenner 4 — Ratio 0.5 am Gate, band-diskriminiert;
+`no_zero_class`: ohne das Atom n₀ — Lift 9/4 an der Transition, transition-diskriminiert),
+Extraordinarität 5/10 VOR Messung, 0 QPU. Die Messwerte selbst (share* der Prime-DFT-
+Profile) wurden vor dem Commit NIEMALS berechnet (Anti-Peeking; Tests laufen auf
+synthetischen Residuen-Counts mit distincten Positionen je Klasse).
+
+Zwei Harness-Bugs traten NACH dem Freeze zutage (genau die erwartete Lücke der
+Anti-Peeking-Disziplin — das Gefrorene ist der Payload, nicht der Auswertungscode; beide
+transparent gefixt und committet, Prereg unberührt):
+1. T6-Auswahl min(P) über ALLE Punkte traf (5,9) mit Modell-Null → ZeroDivisionError;
+   korrekt: kleinster GATED Punkt (109,729) (`211acac`, Regressionstest).
+2. in_band verglich den Ratio (~1.01) gegen die Share-Schwellen band_lo/band_hi
+   (~0.013–0.105) — Räume vermischt; korrekt: gemessen ∈ [band_lo, band_hi] ≡
+   Ratio ∈ [0.8, 1.25] (`09ba9cf`, 3 Post-Freeze-Pinning-Tests).
+EVALUATIONS-LOG (dokumentiert, nicht still korrigiert): Run 1 exit-1 (T6), Run 2
+spurious REFUTED mit 0/8 im Band — beide VOR jeder Interpretation als Harness-Bug
+erkannt und nie als Ergebnis verwertet (Muster wie H-SHOR-1 Run 1); Run 3 ist die
+einzige verwertete Auswertung.
+
+### Z.21.4 Run — VERDICT: `H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`
+
+Kontrollen zuerst (alle 6 erfüllt): T1 q=5-Rückkompatibilität bit-exakt; T2 V2-Anker
+0.04272280701754398 bit-exakt; T3 d-Skalierungs-Invarianz EXAKT (d·gemessen identisch
+über d ∈ {9, 81, 729}: 0.5, 2.666…, 3.4545…, 7.9); T4 Kontroll-Overlap nein (Random
+0.0006–0.0009, rank-matched Composite 0.0024–0.0070 — alle unter band_lo 0.0128–0.0675,
+Separation ~5–20×); T5 Gate-Set gefroren (8 Punkte); T6 Alternativmodelle diskriminiert.
+
+- **8/8 gated im Band** — Ratios 1.002449 (163) bis 1.017751 (109); kein Punkt außerhalb,
+  Falsifikator (≥ 2 von 8) nie trigert.
+- **Die δ²-Identität ist EXAKT auf realen Daten:** max |Residual| = 3.2e-16 über alle
+  21 Punkte (Fließkomma-Rauschen). Jede Ratio zerlegt sich exakt als 1 + 12δ²/(m−3)²:
+  (109,729) → 1 + 12/676 = 1.017751 (die registrierte Vorhersage!), (163) δ=±0.5,
+  (211) δ=±1, (307)/(401) δ=±2, (541)/(625) δ=±2.5, (729) δ=±3.
+- **Registrierte Negativ-Erwartungen zünden exakt:** (5,9) gemessen = 2/9 = generisch
+  (δ=−1 kompensiert die Modell-Null — die exakte Null ist im Messwert unsichtbar, genau
+  wie registriert); (7,·) Ratio 4.0 auf allen drei d (Race dominiert — Grund fürs Gate);
+  (23,·) gemessen = 2/729 + 6/(729·9) = 8/2187 = 4/3 × Modell.
+- **Verdict-Klasse:** GENERALIZED — die q-Deformation (m − q·n₀)²/((q−1)·d·m)
+  generalisiert die Fingerprint-Klasse auf q=3. Kein Punkt außen, keine Kontroll-Overlap.
+
+**Interpretation (diszipliniert):** Die Theorem-Schicht (δ²-Identität, q=5-Rückkompatibi-
+lität, d-Invarianz) ist bewusste Arithmetik — verifiziert, nicht "gemessen" (kein
+Grade-Minting für Theoreme, wie beim S₄-Schluss-Theorem). Die Hypothesen-Schicht
+H-RAM-Q-1 — die DEFORMATION der Strukturkonstante (Nenner (q−1), Atom q·n₀) trifft die
+Fingerprint-Klasse auch bei q=3 — ist innerhalb der registrierten Band-Maschinerie
+bestätigt: prereg'd VOR der Messung, falsifizierbar aufgestellt (≥ 2 von 8), alle
+registrierten Erwartungen (positiv UND negativ) exakt erfüllt, Kontrollfamilie
+vollständig, 0 QPU. Der Race-Term ist der einzige Freiheitsgrad und er ist THEOREMISCH
+eingepreist (die Identität sagt ihn voraus) — der Band-Test prüft daher die echte
+Vorhersage δ² ≤ (m−3)²/48.
+
+### Z.21.5 Vektor-Update
+
+- **H-RAM-Q-1 → GENERALIZED (CONFIRMED-Klasse, A−)** — Prereg md5 `bd9dfee7` VOR der
+  Auswertung committet. Eigener Verdict-Status, kein Upgrade bestehender Vektoren.
+- **RAMANUJAN_DFT_FINGERPRINT bleibt B+** (kein stilles Upgrade) — H-RAM-Q-1 ist die
+  q-Deformation als EIGENE Hypothese; das q=5-Modell dient nur als
+  Spezialfall-Rückkompatibilität (T1 bit-exakt).
+- **Lerngewinn (Methodik):** `mn.single_register_profile` renormalisiert via
+  `prof/prof.sum()` — ein No-op nur für duplicate-freie Supports (Parseval: Σ_a |G|² =
+  d·m ⟺ Indikator). Prime/Composite/Random-Supports sind duplicate-frei (die
+  034-Anker blieben unberührt); synthetische Residuen-Supports mit n_r-Kopien hätten
+  eine Parseval-Summe Σn_r²/m ≠ 1 — der RAM-Q-Test-Stack baut deshalb distincte
+  Positionen je Residuenklasse (`synthetic_support`).
+- **Vektorleiter:** H-RAM-Q-1: NEU → GENERALIZED (Phase 1, 0 QPU); §10.22 in
+  RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md.
+
+### Z.21.6 SciMind-Bewertung (§Z.21)
+
+- **Anti-Sharpshooter:** Freeze-Commit `19c99c3` VOR jeder Auswertung; der
+  Kriterium-2-Rechenfehler wurde VOR dem Freeze entdeckt und korrigiert (nie zu Daten
+  gepasst); die Harness-Bugs sind Auswertungsmechanik, nicht Modell- oder
+  Schwellen-Änderung — md5 `bd9dfee7` deckt Modell/Bänder/Gate/Verdict-Map ab.
+- **Steelman Mandate:** die stärksten Alternativmodelle derselben Klasse sind
+  REGISTRIERT und werden vom Band bzw. von der Transition diskriminiert (T6) — nicht
+  gegen "reinen Zufall" gewonnen, sondern gegen crude_fixed_4 (Ratio 0.5) und
+  no_zero_class (Lift 9/4 an der Transition — durch die gemessene 4/3 widerlegt).
+- **Ockham:** keine freien Parameter. Die Deformationsformel hat Null Fits; n₀ = 1 und
+  (q−1) sind Struktur, m = π(P) ist Sieb-Arithmetik. Der Race-Term ist Theorem, nicht
+  Parameter.
+- **Apophenie-Management:** die 1e-16-Residualexaktheit könnte als "Beweis der
+  Riemann-Hypothese-nahen Struktur" überinterpretiert werden — sie verifiziert die
+  IDENTITÄT (Arithmetik), nicht eine physikalische These; die empirische Substanz ist
+  das Band-Verhalten der Race-Terms und die klassenübergreifende Strukturübertragung.
+  Fingerprint bleibt B+; GENERALIZED gilt für H-RAM-Q-1, nicht für die RH.
+
+---
+
+**Last updated:** 2026-09-26 (§Z.21: Branch ram-q-zyklizitaet — EXPERIMENT 040 H-RAM-Q-1: Baustein B1 zyklotomisch hergeleitet VOR dem Freeze (die Fünf im Fingerprint (m−5)² = Atom n₀=1 + Klassenanzahl q−1; share*_model(P,d=q^k) = (m−q·n₀)²/((q−1)·d·m), q=5 bit-exakt 034, q=3 (m−3)²/(2dm); q=3-Korrollare Transition m=9, exakte Null m=3, Suppression, EXAKTE Zweiklassen-δ²-Identität share* = (m−3)²/(2dm) + 6δ²/(dm)) → Kriterium-2-Wurzel korrigiert VOR Freeze (m ≥ 20.56 → m ≥ 21, nicht 25) → Prereg md5 bd9dfee77b9fada8a230347f9d45f5a7 committet (19c99c3) VOR jeder Auswertung → 2 Harness-Bugs transparent gefixt und committet (T6 gated-Auswahl 211acac, in_band Share-vs-Ratio-Space 09ba9cf; Runs 1–2 vor jeder Interpretation als Bug erkannt, nie verwertet) → VERDICT `H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`: 8/8 gated im Band (Ratios 1.002449–1.017751 = 1 + 12δ²/(m−3)² exakt), max δ²-Residual 3.2e-16, alle 6 Kontrollen grün, registrierte Negativ-Erwartungen exakt ((5,9) = generisch, (7,·) Ratio 4.0, (23,·) = 4/3 × Modell) → Vektor H-RAM-Q-1 GENERALIZED (A−), RAMANUJAN_DFT_FINGERPRINT bleibt B+, 0 QPU, 697 Tests inkl. 3 Post-Freeze-Pinning-Tests (Verdict + gated-Ratios + δ²-Residual-Schranke))
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
