@@ -804,9 +804,10 @@ _CL.append(Claim(
     # Tests (Raw-Vertrag/Resume/Guards, EXPERIMENT 042) -> 803; +2 Inventar-
     # Filter-Regressionstests (Hex-Fortsetzung/Mixed-Kontext, Fez-Raw) -> 805;
     # +26 gefrorene Auswertungs-Tests (Synth-Verdict-Zweige + Verdict-Pin
-    # VOID_CALIBRATION, EXPERIMENT 042) -> 831
+    # VOID_CALIBRATION, EXPERIMENT 042) -> 831;
+    # Phase 10 (H-RAM-Q-3b Freeze A', Minimalregister d=q): +24 -> 855
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=831,
+    id="test_count", value=855,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

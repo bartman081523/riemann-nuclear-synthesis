@@ -1,0 +1,1028 @@
+{
+  "experiment": "043-ram-q-minimal-register-echo",
+  "hypothesis": "H-RAM-Q-3b",
+  "status": "REGISTERED_NOT_MEASURED",
+  "registered_before": "2026-09-26",
+  "registered_by": "pt_ram_q_hardware2.freeze_prereg \u2014 payload_md5 = md5(json.dumps(payload, sort_keys=True, separators=(',',':'))) OHNE md5-Feld (Haus-Konvention, pt_ram_q_hardware)",
+  "user_anchor": "Setze genau diesen Pfad um. Option A \u00fcber die bewiesene d-Invarianz ist der einzig saubere Weg, das Hardware-Design zu reparieren, ohne die Epistemik zu verbiegen. Indem wir das Register auf die minimalen Repr\u00e4sentanten (q=3 auf d=3, q=5 auf d=5) verdichten, schrumpft die Echo-Tiefe drastisch. So machen wir die unver\u00e4ndert gefrorene Garantie kappa >= 0.81 physikalisch einl\u00f6sbar, anstatt die Metrik nach einem Void r\u00fcckwirkend aufzuweichen. Die Wahl neuer P-Werte ist essenziell, da die 13 alten Ratios durch die ermittelte Reskalierung vorbelastet sind. Die Echo-Tiefen-Leiter liefert uns parallel dazu das gemessene D\u00e4mpfungsgesetz, was die Fehleranf\u00e4lligkeit starrer Assumptions (= (1-eps)^2) eliminiert. Die M\u00f6glichkeit, die d-Invarianz \u00fcber Lauf 1 und Lauf 2 hinweg hardwareseitig zu testen, ist ein massiver analytischer Bonus. Erstelle das neue Prereg-Skelett im Status REGISTERED_NOT_MEASURED. Integriere die Minimalregister, die Echo-Leiter, die neuen P-Werte und dokumentiere Option B explizit nur als nachgelagerte Fallback-Lesart. Sobald das Skelett steht und die Hashes generiert sind, k\u00f6nnen wir den Zustand vor dem neuen QPU-Kontakt absolut sauber einfrieren.",
+  "layer_separation": {
+    "hermeneutic_index": "M1-M5 bleiben kartografischer Index \u00fcber dem Bestand (Branch gematria-mirror-synthesis); sie ordnen die dokumentierte Reihenfolge und generieren niemals Evidenz.",
+    "encoding_verbot": "Die hermeneutischen Werte 1025/348/879/5683 werden NIEMALS als Encoding-Parameter auf Quanten-Register gepresst. Dieses Experiment codiert ausschlie\u00dflich exakte arithmetische Gr\u00f6\u00dfen (Primzahlen, Residuen, Counts).",
+    "evidence_layer": "Die Arithmetik der verrauschten Counts diktiert: share*_hw aus den Hardware-Counts via ABSOLUT-FFT bei j*d/q (Wraparound-Fold n_full[a::d] am Minimalregister), Ratio gegen GEFRORENE Modell-Denominatoren (n0, m aus der wahren Arithmetik, kein Refit)."
+  },
+  "prior_chain": {
+    "a2fc4875e10dd198e95d4996b1692759": "EXPERIMENT 034 \u2014 q=5 Fingerprint, 5 gated Punkte @ d=625",
+    "bd9dfee77b9fada8a230347f9d45f5a7": "EXPERIMENT 040 \u2014 H-RAM-Q-1 q=3 Deformation, 8 gated Punkte @ d=729",
+    "704916f946beedf49c51ab6bc9bf37bd": "EXPERIMENT 041 \u2014 H-RAM-Q-2 q-universelle Identit\u00e4t (CONFIRMED B)",
+    "18fb1e62a3dd71c6f595416cdd40bcc1": "EXPERIMENT 032 \u2014 \u00a7Z.14 Fez-QPU-Pr\u00e4zedenz (12 Circuits x 8192 Shots, TOKEN1)",
+    "432d43fe1bc9e2594efd3b35266d2d81": "EXPERIMENT 042 \u2014 H-RAM-Q-3 Freeze A (REGISTERED_NOT_MEASURED, 58 Circuits)",
+    "d19f4a563d88e0cf3ffd4b187a10ca73": "EXPERIMENT 042 \u2014 Fez-Raw-Counts darq1stvr3kc73ej96ig (committed VOR Auswertung)"
+  },
+  "phase9_verdict_context": {
+    "verdict": "H-RAM-Q-3_VOID_CALIBRATION",
+    "befund": "alle 13 kappa_hat < 0.81 [0.6608..0.8080], Kontrollen t3/t4/t5/t6/md5 gruen, 0 Amplification -> kalibrierbedingt, nicht pipeline-bedingt",
+    "echo_tiefen": "4q-Arm (d=9) Loschmidt 30 2q (Prep 13), 5q-Arm (d=25) 76 2q (Prep 36) \u2014 per-2q-Survival 0.990-0.993 (4q) bzw. 0.9946-0.9951 (5q), Readout nur 0.33-0.39 %/Qubit",
+    "budget_arithmetik": "Garantie kappa >= 0.81 verlangt Echo <= ~29.7 2q (4q, KNAPP verfehlt: max 0.8080) bzw. <= ~38.7-42.9 2q (5q, generische 5-Qubit-Prep sitzt am Tiefe-Optimum, unerreichbar)",
+    "korrektur": "\u00a710.25/\u00a7Z.24-Korrektur (armspezifische eps_C-Rueckrechnung, committet): die urspruengliche gemischte Rueckrechnung (0.17 %/2q) hatte einen q3-kappa-Wert mit der 5q-Echo-Tiefe kombiniert"
+  },
+  "design_decision": {
+    "option_a_gewaehlt": "Minimalregister d=q via bewiesener d-Invarianz (041 T3 exakt): das Register ist ein INSTRUMENT, nicht die Hypothese \u2014 die Ratio-Vorhersagen sind d-frei, N = Primzahlverteilung mod q ist VOLLIG d-unabhaengig.",
+    "why_not_synthese": "Der 5q-Arm muesste 76 -> <= ~38.7-42.9 2q schrumpfen; die generische 5-Qubit-Prep sitzt nahe am Tiefe-Optimum (~2^n CNOT) \u2014 via Synthese unerreichbar. Der 4q-Arm ist KNAPP (29.7 vs 30 real).",
+    "why_not_option_b_primaer": "per-GATE-eps ist NICHT arm-transferierbar (4q ~2x verlustreicher pro Gate); Latte-Verschiebungs-Optik; Identifikations-Spannung bei niedrigem kappa_hat. Option B bleibt Fallback-Lesart (siehe fallback_lesart_b).",
+    "garantie_unveraendert": "KAPPA_CEILING = 0.81 bleibt EXAKT gefroren \u2014 die Garantie wird physikalisch einloesbar gemacht, nicht metrisch aufgeweicht (User-Direktive)."
+  },
+  "frozen_theorems": {
+    "B2_q_universal_identity": "share* = (m - q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m) f\u00fcr ALLE Count-Vektoren inkl. Wraparound (041, CONFIRMED B)",
+    "d_invariance": "d*m*share* haengt nur von den mod-q gefalteten Counts ab (041 T3 exakt, k=1 Eingeschlossen) -> die Minimalregister d=3/d=5 tragen die IDENTISCHEN Ratio-Vorhersagen wie d=9/25/729/625",
+    "ratio_forms": {
+      "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2",
+      "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+      "general": "ratio_true = (q-1)*(q*sum_r N_r^2 - m^2)/(m - q*n0)^2"
+    },
+    "shuffle_inertness_at_dq": "Bei d=q ist der Fold die Identitaet; eine Label-Permutation permutiert N und laesst sum N^2 invariant => expected_share(Shuffle) == share_true_reg EXAKT. Die Phase-9-Shuffle-Kontrolle ist am Minimalregister strukturell inert (wuerde IM Prime-Band liegen) und wird durch Composite- + Uniform-Null-Kontrollen ersetzt."
+  },
+  "operational_definitions": {
+    "state": "|psi(P,d)> = sum_a sqrt(n_a/m)|a> mit n_a = #{p <= P prim : p \u2261 a mod d}; am Minimalregister d=q direkt die q Residuenklassen (q=3: 3 Labels von 4 auf 2 Qubits, Label 3 ideal leer; q=5: 5 Labels von 8 auf 3 Qubits, Labels 5..7 ideal leer).",
+    "hw_counts": "n_hat = m*c/S auf dem 2^n-Label-Vektor, dann Wraparound-Fold n_d[a] = sum n_full[a::d] (Idle-Labels fallen via a mod d in echte Klassen); unter Depolarisierung erhaelt die Uniform-Masse m exakt: sum n_hat = m.",
+    "share_hw": "share*_hw = sum_{j=1}^{q-1} |DFT_d(n_hat)[j*d/q]|^2/(d*m), ABSOLUT-FFT-Konvention (Haus-Lektion, kein Vorzeichen-Mix).",
+    "ratio_hw": "share*_hw / model_share_reg mit model_share_reg = (m - q*n0_true)^2/((q-1)*d*m) GEFROREN auf wahre Arithmetik-Werte.",
+    "kappa": "kappa_p = P_L/P_ro_ref. P_L: gepaarter Loschmidt-Circuit (State-Prep + exakte Inverse, gleiche Tiefe), P(0^n); P_ro_ref: Readout-Kalibrier-Circuit |0>^n im SELBEN Job. kappa ~= (1-eps_C)^2 ist exakt der Daempfungsfaktor der kohaerenten Struktur \u2014 gemessen, nicht gefittet.",
+    "idle_labels": "Am Minimalregister sind 1/4 (q3, d=3: Label 3) bzw. 3/8 (q5, d=5: Labels 5..7) Labels ideal leer; ihre Leakage-Masse faellt via Wraparound-Fold in echte Klassen (Label a faellt in Klasse a mod d). Stage-2-Form-Validierung am ECHTEN Fold prueft das VOR Hardware; der kappa-Kanal (P(0^n)) ist davon unabhaengig."
+  },
+  "prediction_freeze": {
+    "classical_core": {
+      "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2 \u2014 die User-Headline",
+      "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+      "verdict_in_040_034": "8/8 und 5/5 gated Punkte im Band [0.8, 1.25]"
+    },
+    "p_rule": {
+      "rule": "P_neu = kleinste Primzahl p mit p > P_alt + 30 (je alter Punkt, deterministisch, VOR jeder Messung berechnet)",
+      "motivation": "Die 13 alten Ratios sind durch die ermittelte Reskalierung vorbelastet (Anti-Sharpshooter); neue P nie gemessen.",
+      "old_q3": [
+        109,
+        163,
+        211,
+        307,
+        401,
+        541,
+        625,
+        729
+      ],
+      "old_q5": [
+        401,
+        463,
+        541,
+        599,
+        625
+      ],
+      "new_q3": [
+        149,
+        197,
+        251,
+        347,
+        433,
+        577,
+        659,
+        761
+      ],
+      "new_q5": [
+        433,
+        499,
+        577,
+        631,
+        659
+      ]
+    },
+    "noise_law": {
+      "ratio_hw": "ratio_hw = kappa*(1 - 1/S)*ratio_true + L_q (UNVERAENDERT aus Freeze A/042)",
+      "L_q": "L_q = (q-1)^2*m^2/(S*(m-q*n0)^2) \u2014 exakte multinomiale Erwartung; der Lift ist UNTER dem Shot-Noise und wird im Zentrum registriert, nicht als separierbar behauptet",
+      "suppression": "kappa = P_L/P_ro_ref daempft die kohaerente Struktur; bei Echo ~2-6 2q (q3) bzw. ~8-12 2q (q5) ist kappa_hat ~ 0.94-0.98 bzw. ~0.93-0.96 erwartet (aus per-2q-Survival 0.990-0.993 / 0.9946-0.9951 mal Echo-Tiefe abgeleitet; exakte Tiefe erst im Freeze-B'-ISA-Report) \u2014 beide oberhalb der unver\u00e4ndert gefrorenen Garantie 0.81 mit Marge",
+      "honesty": "Das Gesetz koppelt zwei operationell unabhaengige Messungen (Loschmidt-Survival und Harmonischen-Share); Verletzung der Kopplung = Falsifikation via Band."
+    },
+    "points": {
+      "q3_d3": [
+        {
+          "P": 149,
+          "d": 3,
+          "q": 3,
+          "m": 35,
+          "n_d": [
+            1,
+            15,
+            19
+          ],
+          "N": [
+            1,
+            15,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 536,
+          "ratio_true": 1.046875,
+          "L_q": 0.0005841255187988281,
+          "share_true_reg": 5.104761904761904,
+          "model_share_reg": 4.876190476190477,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.046875
+        },
+        {
+          "P": 197,
+          "d": 3,
+          "q": 3,
+          "m": 45,
+          "n_d": [
+            1,
+            20,
+            24
+          ],
+          "N": [
+            1,
+            20,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 906,
+          "ratio_true": 1.0272108843537415,
+          "L_q": 0.0005605269451530613,
+          "share_true_reg": 6.711111111111111,
+          "model_share_reg": 6.533333333333333,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0272108843537415
+        },
+        {
+          "P": 251,
+          "d": 3,
+          "q": 3,
+          "m": 54,
+          "n_d": [
+            1,
+            25,
+            28
+          ],
+          "N": [
+            1,
+            25,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1314,
+          "ratio_true": 1.0103806228373702,
+          "L_q": 0.0005474156574394464,
+          "share_true_reg": 8.11111111111111,
+          "model_share_reg": 8.027777777777779,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0103806228373702
+        },
+        {
+          "P": 347,
+          "d": 3,
+          "q": 3,
+          "m": 69,
+          "n_d": [
+            1,
+            32,
+            36
+          ],
+          "N": [
+            1,
+            32,
+            36
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2202,
+          "ratio_true": 1.0110192837465564,
+          "L_q": 0.0005336793001033058,
+          "share_true_reg": 10.63768115942029,
+          "model_share_reg": 10.521739130434783,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0110192837465566
+        },
+        {
+          "P": 433,
+          "d": 3,
+          "q": 3,
+          "m": 84,
+          "n_d": [
+            1,
+            40,
+            43
+          ],
+          "N": [
+            1,
+            40,
+            43
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3294,
+          "ratio_true": 1.0041152263374487,
+          "L_q": 0.0005251200274348423,
+          "share_true_reg": 13.071428571428571,
+          "model_share_reg": 13.017857142857142,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0041152263374487
+        },
+        {
+          "P": 577,
+          "d": 3,
+          "q": 3,
+          "m": 106,
+          "n_d": [
+            1,
+            50,
+            55
+          ],
+          "N": [
+            1,
+            50,
+            55
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 5342,
+          "ratio_true": 1.0070694693185032,
+          "L_q": 0.0005171390446790461,
+          "share_true_reg": 16.79874213836478,
+          "model_share_reg": 16.680817610062892,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0070694693185032
+        },
+        {
+          "P": 659,
+          "d": 3,
+          "q": 3,
+          "m": 120,
+          "n_d": [
+            1,
+            56,
+            63
+          ],
+          "N": [
+            1,
+            56,
+            63
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 6918,
+          "ratio_true": 1.0107385492000878,
+          "L_q": 0.0005136423405654175,
+          "share_true_reg": 19.216666666666665,
+          "model_share_reg": 19.0125,
+          "delta": -3.5,
+          "delta_sq": 12.25,
+          "closed_form": 1.0107385492000878
+        },
+        {
+          "P": 761,
+          "d": 3,
+          "q": 3,
+          "m": 135,
+          "n_d": [
+            1,
+            65,
+            69
+          ],
+          "N": [
+            1,
+            65,
+            69
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 8736,
+          "ratio_true": 1.002754820936639,
+          "L_q": 0.0005107280636621901,
+          "share_true_reg": 21.57037037037037,
+          "model_share_reg": 21.511111111111113,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.002754820936639
+        }
+      ],
+      "q5_d5": [
+        {
+          "P": 433,
+          "d": 5,
+          "q": 5,
+          "m": 84,
+          "n_d": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "N": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1594,
+          "ratio_true": 1.0216311488543504,
+          "L_q": 0.0022081797788815897,
+          "share_true_reg": 3.795238095238095,
+          "model_share_reg": 3.7148809523809523,
+          "sigma2": 6.75,
+          "closed_form": 1.0216311488543504
+        },
+        {
+          "P": 499,
+          "d": 5,
+          "q": 5,
+          "m": 95,
+          "n_d": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "N": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2050,
+          "ratio_true": 1.0123456790123457,
+          "L_q": 0.002176167052469136,
+          "share_true_reg": 4.315789473684211,
+          "model_share_reg": 4.2631578947368425,
+          "sigma2": 5.0,
+          "closed_form": 1.0123456790123457
+        },
+        {
+          "P": 577,
+          "d": 5,
+          "q": 5,
+          "m": 106,
+          "n_d": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "N": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2584,
+          "ratio_true": 1.0132339966669934,
+          "L_q": 0.002151290314675032,
+          "share_true_reg": 4.875471698113207,
+          "model_share_reg": 4.811792452830189,
+          "sigma2": 6.75,
+          "closed_form": 1.0132339966669934
+        },
+        {
+          "P": 631,
+          "d": 5,
+          "q": 5,
+          "m": 115,
+          "n_d": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "N": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3080,
+          "ratio_true": 1.018181818181818,
+          "L_q": 0.0021347172004132233,
+          "share_true_reg": 5.356521739130435,
+          "model_share_reg": 5.260869565217392,
+          "sigma2": 11.0,
+          "closed_form": 1.018181818181818
+        },
+        {
+          "P": 659,
+          "d": 5,
+          "q": 5,
+          "m": 120,
+          "n_d": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "N": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3370,
+          "ratio_true": 1.019281663516068,
+          "L_q": 0.0021266540642722116,
+          "share_true_reg": 5.616666666666666,
+          "model_share_reg": 5.510416666666667,
+          "sigma2": 12.75,
+          "closed_form": 1.019281663516068
+        }
+      ]
+    },
+    "anchor_verification": {
+      "old_P_at_dq_vs_040": "8/8 bit-exakt (tol 1e-9)",
+      "old_P_at_dq_vs_034": "5/5 bit-exakt (tol 1e-9)",
+      "new_P_d_invariance": "13/13 identisch (d=q, d=q^2, d=q^3; tol 1e-12)"
+    }
+  },
+  "echo_ladder": {
+    "purpose": "GEMESSENES Daempfungsgesetz statt starrer (1-eps)^2-Annahme: r-fache (Prep + exakte Inverse)-Bloecke, r in [1, 2, 4, 8], je Arm am Ankerpunkt; log kappa_r vs r (LSQ) liefert per-Block-Survival und die Kalibrier-Konstanten fuer den Fallback-B-Pfad.",
+    "repeats": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "anchors": {
+      "q3": 149,
+      "q5": 433
+    },
+    "r1_shared": "r=1 ist EXAKT der gepaarte Loschmidt-Circuit des Ankerpunkts (geteilt, kein doppeltes Circuit) \u2014 Konsistenz kappa_ladder(r=1) == kappa_hat(Anker) per Konstruktion.",
+    "barriers": "Barrier zwischen allen Bloecken (Transpiler-Kuerzung verboten, Phase-9-Konvention).",
+    "erwartungsbereich_diagnostisch": "aus der \u00a710.25/\u00a7Z.24-Korrektur abgeleitet (NICHT verdict-tragend): q3 per-2q-Survival 0.990-0.993, Block-Tiefe ~2-6 2q => kappa_block ~0.94-0.98; q5 per-2q-Survival 0.9946-0.9951, Block-Tiefe ~8-12 2q => kappa_block ~0.93-0.96 (exakte Tiefen erst im Freeze-B'-ISA-Report)",
+    "verdict_role": "Kalibrier-Diagnostik: liefert das gemessene Daempfungsgesetz kappa(Tiefe) fuer Fallback-B und die Tiefenkonsistenz; das Verdict bleibt an die per-Punkt kappa-Paarung gekoppelt."
+  },
+  "hardware_parameters": {
+    "backend": "ibm_fez",
+    "token": "TOKEN1 (IBMQ_TOKEN); TOKEN2 unberuehrt",
+    "n_shots": 8192,
+    "register_topology": {
+      "q3_d3": {
+        "d": 3,
+        "n_qubits": 2,
+        "labels": 4,
+        "real_labels": 3,
+        "idle_labels": 1,
+        "note": "Minimalrepraesentant: d=q=3; Amplituden sqrt(n_a/m) auf 3 Labels, Label 3 ideal leer (Wraparound-Fold: Label a faellt in Klasse a mod 3)"
+      },
+      "q5_d5": {
+        "d": 5,
+        "n_qubits": 3,
+        "labels": 8,
+        "real_labels": 5,
+        "idle_labels": 3,
+        "note": "Minimalrepraesentant: d=q=5; Amplituden sqrt(n_a/m) auf 5 Labels, Labels 5..7 ideal leer"
+      }
+    },
+    "state_prep": "Qiskit StatePreparation aus den gefrorenen n_d-Vektoren; Loschmidt = Prep + exakte Inverse (gleiche Gate-Menge); Leiter = r Bloecke mit Barrieren.",
+    "circuit_budget": {
+      "structure": 39,
+      "loschmidt": 13,
+      "echo_ladder": 6,
+      "diagnostik_structure": 13,
+      "diagnostik_loschmidt": 13,
+      "negative_controls": 4,
+      "readout_cal": 2,
+      "total": 90,
+      "total_shots": 737280,
+      "jobs": 1
+    },
+    "run_config": {
+      "optimization_level": 3,
+      "dynamical_decoupling": "XX",
+      "resilience": "none (raw SamplerV2 counts)"
+    },
+    "isa_ceilings": {
+      "per_circuit_2q_max": 120,
+      "total_2q_max": 6000,
+      "erwartung": "max ~96 2q (Leiter r=8, q5) je Circuit, total ~500-1100 2q (Prognose); die echten Werte werden in Freeze B' am ISA-Report registriert",
+      "measured_when": "Stage-2-Transpilation VOR Hardware; Backend-Target-Laden = kein Quota-Kontakt (kein Job), \u00a7Z.14-Phase-3b-Praezedenz",
+      "abort": "Ceiling-\u00dcberschreitung vor dem QPU-Lauf -> Abbruch, Re-Freeze"
+    }
+  },
+  "simulation_leg": {
+    "purpose": "0 QPU: Validierung der Daempfungsform auf dem gefrorenen STRESS-Modell am Minimalregister VOR Hardware (inkl. Wraparound-Fold der Idle-Labels); Freeze-B'-Bandbreiten.",
+    "stress_model": "pt_ram_q_hardware_aer.build_noise_model-Pr\u00e4zedenz (depolarizing p1 auf 1q-Gates, ratio*p1 auf cz, ReadoutError ro=1e-2) \u2014 NICHT kalibriert, konservativ.",
+    "stress_grid_p1": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "n_ens": 8,
+    "form_validation": "|ratio_Aer - c(kappa_hat_Aer)| <= TOL_FORM = 0.03 an ALLEN 13 Punkten x 6 Stresslevel; sonst Re-Freeze-Zyklus (dokumentiert, Hardware blockiert) \u2014 v1->v2-Disziplin (H-STAR-5-/Phase-9-Praezedenz).",
+    "freeze_b": "w_B = max(W_B_FLOOR, q97.5-Halbbreite der Ensemble-Residuen \u00fcber alle Punkte x Stresslevel), w_B <= W_A = 0.05, sonst Re-Freeze; Zentrum c(kappa) bleibt GEFROREN (kein Aer-Re-Zentrieren)."
+  },
+  "diagnostik_bein": {
+    "purpose": "Hardware-d-Invarianz \u00dcBER DIE L\u00c4UFE (User: massiver analytischer Bonus): die 13 alten P werden am Minimalregister d=q NEU gemessen (nie bei diesen Registern gemessen => Messung nicht vorbelastet) und gegen das committed run-1-Eval (pt_ram_q_hardware_eval.json, Job darq1stvr3kc73ej96ig) verglichen.",
+    "points": {
+      "q3_d3": [
+        {
+          "P": 109,
+          "d": 3,
+          "q": 3,
+          "m": 29,
+          "n_d": [
+            1,
+            13,
+            15
+          ],
+          "N": [
+            1,
+            13,
+            15
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 344,
+          "ratio_true": 1.017751479289941,
+          "L_q": 0.0006074623243343195,
+          "share_true_reg": 3.954022988505747,
+          "model_share_reg": 3.8850574712643677,
+          "delta": -1.0,
+          "delta_sq": 1.0,
+          "closed_form": 1.017751479289941
+        },
+        {
+          "P": 163,
+          "d": 3,
+          "q": 3,
+          "m": 38,
+          "n_d": [
+            1,
+            18,
+            19
+          ],
+          "N": [
+            1,
+            18,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 614,
+          "ratio_true": 1.0024489795918368,
+          "L_q": 0.0005755739795918367,
+          "share_true_reg": 5.385964912280702,
+          "model_share_reg": 5.37280701754386,
+          "delta": -0.5,
+          "delta_sq": 0.25,
+          "closed_form": 1.0024489795918368
+        },
+        {
+          "P": 211,
+          "d": 3,
+          "q": 3,
+          "m": 47,
+          "n_d": [
+            1,
+            22,
+            24
+          ],
+          "N": [
+            1,
+            22,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 974,
+          "ratio_true": 1.006198347107438,
+          "L_q": 0.0005571349593233471,
+          "share_true_reg": 6.907801418439717,
+          "model_share_reg": 6.865248226950355,
+          "delta": -1.0,
+          "delta_sq": 1.0,
+          "closed_form": 1.006198347107438
+        },
+        {
+          "P": 307,
+          "d": 3,
+          "q": 3,
+          "m": 63,
+          "n_d": [
+            1,
+            29,
+            33
+          ],
+          "N": [
+            1,
+            29,
+            33
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1824,
+          "ratio_true": 1.0133333333333334,
+          "L_q": 0.000538330078125,
+          "share_true_reg": 9.65079365079365,
+          "model_share_reg": 9.523809523809524,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0133333333333334
+        },
+        {
+          "P": 401,
+          "d": 3,
+          "q": 3,
+          "m": 79,
+          "n_d": [
+            1,
+            37,
+            41
+          ],
+          "N": [
+            1,
+            37,
+            41
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2912,
+          "ratio_true": 1.0083102493074791,
+          "L_q": 0.0005275905957842797,
+          "share_true_reg": 12.286919831223628,
+          "model_share_reg": 12.185654008438819,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0083102493074791
+        },
+        {
+          "P": 541,
+          "d": 3,
+          "q": 3,
+          "m": 100,
+          "n_d": [
+            1,
+            47,
+            52
+          ],
+          "N": [
+            1,
+            47,
+            52
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 4742,
+          "ratio_true": 1.0079710915081306,
+          "L_q": 0.0005189512700605803,
+          "share_true_reg": 15.806666666666667,
+          "model_share_reg": 15.681666666666667,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0079710915081306
+        },
+        {
+          "P": 625,
+          "d": 3,
+          "q": 3,
+          "m": 114,
+          "n_d": [
+            1,
+            54,
+            59
+          ],
+          "N": [
+            1,
+            54,
+            59
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 6198,
+          "ratio_true": 1.0060871682493304,
+          "L_q": 0.0005150315010956903,
+          "share_true_reg": 18.12280701754386,
+          "model_share_reg": 18.013157894736842,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0060871682493304
+        },
+        {
+          "P": 729,
+          "d": 3,
+          "q": 3,
+          "m": 129,
+          "n_d": [
+            1,
+            61,
+            67
+          ],
+          "N": [
+            1,
+            61,
+            67
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 7992,
+          "ratio_true": 1.0068027210884354,
+          "L_q": 0.0005118095415249433,
+          "share_true_reg": 20.651162790697676,
+          "model_share_reg": 20.511627906976745,
+          "delta": -3.0,
+          "delta_sq": 9.0,
+          "closed_form": 1.0068027210884354
+        }
+      ],
+      "q5_d5": [
+        {
+          "P": 401,
+          "d": 5,
+          "q": 5,
+          "m": 79,
+          "n_d": [
+            1,
+            18,
+            22,
+            21,
+            17
+          ],
+          "N": [
+            1,
+            18,
+            22,
+            21,
+            17
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1454,
+          "ratio_true": 1.0620891161431703,
+          "L_q": 0.002225977561176041,
+          "share_true_reg": 3.681012658227848,
+          "model_share_reg": 3.4658227848101264,
+          "sigma2": 17.0,
+          "closed_form": 1.0620891161431703
+        },
+        {
+          "P": 463,
+          "d": 5,
+          "q": 5,
+          "m": 90,
+          "n_d": [
+            1,
+            21,
+            23,
+            24,
+            21
+          ],
+          "N": [
+            1,
+            21,
+            23,
+            24,
+            21
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1840,
+          "ratio_true": 1.0186851211072665,
+          "L_q": 0.0021896626297577856,
+          "share_true_reg": 4.088888888888889,
+          "model_share_reg": 4.013888888888889,
+          "sigma2": 6.75,
+          "closed_form": 1.0186851211072665
+        },
+        {
+          "P": 541,
+          "d": 5,
+          "q": 5,
+          "m": 100,
+          "n_d": [
+            1,
+            24,
+            25,
+            26,
+            24
+          ],
+          "N": [
+            1,
+            24,
+            25,
+            26,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2270,
+          "ratio_true": 1.0060941828254848,
+          "L_q": 0.002164127423822715,
+          "share_true_reg": 4.54,
+          "model_share_reg": 4.5125,
+          "sigma2": 2.75,
+          "closed_form": 1.0060941828254848
+        },
+        {
+          "P": 599,
+          "d": 5,
+          "q": 5,
+          "m": 109,
+          "n_d": [
+            1,
+            25,
+            29,
+            28,
+            26
+          ],
+          "N": [
+            1,
+            25,
+            29,
+            28,
+            26
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2754,
+          "ratio_true": 1.018491124260355,
+          "L_q": 0.0021454399154031065,
+          "share_true_reg": 5.053211009174312,
+          "model_share_reg": 4.961467889908257,
+          "sigma2": 10.0,
+          "closed_form": 1.018491124260355
+        },
+        {
+          "P": 625,
+          "d": 5,
+          "q": 5,
+          "m": 114,
+          "n_d": [
+            1,
+            26,
+            31,
+            29,
+            27
+          ],
+          "N": [
+            1,
+            26,
+            31,
+            29,
+            27
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3044,
+          "ratio_true": 1.0248295598013635,
+          "L_q": 0.0021364205454086358,
+          "share_true_reg": 5.340350877192982,
+          "model_share_reg": 5.210964912280701,
+          "sigma2": 14.75,
+          "closed_form": 1.0248295598013635
+        }
+      ]
+    },
+    "reps": 1,
+    "loschmidt_gepaart": true,
+    "verdict_role": "NICHT verdict-tragend; Re-Freeze-Trigger-Analyse nur.",
+    "rule": "res_v1(P, d=q, run 2) - res_v1(P, d=q^k, run 1) mit res_v1 = ratio_hw - [kappa_hat*(1-1/S)*ratio_true + L_q] (Zentrum UNVERAENDERT); |Delta res| <= W_CROSS = 0.09 => HARDWARE-D_INVARIANZ_KONSISTENT, sonst HARDWARE-D_INVARIANZ_VERLETZT (dokumentierte Analyse).",
+    "w_cross_derivation": {
+      "n": 13,
+      "max_abs": 0.06678273477833041,
+      "std": 0.02917569718975814,
+      "two_sqrt2_std": 0.08252133331489311,
+      "w_cross_rule": "|res_v1_run2 - res_v1_run1| <= W_CROSS = 0.09 (= 2*sqrt(2)*std_run1 = 0.0825, aufgerundet)"
+    },
+    "leckage_dokumentiert": "Die run-1-Ratios sind als Zahlen bekannt (durch die Reskalierungs-Analyse); die d=q-MESSUNGEN dieser P sind nie gemacht worden. Das VERDICT nutzt ausschliesslich die 13 NEUEN P \u2014 die alten P tragen nur dieses Diagnostik-Bein."
+  },
+  "safeguard_limits": {
+    "band_rule": "ratio_hw \u2208 [c(kappa_hat) - w, c(kappa_hat) + w]; Freeze A': w_A = 0.05; Freeze B' darf nur VERENGEN (w_B <= w_A); das Zentrum c(kappa_hat) = kappa_hat*(1-1/S)*ratio_true + L_q bleibt gefroren.",
+    "amplification_ceiling": "ratio_hw > (1-1/S)*ratio_true + L_q + w -> H-RAM-Q-3b_INVALID_AMPLIFICATION (einseitig: Depolarisierung daempft Prime-Harmonische, hebt sie nie \u00fcber das rauschfreie Niveau + Band)",
+    "kappa_floor_void": "kappa_hat_p < KAPPA_CEILING = 0.81 -> Punkt EXKLUDIERT (VOID_CALIBRATION); >= 2 exkludierte Punkte -> H-RAM-Q-3b_VOID_CALIBRATION_GLOBAL. UNVERAENDERT gefrorene Garantie \u2014 physikalisch einloesbar durch das Minimalregister, nicht metrisch aufgeweicht.",
+    "falsifier": ">= 2 der 13 Punkte UNTERHALB c(kappa_hat) - w -> H-RAM-Q-3b_REFUTED",
+    "trennschaerfe": {
+      "band_vs_shot_noise": "gepoolte K=3-Ratio-SE \u2248 1.4-2.0% (S=8192) gegen w_A = 5% -> >= 2.5\u03c3 Aufl\u00f6sung",
+      "kappa_se": "SE(kappa_hat) \u2248 0.005 (Loschmidt, 8192 Shots) -> SE(Zentrum) \u2248 0.005 << w",
+      "coupling": "kappa_hat (Loschmidt) und share-Ratio (Harmonische) sind operationell UNABH\u00c4NGIG; das gefrorene Gesetz koppelt sie."
+    },
+    "job_integrity": "EIN Fez-Job (TOKEN1), 90 Circuits; Job-ID + md5 der Counts committed VOR der Auswertung (\u00a7Z.14-Disziplin)."
+  },
+  "controls": {
+    "t1_backcompat_minimal": {
+      "old_P_at_dq_vs_040": "8/8 bit-exakt (tol 1e-9)",
+      "old_P_at_dq_vs_034": "5/5 bit-exakt (tol 1e-9)",
+      "new_P_d_invariance": "13/13 identisch (d=q, d=q^2, d=q^3; tol 1e-12)"
+    },
+    "t2_v2_anchors": "034-Prime-Anker (625,625) = 0.04272280701754398 \u00fcber die d=625-Kette unber\u00fchrt \u2014 klassisch, kein QPU-Kontakt.",
+    "t3_identity_two_ways": "share*_hw = sum_j |G_j|^2/(d*m) auf den HW-Counts zwei Wege (FFT bei j*d/q vs gefaltete Formel (q*sum N_hat^2 - m_hat^2)/(d*m)), exakt 1e-12 (041-Theorem); Verletzung -> EVALUATION_INVALID.",
+    "t4_negative_must_not_fire": {
+      "composite_q3": {
+        "kind": "composite_q5",
+        "P": 149,
+        "d": 3,
+        "q": 3,
+        "m": 35,
+        "n_d": [
+          16,
+          10,
+          9
+        ],
+        "N_tilde": [
+          16,
+          10,
+          9
+        ],
+        "expected_share": 0.819047619047619,
+        "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+      },
+      "composite_q5": {
+        "kind": "composite_q5",
+        "P": 433,
+        "d": 5,
+        "q": 5,
+        "m": 84,
+        "n_d": [
+          22,
+          16,
+          15,
+          14,
+          17
+        ],
+        "N_tilde": [
+          22,
+          16,
+          15,
+          14,
+          17
+        ],
+        "expected_share": 0.46190476190476193,
+        "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+      },
+      "uniform_q3": {
+        "kind": "uniform_q3",
+        "q": 3,
+        "n_classes": 3,
+        "expected_share": 0.0,
+        "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)",
+        "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig)."
+      },
+      "uniform_q5": {
+        "kind": "uniform_q5",
+        "q": 5,
+        "n_classes": 5,
+        "expected_share": 0.0,
+        "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)",
+        "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig)."
+      },
+      "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante, konservativste Ecke kappa = KAPPA_CEILING, w = W_A); Verletzung -> H-RAM-Q-3b_DEGENERAT (REFUTED-zulaessig, Degenerat-Lektion)"
+    },
+    "t4b_shuffle_inert_theorem": {
+      "q3_seed421": {
+        "seed": 421,
+        "expected_share": 5.104761904761904,
+        "share_true_reg": 5.104761904761904,
+        "delta": 0.0
+      },
+      "q5_seed421": {
+        "seed": 421,
+        "expected_share": 3.795238095238095,
+        "share_true_reg": 3.795238095238095,
+        "delta": 0.0
+      },
+      "statement": "Kein Shuffle-Circuit am Minimalregister: expected_share == share_true_reg EXAKT (Theorem, frozen_theorems.shuffle_inertness_at_dq); die Kontrolle wuerde IM Band liegen und kann nicht must-not-fire."
+    },
+    "t5_gate_set_frozen": "13 VERDICT-Punkte = exakt die 13 P nach registrierter Regel (kleinste Primzahl > P_alt + 30); die 13 alten P nur Diagnostik-Bein; keine nachtr\u00e4glichen Erg\u00e4nzungen.",
+    "t6_mass_conservation": "sum_r N_hat_r = m_hat unter Depolarisierung (Uniform-Masse erh\u00e4lt m exakt); Verletzung -> EVALUATION_INVALID."
+  },
+  "verdict_map": {
+    "H-RAM-Q-3b_NOISE_LIFT_CONFIRMED": "alle 13 Punkte im Band [c(kappa_hat)-w_B, c(kappa_hat)+w_B], Kontrollen gruen, alle kappa_hat >= 0.81",
+    "H-RAM-Q-3b_COARSE_HOLD_SHARP_MISS": "alle Punkte im groben Band (w_A), >= 1 Punkt au\u00dferhalb w_B",
+    "H-RAM-Q-3b_REFUTED": ">= 2 Punkte unter c(kappa_hat) - w",
+    "H-RAM-Q-3b_INVALID_AMPLIFICATION": "irgendein Punkt \u00fcber (1-1/S)*ratio_true + L_q + w",
+    "H-RAM-Q-3b_VOID_CALIBRATION": "kappa_hat < 0.81 an >= 2 Punkten",
+    "H-RAM-Q-3b_DEGENERAT": "Kontroll-Regel T4 verletzt (Prime-Share auf Kontroll-Niveau) \u2014 REFUTED-zulaessig",
+    "EVALUATION_INVALID_KONTROLLE_GESCHEITERT": "T1-T6 gescheitert \u2014 Auswertung void"
+  },
+  "fallback_lesart_b": {
+    "status": "REGISTRIERT, NUR-NACHGELAGERT, NIE stiller Patch",
+    "trigger": "AUSL\u00d6SUNG NUR FALLS kappa_hat trotz Minimalregister < 0.81 an >= 2 Punkten (VOID trotz Echo-Verk\u00fcrzung) \u2014 sonst nie.",
+    "mechanism": "Separat gefrorenes NEUES Prereg: Resolutionsanalyse + Kalibrier-Konstanten aus der Echo-Leiter (gemessenes Daempfungsgesetz) \u2014 die D\u00e4mpfung geht als expliziter, gemessener Fehlerterm ins Zentrum (v2-Form-Pr\u00e4zedenz aus Phase 9 Freeze B), NIE als nachtr\u00e4gliche Metrik-Aufweichung.",
+    "anti_option_b_evidenz": "per-GATE-eps nicht arm-transferierbar (4q ~2x verlustreicher); Latte-Verschiebungs-Optik; Identifikations-Spannung bei niedrigem kappa_hat.",
+    "prim\u00e4r_pfad": "Option A (dieser Freeze): die Garantie 0.81 bleibt UNVER\u00c4NDERT gefroren und wird am Minimalregister physikalisch eingel\u00f6st."
+  },
+  "two_freeze_architecture": {
+    "freeze_a": "DIESER Freeze (A'): analytischer Kern + alle 13 neuen Punkt-Konstanten + Echo-Leiter + Diagnostik-Regeln + md5, VOR jedem Hardware-/Simulations-Kontakt, 0 QPU.",
+    "stage2_aer": "Aer-Bein (0 QPU) am Minimalregister mit gefrorenem STRESS-Modell: Form-Validierung (inkl. Wraparound-Fold) + w_B + ISA-Report.",
+    "freeze_b": "w_B-Registrierung (<= w_A) + ISA-Report VOR dem QPU-Lauf; Zentrum unver\u00e4ndert; erst danach QPU-Kontakt.",
+    "hardware": "EIN Fez-Job (TOKEN1) erst nach Freeze-B'-Commit; alle Abbruchbedingungen exakt in safeguard_limits registriert."
+  },
+  "anti_sharpshooter": {
+    "no_ex_post_fit": "Die 13 VERDICT-Punkte sind nach registrierter Regel (kleinste Primzahl > P_alt + 30) VOR dem Freeze berechnet \u2014 nie gemessen, keine Vorbelastung. Die Kontroll-Erwartungen sind modell-abgeleitet (0 QPU).",
+    "registered_alternative_models": "keine \u2014 die D\u00e4mpfungsform folgt aus Depolarisierung; die Echo-Leiter MISST das Gesetz (ersetzt die starre (1-eps)^2-Annahme); die Stage-2-Form-Validierung pr\u00fcft es VOR Hardware.",
+    "negative_predictions": "Composite- (beide Arme) und Uniform-Kontrollen mit exakten Erwartungen registriert (T4); Shuffle-Inertness als Theorem dokumentiert (T4b); der Sampling-Lift L_q ist unter dem Shot-Noise und wird NICHT als separierbar behauptet (Ehrlichkeit)."
+  },
+  "qpu": "0 QPU (Freeze A'); Stage-2 Aer 0 QPU; EIN Fez-Job (TOKEN1) erst nach Freeze B'",
+  "suite_state": 831,
+  "future_phase_numbering": {
+    "synthesis": "\u00a7Z.25 (SYNTHESIS)",
+    "log": "\u00a710.26 (RIEMANN) \u2014 \u00a7Z.23/\u00a710.24 Gematria-Layer, \u00a7Z.24/\u00a710.25 Phase 9"
+  },
+  "md5": "5b91119b925ae365bcd0618a2a15fa30"
+}
