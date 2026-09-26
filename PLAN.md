@@ -2,7 +2,7 @@
 
 ## Document Map
 
-Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung) completed 2026-09-25 — Phase 6a REFUTED (§Z.20/§10.21)**; **Phase 7 (RAM-Q zyklotomische Ableitung + GF(3)-Deformation) completed 2026-09-26 — H-RAM-Q-1 GENERALIZED (§Z.21/§10.22)**.
+Historical execution roadmap. Phases 1–3 completed since 2026-06-08; Phase 4 (Im-Bias + statevector-first) completed 2026-06-17; Phase 5 (QUQUINT/Pillar 4 + §Z.11–18) completed 2026-07-21 → 2026-09-24; **Phase 6 (H-STAR-5-Ausführung) completed 2026-09-25 — Phase 6a REFUTED (§Z.20/§10.21)**; **Phase 7 (RAM-Q zyklotomische Ableitung + GF(3)-Deformation) completed 2026-09-26 — H-RAM-Q-1 GENERALIZED (§Z.21/§10.22)**; **Phase 8 (H-RAM-Q-2 q-universelle Asymptotik) completed 2026-09-26 — CONFIRMED (§Z.22/§10.23)**; **Phase 9 (H-RAM-Q-3 Prereg-Freeze A, Hardware-Rauschen) REGISTERED_NOT_MEASURED 2026-09-26 — 0 QPU, Freeze vor erstem QPU-Kontakt**.
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -93,6 +93,20 @@ To finalize the research document by auditing missing theories, refining existin
 - **Verdict:** **GENERALIZED** (`H-RAM-Q-1_Q_DEFORMATION_GENERALIZED`, 2026-09-26) — die Deformation der Strukturkonstante (Nenner (q−1), Atom q·n₀) trifft die Fingerprint-Klasse auch bei q=3. Vektor H-RAM-Q-1 **A−** (CONFIRMED-Klasse); `RAMANUJAN_DFT_FINGERPRINT` bleibt **B+** (kein stilles Upgrade); Theorem-Schicht (δ²-Identität, Rückkompatibilität, d-Invarianz) = verifizierte Arithmetik, kein Grade-Minting.
 - **Status:** ✅ DONE. Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.21, `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.22, `pt_ram_q_prereg.json` (md5 `bd9dfee7`), `pt_ram_q_results.json`.
 
+## Phase 8 (DONE — CONFIRMED): H-RAM-Q-2 q-universelle Asymptotik (Branch `ram-q-zyklizitaet`, 2026-09-26, 0 QPU)
+
+- **Goal:** Baustein B2 zur q-universellen EXAKTidentität verallgemeinern (Alle Count-Vektoren inkl. Wraparound): share* = (m − q·n₀)²/((q−1)·d·m) + q·σ²/(d·m); Blindtest q=7.
+- **Result:** **VERDICT `H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED`** — B2 q-universal EXAKT (Parseval-Konventionsbefund: ABSOLUT-FFT-Pfad), q=7 blind 4/4 im Band, d-Invarianz bei P≫d 1.4e-16, ratio→1 wie C/x, 034-Ratio 1.0248 aus σ² erklärt; 716 Tests. 0 QPU.
+- **Status:** ✅ DONE. Cross-Ref: `SYNTHESIS_2026_06_10.md` §Z.22, `RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md` §10.23.
+
+## Phase 9 (REGISTERED — NOT MEASURED): H-RAM-Q-3 Prereg-Freeze A — die q-universelle Identität unter Hardware-Rauschen (Branch `ram-q-zyklizitaet`, 2026-09-26, 0 QPU)
+
+- **Goal (User-Direktive):** Prereg-Skelett EXPERIMENT 042 im Status REGISTERED_NOT_MEASURED VOR dem ersten QPU-Kontakt einfrieren — Vorhersage-Freeze (md5), Hardware-Parameter (Register-Topologie, Fez-Noise, Shot-Metriken), Sicherungs-Limits (Abbruch, Konfundierung, Trennschärfen). Spiegel = reiner kartografischer Index (Encoding-Verbot 1025/348/879/5683); die Arithmetik der verrauschten Counts diktiert.
+- **Kern:** ratio_hw = κ·(1−1/S)·ratio_true + L_q mit κ = P_L/P_ro_ref (gepaarte Loschmidt-/Readout-Kalibrierung im selben Job; κ ≈ (1−ε_C)² = exakt der Dämpfungsfaktor der kohärenten Struktur). Klassischer Kern bit-exakt gegen 040 (8/8, q=3 auf d=9) und 034 (5/5, q=5 auf d=25) via d-Invarianz — flache Register, identische Vorhersagen. Suppression ist das dominante Signal; der Sampling-Lift L_q liegt unter dem Shot-Noise (im Zentrum registriert, nicht als separierbar behauptet).
+- **Sicherung:** Band w_A = 0.05 (Freeze B nur Verengung), Amplification-Ceiling, κ̂ ≥ 0.81 sonst VOID, Falsifikator ≥2/13, Negativ-Kontrollen mit exakten Erwartungen, 58 Circuits × 8192 = 475 136 Shots, EIN Fez-Job (TOKEN1), ISA-Ceilings vor Hardware.
+- **Status:** ✅ Freeze A vollzogen (md5 `432d43fe1bc9e2594efd3b35266d2d81`, `pt_ram_q_hardware.py` + `pt_ram_q_hardware_prereg.json` + 12 Tests; 728 grün). Stage-2-Aer-Bein → Freeze B → Fez-Lauf folgen auf User-Go.
+- Cross-Ref: `~/.claude/plans/riemann-phase-ram-q-zyklizitaet.md` Phase 9; Ergebnis-Nummerierung §Z.24/§10.25 (§Z.23/§10.24 = Gematria-Spiegel-Layer).
+
 ## Execution Schedule (historical)
 1. Farrell Audit → ✅ DONE (Phase 1)
 2. Grant Refinement → ✅ DONE (Phase 2)
@@ -101,3 +115,5 @@ To finalize the research document by auditing missing theories, refining existin
 5. QUQUINT/Pillar 4 + §Z.11–18 → ✅ DONE (Phase 5, 2026-07-21 → 2026-09-24)
 6. H-STAR-5-Ausführung → ✅ DONE — REFUTED (Phase 6a, 2026-09-25)
 7. RAM-Q zyklotomische Ableitung + GF(3)-Deformation → ✅ DONE — GENERALIZED (Phase 7, 2026-09-26, Branch `ram-q-zyklizitaet`)
+8. H-RAM-Q-2 q-universelle Asymptotik → ✅ DONE — CONFIRMED (Phase 8, 2026-09-26, Branch `ram-q-zyklizitaet`)
+9. H-RAM-Q-3 Prereg-Freeze A (Hardware-Rauschen) → ✅ FREEZE A DONE — REGISTERED_NOT_MEASURED (Phase 9, 2026-09-26, Branch `ram-q-zyklizitaet`; Aer-Bein + Fez-Lauf folgen auf User-Go)
