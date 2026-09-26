@@ -95,11 +95,21 @@ def filter_false_positives(records):
     """Filter out MD5-hash fragments and path/error-context false positives.
 
     Heuristic: an ID is a false positive if ALL its context strings carry
-    an md5/path marker OR show a hex continuation directly after the ID —
-    a real IBM Qiskit job ID is EXACTLY 20 characters, so a match that is
-    followed by more hex digits is a fragment of a longer hash (e.g. a
-    32-char counts_md5 whose context line says "raw fetched: d19f..."
-    without any "md5=" marker; REGRESSION EXPERIMENT 042, Fez-Raw).
+    an md5/path marker OR embed the ID in a longer hex string — a real IBM
+    Qiskit job ID is EXACTLY 20 characters, so a match inside a longer hex
+    run is a fragment of a longer hash (e.g. a 32-char counts_md5 whose
+    context line says "raw fetched: d19f..." without any "md5=" marker).
+
+    REGRESSION EXPERIMENT 042 (Fez-Raw): Fragment "d19f4a563d88e0cf3ffd"
+    des counts_md5 d19f4a563d88e0cf3ffd4b187a10ca73 — Hex-Fortsetzung
+    >= 6 Zeichen hinter dem Match.
+    AMENDMENT (EXPERIMENT 043, Fez-Raw 2): Fragment "d02f81cf623862b4910c"
+    des counts_md5 16ca44bd02f81cf623862b4910ccedf8 (Match beginnt INNEN
+    im Hash, am 'd' von "16ca44bd") hat nur 5 Zeichen Fortsetzung
+    ("cedf8") — die 6er-Regel greift nicht.  Verallgemeinerung: das Match
+    liegt in einem maximalen Hex-Run der Laenge >= 21 (echte 20-Zeichen-
+    Job-IDs sind alleine im Run; auch ein all-hex echter Job-ID in Quotes
+    ist ein Run von GENAU 20).
     """
     real = {}
     fake = {}
@@ -107,8 +117,11 @@ def filter_false_positives(records):
         marker = ("md5=", "md5:", "counts_md5", ".local/lib",
                   "site-packages", "QiskitRuntime")
         cont = re.compile(re.escape(jid) + r"[0-9a-f]{6}")
+        hexrun = re.compile(r"[0-9a-f]{21,}")
         all_md5_or_path = all(
-            (any(m in ctx for m in marker) or cont.search(ctx) is not None)
+            (any(m in ctx for m in marker)
+             or cont.search(ctx) is not None
+             or any(jid in run.group(0) for run in hexrun.finditer(ctx)))
             for _, ctx in sources
         )
         if all_md5_or_path:

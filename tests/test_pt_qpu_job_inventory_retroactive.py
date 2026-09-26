@@ -102,6 +102,44 @@ class TestFilterFalsePositives:
         assert "darq1stvr3kc73ej96ig" in real
         assert "d19f4a563d88e0cf3ffd" in fake
 
+    def test_filter_removes_embedded_md5_fragment_short_continuation(self):
+        # AMENDMENT (EXPERIMENT 043, Fez-Raw 2): Fragment
+        # "d02f81cf623862b4910c" des counts_md5
+        # 16ca44bd02f81cf623862b4910ccedf8 — der Scan-Match beginnt INNEN
+        # im Hash (am 'd' von "16ca44bd") und hat nur 5 Zeichen
+        # Hex-Fortsetzung ("cedf8"): die 6er-Fortsetzungsregel greift
+        # NICHT.  Verallgemeinerung: das Match liegt in einem Hex-Run
+        # >= 21 Zeichen -> Fragment.  Echte 20-Zeichen-Job-IDs bleiben
+        # real (alleine im Run, nicht-hex-Buchstaben brechen den Run).
+        from pt_qpu_job_inventory_retroactive import filter_false_positives
+        records = {
+            "d02f81cf623862b4910c": [
+                ("pt_ram_q_fez2_run.log",
+                 "[qpu] raw fetched: 16ca44bd02f81cf623862b4910ccedf8 "
+                 "(90 circuits)"),
+            ],
+            "dartdg5vr3kc73ejcrgg": [
+                ("pt_ram_q_fez2_run.log",
+                 "[qpu] submitted dartdg5vr3kc73ejcrgg (90 circuits)"),
+            ],
+        }
+        real, fake = filter_false_positives(records)
+        assert "d02f81cf623862b4910c" in fake
+        assert "dartdg5vr3kc73ejcrgg" in real
+
+    def test_filter_keeps_all_hex_job_id_quoted(self):
+        # Grenzfall: ein ECHTER all-hex 20-Zeichen-Job-ID in Quotes ist
+        # ein Hex-Run von GENAU 20 — kein >= 21-Run -> real.
+        from pt_qpu_job_inventory_retroactive import filter_false_positives
+        records = {
+            "d02f81cf623862b4910c": [
+                ("some_results.json",
+                 '"job_id": "d02f81cf623862b4910c"'),
+            ],
+        }
+        real, fake = filter_false_positives(records)
+        assert "d02f81cf623862b4910c" in real
+
     def test_filter_keeps_real_job_with_mixed_contexts(self):
         # Eine echte Job-ID mit EINEM md5-Kontext und EINEM job_id-Kontext
         # bleibt real (All-Quantil: nur wenn ALLE Kontexte md5/pfadig sind).
