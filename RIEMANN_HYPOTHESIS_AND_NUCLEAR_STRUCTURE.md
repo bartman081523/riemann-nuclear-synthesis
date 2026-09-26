@@ -1691,14 +1691,25 @@ nächsten committet:
   ≥ 2 unter c−w_B → REFUTED; alle 13 scharf + κ̂ ≥ 0.81 → CONFIRMED; … Void geht
   vor jeder Falsifikation — ein REFUTED wäre bei κ̂-Void **nicht** beanspruchbar.
 
-**Physik des Defizits (Diagnostik, nicht verdict-tragend):** Das κ̂-Defizit kommt
-vom **Loschmidt-Echo**, nicht vom Readout. Readout: ro_hat nur ~0.33%/Qubit (4q)
-bzw. ~0.39%/Qubit (5q). Echo: die Loschmidt-Circuits tragen ~76 2q Gates
-(ISA-Maximum), d. h. per-2q-Survival ≈ 0.778^(1/76) ≈ 0.9967 ≈ (1−ε)² — genau das
-(1−ε_C)²-Gesetz des Prereg, aber mit ε_C ≈ 0.17% je 2q-Gate statt der
-Kalibrier-Garantie. Tiefen-Konsistenz: min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 —
-5q degradiert stärker, konsistent mit (1−ε)^nq. Die b_p-Diagnostik spiegelt das
-(Aer-Modell 0.85–0.90 vs Hardware-real ~0.9967^76 ≈ 0.78).
+**Physik des Defizits (Diagnostik, nicht verdict-tragend; KORREKTUR 2026-09-26,
+armspezifische Tiefen):** Das κ̂-Defizit kommt vom **Loschmidt-Echo**, nicht vom
+Readout. Readout: ro_hat nur ~0.33%/Qubit (4q) bzw. ~0.39%/Qubit (5q). Echo
+(ISA per Circuit): der 4q-Arm trägt 30 2q Gates (Prep 13 + exakte Inverse), der
+5q-Arm 76 2q (Prep 36). Per-2q-Survival κ̂^(1/Tiefe): 4q ≈ 0.990–0.993
+(ε ≈ 0.71–1.00 %/2q), 5q ≈ 0.9946–0.9951 (ε ≈ 0.49–0.54 %/2q) — genau das
+(1−ε_C)²-Gesetz des Prereg, aber die Kalibrier-Garantie ist unerreichbar.
+Budget-Arithmetik: κ̂ ≥ 0.81 verlangt Echo ≤ ~29.7 2q (4q, 30 real — KNAPP
+verfehlt: max κ̂ 0.8080) bzw. ≤ ~38.7–42.9 2q (5q, 76 real — via Synthese
+unerreichbar, generische 5-Qubit-Prep sitzt nahe ihrem Tiefe-Optimum).
+Tiefen-Konsistenz: min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 — 5q degradiert
+stärker (mehr Gates); pro GATE ist dagegen der 4q-Arm ~2× verlustreicher —
+ein gemeinsames per-Gate-ε_C überträgt sich nicht zwischen den Armen (belastet
+jede metrik-interne Dämpfungskorrektur; wichtig für die Iteration). Die
+b_p-Diagnostik spiegelt das: Aer 0.85–0.90 (4q) / 0.66–0.71 (5q) vs
+Hardware-real κ̂ 0.74–0.81 (4q) / 0.66–0.69 (5q) — 5q getroffen, 4q überschätzt.
+[Ursprüngliche Rückrechnung 0.778^(1/76) ≈ 0.9967, ε_C ≈ 0.17 %/2q — hier hatte
+ein q3-κ̂-Wert die 5q-Echo-Tiefe 76 kombiniert; vom Verdict unberührt, das auf
+κ̂ < 0.81 und den Kontrollen steht, nicht auf der Rückrechnung.]
 
 **Was der Void sagt — und was nicht:** Er sagt NICHT, dass H-RAM-Q-3 falsch ist
 (dafür wäre REFUTED nötig: ≥ 2 Punkte unter c−w_B **bei** gültiger Kalibrierung).

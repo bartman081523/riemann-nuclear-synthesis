@@ -3374,16 +3374,25 @@ Estimator-Kette.
   nur" hielt überall. **Band-Bild nicht verdict-tragend:** 7/13 scharf, 3 unter
   der scharfen Kante, 1 auch unter der groben.
 
-### Z.24.5 Die κ̂-Physik: Loschmidt-Echo, nicht Readout
+### Z.24.5 Die κ̂-Physik: Loschmidt-Echo, nicht Readout (KORREKTUR 2026-09-26)
 
-Das Defizit kommt vom Echo: die Loschmidt-Circuits tragen ~76 2q Gates
-(ISA-Maximum), per-2q-Survival ≈ 0.778^(1/76) ≈ 0.9967 ≈ (1−ε_C)² mit
-ε_C ≈ 0.17 %/2q-Gate — qualitativ genau das Prereg-Gesetz, aber die Struktur-
-Garantie κ̂ ≥ 0.81 verlangt ε_C ≤ 0.10, die Hardware liefert effektiv ~0.17 %.
-Readout ist klein: ro_hat ~0.33 %/Qubit (4q) bzw. ~0.39 % (5q). Tiefen-Konsistenz:
-min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 — 5q degradiert stärker, konsistent mit
-(1−ε)^nq. Die v2-Diagnostik (nicht verdict-tragend) spiegelt das: b_p_Aer 0.85–0.90
-(4q) vs hardware-real ~0.78; res_v2 q3_d9 überwiegend positiv, q5_d25 alle negativ.
+**Armspezifische Tiefen** (die ursprüngliche Rückrechnung 0.778^(1/76) ≈ 0.9967,
+ε_C ≈ 0.17 %/2q hatte einen q3-κ̂-Wert mit der 5q-Echo-Tiefe 76 kombiniert —
+vom Verdict unberührt, das auf κ̂ < 0.81 und den Kontrollen steht): ISA per
+Circuit — 4q-Arm 30 2q Gates (Prep 13 + exakte Inverse), 5q-Arm 76 2q (Prep 36).
+Per-2q-Survival κ̂^(1/Tiefe): 4q ≈ 0.990–0.993 (ε ≈ 0.71–1.00 %/2q), 5q ≈
+0.9946–0.9951 (ε ≈ 0.49–0.54 %/2q) — qualitativ genau das Prereg-Gesetz
+(1−ε_C)², aber die Struktur-Garantie κ̂ ≥ 0.81 verlangt Echo ≤ ~29.7 2q (4q,
+30 real — KNAPP verfehlt: max κ̂ 0.8080) bzw. ≤ ~38.7–42.9 2q (5q, 76 real —
+via Synthese unerreichbar, generische 5-Qubit-Prep sitzt nahe ihrem
+Tiefe-Optimum). Readout ist klein: ro_hat ~0.33 %/Qubit (4q) bzw. ~0.39 % (5q).
+Tiefen-Konsistenz: min κ̂(4q) = 0.7403 > max κ̂(5q) = 0.6886 — 5q degradiert
+stärker (mehr Gates); pro GATE ist der 4q-Arm ~2× verlustreicher — ein
+gemeinsames per-Gate-ε_C überträgt sich nicht zwischen den Armen (belastet
+jede metrik-interne Dämpfungskorrektur; wichtig für die Iteration). Die
+v2-Diagnostik (nicht verdict-tragend) spiegelt das: b_p_Aer 0.85–0.90 (4q) /
+0.66–0.71 (5q) vs hardware-real κ̂ 0.74–0.81 (4q) / 0.66–0.69 (5q) — 5q
+getroffen, 4q überschätzt; res_v2 q3_d9 überwiegend positiv, q5_d25 alle negativ.
 
 ### Z.24.6 Text-Spannung: kappa_floor_void vs verdict_map (dokumentiert, NICHT gelöst)
 
@@ -3408,11 +3417,12 @@ Falsifikation: ein REFUTED wäre bei κ̂-Void nicht beanspruchbar.
   selbst hielt auf echten Counts exakt (t3). H-RAM-Q-1 bleibt GENERALIZED (A−),
   H-RAM-Q-2 bleibt CONFIRMED (B) — keine stillen Upgrades oder Downgrades.
 - **Was der Void lehrt (Methodik):** die Struktur-Garantie (κ̂ ≥ 0.81 ⇔ ε_C ≤ 0.10)
-  war in Freeze A analytisch gefroren, aber die TIEFE der Loschmidt-Circuits (~76
-  2q) macht sie für Fez-ε_C (~0.17 %/2q) unerreichbar — die Garantie war ein
-  Kalibrier-Anspruch über die Echo-Tiefe, den die Hardware nicht einlöst. Die
-  nächste Iteration (Echo kürzen oder ε_C ins Zentrum aufnehmen) ist ein NEUES
-  Prereg, kein stiller Patch.
+  war in Freeze A analytisch gefroren, aber die TIEFE der Loschmidt-Circuits
+  (30 2q im 4q-Arm, 76 im 5q-Arm; ε ≈ 0.71–1.00 % bzw. 0.49–0.54 % je 2q,
+  KORREKTUR armspezifisch — §Z.24.5) macht sie unerreichbar — die Garantie war
+  ein Kalibrier-Anspruch über die Echo-Tiefe, den die Hardware nicht einlöst.
+  Die nächste Iteration (Echo kürzen oder ε_C ins Zentrum aufnehmen) ist ein
+  NEUES Prereg, kein stiller Patch.
 - **SciMind:** Anti-Sharpshooter — Verdict-Pin erst NACH dem Lauf (Phase-3c);
   Raw vor Auswertung committed; verdict_map wörtlich, Interpretations-Latte
   null. Steelman: der Vergleichspunkt ist das gefrorene STRESS-Modell (Aer),
@@ -3424,6 +3434,6 @@ Falsifikation: ein REFUTED wäre bei κ̂-Void nicht beanspruchbar.
 
 ---
 
-**Last updated:** 2026-09-26 (§Z.24: Branch ram-q-zyklizitaet — EXPERIMENT 042 H-RAM-Q-3: Zwei-Freeze-Architektur vollzogen (Freeze A md5 432d43fe VOR QPU → Stage-2-Aer 13×6 v2 PASS/v1 595/702 → Freeze B w_B 0.0249 Domain-q97.5 + ISA_OK 1570 2q → EIN Fez-Job darq1stvr3kc73ej96ig 58×8192 TOKEN1, Raw + md5 d19f4a56 committed b5ba31a VOR Auswertung) → gefrorene Auswertung ff5e2d5: VERDICT `H-RAM-Q-3_VOID_CALIBRATION` — alle 13 κ̂ < 0.81 [0.6608–0.8080], Kontrollen t3 (8.88e-16)/t4/t5/t6/md5 alle grün, 0 Amplification, 7/13 scharf nicht verdict-tragend, κ̂-Defizit = Loschmidt-Echo (~76 2q, per-2q-Survival 0.9967, ε_C ~0.17 % > 0.10-Garantie), nicht Readout (0.33–0.39 %/Qubit); Tiefe-Konsistenz min κ̂(4q) 0.7403 > max κ̂(5q) 0.6886; Text-Spannung kappa_floor_void-Exklusion vs verdict_map-Zählung dokumentiert, wörtliche Map primaer; Hypothese unangetastet-unbestätigt, kein Band-Claim; 26 neue Tests, 831 grün)
+**Last updated:** 2026-09-26 (§Z.24: Branch ram-q-zyklizitaet — EXPERIMENT 042 H-RAM-Q-3: Zwei-Freeze-Architektur vollzogen (Freeze A md5 432d43fe VOR QPU → Stage-2-Aer 13×6 v2 PASS/v1 595/702 → Freeze B w_B 0.0249 Domain-q97.5 + ISA_OK 1570 2q → EIN Fez-Job darq1stvr3kc73ej96ig 58×8192 TOKEN1, Raw + md5 d19f4a56 committed b5ba31a VOR Auswertung) → gefrorene Auswertung ff5e2d5: VERDICT `H-RAM-Q-3_VOID_CALIBRATION` — alle 13 κ̂ < 0.81 [0.6608–0.8080], Kontrollen t3 (8.88e-16)/t4/t5/t6/md5 alle grün, 0 Amplification, 7/13 scharf nicht verdict-tragend, κ̂-Defizit = Loschmidt-Echo (30 2q im 4q-Arm / 76 im 5q-Arm, per-2q-Survival 0.990–0.993 bzw. 0.9946–0.9951, ε ≈ 0.71–1.00 % bzw. 0.49–0.54 %/2q — KORREKTUR armspezifisch, ursprünglich 0.17 % gemischt — > 0.10-Garantie), nicht Readout (0.33–0.39 %/Qubit); Tiefe-Konsistenz min κ̂(4q) 0.7403 > max κ̂(5q) 0.6886; Text-Spannung kappa_floor_void-Exklusion vs verdict_map-Zählung dokumentiert, wörtliche Map primaer; Hypothese unangetastet-unbestätigt, kein Band-Claim; 26 neue Tests, 831 grün)
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
