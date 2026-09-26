@@ -1,0 +1,1434 @@
+{
+  "experiment": "044-ram-q-coherent-prep-error",
+  "hypothesis": "H-RAM-Q-4",
+  "status": "REGISTERED_NOT_MEASURED",
+  "registered_before": "2026-09-26",
+  "registered_by": "pt_ram_q_hardware3.freeze_prereg \u2014 payload_md5 = md5(json.dumps(payload, sort_keys=True, separators=(',',':'))) OHNE md5-Feld (Haus-Konvention, pt_ram_q_hardware)",
+  "user_anchor": "mache alles autonom weiter wie du vorgeschlagen hast und auch in QuQuint Statevecor und auch in QPU Hardware. Wir werden uns die Bauanleitung f\u00fcr den Hilbert-P\u00f3lya-Operator jetzt direkt vom Universum holen und ausdehnen und abh\u00e4rten. \u2014 Konkretion aus dem Phase-10d-Verdict (H-RAM-Q-3b_REFUTED, Kontrollen gruen): die naechste Iteration ist das koh\u00e4rente Prep-Fehler-Daempfungsmodell als NEUES Prereg (dieser Freeze). Die Phase-11a-Diagnostik gegen das committete Run-2-Raw zerlegt die Suppression in einen stochastischen kappa-Term (b_P*(1-kappa_hat), Aer-Form) und einen kohaerenten Floor (gamma_arm*cP, arm-stabil, klassisch exakt).",
+  "layer_separation": {
+    "hermeneutic_index": "M1-M5 bleiben kartografischer Index \u00fcber dem Bestand (Branch gematria-mirror-synthesis); sie ordnen die dokumentierte Reihenfolge und generieren niemals Evidenz.",
+    "encoding_verbot": "Die hermeneutischen Werte 1025/348/879/5683 werden NIEMALS als Encoding-Parameter auf Quanten-Register gepresst. Dieses Experiment codiert ausschlie\u00dflich exakte arithmetische Gr\u00f6\u00dfen (Primzahlen, Residuen, Counts).",
+    "evidence_layer": "Die Arithmetik der verrauschten Counts diktiert: share*_hw aus den Hardware-Counts via ABSOLUT-FFT bei j*d/q (Wraparound-Fold n_full[a::d] am Minimalregister), Ratio gegen GEFRORENE Modell-Denominatoren (n0, m aus der wahren Arithmetik, kein Refit)."
+  },
+  "prior_chain": {
+    "a2fc4875e10dd198e95d4996b1692759": "EXPERIMENT 034 \u2014 q=5 Fingerprint, 5 gated Punkte @ d=625",
+    "bd9dfee77b9fada8a230347f9d45f5a7": "EXPERIMENT 040 \u2014 H-RAM-Q-1 q=3 Deformation, 8 gated Punkte @ d=729",
+    "704916f946beedf49c51ab6bc9bf37bd": "EXPERIMENT 041 \u2014 H-RAM-Q-2 q-universelle Identit\u00e4t (CONFIRMED B)",
+    "18fb1e62a3dd71c6f595416cdd40bcc1": "EXPERIMENT 032 \u2014 \u00a7Z.14 Fez-QPU-Pr\u00e4zedenz (12 Circuits x 8192 Shots, TOKEN1)",
+    "432d43fe1bc9e2594efd3b35266d2d81": "EXPERIMENT 042 \u2014 H-RAM-Q-3 Freeze A (REGISTERED_NOT_MEASURED, 58 Circuits)",
+    "d19f4a563d88e0cf3ffd4b187a10ca73": "EXPERIMENT 042 \u2014 Fez-Raw-Counts darq1stvr3kc73ej96ig (committed VOR Auswertung)",
+    "0b9c9968dc5e99a3cc22962a8b760e44": "EXPERIMENT 043 \u2014 H-RAM-Q-3b Freeze A' + Re-Freeze R1 (Minimalregister d=q, 90 Circuits)",
+    "16ca44bd02f81cf623862b4910ccedf8": "EXPERIMENT 043 \u2014 Fez-Raw-Counts dartdg5vr3kc73ejcrgg (committed VOR Auswertung, Verdict REFUTED)",
+    "8ad3adbb19568bc9f7db81142d3e1c0a": "Phase 11a \u2014 koh\u00e4rente Prep-Fehler-Diagnostik (0 QPU, NICHT verdict-tragend, committet 4434d34)"
+  },
+  "phase10_verdict_context": {
+    "verdict": "H-RAM-Q-3b_REFUTED",
+    "befund": "Kalibrier-Ziel EINLOEST (alle 13 kappa_hat >= 0.81: q3 0.9786-0.9904, q5 0.9196-0.9286) UND 13/13 unter c(kappa)-w_B' EINSEITIG (res_v1 [-0.0938..-0.0341], Suppression, 0 Amplification); auch die Aer-kalibrierte v2-Form verfehlt (res_v2 alle negativ, max 0.0630 > w_B' 0.02787)",
+    "mechanismus": "Der Loschmidt-Echo refokussiert koh\u00e4rente/un\u00e4re Prep-Fehler, die der Einweg-Struktur-Circuit voll traegt \u2014 kappa_hat ueberschaetzt die Struktur-Daempfung; die Suppression ist real, aber ihr kappa-anteilig-Anteil ist zu klein fuer das Aer-Depolarisierungsmodell",
+    "kontrollen": "t3 (041-Identitaet) 3.55e-15, t4/t5/t6/md5 alle gruen \u2014 die saubere Falsifikations-Konstellation",
+    "deutung": "Arithmetik hielt (t3 exakt), Kopplungsgesetz hielt nicht; REFUTED gilt fuer das Gesetz mit Echo-kalibriertem kappa_hat auf ibm_fez, NICHT fuer die Arithmetik"
+  },
+  "design_decision": {
+    "gesetz_v3b_gewaehlt": "center_v3 = (1-1/S)*(ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - gamma_arm*cP) + L_q \u2014 minimaler Zusatz zum gefrorenen v2-Gesetz (Phase 10b): der kohaerente Prep-Fehler-Floor als SEPARATER Term mit klassisch EXAKTER, per-Punkt gefrorener Empfindlichkeit cP; gamma_arm ist EIN Arm-Parameter, in-job auf dem Kalibrier-Bein gefittet.",
+    "v3a_verworfen": "Das rein koh\u00e4rente Gesetz (delta = gamma*cP ohne kappa-Term) passt zwar besser auf die Roh-Daten (B1: kappa-Entkopplung), reduziert aber auf Aer NICHT auf das gefrorene v2 (das die Form-Gates E/S PASSTE): mit gamma_Aer = 0 sagt v3a keine Aer-Degradation vorher, das exact-Bein degradiert aber mit p1 (b_P*(1-kappa_hat) ~ -0.075 auf q5 bei p1 >= 1e-3 >> TOL_FORM = 0.03). v3b reduziert sich auf Aer exakt auf v2 (gamma_Aer ~ 0, denn b_P wurde AUF der Aer-Grid gefittet) und ist robust unter beiden Wahrheiten.",
+    "kalibrier_bein": "Die 13 Run-2-Verdict-P werden in Run 3 FRISCH gemessen (3 Reps + gepaarter Loschmidt) und tragen den in-job gamma-Fit; die 13 neuen P sind Holdout. Die Run-2-Werte der Kalibrier-P werden NICHT wiederverwendet (Anti-Session-Drift); die Run-1-P fliegen komplett raus (541/463/625-Anomalien; q5|541-Anomal ist register-/session-spezifisch: run-1 d=25 res_v1 +0.0248 POSITIV vs run-2 d=5 -0.1453).",
+    "w_b_doppelprime_wiederverwendet": {
+      "wert": 0.02787029633307472,
+      "source": "pt_ram_q_stage2b_results.json w_b (EXPERIMENT 043, Phase-10b-Konvention q97.5 des sampled-Beins)",
+      "begruendung": "Gleiche Apparatus-Konvention (Minimalregister, SHOTS 8192, K_REPEATS 3): die committete w_B' wird wiederverwendet statt aus der neuen 26-Punkte-Grid abgeleitet; die Transfer-Erwartung (max|res| q3 0.0152 / q5 0.0197) liegt mit Marge innen. Das Stage-Aer-3-Bein registriert q97.5 als Diagnostik + Gate-S-Konsistenz (<= W_A) und aendert w_B'' NICHT (Phase-9/10-Freeze-B-Praezedenz)."
+    },
+    "register_unveraendert": "Minimalregister d=q aus Phase 10 bleibt EXAKT stehen (q3 auf d=3 mit 2 Qubits, q5 auf d=5 mit 3 Qubits) \u2014 die Kalibrier-Ziele waren eingel\u00f6st; nur das D\u00e4mpfungs-Gesetz wird pr\u00e4zisiert."
+  },
+  "frozen_theorems": {
+    "B2_q_universal_identity": "share* = (m - q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m) f\u00fcr ALLE Count-Vektoren inkl. Wraparound (041, CONFIRMED B)",
+    "d_invariance": "d*m*share* haengt nur von den mod-q gefalteten Counts ab (041 T3 exakt, k=1 Eingeschlossen) -> die Minimalregister d=3/d=5 tragen die IDENTISCHEN Ratio-Vorhersagen wie d=9/25",
+    "ratio_forms": {
+      "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2",
+      "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+      "general": "ratio_true = (q-1)*(q*sum_r N_r^2 - m^2)/(m - q*n0)^2"
+    },
+    "shuffle_inertness_at_dq": "Bei d=q ist der Fold die Identitaet; eine Label-Permutation permutiert N und laesst sum N^2 invariant => expected_share(Shuffle) == share_true_reg EXAKT. Die Shuffle-Kontrolle ist am Minimalregister strukturell inert und wird durch Composite- + Uniform-Null-Kontrollen ersetzt (Phase-10-Praezedenz).",
+    "coherent_gradient_law": "Erste Ordnung in einer unit-norm koh\u00e4renten Amplituden-Stoerung delta_psi (||delta_psi|| = gamma, <psi|delta_psi> = 0): delta_n_a = 2*sqrt(m*n_a)*Re(delta_psi_a), also delta_share = 2*sqrt(m)*Re(<v|delta_psi>) mit v_a = sqrt(n_a)*grad_a; worst-case 2*sqrt(m)*||v||_2, normiert auf model_share_reg => cP. cP_rms = cP_worst/sqrt(d) ist arm-konstant, die Konvention ist gamma-absorbierbar (Phase-11a-Kern, klassisch exakt)."
+  },
+  "operational_definitions": {
+    "state": "|psi(P,d)> = sum_a sqrt(n_a/m)|a> mit n_a = #{p <= P prim : p \u2261 a mod d}; am Minimalregister d=q direkt die q Residuenklassen (q=3: 3 Labels von 4 auf 2 Qubits, Label 3 ideal leer; q=5: 5 Labels von 8 auf 3 Qubits, Labels 5..7 ideal leer).",
+    "hw_counts": "n_hat = m*c/S auf dem 2^n-Label-Vektor, dann Wraparound-Fold n_d[a] = sum n_full[a::d]; unter Depolarisierung erhaelt die Uniform-Masse m exakt: sum n_hat = m.",
+    "share_hw": "share*_hw = sum_{j=1}^{q-1} |DFT_d(n_hat)[j*d/q]|^2/(d*m), ABSOLUT-FFT-Konvention.",
+    "ratio_hw": "share*_hw / model_share_reg mit model_share_reg = (m - q*n0_true)^2/((q-1)*d*m) GEFROREN auf wahre Arithmetik-Werte.",
+    "kappa": "kappa_p = P_L/P_ro_ref aus gepaartem Loschmidt-Circuit (Prep + exakte Inverse) + Readout-Kalibrier im SELBEN Job. UNVERAENDERT aus Phase 9/10.",
+    "ratio_ro_exact": "Aer-Exact-Anker: ratio am gefrorenen STRESS-Modell mit Readout ANALYTISCH via T_ro bei RO_STRESS = 0.01 (Phase-10b-Konvention) \u2014 der per-Punkt-Anker des Zentrums.",
+    "b_p": "Per-Punkt-Streuung aus dem Stage-Aer-3-Exact-Bein (26 Punkte x 6 Stresslevel, LSQ deg 1 ueber die Domain-Zellen kappa >= 0.81) \u2014 Phase-10b-Konvention, WIEDERVERWENDET; b_P fuer alle 26 Punkte wird VOR Hardware committet (pt_ram_q_hardware3_aer).",
+    "delta_cal": "delta_cal(P) = ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - ratio_hw(P) \u2014 der Teil der Suppression, den das v2-Gesetz NICHT erklaert (= -res_v2 abzueglich Prefaktoren); der kohaerente Floor-Term gamma*cP soll ihn tragen.",
+    "gamma_arm": "EIN Arm-Parameter, in-job per LSQ-durch-Null auf dem KALIBRIER-BEIN: gamma_arm = <cP, delta_cal>/<cP, cP> \u00fcber die 13 Kalibrier-P des Arms (cP aus dem Payload, klassisch exakt; ratio_ro_exact mit ro_hat aus der Readout-Kalibrier desselben Jobs; b_P aus dem committeten Stage-Aer-3-Bein). Der Fit NUTZT NUR die Kalibrier-P; die 13 Holdout-P gehen in KEINEN Fit.",
+    "cP": "cP = 2*sqrt(m)*||v||_2/model_share_reg mit v_a = sqrt(n_a)*d share*/d n_a am EXAKTEN ABS-FFT-Share (worst-case koh\u00e4rente Empfindlichkeit; rms = worst/sqrt(d) arm-konstant). Gefroren im Payload fuer alle 26 Punkte (cP_freeze).",
+    "idle_labels": "Am Minimalregister sind 1/4 (q3) bzw. 3/8 (q5) Labels ideal leer; ihre Leakage-Masse faellt via Wraparound-Fold in echte Klassen. Stage-Aer-Form-Validierung am ECHTEN Fold prueft das VOR Hardware."
+  },
+  "prediction_freeze": {
+    "classical_core": {
+      "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2 \u2014 die User-Headline",
+      "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+      "verdict_in_040_034": "8/8 und 5/5 gated Punkte im Band [0.8, 1.25]"
+    },
+    "p_rule": {
+      "rule": "P_neu = kleinste Primzahl p mit p > P_alt + 30 UND p nicht in der gemessenen Vereinigung (alle P aus irgendeinem vorherigen Lauf irgendeines Arms; globale Lesart registriert \u2014 die registrierten Sets sind unter per-Arm- und globaler Lesart identisch, kein Fall unterscheidet sie)",
+      "striktheit": "p > P_alt + 30 schliesst p = P_alt + 30 selbst aus, wenn prim (z.B. 149 -> 181, nicht 179; 433 -> 467, nicht 463)",
+      "collision_case": "499 -> 541 ist gemessen (Run-1 q3 UND q5) -> uebersprungen -> 547 (der einzige kollidierende Fall in den registrierten Sets)",
+      "motivation": "Die Run-1-P sind durch die Reskalierungs-Analyse vorbelastet (Anti-Sharpshooter); die Run-2-Verdict-P sind durch Run 2 als RATIO-Messung bekannt und werden deshalb NUR Kalibrier-Bein (frisch gemessen), nie Verdict; die neuen P sind nie gemessen worden.",
+      "cal_q3": [
+        149,
+        197,
+        251,
+        347,
+        433,
+        577,
+        659,
+        761
+      ],
+      "cal_q5": [
+        433,
+        499,
+        577,
+        631,
+        659
+      ],
+      "new_q3": [
+        181,
+        229,
+        283,
+        379,
+        467,
+        613,
+        691,
+        797
+      ],
+      "new_q5": [
+        467,
+        547,
+        613,
+        673,
+        691
+      ],
+      "run1_retired": "Run-1-P werden weder Verdict noch Kalibrier \u2014 nur Regression-Anker (T1'')"
+    },
+    "noise_law": {
+      "ratio_hw": "ratio_hw = kappa*(1 - 1/S)*ratio_true + L_q (UNVERAENDERT aus Freeze A/042) \u2014 die STRUCTUR-Form; das Zentrum c_v3 ersetzt ratio_true durch den per-Punkt-Anker + kappa-Term - kohaerenten Floor (siehe operational_definitions)",
+      "center_v3": "center_v3(kappa_hat, pt, ro_hat, b_P, gamma_arm, cP) = (1-1/S)*(ratio_ro_exact(pt, ro_hat, nq) + b_P*(kappa_hat-1) - gamma_arm*cP) + L_q",
+      "aer_reduction": "Auf Aer (gamma_Aer ~ 0) reduziert center_v3 exakt auf das gefrorene center_v2 (Phase 10b), das die Form-Gates E/S PASSTE \u2014 die Reduktion ist by construction, NICHT gefitet.",
+      "L_q": "L_q = (q-1)^2*m^2/(S*(m-q*n0)^2) \u2014 exakte multinomiale Erwartung.",
+      "honesty": "gamma_arm ist EIN freier Arm-Parameter (2 total). Er wird in-job am Kalibrier-Bein gefittet und am Holdout getestet \u2014 die Falsifizierbarkeit liegt in der Band-Regel am Holdout."
+    },
+    "points": {
+      "q3_d3": [
+        {
+          "P": 181,
+          "d": 3,
+          "q": 3,
+          "m": 42,
+          "n_d": [
+            1,
+            19,
+            22
+          ],
+          "N": [
+            1,
+            19,
+            22
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 774,
+          "ratio_true": 1.017751479289941,
+          "L_q": 0.0005662906804733727,
+          "share_true_reg": 6.142857142857143,
+          "model_share_reg": 6.035714285714286,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.017751479289941
+        },
+        {
+          "P": 229,
+          "d": 3,
+          "q": 3,
+          "m": 50,
+          "n_d": [
+            1,
+            24,
+            25
+          ],
+          "N": [
+            1,
+            24,
+            25
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1106,
+          "ratio_true": 1.0013580805794478,
+          "L_q": 0.0005526044024445451,
+          "share_true_reg": 7.373333333333333,
+          "model_share_reg": 7.363333333333333,
+          "delta": -0.5,
+          "delta_sq": 0.25,
+          "closed_form": 1.0013580805794478
+        },
+        {
+          "P": 283,
+          "d": 3,
+          "q": 3,
+          "m": 61,
+          "n_d": [
+            1,
+            28,
+            32
+          ],
+          "N": [
+            1,
+            28,
+            32
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1706,
+          "ratio_true": 1.014268727705113,
+          "L_q": 0.0005400994444857313,
+          "share_true_reg": 9.3224043715847,
+          "model_share_reg": 9.191256830601093,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.014268727705113
+        },
+        {
+          "P": 379,
+          "d": 3,
+          "q": 3,
+          "m": 75,
+          "n_d": [
+            1,
+            36,
+            38
+          ],
+          "N": [
+            1,
+            36,
+            38
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2598,
+          "ratio_true": 1.0023148148148149,
+          "L_q": 0.0005298190646701389,
+          "share_true_reg": 11.546666666666667,
+          "model_share_reg": 11.52,
+          "delta": -1.0,
+          "delta_sq": 1.0,
+          "closed_form": 1.0023148148148149
+        },
+        {
+          "P": 467,
+          "d": 3,
+          "q": 3,
+          "m": 91,
+          "n_d": [
+            1,
+            43,
+            47
+          ],
+          "N": [
+            1,
+            43,
+            47
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3896,
+          "ratio_true": 1.006198347107438,
+          "L_q": 0.0005221406290353822,
+          "share_true_reg": 14.271062271062272,
+          "model_share_reg": 14.183150183150182,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.006198347107438
+        },
+        {
+          "P": 613,
+          "d": 3,
+          "q": 3,
+          "m": 112,
+          "n_d": [
+            1,
+            53,
+            58
+          ],
+          "N": [
+            1,
+            53,
+            58
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 5978,
+          "ratio_true": 1.0063125999494993,
+          "L_q": 0.000515528995875768,
+          "share_true_reg": 17.791666666666668,
+          "model_share_reg": 17.680059523809526,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0063125999494993
+        },
+        {
+          "P": 691,
+          "d": 3,
+          "q": 3,
+          "m": 125,
+          "n_d": [
+            1,
+            59,
+            65
+          ],
+          "N": [
+            1,
+            59,
+            65
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 7496,
+          "ratio_true": 1.0072561139478635,
+          "L_q": 0.0005125903339995969,
+          "share_true_reg": 19.989333333333335,
+          "model_share_reg": 19.845333333333333,
+          "delta": -3.0,
+          "delta_sq": 9.0,
+          "closed_form": 1.0072561139478635
+        },
+        {
+          "P": 797,
+          "d": 3,
+          "q": 3,
+          "m": 139,
+          "n_d": [
+            1,
+            67,
+            71
+          ],
+          "N": [
+            1,
+            67,
+            71
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 9272,
+          "ratio_true": 1.0025951557093427,
+          "L_q": 0.0005100606634542604,
+          "share_true_reg": 22.235011990407674,
+          "model_share_reg": 22.177458033573142,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0025951557093427
+        }
+      ],
+      "q5_d5": [
+        {
+          "P": 467,
+          "d": 5,
+          "q": 5,
+          "m": 91,
+          "n_d": [
+            1,
+            21,
+            24,
+            24,
+            21
+          ],
+          "N": [
+            1,
+            21,
+            24,
+            24,
+            21
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1894,
+          "ratio_true": 1.024337479718767,
+          "L_q": 0.0021868345220389398,
+          "share_true_reg": 4.162637362637363,
+          "model_share_reg": 4.0637362637362635,
+          "sigma2": 9.0,
+          "closed_form": 1.024337479718767
+        },
+        {
+          "P": 547,
+          "d": 5,
+          "q": 5,
+          "m": 101,
+          "n_d": [
+            1,
+            24,
+            26,
+            26,
+            24
+          ],
+          "N": [
+            1,
+            24,
+            26,
+            26,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2324,
+          "ratio_true": 1.0086805555555556,
+          "L_q": 0.0021618737114800345,
+          "share_true_reg": 4.601980198019802,
+          "model_share_reg": 4.562376237623762,
+          "sigma2": 4.0,
+          "closed_form": 1.0086805555555556
+        },
+        {
+          "P": 613,
+          "d": 5,
+          "q": 5,
+          "m": 112,
+          "n_d": [
+            1,
+            26,
+            30,
+            29,
+            26
+          ],
+          "N": [
+            1,
+            26,
+            30,
+            29,
+            26
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2926,
+          "ratio_true": 1.022272687570967,
+          "L_q": 0.0021399248842693683,
+          "share_true_reg": 5.225,
+          "model_share_reg": 5.111160714285714,
+          "sigma2": 12.75,
+          "closed_form": 1.022272687570967
+        },
+        {
+          "P": 673,
+          "d": 5,
+          "q": 5,
+          "m": 122,
+          "n_d": [
+            1,
+            29,
+            32,
+            32,
+            28
+          ],
+          "N": [
+            1,
+            29,
+            32,
+            32,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3486,
+          "ratio_true": 1.0186280955511724,
+          "L_q": 0.0021236257213821316,
+          "share_true_reg": 5.714754098360656,
+          "model_share_reg": 5.6102459016393444,
+          "sigma2": 12.75,
+          "closed_form": 1.0186280955511724
+        },
+        {
+          "P": 691,
+          "d": 5,
+          "q": 5,
+          "m": 125,
+          "n_d": [
+            1,
+            30,
+            33,
+            33,
+            28
+          ],
+          "N": [
+            1,
+            30,
+            33,
+            33,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3690,
+          "ratio_true": 1.025,
+          "L_q": 0.0021192762586805555,
+          "share_true_reg": 5.904,
+          "model_share_reg": 5.76,
+          "sigma2": 18.0,
+          "closed_form": 1.025
+        }
+      ]
+    },
+    "calibration_points": {
+      "q3_d3": [
+        {
+          "P": 149,
+          "d": 3,
+          "q": 3,
+          "m": 35,
+          "n_d": [
+            1,
+            15,
+            19
+          ],
+          "N": [
+            1,
+            15,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 536,
+          "ratio_true": 1.046875,
+          "L_q": 0.0005841255187988281,
+          "share_true_reg": 5.104761904761904,
+          "model_share_reg": 4.876190476190477,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.046875
+        },
+        {
+          "P": 197,
+          "d": 3,
+          "q": 3,
+          "m": 45,
+          "n_d": [
+            1,
+            20,
+            24
+          ],
+          "N": [
+            1,
+            20,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 906,
+          "ratio_true": 1.0272108843537415,
+          "L_q": 0.0005605269451530613,
+          "share_true_reg": 6.711111111111111,
+          "model_share_reg": 6.533333333333333,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0272108843537415
+        },
+        {
+          "P": 251,
+          "d": 3,
+          "q": 3,
+          "m": 54,
+          "n_d": [
+            1,
+            25,
+            28
+          ],
+          "N": [
+            1,
+            25,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1314,
+          "ratio_true": 1.0103806228373702,
+          "L_q": 0.0005474156574394464,
+          "share_true_reg": 8.11111111111111,
+          "model_share_reg": 8.027777777777779,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0103806228373702
+        },
+        {
+          "P": 347,
+          "d": 3,
+          "q": 3,
+          "m": 69,
+          "n_d": [
+            1,
+            32,
+            36
+          ],
+          "N": [
+            1,
+            32,
+            36
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2202,
+          "ratio_true": 1.0110192837465564,
+          "L_q": 0.0005336793001033058,
+          "share_true_reg": 10.63768115942029,
+          "model_share_reg": 10.521739130434783,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0110192837465566
+        },
+        {
+          "P": 433,
+          "d": 3,
+          "q": 3,
+          "m": 84,
+          "n_d": [
+            1,
+            40,
+            43
+          ],
+          "N": [
+            1,
+            40,
+            43
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3294,
+          "ratio_true": 1.0041152263374487,
+          "L_q": 0.0005251200274348423,
+          "share_true_reg": 13.071428571428571,
+          "model_share_reg": 13.017857142857142,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0041152263374487
+        },
+        {
+          "P": 577,
+          "d": 3,
+          "q": 3,
+          "m": 106,
+          "n_d": [
+            1,
+            50,
+            55
+          ],
+          "N": [
+            1,
+            50,
+            55
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 5342,
+          "ratio_true": 1.0070694693185032,
+          "L_q": 0.0005171390446790461,
+          "share_true_reg": 16.79874213836478,
+          "model_share_reg": 16.680817610062892,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0070694693185032
+        },
+        {
+          "P": 659,
+          "d": 3,
+          "q": 3,
+          "m": 120,
+          "n_d": [
+            1,
+            56,
+            63
+          ],
+          "N": [
+            1,
+            56,
+            63
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 6918,
+          "ratio_true": 1.0107385492000878,
+          "L_q": 0.0005136423405654175,
+          "share_true_reg": 19.216666666666665,
+          "model_share_reg": 19.0125,
+          "delta": -3.5,
+          "delta_sq": 12.25,
+          "closed_form": 1.0107385492000878
+        },
+        {
+          "P": 761,
+          "d": 3,
+          "q": 3,
+          "m": 135,
+          "n_d": [
+            1,
+            65,
+            69
+          ],
+          "N": [
+            1,
+            65,
+            69
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 8736,
+          "ratio_true": 1.002754820936639,
+          "L_q": 0.0005107280636621901,
+          "share_true_reg": 21.57037037037037,
+          "model_share_reg": 21.511111111111113,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.002754820936639
+        }
+      ],
+      "q5_d5": [
+        {
+          "P": 433,
+          "d": 5,
+          "q": 5,
+          "m": 84,
+          "n_d": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "N": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1594,
+          "ratio_true": 1.0216311488543504,
+          "L_q": 0.0022081797788815897,
+          "share_true_reg": 3.795238095238095,
+          "model_share_reg": 3.7148809523809523,
+          "sigma2": 6.75,
+          "closed_form": 1.0216311488543504
+        },
+        {
+          "P": 499,
+          "d": 5,
+          "q": 5,
+          "m": 95,
+          "n_d": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "N": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2050,
+          "ratio_true": 1.0123456790123457,
+          "L_q": 0.002176167052469136,
+          "share_true_reg": 4.315789473684211,
+          "model_share_reg": 4.2631578947368425,
+          "sigma2": 5.0,
+          "closed_form": 1.0123456790123457
+        },
+        {
+          "P": 577,
+          "d": 5,
+          "q": 5,
+          "m": 106,
+          "n_d": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "N": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2584,
+          "ratio_true": 1.0132339966669934,
+          "L_q": 0.002151290314675032,
+          "share_true_reg": 4.875471698113207,
+          "model_share_reg": 4.811792452830189,
+          "sigma2": 6.75,
+          "closed_form": 1.0132339966669934
+        },
+        {
+          "P": 631,
+          "d": 5,
+          "q": 5,
+          "m": 115,
+          "n_d": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "N": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3080,
+          "ratio_true": 1.018181818181818,
+          "L_q": 0.0021347172004132233,
+          "share_true_reg": 5.356521739130435,
+          "model_share_reg": 5.260869565217392,
+          "sigma2": 11.0,
+          "closed_form": 1.018181818181818
+        },
+        {
+          "P": 659,
+          "d": 5,
+          "q": 5,
+          "m": 120,
+          "n_d": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "N": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3370,
+          "ratio_true": 1.019281663516068,
+          "L_q": 0.0021266540642722116,
+          "share_true_reg": 5.616666666666666,
+          "model_share_reg": 5.510416666666667,
+          "sigma2": 12.75,
+          "closed_form": 1.019281663516068
+        }
+      ]
+    },
+    "cP_freeze": {
+      "cal|q3_d3|149": 5.003660769251847,
+      "cal|q3_d3|197": 4.689438895133084,
+      "cal|q3_d3|251": 4.453565456982784,
+      "cal|q3_d3|347": 4.380217266701323,
+      "cal|q3_d3|433": 4.262410449712771,
+      "cal|q3_d3|577": 4.244292172213,
+      "cal|q3_d3|659": 4.259337600338055,
+      "cal|q3_d3|761": 4.163517923242973,
+      "cal|q5_d5|433": 4.895198651036044,
+      "cal|q5_d5|499": 4.706149521271885,
+      "cal|q5_d5|577": 4.661443610225488,
+      "cal|q5_d5|631": 4.690208976344953,
+      "cal|q5_d5|659": 4.681900907896624,
+      "verdict|q3_d3|181": 4.632285850026061,
+      "verdict|q3_d3|229": 4.394626020647024,
+      "verdict|q3_d3|283": 4.449016857525076,
+      "verdict|q3_d3|379": 4.272197538819991,
+      "verdict|q3_d3|467": 4.2653626365026565,
+      "verdict|q3_d3|613": 4.227287704987718,
+      "verdict|q3_d3|691": 4.219039117687428,
+      "verdict|q3_d3|797": 4.157939260087671,
+      "verdict|q5_d5|467": 4.883399773945637,
+      "verdict|q5_d5|547": 4.625319318723228,
+      "verdict|q5_d5|613": 4.75113180766759,
+      "verdict|q5_d5|673": 4.664051955367851,
+      "verdict|q5_d5|691": 4.731200614987623
+    },
+    "anchor_verification": {
+      "run1_regression_040": "8/8 bit-exakt (tol 1e-9)",
+      "run1_regression_034": "5/5 bit-exakt (tol 1e-9)",
+      "cal_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+      "new_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)"
+    },
+    "registered_expectations_nicht_verdict_tragend": {
+      "source": "Phase-11a-Diagnostik (md5 8ad3adbb19568bc9f7db81142d3e1c0a), committet",
+      "transfer_max_abs_res": {
+        "q3_d3": 0.015238037835231706,
+        "q5_d5": 0.019724554308855953
+      },
+      "gamma_cal_fit": {
+        "q3_d3": 0.010840010011122515,
+        "q5_d5": 0.005978024340559316
+      },
+      "gamma_lsq": {
+        "q3_d3": 0.010157374329334288,
+        "q5_d5": 0.007168355673403591
+      },
+      "corr_kdef_delta": {
+        "q3_d3": -0.04695915333239529,
+        "q5_d5": 0.8586195974465813
+      },
+      "note": "Erwartete in-job gamma_arm ~ gamma_cal_fit (gleiche Punkte, frische Messung); erwartete Holdout-Residuen ~ transfer-Erwartung plus Session-Drift. DIENST der Eichung, NICHT dem Verdict."
+    }
+  },
+  "echo_ladder": {
+    "purpose": "GEMESSENES Daempfungsgesetz statt starrer (1-eps)^2-Annahme: r-fache (Prep + exakte Inverse)-Bloecke, r in [1, 2, 4, 8], je Arm am NEUEN Ankerpunkt.",
+    "repeats": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "anchors": {
+      "q3": 181,
+      "q5": 467
+    },
+    "r1_shared": "r=1 ist EXAKT der gepaarte Loschmidt-Circuit des Ankerpunkts (geteilt, kein doppeltes Circuit).",
+    "barriers": "Barrier zwischen allen Bloecken (Transpiler-Kuerzung verboten, Phase-9-Konvention).",
+    "verdict_role": "NICHT verdict-tragend (Phase-10-Praezedenz); die Leiter dokumentiert das Daempfungsgesetz am neuen Register."
+  },
+  "hardware_parameters": {
+    "backend": "ibm_fez",
+    "token": "TOKEN1 (IBMQ_TOKEN); TOKEN2 unberuehrt",
+    "n_shots": 8192,
+    "register_topology": {
+      "q3_d3": {
+        "d": 3,
+        "n_qubits": 2,
+        "labels": 4,
+        "real_labels": 3,
+        "idle_labels": 1,
+        "note": "Minimalrepraesentant d=q=3 (UNVERAENDERT aus Phase 10)"
+      },
+      "q5_d5": {
+        "d": 5,
+        "n_qubits": 3,
+        "labels": 8,
+        "real_labels": 5,
+        "idle_labels": 3,
+        "note": "Minimalrepraesentant d=q=5 (UNVERAENDERT aus Phase 10)"
+      }
+    },
+    "state_prep": "Qiskit StatePreparation aus den gefrorenen n_d-Vektoren; Loschmidt = Prep + exakte Inverse; Leiter = r Bloecke mit Barrieren.",
+    "circuit_budget": {
+      "verdict_structure": 39,
+      "verdict_loschmidt": 13,
+      "echo_ladder": 6,
+      "kalibrier_structure": 39,
+      "kalibrier_loschmidt": 13,
+      "negative_controls": 4,
+      "readout_cal": 2,
+      "total": 116,
+      "total_shots": 950272,
+      "jobs": 1
+    },
+    "run_config": {
+      "optimization_level": 3,
+      "dynamical_decoupling": "XX",
+      "resilience": "none (raw SamplerV2 counts)"
+    },
+    "isa_ceilings": {
+      "per_circuit_2q_max": 120,
+      "total_2q_max": 6000,
+      "erwartung": "max ~84-96 2q (Leiter r=8, q5) je Circuit, total ~600-700 2q (Prognose, Phase-10-Messung 493 2q/max 84 als Basis); die echten Werte werden in Freeze B'' am ISA-Report registriert",
+      "measured_when": "Stage-3-Transpilation VOR Hardware; Backend-Target-Laden = kein Quota-Kontakt (kein Job), \u00a7Z.14-Phase-3b-Praezedenz",
+      "abort": "Ceiling-\u00dcberschreitung vor dem QPU-Lauf -> Abbruch, Re-Freeze"
+    }
+  },
+  "simulation_leg": {
+    "purpose": "0 QPU: Validierung der v3-Form auf dem gefrorenen STRESS-Modell am Minimalregister VOR Hardware (26-Punkte-Grid: 13 Verdict + 13 Kalibrier); Form-Gates + w_B''-Konsistenz.",
+    "stress_model": "pt_ram_q_hardware_aer.build_noise_model-Pr\u00e4zedenz (depolarizing p1 auf 1q-Gates, ratio*p1 auf cz, ReadoutError ro=1e-2) \u2014 NICHT kalibriert, konservativ.",
+    "stress_grid_p1": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "n_ens": 8,
+    "form_validation": "Phase-10b-Re-Freeze-R1-Konvention (zweistufig): Gate E vergleicht das DETERMINISTISCHE Zentrum (exact-Bein): max |res_v2| <= TOL_FORM = 0.03 ueber die Domain-Zellen (kappa >= 0.81) \u2014 v2, NICHT v3, denn auf Aer ist gamma_Aer ~ 0 und v3 reduziert exakt auf v2; Gate S: sampled Domain-q97.5 <= W_A = 0.05. Der per-Zell-Max des sampled-Beins ist registrierte Diagnostik, KEIN Gate. gamma_aer (in-Aer-Fit auf den Kalibrier-Zellen) ist registrierte Diagnostik (Erwartung ~0), KEIN Gate. Verletzung eines Gates -> Re-Freeze-Zyklus (dokumentiert, Hardware blockiert).",
+    "freeze_b": "w_B'' = w_B' = 0.02787029633307472 WIEDERVERWENDET (source: pt_ram_q_stage2b_results.json w_b (EXPERIMENT 043, Phase-10b-Konvention q97.5 des sampled-Beins)); das Stage-Aer-3-Bein registriert q97.5 der 26-Punkte-Grid als Diagnostik + Gate-S-Konsistenz (<= W_A) und ECHTEN ISA-Report (Phase-9/10-Praezedenz: Freeze B'' aendert den Payload NICHT)."
+  },
+  "kalibrier_bein": {
+    "purpose": "In-job gamma_arm-Kalibrier am selben Register: die 13 Run-2-Verdict-P werden FRISCH gemessen (3 Reps + gepaarter Loschmidt) und tragen den gamma-Fit; der Holdout-Charakter der 13 neuen P bleibt unangetastet.",
+    "points": {
+      "q3_d3": [
+        {
+          "P": 149,
+          "d": 3,
+          "q": 3,
+          "m": 35,
+          "n_d": [
+            1,
+            15,
+            19
+          ],
+          "N": [
+            1,
+            15,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 536,
+          "ratio_true": 1.046875,
+          "L_q": 0.0005841255187988281,
+          "share_true_reg": 5.104761904761904,
+          "model_share_reg": 4.876190476190477,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.046875
+        },
+        {
+          "P": 197,
+          "d": 3,
+          "q": 3,
+          "m": 45,
+          "n_d": [
+            1,
+            20,
+            24
+          ],
+          "N": [
+            1,
+            20,
+            24
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 906,
+          "ratio_true": 1.0272108843537415,
+          "L_q": 0.0005605269451530613,
+          "share_true_reg": 6.711111111111111,
+          "model_share_reg": 6.533333333333333,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0272108843537415
+        },
+        {
+          "P": 251,
+          "d": 3,
+          "q": 3,
+          "m": 54,
+          "n_d": [
+            1,
+            25,
+            28
+          ],
+          "N": [
+            1,
+            25,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1314,
+          "ratio_true": 1.0103806228373702,
+          "L_q": 0.0005474156574394464,
+          "share_true_reg": 8.11111111111111,
+          "model_share_reg": 8.027777777777779,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0103806228373702
+        },
+        {
+          "P": 347,
+          "d": 3,
+          "q": 3,
+          "m": 69,
+          "n_d": [
+            1,
+            32,
+            36
+          ],
+          "N": [
+            1,
+            32,
+            36
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2202,
+          "ratio_true": 1.0110192837465564,
+          "L_q": 0.0005336793001033058,
+          "share_true_reg": 10.63768115942029,
+          "model_share_reg": 10.521739130434783,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.0110192837465566
+        },
+        {
+          "P": 433,
+          "d": 3,
+          "q": 3,
+          "m": 84,
+          "n_d": [
+            1,
+            40,
+            43
+          ],
+          "N": [
+            1,
+            40,
+            43
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3294,
+          "ratio_true": 1.0041152263374487,
+          "L_q": 0.0005251200274348423,
+          "share_true_reg": 13.071428571428571,
+          "model_share_reg": 13.017857142857142,
+          "delta": -1.5,
+          "delta_sq": 2.25,
+          "closed_form": 1.0041152263374487
+        },
+        {
+          "P": 577,
+          "d": 3,
+          "q": 3,
+          "m": 106,
+          "n_d": [
+            1,
+            50,
+            55
+          ],
+          "N": [
+            1,
+            50,
+            55
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 5342,
+          "ratio_true": 1.0070694693185032,
+          "L_q": 0.0005171390446790461,
+          "share_true_reg": 16.79874213836478,
+          "model_share_reg": 16.680817610062892,
+          "delta": -2.5,
+          "delta_sq": 6.25,
+          "closed_form": 1.0070694693185032
+        },
+        {
+          "P": 659,
+          "d": 3,
+          "q": 3,
+          "m": 120,
+          "n_d": [
+            1,
+            56,
+            63
+          ],
+          "N": [
+            1,
+            56,
+            63
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 6918,
+          "ratio_true": 1.0107385492000878,
+          "L_q": 0.0005136423405654175,
+          "share_true_reg": 19.216666666666665,
+          "model_share_reg": 19.0125,
+          "delta": -3.5,
+          "delta_sq": 12.25,
+          "closed_form": 1.0107385492000878
+        },
+        {
+          "P": 761,
+          "d": 3,
+          "q": 3,
+          "m": 135,
+          "n_d": [
+            1,
+            65,
+            69
+          ],
+          "N": [
+            1,
+            65,
+            69
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 8736,
+          "ratio_true": 1.002754820936639,
+          "L_q": 0.0005107280636621901,
+          "share_true_reg": 21.57037037037037,
+          "model_share_reg": 21.511111111111113,
+          "delta": -2.0,
+          "delta_sq": 4.0,
+          "closed_form": 1.002754820936639
+        }
+      ],
+      "q5_d5": [
+        {
+          "P": 433,
+          "d": 5,
+          "q": 5,
+          "m": 84,
+          "n_d": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "N": [
+            1,
+            20,
+            22,
+            22,
+            19
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 1594,
+          "ratio_true": 1.0216311488543504,
+          "L_q": 0.0022081797788815897,
+          "share_true_reg": 3.795238095238095,
+          "model_share_reg": 3.7148809523809523,
+          "sigma2": 6.75,
+          "closed_form": 1.0216311488543504
+        },
+        {
+          "P": 499,
+          "d": 5,
+          "q": 5,
+          "m": 95,
+          "n_d": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "N": [
+            1,
+            22,
+            25,
+            24,
+            23
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2050,
+          "ratio_true": 1.0123456790123457,
+          "L_q": 0.002176167052469136,
+          "share_true_reg": 4.315789473684211,
+          "model_share_reg": 4.2631578947368425,
+          "sigma2": 5.0,
+          "closed_form": 1.0123456790123457
+        },
+        {
+          "P": 577,
+          "d": 5,
+          "q": 5,
+          "m": 106,
+          "n_d": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "N": [
+            1,
+            25,
+            28,
+            27,
+            25
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 2584,
+          "ratio_true": 1.0132339966669934,
+          "L_q": 0.002151290314675032,
+          "share_true_reg": 4.875471698113207,
+          "model_share_reg": 4.811792452830189,
+          "sigma2": 6.75,
+          "closed_form": 1.0132339966669934
+        },
+        {
+          "P": 631,
+          "d": 5,
+          "q": 5,
+          "m": 115,
+          "n_d": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "N": [
+            1,
+            27,
+            31,
+            29,
+            27
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3080,
+          "ratio_true": 1.018181818181818,
+          "L_q": 0.0021347172004132233,
+          "share_true_reg": 5.356521739130435,
+          "model_share_reg": 5.260869565217392,
+          "sigma2": 11.0,
+          "closed_form": 1.018181818181818
+        },
+        {
+          "P": 659,
+          "d": 5,
+          "q": 5,
+          "m": 120,
+          "n_d": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "N": [
+            1,
+            28,
+            32,
+            31,
+            28
+          ],
+          "n0": 1,
+          "q_sum_N_sq_minus_m2": 3370,
+          "ratio_true": 1.019281663516068,
+          "L_q": 0.0021266540642722116,
+          "share_true_reg": 5.616666666666666,
+          "model_share_reg": 5.510416666666667,
+          "sigma2": 12.75,
+          "closed_form": 1.019281663516068
+        }
+      ]
+    },
+    "reps": 3,
+    "loschmidt_gepaart": true,
+    "gamma_fit_rule": "gamma_arm = <cP, delta_cal>/<cP, cP> ueber die Kalibrier-P des Arms (LSQ-durch-Null); delta_cal = ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - ratio_hw; ratio_ro_exact mit ro_hat aus der Readout-Kalibrier DESELBEN Jobs.",
+    "verdict_role": "verdict-tragend NUR in der kappa-Gate-Union (VOID-Calibration zaehlt Verdict-Punkte UND Kalibrier-Punkte); die Ratio-Band-Regeln (REFUTED/CONFIRMED/COARSE) gelten NUR fuer die 13 Holdout-P. Die Kalibrier-Residuen sind registrierte Diagnostik (KEIN Gate): cal_fit-Erwartung max|res| q3 0.0145 / q5 0.0142.",
+    "leckage_dokumentiert": "Die Run-2-Ratios der Kalibrier-P sind als Zahlen bekannt (committed Eval); die Run-3-MESSUNGEN sind frisch (nie bei dieser Session/Konfiguration gemessen). Das VERDICT nutzt ausschliesslich die 13 NEUEN P."
+  },
+  "safeguard_limits": {
+    "band_rule": "ratio_hw \u2208 [center_v3 - w_B'', center_v3 + w_B''] an den 13 Holdout-P; Freeze A'': w_A = 0.05 (grob), w_B'' = w_B' = 0.02787029633307472 (scharf, WIEDERVERWENDET); das Zentrum center_v3 bleibt gefroren (kein Re-Zentrieren).",
+    "amplification_ceiling": "ratio_hw > (1-1/S)*ratio_true + L_q + w -> H-RAM-Q-4_INVALID_AMPLIFICATION (einseitig: Depolarisierung daempft Prime-Harmonische, hebt sie nie \u00fcber das rauschfreie Niveau + Band) \u2014 UNVERAENDERT aus Phase 9/10",
+    "kappa_floor_void": "kappa_hat < KAPPA_CEILING = 0.81 an >= 2 Punkten der UNION (Verdict-P UND Kalibrier-P) -> H-RAM-Q-4_VOID_CALIBRATION_GLOBAL. Die Union, weil der gamma-Fit Kalibrier-kappa_hat >= 0.81 braucht; UNVERAENDERT gefrorene Garantie 0.81.",
+    "falsifier": ">= 2 der 13 Holdout-P unter center_v3 - w -> H-RAM-Q-4_REFUTED",
+    "trennschaerfe": {
+      "band_vs_shot_noise": "gepoolte K=3-Ratio-SE \u2248 1.4-2.0% (S=8192) gegen w_A = 5% -> >= 2.5\u03c3 Aufl\u00f6sung",
+      "kappa_se": "SE(kappa_hat) \u2248 0.005 (Loschmidt, 8192 Shots)",
+      "gamma_se": "gamma_arm-SE aus dem Kalibrier-Fit: 13 Punkte, cP-Spreizung 4.2-5.0 (q3) / 4.6-5.4 (q5) \u2014 SE(gamma) ~ std(delta_cal/cP)/sqrt(n_cal) ~ 0.003 (q3) / 0.005 (q5); ueber cP ~ 4.7 in Ratio-Einheiten ~ 0.014-0.024 \u2014 KOMPARABEL zur Transfer-Erwartung; die Band-Regel traegt die gamma-Unschaerfe mit (w_B'' = w_B' ungeaendert, Transfer liegt innen)",
+      "coupling": "kappa_hat (Loschmidt) und share-Ratio (Harmonische) sind operationell UNABH\u00c4NGIG; das gefrorene Gesetz koppelt sie zusammen mit dem in-job gamma-Fit."
+    },
+    "job_integrity": "EIN Fez-Job (TOKEN1), 116 Circuits; Job-ID + md5 der Counts committed VOR der Auswertung (\u00a7Z.14-Disziplin)."
+  },
+  "controls": {
+    "t1_backcompat_run3": {
+      "run1_regression_040": "8/8 bit-exakt (tol 1e-9)",
+      "run1_regression_034": "5/5 bit-exakt (tol 1e-9)",
+      "cal_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+      "new_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)"
+    },
+    "t2_v2_anchors": "034-Prime-Anker (625,625) = 0.04272280701754398 \u00fcber die d=625-Kette unber\u00fchrt \u2014 klassisch, kein QPU-Kontakt.",
+    "t3_identity_two_ways": "share*_hw = sum_j |G_j|^2/(d*m) auf den HW-Counts zwei Wege (FFT bei j*d/q vs gefaltete Formel), exakt 1e-12 (041-Theorem); Verletzung -> EVALUATION_INVALID.",
+    "t4_negative_must_not_fire": {
+      "composite_q3": {
+        "kind": "composite_q5",
+        "P": 181,
+        "d": 3,
+        "q": 3,
+        "m": 42,
+        "n_d": [
+          19,
+          13,
+          10
+        ],
+        "N_tilde": [
+          19,
+          13,
+          10
+        ],
+        "expected_share": 1.0,
+        "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+      },
+      "composite_q5": {
+        "kind": "composite_q5",
+        "P": 467,
+        "d": 5,
+        "q": 5,
+        "m": 91,
+        "n_d": [
+          23,
+          18,
+          17,
+          15,
+          18
+        ],
+        "N_tilde": [
+          23,
+          18,
+          17,
+          15,
+          18
+        ],
+        "expected_share": 0.3824175824175824,
+        "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+      },
+      "uniform_q3": {
+        "kind": "uniform_q3",
+        "q": 3,
+        "n_classes": 3,
+        "expected_share": 0.0,
+        "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)",
+        "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig)."
+      },
+      "uniform_q5": {
+        "kind": "uniform_q5",
+        "q": 5,
+        "n_classes": 5,
+        "expected_share": 0.0,
+        "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)",
+        "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig)."
+      },
+      "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante, konservativste Ecke kappa = KAPPA_CEILING, w = W_A); Verletzung -> H-RAM-Q-4_DEGENERAT (REFUTED-zulaessig)"
+    },
+    "t4b_shuffle_inert_theorem": {
+      "q3_seed421": {
+        "seed": 421,
+        "expected_share": 6.142857142857143,
+        "share_true_reg": 6.142857142857143,
+        "delta": 0.0
+      },
+      "q5_seed421": {
+        "seed": 421,
+        "expected_share": 4.162637362637363,
+        "share_true_reg": 4.162637362637363,
+        "delta": 0.0
+      },
+      "statement": "Kein Shuffle-Circuit am Minimalregister (Phase-10-Theorem, expected_share == share_true_reg EXAKT)."
+    },
+    "t5_gate_set_frozen": "13 VERDICT-P = exakt die 13 P nach amendierter Regel (kleinste Primzahl > P_alt + 30 UND nicht in der gemessenen Vereinigung, P_alt = Run-2-Verdict-P); 13 Kalibrier-P = exakt die Run-2-Verdict-P; Run-1-P retired; keine nachtr\u00e4glichen Erg\u00e4nzungen.",
+    "t6_mass_conservation": "sum_r N_hat_r = m_hat unter Depolarisierung; Verletzung -> EVALUATION_INVALID."
+  },
+  "verdict_map": {
+    "H-RAM-Q-4_NOISE_LIFT_CONFIRMED": "alle 13 Holdout-P im Band [center_v3 - w_B'', center_v3 + w_B''], Kontrollen gruen, alle kappa_hat >= 0.81 (Union)",
+    "H-RAM-Q-4_COARSE_HOLD_SHARP_MISS": "alle Punkte im groben Band (w_A), >= 1 Punkt au\u00dferhalb w_B''",
+    "H-RAM-Q-4_REFUTED": ">= 2 der 13 Holdout-P unter center_v3 - w",
+    "H-RAM-Q-4_INVALID_AMPLIFICATION": "irgendein Punkt \u00fcber (1-1/S)*ratio_true + L_q + w",
+    "H-RAM-Q-4_VOID_CALIBRATION": "kappa_hat < 0.81 an >= 2 Punkten der UNION (Verdict UND Kalibrier)",
+    "H-RAM-Q-4_DEGENERAT": "Kontroll-Regel T4 verletzt \u2014 REFUTED-zulaessig",
+    "EVALUATION_INVALID_KONTROLLE_GESCHEITERT": "T1-T6 gescheitert \u2014 Auswertung void"
+  },
+  "fallback_lesart_b": {
+    "status": "REGISTRIERT, NUR-NACHGELAGERT, NIE stiller Patch",
+    "trigger": "AUSL\u00d6SUNG NUR FALLS das v3-Gesetz erneut scheitert (REFUTED oder VOID trotz gamma-Fit) \u2014 sonst nie.",
+    "mechanism": "Separat gefrorenes NEUES Prereg. Option B (per-GATE-eps-Kalibrier) bleibt die dokumentierte Fallback-Lesart aus Phase 10 (per-GATE-eps nicht arm-transferierbar, Latte-Verschiebungs-Optik, Identifikations-Spannung).",
+    "prim\u00e4r_pfad": "v3b (dieser Freeze): das gefrorene v2-Gesetz + der koh\u00e4rente Prep-Fehler-Floor mit in-job gamma-Fit am Kalibrier-Bein."
+  },
+  "two_freeze_architecture": {
+    "freeze_a": "DIESER Freeze (A''): analytischer Kern + amendierte P-Regel + cP-Freeze (26 Werte) + gamma-Fit-Regel + Kalibrier-Bein + md5, VOR jedem Hardware-/Simulations-Kontakt, 0 QPU.",
+    "stage3_aer": "Aer-Bein (0 QPU): 26-Punkte-Grid (13 Verdict + 13 Kalibrier) x 6 Stresslevel, b_P fuer alle 26 (Phase-10b-Konvention), Form-Gates E/S, gamma_aer-Diagnostik (~0), w_B''-Konsistenz.",
+    "freeze_b": "w_B''-Registrierung (WIEDERVERWENDET, unveraendert) + ISA-3-Report VOR dem QPU-Lauf; Zentrum unver\u00e4ndert; erst danach QPU-Kontakt (Phase-9/10-Praezedenz: Payload-md5 unangetastet).",
+    "hardware": "EIN Fez-Job (TOKEN1) erst nach Freeze-B''-Commit; alle Abbruchbedingungen exakt in safeguard_limits registriert."
+  },
+  "anti_sharpshooter": {
+    "no_ex_post_fit": "Die 13 VERDICT-P sind nach amendierter registrierter Regel VOR dem Freeze berechnet \u2014 nie gemessen, keine Vorbelastung. Der gamma-Fit nutzt NUR die 13 Kalibrier-P (frisch gemessen in Run 3); die Holdout-P gehen in KEINEN Fit.",
+    "registered_alternative_models": "v3a (rein koh\u00e4rent, ohne kappa-Term) ist DOKUMENTIERT VERWORFEN (Aer-Reduktion scheitert am Form-Gate); v2 bleibt als Reduktions-Basis gefroren; das v3b-Gesetz ist der registrierte Kandidat.",
+    "negative_predictions": "Composite- (beide Arme) und Uniform-Kontrollen mit exakten Erwartungen registriert (T4); Shuffle-Inertness als Theorem dokumentiert (T4b); der Sampling-Lift L_q ist unter dem Shot-Noise."
+  },
+  "qpu": "0 QPU (Freeze A''); Stage-3 Aer 0 QPU; EIN Fez-Job (TOKEN1) erst nach Freeze B''",
+  "suite_state": 995,
+  "future_phase_numbering": {
+    "synthesis": "\u00a7Z.26 (SYNTHESIS)",
+    "log": "\u00a710.27 (RIEMANN) \u2014 \u00a7Z.23/\u00a710.24 Gematria-Layer, \u00a7Z.24/\u00a710.25 Phase 9, \u00a7Z.25/\u00a710.26 Phase 10"
+  },
+  "md5": "baaca1f6772e07b0847fe436da7e16da"
+}

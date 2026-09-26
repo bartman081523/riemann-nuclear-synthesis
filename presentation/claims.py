@@ -819,9 +819,13 @@ _CL.append(Claim(
     # Suppression, alle 13 res_v2 negativ) -> 981
     # 11a Diagnostik-Modul (EXPERIMENT 044-Vorstufe, 0 QPU):
     # +14 Tests (share_grad/cP/26-Punkte-Laden/gamma-Transfer/
-    # Mechanismus-Pins/Schema) -> 995
+    # Mechanismus-Pins/Schema) -> 995;
+    # 11b Freeze A'' (EXPERIMENT 044, H-RAM-Q-4, REGISTERED_NOT_MEASURED):
+    # +22 Tests (Freeze-Integritaet/amendierte P-Regel/Budget 116/Leiter/
+    # v3-Reduktion/cP-Kreuzpruefung/w_B''-Wiederverwendung/Verdict-Map)
+    # -> 1017
     # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=995,
+    id="test_count", value=1017,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
