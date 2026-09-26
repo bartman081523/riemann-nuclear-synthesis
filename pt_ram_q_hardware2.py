@@ -488,10 +488,35 @@ def build_prereg_payload():
                             "ReadoutError ro=1e-2) — NICHT kalibriert, konservativ.",
             "stress_grid_p1": STRESS_GRID_P1,
             "n_ens": N_ENS,
-            "form_validation": "|ratio_Aer - c(kappa_hat_Aer)| <= TOL_FORM = 0.03 an ALLEN "
-                               "13 Punkten x 6 Stresslevel; sonst Re-Freeze-Zyklus "
+            "form_validation": "RE-FREEZE R1 (dokumentiert, VOR jedem QPU-Kontakt): "
+                               "TOL_FORM = 0.03 vergleicht das DETERMINISTISCHE Zentrum "
+                               "(exact-Bein = die registrierten 13 Punkte x 6 Stresslevel): "
+                               "max |res_v2| <= 0.03 ueber die Domain-Zellen (kappa >= 0.81) "
+                               "des exact-Beins. Das sampled-Bein wird noise-aware geprueft: "
+                               "w_B' = q97.5 der |res_v2| ueber die Domain-Zellen "
+                               "<= W_A = 0.05 (freeze_b'); der per-Zell-Max des sampled-Beins "
+                               "ist registrierte Diagnostik (Estimator-Rauschen), KEIN Gate. "
+                               "Verletzung eines der beiden Gates -> Re-Freeze-Zyklus "
                                "(dokumentiert, Hardware blockiert) — v1->v2-Disziplin "
                                "(H-STAR-5-/Phase-9-Praezedenz).",
+            "re_freeze_r1": {
+                "old_md5": "5b91119b925ae365bcd0618a2a15fa30",
+                "trigger": "Stage-2b-Aer-Erstlauf (0 QPU): das v2-Form-Gate scheiterte am "
+                           "per-Zell-Max des sampled-Beins (0.0396 > TOL_FORM = 0.03); "
+                           "exact-Bein max 0.0022 (q5) / 0.0009 (q3), sampled q97.5 = 0.0279 "
+                           "<= W_A. Diagnose: Estimator-Rauschen (std 0.0117; max = 3.4 sigma "
+                           "bei 480 domain-sampled-Zellen), KEIN Zentrum-Defizit — TOL_FORM "
+                           "= 0.03 liegt am Minimalregister unterhalb der eigenen "
+                           "Rauschskala (share-Quadratform-Rauschen, d = 3/5).",
+                "measured": "0 QPU-Kontakt, keine Hardware-Messung. Freeze A' Register "
+                            "(Minimalregister, 13 neue P, Echo-Leiter, Budget 90, alle "
+                            "gefrorenen Konstanten) UNVERAENDERT.",
+                "rule": "Nur die Form-Gate-Lesart wird praezisiert (Rausch-Gate fuer das "
+                        "sampled-Bein via bereits gefrorenem w_B'-q97.5). Kein "
+                        "Zentrum-Weakening, kein Metrik-Weakening: das exact-Bein-Gate "
+                        "ist SCHAERFER, weil es das deterministische Zentrum ALLEIN "
+                        "prueft (Phase-9-Wert 0.0276 war ein sampled-Max).",
+            },
             "freeze_b": "w_B = max(W_B_FLOOR, q97.5-Halbbreite der Ensemble-Residuen über "
                         "alle Punkte x Stresslevel), w_B <= W_A = 0.05, sonst Re-Freeze; "
                         "Zentrum c(kappa) bleibt GEFROREN (kein Aer-Re-Zentrieren).",

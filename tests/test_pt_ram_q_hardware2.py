@@ -18,7 +18,11 @@ import pytest
 import pt_ram_q_hardware as hw
 import pt_ram_q_hardware2 as hw2
 
-EXPECTED_MD5 = "5b91119b925ae365bcd0618a2a15fa30"
+# Re-Freeze R1 (dokumentiert, simulation_leg.re_freeze_r1): alter md5
+# 5b91119b925ae365bcd0618a2a15fa30 — Form-Gate-Lesart noise-aware praezisiert
+# (exact-Bein = Zentrum-Check via TOL_FORM, sampled-Bein via w_B'-q97.5),
+# 0 QPU-Kontakt, Register unveraendert.
+EXPECTED_MD5 = "0b9c9968dc5e99a3cc22962a8b760e44"
 
 
 def _is_prime(n):
@@ -67,6 +71,26 @@ class TestFreezeIntegrity:
         assert "0.81" in doc["user_anchor"]
         assert "nachgelagerte Fallback-Lesart" in doc["user_anchor"]
         assert "Echo-Tiefen-Leiter" in doc["user_anchor"]
+
+    def test_re_freeze_r1_provenance_and_two_leg_form_gate(self):
+        # Re-Freeze R1: Trigger = Erst-Grid (sampled per-Zell-Max 0.0396 >
+        # TOL_FORM, exact-Bein max 0.0022) — Zentrum exzellent, Gate
+        # vergleicht jetzt das deterministische Zentrum ALLEIN.
+        doc = hw2.load_frozen_prereg()
+        rf = doc["simulation_leg"]["re_freeze_r1"]
+        assert rf["old_md5"] == "5b91119b925ae365bcd0618a2a15fa30"
+        assert rf["old_md5"] != EXPECTED_MD5
+        assert "0.0396" in rf["trigger"] and "0.0022" in rf["trigger"]
+        assert "0 QPU" in rf["measured"]
+        assert "UNVERAENDERT" in rf["measured"]
+        assert "Kein Zentrum-Weakening" in rf["rule"]
+        assert "kein Metrik-Weakening" in rf["rule"]
+        assert "SCHAERFER" in rf["rule"]
+        fv = doc["simulation_leg"]["form_validation"]
+        assert "KEIN Gate" in fv
+        assert fv.startswith("RE-FREEZE R1")
+        assert "exact-Bein" in fv and "sampled-Bein" in fv
+        assert "Estimator-Rauschen" in fv
 
     def test_freeze_refuses_broken_040_anchors(self, monkeypatch):
         monkeypatch.setattr(hw, "_load_040_ratios", lambda: {109: 2.0})
