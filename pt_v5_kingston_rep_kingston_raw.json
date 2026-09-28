@@ -1,0 +1,32 @@
+{
+ "experiment": "046-ququint-v5-repetition-both-backends",
+ "leg": "kingston",
+ "backend": "ibm_kingston",
+ "job_id": "dat3brihcrkc73dtjbgg",
+ "isa": {
+  "two_q": 1,
+  "one_q": 18,
+  "names": [
+   "cz"
+  ],
+  "depth": 11
+ },
+ "meas": {
+  "re": 2.1463664700509506,
+  "hd": 2.1600742871988152,
+  "im": 0.009730864928887861,
+  "bias": -0.01370781714786462
+ },
+ "options": {
+  "resilience_level": 1,
+  "dd": "XX",
+  "shots": 8192,
+  "transpile_seed": 7
+ },
+ "params": [
+  -0.10039260373380426,
+  0.31547161200836626,
+  -0.7794084485021391,
+  -0.09555937796511249
+ ]
+}
