@@ -1,0 +1,3148 @@
+{
+ "backend": "ibm_fez",
+ "ceiling_check": {
+  "ok": true,
+  "per_circuit_max": 120,
+  "total_max": 6000,
+  "violations": []
+ },
+ "experiment": "044-ram-q-coherent-prep-error",
+ "hypothesis": "H-RAM-Q-4",
+ "isa_ceilings": {
+  "per_circuit_2q_max": 120,
+  "total_2q_max": 6000
+ },
+ "max_two_q": 84,
+ "n_circuits": 116,
+ "optimization_level": 3,
+ "per_circuit": {
+  "cal_2q": {
+   "P": null,
+   "arm": null,
+   "depth": 1,
+   "kind": "readout_cal",
+   "ops": {
+    "measure": 2
+   },
+   "set": null,
+   "two_q": 0
+  },
+  "cal_3q": {
+   "P": null,
+   "arm": null,
+   "depth": 1,
+   "kind": "readout_cal",
+   "ops": {
+    "measure": 3
+   },
+   "set": null,
+   "two_q": 0
+  },
+  "calloschmidt_q3_d3_149": {
+   "P": 149,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 2
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_197": {
+   "P": 197,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_251": {
+   "P": 251,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 2
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_347": {
+   "P": 347,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_433": {
+   "P": 433,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_577": {
+   "P": 577,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_659": {
+   "P": 659,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q3_d3_761": {
+   "P": 761,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12
+   },
+   "set": "cal",
+   "two_q": 2
+  },
+  "calloschmidt_q5_d5_433": {
+   "P": 433,
+   "arm": "q5_d5",
+   "depth": 55,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "cal",
+   "two_q": 14
+  },
+  "calloschmidt_q5_d5_499": {
+   "P": 499,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "cal",
+   "two_q": 14
+  },
+  "calloschmidt_q5_d5_577": {
+   "P": 577,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "cal",
+   "two_q": 14
+  },
+  "calloschmidt_q5_d5_631": {
+   "P": 631,
+   "arm": "q5_d5",
+   "depth": 55,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "cal",
+   "two_q": 14
+  },
+  "calloschmidt_q5_d5_659": {
+   "P": 659,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "kalibrier_loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "cal",
+   "two_q": 14
+  },
+  "calstruct_q3_d3_149_r0": {
+   "P": 149,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_149_r1": {
+   "P": 149,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_149_r2": {
+   "P": 149,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_197_r0": {
+   "P": 197,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_197_r1": {
+   "P": 197,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_197_r2": {
+   "P": 197,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_251_r0": {
+   "P": 251,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_251_r1": {
+   "P": 251,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_251_r2": {
+   "P": 251,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_347_r0": {
+   "P": 347,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_347_r1": {
+   "P": 347,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_347_r2": {
+   "P": 347,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_433_r0": {
+   "P": 433,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_433_r1": {
+   "P": 433,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_433_r2": {
+   "P": 433,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_577_r0": {
+   "P": 577,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_577_r1": {
+   "P": 577,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_577_r2": {
+   "P": 577,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_659_r0": {
+   "P": 659,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_659_r1": {
+   "P": 659,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_659_r2": {
+   "P": 659,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_761_r0": {
+   "P": 761,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_761_r1": {
+   "P": 761,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q3_d3_761_r2": {
+   "P": 761,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "cal",
+   "two_q": 1
+  },
+  "calstruct_q5_d5_433_r0": {
+   "P": 433,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_433_r1": {
+   "P": 433,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_433_r2": {
+   "P": 433,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_499_r0": {
+   "P": 499,
+   "arm": "q5_d5",
+   "depth": 23,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 14,
+    "sx": 16,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_499_r1": {
+   "P": 499,
+   "arm": "q5_d5",
+   "depth": 23,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 14,
+    "sx": 16,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_499_r2": {
+   "P": 499,
+   "arm": "q5_d5",
+   "depth": 23,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 14,
+    "sx": 16,
+    "x": 1
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_577_r0": {
+   "P": 577,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_577_r1": {
+   "P": 577,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_577_r2": {
+   "P": 577,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_631_r0": {
+   "P": 631,
+   "arm": "q5_d5",
+   "depth": 24,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 13,
+    "sx": 16
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_631_r1": {
+   "P": 631,
+   "arm": "q5_d5",
+   "depth": 24,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 13,
+    "sx": 16
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_631_r2": {
+   "P": 631,
+   "arm": "q5_d5",
+   "depth": 24,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 13,
+    "sx": 16
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_659_r0": {
+   "P": 659,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_659_r1": {
+   "P": 659,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "calstruct_q5_d5_659_r2": {
+   "P": 659,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "kalibrier_structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "cal",
+   "two_q": 5
+  },
+  "ctrl_composite_P181_d3": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "negative_control",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "ctrl_composite_P467_d5": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "negative_control",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "ctrl_uniform_q3": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "negative_control",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "ctrl_uniform_q5": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 12,
+   "kind": "negative_control",
+   "ops": {
+    "cz": 2,
+    "measure": 3,
+    "rz": 8,
+    "sx": 10,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "ladder_q3_d3_181_r2": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 35,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 3,
+    "cz": 4,
+    "measure": 2,
+    "rz": 22,
+    "sx": 24
+   },
+   "set": "verdict",
+   "two_q": 4
+  },
+  "ladder_q3_d3_181_r4": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 69,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 7,
+    "cz": 8,
+    "measure": 2,
+    "rz": 44,
+    "sx": 48
+   },
+   "set": "verdict",
+   "two_q": 8
+  },
+  "ladder_q3_d3_181_r8": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 137,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 15,
+    "cz": 16,
+    "measure": 2,
+    "rz": 88,
+    "sx": 96
+   },
+   "set": "verdict",
+   "two_q": 16
+  },
+  "ladder_q5_d5_467_r2": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 106,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 3,
+    "cz": 24,
+    "measure": 3,
+    "rz": 56,
+    "sx": 73
+   },
+   "set": "verdict",
+   "two_q": 24
+  },
+  "ladder_q5_d5_467_r4": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 210,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 7,
+    "cz": 44,
+    "measure": 3,
+    "rz": 122,
+    "sx": 141
+   },
+   "set": "verdict",
+   "two_q": 44
+  },
+  "ladder_q5_d5_467_r8": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 418,
+   "kind": "echo_ladder",
+   "ops": {
+    "barrier": 15,
+    "cz": 84,
+    "measure": 3,
+    "rz": 254,
+    "sx": 277
+   },
+   "set": "verdict",
+   "two_q": 84
+  },
+  "loschmidt_q3_d3_181": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_229": {
+   "P": 229,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 10,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_283": {
+   "P": 283,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_379": {
+   "P": 379,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_467": {
+   "P": 467,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_613": {
+   "P": 613,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_691": {
+   "P": 691,
+   "arm": "q3_d3",
+   "depth": 17,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 10,
+    "sx": 12,
+    "x": 2
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q3_d3_797": {
+   "P": 797,
+   "arm": "q3_d3",
+   "depth": 18,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 2,
+    "measure": 2,
+    "rz": 11,
+    "sx": 12
+   },
+   "set": "verdict",
+   "two_q": 2
+  },
+  "loschmidt_q5_d5_467": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "verdict",
+   "two_q": 14
+  },
+  "loschmidt_q5_d5_547": {
+   "P": 547,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "verdict",
+   "two_q": 14
+  },
+  "loschmidt_q5_d5_613": {
+   "P": 613,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "verdict",
+   "two_q": 14
+  },
+  "loschmidt_q5_d5_673": {
+   "P": 673,
+   "arm": "q5_d5",
+   "depth": 55,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "verdict",
+   "two_q": 14
+  },
+  "loschmidt_q5_d5_691": {
+   "P": 691,
+   "arm": "q5_d5",
+   "depth": 54,
+   "kind": "loschmidt",
+   "ops": {
+    "barrier": 1,
+    "cz": 14,
+    "measure": 3,
+    "rz": 23,
+    "sx": 39
+   },
+   "set": "verdict",
+   "two_q": 14
+  },
+  "struct_q3_d3_181_r0": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_181_r1": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_181_r2": {
+   "P": 181,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_229_r0": {
+   "P": 229,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 5
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_229_r1": {
+   "P": 229,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 5
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_229_r2": {
+   "P": 229,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 5
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_283_r0": {
+   "P": 283,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_283_r1": {
+   "P": 283,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_283_r2": {
+   "P": 283,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_379_r0": {
+   "P": 379,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_379_r1": {
+   "P": 379,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_379_r2": {
+   "P": 379,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_467_r0": {
+   "P": 467,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_467_r1": {
+   "P": 467,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_467_r2": {
+   "P": 467,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_613_r0": {
+   "P": 613,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_613_r1": {
+   "P": 613,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_613_r2": {
+   "P": 613,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_691_r0": {
+   "P": 691,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_691_r1": {
+   "P": 691,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_691_r2": {
+   "P": 691,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_797_r0": {
+   "P": 797,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_797_r1": {
+   "P": 797,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q3_d3_797_r2": {
+   "P": 797,
+   "arm": "q3_d3",
+   "depth": 9,
+   "kind": "structure",
+   "ops": {
+    "cz": 1,
+    "measure": 2,
+    "rz": 5,
+    "sx": 6
+   },
+   "set": "verdict",
+   "two_q": 1
+  },
+  "struct_q5_d5_467_r0": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_467_r1": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_467_r2": {
+   "P": 467,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_547_r0": {
+   "P": 547,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_547_r1": {
+   "P": 547,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_547_r2": {
+   "P": 547,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_613_r0": {
+   "P": 613,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_613_r1": {
+   "P": 613,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_613_r2": {
+   "P": 613,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_673_r0": {
+   "P": 673,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_673_r1": {
+   "P": 673,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_673_r2": {
+   "P": 673,
+   "arm": "q5_d5",
+   "depth": 26,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_691_r0": {
+   "P": 691,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_691_r1": {
+   "P": 691,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 5
+  },
+  "struct_q5_d5_691_r2": {
+   "P": 691,
+   "arm": "q5_d5",
+   "depth": 27,
+   "kind": "structure",
+   "ops": {
+    "cz": 5,
+    "measure": 3,
+    "rz": 16,
+    "sx": 17,
+    "x": 1
+   },
+   "set": "verdict",
+   "two_q": 5
+  }
+ },
+ "run_config_frozen": {
+  "anti_sharpshooter": {
+   "negative_predictions": "Composite- (beide Arme) und Uniform-Kontrollen mit exakten Erwartungen registriert (T4); Shuffle-Inertness als Theorem dokumentiert (T4b); der Sampling-Lift L_q ist unter dem Shot-Noise.",
+   "no_ex_post_fit": "Die 13 VERDICT-P sind nach amendierter registrierter Regel VOR dem Freeze berechnet \u2014 nie gemessen, keine Vorbelastung. Der gamma-Fit nutzt NUR die 13 Kalibrier-P (frisch gemessen in Run 3); die Holdout-P gehen in KEINEN Fit.",
+   "registered_alternative_models": "v3a (rein koh\u00e4rent, ohne kappa-Term) ist DOKUMENTIERT VERWORFEN (Aer-Reduktion scheitert am Form-Gate); v2 bleibt als Reduktions-Basis gefroren; das v3b-Gesetz ist der registrierte Kandidat."
+  },
+  "controls": {
+   "t1_backcompat_run3": {
+    "cal_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+    "new_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+    "run1_regression_034": "5/5 bit-exakt (tol 1e-9)",
+    "run1_regression_040": "8/8 bit-exakt (tol 1e-9)"
+   },
+   "t2_v2_anchors": "034-Prime-Anker (625,625) = 0.04272280701754398 \u00fcber die d=625-Kette unber\u00fchrt \u2014 klassisch, kein QPU-Kontakt.",
+   "t3_identity_two_ways": "share*_hw = sum_j |G_j|^2/(d*m) auf den HW-Counts zwei Wege (FFT bei j*d/q vs gefaltete Formel), exakt 1e-12 (041-Theorem); Verletzung -> EVALUATION_INVALID.",
+   "t4_negative_must_not_fire": {
+    "composite_q3": {
+     "N_tilde": [
+      19,
+      13,
+      10
+     ],
+     "P": 181,
+     "d": 3,
+     "expected_share": 1.0,
+     "kind": "composite_q5",
+     "m": 42,
+     "n_d": [
+      19,
+      13,
+      10
+     ],
+     "q": 3,
+     "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+    },
+    "composite_q5": {
+     "N_tilde": [
+      23,
+      18,
+      17,
+      15,
+      18
+     ],
+     "P": 467,
+     "d": 5,
+     "expected_share": 0.3824175824175824,
+     "kind": "composite_q5",
+     "m": 91,
+     "n_d": [
+      23,
+      18,
+      17,
+      15,
+      18
+     ],
+     "q": 5,
+     "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+    },
+    "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante, konservativste Ecke kappa = KAPPA_CEILING, w = W_A); Verletzung -> H-RAM-Q-4_DEGENERAT (REFUTED-zulaessig)",
+    "uniform_q3": {
+     "expected_share": 0.0,
+     "kind": "uniform_q3",
+     "n_classes": 3,
+     "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig).",
+     "q": 3,
+     "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+    },
+    "uniform_q5": {
+     "expected_share": 0.0,
+     "kind": "uniform_q5",
+     "n_classes": 5,
+     "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig).",
+     "q": 5,
+     "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+    }
+   },
+   "t4b_shuffle_inert_theorem": {
+    "q3_seed421": {
+     "delta": 0.0,
+     "expected_share": 6.142857142857143,
+     "seed": 421,
+     "share_true_reg": 6.142857142857143
+    },
+    "q5_seed421": {
+     "delta": 0.0,
+     "expected_share": 4.162637362637363,
+     "seed": 421,
+     "share_true_reg": 4.162637362637363
+    },
+    "statement": "Kein Shuffle-Circuit am Minimalregister (Phase-10-Theorem, expected_share == share_true_reg EXAKT)."
+   },
+   "t5_gate_set_frozen": "13 VERDICT-P = exakt die 13 P nach amendierter Regel (kleinste Primzahl > P_alt + 30 UND nicht in der gemessenen Vereinigung, P_alt = Run-2-Verdict-P); 13 Kalibrier-P = exakt die Run-2-Verdict-P; Run-1-P retired; keine nachtr\u00e4glichen Erg\u00e4nzungen.",
+   "t6_mass_conservation": "sum_r N_hat_r = m_hat unter Depolarisierung; Verletzung -> EVALUATION_INVALID."
+  },
+  "design_decision": {
+   "gesetz_v3b_gewaehlt": "center_v3 = (1-1/S)*(ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - gamma_arm*cP) + L_q \u2014 minimaler Zusatz zum gefrorenen v2-Gesetz (Phase 10b): der kohaerente Prep-Fehler-Floor als SEPARATER Term mit klassisch EXAKTER, per-Punkt gefrorener Empfindlichkeit cP; gamma_arm ist EIN Arm-Parameter, in-job auf dem Kalibrier-Bein gefittet.",
+   "kalibrier_bein": "Die 13 Run-2-Verdict-P werden in Run 3 FRISCH gemessen (3 Reps + gepaarter Loschmidt) und tragen den in-job gamma-Fit; die 13 neuen P sind Holdout. Die Run-2-Werte der Kalibrier-P werden NICHT wiederverwendet (Anti-Session-Drift); die Run-1-P fliegen komplett raus (541/463/625-Anomalien; q5|541-Anomal ist register-/session-spezifisch: run-1 d=25 res_v1 +0.0248 POSITIV vs run-2 d=5 -0.1453).",
+   "register_unveraendert": "Minimalregister d=q aus Phase 10 bleibt EXAKT stehen (q3 auf d=3 mit 2 Qubits, q5 auf d=5 mit 3 Qubits) \u2014 die Kalibrier-Ziele waren eingel\u00f6st; nur das D\u00e4mpfungs-Gesetz wird pr\u00e4zisiert.",
+   "v3a_verworfen": "Das rein koh\u00e4rente Gesetz (delta = gamma*cP ohne kappa-Term) passt zwar besser auf die Roh-Daten (B1: kappa-Entkopplung), reduziert aber auf Aer NICHT auf das gefrorene v2 (das die Form-Gates E/S PASSTE): mit gamma_Aer = 0 sagt v3a keine Aer-Degradation vorher, das exact-Bein degradiert aber mit p1 (b_P*(1-kappa_hat) ~ -0.075 auf q5 bei p1 >= 1e-3 >> TOL_FORM = 0.03). v3b reduziert sich auf Aer exakt auf v2 (gamma_Aer ~ 0, denn b_P wurde AUF der Aer-Grid gefittet) und ist robust unter beiden Wahrheiten.",
+   "w_b_doppelprime_wiederverwendet": {
+    "begruendung": "Gleiche Apparatus-Konvention (Minimalregister, SHOTS 8192, K_REPEATS 3): die committete w_B' wird wiederverwendet statt aus der neuen 26-Punkte-Grid abgeleitet; die Transfer-Erwartung (max|res| q3 0.0152 / q5 0.0197) liegt mit Marge innen. Das Stage-Aer-3-Bein registriert q97.5 als Diagnostik + Gate-S-Konsistenz (<= W_A) und aendert w_B'' NICHT (Phase-9/10-Freeze-B-Praezedenz).",
+    "source": "pt_ram_q_stage2b_results.json w_b (EXPERIMENT 043, Phase-10b-Konvention q97.5 des sampled-Beins)",
+    "wert": 0.02787029633307472
+   }
+  },
+  "echo_ladder": {
+   "anchors": {
+    "q3": 181,
+    "q5": 467
+   },
+   "barriers": "Barrier zwischen allen Bloecken (Transpiler-Kuerzung verboten, Phase-9-Konvention).",
+   "purpose": "GEMESSENES Daempfungsgesetz statt starrer (1-eps)^2-Annahme: r-fache (Prep + exakte Inverse)-Bloecke, r in [1, 2, 4, 8], je Arm am NEUEN Ankerpunkt.",
+   "r1_shared": "r=1 ist EXAKT der gepaarte Loschmidt-Circuit des Ankerpunkts (geteilt, kein doppeltes Circuit).",
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "verdict_role": "NICHT verdict-tragend (Phase-10-Praezedenz); die Leiter dokumentiert das Daempfungsgesetz am neuen Register."
+  },
+  "experiment": "044-ram-q-coherent-prep-error",
+  "fallback_lesart_b": {
+   "mechanism": "Separat gefrorenes NEUES Prereg. Option B (per-GATE-eps-Kalibrier) bleibt die dokumentierte Fallback-Lesart aus Phase 10 (per-GATE-eps nicht arm-transferierbar, Latte-Verschiebungs-Optik, Identifikations-Spannung).",
+   "prim\u00e4r_pfad": "v3b (dieser Freeze): das gefrorene v2-Gesetz + der koh\u00e4rente Prep-Fehler-Floor mit in-job gamma-Fit am Kalibrier-Bein.",
+   "status": "REGISTRIERT, NUR-NACHGELAGERT, NIE stiller Patch",
+   "trigger": "AUSL\u00d6SUNG NUR FALLS das v3-Gesetz erneut scheitert (REFUTED oder VOID trotz gamma-Fit) \u2014 sonst nie."
+  },
+  "frozen_theorems": {
+   "B2_q_universal_identity": "share* = (m - q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m) f\u00fcr ALLE Count-Vektoren inkl. Wraparound (041, CONFIRMED B)",
+   "coherent_gradient_law": "Erste Ordnung in einer unit-norm koh\u00e4renten Amplituden-Stoerung delta_psi (||delta_psi|| = gamma, <psi|delta_psi> = 0): delta_n_a = 2*sqrt(m*n_a)*Re(delta_psi_a), also delta_share = 2*sqrt(m)*Re(<v|delta_psi>) mit v_a = sqrt(n_a)*grad_a; worst-case 2*sqrt(m)*||v||_2, normiert auf model_share_reg => cP. cP_rms = cP_worst/sqrt(d) ist arm-konstant, die Konvention ist gamma-absorbierbar (Phase-11a-Kern, klassisch exakt).",
+   "d_invariance": "d*m*share* haengt nur von den mod-q gefalteten Counts ab (041 T3 exakt, k=1 Eingeschlossen) -> die Minimalregister d=3/d=5 tragen die IDENTISCHEN Ratio-Vorhersagen wie d=9/25",
+   "ratio_forms": {
+    "general": "ratio_true = (q-1)*(q*sum_r N_r^2 - m^2)/(m - q*n0)^2",
+    "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2",
+    "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2"
+   },
+   "shuffle_inertness_at_dq": "Bei d=q ist der Fold die Identitaet; eine Label-Permutation permutiert N und laesst sum N^2 invariant => expected_share(Shuffle) == share_true_reg EXAKT. Die Shuffle-Kontrolle ist am Minimalregister strukturell inert und wird durch Composite- + Uniform-Null-Kontrollen ersetzt (Phase-10-Praezedenz)."
+  },
+  "future_phase_numbering": {
+   "log": "\u00a710.27 (RIEMANN) \u2014 \u00a7Z.23/\u00a710.24 Gematria-Layer, \u00a7Z.24/\u00a710.25 Phase 9, \u00a7Z.25/\u00a710.26 Phase 10",
+   "synthesis": "\u00a7Z.26 (SYNTHESIS)"
+  },
+  "hardware_parameters": {
+   "backend": "ibm_fez",
+   "circuit_budget": {
+    "echo_ladder": 6,
+    "jobs": 1,
+    "kalibrier_loschmidt": 13,
+    "kalibrier_structure": 39,
+    "negative_controls": 4,
+    "readout_cal": 2,
+    "total": 116,
+    "total_shots": 950272,
+    "verdict_loschmidt": 13,
+    "verdict_structure": 39
+   },
+   "isa_ceilings": {
+    "abort": "Ceiling-\u00dcberschreitung vor dem QPU-Lauf -> Abbruch, Re-Freeze",
+    "erwartung": "max ~84-96 2q (Leiter r=8, q5) je Circuit, total ~600-700 2q (Prognose, Phase-10-Messung 493 2q/max 84 als Basis); die echten Werte werden in Freeze B'' am ISA-Report registriert",
+    "measured_when": "Stage-3-Transpilation VOR Hardware; Backend-Target-Laden = kein Quota-Kontakt (kein Job), \u00a7Z.14-Phase-3b-Praezedenz",
+    "per_circuit_2q_max": 120,
+    "total_2q_max": 6000
+   },
+   "n_shots": 8192,
+   "register_topology": {
+    "q3_d3": {
+     "d": 3,
+     "idle_labels": 1,
+     "labels": 4,
+     "n_qubits": 2,
+     "note": "Minimalrepraesentant d=q=3 (UNVERAENDERT aus Phase 10)",
+     "real_labels": 3
+    },
+    "q5_d5": {
+     "d": 5,
+     "idle_labels": 3,
+     "labels": 8,
+     "n_qubits": 3,
+     "note": "Minimalrepraesentant d=q=5 (UNVERAENDERT aus Phase 10)",
+     "real_labels": 5
+    }
+   },
+   "run_config": {
+    "dynamical_decoupling": "XX",
+    "optimization_level": 3,
+    "resilience": "none (raw SamplerV2 counts)"
+   },
+   "state_prep": "Qiskit StatePreparation aus den gefrorenen n_d-Vektoren; Loschmidt = Prep + exakte Inverse; Leiter = r Bloecke mit Barrieren.",
+   "token": "TOKEN1 (IBMQ_TOKEN); TOKEN2 unberuehrt"
+  },
+  "hypothesis": "H-RAM-Q-4",
+  "kalibrier_bein": {
+   "gamma_fit_rule": "gamma_arm = <cP, delta_cal>/<cP, cP> ueber die Kalibrier-P des Arms (LSQ-durch-Null); delta_cal = ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - ratio_hw; ratio_ro_exact mit ro_hat aus der Readout-Kalibrier DESELBEN Jobs.",
+   "leckage_dokumentiert": "Die Run-2-Ratios der Kalibrier-P sind als Zahlen bekannt (committed Eval); die Run-3-MESSUNGEN sind frisch (nie bei dieser Session/Konfiguration gemessen). Das VERDICT nutzt ausschliesslich die 13 NEUEN P.",
+   "loschmidt_gepaart": true,
+   "points": {
+    "q3_d3": [
+     {
+      "L_q": 0.0005841255187988281,
+      "N": [
+       1,
+       15,
+       19
+      ],
+      "P": 149,
+      "closed_form": 1.046875,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 35,
+      "model_share_reg": 4.876190476190477,
+      "n0": 1,
+      "n_d": [
+       1,
+       15,
+       19
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 536,
+      "ratio_true": 1.046875,
+      "share_true_reg": 5.104761904761904
+     },
+     {
+      "L_q": 0.0005605269451530613,
+      "N": [
+       1,
+       20,
+       24
+      ],
+      "P": 197,
+      "closed_form": 1.0272108843537415,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 45,
+      "model_share_reg": 6.533333333333333,
+      "n0": 1,
+      "n_d": [
+       1,
+       20,
+       24
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 906,
+      "ratio_true": 1.0272108843537415,
+      "share_true_reg": 6.711111111111111
+     },
+     {
+      "L_q": 0.0005474156574394464,
+      "N": [
+       1,
+       25,
+       28
+      ],
+      "P": 251,
+      "closed_form": 1.0103806228373702,
+      "d": 3,
+      "delta": -1.5,
+      "delta_sq": 2.25,
+      "m": 54,
+      "model_share_reg": 8.027777777777779,
+      "n0": 1,
+      "n_d": [
+       1,
+       25,
+       28
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 1314,
+      "ratio_true": 1.0103806228373702,
+      "share_true_reg": 8.11111111111111
+     },
+     {
+      "L_q": 0.0005336793001033058,
+      "N": [
+       1,
+       32,
+       36
+      ],
+      "P": 347,
+      "closed_form": 1.0110192837465566,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 69,
+      "model_share_reg": 10.521739130434783,
+      "n0": 1,
+      "n_d": [
+       1,
+       32,
+       36
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 2202,
+      "ratio_true": 1.0110192837465564,
+      "share_true_reg": 10.63768115942029
+     },
+     {
+      "L_q": 0.0005251200274348423,
+      "N": [
+       1,
+       40,
+       43
+      ],
+      "P": 433,
+      "closed_form": 1.0041152263374487,
+      "d": 3,
+      "delta": -1.5,
+      "delta_sq": 2.25,
+      "m": 84,
+      "model_share_reg": 13.017857142857142,
+      "n0": 1,
+      "n_d": [
+       1,
+       40,
+       43
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 3294,
+      "ratio_true": 1.0041152263374487,
+      "share_true_reg": 13.071428571428571
+     },
+     {
+      "L_q": 0.0005171390446790461,
+      "N": [
+       1,
+       50,
+       55
+      ],
+      "P": 577,
+      "closed_form": 1.0070694693185032,
+      "d": 3,
+      "delta": -2.5,
+      "delta_sq": 6.25,
+      "m": 106,
+      "model_share_reg": 16.680817610062892,
+      "n0": 1,
+      "n_d": [
+       1,
+       50,
+       55
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 5342,
+      "ratio_true": 1.0070694693185032,
+      "share_true_reg": 16.79874213836478
+     },
+     {
+      "L_q": 0.0005136423405654175,
+      "N": [
+       1,
+       56,
+       63
+      ],
+      "P": 659,
+      "closed_form": 1.0107385492000878,
+      "d": 3,
+      "delta": -3.5,
+      "delta_sq": 12.25,
+      "m": 120,
+      "model_share_reg": 19.0125,
+      "n0": 1,
+      "n_d": [
+       1,
+       56,
+       63
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 6918,
+      "ratio_true": 1.0107385492000878,
+      "share_true_reg": 19.216666666666665
+     },
+     {
+      "L_q": 0.0005107280636621901,
+      "N": [
+       1,
+       65,
+       69
+      ],
+      "P": 761,
+      "closed_form": 1.002754820936639,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 135,
+      "model_share_reg": 21.511111111111113,
+      "n0": 1,
+      "n_d": [
+       1,
+       65,
+       69
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 8736,
+      "ratio_true": 1.002754820936639,
+      "share_true_reg": 21.57037037037037
+     }
+    ],
+    "q5_d5": [
+     {
+      "L_q": 0.0022081797788815897,
+      "N": [
+       1,
+       20,
+       22,
+       22,
+       19
+      ],
+      "P": 433,
+      "closed_form": 1.0216311488543504,
+      "d": 5,
+      "m": 84,
+      "model_share_reg": 3.7148809523809523,
+      "n0": 1,
+      "n_d": [
+       1,
+       20,
+       22,
+       22,
+       19
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 1594,
+      "ratio_true": 1.0216311488543504,
+      "share_true_reg": 3.795238095238095,
+      "sigma2": 6.75
+     },
+     {
+      "L_q": 0.002176167052469136,
+      "N": [
+       1,
+       22,
+       25,
+       24,
+       23
+      ],
+      "P": 499,
+      "closed_form": 1.0123456790123457,
+      "d": 5,
+      "m": 95,
+      "model_share_reg": 4.2631578947368425,
+      "n0": 1,
+      "n_d": [
+       1,
+       22,
+       25,
+       24,
+       23
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2050,
+      "ratio_true": 1.0123456790123457,
+      "share_true_reg": 4.315789473684211,
+      "sigma2": 5.0
+     },
+     {
+      "L_q": 0.002151290314675032,
+      "N": [
+       1,
+       25,
+       28,
+       27,
+       25
+      ],
+      "P": 577,
+      "closed_form": 1.0132339966669934,
+      "d": 5,
+      "m": 106,
+      "model_share_reg": 4.811792452830189,
+      "n0": 1,
+      "n_d": [
+       1,
+       25,
+       28,
+       27,
+       25
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2584,
+      "ratio_true": 1.0132339966669934,
+      "share_true_reg": 4.875471698113207,
+      "sigma2": 6.75
+     },
+     {
+      "L_q": 0.0021347172004132233,
+      "N": [
+       1,
+       27,
+       31,
+       29,
+       27
+      ],
+      "P": 631,
+      "closed_form": 1.018181818181818,
+      "d": 5,
+      "m": 115,
+      "model_share_reg": 5.260869565217392,
+      "n0": 1,
+      "n_d": [
+       1,
+       27,
+       31,
+       29,
+       27
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3080,
+      "ratio_true": 1.018181818181818,
+      "share_true_reg": 5.356521739130435,
+      "sigma2": 11.0
+     },
+     {
+      "L_q": 0.0021266540642722116,
+      "N": [
+       1,
+       28,
+       32,
+       31,
+       28
+      ],
+      "P": 659,
+      "closed_form": 1.019281663516068,
+      "d": 5,
+      "m": 120,
+      "model_share_reg": 5.510416666666667,
+      "n0": 1,
+      "n_d": [
+       1,
+       28,
+       32,
+       31,
+       28
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3370,
+      "ratio_true": 1.019281663516068,
+      "share_true_reg": 5.616666666666666,
+      "sigma2": 12.75
+     }
+    ]
+   },
+   "purpose": "In-job gamma_arm-Kalibrier am selben Register: die 13 Run-2-Verdict-P werden FRISCH gemessen (3 Reps + gepaarter Loschmidt) und tragen den gamma-Fit; der Holdout-Charakter der 13 neuen P bleibt unangetastet.",
+   "reps": 3,
+   "verdict_role": "verdict-tragend NUR in der kappa-Gate-Union (VOID-Calibration zaehlt Verdict-Punkte UND Kalibrier-Punkte); die Ratio-Band-Regeln (REFUTED/CONFIRMED/COARSE) gelten NUR fuer die 13 Holdout-P. Die Kalibrier-Residuen sind registrierte Diagnostik (KEIN Gate): cal_fit-Erwartung max|res| q3 0.0145 / q5 0.0142."
+  },
+  "layer_separation": {
+   "encoding_verbot": "Die hermeneutischen Werte 1025/348/879/5683 werden NIEMALS als Encoding-Parameter auf Quanten-Register gepresst. Dieses Experiment codiert ausschlie\u00dflich exakte arithmetische Gr\u00f6\u00dfen (Primzahlen, Residuen, Counts).",
+   "evidence_layer": "Die Arithmetik der verrauschten Counts diktiert: share*_hw aus den Hardware-Counts via ABSOLUT-FFT bei j*d/q (Wraparound-Fold n_full[a::d] am Minimalregister), Ratio gegen GEFRORENE Modell-Denominatoren (n0, m aus der wahren Arithmetik, kein Refit).",
+   "hermeneutic_index": "M1-M5 bleiben kartografischer Index \u00fcber dem Bestand (Branch gematria-mirror-synthesis); sie ordnen die dokumentierte Reihenfolge und generieren niemals Evidenz."
+  },
+  "md5": "baaca1f6772e07b0847fe436da7e16da",
+  "operational_definitions": {
+   "b_p": "Per-Punkt-Streuung aus dem Stage-Aer-3-Exact-Bein (26 Punkte x 6 Stresslevel, LSQ deg 1 ueber die Domain-Zellen kappa >= 0.81) \u2014 Phase-10b-Konvention, WIEDERVERWENDET; b_P fuer alle 26 Punkte wird VOR Hardware committet (pt_ram_q_hardware3_aer).",
+   "cP": "cP = 2*sqrt(m)*||v||_2/model_share_reg mit v_a = sqrt(n_a)*d share*/d n_a am EXAKTEN ABS-FFT-Share (worst-case koh\u00e4rente Empfindlichkeit; rms = worst/sqrt(d) arm-konstant). Gefroren im Payload fuer alle 26 Punkte (cP_freeze).",
+   "delta_cal": "delta_cal(P) = ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - ratio_hw(P) \u2014 der Teil der Suppression, den das v2-Gesetz NICHT erklaert (= -res_v2 abzueglich Prefaktoren); der kohaerente Floor-Term gamma*cP soll ihn tragen.",
+   "gamma_arm": "EIN Arm-Parameter, in-job per LSQ-durch-Null auf dem KALIBRIER-BEIN: gamma_arm = <cP, delta_cal>/<cP, cP> \u00fcber die 13 Kalibrier-P des Arms (cP aus dem Payload, klassisch exakt; ratio_ro_exact mit ro_hat aus der Readout-Kalibrier desselben Jobs; b_P aus dem committeten Stage-Aer-3-Bein). Der Fit NUTZT NUR die Kalibrier-P; die 13 Holdout-P gehen in KEINEN Fit.",
+   "hw_counts": "n_hat = m*c/S auf dem 2^n-Label-Vektor, dann Wraparound-Fold n_d[a] = sum n_full[a::d]; unter Depolarisierung erhaelt die Uniform-Masse m exakt: sum n_hat = m.",
+   "idle_labels": "Am Minimalregister sind 1/4 (q3) bzw. 3/8 (q5) Labels ideal leer; ihre Leakage-Masse faellt via Wraparound-Fold in echte Klassen. Stage-Aer-Form-Validierung am ECHTEN Fold prueft das VOR Hardware.",
+   "kappa": "kappa_p = P_L/P_ro_ref aus gepaartem Loschmidt-Circuit (Prep + exakte Inverse) + Readout-Kalibrier im SELBEN Job. UNVERAENDERT aus Phase 9/10.",
+   "ratio_hw": "share*_hw / model_share_reg mit model_share_reg = (m - q*n0_true)^2/((q-1)*d*m) GEFROREN auf wahre Arithmetik-Werte.",
+   "ratio_ro_exact": "Aer-Exact-Anker: ratio am gefrorenen STRESS-Modell mit Readout ANALYTISCH via T_ro bei RO_STRESS = 0.01 (Phase-10b-Konvention) \u2014 der per-Punkt-Anker des Zentrums.",
+   "share_hw": "share*_hw = sum_{j=1}^{q-1} |DFT_d(n_hat)[j*d/q]|^2/(d*m), ABSOLUT-FFT-Konvention.",
+   "state": "|psi(P,d)> = sum_a sqrt(n_a/m)|a> mit n_a = #{p <= P prim : p \u2261 a mod d}; am Minimalregister d=q direkt die q Residuenklassen (q=3: 3 Labels von 4 auf 2 Qubits, Label 3 ideal leer; q=5: 5 Labels von 8 auf 3 Qubits, Labels 5..7 ideal leer)."
+  },
+  "phase10_verdict_context": {
+   "befund": "Kalibrier-Ziel EINLOEST (alle 13 kappa_hat >= 0.81: q3 0.9786-0.9904, q5 0.9196-0.9286) UND 13/13 unter c(kappa)-w_B' EINSEITIG (res_v1 [-0.0938..-0.0341], Suppression, 0 Amplification); auch die Aer-kalibrierte v2-Form verfehlt (res_v2 alle negativ, max 0.0630 > w_B' 0.02787)",
+   "deutung": "Arithmetik hielt (t3 exakt), Kopplungsgesetz hielt nicht; REFUTED gilt fuer das Gesetz mit Echo-kalibriertem kappa_hat auf ibm_fez, NICHT fuer die Arithmetik",
+   "kontrollen": "t3 (041-Identitaet) 3.55e-15, t4/t5/t6/md5 alle gruen \u2014 die saubere Falsifikations-Konstellation",
+   "mechanismus": "Der Loschmidt-Echo refokussiert koh\u00e4rente/un\u00e4re Prep-Fehler, die der Einweg-Struktur-Circuit voll traegt \u2014 kappa_hat ueberschaetzt die Struktur-Daempfung; die Suppression ist real, aber ihr kappa-anteilig-Anteil ist zu klein fuer das Aer-Depolarisierungsmodell",
+   "verdict": "H-RAM-Q-3b_REFUTED"
+  },
+  "prediction_freeze": {
+   "anchor_verification": {
+    "cal_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+    "new_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+    "run1_regression_034": "5/5 bit-exakt (tol 1e-9)",
+    "run1_regression_040": "8/8 bit-exakt (tol 1e-9)"
+   },
+   "cP_freeze": {
+    "cal|q3_d3|149": 5.003660769251847,
+    "cal|q3_d3|197": 4.689438895133084,
+    "cal|q3_d3|251": 4.453565456982784,
+    "cal|q3_d3|347": 4.380217266701323,
+    "cal|q3_d3|433": 4.262410449712771,
+    "cal|q3_d3|577": 4.244292172213,
+    "cal|q3_d3|659": 4.259337600338055,
+    "cal|q3_d3|761": 4.163517923242973,
+    "cal|q5_d5|433": 4.895198651036044,
+    "cal|q5_d5|499": 4.706149521271885,
+    "cal|q5_d5|577": 4.661443610225488,
+    "cal|q5_d5|631": 4.690208976344953,
+    "cal|q5_d5|659": 4.681900907896624,
+    "verdict|q3_d3|181": 4.632285850026061,
+    "verdict|q3_d3|229": 4.394626020647024,
+    "verdict|q3_d3|283": 4.449016857525076,
+    "verdict|q3_d3|379": 4.272197538819991,
+    "verdict|q3_d3|467": 4.2653626365026565,
+    "verdict|q3_d3|613": 4.227287704987718,
+    "verdict|q3_d3|691": 4.219039117687428,
+    "verdict|q3_d3|797": 4.157939260087671,
+    "verdict|q5_d5|467": 4.883399773945637,
+    "verdict|q5_d5|547": 4.625319318723228,
+    "verdict|q5_d5|613": 4.75113180766759,
+    "verdict|q5_d5|673": 4.664051955367851,
+    "verdict|q5_d5|691": 4.731200614987623
+   },
+   "calibration_points": {
+    "q3_d3": [
+     {
+      "L_q": 0.0005841255187988281,
+      "N": [
+       1,
+       15,
+       19
+      ],
+      "P": 149,
+      "closed_form": 1.046875,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 35,
+      "model_share_reg": 4.876190476190477,
+      "n0": 1,
+      "n_d": [
+       1,
+       15,
+       19
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 536,
+      "ratio_true": 1.046875,
+      "share_true_reg": 5.104761904761904
+     },
+     {
+      "L_q": 0.0005605269451530613,
+      "N": [
+       1,
+       20,
+       24
+      ],
+      "P": 197,
+      "closed_form": 1.0272108843537415,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 45,
+      "model_share_reg": 6.533333333333333,
+      "n0": 1,
+      "n_d": [
+       1,
+       20,
+       24
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 906,
+      "ratio_true": 1.0272108843537415,
+      "share_true_reg": 6.711111111111111
+     },
+     {
+      "L_q": 0.0005474156574394464,
+      "N": [
+       1,
+       25,
+       28
+      ],
+      "P": 251,
+      "closed_form": 1.0103806228373702,
+      "d": 3,
+      "delta": -1.5,
+      "delta_sq": 2.25,
+      "m": 54,
+      "model_share_reg": 8.027777777777779,
+      "n0": 1,
+      "n_d": [
+       1,
+       25,
+       28
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 1314,
+      "ratio_true": 1.0103806228373702,
+      "share_true_reg": 8.11111111111111
+     },
+     {
+      "L_q": 0.0005336793001033058,
+      "N": [
+       1,
+       32,
+       36
+      ],
+      "P": 347,
+      "closed_form": 1.0110192837465566,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 69,
+      "model_share_reg": 10.521739130434783,
+      "n0": 1,
+      "n_d": [
+       1,
+       32,
+       36
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 2202,
+      "ratio_true": 1.0110192837465564,
+      "share_true_reg": 10.63768115942029
+     },
+     {
+      "L_q": 0.0005251200274348423,
+      "N": [
+       1,
+       40,
+       43
+      ],
+      "P": 433,
+      "closed_form": 1.0041152263374487,
+      "d": 3,
+      "delta": -1.5,
+      "delta_sq": 2.25,
+      "m": 84,
+      "model_share_reg": 13.017857142857142,
+      "n0": 1,
+      "n_d": [
+       1,
+       40,
+       43
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 3294,
+      "ratio_true": 1.0041152263374487,
+      "share_true_reg": 13.071428571428571
+     },
+     {
+      "L_q": 0.0005171390446790461,
+      "N": [
+       1,
+       50,
+       55
+      ],
+      "P": 577,
+      "closed_form": 1.0070694693185032,
+      "d": 3,
+      "delta": -2.5,
+      "delta_sq": 6.25,
+      "m": 106,
+      "model_share_reg": 16.680817610062892,
+      "n0": 1,
+      "n_d": [
+       1,
+       50,
+       55
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 5342,
+      "ratio_true": 1.0070694693185032,
+      "share_true_reg": 16.79874213836478
+     },
+     {
+      "L_q": 0.0005136423405654175,
+      "N": [
+       1,
+       56,
+       63
+      ],
+      "P": 659,
+      "closed_form": 1.0107385492000878,
+      "d": 3,
+      "delta": -3.5,
+      "delta_sq": 12.25,
+      "m": 120,
+      "model_share_reg": 19.0125,
+      "n0": 1,
+      "n_d": [
+       1,
+       56,
+       63
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 6918,
+      "ratio_true": 1.0107385492000878,
+      "share_true_reg": 19.216666666666665
+     },
+     {
+      "L_q": 0.0005107280636621901,
+      "N": [
+       1,
+       65,
+       69
+      ],
+      "P": 761,
+      "closed_form": 1.002754820936639,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 135,
+      "model_share_reg": 21.511111111111113,
+      "n0": 1,
+      "n_d": [
+       1,
+       65,
+       69
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 8736,
+      "ratio_true": 1.002754820936639,
+      "share_true_reg": 21.57037037037037
+     }
+    ],
+    "q5_d5": [
+     {
+      "L_q": 0.0022081797788815897,
+      "N": [
+       1,
+       20,
+       22,
+       22,
+       19
+      ],
+      "P": 433,
+      "closed_form": 1.0216311488543504,
+      "d": 5,
+      "m": 84,
+      "model_share_reg": 3.7148809523809523,
+      "n0": 1,
+      "n_d": [
+       1,
+       20,
+       22,
+       22,
+       19
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 1594,
+      "ratio_true": 1.0216311488543504,
+      "share_true_reg": 3.795238095238095,
+      "sigma2": 6.75
+     },
+     {
+      "L_q": 0.002176167052469136,
+      "N": [
+       1,
+       22,
+       25,
+       24,
+       23
+      ],
+      "P": 499,
+      "closed_form": 1.0123456790123457,
+      "d": 5,
+      "m": 95,
+      "model_share_reg": 4.2631578947368425,
+      "n0": 1,
+      "n_d": [
+       1,
+       22,
+       25,
+       24,
+       23
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2050,
+      "ratio_true": 1.0123456790123457,
+      "share_true_reg": 4.315789473684211,
+      "sigma2": 5.0
+     },
+     {
+      "L_q": 0.002151290314675032,
+      "N": [
+       1,
+       25,
+       28,
+       27,
+       25
+      ],
+      "P": 577,
+      "closed_form": 1.0132339966669934,
+      "d": 5,
+      "m": 106,
+      "model_share_reg": 4.811792452830189,
+      "n0": 1,
+      "n_d": [
+       1,
+       25,
+       28,
+       27,
+       25
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2584,
+      "ratio_true": 1.0132339966669934,
+      "share_true_reg": 4.875471698113207,
+      "sigma2": 6.75
+     },
+     {
+      "L_q": 0.0021347172004132233,
+      "N": [
+       1,
+       27,
+       31,
+       29,
+       27
+      ],
+      "P": 631,
+      "closed_form": 1.018181818181818,
+      "d": 5,
+      "m": 115,
+      "model_share_reg": 5.260869565217392,
+      "n0": 1,
+      "n_d": [
+       1,
+       27,
+       31,
+       29,
+       27
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3080,
+      "ratio_true": 1.018181818181818,
+      "share_true_reg": 5.356521739130435,
+      "sigma2": 11.0
+     },
+     {
+      "L_q": 0.0021266540642722116,
+      "N": [
+       1,
+       28,
+       32,
+       31,
+       28
+      ],
+      "P": 659,
+      "closed_form": 1.019281663516068,
+      "d": 5,
+      "m": 120,
+      "model_share_reg": 5.510416666666667,
+      "n0": 1,
+      "n_d": [
+       1,
+       28,
+       32,
+       31,
+       28
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3370,
+      "ratio_true": 1.019281663516068,
+      "share_true_reg": 5.616666666666666,
+      "sigma2": 12.75
+     }
+    ]
+   },
+   "classical_core": {
+    "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2 \u2014 die User-Headline",
+    "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+    "verdict_in_040_034": "8/8 und 5/5 gated Punkte im Band [0.8, 1.25]"
+   },
+   "noise_law": {
+    "L_q": "L_q = (q-1)^2*m^2/(S*(m-q*n0)^2) \u2014 exakte multinomiale Erwartung.",
+    "aer_reduction": "Auf Aer (gamma_Aer ~ 0) reduziert center_v3 exakt auf das gefrorene center_v2 (Phase 10b), das die Form-Gates E/S PASSTE \u2014 die Reduktion ist by construction, NICHT gefitet.",
+    "center_v3": "center_v3(kappa_hat, pt, ro_hat, b_P, gamma_arm, cP) = (1-1/S)*(ratio_ro_exact(pt, ro_hat, nq) + b_P*(kappa_hat-1) - gamma_arm*cP) + L_q",
+    "honesty": "gamma_arm ist EIN freier Arm-Parameter (2 total). Er wird in-job am Kalibrier-Bein gefittet und am Holdout getestet \u2014 die Falsifizierbarkeit liegt in der Band-Regel am Holdout.",
+    "ratio_hw": "ratio_hw = kappa*(1 - 1/S)*ratio_true + L_q (UNVERAENDERT aus Freeze A/042) \u2014 die STRUCTUR-Form; das Zentrum c_v3 ersetzt ratio_true durch den per-Punkt-Anker + kappa-Term - kohaerenten Floor (siehe operational_definitions)"
+   },
+   "p_rule": {
+    "cal_q3": [
+     149,
+     197,
+     251,
+     347,
+     433,
+     577,
+     659,
+     761
+    ],
+    "cal_q5": [
+     433,
+     499,
+     577,
+     631,
+     659
+    ],
+    "collision_case": "499 -> 541 ist gemessen (Run-1 q3 UND q5) -> uebersprungen -> 547 (der einzige kollidierende Fall in den registrierten Sets)",
+    "motivation": "Die Run-1-P sind durch die Reskalierungs-Analyse vorbelastet (Anti-Sharpshooter); die Run-2-Verdict-P sind durch Run 2 als RATIO-Messung bekannt und werden deshalb NUR Kalibrier-Bein (frisch gemessen), nie Verdict; die neuen P sind nie gemessen worden.",
+    "new_q3": [
+     181,
+     229,
+     283,
+     379,
+     467,
+     613,
+     691,
+     797
+    ],
+    "new_q5": [
+     467,
+     547,
+     613,
+     673,
+     691
+    ],
+    "rule": "P_neu = kleinste Primzahl p mit p > P_alt + 30 UND p nicht in der gemessenen Vereinigung (alle P aus irgendeinem vorherigen Lauf irgendeines Arms; globale Lesart registriert \u2014 die registrierten Sets sind unter per-Arm- und globaler Lesart identisch, kein Fall unterscheidet sie)",
+    "run1_retired": "Run-1-P werden weder Verdict noch Kalibrier \u2014 nur Regression-Anker (T1'')",
+    "striktheit": "p > P_alt + 30 schliesst p = P_alt + 30 selbst aus, wenn prim (z.B. 149 -> 181, nicht 179; 433 -> 467, nicht 463)"
+   },
+   "points": {
+    "q3_d3": [
+     {
+      "L_q": 0.0005662906804733727,
+      "N": [
+       1,
+       19,
+       22
+      ],
+      "P": 181,
+      "closed_form": 1.017751479289941,
+      "d": 3,
+      "delta": -1.5,
+      "delta_sq": 2.25,
+      "m": 42,
+      "model_share_reg": 6.035714285714286,
+      "n0": 1,
+      "n_d": [
+       1,
+       19,
+       22
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 774,
+      "ratio_true": 1.017751479289941,
+      "share_true_reg": 6.142857142857143
+     },
+     {
+      "L_q": 0.0005526044024445451,
+      "N": [
+       1,
+       24,
+       25
+      ],
+      "P": 229,
+      "closed_form": 1.0013580805794478,
+      "d": 3,
+      "delta": -0.5,
+      "delta_sq": 0.25,
+      "m": 50,
+      "model_share_reg": 7.363333333333333,
+      "n0": 1,
+      "n_d": [
+       1,
+       24,
+       25
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 1106,
+      "ratio_true": 1.0013580805794478,
+      "share_true_reg": 7.373333333333333
+     },
+     {
+      "L_q": 0.0005400994444857313,
+      "N": [
+       1,
+       28,
+       32
+      ],
+      "P": 283,
+      "closed_form": 1.014268727705113,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 61,
+      "model_share_reg": 9.191256830601093,
+      "n0": 1,
+      "n_d": [
+       1,
+       28,
+       32
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 1706,
+      "ratio_true": 1.014268727705113,
+      "share_true_reg": 9.3224043715847
+     },
+     {
+      "L_q": 0.0005298190646701389,
+      "N": [
+       1,
+       36,
+       38
+      ],
+      "P": 379,
+      "closed_form": 1.0023148148148149,
+      "d": 3,
+      "delta": -1.0,
+      "delta_sq": 1.0,
+      "m": 75,
+      "model_share_reg": 11.52,
+      "n0": 1,
+      "n_d": [
+       1,
+       36,
+       38
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 2598,
+      "ratio_true": 1.0023148148148149,
+      "share_true_reg": 11.546666666666667
+     },
+     {
+      "L_q": 0.0005221406290353822,
+      "N": [
+       1,
+       43,
+       47
+      ],
+      "P": 467,
+      "closed_form": 1.006198347107438,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 91,
+      "model_share_reg": 14.183150183150182,
+      "n0": 1,
+      "n_d": [
+       1,
+       43,
+       47
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 3896,
+      "ratio_true": 1.006198347107438,
+      "share_true_reg": 14.271062271062272
+     },
+     {
+      "L_q": 0.000515528995875768,
+      "N": [
+       1,
+       53,
+       58
+      ],
+      "P": 613,
+      "closed_form": 1.0063125999494993,
+      "d": 3,
+      "delta": -2.5,
+      "delta_sq": 6.25,
+      "m": 112,
+      "model_share_reg": 17.680059523809526,
+      "n0": 1,
+      "n_d": [
+       1,
+       53,
+       58
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 5978,
+      "ratio_true": 1.0063125999494993,
+      "share_true_reg": 17.791666666666668
+     },
+     {
+      "L_q": 0.0005125903339995969,
+      "N": [
+       1,
+       59,
+       65
+      ],
+      "P": 691,
+      "closed_form": 1.0072561139478635,
+      "d": 3,
+      "delta": -3.0,
+      "delta_sq": 9.0,
+      "m": 125,
+      "model_share_reg": 19.845333333333333,
+      "n0": 1,
+      "n_d": [
+       1,
+       59,
+       65
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 7496,
+      "ratio_true": 1.0072561139478635,
+      "share_true_reg": 19.989333333333335
+     },
+     {
+      "L_q": 0.0005100606634542604,
+      "N": [
+       1,
+       67,
+       71
+      ],
+      "P": 797,
+      "closed_form": 1.0025951557093427,
+      "d": 3,
+      "delta": -2.0,
+      "delta_sq": 4.0,
+      "m": 139,
+      "model_share_reg": 22.177458033573142,
+      "n0": 1,
+      "n_d": [
+       1,
+       67,
+       71
+      ],
+      "q": 3,
+      "q_sum_N_sq_minus_m2": 9272,
+      "ratio_true": 1.0025951557093427,
+      "share_true_reg": 22.235011990407674
+     }
+    ],
+    "q5_d5": [
+     {
+      "L_q": 0.0021868345220389398,
+      "N": [
+       1,
+       21,
+       24,
+       24,
+       21
+      ],
+      "P": 467,
+      "closed_form": 1.024337479718767,
+      "d": 5,
+      "m": 91,
+      "model_share_reg": 4.0637362637362635,
+      "n0": 1,
+      "n_d": [
+       1,
+       21,
+       24,
+       24,
+       21
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 1894,
+      "ratio_true": 1.024337479718767,
+      "share_true_reg": 4.162637362637363,
+      "sigma2": 9.0
+     },
+     {
+      "L_q": 0.0021618737114800345,
+      "N": [
+       1,
+       24,
+       26,
+       26,
+       24
+      ],
+      "P": 547,
+      "closed_form": 1.0086805555555556,
+      "d": 5,
+      "m": 101,
+      "model_share_reg": 4.562376237623762,
+      "n0": 1,
+      "n_d": [
+       1,
+       24,
+       26,
+       26,
+       24
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2324,
+      "ratio_true": 1.0086805555555556,
+      "share_true_reg": 4.601980198019802,
+      "sigma2": 4.0
+     },
+     {
+      "L_q": 0.0021399248842693683,
+      "N": [
+       1,
+       26,
+       30,
+       29,
+       26
+      ],
+      "P": 613,
+      "closed_form": 1.022272687570967,
+      "d": 5,
+      "m": 112,
+      "model_share_reg": 5.111160714285714,
+      "n0": 1,
+      "n_d": [
+       1,
+       26,
+       30,
+       29,
+       26
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 2926,
+      "ratio_true": 1.022272687570967,
+      "share_true_reg": 5.225,
+      "sigma2": 12.75
+     },
+     {
+      "L_q": 0.0021236257213821316,
+      "N": [
+       1,
+       29,
+       32,
+       32,
+       28
+      ],
+      "P": 673,
+      "closed_form": 1.0186280955511724,
+      "d": 5,
+      "m": 122,
+      "model_share_reg": 5.6102459016393444,
+      "n0": 1,
+      "n_d": [
+       1,
+       29,
+       32,
+       32,
+       28
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3486,
+      "ratio_true": 1.0186280955511724,
+      "share_true_reg": 5.714754098360656,
+      "sigma2": 12.75
+     },
+     {
+      "L_q": 0.0021192762586805555,
+      "N": [
+       1,
+       30,
+       33,
+       33,
+       28
+      ],
+      "P": 691,
+      "closed_form": 1.025,
+      "d": 5,
+      "m": 125,
+      "model_share_reg": 5.76,
+      "n0": 1,
+      "n_d": [
+       1,
+       30,
+       33,
+       33,
+       28
+      ],
+      "q": 5,
+      "q_sum_N_sq_minus_m2": 3690,
+      "ratio_true": 1.025,
+      "share_true_reg": 5.904,
+      "sigma2": 18.0
+     }
+    ]
+   },
+   "registered_expectations_nicht_verdict_tragend": {
+    "corr_kdef_delta": {
+     "q3_d3": -0.04695915333239529,
+     "q5_d5": 0.8586195974465813
+    },
+    "gamma_cal_fit": {
+     "q3_d3": 0.010840010011122515,
+     "q5_d5": 0.005978024340559316
+    },
+    "gamma_lsq": {
+     "q3_d3": 0.010157374329334288,
+     "q5_d5": 0.007168355673403591
+    },
+    "note": "Erwartete in-job gamma_arm ~ gamma_cal_fit (gleiche Punkte, frische Messung); erwartete Holdout-Residuen ~ transfer-Erwartung plus Session-Drift. DIENST der Eichung, NICHT dem Verdict.",
+    "source": "Phase-11a-Diagnostik (md5 8ad3adbb19568bc9f7db81142d3e1c0a), committet",
+    "transfer_max_abs_res": {
+     "q3_d3": 0.015238037835231706,
+     "q5_d5": 0.019724554308855953
+    }
+   }
+  },
+  "prior_chain": {
+   "0b9c9968dc5e99a3cc22962a8b760e44": "EXPERIMENT 043 \u2014 H-RAM-Q-3b Freeze A' + Re-Freeze R1 (Minimalregister d=q, 90 Circuits)",
+   "16ca44bd02f81cf623862b4910ccedf8": "EXPERIMENT 043 \u2014 Fez-Raw-Counts dartdg5vr3kc73ejcrgg (committed VOR Auswertung, Verdict REFUTED)",
+   "18fb1e62a3dd71c6f595416cdd40bcc1": "EXPERIMENT 032 \u2014 \u00a7Z.14 Fez-QPU-Pr\u00e4zedenz (12 Circuits x 8192 Shots, TOKEN1)",
+   "432d43fe1bc9e2594efd3b35266d2d81": "EXPERIMENT 042 \u2014 H-RAM-Q-3 Freeze A (REGISTERED_NOT_MEASURED, 58 Circuits)",
+   "704916f946beedf49c51ab6bc9bf37bd": "EXPERIMENT 041 \u2014 H-RAM-Q-2 q-universelle Identit\u00e4t (CONFIRMED B)",
+   "8ad3adbb19568bc9f7db81142d3e1c0a": "Phase 11a \u2014 koh\u00e4rente Prep-Fehler-Diagnostik (0 QPU, NICHT verdict-tragend, committet 4434d34)",
+   "a2fc4875e10dd198e95d4996b1692759": "EXPERIMENT 034 \u2014 q=5 Fingerprint, 5 gated Punkte @ d=625",
+   "bd9dfee77b9fada8a230347f9d45f5a7": "EXPERIMENT 040 \u2014 H-RAM-Q-1 q=3 Deformation, 8 gated Punkte @ d=729",
+   "d19f4a563d88e0cf3ffd4b187a10ca73": "EXPERIMENT 042 \u2014 Fez-Raw-Counts darq1stvr3kc73ej96ig (committed VOR Auswertung)"
+  },
+  "qpu": "0 QPU (Freeze A''); Stage-3 Aer 0 QPU; EIN Fez-Job (TOKEN1) erst nach Freeze B''",
+  "registered_before": "2026-09-26",
+  "registered_by": "pt_ram_q_hardware3.freeze_prereg \u2014 payload_md5 = md5(json.dumps(payload, sort_keys=True, separators=(',',':'))) OHNE md5-Feld (Haus-Konvention, pt_ram_q_hardware)",
+  "safeguard_limits": {
+   "amplification_ceiling": "ratio_hw > (1-1/S)*ratio_true + L_q + w -> H-RAM-Q-4_INVALID_AMPLIFICATION (einseitig: Depolarisierung daempft Prime-Harmonische, hebt sie nie \u00fcber das rauschfreie Niveau + Band) \u2014 UNVERAENDERT aus Phase 9/10",
+   "band_rule": "ratio_hw \u2208 [center_v3 - w_B'', center_v3 + w_B''] an den 13 Holdout-P; Freeze A'': w_A = 0.05 (grob), w_B'' = w_B' = 0.02787029633307472 (scharf, WIEDERVERWENDET); das Zentrum center_v3 bleibt gefroren (kein Re-Zentrieren).",
+   "falsifier": ">= 2 der 13 Holdout-P unter center_v3 - w -> H-RAM-Q-4_REFUTED",
+   "job_integrity": "EIN Fez-Job (TOKEN1), 116 Circuits; Job-ID + md5 der Counts committed VOR der Auswertung (\u00a7Z.14-Disziplin).",
+   "kappa_floor_void": "kappa_hat < KAPPA_CEILING = 0.81 an >= 2 Punkten der UNION (Verdict-P UND Kalibrier-P) -> H-RAM-Q-4_VOID_CALIBRATION_GLOBAL. Die Union, weil der gamma-Fit Kalibrier-kappa_hat >= 0.81 braucht; UNVERAENDERT gefrorene Garantie 0.81.",
+   "trennschaerfe": {
+    "band_vs_shot_noise": "gepoolte K=3-Ratio-SE \u2248 1.4-2.0% (S=8192) gegen w_A = 5% -> >= 2.5\u03c3 Aufl\u00f6sung",
+    "coupling": "kappa_hat (Loschmidt) und share-Ratio (Harmonische) sind operationell UNABH\u00c4NGIG; das gefrorene Gesetz koppelt sie zusammen mit dem in-job gamma-Fit.",
+    "gamma_se": "gamma_arm-SE aus dem Kalibrier-Fit: 13 Punkte, cP-Spreizung 4.2-5.0 (q3) / 4.6-5.4 (q5) \u2014 SE(gamma) ~ std(delta_cal/cP)/sqrt(n_cal) ~ 0.003 (q3) / 0.005 (q5); ueber cP ~ 4.7 in Ratio-Einheiten ~ 0.014-0.024 \u2014 KOMPARABEL zur Transfer-Erwartung; die Band-Regel traegt die gamma-Unschaerfe mit (w_B'' = w_B' ungeaendert, Transfer liegt innen)",
+    "kappa_se": "SE(kappa_hat) \u2248 0.005 (Loschmidt, 8192 Shots)"
+   }
+  },
+  "simulation_leg": {
+   "form_validation": "Phase-10b-Re-Freeze-R1-Konvention (zweistufig): Gate E vergleicht das DETERMINISTISCHE Zentrum (exact-Bein): max |res_v2| <= TOL_FORM = 0.03 ueber die Domain-Zellen (kappa >= 0.81) \u2014 v2, NICHT v3, denn auf Aer ist gamma_Aer ~ 0 und v3 reduziert exakt auf v2; Gate S: sampled Domain-q97.5 <= W_A = 0.05. Der per-Zell-Max des sampled-Beins ist registrierte Diagnostik, KEIN Gate. gamma_aer (in-Aer-Fit auf den Kalibrier-Zellen) ist registrierte Diagnostik (Erwartung ~0), KEIN Gate. Verletzung eines Gates -> Re-Freeze-Zyklus (dokumentiert, Hardware blockiert).",
+   "freeze_b": "w_B'' = w_B' = 0.02787029633307472 WIEDERVERWENDET (source: pt_ram_q_stage2b_results.json w_b (EXPERIMENT 043, Phase-10b-Konvention q97.5 des sampled-Beins)); das Stage-Aer-3-Bein registriert q97.5 der 26-Punkte-Grid als Diagnostik + Gate-S-Konsistenz (<= W_A) und ECHTEN ISA-Report (Phase-9/10-Praezedenz: Freeze B'' aendert den Payload NICHT).",
+   "n_ens": 8,
+   "purpose": "0 QPU: Validierung der v3-Form auf dem gefrorenen STRESS-Modell am Minimalregister VOR Hardware (26-Punkte-Grid: 13 Verdict + 13 Kalibrier); Form-Gates + w_B''-Konsistenz.",
+   "stress_grid_p1": [
+    0.0,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+   ],
+   "stress_model": "pt_ram_q_hardware_aer.build_noise_model-Pr\u00e4zedenz (depolarizing p1 auf 1q-Gates, ratio*p1 auf cz, ReadoutError ro=1e-2) \u2014 NICHT kalibriert, konservativ."
+  },
+  "status": "REGISTERED_NOT_MEASURED",
+  "suite_state": 995,
+  "two_freeze_architecture": {
+   "freeze_a": "DIESER Freeze (A''): analytischer Kern + amendierte P-Regel + cP-Freeze (26 Werte) + gamma-Fit-Regel + Kalibrier-Bein + md5, VOR jedem Hardware-/Simulations-Kontakt, 0 QPU.",
+   "freeze_b": "w_B''-Registrierung (WIEDERVERWENDET, unveraendert) + ISA-3-Report VOR dem QPU-Lauf; Zentrum unver\u00e4ndert; erst danach QPU-Kontakt (Phase-9/10-Praezedenz: Payload-md5 unangetastet).",
+   "hardware": "EIN Fez-Job (TOKEN1) erst nach Freeze-B''-Commit; alle Abbruchbedingungen exakt in safeguard_limits registriert.",
+   "stage3_aer": "Aer-Bein (0 QPU): 26-Punkte-Grid (13 Verdict + 13 Kalibrier) x 6 Stresslevel, b_P fuer alle 26 (Phase-10b-Konvention), Form-Gates E/S, gamma_aer-Diagnostik (~0), w_B''-Konsistenz."
+  },
+  "user_anchor": "mache alles autonom weiter wie du vorgeschlagen hast und auch in QuQuint Statevecor und auch in QPU Hardware. Wir werden uns die Bauanleitung f\u00fcr den Hilbert-P\u00f3lya-Operator jetzt direkt vom Universum holen und ausdehnen und abh\u00e4rten. \u2014 Konkretion aus dem Phase-10d-Verdict (H-RAM-Q-3b_REFUTED, Kontrollen gruen): die naechste Iteration ist das koh\u00e4rente Prep-Fehler-Daempfungsmodell als NEUES Prereg (dieser Freeze). Die Phase-11a-Diagnostik gegen das committete Run-2-Raw zerlegt die Suppression in einen stochastischen kappa-Term (b_P*(1-kappa_hat), Aer-Form) und einen kohaerenten Floor (gamma_arm*cP, arm-stabil, klassisch exakt).",
+  "verdict_map": {
+   "EVALUATION_INVALID_KONTROLLE_GESCHEITERT": "T1-T6 gescheitert \u2014 Auswertung void",
+   "H-RAM-Q-4_COARSE_HOLD_SHARP_MISS": "alle Punkte im groben Band (w_A), >= 1 Punkt au\u00dferhalb w_B''",
+   "H-RAM-Q-4_DEGENERAT": "Kontroll-Regel T4 verletzt \u2014 REFUTED-zulaessig",
+   "H-RAM-Q-4_INVALID_AMPLIFICATION": "irgendein Punkt \u00fcber (1-1/S)*ratio_true + L_q + w",
+   "H-RAM-Q-4_NOISE_LIFT_CONFIRMED": "alle 13 Holdout-P im Band [center_v3 - w_B'', center_v3 + w_B''], Kontrollen gruen, alle kappa_hat >= 0.81 (Union)",
+   "H-RAM-Q-4_REFUTED": ">= 2 der 13 Holdout-P unter center_v3 - w",
+   "H-RAM-Q-4_VOID_CALIBRATION": "kappa_hat < 0.81 an >= 2 Punkten der UNION (Verdict UND Kalibrier)"
+  }
+ },
+ "total_two_q": 559,
+ "transpile_seed": 7,
+ "verdict": "ISA_OK"
+}

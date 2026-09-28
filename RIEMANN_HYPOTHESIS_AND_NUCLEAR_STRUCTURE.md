@@ -1857,6 +1857,87 @@ Commits `7b93d60` (Freeze A′), `ac9c645` (Stage-2b/Re-Freeze R1), `421eb4a`
 (Freeze B′), `5ac74f6` (Runner), `38a975b` (Raw), `047e39b` (Inventar),
 `7483a11` (Verdict).
 
+## §10.27 — H-RAM-Q-4 Phase 11a–c: Diagnostik → Freeze A″ → Stage-3-Aer/ISA-3 — die b_P-Konsistenz-Divergenz als Transpile-Grenzzweig bit-exakt aufgeklärt (EXPERIMENT 044, Branch `ram-q-zyklizitaet`, 2026-09-27/28, 0 QPU)
+
+**Kette:** 11a Diagnostik (Dämpfungs-Fit gamma_aer gegen committetes
+Phase-10-Raw, md5 `8ad3adbb19568bc9f7db81142d3e1c0a`, Commit `4434d34`) →
+11b **Freeze A″** (NEUES Prereg `pt_ram_q_hardware3_prereg.json`, md5
+`baaca1f6772e07b0847fe436da7e16da`, Commit `c3ca1f6`; w_B′
+0.02787029633307472 WIEDERVERWENDET, 26 Punkte q3_d3 149..761 / q5_d5
+433..659, Echo-Leiter r ∈ {1,2,4,8} an Ankern 181/467, Kalibrier-Bein =
+Run-2-Verdict-Punkte als `cal`) → 11c Stage-3-Aer-Voll-Grid (26 P × 6
+Levels p1 ∈ [0, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2]; exact-Leg bit-deterministisch
+seed 11, sampled 8 Ensembles × 3 Reps × 8192, seed-Kette stage2_seed;
+ISA-3: 116 Circuits × FakeFez-Prognose 559 2q/max 84) → b_P-Konsistenz-Prüfung
+des Grids gegen die 11a-Diagnostik.
+
+**Der Befund (committet in `pt_ram_q_stage3_results.json`):** Form-Gates
+grün (v2 max_res_v2_exact 0.00219 ≪ TOL_FORM 0.03; sampled_q975 0.0273 ≤
+w_A 0.05), gamma_aer-Fit am Kalibrier-Bein ~0 — aber die cross-artefact-
+b_P-Konsistenz (Stage-3-Grid vs 11a-Diagnostik, Toleranz 1e-3) hält an
+**10/13** Kalibrier-Punkten (9× bit-exakt ~1e-15, 149 bei 2.05e-05) und
+verletzt an **3**: q3_d3|761 (abs_diff 0.02750701876034989), q3_d3|197
+(0.02711532692526042), q5_d5|631 (0.007622010515988098).
+
+**Wurzel (bit-exakt geschlossen, 2026-09-28):** die Exact-Leg-Transpilation
+(AerSimulator density_matrix, basis_gates [rz, sx, x, cz], opt 3, seed 7)
+sitzt an einem **Grenzzweig der Gate-Synthese**. Multiplikative ±1-ulp-
+Störung (2⁻⁵²) der Amplituden `n_d` kippt die Zerlegung — am Punkt 761
+zwischen ≥3 gleichberechtigten Geometrien (loschmidt rz11+x / rz10+x /
+rz11-ohne-x; struct mit/ohne x-Gate, alternierend über die Stör-Skala).
+**Entscheidend:** mit −1 ulp skalierte Amplituden (Physik um O(1e-16)
+geändert) reproduzieren den committeten Stage-3-Wert **bit-exakt** —
+kappa = 0.759307524274, Differenz −4.44e-16 = die injizierte Störung selbst,
+und ops_struct {cz1, rz5, sx6} ohne x == der committete Fingerprint. Die
+GESAMTE Gitter-Divergenz (kappa-Lücke 3.32e-03 bei p1=1e-2, 4.9e-05 bei
+p1=1e-4) ist **100 % Transpile-Geometrie, 0 % Physik-Differenz**. Die
+committeten s3-Zeilen tragen selbst die Zweitverzweigung als Fingerprint:
+197/631 committet MIT x-Gate, frisch OHNE (pro Punkt chaotische
+Zweigzuordnung — am 761 in der Gegenrichtung). Die ±1-ulp-n_d-Familie
+erreichte die A-Zweige von 197/631 nicht (dort liegt der Zweig außerhalb
+der 1-D-Störrichtung); die Mechanismen-Klasse ist durch 761 bewiesen.
+
+**Ausgeschlossene Auslöser (kumulativ):** pt-Dicts bit-identisch (Payload-Walk),
+Loaders identisch, NQ/Amps/Transpile-Seed/Hash-Seeds/Prozess-Zufall
+(8/8 identisch), Thread-Counts (OMP/OPENBLAS/MKL 8 Konfigs → alle Variante B),
+kein Reboot (uptime seit 2026-09-09), 0 pacman-Upgrades (26.–28.), keine
+.pyc-Regeneration, venv unverändert, Import-Graph identisch. Die
+Flip-Variable (ulp-skalierte Änderung der Synthese-Numerik zwischen
+2026-09-28 03:01:56Z und ~03:10Z, A→B; Rückflips 09-26 15:55 B → 18:42 A)
+blieb unbenannt — für §Z.26 ehrlich dokumentiert.
+
+**ISA-3-Re-Verifikation unter der AKTUELLEN Variante (vor jeder QPU-
+Submission, FakeFez, seed 7, opt 3, generate_preset_pass_manager — exakt
+der qpu-Submission-Pfad):** n_circuits 116/116, **total 2q 559 == 559,
+max 84 == 84, 0/116 per-circuit-2q-Abweichungen** — die cz-Zählungen sind
+varianteninvariant (auch der Razor-Sweep: cz konstant über alle Zweige).
+Nur 24/116 Tiefen differieren um ±1–4 Schichten (dieselbe Grenzzweig-Klasse,
+budget-irrelevant — Safeguards sind 2q-only). **Die ISA-Budgets sind
+variantenstabil.**
+
+**Konsequenzen (Anti-Sharpshooter-Treue):**
+- **KEINE Toleranz-Erhöhung** — BP_KONSISTENZ_TOL bleibt 1e-3. Die 3
+  Ausnahmen sind als committete Werte eingefroren und im Test
+  `test_bp_kalibrier_konsistenz` gepinnt (10 ok + 3 dokumentierte
+  Grenzzweig-Punkte mit abs_diff-Pins); jede grobe Referenz-Verfehlung
+  (falsches Payload ~1e-1) würde weiterhin feuern.
+- Das committete A-era-Grid bleibt **Verdict-Basis** (kein Re-Run-to-Pass,
+  kein Result-Shopping); die frische B-era-Messreihe ist Diagnostik.
+- Verdict-Robustheit: die Varianten-Spreizung (~2e-3 in kappa; res_v1-Abweichungen
+  der 3 Punkte ≪ TOL_FORM 0.03) liegt Größenordnungen unter den Gate-Bändern.
+- Vor dem Fez-Job (11d): der 116er-Satz wird GEMESSEN (REGISTERED_NOT_MEASURED
+  → QPU), Raw-Commit vor Auswertung — der ISA-Report ist als Ist-Budget
+  bestätigt.
+
+**Quellen:** `pt_ram_q_hardware3.py` / `pt_ram_q_hardware_aer.py` (Engine:
+exact_point_level/sampled_point_level) / `pt_ram_q_hardware3_aer.py` /
+`pt_ram_q_isa3.py` / `pt_ram_q_hardware3_qpu.py`, `pt_ram_q_hardware3_prereg.json`
+(md5 `baaca1f6`), `pt_ram_q_stage3_results.json`, `pt_ram_q_isa3_report.json`,
+Commits `4434d34` (11a), `c3ca1f6` (11b), dieser Commit (11c); Probe-Skripte
+`scratch_phase11_razor_probe.py` / `scratch_phase11_geometry_kappa.py`
+(2026-09-28, bit-exakter Abschluss: kappa(A-Geometrie, −1 ulp) == s3 mit
+d3 = −4.44e-16).
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf

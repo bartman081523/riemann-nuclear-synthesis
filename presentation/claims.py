@@ -824,8 +824,11 @@ _CL.append(Claim(
     # +22 Tests (Freeze-Integritaet/amendierte P-Regel/Budget 116/Leiter/
     # v3-Reduktion/cP-Kreuzpruefung/w_B''-Wiederverwendung/Verdict-Map)
     # -> 1017
-    # (gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1017,
+    # 11c Stage-3-Aer/ISA-3 (EXPERIMENT 044, H-RAM-Q-4, 0 QPU):
+    # +62 Tests (pt_ram_q_hardware3_aer/isa3/hardware3_qpu) -> 1079
+    # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
+    # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
+    id="test_count", value=1079,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

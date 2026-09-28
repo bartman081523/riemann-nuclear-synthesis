@@ -3555,8 +3555,70 @@ Stage-2-Aer-Bein (Freeze B′).
   ("Design repariert = Hypothese lebt") — sie macht nur den Verdict
   beanspruchbar, nicht die Hypothese wahr.
 
+## §Z.26 — Der Transpile-Grenzzweig: Nichtdeterminismus ohne benannte Variable — die Mechanismen-Klasse bit-exakt bewiesen, der Auslöser ulp-skaliert und unbenannt (Phase 11a–c Diagnose, EXPERIMENT 044, 2026-09-27/28, 0 QPU)
+
+**Der Befund** (Projekt-Doku §10.27, im Detail): die cross-artefact-
+b_P-Konsistenz zwischen dem Stage-3-Aer-Gitter (18:42, A-era, committet)
+und der 11a-Diagnostik (A-era, committet) hielt an 10/13 Kalibrier-Punkten
+bit-exakt und verletzte an 3 (761: 0.0275, 197: 0.0271, 631: 0.0076). Die
+Systematik-Jagd schloss kumulativ ALLES testbar Benannte aus — bis der
+Abschluss bit-exakt gelang: **±1 ulp (2⁻⁵²) multiplikative Störung der
+Amplituden kippt die Transpile-Zerlegung**, und die so erreichte
+A-Geometrie reproduziert den committeten Stage-3-Wert am Punkt 761
+**bit-exakt** (kappa-Differenz −4.44e-16 = die injizierte Störung selbst,
+plus Deckungsgleichheit des committeten ops_struct-Fingerprints).
+
+**Die Beweiskette:**
+1. Alle deklarierten Inputs sind bit-identisch (Payload-Walk, Loader,
+   NQ, Amplituden-Vektoren, Seeds, Imports).
+2. Identisches Probe-Skript → Variante A um 03:01:56Z, Variante B ab
+   ~03:10Z (2026-09-28) — der Flip liegt in einem Minuten-Fenster.
+3. 8/8 Prozesse und 8/8 Thread-Konfigurationen (OMP 1/2/4/8, OPENBLAS
+   1/4, MKL 1) liefern stabil dieselbe Variante — keine Prozess- oder
+   Thread-Sensitivität.
+4. Kein Reboot (uptime seit 09-09), 0 pacman-Upgrades (26.–28.), keine
+   .pyc-Regeneration, venv unverändert, Hash-Seeds ohne Effekt —
+   alle klassischen Kanäle zu.
+5. Die Razor-Karte (±1 ulp × 10 Skalen) zeigt ≥3 gleichberechtigte
+   Zweige, alternierend über die Stör-Skala — Struktur des Übersetzers,
+   keine Botschaft.
+6. Geometrie → kappa: A-Geometrie reproduziert s3 bit-exakt; cz/2q-Zählungen
+   sind varianteninvariant (ISA-3-Re-Verifikation: 559/84 bit-gleich,
+   0/116 Abweichungen) — nur Budget-irrelevante Tiefen ±1–4 differieren.
+
+**Die epistemische Lehre (SciMind):**
+- **Grenzzweig-Nichtdeterminismus ist kein Reproduzierbarkeitsbruch,**
+  aber auch keine Rundung: die "gleiche" Eingabe hat mehrere
+  gleichberechtigte Übersetzungen, und welche genommen wird, entscheidet
+  eine ulp-skalierte, nach exhaustivem Ausschluss unbenannte
+  Umgebungsvariable. Ehrliche Dokumentation nennt die
+  Mechanismen-Klasse und lässt die Variable unbenannt — benannt wird
+  nur, was bewiesen ist.
+- **Artefakte tragen ihre Geometrie mit:** die committeten ops_struct-
+  Fingerprints (197/631 mit x-Gate, frisch ohne) belegen die
+  Zweitverzweigung im committeten Artefakt selbst — Werte ohne
+  Fingerprints wären der Deutung ausgeliefert gewesen. Künftig: Geometrie
+  committen, nicht nur Resultat.
+- **Robustheits-Hierarchie:** Physik-Effekt der Störung (1e-16) ≪
+  Zweig-Spreizung (~3e-3) ≪ Form-Gate-Band (0.03). Ein Verdict ist
+  robust, wenn sein Band die Zweig-Spreizung um Größenordnungen
+  übersteigt — die b_P-Prüfung mit 1e-3 lag DARunter und musste ohne
+  Toleranzerhöhung re-gescopt werden (10 ok + 3 gepinnte Ausnahmen).
+- **Anti-Sharpshooter-Treue:** die Aufklärung ändert keine committete
+  Zahl; das A-era-Grid bleibt Verdict-Basis, kein Re-Run-to-Pass.
+- **Apophenie-Wache:** dass 761 und 197 in GEGENRichtung zwischen den
+  Zerlegungen kippen (struct ohne x vs mit x), ist kombinatorische
+  Chaotizität des Übersetzers — dieses Muster darf nicht als
+  Primzahl-Signatur gelesen werden; es ist Medium, nicht Inhalt.
+
+**Was offen bleibt:** die Flip-Variable selbst (vermutlich ulp-skalierte
+Numerik-Differenz in Synthese-/libm-/SIMD-Dispatch-Klasse); sie ist für
+die 11d-QPU-Messung folgenlos (Sampled-Leg mit Seed-Kette, 2q-invariante
+ISA, Gate-Abstände ≫ Spreizung), aber für jede künftige bit-Referenz
+gilt: erst der ops-Fingerprint, dann der Wert.
+
 ---
 
-**Last updated:** 2026-09-26 (§Z.25: Branch ram-q-zyklizitaet — EXPERIMENT 043 H-RAM-Q-3b: Option A Minimalregister vollzogen — Freeze A′ md5 0b9c9968 VOR QPU (13 neue P q3_d3 149..761 / q5_d5 433..659, Echo-Leiter κ_r = κ_block^r an Ankern 149/433, d-Inv-Bein mit 13 ALTEN P, Shuffle-Inertness-Theorem → keine Shuffle-Kontrolle, Composite/Uniform-Ersatz) → Stage-2b-Aer 702 Zellen (v1 fail 702/702, v2 exakt max 0.0022) + dokumentierter Re-Freeze R1 (zweistufige Lesart: Gate E exact TOL_FORM 0.03, Gate S Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik) → Freeze B′ w_B′ 0.02787029633307472 + ISA2_OK (90 C, 493 2q, max 84) → EIN Fez-Job dartdg5vr3kc73ejcrgg 90×8192 TOKEN1, Raw + md5 16ca44bd committed 38a975b VOR Auswertung, Inventar 047e39b (Filter-Amendment: Hex-Run ≥ 21-Fragmentregel) → gefrorene Auswertung 7483a11: VERDICT `H-RAM-Q-3b_REFUTED` — Kalibrier-Ziel EINLÖST (alle 13 κ̂ ≥ 0.81: q3 0.9786–0.9904, q5 0.9196–0.9286 — kein Void wie Phase 9), 13/13 unter c(κ̂)−w_B′ [−0.0938..−0.0341] EINSEITIG (Suppression), 0 Amplification, Kontrollen t3 (3.55e-15)/t4 (composite 0.832/0.331, uniform 0.006/0.025 unter der 0.81-Ecke-Kante)/t5 (493 2q, max 84)/t6/md5 alle grün; auch die gesetzliche Aer-kalibrierte v2-Form verfehlt (res_v2 [−0.0630..−0.0159] ALLE negativ, max 0.0630 > w_B′); Mechanismus = Loschmidt-Echo refokussiert kohärente/unäre Prep-Fehler (κ̂ überschätzt die Struktur-Dämpfung); Echo-Leiter κ_block q3 0.9879 (log-res 0.0043) / q5 0.9128 (0.0253), r1-Konsistenz exakt; d-Invarianz-Bein HARDWARE-D_INVARIANZ_VERLETZT 7/13, max |Δ| 0.1701, 11/13 negativ = v1-Missifikations-Signatur, klassischer Kern offline bit-exakt (t3d 3.55e-15); erster verdict-tragend REFUTED der RAM-Q-Serie mit vollständig grünen Kontrollen — kalibrierseitig sauber, gesetzesseitig falsifiziert; H-RAM-Q-1 (A−) und H-RAM-Q-2 (B) unangetastet; 36 neue Tests, 981 grün)
+**Last updated:** 2026-09-28 (§Z.26: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11a–c: Transpile-Grenzzweig-Befund bit-exakt geschlossen — ±1 ulp an den Amplituden kippt ≥3 gleichberechtigte Zerlegungen, A-Geometrie reproduziert s3 mit d3 = −4.44e-16, committete ops_struct-Fingerprints belegen die Zweitverzweigung, cz/2q varianteninvariant, ISA-3-Re-Verifikation 559/84 bit-gleich 0/116, KEINE Toleranz-Erhöhung — 3 Ausnahmen gepinnt, Grid bleibt Verdict-Basis, Flip-Variable unbenannt nach exhaustivem Ausschluss; vorherige Kette §Z.25: 2026-09-26 (§Z.25: Branch ram-q-zyklizitaet — EXPERIMENT 043 H-RAM-Q-3b: Option A Minimalregister vollzogen — Freeze A′ md5 0b9c9968 VOR QPU (13 neue P q3_d3 149..761 / q5_d5 433..659, Echo-Leiter κ_r = κ_block^r an Ankern 149/433, d-Inv-Bein mit 13 ALTEN P, Shuffle-Inertness-Theorem → keine Shuffle-Kontrolle, Composite/Uniform-Ersatz) → Stage-2b-Aer 702 Zellen (v1 fail 702/702, v2 exakt max 0.0022) + dokumentierter Re-Freeze R1 (zweistufige Lesart: Gate E exact TOL_FORM 0.03, Gate S Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik) → Freeze B′ w_B′ 0.02787029633307472 + ISA2_OK (90 C, 493 2q, max 84) → EIN Fez-Job dartdg5vr3kc73ejcrgg 90×8192 TOKEN1, Raw + md5 16ca44bd committed 38a975b VOR Auswertung, Inventar 047e39b (Filter-Amendment: Hex-Run ≥ 21-Fragmentregel) → gefrorene Auswertung 7483a11: VERDICT `H-RAM-Q-3b_REFUTED` — Kalibrier-Ziel EINLÖST (alle 13 κ̂ ≥ 0.81: q3 0.9786–0.9904, q5 0.9196–0.9286 — kein Void wie Phase 9), 13/13 unter c(κ̂)−w_B′ [−0.0938..−0.0341] EINSEITIG (Suppression), 0 Amplification, Kontrollen t3 (3.55e-15)/t4 (composite 0.832/0.331, uniform 0.006/0.025 unter der 0.81-Ecke-Kante)/t5 (493 2q, max 84)/t6/md5 alle grün; auch die gesetzliche Aer-kalibrierte v2-Form verfehlt (res_v2 [−0.0630..−0.0159] ALLE negativ, max 0.0630 > w_B′); Mechanismus = Loschmidt-Echo refokussiert kohärente/unäre Prep-Fehler (κ̂ überschätzt die Struktur-Dämpfung); Echo-Leiter κ_block q3 0.9879 (log-res 0.0043) / q5 0.9128 (0.0253), r1-Konsistenz exakt; d-Invarianz-Bein HARDWARE-D_INVARIANZ_VERLETZT 7/13, max |Δ| 0.1701, 11/13 negativ = v1-Missifikations-Signatur, klassischer Kern offline bit-exakt (t3d 3.55e-15); erster verdict-tragend REFUTED der RAM-Q-Serie mit vollständig grünen Kontrollen — kalibrierseitig sauber, gesetzesseitig falsifiziert; H-RAM-Q-1 (A−) und H-RAM-Q-2 (B) unangetastet; 36 neue Tests, 981 grün))
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
