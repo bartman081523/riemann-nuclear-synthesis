@@ -3694,8 +3694,88 @@ sauber geführten Negativbefund: der kohärente Prep-Fehler-Lift ist überall
 echt, aber er ist kein Zentrumsgesetz für die Prime-Band-Anteile. Tests
 1079 → 1104 (+25).
 
+## §Z.28 — MOCS ausgedehnt und abgehärtet: 14-Punkte-Sweep hält 3/3, die §5.5-Unabhängigkeit wird in BEIDEN Richtungen demonstriert (EXPERIMENT 023-EXT, Branch `ram-q-zyklizitaet`, 2026-09-28, 0 QPU)
+
+**Kette:** Freeze `966efea` (REGISTERED_NOT_MEASURED; Prereg
+`pt_rh_multi_observable_ext_prereg.json`, md5
+`334c97545a41bdf0383c7cc35cdfbb2f`) → gefrorene Messung
+`pt_rh_multi_observable_ext.py` → Auswertung/Results-Commit `137178c`
+(`pt_rh_multi_observable_ext_results.json` + Log). Parent: v1
+(`pt_rh_multi_observable_v1`, locked 2026-06-17, N ∈ [7, 1023], MOCS 3/3,
+seither §X.3-korrigiert auf effektiv 2 Klassen). Zwei Beine: Ausdehnung
+(N-Range-Stretch auf den kombinierten 14-Punkte-Sweep N_V1 + N_EXT =
+[7, 15, 31, 63, 127, 255, 511, 1023] + [2047, 4095, 8191, 16383, 32767,
+65535]; bis 65535 = 16 Qubits, dim 65536, SVD 256×256) und Abhärtung
+(§5.5-Unabhängigkeit).
+
+**Verdict: `H_MOCS_EXT` HOLDS — MOCS_ext = 3/3, ALLE VIER gefrorenen
+Claims grün** (v1-Thresholds UNVERÄNDERT vollzogen: alpha < 0.5 auf dem
+kombinierten Sweep, R(N) < 1 für ALLE 14 N, cv-Mean in [0.05, 0.20];
+Verdict-Kante MOCS_ext ≥ 2 — keine Toleranz-Erhöhung, Präzedenz Phase 11c):
+
+- **(a) alpha_combined = 0.210355** < 0.5 — und der Ext-Bein allein liefert
+  **alpha_ext_6pt = 0.132551**: der Exponent FÄLLT monoton mit der
+  ausgedehnten Range (0.2658 an 8 v1-Punkten → 0.2104 an 14 → 0.1326
+  ext-only), exakt die Richtung der Asymptotik-Säule (α 0.347 bei
+  N ≤ 1023 → 0.223 bei N = 10⁶). Die Sub-Logarithmik ist kein
+  Klein-N-Artefakt — sie verfestigt sich mit wachsendem N.
+- **(b) R(N) < 1 für alle 14 Punkte**, Ext-Werte [0.4401, 0.4618] — die
+  Latorre-Ratio stabilisiert sich um ~0.45 und driftet nicht.
+- **(c) cv-Mean = 0.09599648443361233**, Range [0.0794 (N=127),
+  0.1433 (N=7)]; die sechs Ext-Punkte liegen stabil bei 0.0864–0.0882 —
+  das v1-Band trägt über eine weitere halbe Dekade.
+- **v1-Reproduktions-Pin:** alpha_dev 5.55e-17, max_S_dev 6.66e-16,
+  max_R_dev 1.67e-16 (Tol 1e-12), **max_cv_dev 0.0 BIT-EXAKT** (v1-identischer
+  denser Jacobi-Pfad, det-Branch übersprungen — Overflow, v1-correction_log).
+
+**I1 — die §5.5-Härtung, beide Richtungen auf demselben Frozen-Grid:**
+W1: S(N) = 1.0·N^0.4 → alpha exakt 0.4, R ∈ [1.5710, 9.6117] alle > 1 →
+(a, b) = (TRUE, FALSE). W2: S(N) = 0.01·N^0.55 → alpha 0.55 (dev 2.2e-16),
+R ∈ [0.0210, 0.5073] alle < 1 → (FALSE, TRUE). §5.5 hatte nur EINE Richtung
+dokumentiert (alpha ≥ 0.5 mit negativem Prefaktor → R < 1); jetzt ist die
+Nicht-Äquivalenz in BEIDEN Richtungen geschlossen-formig demonstriert —
+die beiden Observables können nicht auseinander hergeleitet werden.
+
+**I2 — Rang-Abhängigkeit, verdict-tragend:** Spearman ρ_ab zwischen
+{log S_vN} und {log R_N} über die 14 Punkte = **0.573626** < 0.9 (frozen
+claim); Effective-Regel: effective_ab = 1 + max(0, 1 − |ρ|) = 1.4264,
+effective_total = **2.426374** ≥ 2 (Observable (c) teilt keine Variable und
+zählt voll). Das ist die erste DIREKTE numerische Messung der
+§5.5-Ersatzrechnung (dort ρ = 0.15 → 2.85 angeschätzt; gemessen 0.574 →
+2.43 — gleiche Größenordnung, gleiche Schlussfolgerung: MOCS = 3 zählt,
+aber die effektive Unabhängigkeit liegt unter 3, der A−-Grade bleibt).
+
+**I3 — Nullen (DIAGNOSTIC, nicht verdict-tragend):** odd-integers cv →
+1/12 = 0.08333 EXAKT ab N = 2047 (alle sechs Ext-Punkte); die Prime-cv
+liegt ab N = 15 konsistent knapp darüber (delta_a stabil +0.003..+0.005 am
+langen Ende). pow2 kreuzt die Prime-Kurve exakt bei N = 2047 (delta_b
+−0.0013 → +0.0041) — die Probe-Vorhersage (vom Prereg disclosed) trifft
+exakt. Interpretation-Guard: cv_spread misst Near-Uniformity des Spektrums,
+NICHT Primality per se — der Prime-Abstand zur Uniform-Null ist klein, aber
+zeichenstabil.
+
+**Prozess-Disziplin (Anti-Sharpshooter):** Probe VOR dem Freeze, ehrlich
+disclosed (dense-cv an 8 v1-Punkten bit-exakt; 65535 dense/tridiag identisch
+0.086356402; ZWEI verworfene Zeugen-Designs — 0.4·N^0.4 und 0.05·N^0.6 —
+korrigiert VOR dem Freeze, nicht danach). Der Runner trug einen
+Serialisierungs-Bug (numpy.bool_ in JSON) — der erste Lauf scheiterte VOR
+allen prints, die Verdict-Zahlen blieben ungelesen; der Fix (Commit
+`137178c`) ist serialization-only, berührt keine Verdict-Logik, Prereg-md5
+vor+nach identisch, deterministischer Re-Run. Solver-Pins: primes dense
+(v1-identisch), null_a tridiagonal (dense 32767² bräuchte ~8.6 GB),
+statevector v1-identisch.
+
+**Einordnung:** die RH_MULTI_OBSERVABLE_CONVERGENCE-Säule hält ihre erste
+echte Belastung: N-Range ×64 (1023 → 65535, 11 Punkte neu), Thresholds
+unverändert, alle drei Observables bestehen, die Unabhängigkeits-Lücke aus
+§X.3 ist jetzt in beiden Richtungen demonstriert und quantifiziert (ρ_ab
+gemessen statt angeschätzt). Keine neue unabhängige Klasse — das Grade A−
+ändert sich nicht; was sich ändert: die A−-Begründung ist jetzt teils
+gemessen, nicht nur rekonstruiert. Tests 1104 → 1138 (+34: 26 Freeze + 8
+Eval; `tests/test_pt_rh_multi_observable_ext.py`).
+
 ---
 
-**Last updated:** 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; vorherige Kette §Z.26: 2026-09-28 (§Z.26: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11a–c: Transpile-Grenzzweig-Befund bit-exakt geschlossen — ±1 ulp an den Amplituden kippt ≥3 gleichberechtigte Zerlegungen, A-Geometrie reproduziert s3 mit d3 = −4.44e-16, committete ops_struct-Fingerprints belegen die Zweitverzweigung, cz/2q varianteninvariant, ISA-3-Re-Verifikation 559/84 bit-gleich 0/116, KEINE Toleranz-Erhöhung — 3 Ausnahmen gepinnt, Grid bleibt Verdict-Basis, Flip-Variable unbenannt nach exhaustivem Ausschluss; vorherige Kette §Z.25: 2026-09-26 (§Z.25: Branch ram-q-zyklizitaet — EXPERIMENT 043 H-RAM-Q-3b: Option A Minimalregister vollzogen — Freeze A′ md5 0b9c9968 VOR QPU (13 neue P q3_d3 149..761 / q5_d5 433..659, Echo-Leiter κ_r = κ_block^r an Ankern 149/433, d-Inv-Bein mit 13 ALTEN P, Shuffle-Inertness-Theorem → keine Shuffle-Kontrolle, Composite/Uniform-Ersatz) → Stage-2b-Aer 702 Zellen (v1 fail 702/702, v2 exakt max 0.0022) + dokumentierter Re-Freeze R1 (zweistufige Lesart: Gate E exact TOL_FORM 0.03, Gate S Domain-q97.5 ≤ w_A; per-Zell-Max = Diagnostik) → Freeze B′ w_B′ 0.02787029633307472 + ISA2_OK (90 C, 493 2q, max 84) → EIN Fez-Job dartdg5vr3kc73ejcrgg 90×8192 TOKEN1, Raw + md5 16ca44bd committed 38a975b VOR Auswertung, Inventar 047e39b (Filter-Amendment: Hex-Run ≥ 21-Fragmentregel) → gefrorene Auswertung 7483a11: VERDICT `H-RAM-Q-3b_REFUTED` — Kalibrier-Ziel EINLÖST (alle 13 κ̂ ≥ 0.81: q3 0.9786–0.9904, q5 0.9196–0.9286 — kein Void wie Phase 9), 13/13 unter c(κ̂)−w_B′ [−0.0938..−0.0341] EINSEITIG (Suppression), 0 Amplification, Kontrollen t3 (3.55e-15)/t4 (composite 0.832/0.331, uniform 0.006/0.025 unter der 0.81-Ecke-Kante)/t5 (493 2q, max 84)/t6/md5 alle grün; auch die gesetzliche Aer-kalibrierte v2-Form verfehlt (res_v2 [−0.0630..−0.0159] ALLE negativ, max 0.0630 > w_B′); Mechanismus = Loschmidt-Echo refokussiert kohärente/unäre Prep-Fehler (κ̂ überschätzt die Struktur-Dämpfung); Echo-Leiter κ_block q3 0.9879 (log-res 0.0043) / q5 0.9128 (0.0253), r1-Konsistenz exakt; d-Invarianz-Bein HARDWARE-D_INVARIANZ_VERLETZT 7/13, max |Δ| 0.1701, 11/13 negativ = v1-Missifikations-Signatur, klassischer Kern offline bit-exakt (t3d 3.55e-15); erster verdict-tragend REFUTED der RAM-Q-Serie mit vollständig grünen Kontrollen — kalibrierseitig sauber, gesetzesseitig falsifiziert; H-RAM-Q-1 (A−) und H-RAM-Q-2 (B) unangetastet; 36 neue Tests, 981 grün)))
+**Last updated:** 2026-09-28 (§Z.28: Branch ram-q-zyklizitaet — EXPERIMENT 023-EXT MOCS-Ausdehnung + §5.5-Abhärtung vollzogen: Freeze 966efea REGISTERED_NOT_MEASURED (Prereg md5 334c97545a41bdf0383c7cc35cdfbb2f, v1-Thresholds UNVERÄNDERT, Probe-Disclosure ehrlich mit 2 verworfenen Zeugen-Designs, Null-Leg als DIAGNOSTIC reklassifiziert) → Auswertung 137178c → VERDICT `H_MOCS_EXT HOLDS`, MOCS_ext 3/3 auf dem kombinierten 14-Punkte-Sweep N 7..65535 (16 Qubits), ALLE 4 Claims grün — alpha_combined 0.210355 < 0.5 mit alpha_ext_6pt 0.132551 (monotoner Fall, konsistent mit Asymptotik-Säule 0.347 → 0.223), R(N) ext [0.4401, 0.4618] alle < 1, cv_mean 0.09599648443361233 im v1-Band (ext 0.0864-0.0882), I1-Zeugen BEIDE Richtungen auf demselben Frozen-Grid (W1 N^0.4: (a,b)=(T,F), R in [1.5710, 9.6117]; W2 0.01*N^0.55: (F,T), R in [0.0210, 0.5073]) — §5.5 jetzt zweiseitig demonstriert, I2 rho_ab 0.573626 < 0.9 / effective_total 2.426374 ≥ 2 (erste DIREKTE Messung der §5.5-Ersatzrechnung, A− bleibt), I3-Nullen DIAGNOSTIC (odd → 1/12 exakt ab 2047, delta_a +0.003..+0.005 zeichenstabil, pow2-Kreuzung exakt 2047), v1-Reproduktion bit-exakt cv / ≤6.7e-16 alpha-S-R, Runner-Fix post-freeze serialization-only ohne Verdict-Berührung (erster Lauf scheiterte VOR prints, Zahlen ungelesen), 34 neue Tests 1138 grün; vorherige Kette §Z.27: 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; vorherige Kette §Z.26: 2026-09-28 (§Z.26: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11a–c: Transpile-Grenzzweig-Befund bit-exakt geschlossen — ±1 ulp an den Amplituden kippt ≥3 gleichberechtigte Zerlegungen, A-Geometrie reproduziert s3 mit d3 = −4.44e-16, committete ops_struct-Fingerprints belegen die Zweitverzweigung, cz/2q varianteninvariant, ISA-3-Re-Verifikation 559/84 bit-gleich 0/116, KEINE Toleranz-Erhöhung — 3 Ausnahmen gepinnt, Grid bleibt Verdict-Basis, Flip-Variable unbenannt nach exhaustivem Ausschluss; §Z.25 siehe Commit-Historie d9cb788)))
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

@@ -2029,6 +2029,78 @@ Commits `9f5f1de` (Raw VOR Auswertung), `2e348f1` (Auswertung); Tests
 1079 → 1104 (+25, `tests/test_pt_ram_q_hardware3_eval.py`); Inventar
 `pt_downloaded_job_results.json` 20 → 21.
 
+## §10.29 — MOCS ausgedehnt und abgehärtet: 14-Punkte-Sweep N 7..65535 hält 3/3, die §5.5-Unabhängigkeit in BEIDEN Richtungen demonstriert (EXPERIMENT 023-EXT, Branch `ram-q-zyklizitaet`, 2026-09-28, 0 QPU)
+
+**Kette:** Freeze `966efea` (REGISTERED_NOT_MEASURED; Prereg
+`pt_rh_multi_observable_ext_prereg.json`, md5
+`334c97545a41bdf0383c7cc35cdfbb2f`, Probe-Disclosure ehrlich — dense-cv an
+den 8 v1-Punkten bit-exakt, 65535 dense/tridiag identisch 0.086356402,
+ZWEI verworfene Zeugen-Designs VOR dem Freeze korrigiert, Null-Leg als
+DIAGNOSTIC reklassifiziert) → gefrorene Messung `pt_rh_multi_observable_ext.py`
+→ Auswertung/Results-Commit `137178c`. Parent: v1 (locked 2026-06-17,
+N ∈ [7, 1023], MOCS 3/3). Zwei Beine: **Ausdehnung** — N-Range-Stretch auf
+den kombinierten 14-Punkte-Sweep [7..1023] + [2047, 4095, 8191, 16383,
+32767, 65535] (bis 65535 = 16 Qubits, dim 65536, SVD 256×256), v1-Thresholds
+UNVERÄNDERT (alpha < 0.5 kombiniert, R < 1 alle 14, cv-Mean in
+[0.05, 0.20]); **Abhärtung** — die §5.5-Unabhängigkeits-Lücke.
+
+**VERDICT `H_MOCS_EXT` HOLDS — MOCS_ext = 3/3, ALLE VIER gefrorenen Claims
+grün** (h_MOCS_EXT_rejected = False; Verdict-Kante MOCS_ext ≥ 2 unverändert,
+KEINE Toleranz-Erhöhung — Präzedenz Phase 11c):
+- **(a)** alpha_combined = 0.210355 < 0.5; alpha_ext_6pt = 0.132551 — der
+  Exponent FÄLLT monoton mit der Range (0.2658 8pt → 0.2104 14pt → 0.1326
+  ext-only), dieselbe Richtung wie die Asymptotik-Säule (α 0.347 → 0.223
+  bis N = 10⁶). Die Sub-Logarithmik verfestigt sich mit wachsendem N.
+- **(b)** R(N) < 1 für alle 14 Punkte; Ext-Werte [0.4401, 0.4618], stabil
+  um ~0.45, kein Drift.
+- **(c)** cv-Mean 0.09599648443361233, Range [0.0794 (N=127), 0.1433 (N=7)];
+  die sechs Ext-Punkte stabil bei 0.0864–0.0882 — Band trägt über eine
+  weitere halbe Dekade.
+- **v1-Reproduktions-Pin:** alpha_dev 5.55e-17, max_S_dev 6.66e-16,
+  max_R_dev 1.67e-16 (Tol 1e-12), max_cv_dev 0.0 BIT-EXAKT (v1-identischer
+  denser Jacobi-Pfad, det-Branch übersprungen — Overflow, v1-correction_log).
+
+**I1 — §5.5-Härtung, beide Richtungen auf demselben Frozen-Grid:** §5.5
+hatte die Nicht-Äquivalenz der Observables (a) und (b) nur in EINER
+Richtung dokumentiert (alpha ≥ 0.5 mit negativem Prefaktor → R < 1). Jetzt
+zwei geschlossene Zeugen: **W1** S(N) = 1.0·N^0.4 → alpha exakt 0.4, R ∈
+[1.5710, 9.6117] alle > 1 → (a, b) = (TRUE, FALSE); **W2** S(N) = 0.01·N^0.55
+→ alpha 0.55 (dev 2.2e-16), R ∈ [0.0210, 0.5073] alle < 1 → (FALSE, TRUE).
+(a) und (b) sind in KEINER Richtung auseinander herleitbar.
+
+**I2 — Rang-Abhängigkeit (verdict-tragend):** Spearman ρ_ab zwischen
+{log S_vN} und {log R_N} über 14 Punkte = 0.573626 < 0.9 (frozen claim);
+Effective-Regel: effective_ab = 1 + max(0, 1 − |ρ|) = 1.4264,
+effective_total = 2.426374 ≥ 2 (Observable (c) zählt voll). Erste DIREKTE
+Messung der §X.3-Ersatzrechnung (angeschätzt ρ = 0.15 → 2.85; gemessen
+ρ = 0.574 → 2.43): gleiche Schlussfolgerung — MOCS = 3 zählt, die effektive
+Unabhängigkeit liegt unter 3, der Grade A− bleibt (keine neue unabhängige
+Klasse; die A−-Begründung ist jetzt teils gemessen statt rekonstruiert).
+
+**I3 — Nullen (DIAGNOSTIC, NICHT verdict-tragend):** odd-integers cv →
+1/12 = 0.08333 exakt ab N = 2047; Prime-cv liegt ab N = 15 zeichenstabil
+knapp darüber (delta_a +0.003..+0.005 am langen Ende); pow2 kreuzt exakt
+bei N = 2047 (delta_b −0.0013 → +0.0041). Interpretation-Guard: cv_spread
+misst Near-Uniformity, NICHT Primality per se — der Prime-Abstand zur
+Uniform-Null ist klein, aber stabil.
+
+**Prozess-Disziplin:** Freeze VOR der verdict-tragenden Messung
+(REGISTERED_NOT_MEASURED, alle verdict-tragenden Größen bei Freeze-Zeit
+UNgemessen — Probe-Disclosure im Prereg). Runner-Bug (numpy.bool_ in JSON)
+scheiterte im ersten Lauf VOR allen prints — Verdict-Zahlen blieben ungelesen;
+Fix in `137178c` serialization-only, keine Verdict-Logik, Prereg-md5 vor+nach
+identisch, deterministischer Re-Run. Solver-Pins: primes dense
+(v1-identisch, eigvalsh), null_a tridiagonal (eigh_tridiagonal — dense
+32767² bräuchte ~8.6 GB; dense-vs-tridiag bei 65535 identisch auf 9
+Dezimalen), statevector v1-identisch (pt_prime_state).
+
+**Quellen:** `pt_rh_multi_observable_ext_prereg.json` (md5
+`334c97545a41bdf0383c7cc35cdfbb2f`), `pt_rh_multi_observable_ext.py`,
+`pt_rh_multi_observable_ext_results.json` + `_log.txt`, Commits `966efea`
+(Freeze VOR Messung), `137178c` (Auswertung); Tests 1104 → 1138 (+34: 26
+Freeze + 8 Eval, `tests/test_pt_rh_multi_observable_ext.py`); §Z.28
+(SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
