@@ -826,9 +826,13 @@ _CL.append(Claim(
     # -> 1017
     # 11c Stage-3-Aer/ISA-3 (EXPERIMENT 044, H-RAM-Q-4, 0 QPU):
     # +62 Tests (pt_ram_q_hardware3_aer/isa3/hardware3_qpu) -> 1079
+    # 11d gefrorene QPU-Auswertung (EXPERIMENT 044, Verdict REFUTED):
+    # +25 Tests (pt_ram_q_hardware3_eval: 8 Verdict-Zweige inkl. Union-
+    # VOID/strenger CONFIRMED-Klausel + gamma-Fit + center_v3-Reduktion
+    # + Fold-Identitaet + 9 Committed-Raw/Eval-Pins) -> 1104
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1079,
+    id="test_count", value=1104,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
