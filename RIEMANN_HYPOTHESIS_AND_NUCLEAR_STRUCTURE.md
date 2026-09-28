@@ -1938,6 +1938,97 @@ Commits `4434d34` (11a), `c3ca1f6` (11b), dieser Commit (11c); Probe-Skripte
 (2026-09-28, bit-exakter Abschluss: kappa(A-Geometrie, −1 ulp) == s3 mit
 d3 = −4.44e-16).
 
+## §10.28 — H-RAM-Q-4 Phase 11d am Minimalregister: EIN Fez-Job → gefrorene Auswertung **REFUTED** — der kohärente Prep-Fehler-Lift ist überall echt, das v3b-Zentrierungsgesetz kippt am q5-Bein (EXPERIMENT 044, Branch `ram-q-zyklizitaet`, 2026-09-28, 1 QPU-Job)
+
+**Kette:** 11d = EIN Fez-Job `dat1o6qhcrkc73dtgo60` (TOKEN1, ibm_fez, 116
+Circuits × 8192 Shots, Dynamical-Decoupling XX, 0 Ausfälle) → **Raw-Commit
+`9f5f1de` VOR Auswertung** (§Z.14-Disziplin; counts_md5
+`230098aeeb6e8716d2638e1d5fe3cfeb`; ISA3-Re-Verifikation als Submission-Gate:
+559 2q/max 84 bit-gleich, 0/116 Abweichungen, nur 24/116 Tiefen ±1–4,
+budget-irrelevant — Safeguards sind 2q-only) → gefrorene Auswertung
+`pt_ram_q_hardware3_eval.py` → `pt_ram_q_hardware3_eval.json` (Commit
+`2e348f1`).
+
+**Gefrorene Verdict-Spec (md5 `baaca1f6`, unverändert vollzogen):** 13
+Holdout-P im Band [center_v3 − w_B″, center_v3 + w_B″] mit w_B″ = w_B′ =
+0.02787029633307472 (wiederverwendet aus Phase-10b); Amplification-Ceiling
+einseitig an der scharfen Kante; κ̂-Floor 0.81 an ≥ 2 der UNION aus
+Verdict- und Kalibrier-P (26) → VOID; Falsifikator ≥ 2 der 13 Holdout-P
+unter center_v3 − w_B″ → REFUTED; Job-Integrität (EIN Job, id + md5 VOR
+Auswertung committet). Zentrumsgesetz v3b: center_v3 = (1−1/S)·
+(ratio_ro_exact + b_P·(κ̂−1) − γ_arm·cP) + L_q; γ_arm im-job pro Arm per
+LSQ-durch-Null NUR über die 13 Kalibrier-P (γ = ΣcP·δ/ΣcP², δ =
+ratio_ro_exact + b_P·(κ̂−1) − ratio_hw); γ = 0 reduziert exakt auf das
+gefrorene center_v2.
+
+**VERDICT `H-RAM-Q-4_REFUTED`:** der Falsifikator feuert mit GENAU 3 der
+13 Holdout-P, alle am q5-Bein: 467 (res_v3 −0.031777729460608306, κ̂
+0.8274049627184941), 547 (−0.04368697585065229, κ̂ 0.830949761642831), 673
+(−0.05477027332169149, κ̂ 0.8310719960884977). Das q3-Bein ist dicht: alle
+8 im groben Band, res_v3 −0.0005..+0.0370, die 2 scharfen Fehlschläge
+(379, 467) liegen OBERHALB des Zentrums; q5|613 (+0.0615) liegt über w_A.
+7/13 im scharfen Band.
+
+**Der Lift ist überall echt — das Gesetz nicht:** κ̂-Floor-UNION 0/26 (alle
+26 κ̂ ∈ [0.8245, 0.9725] ≥ 0.81 — kein Void wie Phase 9). Was kippt, ist
+die v3b-ZENTRIERUNG am q5-Holdout: die b_P·(κ̂−1)-Korrektur überschätzt
+dort die Refokussierung, die Messwerte fallen unter das vorausgesagte
+Zentrum. H-RAM-Q-4 ist der zweite verdict-tragende REFUTED der RAM-Q-Serie
+(nach H-RAM-Q-3b) — kalibrierseitig sauber, gesetzesseitig falsifiziert;
+H-RAM-Q-1 (A−) und H-RAM-Q-2 (B) unangetastet.
+
+**Kontrollen (alle grün):** counts_md5 verified; t3-Identität (zwei Wege)
+7.105427357601002e-15 ≤ 1e-12; t4 Negativkontrollen (composite/uniform)
+außerhalb des Prime-Bandes; t5 Gate-Set mit BEIDEN registrierten
+Punkt-Mengen (Verdict-Set kind==structure 13, Kalibrier-Set
+kind==kalibrier_structure 13) + Namen + Transpile-Dict-Equalität gegen den
+ISA-3-Report + registrierte run_config + 116/116; t6 Massenerhaltung exakt
+(max_mass_dev 0.0). Das Auswertungsskript selbst trug einen Set-Fehler
+(26-Punkt-Menge gegen die gefrorene 13er-Menge) — vor Commit gefunden und
+korrigiert; die Kanten selbst wurden NIE angetastet.
+
+**γ_arm (im-job, nur Kalibrier-P):** q3_d3 0.009105648402709013 (8
+Kalibrier-P; registrierte Aer-Erwartung ~0.0108, gleiche Größenordnung),
+q5_d5 0.038128743451453374 (5 Kalibrier-P; vs ~0.0060 — Faktor 6).
+Fit-Zeilen (cP, δ) liegen im Auswertungsdokument für Audit. **REFUTED ist
+robust gegen die γ-Lesart:** γ senkt die Zentren; γ → 0 würde MEHR Punkte
+unter die Kante bringen.
+
+**Alternative Lesarten (dokumentiert, keine stille Kanten-Erhöhung):** an
+der groben Kante w_A 0.05 stehen nur 1 der 13 darunter → weder REFUTED
+noch CONFIRMED → ehrliches UNMATCHED; Amplification 0 an beiden Kanten;
+Exklusions-Lesart nicht anwendbar (n_kappa_low = 0). Die registrierte
+scharfe Kante (Präzedenz §10.26) entscheidet: REFUTED.
+
+**Mechanismus-Diagnose (NICHT verdict-tragend):** die Echo-Leiter an den
+Ankern 181/467 (r ∈ {1,2,4,8}, r1 geteilt mit dem Anker-Loschmidt,
+r1-Konsistenz exakt an beiden Ankern) liefert q3_d3 κ_r =
+0.9606/0.9528/0.9434/0.9118 → κ_block 0.9926602234735433 ≈ 1 (Echo
+refokussiert vollständig), q5_d5 κ_r = 0.8274/0.7323/0.4629/0.0982 →
+κ_block 0.7314347776025595 < 0.81. Am 3-Qubit-Register refokussiert der
+Loschmidt-Echo-Kanal NICHT vollständig — konsistent mit der q5-Streuung
+und mit der Überschätzung der b_P-Korrektur: die am r=1-Punkt geerbte
+κ̂-Skala trägt die r>1-Verfallsstruktur dort nicht mehr.
+
+**Konsequenzen (Anti-Sharpshooter-Treue):**
+- **KEINE Kanten- oder Toleranz-Änderung:** die gefrorene Map (md5
+  `baaca1f6`) entscheidet; die w_A-Lesart ist als UNMATCHED dokumentiert,
+  nicht als Rettung gelesen.
+- **Kein ex-post-Fit:** γ_arm kommt im-job aus dem Kalibrier-Bein; die 13
+  Holdout-P gehen in KEINEN Fit.
+- **Das q5-Echo-Versagen ist Diagnose, nicht Ausrede:** es erklärt das
+  Muster (nur q5 kippt nach unten) und wird erst in einer künftigen Phase
+  als Hypothese REGISTRIERT — nicht in dieses Verdict zurückgerechnet.
+
+**Quellen:** `pt_ram_q_hardware3_eval.py` / `pt_ram_q_hardware3_eval.json`,
+Raw `pt_ram_q_hardware3_raw.json` (counts_md5
+`230098aeeb6e8716d2638e1d5fe3cfeb`), Job-ID `pt_ram_q_fez3_job_id.txt`
+(`dat1o6qhcrkc73dtgo60`), `pt_ram_q_hardware3_prereg.json` (md5
+`baaca1f6`), `pt_ram_q_stage3_results.json`, `pt_ram_q_isa3_report.json`,
+Commits `9f5f1de` (Raw VOR Auswertung), `2e348f1` (Auswertung); Tests
+1079 → 1104 (+25, `tests/test_pt_ram_q_hardware3_eval.py`); Inventar
+`pt_downloaded_job_results.json` 20 → 21.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
