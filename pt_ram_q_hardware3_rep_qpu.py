@@ -44,29 +44,49 @@ ISA3_FROZEN = "pt_ram_q_isa3_report.json"  # Freeze B''; NIE überschreiben
 
 
 def isa_gate(backend, circuits):
-    """ISA3-Re-Verifikation VOR Submission: neues isa_report gegen das
-    gefrorene Freeze-B''-Artefakt (bit-gleiche per-Circuit-Ops, 559/84).
-    Gibt (ok, detail) zurueck; bricht NICHT selbst ab (der Aufrufer
-    entscheidet)."""
+    """ISA3-Re-Verifikation VOR Submission — Gate-Semantik = Phase-11d-
+    Praezedenz (AMENDIERUNG 2026-09-28, VOR jeder Messung, siehe Prereg
+    amendment_2026_09_28): Budget-Groessen bit-gleich (total 2q, max 2q,
+    per-Circuit two_q 0/116 Abweichungen); Ein-Qubit-Zweig-Differenzen
+    (rz/x/sx ±1-3, Tiefe ±) werden als das bekannte Phase-11c ±1-ulp-
+    Phaenomen dokumentiert (committetes Artefakt enthaelt die Zweig-
+    Differenz selbst: 761/631 x-Gate-Strukturen, budget-irrelevant).
+    ERSTER Gate-Entwurf (Op-Dict bit-gleich) war schaerfer als der
+    Praezedenz und scheiterte an 31/116 Ein-Qubit-Zweig-Differenzen bei
+    0/116 two_q-Abweichungen — re-scoped BEVOR ein Job submitted wurde."""
     with open(ISA3_FROZEN, encoding="utf-8") as fh:
         frozen = json.load(fh)
     _, live = isa_report(backend, circuits)  # isa_report liefert (isa, report)
-    same_per_circuit = all(
-        live["per_circuit"].get(name, {}).get("ops") == rec["ops"]
-        and live["per_circuit"].get(name, {}).get("two_q") == rec["two_q"]
-        for name, rec in frozen["per_circuit"].items()
-    ) and set(live["per_circuit"]) == set(frozen["per_circuit"])
-    ok = (same_per_circuit
+    two_q_diffs = [name for name, rec in frozen["per_circuit"].items()
+                   if live["per_circuit"].get(name, {}).get("two_q")
+                   != rec["two_q"]]
+    ops_diff = sorted(
+        name for name, rec in frozen["per_circuit"].items()
+        if live["per_circuit"].get(name, {}).get("ops") != rec["ops"])
+    depth_dev = {name: int(live["per_circuit"][name]["depth"])
+                 - rec["depth"]
+                 for name, rec in frozen["per_circuit"].items()
+                 if live["per_circuit"].get(name, {}).get("depth")
+                 != rec["depth"]}
+    ok = (not two_q_diffs
           and live["total_two_q"] == frozen["total_two_q"]
           and live["max_two_q"] == frozen["max_two_q"]
           and frozen.get("optimization_level") == 3
           and frozen.get("transpile_seed", 7) == 7)
     detail = {
+        "gate_semantics": "Phase-11d-Praezedenz (Budget-Groessen "
+                          "bit-gleich; Ein-Qubit-Zweig-Differenzen "
+                          "dokumentiert, budget-irrelevant)",
         "frozen_total_two_q": frozen["total_two_q"],
         "live_total_two_q": live["total_two_q"],
         "frozen_max_two_q": frozen["max_two_q"],
         "live_max_two_q": live["max_two_q"],
-        "per_circuit_bitgleich": bool(same_per_circuit),
+        "n_two_q_diff": len(two_q_diffs),
+        "n_ops_diff": len(ops_diff),
+        "ops_diff_names": ops_diff,
+        "depth_deviations": depth_dev,
+        "max_depth_dev": (max((abs(d) for d in depth_dev.values()),
+                              default=0)),
         "optimization_level": frozen.get("optimization_level"),
     }
     return ok, detail

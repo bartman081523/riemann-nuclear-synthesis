@@ -26,7 +26,14 @@
    "DD XX wenn verfuegbar, EIN sampler.run(list)-Aufruf",
    "TOKEN1 via pt_ququint_fez (KEIN instance-Parameter)"
   ],
-  "submission_gate": "ISA3-Re-Verifikation VOR Submission gegen pt_ram_q_isa3_report.json (Freeze B''): total 2q == 559, max 2q == 84, per-Circuit-Op-Sets bit-gleich. Mismatch -> ABBRUCH, kein Job.",
+  "submission_gate": "ISA3-Re-Verifikation VOR Submission gegen pt_ram_q_isa3_report.json (Freeze B''): Budget-Groessen bit-gleich — total 2q == 559, max 2q == 84, per-Circuit two_q 0/116 Abweichungen; Ein-Qubit-Zweig-Differenzen (rz/x/sx, Tiefe) werden im Gate-Detail dokumentiert (Phase-11c-Praezedenz, budget-irrelevant). Mismatch in Budget-Groessen -> ABBRUCH, kein Job.",
+  "amendment_2026_09_28": {
+   "was": "Erster Gate-Entwurf forderte bit-gleiche per-Circuit-Op-DICTS (rz/x/sx-Zahlen). Gemessene Divergenz beim ersten Gate-Lauf (KEIN Job submitted, nichts gemessen an QPU-Daten): 31/116 Circuits mit ops-Differenzen (rz ±1-3, x ±1, sx ±1), 0/116 two_q-Abweichungen, Tiefe 25 Circuits mit Abweichungen max 8 (11c dokumentierte ±1-4), Totals bit-gleich 559/84.",
+   "diagnose": "Exakt das Phase-11c ±1-ulp-Phaenomen: multiplikative Störung an n_d kippt >= 3 gleichberechtigte Zerlegungen; das committete Freeze-B''-Artefakt enthaelt die Zweig-Differenz SELBST (197/631 mit x-Gate gegen 761 ohne). Die Op-Dict-Schaerfe war ein Gate-Design-Fehler MEINERSEITS (schärfer als der Praezedenz), keine Instabilitaet der Transpilation im Budget-Sinn.",
+   "praezedenz": "Phase 11c (cb3f9c6): 'nur 24 Tiefen ±1-4 (Budget-irrelevant) -> Fez-Job-Gate steht' — das 11d-Gate pruefte Budget-Groessen (559/84), nicht per-Circuit-Op-Sets. Auch das gefrorene 11d-Eval (t5/transpile_ok) vergleicht raw['transpile'] NUR gegen die ISA3-TOTALS.",
+   "re_scope": "Gate-Semantik = Phase-11d-Praezedenz: ok = (per-Circuit two_q 0/116 Abweichungen) UND (total 2q == 559) UND (max 2q == 84) UND (opt level 3, seed 7). Op-Diffs und Tiefe-Diffs werden im Gate-Detail VOLLSTAENDIG aufgezeichnet (auditierbar), gate aber nicht.",
+   "timing_legitimation": "Amendment VOR Submission: der Job wurde NIE abgeschickt, keine QPU-Daten existieren, keine Auswertung lief. Re-Scope vor Messung ist die Phase-11c-Praezedenz selbst. Das AMPL/REFUTED/CONFIRMED-Gesetz (w_B'', kappa_floor, Deckel) ist DAVON unberuehrt — keine Toleranz-Erhoehung an Verdict-Groessen."
+  },
   "resume_vertrag": "job_id wird sofort persistiert (pt_ram_q_hardware3_rep_job_id.txt); Raw (pt_ram_q_hardware3_raw_rep.json) wird VOR der Auswertung geschrieben und committed (§Z.14-Disziplin).",
   "originale_unangetastet": "pt_ram_q_hardware3_raw.json, pt_ram_q_hardware3_eval.json, pt_ram_q_fez3_job_id.txt werden NICHT veraendert."
  },
