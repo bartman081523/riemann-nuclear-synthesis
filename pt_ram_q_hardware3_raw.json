@@ -1,0 +1,2063 @@
+{
+ "experiment": "044-ram-q-coherent-prep-error",
+ "hypothesis": "H-RAM-Q-4",
+ "status": "QPU_RAW_FETCHED",
+ "backend": "ibm_fez",
+ "job_meta": {
+  "job_id": "dat1o6qhcrkc73dtgo60",
+  "backend": "ibm_fez",
+  "shots_per_circuit": 8192
+ },
+ "transpile": {
+  "optimization_level": 3,
+  "seed_transpiler": 7,
+  "isa_2q_total": 559,
+  "isa_2q_max": 84
+ },
+ "registered_run_config": {
+  "optimization_level": 3,
+  "dynamical_decoupling": "XX",
+  "resilience": "none (raw SamplerV2 counts)"
+ },
+ "fetched_at_utc": "2026-09-28T07:54:54.444730+00:00",
+ "n_circuits": 116,
+ "shots_per_circuit": 8192,
+ "counts_md5": "230098aeeb6e8716d2638e1d5fe3cfeb",
+ "counts": [
+  {
+   "name": "struct_q3_d3_181_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3770,
+    "00": 333,
+    "10": 4053,
+    "11": 36
+   }
+  },
+  {
+   "name": "struct_q3_d3_181_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4164,
+    "01": 3713,
+    "00": 278,
+    "11": 37
+   }
+  },
+  {
+   "name": "struct_q3_d3_181_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4172,
+    "01": 3670,
+    "11": 44,
+    "00": 306
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_181",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7854,
+    "01": 122,
+    "10": 181,
+    "11": 35
+   }
+  },
+  {
+   "name": "struct_q3_d3_229_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3954,
+    "10": 3952,
+    "00": 250,
+    "11": 36
+   }
+  },
+  {
+   "name": "struct_q3_d3_229_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3934,
+    "10": 3978,
+    "11": 37,
+    "00": 243
+   }
+  },
+  {
+   "name": "struct_q3_d3_229_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4001,
+    "01": 3895,
+    "11": 42,
+    "00": 254
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_229",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7951,
+    "11": 77,
+    "01": 45,
+    "10": 119
+   }
+  },
+  {
+   "name": "struct_q3_d3_283_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3758,
+    "10": 4167,
+    "00": 239,
+    "11": 28
+   }
+  },
+  {
+   "name": "struct_q3_d3_283_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4100,
+    "01": 3828,
+    "00": 229,
+    "11": 35
+   }
+  },
+  {
+   "name": "struct_q3_d3_283_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4197,
+    "01": 3695,
+    "00": 248,
+    "11": 52
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_283",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7877,
+    "10": 175,
+    "01": 114,
+    "11": 26
+   }
+  },
+  {
+   "name": "struct_q3_d3_379_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 3992,
+    "01": 3969,
+    "00": 186,
+    "11": 45
+   }
+  },
+  {
+   "name": "struct_q3_d3_379_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3984,
+    "10": 3971,
+    "00": 199,
+    "11": 38
+   }
+  },
+  {
+   "name": "struct_q3_d3_379_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3855,
+    "10": 4104,
+    "00": 201,
+    "11": 32
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_379",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7828,
+    "10": 218,
+    "11": 78,
+    "01": 68
+   }
+  },
+  {
+   "name": "struct_q3_d3_467_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3913,
+    "10": 4090,
+    "11": 28,
+    "00": 161
+   }
+  },
+  {
+   "name": "struct_q3_d3_467_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4086,
+    "01": 3909,
+    "00": 165,
+    "11": 32
+   }
+  },
+  {
+   "name": "struct_q3_d3_467_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3869,
+    "10": 4103,
+    "00": 191,
+    "11": 29
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_467",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7821,
+    "11": 87,
+    "10": 217,
+    "01": 67
+   }
+  },
+  {
+   "name": "struct_q3_d3_613_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3856,
+    "10": 4123,
+    "00": 181,
+    "11": 32
+   }
+  },
+  {
+   "name": "struct_q3_d3_613_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3878,
+    "10": 4110,
+    "00": 170,
+    "11": 34
+   }
+  },
+  {
+   "name": "struct_q3_d3_613_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4119,
+    "01": 3872,
+    "00": 173,
+    "11": 28
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_613",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7829,
+    "10": 221,
+    "11": 68,
+    "01": 74
+   }
+  },
+  {
+   "name": "struct_q3_d3_691_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3831,
+    "10": 4187,
+    "00": 143,
+    "11": 31
+   }
+  },
+  {
+   "name": "struct_q3_d3_691_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3830,
+    "10": 4180,
+    "11": 31,
+    "00": 151
+   }
+  },
+  {
+   "name": "struct_q3_d3_691_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4149,
+    "01": 3857,
+    "11": 33,
+    "00": 153
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_691",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7898,
+    "10": 143,
+    "01": 65,
+    "11": 86
+   }
+  },
+  {
+   "name": "struct_q3_d3_797_r0",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3925,
+    "10": 4063,
+    "00": 156,
+    "11": 48
+   }
+  },
+  {
+   "name": "struct_q3_d3_797_r1",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3926,
+    "10": 4068,
+    "00": 164,
+    "11": 34
+   }
+  },
+  {
+   "name": "struct_q3_d3_797_r2",
+   "kind": "structure",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 4036,
+    "10": 3998,
+    "11": 28,
+    "00": 130
+   }
+  },
+  {
+   "name": "loschmidt_q3_d3_797",
+   "kind": "loschmidt",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7836,
+    "10": 206,
+    "11": 87,
+    "01": 63
+   }
+  },
+  {
+   "name": "struct_q5_d5_467_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1818,
+    "100": 1673,
+    "001": 1936,
+    "110": 158,
+    "010": 2078,
+    "000": 418,
+    "101": 77,
+    "111": 34
+   }
+  },
+  {
+   "name": "struct_q5_d5_467_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1897,
+    "110": 160,
+    "011": 1883,
+    "010": 2112,
+    "100": 1664,
+    "000": 365,
+    "111": 30,
+    "101": 81
+   }
+  },
+  {
+   "name": "struct_q5_d5_467_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1882,
+    "001": 1885,
+    "010": 2154,
+    "100": 1619,
+    "110": 151,
+    "000": 388,
+    "101": 73,
+    "111": 40
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_467",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6769,
+    "010": 276,
+    "001": 300,
+    "110": 278,
+    "011": 142,
+    "100": 264,
+    "111": 94,
+    "101": 69
+   }
+  },
+  {
+   "name": "struct_q5_d5_547_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1933,
+    "001": 1721,
+    "100": 1700,
+    "000": 406,
+    "010": 2139,
+    "110": 167,
+    "101": 63,
+    "111": 63
+   }
+  },
+  {
+   "name": "struct_q5_d5_547_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1749,
+    "011": 1872,
+    "110": 178,
+    "001": 1714,
+    "010": 2123,
+    "000": 437,
+    "101": 52,
+    "111": 67
+   }
+  },
+  {
+   "name": "struct_q5_d5_547_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1699,
+    "010": 2160,
+    "000": 382,
+    "100": 1706,
+    "011": 1970,
+    "111": 71,
+    "110": 150,
+    "101": 54
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_547",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6798,
+    "110": 293,
+    "100": 319,
+    "010": 232,
+    "101": 73,
+    "001": 281,
+    "111": 81,
+    "011": 115
+   }
+  },
+  {
+   "name": "struct_q5_d5_613_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "110": 170,
+    "010": 2208,
+    "001": 1826,
+    "101": 70,
+    "011": 1905,
+    "100": 1648,
+    "111": 58,
+    "000": 307
+   }
+  },
+  {
+   "name": "struct_q5_d5_613_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1844,
+    "010": 2216,
+    "001": 1863,
+    "100": 1669,
+    "000": 307,
+    "110": 176,
+    "101": 56,
+    "111": 61
+   }
+  },
+  {
+   "name": "struct_q5_d5_613_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "101": 63,
+    "011": 1849,
+    "100": 1620,
+    "001": 1884,
+    "000": 329,
+    "110": 165,
+    "010": 2229,
+    "111": 53
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_613",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6745,
+    "010": 275,
+    "110": 299,
+    "111": 90,
+    "101": 65,
+    "100": 305,
+    "001": 291,
+    "011": 122
+   }
+  },
+  {
+   "name": "struct_q5_d5_673_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2051,
+    "100": 1780,
+    "001": 1810,
+    "011": 1879,
+    "000": 382,
+    "110": 143,
+    "101": 69,
+    "111": 78
+   }
+  },
+  {
+   "name": "struct_q5_d5_673_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1746,
+    "011": 1855,
+    "010": 2014,
+    "110": 157,
+    "000": 376,
+    "001": 1901,
+    "111": 60,
+    "101": 83
+   }
+  },
+  {
+   "name": "struct_q5_d5_673_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1725,
+    "010": 2106,
+    "001": 1918,
+    "011": 1838,
+    "101": 62,
+    "000": 349,
+    "110": 133,
+    "111": 61
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_673",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 239,
+    "000": 6799,
+    "010": 255,
+    "110": 296,
+    "111": 86,
+    "011": 144,
+    "100": 301,
+    "101": 72
+   }
+  },
+  {
+   "name": "struct_q5_d5_691_r0",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1839,
+    "100": 1691,
+    "010": 2218,
+    "011": 1802,
+    "110": 182,
+    "000": 340,
+    "101": 70,
+    "111": 50
+   }
+  },
+  {
+   "name": "struct_q5_d5_691_r1",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1765,
+    "010": 2237,
+    "001": 1830,
+    "011": 1766,
+    "000": 357,
+    "101": 67,
+    "110": 127,
+    "111": 43
+   }
+  },
+  {
+   "name": "struct_q5_d5_691_r2",
+   "kind": "structure",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 378,
+    "011": 1765,
+    "010": 2244,
+    "001": 1874,
+    "100": 1652,
+    "110": 164,
+    "101": 60,
+    "111": 55
+   }
+  },
+  {
+   "name": "loschmidt_q5_d5_691",
+   "kind": "loschmidt",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6756,
+    "001": 274,
+    "010": 262,
+    "110": 334,
+    "111": 70,
+    "101": 74,
+    "100": 290,
+    "011": 132
+   }
+  },
+  {
+   "name": "ladder_q3_d3_181_r2",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": 2,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7790,
+    "10": 245,
+    "01": 88,
+    "11": 69
+   }
+  },
+  {
+   "name": "ladder_q3_d3_181_r4",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": 4,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7713,
+    "10": 282,
+    "01": 96,
+    "11": 101
+   }
+  },
+  {
+   "name": "ladder_q3_d3_181_r8",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": 8,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7455,
+    "10": 422,
+    "01": 152,
+    "11": 163
+   }
+  },
+  {
+   "name": "ladder_q5_d5_467_r2",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": 2,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 5991,
+    "110": 328,
+    "111": 152,
+    "100": 851,
+    "001": 302,
+    "101": 136,
+    "010": 316,
+    "011": 116
+   }
+  },
+  {
+   "name": "ladder_q5_d5_467_r4",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": 4,
+   "shots_actual": 8192,
+   "counts": {
+    "110": 580,
+    "000": 3787,
+    "100": 2002,
+    "011": 195,
+    "001": 568,
+    "111": 235,
+    "010": 582,
+    "101": 243
+   }
+  },
+  {
+   "name": "ladder_q5_d5_467_r8",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": 8,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 2783,
+    "010": 1119,
+    "011": 559,
+    "000": 803,
+    "001": 750,
+    "101": 685,
+    "110": 1031,
+    "111": 462
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_149_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4292,
+    "11": 41,
+    "01": 3503,
+    "00": 356
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_149_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4319,
+    "01": 3504,
+    "00": 333,
+    "11": 36
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_149_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 361,
+    "01": 3504,
+    "10": 4285,
+    "11": 42
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_149",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7920,
+    "10": 123,
+    "11": 122,
+    "01": 27
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_197_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4205,
+    "01": 3688,
+    "00": 262,
+    "11": 37
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_197_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3577,
+    "00": 326,
+    "10": 4258,
+    "11": 31
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_197_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3611,
+    "10": 4239,
+    "11": 53,
+    "00": 289
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_197",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7913,
+    "11": 133,
+    "10": 135,
+    "01": 11
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_251_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4120,
+    "01": 3784,
+    "00": 248,
+    "11": 40
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_251_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3861,
+    "10": 4050,
+    "00": 238,
+    "11": 43
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_251_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3772,
+    "10": 4116,
+    "00": 266,
+    "11": 38
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_251",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7880,
+    "10": 158,
+    "01": 117,
+    "11": 37
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_347_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 219,
+    "10": 4245,
+    "01": 3693,
+    "11": 35
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_347_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3810,
+    "10": 4110,
+    "00": 232,
+    "11": 40
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_347_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4166,
+    "01": 3760,
+    "00": 238,
+    "11": 28
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_347",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7842,
+    "01": 121,
+    "10": 189,
+    "11": 40
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_433_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3829,
+    "10": 4099,
+    "00": 221,
+    "11": 43
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_433_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4094,
+    "01": 3891,
+    "00": 177,
+    "11": 30
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_433_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4046,
+    "01": 3912,
+    "00": 193,
+    "11": 41
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_433",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7932,
+    "11": 119,
+    "10": 117,
+    "01": 24
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_577_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4107,
+    "01": 3878,
+    "00": 172,
+    "11": 35
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_577_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4126,
+    "01": 3873,
+    "00": 172,
+    "11": 21
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_577_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3905,
+    "10": 4098,
+    "11": 29,
+    "00": 160
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_577",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7952,
+    "10": 108,
+    "11": 71,
+    "01": 61
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_659_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4119,
+    "01": 3893,
+    "00": 144,
+    "11": 36
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_659_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3752,
+    "10": 4258,
+    "00": 150,
+    "11": 32
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_659_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3860,
+    "10": 4153,
+    "00": 142,
+    "11": 37
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_659",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7913,
+    "10": 126,
+    "11": 81,
+    "01": 72
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_761_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4097,
+    "01": 3904,
+    "00": 148,
+    "11": 43
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_761_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 4017,
+    "01": 3962,
+    "00": 165,
+    "11": 48
+   }
+  },
+  {
+   "name": "calstruct_q3_d3_761_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 3861,
+    "10": 4119,
+    "11": 40,
+    "00": 172
+   }
+  },
+  {
+   "name": "calloschmidt_q3_d3_761",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 7919,
+    "11": 111,
+    "01": 32,
+    "10": 130
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_433_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1904,
+    "010": 2103,
+    "100": 1669,
+    "110": 158,
+    "011": 1809,
+    "000": 413,
+    "101": 99,
+    "111": 37
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_433_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1934,
+    "000": 392,
+    "011": 1901,
+    "100": 1621,
+    "010": 2078,
+    "101": 71,
+    "110": 165,
+    "111": 30
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_433_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1979,
+    "010": 2137,
+    "011": 1830,
+    "110": 146,
+    "100": 1608,
+    "000": 383,
+    "101": 74,
+    "111": 35
+   }
+  },
+  {
+   "name": "calloschmidt_q5_d5_433",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6815,
+    "001": 251,
+    "111": 101,
+    "110": 266,
+    "011": 132,
+    "101": 83,
+    "100": 260,
+    "010": 284
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_499_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1800,
+    "100": 1753,
+    "011": 1789,
+    "010": 2238,
+    "110": 149,
+    "000": 350,
+    "101": 67,
+    "111": 46
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_499_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1695,
+    "010": 2237,
+    "100": 1884,
+    "001": 1784,
+    "000": 324,
+    "110": 147,
+    "111": 45,
+    "101": 76
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_499_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1780,
+    "001": 1768,
+    "000": 322,
+    "010": 2158,
+    "100": 1876,
+    "111": 60,
+    "110": 158,
+    "101": 70
+   }
+  },
+  {
+   "name": "calloschmidt_q5_d5_499",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "110": 308,
+    "010": 266,
+    "000": 6759,
+    "111": 81,
+    "101": 89,
+    "001": 241,
+    "100": 332,
+    "011": 116
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_577_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1783,
+    "010": 2314,
+    "101": 63,
+    "000": 378,
+    "100": 1798,
+    "011": 1661,
+    "110": 139,
+    "111": 56
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_577_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1800,
+    "100": 1767,
+    "010": 2225,
+    "011": 1711,
+    "111": 61,
+    "101": 82,
+    "000": 404,
+    "110": 142
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_577_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "101": 74,
+    "010": 2223,
+    "001": 1806,
+    "011": 1698,
+    "100": 1764,
+    "000": 378,
+    "110": 180,
+    "111": 69
+   }
+  },
+  {
+   "name": "calloschmidt_q5_d5_577",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6760,
+    "111": 92,
+    "001": 313,
+    "010": 281,
+    "100": 256,
+    "110": 266,
+    "011": 141,
+    "101": 83
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_631_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1778,
+    "010": 2216,
+    "001": 1768,
+    "000": 361,
+    "011": 1777,
+    "110": 165,
+    "111": 53,
+    "101": 74
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_631_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1716,
+    "001": 1848,
+    "000": 328,
+    "101": 89,
+    "011": 1814,
+    "010": 2196,
+    "110": 161,
+    "111": 40
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_631_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1757,
+    "010": 2211,
+    "100": 1737,
+    "000": 353,
+    "101": 78,
+    "001": 1832,
+    "111": 43,
+    "110": 181
+   }
+  },
+  {
+   "name": "calloschmidt_q5_d5_631",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6777,
+    "001": 297,
+    "010": 303,
+    "100": 254,
+    "110": 268,
+    "101": 90,
+    "011": 114,
+    "111": 89
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_659_r0",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "rep": 0,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "010": 2163,
+    "100": 1648,
+    "011": 1771,
+    "001": 1962,
+    "000": 361,
+    "110": 153,
+    "101": 86,
+    "111": 48
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_659_r1",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "rep": 1,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "100": 1619,
+    "010": 2163,
+    "001": 1981,
+    "011": 1816,
+    "000": 361,
+    "101": 82,
+    "110": 131,
+    "111": 39
+   }
+  },
+  {
+   "name": "calstruct_q5_d5_659_r2",
+   "kind": "kalibrier_structure",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "rep": 2,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1974,
+    "011": 1846,
+    "100": 1626,
+    "010": 2131,
+    "000": 367,
+    "101": 62,
+    "110": 142,
+    "111": 44
+   }
+  },
+  {
+   "name": "calloschmidt_q5_d5_659",
+   "kind": "kalibrier_loschmidt",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 6639,
+    "011": 151,
+    "010": 305,
+    "110": 311,
+    "100": 295,
+    "001": 319,
+    "111": 95,
+    "101": 77
+   }
+  },
+  {
+   "name": "ctrl_composite_P181_d3",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "01": 2512,
+    "00": 3651,
+    "10": 2013,
+    "11": 16
+   }
+  },
+  {
+   "name": "ctrl_uniform_q3",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "10": 2462,
+    "00": 2906,
+    "01": 2794,
+    "11": 30
+   }
+  },
+  {
+   "name": "ctrl_composite_P467_d5",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "011": 1183,
+    "000": 2436,
+    "100": 1486,
+    "001": 1406,
+    "010": 1480,
+    "110": 113,
+    "111": 36,
+    "101": 52
+   }
+  },
+  {
+   "name": "ctrl_uniform_q5",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "001": 1567,
+    "100": 1639,
+    "000": 1674,
+    "010": 1656,
+    "011": 1592,
+    "110": 34,
+    "101": 29,
+    "111": 1
+   }
+  },
+  {
+   "name": "cal_2q",
+   "kind": "readout_cal",
+   "arm": null,
+   "set": null,
+   "P": null,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "00": 8176,
+    "10": 10,
+    "01": 6
+   }
+  },
+  {
+   "name": "cal_3q",
+   "kind": "readout_cal",
+   "arm": null,
+   "set": null,
+   "P": null,
+   "rep": null,
+   "r": null,
+   "shots_actual": 8192,
+   "counts": {
+    "000": 8181,
+    "100": 6,
+    "001": 3,
+    "010": 2
+   }
+  }
+ ]
+}
