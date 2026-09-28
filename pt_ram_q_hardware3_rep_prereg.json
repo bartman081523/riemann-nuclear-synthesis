@@ -1,0 +1,69 @@
+{
+ "experiment": "047-ram-q-phase11d-repetition",
+ "hypothesis": "H-RAM-Q-5",
+ "registered": "2026-09-28",
+ "status": "REGISTERED_NOT_MEASURED",
+ "branch": "ram-q-zyklizitaet",
+ "parent_experiment": {
+  "experiment": "044-ram-q-coherent-prep-error (Phase 11d)",
+  "prereg_md5_freeze_a": "baaca1f6772e07b0847fe436da7e16da",
+  "job_id": "dat1o6qhcrkc73dtgo60",
+  "counts_md5": "230098aeeb6e8716d2638e1d5fe3cfeb",
+  "verdict": "H-RAM-Q-4_REFUTED",
+  "falsifier_damals": "GENAU 3/13 Holdout am q5-Bein unter center_v3 - w_B'' (467 -0.0318, 547 -0.0437, 673 -0.0548); q3-Bein dicht; kappa-Floor-Union 0/26 in [0.8245, 0.9725]; gamma_arm in-job NUR Kalibrier-P (q3 0.0091, q5 0.0381); Echo-Leiter-Diagnostik kappa_block q3 0.9927 vs q5 0.7314 (NICHT verdict-tragend)",
+  "eval_path": "pt_ram_q_hardware3_eval.json",
+  "raw_path": "pt_ram_q_hardware3_raw.json"
+ },
+ "motivation": {
+  "unvorhergesehenes_resultat": "Der gefrorene Falsifikator feuerte EINSEITIG am q5-Bein (3/13, alle NEGATIVE Residuen = Suppression), waehrend das kappa-Floor-Gate 0/26 zeigte (kohaerenter Prep-Fehler-Lift ueberall echt >= 0.81). Was kippte, war die v3b-Zentrierung b_P*(kappa-1) — sie ueberschaetzt die q5-Refokussierung.",
+  "warum_wiederholen": "Ein EINZELNER Hardware-Refuted-Treffer koennte kalibrier-session-spezifisch sein (§10.12/§10.13: QPU-Bias ist session-abhaengig, Faktor 22). Die Wiederholung misst dieselben 116 Circuits in einer NEUEN Session unter DEMSELBEN gefrorenen Gesetz."
+ },
+ "protocol": {
+  "bit_identisch_zu_11d": [
+   "circuits = s3a.build_hardware_circuit_set() (116, deterministisch)",
+   "Transpilation: generate_preset_pass_manager(optimization_level=3, backend=ibm_fez, seed_transpiler=7)",
+   "SamplerV2(mode=backend), default_shots 8192, resilience none",
+   "DD XX wenn verfuegbar, EIN sampler.run(list)-Aufruf",
+   "TOKEN1 via pt_ququint_fez (KEIN instance-Parameter)"
+  ],
+  "submission_gate": "ISA3-Re-Verifikation VOR Submission gegen pt_ram_q_isa3_report.json (Freeze B''): total 2q == 559, max 2q == 84, per-Circuit-Op-Sets bit-gleich. Mismatch -> ABBRUCH, kein Job.",
+  "resume_vertrag": "job_id wird sofort persistiert (pt_ram_q_hardware3_rep_job_id.txt); Raw (pt_ram_q_hardware3_raw_rep.json) wird VOR der Auswertung geschrieben und committed (§Z.14-Disziplin).",
+  "originale_unangetastet": "pt_ram_q_hardware3_raw.json, pt_ram_q_hardware3_eval.json, pt_ram_q_fez3_job_id.txt werden NICHT veraendert."
+ },
+ "auswertung": {
+  "geforen_und_unveraendert": "pt_ram_q_hardware3_eval.evaluate(raw_path='pt_ram_q_hardware3_raw_rep.json') — dieselbe Verdict-Map (md5 baaca1f6), dasselbe w_B'' = w_B' = 0.02787029633307472, dasselbe Stage-3-Artefakt (b_P), derselbe ISA3-Report. KEIN neuer Gate-Zweig, KEINE Toleranz-Erhoehung.",
+  "verdict_map_order": "DEGENERAT -> INVALID -> VOID (n_kappa_low_union >= 2) -> AMPL (n_above_ceiling >= 1) -> REFUTED (n_below_sharp >= 2) -> CONFIRMED (n_in_sharp == 13 und n_kappa_low_union == 0) -> COARSE -> UNMATCHED",
+  "t_kontrollen": "t3 (zwei Wege), t4 (Negativ-Kontrollen), t5 (Gate-Set + Transpile == ISA3 + run_config + 116), t6 (Shots/Masse) laufen UNVERAENDERT im gefrorenen Eval; ein Kontroll-Fail ist INVALID, kein Reparatur-Anlass."
+ },
+ "hypotheses": {
+  "H-RAM-Q-5a_session_robustheit_des_falsifikators": {
+   "statement": "Das gefrorene v3b-Gesetz liefert auf der NEUEN Session ein UNABHAENGIGES Verdict. Die Klassifikation beantwortet: War das Phase-11-REFUTED session-robust oder kalibrier-session-spezifisch?",
+   "klassifikation": {
+    "H-RAM-Q-5a_SESSIONROBUST": "Neues Verdict == H-RAM-Q-4_REFUTED (Falsifikator feuert wieder n_below_sharp >= 2). Das REFUTED-Muster ist session-unabhaengig — die Falsifikation des v3b-Gesetzes verfestigt sich.",
+    "H-RAM-Q-5a_SESSION_SPEZIFISCH": "Neues Verdict in {CONFIRMED, COARSE} — das Phase-11-REFUTED war kalibrier-session-spezifisch. Dokumentiert EHRLICH: das 11d-Verdict wird NICHT stillschweigend geaendert; beide Verdicts stehen als Sessions-Paare in der Kette.",
+    "H-RAM-Q-5a_VOID_ERNEUT": "Neues Verdict == VOID_CALIBRATION (kappa-Floor erneut >= 2 Punkte < 0.81) — Kalibrier-Defizit session-robust; die 11d-Kappa-Abdeckung (0/26) war die Session-Anomalie.",
+    "H-RAM-Q-5a_INVALID": "Kontrollen (t3/t4/t5/t6) scheitern — kein Aussagesubstrat, dokumentierte Zurueckstellung der Hypothesen-Klassifikation.",
+    "H-RAM-Q-5a_AMPL_ODER_DEGENERAT": "registrierte Reservezweige; jedes Outcome ist vorab benannt, keine ex-post-Klasse."
+   },
+   "verdict_tragend": true
+  },
+  "H-RAM-Q-5b_echo_leiter_diagnostik": {
+   "statement": "DIAGNOSTIK, NICHT verdict-tragend: Faellt kappa_block (Echo-Leiter an den Ankern) am q5-Bein wieder unter 0.81 (11d: 0.7314, q3: 0.9927)? Und: faellt die kappa_hat-Floor-Union wieder in das 11d-Band [0.8245, 0.9725]?",
+   "interpretationsguard": "Die Echo-Leiter ist Mechanismus-Diagnostik (Echo-Block-Struktur), NICHT Teil der gefrorenen Verdict-Map — eine Veraenderung veraendert KEIN Verdict."
+  },
+  "deskriptiv": "Punktweiser Vergleich res_v3 / kappa_hat / gamma_arm (neu vs 11d) als Sessions-Differenz-Tabelle; deskriptiv, nicht verdict-tragend."
+ },
+ "verdict_governance": {
+  "kein_stilles_re_decide": "Das Phase-11-REFUTED bleibt als committetes Session-Verdict stehen. Das Wiederholungs-Verdict ist ein NEUES, unabhaengiges Session-Verdict unter DEMSELBEN gefrorenen Gesetz. Der Vektor-Update entscheidet NACH Vorliegen beider, im Doku-Commit, mit vollstaendiger Herleitung.",
+  "keine_toleranz_erhoehung": "Phase-11c-Praezedenz: w_B'' bleibt 0.02787029633307472; kappa_floor bleibt 0.81; Deckel-Kanten bleiben gefroren."
+ },
+ "out_of_scope": [
+  "V5-Vorzeichen-Wiederholung (EXPERIMENT 046, eigenes Prereg pt_v5_kingston_rep_prereg.json).",
+  "Session-Variabilitaets-Programm (§10.12/§10.13 Faktor 22, ZNE non-monoton) — separater Runner, separates Prereg."
+ ],
+ "freeze_discipline": [
+  "Dieses Prereg wird VOR dem Job committed (REGISTERED_NOT_MEASURED).",
+  "Raw wird VOR der Auswertung committed.",
+  "Die Auswertung laeuft ausschliesslich ueber die gefrorene Phase-11-Auswertung ohne Modifikation."
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "experiment": "046-ququint-v5-repetition-both-backends",
+ "hypothesis": "H-V5R",
+ "registered": "2026-09-28",
+ "status": "REGISTERED_NOT_MEASURED",
+ "branch": "ram-q-zyklizitaet",
+ "parent_experiment": {
+  "experiment": "035-ququint-v5-kingston-drift",
+  "prereg_md5": "d019d587c0d8ca28cfa0559057d590c8",
+  "verdict": "H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND",
+  "job_id": "daqaeteekp0c73aqetdg",
+  "results_path": "pt_v5_kingston_results.json"
+ },
+ "motivation": {
+  "unvorhergesehenes_resultat": "Das Bias-Vorzeichen (bias = re - hd) flippte backend-abhaengig: Fez RUN1 -0.011922308405310833, Fez RUN2 -0.008523754345329593, Kingston +0.007403730279381016. Dokumentiert als 'Drift-Toleranz, nicht Vorzeichen-Universalitaet' (Memory project-v5-kingston-hstar5).",
+  "warum_wiederholen": "n = 3 Sessions ueber 2 Backends kann Backend-Regime nicht von Session-Drift trennen. Zwei neue unabhaengige Sessions (Kingston-R, Fez-R) erhoehen n auf 5 und erlauben die registrierte Klassifikation H-V5R-2.",
+  "session_variabilitaets_kontext": "§10.12/§10.13: QPU-Bias ist session-abhaengig (Faktor 22 zwischen Sessions, ZNE non-monoton). Das ist der Alternative-Fall von H-V5R-2 und wird vorab als gleichberechtigtes Outcome registriert."
+ },
+ "honest_prior": {
+  "legs_sofar": [
+   {"backend": "ibm_fez", "job_id": "d9fidihhtsac739fg3n0", "bias": -0.011922308405310833},
+   {"backend": "ibm_fez", "job_id": "d9fjbraneu4c739pmaqg", "bias": -0.008523754345329593},
+   {"backend": "ibm_kingston", "job_id": "daqaeteekp0c73aqetdg", "bias": 0.007403730279381016}
+  ],
+  "signifikanz_ehrlich": "ALLE drei existierenden |bias| < 2*SE_BIAS = 0.01235434493266991 (in Sigma-Einheiten: -1.93, -1.38, +1.20). Das beobachtete 'Vorzeichen-Flip' ist also PER SESSION NICHT 2-Sigma-signifikant — es ist ein Muster ueber Sessions, kein Einzelmessbefund. Die Wiederholung prueft die Muster-Konsistenz, nicht Einzelsignifikanz.",
+  "prior_pro": "Fez 2/2 negativ, Kingston 1/1 positiv — schwache Evidenz fuer Backend-Regime.",
+  "prior_contra": "Session-Variabilitaets-Literatur des Projekts (Faktor 22) und |bias| unter 2 Sigma erlauben Session-Regime als gleichwertige Erklärung."
+ },
+ "protocol": {
+  "identisch_zu_035": [
+   "ansatz_logical: n_local_fn(2, ['ry'], 'cx', 'linear', reps=1)",
+   "isa_ansatz_for(backend) mit generate_preset_pass_manager(optimization_level=3, seed_transpiler=7)",
+   "bound = isa.assign_parameters(FEZ_PARAMS) mit den UNVERAENDERTEN 035-Parametern",
+   "3 Pubs: ops_real, ops_diag, ops_imag (jeweils apply_layout auf ISA)",
+   "Estimator(mode=backend), resilience_level 1, dynamical_decoupling enable + sequence_type 'XX', default_shots 8192",
+   "EIN est.run(pubs)-Aufruf pro Bein"
+  ],
+  "fez_params": [-0.10039260373380426, 0.31547161200836626, -0.7794084485021391, -0.09555937796511249],
+  "shots": 8192,
+  "transpile_seed": 7
+ },
+ "legs": {
+  "kingston": {
+   "backend": "ibm_kingston",
+   "token": "IBMQ_TOKEN2 (NUR Kingston-Pfad, instance 'open-instance')",
+   "isa_gate": "v5.isa_accept_online (gefrorene 035-Regel: two_q == 1, names ⊆ {cz, ecr, cx}, depth <= 40)",
+   "raw_path": "pt_v5_kingston_rep_kingston_raw.json",
+   "job_id_path": "pt_v5_kingston_rep_kingston_job_id.txt"
+  },
+  "fez": {
+   "backend": "ibm_fez",
+   "token": "IBMQ_TOKEN via pt_ququint_fez (KEIN instance-Parameter)",
+   "isa_gate": "EX ANTE ABGESCHAECHT: names ⊆ {cz, ecr, cx} UND depth <= 40; two_q == 1 wird NICHT gefordert — der FakeFez-ISA-Anker (two_q == 1, depth 11) ist kein Fez-Soll, und eine ex-post-Entscheidung waere Sharpshooting.",
+   "raw_path": "pt_v5_kingston_rep_fez_raw.json",
+   "job_id_path": "pt_v5_kingston_rep_fez_job_id.txt"
+  }
+ },
+ "baender_und_schwellen": {
+  "quelle": "pt_v5_kingston_prereg.json (md5 d019d587c0d8ca28cfa0559057d590c8), UNVERAENDERT",
+  "bands": {
+   "re": [2.1191844880255655, 2.17247246569962],
+   "hd": [2.1345053504908575, 2.1809962200449498],
+   "im": [-0.011242018857197743, 0.03003274212843888]
+  },
+  "thresh_bias_confirmed": 0.05,
+  "thresh_bias_refuted": 0.15,
+  "verdict_map_pro_bein": "v5.evaluate UNVERAENDERT: n_out==0+ok -> CONFIRMED; n_out==0+mittel -> BIAS_MITTEL; n_out==1+ok -> MITTEL; sonst REFUTED; controls fail -> INVALID",
+  "toleranz_policy": "KEINE Toleranz-Erhoehung (Phase-11c-Praezedenz). Ein Bein ausserhalb der Baender ist ein registriertes Outcome (H-V5R-1_REFUTED_EIN_BEIN_DRIFT), kein Anlass fuer Band-Anpassung."
+ },
+ "kontrollen": {
+  "controls": "v5.run_controls() (C1-C6) vor jedem Bein re-run; Kontrollen MUESSEN gruen sein fuer Bein-Validitaet (sonst INVALID, nicht REFUTED)",
+  "quota_gate": "Backend operational; bei Blockade dokumentierte Zurueckstellung, kein zweiter Versuch",
+  "resume_vertrag": "job_id wird SOFORT nach Submission persistiert; Raw wird vor der Auswertung geschrieben und committed (§Z.14-Disziplin)"
+ },
+ "hypotheses": {
+  "H-V5R-1_band_reproduzierbarkeit": {
+   "statement": "Beide Beine landen mit den UNVERAENDERTEN 035-Baendern in {CONFIRMED, BIAS_MITTEL}.",
+   "holds": "H-V5R-1_HOLDS_BANDREPRODUZIERBAR",
+   "refuted": "H-V5R-1_REFUTED_EIN_BEIN_DRIFT (>= 1 Bein REFUTED)",
+   "mixed": "H-V5R-1_MIXED (kein REFUTED, aber >= 1 Bein MITTEL)"
+  },
+  "H-V5R-2_vorzeichen_regime": {
+   "klassifikationsregel": "Pro Bein: '+' falls bias >= +2*SE_BIAS, '-' falls bias <= -2*SE_BIAS, sonst '0' (Vorzeichen bei 2 Sigma unentschieden). SE_BISTOENE: SE_BIAS = 0.006177172466334955 (gefroren, 035), SHOT_SIGMA_FACTOR = 2.0 (gefroren, 035), floor = 0.01235434493266991.",
+   "backend_regime": "H-V5R-2_BACKEND_REGIME_BESTAETIGT falls Kingston-R '+' UND Fez-R '-' (Vorhersage aus dem 035-Muster); H-V5R-2_BACKEND_REGIME_INVERTIERT bei spiegelbildlichem Muster (auch Backend-getrieben, aber umgekehrtes Vorzeichen als 035 andeutete).",
+   "session_regime": "H-V5R-2_SESSION_REGIME falls beide Beine DASSELBE Vorzeichen tragen (Backend-unabhaengige Session-Drift).",
+   "undetermined": "H-V5R-2_UNDETERMINED_UNTER_2SIGMA falls mindestens ein Bein '0' — ehrliches Outcome bei floor 0.0124 und 035-Magnituden um 0.01; NICHT als Versagen der Wiederholung zu lesen.",
+   "verdict_tragend": true
+  },
+  "deskriptiv_nicht_verdict_tragend": "Pooling ueber Sessions pro Backend (Fez: 3 Bias-Werte, Kingston: 2 Bias-Werte) als Kontext in pt_v5_kingston_rep_eval.json 'pooled_descriptiv'."
+ },
+ "out_of_scope": {
+  "session_variabilitaets_programm": "Die vollstaendige Wiederholung der §10.12/§10.13-Bias-Sessions (pt_qec_bias_sweep_token2.py, pt_rem_sweep_token2.py, pt_spectral_scaling_rl2_sweep_token2.py, Faktor 22, ZNE non-monoton) braucht einen eigenstaendigen Runner-Umbau (RL-API-Migration) und bekommt ein SEPARATES Prereg. Hier registriert als Kandidat, NICHT in EXPERIMENT 046 gezogen.",
+  "saule_3_aer_dissens": "alpha_QPU 0.348 vs Aer-DISSENS ist ein anderes Experiment (Säule 3, Juni) und wird hier NICHT re-gemessen."
+ },
+ "freeze_discipline": [
+  "Dieses Prereg wird VOR jedem Job committed (REGISTERED_NOT_MEASURED).",
+  "Raw-Dokumente (meas/isa/job_id) werden VOR der Auswertung committed.",
+  "Die Auswertung rechnet AUSSCHLIESSLICH gegen die oben fixierten Baender/Schwellen/Klassifikationen.",
+  "Keine Toleranz-Erhoehung, keine ex-post-Klassen-Erfindung."
+ ]
+}
