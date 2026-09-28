@@ -80,7 +80,7 @@ def cv_spread_dense(primes):
     spread = eigs[-1] - eigs[0]
     if spread <= 0:
         return 0.0
-    return float(np.var(eigs)) / (spread ** 2)
+    return float(np.var(eigs) / (spread ** 2))
 
 
 def cv_spread_tridiag(seq):
@@ -99,7 +99,7 @@ def cv_spread_tridiag(seq):
     spread = eigs[-1] - eigs[0]
     if spread <= 0:
         return 0.0
-    return float(np.var(eigs)) / (spread ** 2)
+    return float(np.var(eigs) / (spread ** 2))
 
 
 # ---------- I1: divergence witnesses (closed-form) ----------
@@ -176,19 +176,19 @@ def measure_all():
         R_N = latorre_ratio(S_vN, pi_N)
         cv_N = cv_spread_dense(primes)
 
-        S_values.append(S_vN)
-        R_values.append(R_N)
-        cv_values.append(cv_N)
+        S_values.append(float(S_vN))
+        R_values.append(float(R_N))
+        cv_values.append(float(cv_N))
         rows.append({
             "N": N,
             "pi_N": pi_N,
             "dim": dim,
             "n_qubits": n_qubits,
             "leg": "v1" if N in N_V1 else "ext",
-            "S_vN": S_vN,
-            "S_max": S_max,
-            "R_N": R_N,
-            "cv_spread_A": cv_N,
+            "S_vN": float(S_vN),
+            "S_max": float(S_max),
+            "R_N": float(R_N),
+            "cv_spread_A": float(cv_N),
         })
 
     alpha_combined, log_const = alpha_vN_scaling(N_SWEEP, S_values)
@@ -202,30 +202,30 @@ def measure_all():
         v1 = json.load(f)
     v1_by_N = {r["N"]: r for r in v1["rows"]}
     repro = {
-        "alpha_v1_recomputed": alpha_v1,
-        "alpha_v1_committed": v1["alpha_vN"],
-        "alpha_dev": abs(alpha_v1 - v1["alpha_vN"]),
-        "max_S_dev": max(
+        "alpha_v1_recomputed": float(alpha_v1),
+        "alpha_v1_committed": float(v1["alpha_vN"]),
+        "alpha_dev": float(abs(alpha_v1 - v1["alpha_vN"])),
+        "max_S_dev": float(max(
             abs(rows[i]["S_vN"] - v1_by_N[N]["S_vN"])
             for i, N in enumerate(N_V1)
-        ),
-        "max_R_dev": max(
+        )),
+        "max_R_dev": float(max(
             abs(rows[i]["R_N"] - v1_by_N[N]["R_N"])
             for i, N in enumerate(N_V1)
-        ),
-        "max_cv_dev": max(
+        )),
+        "max_cv_dev": float(max(
             abs(cv_values[i] - v1_by_N[N]["cv_spread_A"])
             for i, N in enumerate(N_V1)
-        ),
-        "alpha_ok": abs(alpha_v1 - v1["alpha_vN"]) <= REPRO_TOL,
+        )),
+        "alpha_ok": bool(abs(alpha_v1 - v1["alpha_vN"]) <= REPRO_TOL),
         "S_R_ok": True,
         "cv_bitexact": True,
     }
-    repro["S_R_ok"] = (
+    repro["S_R_ok"] = bool(
         repro["max_S_dev"] <= REPRO_TOL and repro["max_R_dev"] <= REPRO_TOL
     )
-    repro["cv_bitexact"] = repro["max_cv_dev"] == 0.0
-    repro["ok"] = (
+    repro["cv_bitexact"] = bool(repro["max_cv_dev"] == 0.0)
+    repro["ok"] = bool(
         repro["alpha_dev"] <= REPRO_TOL
         and repro["S_R_ok"]
         and repro["cv_bitexact"]

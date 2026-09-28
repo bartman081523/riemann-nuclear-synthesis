@@ -1,0 +1,20 @@
+EXPERIMENT 023-EXT — MOCS extension + §5.5 hardening
+prereg_md5 = 334c97545a41bdf0383c7cc35cdfbb2f
+alpha_combined = 0.210355
+alpha_v1_8pt  = 0.265821
+alpha_ext_6pt = 0.132551
+cv_spread_mean = 0.095996
+cv_spread_range = [0.0794081903846811, 0.1433361107311678]
+MOCS_ext = 3
+  observable_a_alpha_rh_consistent: True
+  observable_b_R_rh_consistent: True
+  observable_c_cv_rh_consistent: True
+v1_reproduction_ok = True
+w1_divergent = True
+w2_divergent = True
+rho_ab = 0.573626
+effective_total = 2.426374
+  H_MOCS_EXT_holds: True
+  H_WITNESSES_hold: True
+  H_INDEP_holds: True
+  H_REPRO_holds: True
