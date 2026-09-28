@@ -1,0 +1,86 @@
+{
+  "prereg_id": "pt_rh_multi_observable_ext_v1",
+  "experiment": "EXPERIMENT 023-EXT",
+  "title": "MOCS extension beyond N=1023 + section 5.5 independence hardening (statevector, 0 QPU)",
+  "date_locked": "2026-09-28",
+  "branch": "ram-q-zyklizitaet",
+  "methodology": "SciMind 4.0 (Anti-Sharpshooter: freeze BEFORE the verdict-bearing measurement)",
+  "parent_prereg": "pt_rh_multi_observable_v1 (locked 2026-06-17, N in [7, 1023], MOCS = 3, H_MOCS HOLDS)",
+  "probe_disclosure": {
+    "what_ran_before_freeze": "A feasibility probe (2026-09-28, scratch session, NOT committed as measurement) measured: (i) dense cv_spread at the 8 v1 points - bit-exact reproduction of the committed v1 values (dev == 0.0 at all 8); (ii) dense and tridiagonal cv at N=65535 (both 0.086356402 to 9 decimals; dense 45.3 s); (iii) cv_spread at all 6 extension points for primes, odd integers and powers of two; (iv) two REJECTED witness designs (S = 0.4*N^0.4: R(7) = 0.63 < 1, no divergence; S = 0.05*N^0.6: R(65535) = 4.4 > 1, no divergence) - corrected to the frozen W1/W2 formulas below BEFORE this freeze.",
+    "what_the_probe_did_NOT_measure": "S_vN at the 6 extension points, alpha over the combined 14-point sweep, R(N) at the extension points, rho_ab, MOCS_ext, the v1 alpha reproduction. All verdict-bearing quantities are UNMEASURED at freeze time.",
+    "consequence_for_I3": "The null leg (I3) was already probed; its outcomes are therefore DOCUMENTED, not predicted. I3 is classified DIAGNOSTIC and is NOT verdict-tragend."
+  },
+  "scope": {
+    "extension_leg": "observables (a) alpha_vN, (b) R(N), (c) cv_spread(A) on N_EXT added to the v1 grid -> combined 14-point sweep, v1 thresholds UNCHANGED",
+    "independence_leg": "I1 divergence witnesses (closed-form, deterministic), I2 rank-dependence rho_ab + effective-observables rule (verdict-bearing), I3 deterministic null controls (diagnostic only)"
+  },
+  "n_values_v1": [7, 15, 31, 63, 127, 255, 511, 1023],
+  "n_values_ext": [2047, 4095, 8191, 16383, 32767, 65535],
+  "thresholds_frozen_from_v1_unchanged": {
+    "alpha_vN": "< 0.5, operative value = alpha over the COMBINED 14-point sweep (polyfit(log N, log S), v1 function reused); the v1 8-point alpha is recomputed as a reproduction pin",
+    "R_N": "R(N) < 1 for ALL 14 measured N (sub-logarithmic rule, v1 unchanged)",
+    "cv_spread_A": "mean over all 14 points in [0.05, 0.20] (v1 band unchanged); per-point values and range reported"
+  },
+  "verdict_rules": {
+    "MOCS_ext": "count of RH-consistent observables in {a, b, c} on the combined 14-point sweep, in {0,1,2,3}",
+    "H_MOCS_EXT": "MOCS_ext >= 2 (falsifiable; rejected iff MOCS_ext < 2)",
+    "per_observable": "each observable verdict reported separately; no threshold may be widened post hoc (Prezedenz: KEINE Toleranz-Erhoehung, Phase 11c)"
+  },
+  "independence_audit": {
+    "I1_witnesses": {
+      "w1": {
+        "formula": "S(N) = 1.0 * N^0.4",
+        "expected_alpha": 0.4,
+        "alpha_tol": 1e-09,
+        "expected_verdicts": "a TRUE (alpha < 0.5) AND b FALSE (R(N) > 1 for ALL 14 N); measured R range in probe-equivalent closed form: [1.5710, 9.6117]",
+        "divergence": "(a, b) = (True, False)"
+      },
+      "w2": {
+        "formula": "S(N) = 0.01 * N^0.55",
+        "expected_alpha": 0.55,
+        "alpha_tol": 1e-09,
+        "expected_verdicts": "a FALSE (alpha >= 0.5) AND b TRUE (R(N) < 1 for ALL 14 N); R range [0.0210, 0.5073]",
+        "divergence": "(a, b) = (False, True)"
+      },
+      "claim": "both directions of verdict divergence demonstrated on the SAME frozen 14-point N-grid -> (a) and (b) are not logically equivalent in EITHER direction. This hardens section 5.5, which documented one direction only (alpha = 0.6 with negative prefactor -> R < 1)."
+    },
+    "I2_rank_dependence": {
+      "metric": "Spearman rho between the series {log S_vN(N)} and {log R_N(N)} over the combined 14 points",
+      "frozen_claim": "|rho_ab| < 0.9 (near-collinearity would collapse observable (b) onto (a))",
+      "effective_rule": "effective_ab = 1 + max(0, 1 - |rho_ab|); effective_total = effective_ab + 1 (observable (c) shares no variable with (a)/(b)); H_indep: effective_total >= 2"
+    },
+    "I3_nulls_diagnostic": {
+      "status": "DIAGNOSTIC, NOT verdict-tragend (probe already ran this leg, see probe_disclosure)",
+      "null_a": "odd integers {3, 5, ..., <= N} (uniform density; scipy.linalg.eigh_tridiagonal - dense 32767x32767 would need ~8.6 GB)",
+      "null_b": "powers of two {2, 4, ..., <= N} (geometric)",
+      "reported": "cv_spread per point for primes / null_a / null_b plus deltas and in-band flags",
+      "interpretation_guard": "cv_spread measures near-uniformity of the spectrum, NOT primality per se; the nulls quantify exactly what observable (c) does and does not discriminate"
+    }
+  },
+  "solver_pins": {
+    "primes": "dense np.linalg.eigvalsh on the v1-identical Jacobi path (det skipped: overflows, documented in v1 prereg correction_log); v1 8-point cv reproduction must be BIT-EXACT (dev == 0.0)",
+    "null_a": "scipy.linalg.eigh_tridiagonal (memory); dense-vs-tridiag agreement at N=65535 verified in probe: 0.086356402 both",
+    "statevector": "pt_prime_state.construct_P_N + measure_entropy, v1-identical path (16 qubits max at N=65535, dim 65536, SVD 256x256)"
+  },
+  "reproduction_pin": {
+    "alpha_v1_8pt": 0.2658212701252552,
+    "alpha_tolerance": 1e-12,
+    "S_R_tolerance": 1e-12,
+    "cv_v1_8pt": "bit-exact (dev == 0.0, same dense path)",
+    "reference_artifact": "pt_rh_multi_observable_results.json (committed, v1)"
+  },
+  "falsifiable_statements": [
+    "H_MOCS_EXT: MOCS_ext >= 2 on the combined 14-point sweep with v1 thresholds unchanged",
+    "H_WITNESSES: both divergence directions hold (closed-form, verified numerically to alpha_tol = 1e-9)",
+    "H_INDEP: |rho_ab| < 0.9 on the combined sweep",
+    "H_REPRO: v1 8-point observables reproduce within 1e-12 (alpha, S_vN, R) and bit-exact (cv, dense path)"
+  ],
+  "outputs": [
+    "pt_rh_multi_observable_ext_results.json",
+    "pt_rh_multi_observable_ext_log.txt"
+  ],
+  "tests": "tests/test_pt_rh_multi_observable_ext.py",
+  "constitutional_principle": "statevector-first, 0 QPU",
+  "do_not_modify_after_lock": true
+}

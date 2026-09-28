@@ -830,9 +830,13 @@ _CL.append(Claim(
     # +25 Tests (pt_ram_q_hardware3_eval: 8 Verdict-Zweige inkl. Union-
     # VOID/strenger CONFIRMED-Klausel + gamma-Fit + center_v3-Reduktion
     # + Fold-Identitaet + 9 Committed-Raw/Eval-Pins) -> 1104
+    # 023-EXT Freeze (EXPERIMENT 023-EXT, H_MOCS_EXT, REGISTERED_NOT_
+    # MEASURED, 0 QPU): +34 Tests (Prereg-MD5/Thresholds-unchanged/
+    # Zeugen beider Richtungen/Solver-Pfade/Effective-Regel/Null-Konstruk-
+    # tion) -> 1138
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1104,
+    id="test_count", value=1138,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
