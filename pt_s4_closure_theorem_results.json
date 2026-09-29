@@ -1,0 +1,430 @@
+{
+ "experiment": "045-s4-closure-theorem",
+ "hypothesis": "H-S4-CLOSURE",
+ "qpu": 0,
+ "eps": 0.25,
+ "family_size": 78,
+ "l1_A_uniformitaet": {
+  "bit_equal": true,
+  "max_abs_dev": 0.0,
+  "lemma_ok": true,
+  "seconds": 0.0
+ },
+ "l2_l3_konjugation": {
+  "l2_max_dev": 0.0,
+  "l3_max_dev": 3.554447978966673e-15,
+  "lemma_ok": true,
+  "seconds": 16.1
+ },
+ "t4_h_identitaet": {
+  "max_h_dev": 1.4211288389453755e-14,
+  "max_spec_dev": 5.009326287108706e-13,
+  "max_k_dev": 6.696402321537676e-10,
+  "theorem_ok": true,
+  "seconds": 1901.9
+ },
+ "t5_t6_familien_summen": {
+  "n_patterns": 15,
+  "orbit_count": 2,
+  "orbit_sizes": [
+   12,
+   3
+  ],
+  "adjacent_counts": [
+   12,
+   0
+  ],
+  "max_within_orbit_dev": 1.0260516436488842e-08,
+  "between_orbit_R_gap": 0.10515314008685372,
+  "prime_signs": [
+   1,
+   1,
+   1,
+   -1,
+   1,
+   -1
+  ],
+  "composite_signs": [
+   -1,
+   1,
+   1,
+   -1,
+   1,
+   1
+  ],
+  "prime_adjacent": true,
+  "composite_adjacent": true,
+  "prime_composite_same_orbit": true,
+  "prime_composite_sum_dev": 5.953082471421567e-11,
+  "tuple_dict_konsistenz_ok": true,
+  "adjacent_R": 1.0829548092830659,
+  "disjoint_R": 1.1881079493699196,
+  "per_pattern": {
+   "0": {
+    "signs": [
+     -1,
+     -1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.415370606537466,
+    "k2_mean": 1.5327824052676389,
+    "R": 1.0829548092830659,
+    "r_median": 1.9147852141172867
+   },
+   "1": {
+    "signs": [
+     -1,
+     1,
+     -1,
+     1,
+     1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.415370606593672,
+    "k2_mean": 1.5327824053111003,
+    "R": 1.0829548092707673,
+    "r_median": 1.9147852155597218
+   },
+   "2": {
+    "signs": [
+     -1,
+     1,
+     1,
+     -1,
+     1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065364187,
+    "k2_mean": 1.5327824052268746,
+    "R": 1.0829548092550663,
+    "r_median": 1.914785213228574
+   },
+   "3": {
+    "signs": [
+     -1,
+     1,
+     1,
+     1,
+     -1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065975862,
+    "k2_mean": 1.5327824053178942,
+    "R": 1.0829548092725725,
+    "r_median": 1.9147852167715969
+   },
+   "4": {
+    "signs": [
+     -1,
+     1,
+     1,
+     1,
+     1,
+     -1
+    ],
+    "adjacent": false,
+    "k1_mean": 1.520993312431571,
+    "k2_mean": 1.8071042454384354,
+    "R": 1.1881079493699196,
+    "r_median": 0.6631421891746621
+   },
+   "5": {
+    "signs": [
+     1,
+     -1,
+     -1,
+     1,
+     1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065738247,
+    "k2_mean": 1.5327824053800048,
+    "R": 1.0829548093346362,
+    "r_median": 1.914785215082273
+   },
+   "6": {
+    "signs": [
+     1,
+     -1,
+     1,
+     -1,
+     1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065679204,
+    "k2_mean": 1.5327824049945984,
+    "R": 1.0829548090668533,
+    "r_median": 1.9147852243778032
+   },
+   "7": {
+    "signs": [
+     1,
+     -1,
+     1,
+     1,
+     -1,
+     1
+    ],
+    "adjacent": false,
+    "k1_mean": 1.5209933124609025,
+    "k2_mean": 1.8071042454486923,
+    "R": 1.1881079493537512,
+    "r_median": 0.6631421923778792
+   },
+   "8": {
+    "signs": [
+     1,
+     -1,
+     1,
+     1,
+     1,
+     -1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065775797,
+    "k2_mean": 1.532782405268592,
+    "R": 1.0829548092530468,
+    "r_median": 1.9147852176131255
+   },
+   "9": {
+    "signs": [
+     1,
+     1,
+     -1,
+     -1,
+     1,
+     1
+    ],
+    "adjacent": false,
+    "k1_mean": 1.520993312460837,
+    "k2_mean": 1.8071042454504471,
+    "R": 1.1881079493549562,
+    "r_median": 0.6631421920049825
+   },
+   "10": {
+    "signs": [
+     1,
+     1,
+     -1,
+     1,
+     -1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065908631,
+    "k2_mean": 1.5327824052115813,
+    "R": 1.0829548092026033,
+    "r_median": 1.9147852129934473
+   },
+   "11": {
+    "signs": [
+     1,
+     1,
+     -1,
+     1,
+     1,
+     -1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.415370606528055,
+    "k2_mean": 1.5327824053340298,
+    "R": 1.082954809337174,
+    "r_median": 1.914785213207574
+   },
+   "12": {
+    "signs": [
+     1,
+     1,
+     1,
+     -1,
+     -1,
+     1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065790856,
+    "k2_mean": 1.5327824053794392,
+    "R": 1.0829548093302113,
+    "r_median": 1.91478521952519
+   },
+   "13": {
+    "signs": [
+     1,
+     1,
+     1,
+     -1,
+     1,
+     -1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.415370606577914,
+    "k2_mean": 1.5327824052864054,
+    "R": 1.0829548092653767,
+    "r_median": 1.9147852188598775
+   },
+   "14": {
+    "signs": [
+     1,
+     1,
+     1,
+     1,
+     -1,
+     -1
+    ],
+    "adjacent": true,
+    "k1_mean": 1.4153706065300105,
+    "k2_mean": 1.5327824053089292,
+    "R": 1.0829548093179433,
+    "r_median": 1.9147852158007383
+   }
+  },
+  "theorem_ok": false,
+  "seconds": 3155.4
+ },
+ "t7_v1_atom_korrespondenz": {
+  "n_records": 132,
+  "n_adjacent": 110,
+  "n_disjoint": 22,
+  "expected_ratio_adjacent": 0.8,
+  "observed_ratio_adjacent": 0.8333333333333334,
+  "derived_atoms": {
+   "adjacent": 1.082954809,
+   "disjoint": 1.188107949
+  },
+  "n_distinct_atoms_per_class": {
+   "adjacent": 1,
+   "disjoint": 1
+  },
+  "n_atoms_total": 2,
+  "max_R_dev_within_class": 3.699196504669544e-10,
+  "rounding_invariance_ok": true,
+  "doc_atoms_truncation_ok": true,
+  "theorem_ok": true,
+  "seconds": 0.0
+ },
+ "t8_s3_gegenprobe": {
+  "n_orbits_s3": 4,
+  "orbit_sizes_s3": [
+   6,
+   3,
+   3,
+   3
+  ],
+  "n_distinct_sums_s3": 2,
+  "distinct_sums_s3": [
+   1.082954809,
+   1.188107949
+  ],
+  "same_s4_orbit_sum_dev": 8.046252553128852e-11,
+  "expected_sizes_s3": [
+   6,
+   3,
+   3,
+   3
+  ],
+  "counterfactual_ok": true,
+  "seconds": 0.0
+ },
+ "t9_n_verallgemeinerung": {
+  "per_n": {
+   "3": {
+    "n_patterns": 3,
+    "n_orbits": 1,
+    "adjacent": 3,
+    "disjoint": 0,
+    "formula_adjacent": 3,
+    "formula_disjoint": 0
+   },
+   "4": {
+    "n_patterns": 15,
+    "n_orbits": 2,
+    "adjacent": 12,
+    "disjoint": 3,
+    "formula_adjacent": 12,
+    "formula_disjoint": 3
+   },
+   "5": {
+    "n_patterns": 45,
+    "n_orbits": 2,
+    "adjacent": 30,
+    "disjoint": 15,
+    "formula_adjacent": 30,
+    "formula_disjoint": 15
+   },
+   "6": {
+    "n_patterns": 105,
+    "n_orbits": 2,
+    "adjacent": 60,
+    "disjoint": 45,
+    "formula_adjacent": 60,
+    "formula_disjoint": 45
+   }
+  },
+  "theorem_ok": true,
+  "seconds": 0.6
+ },
+ "d_64_muster_diagnose": {
+  "cfg": [
+   0.002,
+   0.002,
+   0.02,
+   0.002
+  ],
+  "n_patterns": 64,
+  "n_distinct_k_pairs": 30,
+  "multiplicities": [
+   6,
+   6,
+   5,
+   4,
+   3,
+   3,
+   3,
+   3,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "n_orbits_stabilizer_s3": 20,
+  "burnside_orbits_full_s4": 11,
+  "doc_claim": "23 distinkte R, Multiplizitaeten = S3-Orbit-Groessen 1/2/3/5/6 (nicht archiviert; Re-Diagnose liefert die exakte Bahn-Struktur)",
+  "seconds": 22.3
+ },
+ "total_seconds": 5096.3,
+ "cross_t5_t7_atom": {
+  "max_atom_dev": 3.699196504669544e-10,
+  "atom_dev": {
+   "adjacent": 2.830657930275038e-10,
+   "disjoint": 3.699196504669544e-10
+  },
+  "ok": true
+ },
+ "verdict_class": "H_S4_CLOSURE_DEVIATION_FOUND"
+}

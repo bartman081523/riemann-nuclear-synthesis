@@ -834,9 +834,17 @@ _CL.append(Claim(
     # MEASURED, 0 QPU): +34 Tests (Prereg-MD5/Thresholds-unchanged/
     # Zeugen beider Richtungen/Solver-Pfade/Effective-Regel/Null-Konstruk-
     # tion) -> 1138
+    # 12c Rep-Klassifikation (EXPERIMENT 047, H-RAM-Q-5, cb86cbb):
+    # +40 Tests (pt_ram_q_hardware3_rep_eval: 5a-Klassen-Reihenfolge/
+    # Falsifikator-Schnitt/5b-Diagnostik/Committed-Rep-Pins) -> 1178
+    # 12e S₄-Schluss-Theorem (EXPERIMENT 045, H-S4-CLOSURE,
+    # H_S4_CLOSURE_DEVIATION_FOUND) + 045-T5-Diagnose (NICHT verdict-
+    # tragend): +47 Tests (Orbit-Kombinatorik/T9-Formeln/committed
+    # Frozen-Run-Pins; Dekomposition max_within auf r_median/Probe-a
+    # Multiset-Permutation/Probe-b Kette/t_H-Quellen) -> 1225
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1138,
+    id="test_count", value=1225,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
