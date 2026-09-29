@@ -3774,8 +3774,100 @@ gemessen statt angeschätzt). Keine neue unabhängige Klasse — das Grade A−
 gemessen, nicht nur rekonstruiert. Tests 1104 → 1138 (+34: 26 Freeze + 8
 Eval; `tests/test_pt_rh_multi_observable_ext.py`).
 
+## §Z.29 — Phase 12 (Wiederholungs-Programm): das S₄-Schluss-Theorem numerisch verifiziert und die EINE Verletzung auf 0.05 % erklärt, H-RAM-Q-4\_REFUTED session-robust reproduziert, der Kingston-Bias kippt das Vorzeichen (EXPERIMENTE 045/046/047, Branch `ram-q-zyklizitaet`, 2026-09-28/29, 045: 0 QPU · 046 Kingston-Bein QPU · 047: 1 Fez-Job)
+
+**Kette:** Phase 12a `3b627de` (beide Wiederholungs-Preregs
+REGISTERED_NOT_MEASURED: 047 H-RAM-Q-5 md5
+`be770a1ec904cb392d7c70e2bfa364d3`, 046 H-V5R md5
+`fcf4c2c58837bb7188c4e029d1841214`) → 12b `c3ce362` (ISA3-Gate-AMENDMENT
+VOR Submission, GATE\_OK — der erste Gate-Entwurf war schärfer als der
+§10.27-Präzedenz und scheiterte korrekt an 31/116 Ein-Qubit-Zweig-Diffs
+bei bit-gleichen 2q-Totals 559/84, Re-Scope ohne Toleranz-Erhöhung)
+→ 046 Kingston-Raw `bbb2de5` → 047 Fez-Raw `7d476fe` (Job
+dat3gpqhcrkc73dtjmt0, 116×8192, counts\_md5
+f1b214c961878d23a4ca6c257e5ee378, 0 Ausfälle) + gefrorene Auswertung
+`7a95cff` + 40 Tests `cb86cbb` → 045 `f91eb96` (Voll-Lauf 5096.3 s +
+T5-Diagnose 140.7 s). Parent: §10.21 (S₄-Schluss-Theorem aus dem
+H-STAR-5-v1-Abbruch), §10.28/§Z.27 (Phase 11d), 035-Sessions
+(Im-Bias-Historie).
+
+**Verdicts:** 045 `H_S4_CLOSURE_DEVIATION_FOUND` — GENAU EINE Verletzung,
+NICHT verdict-tragend für H-STAR-5 (Phase-6a-REFUTED unangetastet); 047
+`H-RAM-Q-4_REFUTED` REPRODUZIERT + `H-RAM-Q-5a_SESSIONROBUST`
+(verdict-tragend); 046 Bein 1 vorzeichen-flippt, Klassifikation pending
+Fez-Bein — **kein vorzeitiges Verdict**.
+
+- **045 (S₄-Schluss-Theorem, 0 QPU):** 78er-Familie (alle nicht-konstanten
+  4-Tupel über GAMMAS (0.002, 0.02, 0.2), eps 0.25) unter S₄
+  abgeschlossen, Pull-Forward-Paarung, ex-ante-Toleranzen 1e-10/1e-9/1e-9.
+  Grün: L1/L2 max\_dev 0.0 EXAKT, L3 3.554447978966673e-15, T4 (H
+  1.42e-14, Spektrum 5.01e-13, k 6.70e-10), T6 zahnlose Composite-Kontrolle
+  (sum\_dev 5.95e-11, between-orbit-Gap 0.10515314, prime/composite in
+  EINEM Orbit), T7 Atome daten-abgeleitet 1.082954809/1.188107949
+  (110/22 aus 132 archivierten Shuffle-Instanzen), T8 S₃-Gegenprobe
+  (Bahnen 6/3/3/3 → genau 2 Summen = volles S₄), T9 n-Formeln exakt
+  (12/3, 30/15, 60/45), D64 Burnside 11 Orbits/20 S₃-Bahnen/30 k-Paare,
+  Kreuzprobe 3.7e-10. **Die EINE Verletzung:** T5
+  max\_within\_orbit\_dev 1.0260516436488842e-08 > SUM\_TOL 1e-9.
+- **045-T5-Diagnose (NICHT verdict-tragend, Präzedenz γ_arm/Phase 11d):**
+  die Verletzung trägt **r\_median zu 100 %** — die drei GEMITTELten
+  Größen halten beide Bahnen (mean\_based max 2.730404791151386e-10,
+  Faktor 3.7 unter TOL); Probe-a: sortierte r-Multisets zweier
+  Bahn-Mitglieder elementweise auf Rundungs-Boden (adj max
+  4.081764615193606e-07, dis 1.125693209758083e-07) — **Orbit-Invarianz
+  hält als PERMUTATION exakt**, alle vier Familien-Mediane bit-gleich mit
+  045; Probe-b: Kette H-Entry 3.55e-15 (exakt das L3-Maximum) →
+  ΔEigenwerte 2.81e-13 (Rundungs-Boden des nicht-Hermiteschen 625²-Solvers)
+  → Δt\_H 2.00e-9 → **Δr 1.139e-8 = die beobachtete Streuung auf 0.05 %**;
+  Quellen: k1/k2/R am CACHE-t\_H (3096.93) gemittelt vs r\_median am
+  per-Instanz-Eigen-t\_H (386.08, Quotient 8.02) — die Rang-Statistik
+  erbt per-record-Noise ~1e-8, in exakter Arithmetik wäre T5 EXAKT grün.
+  KEINE Toleranz-Erhöhung, 045-Verdict unangetastet, Grade A−.
+- **047 (1 Fez-Job):** Falsifikator feuert WIEDER 2/13 am q5-Bein —
+  Schnitt {467, 673}, nur-11d {547, dort neu −0.0049 dicht}, nur-neu ∅;
+  Residuen 467 −0.08412821795265557 (11d −0.0318 — **STÄRKER**), 673
+  −0.033382034259572646 (11d −0.0548). κ̂-Floor-UNION 0/26 —
+  [0.8601726263871763, 0.9622594967932906] ⊂ 11d-Band
+  [0.8244713360224911, 0.9724804305283757]: der kohärente Prep-Fehler-Lift
+  ist in BEIDEN Sessions überall echt, was kippt bleibt das
+  v3b-Zentrierungsgesetz. Echo-Leiter (Mechanismus, NICHT verdict-tragend):
+  q5 0.726999797535903 < 0.81 **SESSION-ROBUST** (11d 0.7314), q3
+  0.9913237988399535 ≈ 1; γ\_arm im-job 0.002293069751045569 / 0.016039364858808827
+  (11d 0.0091/0.0381). Governance: Verdict-Map md5 baaca1f6
+  Byte-Gleichheit, Session 1 steht als committetes Verdict, Session 2
+  ist ein NEUES unabhängiges Session-Verdict — kein stilles Re-Decide.
+- **046 (Kingston-Bein, Bein 1/2):** Job dat3brihcrkc73dtjbgg (TOKEN2,
+  8192 Shots, RL1, DD XX): re 2.1463664700509506, hd 2.1600742871988152,
+  im 0.009730864928887861 (alle in Band, n\_out = 0), bias = re − hd =
+  **−0.01370781714786462** — **VORZEICHEN FLIPPTE** gegenüber 035
+  (+0.0074) auf DEMSELBEN Backend, −2.22σ; erstmals eine Session
+  individuell jenseits des 2σ-Floors 0.01235434493266991 (drei
+  vorherige Sessions: +1.20/−1.93/−1.38σ). SE\_BIAS 0.006177172466334955.
+  Fez-Bein (Job dat3q9dvr3kc73ektkv0) in Queue — Klassifikation
+  H-V5R-1/H-V5R-2 nach gefrorenem Prereg erst dann.
+
+**Prozess-Disziplin:** beide Preregs in EINEM Freeze-Commit VOR jeder
+Hardware; das ISA3-AMENDMENT fiel VOR der Submission (Job nie submitted,
+keine QPU-Daten, Phase-11c-Präzedenz) mit korrekt scheiterndem, schärferem
+Gate-Entwurf — dieselbe ±1-ulp-Zweig-Vielfalt wie §Z.26, jetzt als
+Gate-Detail vollständig aufgezeichnet (max Tiefe 8, budget-irrelevant);
+Raw-Commits vor Auswertung; gefrorene Verdict-Map Byte-Gleichheit;
+Session-Trennung statt stiller Re-Pass; KEINE Toleranz-Erhöhung irgendwo.
+
+**Einordnung:** die drei Auflösungsklassen der unvorhergesehenen
+IBMQ-Befunde sind geschlossen bzw. verfestigt — (i) ±1-ulp-Transpile-Zweig
+(§10.27/§Z.26, bit-exakt abgeschlossen), (ii) Session-Robustheit (047:
+die Falsifikation des v3b-Gesetzes verfestigt sich, der q5-Echo-Marker
+bleibt unter 0.81), (iii) Vorzeichen-Flip (046: Bein 1 dokumentiert,
+Klassifikation pending). 045 ist das erste strukturelle Resultat der
+S₄-Schiene seit dem v1-Abbruch: das THEOREM hinter dem H-STAR-5-v2-
+Design-Zwang ist numerisch verifiziert — mit EINER numerisch vollständig
+erklärten Verletzung (numerische Herkunft, nicht strukturell). H-STAR-5
+(Phase 6a), H-RAM-Q-3b (Phase 10d), H-RAM-Q-4 (Phase 11d) unangetastet.
+Tests 1178 → 1225 (+40 `cb86cbb`, +47 `f91eb96`).
+
 ---
 
-**Last updated:** 2026-09-28 (§Z.28: Branch ram-q-zyklizitaet — EXPERIMENT 023-EXT MOCS-Ausdehnung + §5.5-Abhärtung vollzogen: Freeze 966efea REGISTERED_NOT_MEASURED (Prereg md5 334c97545a41bdf0383c7cc35cdfbb2f, v1-Thresholds UNVERÄNDERT, Probe-Disclosure ehrlich mit 2 verworfenen Zeugen-Designs, Null-Leg als DIAGNOSTIC reklassifiziert) → Auswertung 137178c → VERDICT `H_MOCS_EXT HOLDS`, MOCS_ext 3/3 auf dem kombinierten 14-Punkte-Sweep N 7..65535 (16 Qubits), ALLE 4 Claims grün — alpha_combined 0.210355 < 0.5 mit alpha_ext_6pt 0.132551 (monotoner Fall, konsistent mit Asymptotik-Säule 0.347 → 0.223), R(N) ext [0.4401, 0.4618] alle < 1, cv_mean 0.09599648443361233 im v1-Band (ext 0.0864-0.0882), I1-Zeugen BEIDE Richtungen auf demselben Frozen-Grid (W1 N^0.4: (a,b)=(T,F), R in [1.5710, 9.6117]; W2 0.01*N^0.55: (F,T), R in [0.0210, 0.5073]) — §5.5 jetzt zweiseitig demonstriert, I2 rho_ab 0.573626 < 0.9 / effective_total 2.426374 ≥ 2 (erste DIREKTE Messung der §5.5-Ersatzrechnung, A− bleibt), I3-Nullen DIAGNOSTIC (odd → 1/12 exakt ab 2047, delta_a +0.003..+0.005 zeichenstabil, pow2-Kreuzung exakt 2047), v1-Reproduktion bit-exakt cv / ≤6.7e-16 alpha-S-R, Runner-Fix post-freeze serialization-only ohne Verdict-Berührung (erster Lauf scheiterte VOR prints, Zahlen ungelesen), 34 neue Tests 1138 grün; vorherige Kette §Z.27: 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; vorherige Kette §Z.26: 2026-09-28 (§Z.26: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11a–c: Transpile-Grenzzweig-Befund bit-exakt geschlossen — ±1 ulp an den Amplituden kippt ≥3 gleichberechtigte Zerlegungen, A-Geometrie reproduziert s3 mit d3 = −4.44e-16, committete ops_struct-Fingerprints belegen die Zweitverzweigung, cz/2q varianteninvariant, ISA-3-Re-Verifikation 559/84 bit-gleich 0/116, KEINE Toleranz-Erhöhung — 3 Ausnahmen gepinnt, Grid bleibt Verdict-Basis, Flip-Variable unbenannt nach exhaustivem Ausschluss; §Z.25 siehe Commit-Historie d9cb788)))
+**Last updated:** 2026-09-29 (§Z.29: Branch ram-q-zyklizitaet — Phase 12 Wiederholungs-Programm vollzogen (drei Aufloesungsklassen der unvorhergesehenen IBMQ-Befunde): 12a Preregs 3b627de REGISTERED_NOT_MEASURED (047 H-RAM-Q-5 md5 be770a1e / 046 H-V5R md5 fcf4c2c5) -> 12b ISA3-Gate-AMENDMENT c3ce362 VOR Submission (erster Gate-Entwurf schaerfer als der §10.27-Praezedenz, korrekt gescheitert an 31/116 Ein-Qubit-Zweig-Diffs bei bit-gleichen 2q-Totals 559/84, Re-Scope per-Circuit two_q 0/116 + Totals, KEINE Toleranz-Erhoehung) -> 047 Fez-Raw 7d476fe (dat3gpqhcrkc73dtjmt0, 116×8192, counts_md5 f1b214c9, 0 Ausfaelle) + gefrorene Auswertung 7a95cff + 40 Tests cb86cbb -> VERDICT H-RAM-Q-4_REFUTED REPRODUZIERT + H-RAM-Q-5a_SESSIONROBUST (verdict-tragend): Falsifikator wieder 2/13 am q5-Bein, Schnitt {467 −0.0841 STÄRKER / 673 −0.0334}, nur-11d {547 -> −0.0049 dicht}, kappa-Floor-UNION 0/26 [0.8602–0.9623] im 11d-Band [0.8245–0.9725] (Prep-Fehler-Lift ueberall echt), Echo-Leiter q5 0.7270 < 0.81 SESSION-ROBUST (q3 0.9913), gamma im-job 0.0023/0.0160, Verdict-Map md5 baaca1f6 Byte-Gleichheit, kein stilles Re-Decide -> 046 Kingston-Raw bbb2de5 VOR Auswertung (dat3brihcrkc73dtjbgg, ibm_kingston, TOKEN2): bias re−hd −0.01370781714786462 — VORZEICHEN-FLIP −2.22σ gegen 035 (+0.0074) auf DEMSELBEN Backend, erstmals individuell jenseits des 2σ-Floors 0.01235434493266991 (drei vorherige Sessions +1.20/−1.93/−1.38σ), SE_BIAS 0.006177172466334955, Klassifikation H-V5R-1/2 nach gefrorenem Prereg erst mit dem Fez-Bein (dat3q9dvr3kc73ektkv0, Queue), KEIN vorzeitiges Verdict -> 045 S₄-Schluss-Theorem f91eb96 (0 QPU, 5096.3 s, 78er-Familie): VERDICT H_S4_CLOSURE_DEVIATION_FOUND mit GENAU EINER Verletzung — T5 max_within 1.0260516436488842e-08 > SUM_TOL 1e-9 traegt r_median zu 100 %, alle uebrigen Praedikate gruen (L1/L2 0.0 exakt, L3 3.55e-15, T4, T6 prime/composite in EINEM Orbit, T7 Atome 1.082954809/1.188107949, T8 S₃-Gegenprobe 6/3/3/3 = 2 Summen, T9 n-Formeln exakt, D64 Burnside 11, Kreuz 3.7e-10) + vollstaendige T5-Diagnose (NICHT verdict-tragend, Praezedenz gamma_arm): Mittelung gruen (mean_based 2.73e-10, Faktor 3.7 unter TOL), Probe-a Multiset-Permutation (elementweise Rundungs-Boden, 4 Familien-Mediane bit-gleich 045), Probe-b Kette Entry 3.55e-15 -> Eigen 2.81e-13 -> t_H 2.00e-9 -> r 1.139e-8 = Beobachtung auf 0.05 %, t_H-Quellen cache 3096.93 vs per-Instanz-Eigen 386.08 (Quotient 8.02) — r_median erbt per-record-Noise ~1e-8, in exakter Arithmetik waere T5 EXAKT gruen, KEINE Toleranz-Erhoehung, H-STAR-5-Phase-6a-REFUTED unangetastet; Testzahl 1225 gruen; vorherige Kette §Z.28: 2026-09-28 (§Z.28: Branch ram-q-zyklizitaet — EXPERIMENT 023-EXT MOCS-Ausdehnung + §5.5-Abhärtung vollzogen: Freeze 966efea REGISTERED_NOT_MEASURED (Prereg md5 334c97545a41bdf0383c7cc35cdfbb2f, v1-Thresholds UNVERÄNDERT, Probe-Disclosure ehrlich mit 2 verworfenen Zeugen-Designs, Null-Leg als DIAGNOSTIC reklassifiziert) → Auswertung 137178c → VERDICT `H_MOCS_EXT HOLDS`, MOCS_ext 3/3 auf dem kombinierten 14-Punkte-Sweep N 7..65535 (16 Qubits), ALLE 4 Claims grün — alpha_combined 0.210355 < 0.5 mit alpha_ext_6pt 0.132551 (monotoner Fall, konsistent mit Asymptotik-Säule 0.347 → 0.223), R(N) ext [0.4401, 0.4618] alle < 1, cv_mean 0.09599648443361233 im v1-Band (ext 0.0864-0.0882), I1-Zeugen BEIDE Richtungen auf demselben Frozen-Grid (W1 N^0.4: (a,b)=(T,F), R in [1.5710, 9.6117]; W2 0.01*N^0.55: (F,T), R in [0.0210, 0.5073]) — §5.5 jetzt zweiseitig demonstriert, I2 rho_ab 0.573626 < 0.9 / effective_total 2.426374 ≥ 2 (erste DIREKTE Messung der §5.5-Ersatzrechnung, A− bleibt), I3-Nullen DIAGNOSTIC (odd → 1/12 exakt ab 2047, delta_a +0.003..+0.005 zeichenstabil, pow2-Kreuzung exakt 2047), v1-Reproduktion bit-exakt cv / ≤6.7e-16 alpha-S-R, Runner-Fix post-freeze serialization-only ohne Verdict-Berührung (erster Lauf scheiterte VOR prints, Zahlen ungelesen), 34 neue Tests 1138 grün; vorherige Kette §Z.27: 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; §Z.26 siehe Commit-Historie cb3f9c6)))
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint

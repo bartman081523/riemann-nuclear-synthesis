@@ -2101,6 +2101,196 @@ Dezimalen), statevector v1-identisch (pt_prime_state).
 Freeze + 8 Eval, `tests/test_pt_rh_multi_observable_ext.py`); §Z.28
 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.30 — Phase 12 (Wiederholungs-Programm): das S₄-Schluss-Theorem numerisch verifiziert, die EINE T5-Verletzung auf 0.05 % erklärt, die RAM-Q-Falsifikation session-robust, der Kingston-Bias kippt das Vorzeichen (EXPERIMENTE 045/046/047, Branch `ram-q-zyklizitaet`, 2026-09-28/29, 045: 0 QPU · 046 Kingston-Bein QPU · 047: 1 Fez-Job)
+
+**Motivation:** zwei Direktiven — (1) das S₄-Schluss-Theorem aus dem
+H-STAR-5-v1-Abbruch (§10.21, bewiesen 2026-09-25) numerisch verifizieren
+und formalisieren; (2) die unvorhergesehenen IBMQ-Resultate der Serie
+auditieren und wiederholen. Drei unvorhergesehene Befunde, drei getrennte
+Auflösungsklassen: (i) ISA-3 **±1-ulp-Transpile-Grenzzweig** — §10.27
+(Phase 11c) bereits mit bit-exakter Kette geschlossen (±1 ulp multiplikativ
+an n\_d kippt ≥ 3 gleichberechtigte Zerlegungen); (ii) **Session-Robustheit**
+(EXPERIMENT 047 — der Phase-11d-Fez-Lauf wird unter DEMSELBEN gefrorenen
+Gesetz wiederholt); (iii) **das Kingston-Vorzeichen-Flip** (EXPERIMENT 046
+— der Im-Bias dreht auf DEMSELBEN Backend; Klassifikation
+H-V5R-1/H-V5R-2 nach gefrorenem Prereg erst mit dem zweiten Bein).
+
+**Programm-Kette:** Phase 12a `3b627de` (beide Wiederholungs-Preregs
+REGISTERED_NOT_MEASURED gefroren VOR jeder Hardware: 047 md5
+`be770a1ec904cb392d7c70e2bfa364d3`, 046 md5
+`fcf4c2c58837bb7188c4e029d1841214`) → Phase 12b `c3ce362`
+(ISA3-Gate-AMENDMENT für 047 VOR Submission — der erste Gate-Entwurf war
+schärfer als der §10.27-Präzedenz und scheiterte korrekt an 31/116
+Ein-Qubit-Zweig-Differenzen bei bit-gleichen 2q-Totals 559/84; Re-Scope auf
+die Präzedenz-Semantik: ok = (per-Circuit two\_q 0/116) UND (total 2q 559)
+UND (max 84) UND (opt 3, seed 7); Op-/Tiefe-Diffs vollständig im
+Gate-Detail aufgezeichnet, budget-irrelevant — max Tiefe 8 an
+ladder_q3_d3_181_r8, ±1-ulp kumuliert mit der Ladder-Wiederholungszahl;
+AMENDMENT vor jeder Messung, Job nie submitted, Phase-11c-Präzedenz)
+→ 046 Kingston-Raw `bbb2de5` → 047 Fez-Raw `7d476fe` + gefrorene
+Auswertung `7a95cff` + Tests `cb86cbb` → 045 `f91eb96`.
+
+**A — EXPERIMENT 045: das S₄-Schluss-Theorem numerisch (0 QPU, NICHT
+verdict-tragend für H-STAR-5 — die Phase-6a-REFUTED bleibt unangetastet).**
+Kette: gefrorenes Modul `pt_s4_closure_theorem.py` (ex-ante-Toleranzen
+CONJ\_TOL 1e-10, SPEC\_TOL 1e-9, SUM\_TOL 1e-9; ATOM\_DECIMALS 9; GAMMAS
+(0.002, 0.02, 0.2)) → Voll-Lauf 5096.3 s über die 78er-Familie (eps 0.25)
+→ Commit `f91eb96` mit Results-Artefakt. Setup: alle nicht-konstanten
+4-Tupel über die drei GAMMAS (78 Konfigurationen) bilden unter S₄ eine
+abgeschlossene Familie; Pull-Forward-Paarung (σ·cfg)\_j = cfg\_{σ(j)},
+(σ·s)\_{jk} = s\_{σ(j),σ(k)}; U†(B⊗\_i)U = B⊗\_{σ⁻¹(i)}, Spektren bis
+Rundung (~1e-13·||H||) identisch, nicht bit-exakt.
+
+**VERDICT `H_S4_CLOSURE_DEVIATION_FOUND` — GENAU EINE Verletzung, alle
+übrigen Prädikate grün:** die drei Lemmata bit-eben (L1 A-Uniformität
+max\_dev 0.0 EXAKT, L2 Paar-Term-Konjugation 0.0 EXAKT, L3
+Kron-Summen-Konjugation 3.554447978966673e-15); T4 H-Konjugation grün
+(H 1.4211288389453755e-14, Spektrum 5.009326287108706e-13, k
+6.696402321537676e-10); **T5 Familien-Summen ROT — die EINE Verletzung**:
+zwei Bahnen 12/3 (benachbart/disjunkt), between-orbit-R-Gap
+0.10515314008685372, prime/composite beide benachbart und in EINEM Orbit
+(sum\_dev 5.95e-11), aber max\_within_orbit_dev = 1.0260516436488842e-08
+> SUM\_TOL 1e-9; T7 v1-Atom-Korrespondenz grün (132 archivierte
+Shuffle-Instanzen, 110/22 benachbart/disjunkt — beobachtet 0.8333,
+erwartet 0.8 — daten-abgeleitete Atome 1.082954809/1.188107949, die
+dokumentierten 1.082955/1.188108 = 6-Dezimal-Kürzungen, max R-dev
+3.699196504669544e-10); T8 S₃-Gegenprobe grün (Stabilisator fixiert
+Position 3 → 4 Bahnen 6/3/3/3 → genau 2 Summenwerte = die beiden vollen
+S₄-Werte, sum\_dev 8.05e-11); T9 n-Verallgemeinerung exakt (15/45/105
+Muster für n = 4/5/6, benachbart n·C(n−1,2) = 12/30/60, disjunkt
+C(n,2)·C(n−2,2)/2 = 3/15/45); D64 exakte Bahn-Struktur (20
+Stabilisator-S₃-Bahnen order 6, Burnside 11 volle S₄-Orbits, 30
+distinkte k-Paare); Kreuzprobe T5×T7 grün (max atom dev 3.7e-10 ≤
+10⁻⁹ + 5e-10).
+
+**B — die T5-Diagnose: die Verletzung ist numerischer Herkunft, nicht
+strukturell (0 QPU, NICHT verdict-tragend — Präzedenz γ_arm/Phase 11d).**
+Das gefrorene 045-Verdict bleibt UNANGETASTET (keine Toleranz-Erhöhung);
+Diagnose-Modul `pt_s4_t5_diag.py` + Artefakt `pt_s4_t5_diag_results.json`
+(140.7 s) in `f91eb96`. Vier Befunde:
+
+- **Dekomposition von max\_within:** die drei GEMITTELten Größen halten
+  BEIDE Bahnen — k1\_mean 6.01e-11/2.93e-11, k2\_mean 2.73e-10/1.20e-11,
+  R 2.16e-10/1.62e-11, mean\_based_max\_within 2.730404791151386e-10
+  (Faktor 3.7 unter SUM\_TOL, T5-Struktur grün). Die EINE Verletzung
+  trägt **r\_median zu 100 %** (adj 1.026e-08 bit-exakt die
+  045-Verletzung, dis 3.20e-09); die adj-Differenz ist die
+  Extremmuster-Streuung (Muster 6 vs 10) 1.1384355902421817e-08.
+- **Probe-a (Multiset):** die sortierten r-Multisets zweier
+  Bahn-Mitglieder über die volle 78er-Familie sind 78/78 gleichlang und
+  elementweise nur auf Rundungs-Boden verschieden (adj max
+  4.081764615193606e-07 bei r-Werten bis ~26, Median 4.2e-09; dis max
+  1.125693209758083e-07, Median 2.4e-09) — **die Orbit-Invarianz hält
+  als PERMUTATION exakt.** Alle vier Familien-Mediane bit-gleich mit
+  045 (deterministische Re-Komputation desselben Code-Pfads).
+- **Probe-b (Kausalkette)** am Probe-cfg 0, Muster 6: H\[0,0] += 3.55e-15
+  (exakt das L3-Rundungs-Maximum) → ΔEigenwerte 2.81e-13 (Rundungs-Boden
+  des nicht-Hermiteschen 625²-Solvers) → Δt\_H +2.00e-09
+  (t\_H = 2π/Median-positiv-Lücke) → **Δr +1.139e-08 — die beobachtete
+  Streuung wird auf 0.05 % reproduziert.** Monoton über δ = 1e-14/1e-13.
+- **Quellen-Asymmetrie (Konstruktionsfakt):** k1/k2/R laufen am CACHE-t\_H
+  (unfold\_spectrum, exakte Summenmenge 3096.93 gegenüber
+  per-Instanz-Eigen-t\_H 386.08, Quotient 8.02, 504 positive Lücken/120
+  exakt-0-Multiplizitäten) — unter Bahn-Reindexing stabil, Mittelung
+  hebelt die Rundungs-Noise. **r\_median** läuft über ratio\_stat am
+  per-Instanz-Eigen-t\_H — die Rang-Statistik erbt den elementweisen
+  Noise (~1e-08) an den mittleren Ordnungsstatistiken. In exakter
+  Arithmetik wäre der Median permutations-invariant und T5 EXAKT grün.
+
+**Einordnung 045:** die S₄-Struktur (Abgeschlossenheit der 78er-Familie,
+zwei Bahnen 12/3, Atome, prime/composite-Kohärenz innerhalb EINES Orbits,
+S₃-Gegenprobe, n-Formeln, Burnside-D64) ist numerisch verifiziert; die
+EINE Verletzung ist auf die Messkette Entry→Eigenwert→t\_H→Rang-Median
+zurückgeführt und kausal auf 0.05 % reproduziert. Grade A− (numerische
+Realisierung einer exakten Aussage; kein neues quantenphysikalisches Fact,
+keine neue unabhängige Klasse, H-STAR-5 unangetastet — das Theorem
+erklärt den v2-Design-Zwang, nicht die v1-Refutation). Verwendet wurde
+KEINE externe Code-Quelle; S₃/S₄-Bahnen und Burnside-Verifikation direkt
+aus `itertools.permutations`.
+
+**C — EXPERIMENT 047: H-RAM-Q-4\_REFUTED REPRODUZIERT, SESSIONROBUST
+(1 Fez-Job).** Kette: Prereg `3b627de` → ISA3-Gate-AMENDMENT `c3ce362`
+(VOR Submission, REGISTERED, nichts gemessen — Gate-Evidenz
+`pt_ram_q_hardware3_rep_isa_gate.json` GATE\_OK 11:48 vor Submission)
+→ Fez-Raw `7d476fe` (Job dat3gpqhcrkc73dtjmt0, 116 Circuits × 8192
+Shots, DD XX, resilience none, counts\_md5
+f1b214c961878d23a4ca6c257e5ee378, 116/116 vollzählig, 0 Ausfälle) →
+gefrorene Auswertung `7a95cff` (`pt_ram_q_hardware3_rep_eval.json`).
+
+**VERDICT: `H-RAM-Q-4_REFUTED` REPRODUZIERT + Klassifikation
+`H-RAM-Q-5a_SESSIONROBUST`** (verdict-tragend; Verdict-Map md5
+baaca1f6772e07b0847fe436da7e16da, Byte-Gleichheit verifiziert — kein
+stilles Re-Decide: das Phase-11-REFUTED bleibt committetes
+Session-1-Verdict, Session 2 ist ein NEUES unabhängiges Session-Verdict
+unter DEMSELBEN gefrorenen Gesetz):
+
+- **Falsifikator feuert WIEDER (n\_below_sharp = 2 ≥ 2) am q5-Bein:**
+  Schnitt der beiden Sessions {467, 673}, nur-11d {547}, nur-neu ∅.
+  Residuen 467 −0.08412821795265557 (11d −0.0318 — STÄRKER), 547
+  −0.004906934224163106 (11d −0.0437), 673 −0.033382034259572646
+  (11d −0.0548). Das REFUTED-Muster ist session-unabhängig — die
+  Falsifikation des v3b-Zentrierungsgesetzes verfestigt sich.
+- **κ̂-Floor-UNION bleibt 0/26:** Session-2-Floor-Union
+  [0.8601726263871763, 0.9622594967932906] ⊂ 11d-Band
+  [0.8244713360224911, 0.9724804305283757] — der kohärente
+  Prep-Fehler-Lift ist in BEIDEN Sessions überall echt (Shift 0.0357);
+  was kippt, bleibt das Zentrierungsgesetz.
+- **Mechanismus-Diagnostik (NICHT verdict-tragend):** Echo-Leiter q3
+  0.9913237988399535 (11d 0.9927 — Echo refokussiert vollständig), q5
+  0.726999797535903 < 0.81 SESSION-ROBUST (11d 0.7314) — die
+  q5-Inkompletheit des Loschmidt-Echo-Kanals reproduziert sich über
+  Sessions mit kleiner Drift (−0.0044). γ_arm im-job nur Kalibrier-P:
+  q3 0.002293069751045569 / q5 0.016039364858808827 (11d: 0.0091/0.0381)
+  — Session-Differenz dokumentiert, unter der Interpretations-Guard
+  (Echo-Leiter ≠ Verdict-Map).
+
+40 neue Tests (`tests/test_pt_ram_q_hardware3_rep_eval.py`, `cb86cbb`):
+Verdict-Zweige invalid→VOID→SESSIONROBUST→SESSION\_SPEZIFISCH→Reserve,
+Set-Equalität auf der Verdict-Map, Echo-Leiter-Guard, Floor-Union,
+Session-1-Anker-Pins gegen `pt_ram_q_hardware3_eval_rep.json`.
+
+**D — EXPERIMENT 046: der Kingston-Bias kippt das Vorzeichen (Bein 1/2;
+Fez-Bein pending — Verdict NICHT hier gefällt).** Kette: Prereg `3b627de`
+→ Kingston-Raw `bbb2de5` VOR Auswertung (Job dat3brihcrkc73dtjbgg,
+ibm\_kingston, TOKEN2, 8192 Shots, RL1, DD XX, EIN est.run, 3 Pubs;
+`pt_v5_kingston_rep_kingston_raw.json` + ISA-Artefakt): re
+2.1463664700509506 ∈ [2.1192, 2.1725], hd 2.1600742871988152 ∈
+[2.1345, 2.1810], im 0.009730864928887861 ∈ [−0.01124, 0.03003]
+(n\_out = 0), bias = re − hd = **−0.01370781714786462**.
+
+**Befund (Bein 1):** das Vorzeichen KIPPTE gegenüber 035 (+0.0074) auf
+DEMSELBEN Backend — **−2.22σ**; erstmals liegt EINE Session individuell
+jenseits des 2σ-Floors 0.01235434493266991, der den drei vorherigen
+Sessions (Kingston +1.20σ, FEZ\_RUN1 −1.93σ, FEZ\_RUN2 −1.38σ) fehlte.
+SE\_BIAS 0.006177172466334955 (Kleindatensatz-Präzedenz 034). Die
+Klassifikation H-V5R-1 (session-abhängiges Vorzeichen) / H-V5R-2
+(systematisches Backend-Flip) fällt nach gefrorenem Prereg erst mit dem
+Fez-Bein (Job dat3q9dvr3kc73ektkv0 in Queue, poller aktiv; Raw-Commit VOR
+Auswertung weiter verbindlich). Kein vorzeitiges Verdict — die 2σ-Überschreitung
+einer einzelnen Session ist allein NOCH kein Klassifikations-Kriterium.
+
+**Prozess-Disziplin (Phase 12):** alle Preregs vor jeder Hardware gefroren
+(046/047 in EINEM COMMIT `3b627de`); das ISA3-Gate-AMENDMENT fiel VOR der
+Submission mit Job nie submitted (Phase-11c-Präzedenz, Verdict-Gesetz
+unberührt, KEINE Toleranz-Erhöhung); Raw-Commits vor den Auswertungen
+(`bbb2de5`, `7d476fe`); Session-1-Verdicts stehen; die Auswertung läuft
+gegen die GEFRORENE Verdict-Map (md5 baaca1f6, Byte-Gleichheit
+verifiziert); die zweite Session ist ein neues, unabhängiges
+Session-Verdict unter DEMSELBEN Gesetz.
+
+**Quellen:** `pt_s4_closure_theorem.py`/`_results.json`,
+`pt_s4_t5_diag.py`/`_results.json`,
+`pt_ram_q_hardware3_rep_prereg.json` (md5
+`be770a1ec904cb392d7c70e2bfa364d3`)/`_qpu.py`/`_rep_eval.py`/
+`_rep_eval.json`/`_isa_gate.json`/`_raw_rep.json`,
+`pt_ram_q_hardware3_eval_rep.json` (Session-1-Anker),
+`pt_v5_kingston_rep.py`/`_prereg.json` (md5
+`fcf4c2c58837bb7188c4e029d1841214`)/`_kingston_raw.json`/
+`_kingston_isa.json`, `pt_v5_kingston_rep_fez_raw.json` (pending);
+Commits `3b627de`, `c3ce362`, `bbb2de5`, `7d476fe`, `7a95cff`, `cb86cbb`,
+`f91eb96`; Tests 1178 → 1225 (+40 Rep-Eval `cb86cbb`, +47 S₄/Diagnose
+`f91eb96`); §Z.29 (SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
