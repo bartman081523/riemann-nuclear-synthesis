@@ -1,0 +1,53 @@
+{
+ "experiment": "h9-atom-n5-diag4-rellabel-pair",
+ "qpu": 0,
+ "verdict_tragend": false,
+ "datum": "2026-09-29",
+ "probe": "probe_relabel_pair_n5.py (Job-tmp), Laufzeit 225 s",
+ "frage": "Ist die per-Instanz-ratio (ratio_stat, eigener t' aus heisenberg_time der GEFALTETEN Spektren) relabel-invariant auf den korrekt gepaarten (P,c) <-> (sigma P, sigma c)-Paaren (direkte Bild-Konvention, perm_inverse), die P0 auf P9 bzw. P35 abbilden?",
+ "konvention_validierung": "identisch zur Dedupe-Probe probe_th_prime_n5 (evs-Validierung <= 1e-12) und zu orbit_rep in scratches/h9_atom_n5.py",
+ "basis_t_lattice_p0_min5": [
+  {"cfg": "00200200200202", "b_pos0": 4, "t_prime": 1838.712664, "ratio": 1.657883},
+  {"cfg": "00200200202002", "b_pos0": 3, "t_prime": 1838.712664, "ratio": 1.657883},
+  {"cfg": "00200202002002", "b_pos0": 2, "t_prime": 1755.881950, "ratio": 21.168249},
+  {"cfg": "00202002002002", "b_pos0": 1, "t_prime": 1755.881950, "ratio": 21.168249},
+  {"cfg": "02002002002002", "b_pos0": 0, "t_prime": 1157.891895, "ratio": 1.929120}
+ ],
+ "ergebnis": {
+  "10_pairs": [
+   {"pair": "P0->P9 sigma(0,2,3,1,4) cfg 00200200200202 -> 00200200200202", "evs_diff": 8.31e-13, "dt_prime_over_t0": 7.8e-11, "ratio": "1.657883 -> 1.657883", "status": "gleich"},
+   {"pair": "P0->P9 sigma(0,2,3,1,4) cfg 00200200202002 -> 00202002002002", "evs_diff": 7.21e-13, "dt_prime_over_t0": 6.6e-11, "ratio": "1.657883 -> 1.657882", "status": "gleich"},
+   {"pair": "P0->P9 sigma(0,2,3,1,4) cfg 00200202002002 -> 00200200202002", "evs_diff": 1.41e-12, "dt_prime_over_t0": 5.71e-11, "ratio": "21.168249 -> 21.168253", "status": "gleich"},
+   {"pair": "P0->P9 sigma(0,2,3,1,4) cfg 00202002002002 -> 00200202002002", "evs_diff": 8.17e-13, "dt_prime_over_t0": 8.46e-11, "ratio": "21.168249 -> 21.168256", "status": "gleich"},
+   {"pair": "P0->P9 sigma(0,2,3,1,4) cfg 02002002002002 -> 02002002002002", "evs_diff": 1.09e-12, "dt_prime_over_t0": 0.000985, "ratio": "1.929120 -> 0.988735", "status": "SPRUNG"},
+   {"pair": "P0->P35 sigma(1,3,4,0,2) cfg 00200200200202 -> 00200202002002", "evs_diff": 8.74e-13, "dt_prime_over_t0": 0.000435, "ratio": "1.657883 -> 5.120213", "status": "SPRUNG"},
+   {"pair": "P0->P35 sigma(1,3,4,0,2) cfg 00200200202002 -> 02002002002002", "evs_diff": 8.35e-13, "dt_prime_over_t0": 2.96e-11, "ratio": "1.657883 -> 1.657883", "status": "gleich"},
+   {"pair": "P0->P35 sigma(1,3,4,0,2) cfg 00200202002002 -> 00200200200202", "evs_diff": 7.53e-13, "dt_prime_over_t0": 3.45e-11, "ratio": "21.168249 -> 21.168252", "status": "gleich"},
+   {"pair": "P0->P35 sigma(1,3,4,0,2) cfg 00202002002002 -> 00200200202002", "evs_diff": 8.74e-13, "dt_prime_over_t0": 1.07e-11, "ratio": "21.168249 -> 21.168250", "status": "gleich"},
+   {"pair": "P0->P35 sigma(1,3,4,0,2) cfg 02002002002002 -> 00202002002002", "evs_diff": 6.08e-13, "dt_prime_over_t0": 3.93e-12, "ratio": "1.929120 -> 1.929120", "status": "gleich"}
+  ],
+  "zusammenfassung": "8/10 ratio-gleich (<= 3e-7, Rundung), 2/10 SPRUNG — beide Sprung-Paare haben evs-Gleichheit <= 1.1e-12 UND einen t'-Sprung von 9.85e-04 bzw. 4.35e-04 RELATIV (7 Groessenordnungen ueber Rausch-Niveau der 8 gleich-Paare).",
+  "sprung_slots": ["P9-b0 (sigma(0)=0, slot-bijektion fix)", "P35-b2 (sigma(4)=2)"]
+ },
+ "mechanismus_bitgenau": {
+  "kette": [
+   "1. unitare Relabel-Aequivalenz der gefalteten Matrizen haelt exakt (evs-diff 6.1e-13 .. 1.41e-12 auf ALLEN 10 Paaren)",
+   "2. heisenberg_time (2pi / Median der POSITIVEN Luecken, Schwelle 1e-12; 800/3124 Luecken <= 1e-12 bei der Basisinstanz) ist eine DISKRETE Funktion der evs: bei 1e-12-Ev-Flattern kippt das Median-Sampling auf einen Nachbarn des diskreten t'-Lattices — dt'/t0 ~ 4.35e-4 .. 9.85e-4 (Sprung-Slots) gegen 1e-11 .. 1e-12 (Rundungs-Slots)",
+   "3. ratio_stat = K(TAU2*t')/K(TAU1*t') mit K(t) = |sum exp(-i lambda t)|^2/d ist an t' ~ 1157..1838 (d 3125, ungefaltete Eigenwert-Spreizung) schnell-oszillierend: der ~5e-4-relative t'-Versatz sortiert die 3125 Phasen O(1) um -> ratio springt O(1) auf einen ANDEREN diskreten Cluster-Wert (1.929120 -> 0.988735; 1.657883 -> 5.120213)",
+   "4. innerhalb der adj-Bahn landen genau die Sprung-Slots auf anderen Clustern -> per-Instanz-r_median-Roster differieren O(1) -> max_within (045-bit-identisch, 4 Kanäle) bricht ausschliesslich ueber den r_median-Kanal (3.191, worst (r_median, 35)) -> F1/F2 feuern wie registriert"
+  ],
+  "ratio_cluster_ad": [21.168249, 1.657883, 1.929120, 0.988735, 5.120213],
+  "ratio_cluster_dis": [2.250736, 0.583159, 0.344581, 0.327734],
+  "k1_k2_multisets_bahn_stabil": {"adj": {"k1": [0.631761, 0.835999, 1.10737], "k2": [0.54832, 1.709158, 1.463374]}, "dis": {"k1": [3.913803, 8.710306], "k2": [4.43838, 7.169136]}},
+  "none_count": "0/25 (rmedian-Probe), 0/10 (diese Probe) — die Verwerfungs-Regel K(TAU1*t') < 1e-12 feuert nirgends"
+ },
+ "reconciliation": {
+  "dedupe_probe_probe_th_prime_n5": "10 generische Dedupe-Bilder von (P0,b4): 0 t'-Spruenge, evs <= 1.07e-12, t'/t0 1.000000 — Sample traf nur within-Cluster-Paare; die pair-resolved Probe (sigma* mit image(saturating) == sig9/sig35) traf beide Sprung-Slots. Die Zwischen-Meldung '0 t'-Spruenge — These refutiert' wird durch diesen Befund KORRIGIERT: t' ist relabel-stabil auf MEISTEN Paaren (8/10) und springt auf einer Teilmenge (2/10), exakt dort wo die per-Instanz-ratio springt.",
+  "roster_widerspruch_geloest": "Die Multiset-Gleichheit {ratio(P0,c)} = {ratio(sigmaP0, sigma c)} ist JEDE Bijektion — sie scheitert nur an den Sprung-Slots: P9-Roster = P0-Roster mit Slot b0 gesprungen (1.929->0.989), P35-Roster = P0-Roster mit Slot b2 gesprungen (1.658->5.120). Bei KORREKTEM Pairing sind 8/10 Slots paarweise bit-nahe gleich (auch ueber Muster-Grenzen) — der Widerspruch verschwindet vollstaendig."
+ },
+ "bezug": {
+  "045": "max_within_orbit_dev 1.0260516436488842e-08 tritt dort ebenfalls im r_median-Kanal auf (worst ('r_median', 6)) — an n=4 Rundungs-Niveau, an n=5 O(1)",
+  "phase_11c_resonanz": "dieselbe Strukturklasse '±1-ulp Flattern kippt gleichberechtigte Zerlegungen' wie der b_P-Transpile-Grenzfall (cb3f9c6) — Diskretisierungs-Punkt hier der Median-Gap-Filter (heisenberg_time), dort der Transpiler",
+  "hh9_4": "n5_min max_within 3.191092437940738 > 10x045-Basis 1.0260516436488842e-07 -> F1; > 100x calib_min 3.151155636427205e-08 -> F2; F3 (Gap < 1e-3) feuert NICHT (|gap| 0.4558605240479128)"
+ }
+}

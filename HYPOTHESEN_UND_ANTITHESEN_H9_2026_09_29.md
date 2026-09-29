@@ -241,6 +241,74 @@ gegen die 045-Basis-Toleranz 5.8e-11 (Empirie-Basis der Modulkopfs, NICHT
 SUM_TOL). **Falsifiziert,** wenn die n=5-Klassen sich nicht in zwei Atome
 scheiden, die auf 1e-8 an die n=4-Atome-Rangordnung anknuepfen.
 
+#### C.4a ERGEBNIS (n=5-Atom-Familie, 2026-09-29, 0 QPU, nicht verdict-tragend)
+
+**Verdict (registrierte Prüf-Form): FALSIFIZIERT.** F1 + F2 feuern, F3
+nicht → `hh9_4_n5_zwei_atom_struktur = False`. Scratch
+`scratches/h9_atom_n5.py` + `_out.json` (anchor78-Rep 472.6 s, n3_min 0.1 s,
+calib_min 22.9 s, calib_tri 71.2 s, n5_min 4512.8 s; total 5079.6 s).
+KEINE Toleranz-Erhöhung, KEIN Re-Decide, full-Grid n=5 (240 cfgs, 69 h)
+NICHT gelaufen (im JSON dokumentiert).
+
+| Arm | Bahnen | R_adj / R_disj | \|gap\| | max_within | worst |
+|---|---|---|---|---|---|
+| anchor78 (n=4, 78) | [3,12] | 1.0829548092716699 / 1.1881079493549562 | 0.10515 (Vorzeichen-Konvention adj−dis; 045: dis−adj, Magnitude bit-exakt, d_gap 2.103e-01) | 1.0260516436488842e-08, delta_within 0.000e+00 (bit-exakt), d_adj 1.140e-11, d_dis 1.496e-11 | ('r_median', 6) |
+| n3_min | [3] | 1.023728210498515 / — | — | 8.163922871062823e-10 (totale Shuffle-Blindheit) | ('r_median', 1) |
+| calib_min (n=4) | [3,12] | 0.9324567941027485 / 1.1217911300156354 | 0.18933 (Konvention) | 3.151155636427205e-08 ≤ Basis10 | ('r_median', 9) |
+| calib_tri (n=4) | [3,12] | 0.6445983245474312 / 1.3127356080938044 | 0.66814 (Konvention) | 2.2278324074420652e-08 ≤ Basis10 | ('r_median', 2) |
+| n5_min (Staffel: min, fallback False) | [15,30] exakt | 1.4787263318362183 / 1.0228658077883055 | 0.4558605240479128 | 3.191092437940738 | ('r_median', 35) |
+
+Zerlegung des Befunds:
+
+1. **R/K-Mittel-Kanal hält die 2-Atom-Struktur exakt:** Bahnen [15,30] wie
+   T9 (adjacent 5·C(4,2)=30, disjunct 3·C(5,4)=15). Die C.4-Inline-Zahlen
+   "105 Muster" (Zeile oben) und "135 Muster" (Test-Text) sind FALSCH —
+   korrekt committet 45 Muster (105 = n=6, check_t9 bit-gleich
+   `deck_text_korrektur` im Out-JSON). Within-orbit R 1e-9, Gap 0.4559
+   nicht-degeneriert (F3 feuert nicht).
+2. **r_median-Kanal ist der Falsifikator** — derselbe Kanal, der auch die
+   045-Basis 1.026e-8 trägt (worst ('r_median', 6): an n=4
+   Rundungs-Niveau, an n=5 O(1)). max_within 3.191092437940738 =
+   |r_median(idx 35) − r_median(Orbit-Rep)| = |5.120212622416401 −
+   1.9291201844756622| bit-exakt der Sprung-Slot-Betrag.
+3. **P3 (Ordnung) FLIPPT:** n=4 adj 1.0830 < dis 1.1881, n=5 adj 1.4787 >
+   dis 1.0229. Die Registrierung hielt die 1-Bit-Null (Muenzwurf) explizit
+   offen; kein Fit, kein ex-post.
+4. **Staffel-Korrektur (ex ante registriert VOR dem ersten n=5-Lauf):** die
+   C.4-Test-Grenze "5.8e-11" ist die L3-SUMMEN-Skala, nicht die
+   Empirie-Basis der Modulkopfs; benutzt wurden 10× 045-Basis =
+   1.0260516436488842e-07 (F1) und 100× calib_min (F2). Kandidaten min
+   3.151155636427205e-08 / tri 2.2278324074420652e-08 PASS → Staffel
+   nimmt min (5 cfgs), fallback False.
+5. **MECHANISMUS bit-exakt (Diagnostik-Probe 4, pair-resolved, 225 s, 0
+   QPU, Artefakt `scratches/h9_atom_n5_diag4_relabel.json`):** unitäre
+   Relabel-Äquivalenz exakt (evs-diff 6.1e-13..1.41e-12 auf ALLEN 10
+   gepaarten Paaren P0→P9/P0→P35); 8/10 Paare ratio-gleich (≤ 3e-7,
+   dt′/t0 1e-12..8.5e-11); 2/10 SPRUNG mit t′-Sprüngen 9.85e-04 (P9-b0:
+   ratio 1.929120→0.988735) und 4.35e-04 (P35-b2: ratio
+   1.657883→5.120213). Kette: heisenberg_time (2π/Median der positiven
+   Lücken, Schwelle 1e-12; 800/3124 Lücken ≤ 1e-12 an der Basisinstanz)
+   ist eine DISKRETE Funktion der evs; 1e-12-Ev-Flattern kippt das
+   Median-Sampling auf einen Nachbarn des diskreten t′-Lattices
+   ({1838.712664, 1755.881950, 1157.891895} an P0); ratio_stat =
+   K(TAU2·t′)/K(TAU1·t′) mit K(t) = |Σ exp(−iλt)|²/d ist an t′ ~
+   1157..1838 schnell-oszillierend, der ~5e-4-relative t′-Versatz sortiert
+   alle 3125 Phasen O(1) um → ratio springt O(1) auf einen anderen
+   diskreten Cluster-Wert → genau die Sprung-Slots brechen das
+   within-orbit-Roster. **Reconciliation:** die frühere Dedupe-Probe (10
+   generische Dedupe-Bilder von (P0,b4)) mass 0/10 Sprünge — ihr Sample
+   traf nur within-Cluster-Paare; die Zwischen-Meldung "t′ springt nicht"
+   ist ZURÜCKGENOMMEN. Der Roster-Multiset-Widerspruch ist GELÖST: bei
+   korrektem Pairing sind 8/10 Slots bit-nahe gleich, die Roster
+   unterscheiden sich genau an den 2 Sprung-Slots. Strukturklasse-Resonanz
+   zu Phase 11c (±1-ulp kippt gleichberechtigte Zerlegungen; dort
+   Transpiler, hier Median-Gap-Filter). 0/25 bzw. 0/10 None-Verwerfungen.
+6. **Was gefälscht ist / was steht:** gefälscht ist die registrierte
+   numerische Invarianz-Empirie (P1-Massstab + P2-Skala) im r_median-Kanal;
+   STEHEN die Muster-Kombinatorik (45 Muster, 2 Bahnen adj/disj, T9 exakt)
+   und die 2-R-Klassen-Unterscheidung am R-Kanal. KEIN committetes Verdict
+   ändert sich.
+
 ### C.5 H-H9-5 "α-Säule ist effektive Paarzahl" (023-EXT Kombination)
 
 **Aussage.** Die alpha-Kette (Asymptotik-Säule 0.347→0.223, alpha_combined
@@ -420,7 +488,7 @@ eine Shuffle-Kontrolle im naechsten Freeze.
 | 3 | ~~s(P)-Offline-Fit an Kalibrier-P beider Sessions + Prädiktion auf Verdict-P~~ ERLEDIGT 2026-09-29: KEINE der ex-ante-Familien M1–M4 erreicht die Tuer (q5-tief 4 von 10 bestens vs M0 5) — glatte s(P)-Extrapolation FAELLT weg, engere Fassung bleibt per Prio 4/Session 3 (C.1-Test-(A)-Block) | 0 QPU ✓ | bestätigt: keine Familie senkt 5 → ≤ 1 | C.1 |
 | 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
 | 5 | Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig) | 0 Zusatz | κ_r8(q5) 0.098 ± 0.006 beide Sessions bereits; Session-3-Tol 0.004 (C.2) | C.2 |
-| 6 | n=5-Atom-Familie offline (T9-Extrapolation, 0 QPU, Stunden) | 0 QPU (CPU) | Atome des n=5-Orbits in der n=4-Rangordnung (C.4) | 045/T9 |
+| 6 | ~~n=5-Atom-Familie offline (T9-Extrapolation, 0 QPU, Stunden)~~ ERLEDIGT 2026-09-29: **FALSIFIZIERT (registrierte Form)** — R-Kanal hält 2 Atome (1.4787263318362183/1.0228658077883055, \|gap\| 0.4559, Bahnen [15,30] exakt, within-R 1e-9), aber max_within 3.191092437940738 über den r_median-Kanal (per-Instanz-t′-Diskontinuität: 2/10 gepaarte relabel-Paare mit dt′/t0 9.85e-04/4.35e-04 → ratio-O(1)-Sprünge, Mechanismus bit-exakt C.4a) | 0 QPU ✓ | F1/F2 feuern, F3 nicht; KEIN Re-Decide, full-Grid (69 h) nicht gelaufen (C.4a) | 045/T9 |
 | 7 | N-Sweep 10^7 (023-EXT-Kette) | CPU-Batch | alpha im Band, das aus effective_total 2.426374 folgt (C.5) | 023-EXT |
 | 8 | Kalibrier-Ber-Vergrößerung n_cal ≥ 16 (nur Kalibrier-P, keine Verdict-Aenderung) | 1 QPU-Job | RESID-SD am q5-Bein unter 0.01 (D.5) | 047 |
 
@@ -444,7 +512,11 @@ Raw-Commit VOR Auswertung).
   Kopie des Job-tmp-Ergebnisses 2026-09-29; das Run-Log bleibt im Job-tmp,
   `*.run.log` ist .gitignore'd), scratches/h9_hp1_spred.py (+ _out.json,
   Test (A) mit ex-ante-Registry M0–M4 und Anchor-Assert gegen
-  below_sharp).
+  below_sharp), scratches/h9_atom_n5.py (+ _out.json: n=5-Atom-Familie mit
+  ex-ante-Erwartungen P1–P4, Staffel-Korrektur 10× 045-Basis VOR dem ersten
+  n=5-Lauf registriert und Deck-Text-Korrektur 45 Muster;
+  h9_atom_n5_diag4_relabel.json = Diagnostik-Probe 4 pair-resolved
+  relabel-Paare, nicht verdict-tragend).
 
 **Endnote (Bewertung):** H-H9-1 ist der einzige Befund dieses Decks, der
 eine NEUE Struktur annimmt (Grade: Empirie, noch keine Verdict-Faehigkeit —

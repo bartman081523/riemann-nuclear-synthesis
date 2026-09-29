@@ -1,0 +1,137 @@
+{
+ "experiment": "h9-atom-n5",
+ "qpu": 0,
+ "verdict_tragend": false,
+ "deck_text_korrektur": "C.4 '135/105 Muster' falsch — committet check_t9: n=5 45 Muster (30 adj + 15 disj)",
+ "051_ref": {
+  "max_within_orbit_dev": 1.0260516436488842e-08,
+  "adjacent_R": 1.0829548092830659,
+  "disjoint_R": 1.1881079493699196,
+  "between_orbit_R_gap": 0.10515314008685372
+ },
+ "erwartungen_exante": {
+  "P1": "2 Klassen, max_within <= 10 x 045-Basis (1.026e-07)",
+  "P2": "max_within <= 100x n=4-Kalibrier (same shape)",
+  "P3": "R_adj < R_disj (1-Bit-Bonus, Muenzwurf-Null)",
+  "P4": "Gap >= 1e-3",
+  "keine_zahlenvorhersage": "kein ex-ante-Fit/gesetz im Modulkop"
+ },
+ "arms": {
+  "anchor78": {
+   "arm": "anchor78",
+   "n": 4,
+   "n_configs": 78,
+   "n_patterns": 15,
+   "n_orbits": 2,
+   "orbit_groessen": [
+    3,
+    12
+   ],
+   "adjacent_R_median": 1.0829548092716699,
+   "disjoint_R_median": 1.1881079493549562,
+   "gap": -0.10515314008328636,
+   "max_within": 1.0260516436488842e-08,
+   "worst_within": [
+    "r_median",
+    6
+   ],
+   "seconds": 472.6,
+   "delta_zero45": 0.0,
+   "d_adj": 1.1395995258567382e-11,
+   "d_dis": 1.4963363881292935e-11,
+   "d_gap": 0.21030628017014008
+  },
+  "n3_min": {
+   "arm": "n3_min",
+   "n": 3,
+   "n_configs": 3,
+   "n_patterns": 3,
+   "n_orbits": 1,
+   "orbit_groessen": [
+    3
+   ],
+   "adjacent_R_median": 1.023728210498515,
+   "disjoint_R_median": null,
+   "gap": null,
+   "max_within": 8.163922871062823e-10,
+   "worst_within": [
+    "r_median",
+    1
+   ],
+   "seconds": 0.1
+  },
+  "calib_min": {
+   "arm": "calib_min",
+   "n": 4,
+   "n_configs": 4,
+   "n_patterns": 15,
+   "n_orbits": 2,
+   "orbit_groessen": [
+    3,
+    12
+   ],
+   "adjacent_R_median": 0.9324567941027485,
+   "disjoint_R_median": 1.1217911300156354,
+   "gap": -0.18933433591288684,
+   "max_within": 3.151155636427205e-08,
+   "worst_within": [
+    "r_median",
+    9
+   ],
+   "seconds": 22.9
+  },
+  "calib_tri": {
+   "arm": "calib_tri",
+   "n": 4,
+   "n_configs": 12,
+   "n_patterns": 15,
+   "n_orbits": 2,
+   "orbit_groessen": [
+    3,
+    12
+   ],
+   "adjacent_R_median": 0.6445983245474312,
+   "disjoint_R_median": 1.3127356080938044,
+   "gap": -0.6681372835463733,
+   "max_within": 2.2278324074420652e-08,
+   "worst_within": [
+    "r_median",
+    2
+   ],
+   "seconds": 71.2
+  },
+  "n5_min": {
+   "arm": "n5_min",
+   "n": 5,
+   "n_configs": 5,
+   "n_patterns": 45,
+   "n_orbits": 2,
+   "orbit_groessen": [
+    15,
+    30
+   ],
+   "adjacent_R_median": 1.4787263318362183,
+   "disjoint_R_median": 1.0228658077883055,
+   "gap": 0.4558605240479128,
+   "max_within": 3.191092437940738,
+   "worst_within": [
+    "r_median",
+    35
+   ],
+   "seconds": 4512.8,
+   "selection_shape": "min",
+   "selection_fallback": false
+  }
+ },
+ "falsifikator": {
+  "F1_nicht_2_klassen": true,
+  "F2_massstab": true,
+  "F3_degeneriert": false
+ },
+ "hh9_4_n5_zwei_atom_struktur": false,
+ "n5_full_family_nicht_gelaufen": {
+  "grund": "Kosten 69 h (19.4 s eig je Instanz, 45x240 Instanzen)",
+  "kosten_stunden": 69.0
+ },
+ "total_seconds": 5079.6
+}
