@@ -116,6 +116,36 @@ Kontrolle: die c_p->ISA-Zuordnung gegen ISA-Shuffle des GLEICHEN Reports testen
 (sauberer als eine neue Messung zu erfinden): wenn die Residuen der ISA-
 Geometrie folgen, folgt s(P) dem Report, nicht dem P.
 
+**Test (A) — ERGEBNIS 2026-09-29 (scratches/h9_hp1_spred.py + _out.json, 0 QPU,
+NICHT verdict-tragend):** Registry EX ANTE M0–M4 (M0 = reine Kalibrier-Offset-
+Anpassung, M1 linear in P, M2 quadratisch, M3 Rest-Fit an c_p, M4 Mittel der
+2 nächsten CAL-P), Training NUR CAL-Zeilen (beide Sessions gepoolt,
+session-zentriert), Tuer EX ANTE: q5-tief-Verletzungssumme von 5 auf ≤ 1 und
+q3 bei 0. FAKTISCH GESCHEITERT — keine Familie erreicht die Tuer:
+
+| Modell | q5 tief/10 | q3 tief/16 | q5 mae | rho(pred, res) | q5-tief-P |
+|---|---|---|---|---|---|
+| M0 (Anker) | 5 | 0 | 0.0390 | +0.176 | 467/547/673 (S1) + 467/673 (S2) |
+| M1 linear | 5 | 0 | 0.0392 | +0.236 | dito |
+| M2 quadratisch | 4 | 0 | 0.0494 | +0.091 | 467/547 (S1) + 467/547 (S2) |
+| M3 c_p-Rest | 5 | 0 | 0.0389 | −0.200 | dito M0 |
+| M4 lokal-2 | 4 | 0 | 0.0534 | −0.673 | 467/547/673 (S1) + 467 (S2) |
+
+Die 4er-Familien tauschen 467/673 S2 nur gegen 547 S2 — netto keine
+Extrapolation der below_sharp-Menge. Metrik-Korrektur dokumentiert: der
+ERSTE Lauf maß zweiseitig |e| > w_B″ (7/10 bzw. 5/16) — das ist NICHT die
+committete Verletzungsklasse (obere Ueberlaeufe wie q5 613 +0.0615/+0.0768
+sind registrierte nicht-verdict-tragende Zwischenklasse, in_band_sharp=False
+aber KEIN below_sharp); korrigiert auf one-sided (below_sharp == res < −w_B″,
+Anker-Assert stimmt exakt mit den committeten Flags, beide Metriken im
+JSON). Bonus (Z): P(≥11/13 Vorzeichen gleich) = 0.011230, P(9/9 stabil bei
+|res_S1| ≥ 0.01) = 2⁻⁹ = 0.001953125 (reine Vorzeichen-Null).
+**Konsequenz:** die Fassung "s(P) als GLATTE Funktion aus 5 Kalibrier-P
+extrapolierbar" (A-Test) FAELLT als Unterstuetzung weg; offen bleibt nur die
+engere Fassung "nicht-glatte, pro-P session-stabile Komponente" — pruefbar
+nur per (B) Session 3 oder (C) P-Shuffle (Prio 4). H-RAM-Q-4 bleibt REFUTED,
+kein Re-Decide.
+
 **"Nach den Sternen":** dies ist der erste KANDIDAT auf ein echtes
 P-zahlensystematisches (damit primzahlsystematisches) Signal im QPU-Ratio
 der Serie — ausdruecklich KOMPATIBEL mit der harmlosen Lesart (P-abhaengiger
@@ -387,7 +417,7 @@ eine Shuffle-Kontrolle im naechsten Freeze.
 |---|---|---|---|---|
 | 1 | 046-Fez-Bein abwickeln (cron aktiv) | 0 (Job QUEUED) | H-V5R-1/-2 nach Prereg fcf4c2c58…, Bande SE_BIAS 0.00617717…, 2σ-Floor 0.0123543…; KEIN Vektor-Verdict vor beiden Beinen | 046 (C.6) |
 | 2 | ~~S₄-Quellen-Einheitlichkeit (C.3)~~ ERLEDIGT 2026-09-29: max_within_unified 6.4239e-10 < 1e-9, Kriterium erfüllt (C.3) | 0 QPU ✓ | Kriterium erfüllt; Follow-up: gefrorenes Re-Rechnungs-Artefakt (0 QPU) für die offizielle 045-Einstufung — KEIN stilles Re-Decide | 045 |
-| 3 | s(P)-Offline-Fit an Kalibrier-P beider Sessions + Prädiktion auf Verdict-P | 0 QPU | Band w_B″ 0.02787; falsifiziert, wenn s(P) die Verdict-P nicht in-band vorhersagt | C.1 |
+| 3 | ~~s(P)-Offline-Fit an Kalibrier-P beider Sessions + Prädiktion auf Verdict-P~~ ERLEDIGT 2026-09-29: KEINE der ex-ante-Familien M1–M4 erreicht die Tuer (q5-tief 4 von 10 bestens vs M0 5) — glatte s(P)-Extrapolation FAELLT weg, engere Fassung bleibt per Prio 4/Session 3 (C.1-Test-(A)-Block) | 0 QPU ✓ | bestätigt: keine Familie senkt 5 → ≤ 1 | C.1 |
 | 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
 | 5 | Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig) | 0 Zusatz | κ_r8(q5) 0.098 ± 0.006 beide Sessions bereits; Session-3-Tol 0.004 (C.2) | C.2 |
 | 6 | n=5-Atom-Familie offline (T9-Extrapolation, 0 QPU, Stunden) | 0 QPU (CPU) | Atome des n=5-Orbits in der n=4-Rangordnung (C.4) | 045/T9 |
@@ -412,7 +442,9 @@ Raw-Commit VOR Auswertung).
 - Scratches (dieses Deck, 0 QPU): scratches/h9_ramq_sessions.py (+ out.json),
   scratches/h9_s4_source_unified.py (+ h9_s4_source_unified_out.json —
   Kopie des Job-tmp-Ergebnisses 2026-09-29; das Run-Log bleibt im Job-tmp,
-  `*.run.log` ist .gitignore'd).
+  `*.run.log` ist .gitignore'd), scratches/h9_hp1_spred.py (+ _out.json,
+  Test (A) mit ex-ante-Registry M0–M4 und Anchor-Assert gegen
+  below_sharp).
 
 **Endnote (Bewertung):** H-H9-1 ist der einzige Befund dieses Decks, der
 eine NEUE Struktur annimmt (Grade: Empirie, noch keine Verdict-Faehigkeit —

@@ -1,0 +1,260 @@
+{
+ "w_b_doubleprime": 0.02787029633307472,
+ "registry": [
+  "M0",
+  "M1",
+  "M2",
+  "M3",
+  "M4"
+ ],
+ "leakage_note": "verdict-residuen committet und dem Analysten bekannt -> Konsistenz-Check (Extrapolation aus cal), blind = Session 3",
+ "metric_note": "Tuer an one-sided (below_sharp-Klasse res < -w_B'') geknuepft; zweiseitige Klasse (|res| > w_B'', in_band_sharp=False) nur zur Transparenz",
+ "anchor_committed_below_sharp": {
+  "S1/q5_d5": [
+   467,
+   547,
+   673
+  ],
+  "S1/q3_d3": [],
+  "S2/q5_d5": [
+   467,
+   673
+  ],
+  "S2/q3_d3": []
+ },
+ "summary": {
+  "q5_d5": {
+   "n_eval": 10,
+   "per_model": {
+    "M0": {
+     "band_verletzungen_tief": 5,
+     "band_verletzungen_hoch": 2,
+     "band_verletzungen_zweiseitig": 7,
+     "max_abs_e": 0.08250905352588558,
+     "mae": 0.03904575161821586,
+     "spearman_pred_res": 0.17575757575757575,
+     "viol_tief": [
+      {
+       "session": "S1",
+       "P": 467,
+       "e": -0.029971659902334656
+      },
+      {
+       "session": "S1",
+       "P": 547,
+       "e": -0.04188090629237864
+      },
+      {
+       "session": "S1",
+       "P": 673,
+       "e": -0.05296420376341784
+      },
+      {
+       "session": "S2",
+       "P": 467,
+       "e": -0.08250905352588558
+      },
+      {
+       "session": "S2",
+       "P": 673,
+       "e": -0.03176286983280265
+      }
+     ]
+    },
+    "M1": {
+     "band_verletzungen_tief": 5,
+     "band_verletzungen_hoch": 2,
+     "band_verletzungen_zweiseitig": 7,
+     "max_abs_e": 0.08125606958635428,
+     "mae": 0.039178795915689305,
+     "spearman_pred_res": 0.23636363636363633,
+     "viol_tief": [
+      {
+       "session": "S1",
+       "P": 467,
+       "e": -0.028718675962803364
+      },
+      {
+       "session": "S1",
+       "P": 547,
+       "e": -0.041708080921408805
+      },
+      {
+       "session": "S1",
+       "P": 673,
+       "e": -0.054492628137932306
+      },
+      {
+       "session": "S2",
+       "P": 467,
+       "e": -0.08125606958635428
+      },
+      {
+       "session": "S2",
+       "P": 673,
+       "e": -0.03329129420731712
+      }
+     ]
+    },
+    "M2": {
+     "band_verletzungen_tief": 4,
+     "band_verletzungen_hoch": 4,
+     "band_verletzungen_zweiseitig": 8,
+     "max_abs_e": 0.08534204378143265,
+     "mae": 0.049398303249048224,
+     "spearman_pred_res": 0.09090909090909088,
+     "viol_tief": [
+      {
+       "session": "S1",
+       "P": 467,
+       "e": -0.03280465015788172
+      },
+      {
+       "session": "S1",
+       "P": 547,
+       "e": -0.0770747507651395
+      },
+      {
+       "session": "S2",
+       "P": 467,
+       "e": -0.08534204378143265
+      },
+      {
+       "session": "S2",
+       "P": 547,
+       "e": -0.03848161427015397
+      }
+     ]
+    },
+    "M3": {
+     "band_verletzungen_tief": 5,
+     "band_verletzungen_hoch": 2,
+     "band_verletzungen_zweiseitig": 7,
+     "max_abs_e": 0.08213684695822715,
+     "mae": 0.0389021305277582,
+     "spearman_pred_res": -0.19999999999999998,
+     "viol_tief": [
+      {
+       "session": "S1",
+       "P": 467,
+       "e": -0.029599453334676225
+      },
+      {
+       "session": "S1",
+       "P": 547,
+       "e": -0.04152837029130592
+      },
+      {
+       "session": "S1",
+       "P": 673,
+       "e": -0.05260871560966272
+      },
+      {
+       "session": "S2",
+       "P": 467,
+       "e": -0.08213684695822715
+      },
+      {
+       "session": "S2",
+       "P": 673,
+       "e": -0.03140738167904754
+      }
+     ]
+    },
+    "M4": {
+     "band_verletzungen_tief": 4,
+     "band_verletzungen_hoch": 2,
+     "band_verletzungen_zweiseitig": 6,
+     "max_abs_e": 0.14857741931213658,
+     "mae": 0.05338459326805998,
+     "spearman_pred_res": -0.6727272727272726,
+     "viol_tief": [
+      {
+       "session": "S1",
+       "P": 467,
+       "e": -0.09604002568858566
+      },
+      {
+       "session": "S1",
+       "P": 547,
+       "e": -0.04106104973430996
+      },
+      {
+       "session": "S1",
+       "P": 673,
+       "e": -0.047027376045918834
+      },
+      {
+       "session": "S2",
+       "P": 467,
+       "e": -0.14857741931213658
+      }
+     ]
+    }
+   },
+   "m0_violationen_tief": 5,
+   "best": "M2",
+   "best_violationen_tief": 4
+  },
+  "q3_d3": {
+   "n_eval": 16,
+   "per_model": {
+    "M0": {
+     "band_verletzungen_tief": 0,
+     "band_verletzungen_hoch": 5,
+     "band_verletzungen_zweiseitig": 5,
+     "max_abs_e": 0.03692319636799285,
+     "mae": 0.018068237486164436,
+     "spearman_pred_res": 0.23823529411764705,
+     "viol_tief": []
+    },
+    "M1": {
+     "band_verletzungen_tief": 0,
+     "band_verletzungen_hoch": 5,
+     "band_verletzungen_zweiseitig": 5,
+     "max_abs_e": 0.036383637434884326,
+     "mae": 0.017595465280102293,
+     "spearman_pred_res": 0.44117647058823534,
+     "viol_tief": []
+    },
+    "M2": {
+     "band_verletzungen_tief": 0,
+     "band_verletzungen_hoch": 4,
+     "band_verletzungen_zweiseitig": 4,
+     "max_abs_e": 0.033404978245243105,
+     "mae": 0.01772408695463626,
+     "spearman_pred_res": 0.5470588235294118,
+     "viol_tief": []
+    },
+    "M3": {
+     "band_verletzungen_tief": 0,
+     "band_verletzungen_hoch": 5,
+     "band_verletzungen_zweiseitig": 5,
+     "max_abs_e": 0.03719467328455913,
+     "mae": 0.018271401845079197,
+     "spearman_pred_res": 0.4970588235294117,
+     "viol_tief": []
+    },
+    "M4": {
+     "band_verletzungen_tief": 0,
+     "band_verletzungen_hoch": 4,
+     "band_verletzungen_zweiseitig": 4,
+     "max_abs_e": 0.041437670952447304,
+     "mae": 0.01913521435215397,
+     "spearman_pred_res": -0.25,
+     "viol_tief": []
+    }
+   },
+   "m0_violationen_tief": 0,
+   "best": "M0",
+   "best_violationen_tief": 0
+  }
+ },
+ "traeger_familien": [],
+ "hh9_1_test_a_support": false,
+ "ergebnis_text": "q5 M0-tief 5 Verletzungen; Familien mit q5-tief<=1 und q3-M0-Hebung: KEINE -> H-H9-1 Test A FAELLT als Unterstuetzung weg",
+ "z_sign_null": {
+  "p_11_13_vorzeichen": 0.01123046875,
+  "p_9_9_stabil": 0.001953125
+ }
+}
