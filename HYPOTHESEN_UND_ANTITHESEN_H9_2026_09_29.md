@@ -323,6 +323,67 @@ aus dem fit 0.210(±) + 1/effective_total-Struktur folgt; falsifiziert, wenn
 alpha unter das MOCS_ext-Band [0.0864, 0.0882] abfallt, ohne dass omega auf
 dem v1-Band bleibt.
 
+**ERGEBNIS 2026-09-29 (0 QPU, nicht verdict-tragend — N-Sweep klassisch).**
+Scratch `scratches/h9_nsweep_1e7.py` (+ `_out.json`), ex-ante-Registry im
+Scratch VOR dem ersten Lauf (Deck-Vertrag: Grid [16777215, 10^7, 10^8],
+Legs L7a/L7b/L7c/L8, Falsifizier-Kette F1/F2/F3, Solver-Pfad-Pins
+SP1-SP3, Laufgate G1/G2, KEIN Re-Decide, KEINE Toleranz-Erhoehung).
+
+Reparatur-Kette (im Scratch + Artefakt offenlegt): erster Lauf Pin-Grid
+14/14 (Pins S/R/cv gegen das committete v1-Artefakt je 0.0), dann
+Mess-Beine komplett (per-Row-Zeitsumme 5.73e3 s ≈ 95 min), dann Crash im
+Carrier-Assembly (TypeError Zeile 466 — der SP3-Fallback cv=None traf die
+Band-Schleife). Fix = Wire-Only elif-Zweig (cv_path == "gershgorin") +
+registrierter --resume-Pfad: Resume 31.5 s, Pins neu mit Kreuzcheck (worst
+rel dev 4.440892098500626e-16), Mess-Beine bit-identisch wiederverwendet,
+SP3-Intervall 1e8 nachgerechnet (9.4 s), alphas-Kreuzcheck worst
+1.1102230246251565e-15; KEIN Messwert neu bestimmt, Traceback bleibt im
+Artefakt (provenance.reparatur).
+
+Mess-Beine (S_vN / R_N / cv_spread_A):
+
+| N | pi(N) | dim | S_vN | R_N | cv | Pfad |
+|---|---|---|---|---|---|---|
+| 16777215 | 1077871 | 2^24 | 6.467143330665527 | 0.4655803675534549 | 0.0853186878697372 | tridiag (3483.1 s) |
+| 10000000 | 664579 | 2^24 | 6.303045825320487 | 0.4701341530836239 | 0.08537268550490461 | tridiag (1445.7 s) |
+| 100000000 | 5761455 | 2^27 | 7.314077573908791 | 0.4698540660303997 | [0.08509362131118446, 0.08509368598235738] | SP3 per G1 |
+
+R(N) < 1 an allen drei Beinen (F3 erfuellt). Traeger: cv fest im
+F2-Band [0.05, 0.20]; bei 1e8 ist der SP3-Gershgorin-Intervall nur 6.5e-8
+BREIT (varA exakt 850936638580004.5, spread [99999987, 100000025]) —
+Primzahl-Leitern machen Gershgorin nahezu exakt, weil Prime-Gaps gegen N
+verschwinden. Exaktes cv bei 1e8 SKIP per Laufgate G1 (Extrapolation
+1.087e5 s > 10 800 s).
+
+Leg-Alphas (LSQ, registrierte Legs): L7a 0.10080572342642624, L7b
+0.10442656337836317, L7c 0.10018503757806375, L8_primary
+0.09579742324575857, L8b_deck_literal 0.09587592164990294 — ALLE ueber
+der Bandkante 0.0864 (below_band_lo false an allen fuenf Legs, F1 feuert
+nirgends), kombiniert C15/C16/C17 0.17121/0.16021/0.14790. Die
+Grenzwert-Zeile der Aussage, alpha_combined/effective_total =
+0.08669525356827014, liegt exakt IM Band [0.0864, 0.0882] — die Struktur
+der Hypothese bleibt intakt; was bei N <= 10^8 fehlt, ist die Konvergenz
+dorthin: 0.1326 (ext-only, 65535) -> 0.1008 (L7a) -> 0.0958 (L8).
+
+**Verdict: UEBER_BAND** (Klassifikation des registrierten Legs L8). Die
+Praediktion "alpha im Band" ist bei 1e8 NICHT erreicht UND der wortliche
+Falsifizierer feuert NICHT — er verlangt alpha < 0.0864 UND omega
+ausserhalb des v1-Bands zugleich, und der Traeger bleibt auf Band in
+jeder Lesart. H-H9-5 in der registrierten Form weder CONFIRMED noch
+FALSIFIZIERT: Approach unvollstaendig; N > 10^8 ist der Weg, das Band zu
+erreichen oder auszuschliessen. Deskriptiv (nicht klassifizierend):
+lokale Tail-Slopes kreuzen die Kante stellenweise (65535 -> 16777215
+0.08612990854616982 knapp ueber, 65535 -> 10^8 0.08194344113421506 knapp
+unter 0.0864, 10^7 -> 10^8 0.06460909759335116); registriertes
+Klassifizier-Objekt bleibt das Leg-LSQ-alpha, daher feuert F1 unter der
+Leg-Lesart nicht und die Traeger-Bedingung haelt es ohnehin still.
+alpha_line des L8-Fits 0.03948172787755448 deskriptiv. Traeger-Drift
+fachlich: cv 0.08636 (v1, 65535) -> 0.08537 (10^7) ->
+[0.0850936, 0.0850937] (10^8) Richtung 1/12 = 0.083333; die 2^24-Beine
+(0.085319/0.085373) fluktuieren auf demselben Plateau. Verdicts-Block
+des Artefakts: hh9_5_f1_feuert false, hh9_5_carrier_hold true,
+hh9_5_r_hold true, committete_verdicts_unangetastet true.
+
 ### C.6 H-H9-6 "Kalibrier-Epochen-Regime" (V5/035/046 + Fez-Bein-Kette)
 
 **Aussage.** Das V5-re-hd-Bias ist eine Funktion der KALIBRIER-EPOCHE
@@ -489,7 +550,7 @@ eine Shuffle-Kontrolle im naechsten Freeze.
 | 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
 | 5 | Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig) | 0 Zusatz | κ_r8(q5) 0.098 ± 0.006 beide Sessions bereits; Session-3-Tol 0.004 (C.2) | C.2 |
 | 6 | ~~n=5-Atom-Familie offline (T9-Extrapolation, 0 QPU, Stunden)~~ ERLEDIGT 2026-09-29: **FALSIFIZIERT (registrierte Form)** — R-Kanal hält 2 Atome (1.4787263318362183/1.0228658077883055, \|gap\| 0.4559, Bahnen [15,30] exakt, within-R 1e-9), aber max_within 3.191092437940738 über den r_median-Kanal (per-Instanz-t′-Diskontinuität: 2/10 gepaarte relabel-Paare mit dt′/t0 9.85e-04/4.35e-04 → ratio-O(1)-Sprünge, Mechanismus bit-exakt C.4a) | 0 QPU ✓ | F1/F2 feuern, F3 nicht; KEIN Re-Decide, full-Grid (69 h) nicht gelaufen (C.4a) | 045/T9 |
-| 7 | N-Sweep 10^7 (023-EXT-Kette) | CPU-Batch | alpha im Band, das aus effective_total 2.426374 folgt (C.5) | 023-EXT |
+| 7 | ~~N-Sweep 10^7…10^8 (023-EXT-Kette)~~ ERLEDIGT 2026-09-29: **UEBER_BAND** — Leg-Alphas ALLE ueber der Kante (L8 0.095797 auf (0.0882, 0.1326], F1 feuert an keinem der fuenf Legs), Traeger cv fest im F2-Band ([0.0850936, 0.0850937] bei 1e8 per SP3, Intervallbreite 6.5e-8), R(N) < 1; Praediktion bei 1e8 NICHT erreicht, wortlicher Falsifizierer STILL (er braucht alpha < 0.0864 UND Traeger ausserhalb — Traeger bleibt auf Band) (C.5a) | 0 QPU ✓ | weder CONFIRMED noch FALSIFIZIERT — kein Re-Decide, kein Messwert neu (erster Lauf Crash im Carrier-Assembly nach vollst. Messung → Wire-Only-Fix + --resume, Kreuzchecks pins 4.4408920985e-16 / alphas 1.1102230246251565e-15) (C.5a) | 023-EXT |
 | 8 | Kalibrier-Ber-Vergrößerung n_cal ≥ 16 (nur Kalibrier-P, keine Verdict-Aenderung) | 1 QPU-Job | RESID-SD am q5-Bein unter 0.01 (D.5) | 047 |
 
 **Hinweis zum Deck-Charakter:** keine der Pruefungen 2-7 aendert ein
@@ -516,7 +577,13 @@ Raw-Commit VOR Auswertung).
   ex-ante-Erwartungen P1–P4, Staffel-Korrektur 10× 045-Basis VOR dem ersten
   n=5-Lauf registriert und Deck-Text-Korrektur 45 Muster;
   h9_atom_n5_diag4_relabel.json = Diagnostik-Probe 4 pair-resolved
-  relabel-Paare, nicht verdict-tragend).
+  relabel-Paare, nicht verdict-tragend), scratches/h9_nsweep_1e7.py
+  (+ _out.json: H-H9-5 N-Sweep 16777215/10^7/10^8, ex-ante-Registry,
+  erster Lauf Crash im Carrier-Assembly NACH vollst. Messung →
+  Wire-Only-Fix + --resume (Pins neu, Mess-Beine bit-identisch
+  wiederverwendet, Kreuzchecks pins 4.4408920985e-16 / alphas
+  1.1102230246251565e-15, SP3-Intervall 1e8 nachgerechnet); KEIN
+  Messwert neu bestimmt, kein Re-Decide).
 
 **Endnote (Bewertung):** H-H9-1 ist der einzige Befund dieses Decks, der
 eine NEUE Struktur annimmt (Grade: Empirie, noch keine Verdict-Faehigkeit —
