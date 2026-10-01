@@ -1,0 +1,127 @@
+{
+  "E4": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791
+  ],
+  "E5": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791,
+    6.594816686495204
+  ],
+  "adversarial_invariance_red_flag": false,
+  "classification": "H-TEST1-QUALIFIER: NOTWENDIGKEIT_GEFALLEN",
+  "comparison_points": [
+    {
+      "Gamma_binary": 0.0007658737413987801,
+      "Gamma_ququint": 0.00097183811922779,
+      "channel": "K2",
+      "delta": 0.001,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.2689273266541816
+    },
+    {
+      "Gamma_binary": 0.007514407797593639,
+      "Gamma_ququint": 0.009471393632412466,
+      "channel": "K2",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.2604311460772089
+    },
+    {
+      "Gamma_binary": 0.03466895655582602,
+      "Gamma_ququint": 0.04255139401238343,
+      "channel": "K2",
+      "delta": 0.05,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.2273629852073753
+    },
+    {
+      "Gamma_binary": 0.010059032590795814,
+      "Gamma_ququint": 0.010059098854521283,
+      "channel": "K3",
+      "delta": 0.001,
+      "favorable": false,
+      "gamma": 0.02,
+      "median_binary": 0.004986442496629519,
+      "median_ququint": 0.005026477996235334,
+      "ratio_q_over_b": 1.0000065874849167
+    },
+    {
+      "Gamma_binary": 0.09619949579085696,
+      "Gamma_ququint": 0.09620047519425422,
+      "channel": "K3",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "median_binary": 0.050722674448168706,
+      "median_ququint": 0.050945389703970584,
+      "ratio_q_over_b": 1.0000101809618565
+    },
+    {
+      "Gamma_binary": 9.836994721709344e-05,
+      "Gamma_ququint": 0.00010470776399481629,
+      "channel": "K4",
+      "delta": 0.001,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.064428384450953
+    },
+    {
+      "Gamma_binary": 0.0027375934418365448,
+      "Gamma_ququint": 0.0027841668333576618,
+      "channel": "K4",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.0170125303521595
+    },
+    {
+      "Gamma_binary": 0.1614372330494929,
+      "Gamma_ququint": 0.16143807655811973,
+      "channel": "K5",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.000005224994327
+    }
+  ],
+  "control_diagnostics": {
+    "K2_d010_Gamma_control": 0.007514407797593639,
+    "K2_d050_Gamma_control": 0.03466895655582602,
+    "interior_ratio_diff_vs_binary_gamma0": 0.0,
+    "interior_ratio_diff_vs_binary_gamma002": 0.0,
+    "placeholder_gap": 0.012181877622089665
+  },
+  "experiment": "048b",
+  "favorable_required": 5,
+  "frozen_prereg_md5": "4f7c65d449ee1d56155b76539cb0c0c8",
+  "gamma_grid": [
+    0.0,
+    0.02
+  ],
+  "gates": {
+    "GATE_A_pass": true,
+    "GATE_A_shared_interior_ratio_diff_gamma0": 0.0,
+    "GATE_B_max_drift": 2.2934926022054575e-14,
+    "GATE_B_pass": true
+  },
+  "hypothesis": "H-TEST1",
+  "iteration_note": "048 v1 unveraendert committet (de77b33c...); 048b: K2/K4 arm-symmetrisch aus Diagnostik D1/D2",
+  "n_draws": 100,
+  "n_favorable": 0,
+  "prereg_md5": "4f7c65d449ee1d56155b76539cb0c0c8",
+  "pt_status_gamma_compare": {
+    "binary": 0.02994539229037304,
+    "ququint_CONTROL": 0.02994539229037304,
+    "ququint_PRIMARY": 0.02992793061598015
+  },
+  "seed": 20261001,
+  "span_shared": 2.9878181223779103
+}
