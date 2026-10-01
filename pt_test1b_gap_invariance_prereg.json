@@ -1,0 +1,98 @@
+{
+  "experiment": "048b",
+  "hypothesis": {
+    "id": "H-TEST1",
+    "reduced_claim": "Eine niedrigere Verschraenkung erhoht die numerische Robustheit der Relativ-Struktur der Repraesentation (Grade E als testbare Aussage, Richtung C+/B-).",
+    "test1_limb": "GF(5)-Arm zeigt unter identischen (relativ normierten) Rauschkanaelen engeren relativen Gap-Ratio-Drift als der Binaer-Arm. Sonst: Notwendigkeit der GF(5)-Architektur restlos fallengelassen.",
+    "excluded": "Kein RH-Relevanz-Claim, kein Dekohaerenz-Schutz-Claim, kein Resonanz-Ontologie-Claim (formell gestrichen). RH ist Ortsaussage Re(s)=1/2; Montgomery-GUE ist separate Conjecture. 'Schutz von Spektren vor Dekohaerenz' ist Kategorienfehler — messbar ist nur numerische Robustheit der Repraesentationsstruktur unter simuliertem Rauschen."
+  },
+  "iteration_note": "Nummerierte Iteration zu EXPERIMENT 048 (Präzedenz H9a 2/n: alte Version bleibt unangetastet committet). 048 v1: gefrorenes Verdict CONFIRMED (5/8, exakt an der Kante, Prereg md5 de77b33c21077949c6202c1b7e6994e5, Commits 039dc08/7fae109). Die NICHT-verdict-tragende Diagnostik (scratch_test1_diag_norm.py, gleicher Commit) kippte ALLE 5 favorable Punkte als Kanal-Normalisierungs-Artefakte: D1 K2 arm-symmetrisch (shape ohne max-Re-Norm) q/b 1.2689/1.2604/1.2274 statt 0.727-0.732; D2 K4 per-pair (ohne ||S||_2-Norm) q/b 1.0644/1.0170 statt 0.790/0.693; K3/K5 bereits arm-symmetrisch und banden exakt bei 1.000. 048b uebernimmt die arm-symmetrischen Kanalformen aus D1/D2 als Prereg-Definitionen und macht damit die artefaktfreie Lesart verdict-traegend. Aussage-Logik UNVERAENDERT: <= 3/8 favorable -> NOTWENDIGKEIT_GEFALLEN.",
+  "arms": {
+    "binary": {
+      "dim": 4,
+      "levels": "E_DIAG aus pt_structural (2.0, 2.6931471805599454, 3.683857645907477, 4.98781812237791)",
+      "A": "jacobi_A(E_DIAG, y=1.0)",
+      "H": "diag(E) + i*gamma*A_4"
+    },
+    "ququint_PRIMARY": {
+      "dim": 5,
+      "levels": "E_DIAG + [E_5 = f(E_4) = E_4 + ln(E_4)] (Iterations-Fortsetzung, exakt 6.594816686495204) — NICHT der Platzhalter 5.0",
+      "A": "jacobi_A(E_DIAG_5, y=1.0) vollstaendig (5x5, alle Paare nach Mittelwertsatz gekoppelt)",
+      "H": "diag(E5) + i*gamma*A_5",
+      "rationale": "Dieselbe Konstruktionsregel bei n=5. Der bestehende pt_ququint_vqe-Arm ist block-trivial (A_5 = block_diag(A_4, 0); fuenftes Niveau entkoppelter Platzhalter 5.0) und waere als Vergleichsarm ein leerer Test."
+    },
+    "ququint_CONTROL": {
+      "dim": 5,
+      "levels": "E_DIAG + [5.0] (Platzhalter, bestehende block-trivial-Fassung)",
+      "A": "block_diag(A_4, 0)",
+      "expected": "Innen-Ratios bit-vergleichbar zum Binaer-Arm (Block-Struktur). Der Platzhalter-Gap 5.0 - 4.98781812237791 = 0.01218187762209 ist fragil — als DIAGNOSE berichtet, nicht Teil des Vergleichs."
+    }
+  },
+  "gamma": {
+    "working_point_note": "gamma=0.02 ist der eingefrorene Record-Wert aus pt_ququint_vqe.py (GAMMA=0.02)",
+    "grid": [0.0, 0.02],
+    "comparison_grid": "NUR gamma=0.02 traegt Vergleichspunkte. Bei gamma=0 sind beide Arme diagonal und teilen das Innen-Spektrum EXAKT — Punkte waeren strukturell vakuum (identische Innen-Ratios, kein Kopplungsunterschied). gamma=0 bleibt als GATE-A."
+  },
+  "channels": {
+    "K1_additiv_global": {
+      "def": "H_tilde = H + delta*span_shared*I",
+      "deltas": [0.001, 0.01, 0.05],
+      "role": "Pflichtkontrolle — exakte Invarianz BEIDER Arme (Gap-Ratio-Drift <= 1e-12), sonst Metrik-/Skript-Fehler, kein Verdict"
+    },
+    "K2_glatt_nichtlinear_diag": {
+      "def": "Diagonal-Stoerung: E_t = E + delta*span_shared*S_i, S_i = (E_i/span_shared)^2 — OHNE armeigene max-Re-Normierung (arm-symmetrische Form aus 048-Diagnostik D1: dieselbe Funktion auf jedem Niveau jedes Arms; die absolute Amplitude am 5. Niveau des Ququint-Arms (S=4.866) folgt aus der Funktionsform und ist Teil desInputs)",
+      "deltas": [0.001, 0.01, 0.05]
+    },
+    "K3_kohrentes_detuning_stochastisch": {
+      "def": "Diagonal-Stoerung: E_t = E + delta*span_shared*u_i, u uniform [-1,1] pro Draw (100 gepaarte Draws, derselbe Draw-Vektor fuer beide Arme: Binaer nutzt u[:4], Ququint u[:5]) — Phase-11-Lektion: kohaerentes Detuning ist der level-verschiebende Hardware-Kanal, reines Dephasing verschiebt Diagonalspektren nicht",
+      "deltas": [0.001, 0.01],
+      "quantiles": {
+        "median": "berichtet",
+        "q95": "VERDICT-traegend (konservativ)"
+      }
+    },
+    "K4_strukturiert_offdiag": {
+      "def": "H_tilde = H + delta*span_shared*S, S reell-symmetrisch, S_ij = 1 fuer alle i<j (alle-Paare-Struktur) — OHNE ||S||_2-Normierung (arm-symmetrische Form aus 048-Diagnostik D2: dieselbe per-Paar-Amplitude in jeder Dimension; die spektrale Norm wächst als (dim-1) und ist Teil des Inputs)",
+      "deltas": [0.001, 0.01]
+    },
+    "K5_adversarial_nichtglatt": {
+      "def": "Diagonal-Stoerung: E_t = E + delta*span_shared*alt_i, alt_i = (-1)^i (alternierend, max-normalisiert) — Worst-Case gegen glatte Invarianz",
+      "deltas": [0.01],
+      "role": "Anti-Fake-Win-Klasse — soll Differenzen ERZEUGEN; berichtetes 'invariant' hier waere rote Flagge (ADVERSARIAL_INVARIANCE_RED_FLAG, separat gemeldet)"
+    }
+  },
+  "normalization": {
+    "amplitude": "Stoeramplitude = delta * span_shared fuer ALLE Kanaele und BEIDE Arme",
+    "span_shared": "Spektralbreite des GEMEINSAMEN 4-Niveau-Spektrums: 4.98781812237791 - 2.0 = 2.98781812237791",
+    "arm_symmetry_rule": "Gegenüber 048 v1 (correction_log dort): KEINE armeigene Re-Normierung im Kanal-Input — die Kanalform S(E) ist in beiden Armen dieselbe Funktion derselben Argumente (K2), bzw. dieselbe per-Paar-Amplitude (K4). Damit ist der Kanal-Input pro (Niveau, Paar) arm-unabhängig definiert.",
+    "correction_log": "KORREKTUREN VOR FREEZE 048b: (1) aus 048 v1 UEBERNOMMEN: span_shared statt per-Arm-span; Vergleichsgitter nur gamma=0.02. (2) NEU in 048b (aus der committeten 048-Diagnostik abgeleitet, VOR Sichtbarkeit der 048b-Zahlen): K2 max-Re-Normierung -> Form (E/span_shared)^2 ohne Re-Norm; K4 ||S||_2-Normierung -> per-Paar-Struktur ohne Spektralnorm. Grund: v1-favorable Punkte K2 (3x) und K4 (2x) kippten in D1/D2 komplett (Richtungsumkehr), armeigene Normierer waren die Quelle; v1-Verdict bleibt UNVERAENDERT committet (kein Re-Decide, nummerierte Iteration)."
+  },
+  "metrics": {
+    "PRIMARY_gap_ratio_drift": "Gamma_MAX = max_n |(r_n_tilde - r_n) / r_n|, mit r_n = g_{n+1}/g_n, g_n = Re(E_{n+1}) - Re(E_n) (sortiert nach Realteil), n = 1..(dim-2); skalenfrei — das strenge 'relative Spektrum'",
+    "SECONDARY_gap_drift": "D_MAX = max_n |(g_n_tilde - g_n) / g_n|",
+    "PT_status_report": "max |Im E_n| pro Arm und gamma — separat berichtet, kein Claim-Wert (Anschluss an 005v3: unbroken-Fenster-Huerde gamma*=0)"
+  },
+  "comparison_points": {
+    "definition": "8 Punkte bei gamma=0.02, OHNE Kontrollklasse K1: K2 x {0.001, 0.01, 0.05}, K3 x {0.001, 0.01} via q95, K4 x {0.001, 0.01}, K5 x {0.01}",
+    "favorable_point": "Gamma_MAX(ququint_PRIMARY) < Gamma_MAX(binary) * (1 - 0.10)   [10%-Kante]"
+  },
+  "precondition_gates": [
+    "GATE-A: bei gamma=0 ohne Kanal — relative Gap-Ratios im gemeinsamen Innen-Spektrum Binaer vs Ququint-PRIMARY innerhalb 1e-10 (Konstruktionskonsistenz)",
+    "GATE-B: K1 bei allen deltas und beiden gamma — Gap-Ratio-Drift <= 1e-12 in BEIDEN Armen",
+    "GATE-C: ququint-CONTROL Innen-Ratios (r_1, r_2) bit-vergleichbar zum Binaer-Arm bei beiden gamma (<= 1e-10); Platzhalter-Fragilitaet (r_3) nur Diagnose"
+  ],
+  "verdict_rule": {
+    "GF5_advantage_confirmed": ">= 5 von 8 Vergleichspunkten favorable -> H-TEST1-QUALIFIER: CONFIRMED",
+    "mixed": "genau 4 von 8 favorable -> H-TEST1-QUALIFIER: MIXED (per-Kanal-Tabelle berichtet)",
+    "necessity_dropped": "<= 3 von 8 favorable -> H-TEST1-QUALIFIER: NOTWENDIGKEIT_GEFALLEN",
+    "degenerat": "GATE-A, GATE-B oder GATE-C verletzt -> H-TEST1-QUALIFIER: DEGENERAT (kein Verdict-Wert)",
+    "no_re_decide": "Kanaele/Metriken/Regeln nach Freeze fix; KEINE Toleranz-Erhoehung, keine Kanal-Streichung oder -Ergaenzung nach Sichtbarkeit der Zahlen"
+  },
+  "seeds": {
+    "numpy_default_rng": 20261001,
+    "note": "Ein rng(default_rng(20261001)); K3: 100 Draws (u-Form (100,5)), dieselben Draws fuer beide Arme (gepaart); K2/K4/K5 deterministisch — SEED UNVERAENDERT zu 048 v1 (Paar-Design identisch)"
+  },
+  "runtime": "0 QPU, 0 Aer — reine numpy-Perturbations-/Algebrarechnung (5x5 / 4x4), Laufzeit Sekunden",
+  "no_push": true,
+  "branch_note": "Eigener Branch h-test1-gap-invariance (Fortsetzung der 048-Kette, kein neuer Branch); kein Mischbetrieb mit der ram-q-zyklizitaet-046-Watch"
+}
