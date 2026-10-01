@@ -143,7 +143,19 @@ def gamma_for_amp(psi, n_qubits, delta, shape_vals, lam_p, r_p, ok_p, idx=None):
 
 
 def q95(x):
-    return float(np.quantile(np.asarray(x, float), 0.95))
+    """q95 over non-None draws; None wenn keine verwertbaren Draws
+    (Punkt ohne Traeger-Ratios -> GATE-C-Exklusion)."""
+    xs = [v for v in x if v is not None]
+    if not xs:
+        return None
+    return float(np.quantile(np.asarray(xs, float), 0.95))
+
+
+def arr_median(x):
+    xs = [v for v in x if v is not None]
+    if not xs:
+        return None
+    return float(np.median(xs))
 
 
 def avg_ranks(x):
@@ -255,7 +267,7 @@ def main():
             draws_k3_005.append(gam)
             tilde_len_k3.append(lt)
         gp["K3_q95_001"] = q95(draws_k3_001)
-        gp["K3_median_001"] = float(np.median(draws_k3_001))
+        gp["K3_median_001"] = arr_median(draws_k3_001)
         gp["K3_q95_005"] = q95(draws_k3_005)
         gp["K3_tilde_len_min"] = int(min(tilde_len_k3))
         gp["K3_tilde_len_max"] = int(max(tilde_len_k3))
@@ -270,13 +282,11 @@ def main():
         points.append(gp)
     results["grid_points"] = points
 
-    # ---------------- GATE-A, GATE-C
-    k1_vals = [v for gp in points for v in (gp["K1_001"], gp["K1_005"]) if v is not None]
-    results["gate_a_max_K1"] = float(max(k1_vals))
-    gate_a_ok = bool(all(v is not None and v <= GATE_A_TOL for v in k1_vals)
-                     and len(k1_vals) == 2 * len(points))
-    results["gate_a_ok"] = gate_a_ok
-
+    # ---------------- GATE-C (VALID-Punkte), dann GATE-A ueber VALID-Punkte
+    # Gefrorener GATE-A-Text: K1 exakt invariant an ALLEN VALID Gitterpunkten.
+    # Ratio-lose Punkte (kein VALID-k, hier N=7: K=2-Spektrum -> 0 Ratios)
+    # tragen kein Gamma und sind via GATE-C exkludiert. Post-freeze
+    # Maschinen-Fix (crash VOR prints, 023-EXT-Praezedenz).
     valids = [gp for gp in points
               if gp["n_valid_base"] >= 1
               and gp["K3_q95_001"] is not None]
@@ -286,6 +296,14 @@ def main():
     gate_c_ok = len(valids) >= 8
     results["gate_c_ok"] = bool(gate_c_ok)
     results["gate_c_n_valid"] = len(valids)
+
+    k1_vals = [v for gp in valids for v in (gp["K1_001"], gp["K1_005"])
+               if v is not None]
+    results["gate_a_missing_K1"] = 2 * len(valids) - len(k1_vals)
+    gate_a_ok = bool(k1_vals and len(k1_vals) == 2 * len(valids)
+                     and all(v <= GATE_A_TOL for v in k1_vals))
+    results["gate_a_max_K1"] = float(max(k1_vals)) if k1_vals else None
+    results["gate_a_ok"] = gate_a_ok
 
     # ---------------- VERDICT (gefrorene Regel)
     gamma_valid = [gp["K3_q95_001"] for gp in valids]
@@ -360,13 +378,14 @@ def main():
     # ---------------- Sekundaer-Kanaele: Richtung-Konsistenz (NOT verdict-tragend)
     sec = []
     for ch in ("K3_q95_005", "K2_001", "K2_005", "K5_001"):
-        vals = [gp[ch] for gp in valids]
-        med_g = float(np.median([gp["K3_q95_001"] for gp in valids]))
-        med_c = float(np.median(vals))
-        same = sum(1 for gp, v in zip(valids, vals)
-                   if np.sign(gp["K3_q95_001"] - med_g) == np.sign(v - med_c))
+        pairs = [(gp["K3_q95_001"], gp[ch]) for gp in valids
+                 if gp[ch] is not None]
+        med_g = float(np.median([p[0] for p in pairs]))
+        med_c = float(np.median([p[1] for p in pairs]))
+        same = sum(1 for g, v in pairs
+                   if np.sign(g - med_g) == np.sign(v - med_c))
         sec.append({"channel": ch, "same_median_sign": same,
-                    "of": len(valids)})
+                    "of": len(pairs)})
     results["secondary_sign_consistency"] = sec
 
     results["total_runtime_seconds"] = time.time() - t0
