@@ -1,0 +1,93 @@
+{
+  "experiment": "049",
+  "hypothesis": {
+    "id": "H-TEST2",
+    "reduced_claim": "Eine niedrigere Verschraenkung erhoet die numerische Robustheit der Relativ-Struktur der Repraesentation (Grade E als testbare Aussage, Richtung C+/B-, identisch zu 048/048b).",
+    "test2_limb": "Kausal-Glied: Verschraenkung und Robustheit der Relativ-Struktur wandern mit. Gemessen am Prime-Zustands-Familien-Gitter: kovariiert der Gap-Ratio-Drift Gamma(N) des Schmidt-Spektrums von |P_N> unter Detuning-Kanaelen mit der Verschraenkung S_vN(N)? Sonst: Kausal-Glied fallengelassen.",
+    "excluded": "Kein RH-Relevanz-Claim, kein Dekohaerenz-Schutz-von-Spektren-Claim (Kategorienfehler, formell gestrichen), kein Ontologie-Claim, keine Hardware-Schutz-Prognose. Gemessen wird nur numerische Robustheit der Schmidt-Relativstruktur unter simuliertem Amplituden-Rauschen, 0 QPU."
+  },
+  "test2_operationalization": {
+    "state_family": "|P_N> = normalize(sum_{p<=N} |p>) mit p Prime (Sieve of Eratosthenes), statevector numpy REAL float64 (Zustandsfamilie reell; nur die Blend-Diagnostik arbeitet komplex), Bipartition = AXIS-Konvention (siehe data_basis.axis_definition)",
+    "relativ_structure": "Schmidt-Lambda-Spektrum der Bipartition, gaps g_k = lam_k - lam_{k+1} (absteigend sortiert), Ratios r_k = g_{k+1}/g_k",
+    "metric": "Gamma_MAX = max_k |(r_k_tilde - r_k) / r_k| ueber die VALID-Menge k (Gap-Floor-Regel, Basis = Pristine des jeweiligen Punkts) — das strenge relative Spektrum, skalenfrei, identische Definition zu 048/048b",
+    "gap_floor_rule": "VALID: k nur wenn min(g_k, g_{k+1}) >= 1e-6 * lam_max ( beide Seiten in der AXIS-Konvention, Pristine-Basis frisch). Grund: nahe-entartete Lam-Paare machen gap-Ratios instabil (048-Lektion: Metrik-Instabilitaet ist kein Architektur-/Aussage-Signal); Anzahl ausgeschlossener und Gesamt-r pro Punkt wird berichtet. Punkt ohne mind. 1 VALID-k: EXKLUSION (GATE-C). Ratio-Index-Alignment: r_k verglichen an sorted-Position k ueber min(len_pristine, len_tilde)-1 Ratios; Traeger-Regel lam > 1e-30 beidseits; Traegerlaengen-Differenz wird berichtet (NOT gate).",
+    "channels": {
+      "K1_uniform": "a_p -> 1 + delta fuer ALLE p, dann renormalisieren — exakt invariant nach Skalierung (Pflichtkontrolle, Gate-Kanal)",
+      "K2_glatt_nichtlinear": "a_p = 1 + delta * (p/N)^2 — glatt, OHNE Renormierung der Shape-Funktion (048b-Lektion arm-symmetrisch: dieselbe Funktion jedes p jedes N)",
+      "K3_koharentes_detuning_stochastisch": "a_p = 1 + delta * u_p, u uniform [-1,1] pro Prime und Draw, VERDICT-tragend-Kanal (Phase-11-Lektion: kohaerentes Detuning ist der level-verschiebende Kanal)",
+      "K5_adversarial_alternierend": "a_p = 1 + delta * (-1)^k (k = Prime-Index, 0-basiert) — Worst-Case, Differenzen erzeugen",
+      "K4_allpares_offdiag": "ENTFAELLT mit Ableitung VOR Sichtbarkeit der Zahlen: ein zeilenkonstanter Operator S (alle-Paare-Struktur nach 048b-Form) wirkt auf uniformen Prime-Zustaenden als S·psi proportional psi — exakt invariant, also vakuum als Testkanal; nicht-zeilenkonstante Off-Diag-Strukturen bruechten eine Prime-Pairing-Wahl ohne natuerliche Definition. K4 bleibt Exklusiv-Objekt der 048/048b-Operator-Seite."
+    },
+    "delta_grid": {
+      "K3_delta_001_VERDICT": "delta = 0.01, 50 Draws, q95 (konservativ, wie 048b K3)",
+      "K3_delta_005_secondary": "delta = 0.05, 10 Draws, q95 (nur Diagnostik)",
+      "K2_deltas": [0.01, 0.05],
+      "K5_deltas": [0.01],
+      "K1_deltas": [0.01, 0.05]
+    }
+  },
+  "data_basis": {
+    "bit_source_note": "Alle 11 Zeilen stammen aus committeten Bit-Quellen. Die drei Quellen nutzen VERSCHIEDENE Konventionen — bit-exakt verifiziert (Pre-Freeze-Check 3, 2026-10-01): singleshot = reshape C-order, Zeilen = HIGH-Seite, balancierter Split (d_A = 2^floor(n/2)), Entropie NATS (np.log), Traeger-Filter > 1e-12 ABSOLUT; pt_prime_state_N255 und pt_asymptotic_N1e6 = reshape order-F, Zeilen = LSB-Seite (n_A-Zeilen als COUNT), Entropie BITS (np.log2). S(nats) der committeten s_sq x (1/ln2) == Zeilenfeld EXAKT bei 255/511/1023.",
+    "axis_definition": "AXIS-Konvention (frozen): frischer uniform-prime Statevector REAL float64, reshape((2^floor(n/2), 2^ceil(n/2)), order='F') — A = LSB-Seite floor(n//2) Qubits — Entropie log2 (BITS), Traeger lam > 1e-30, dann absteigend sortiert. Dies ist die Konvention von pt_asymptotic_N1e6.py (Eigentuemer des alpha-Trajektorie-Ankers); die 6 grossen Zeilen (255..1e6) sind damit quellentreu, die 5 singleshot-Zeilen tragen einen dokumentierten boundary-Unterschied. Frische Achsenreihe S_bits VORAB gefroren je Zeile (axis_S_bits_frisch); der Runner asserted frisch == gefroren <= 1e-12 (GATE-D).",
+    "rows": [
+      {"N": 7,       "n_qubits": 3,  "n_A_count": 1,  "pi_N": 4,     "S_vN_committet": 0.5623351446188084,   "axis_S_bits_frisch": 0.6008760366928558, "src": "pt_prime_state_qpu_singleshot_results.json (n_A/n_B sind DIMENSIONEN: decode counts = log2(dim))", "s_sq_committiert": true},
+      {"N": 15,      "n_qubits": 4,  "n_A_count": 2,  "pi_N": 6,     "S_vN_committet": 0.836065555629091,    "axis_S_bits_frisch": 1.2061876309641653, "src": "pt_prime_state_qpu_singleshot_results.json", "s_sq_committiert": true},
+      {"N": 31,      "n_qubits": 5,  "n_A_count": 2,  "pi_N": 11,    "S_vN_committet": 0.9209174865193352,   "axis_S_bits_frisch": 1.0046698712728896, "src": "pt_prime_state_qpu_singleshot_results.json", "s_sq_committiert": true},
+      {"N": 63,      "n_qubits": 6,  "n_A_count": 3,  "pi_N": 18,    "S_vN_committet": 1.0222738131627935,   "axis_S_bits_frisch": 1.4748293606806124, "src": "pt_prime_state_qpu_singleshot_results.json", "s_sq_committiert": true},
+      {"N": 127,     "n_qubits": 7,  "n_A_count": 3,  "pi_N": 31,    "S_vN_committet": 1.356183805881178,    "axis_S_bits_frisch": 1.7530973248177040, "src": "pt_prime_state_qpu_singleshot_results.json", "s_sq_committiert": true},
+      {"N": 255,     "n_qubits": 8,  "n_A_count": 4,  "pi_N": 54,    "S_vN_committet": 2.314037122608579,    "axis_S_bits_frisch": 2.3140371226085792, "src": "pt_prime_state_N255_results.json", "s_sq_committiert": true},
+      {"N": 511,     "n_qubits": 9,  "n_A_count": 4,  "pi_N": 97,    "S_vN_committet": 2.5184856999591734,   "axis_S_bits_frisch": 2.5184856999591734, "src": "pt_prime_state_N255_results.json", "s_sq_committiert": true},
+      {"N": 1023,    "n_qubits": 10, "n_A_count": 5,  "pi_N": 172,   "S_vN_committet": 3.1900293627988274,   "axis_S_bits_frisch": 3.1900293627988274, "src": "pt_prime_state_N255_results.json", "s_sq_committiert": true},
+      {"N": 10000,   "n_qubits": 14, "n_A_count": 7,  "pi_N": 1229,  "S_vN_committet": 4.672241830479666,    "axis_S_bits_frisch": 4.6722418304796660, "src": "pt_asymptotic_N1e6_results.json", "s_sq_committiert": false},
+      {"N": 100000,  "n_qubits": 17, "n_A_count": 8,  "pi_N": 9592,  "S_vN_committet": 5.924327731498289,    "axis_S_bits_frisch": 5.9243277314982894, "src": "pt_asymptotic_N1e6_results.json", "s_sq_committiert": false},
+      {"N": 1000000, "n_qubits": 20, "n_A_count": 10, "pi_N": 78498, "S_vN_committet": 7.539223986336283,    "axis_S_bits_frisch": 7.5392239863362862, "src": "pt_asymptotic_N1e6_results.json", "s_sq_committiert": false}
+    ],
+    "pristine_base_rule": "Pristine-Base = FRISCH in der AXIS-Konvention (floor-F, REAL float64) fuer ALLE 11 Punkte — Γ-Kohärenz: Basis und perturbierte Lambda-Mengen muessen derselben Konvention folgen. Committete s_sq-Arrays dienen als GATE-B-Provenienz-Material (Zeile in der Zeilen-Eigenkonvention), nicht mehr als Γ-Basis. (GATE-B beweist die Aequivalenz: frisch vs committet <= 3.55e-15 ueber alle 11 Zeilen.)",
+    "alpha_anchor": "AXIS-Anker = frisch konsistenter Fit ueber die gefrorene axis_S_bits_frisch-Reihe: alpha_axis_full_fit = 0.2004085378325559 (11 Punkte, bits, floor-F), inkrementell 0.3502/0.3451/0.3252/0.3293/0.3094/0.3034/0.2685/0.2289/0.2004 (monoton fallend). Committiert UND dokumentiert-einheitsgemischt: alpha_vN_full_fit = 0.22275345050922138 (siehe correction_log.correction_3_unit_mix)."
+  },
+  "correction_log": {
+    "correction_1_json_syntax": "2026-10-01 pre-freeze: data_basis enthielt eine Bare-String-Zeile (JSON-Syntaxfehler) — ersetzt durch den validen Key bit_source_note. Formatkorrektur, kein inhaltlicher Wechsel.",
+    "correction_2_decode_rules": "2026-10-01 pre-freeze: Konventions-/Einheits-De-Kodierung aller 11 committeten Zeilen bit-exakt verifiziert und GEFROREN: singleshot (N 7..127) = C-order, HIGH-Seite klein (d_A = 2^floor(n/2) als DIMENSION), NATS, Filter > 1e-12 ABS; N255 (255/511/1023) und N1e6 (1e4/1e5/1e6) = order-F, LSB-Seite floor(n//2) als COUNT, BITS. S(nats)(committed s_sq) / ln2 == Zeilen-S_vN_committet EXAKT (255/511/1023).",
+    "correction_3_unit_mix": "2026-10-01 pre-freeze: EINHEITS-MIX-BEFUND am committeten alpha-Fit — pt_asymptotic_N1e6.py load_existing_data() laedt die 5 singleshot-Werte in NATS und die 6 uebrigen in BITS OHNE Konversion; der committete 11-Punkte-Fit 0.22275345050922138 ist damit einheitsgemischt (nats > bits um Faktor 1/ln2, Effekt ueberproportional am kleinen N => Fit zu steil). Frisch konsistent (bits, floor-F): alpha_full = 0.2004085378325559; inkrementell 0.3502 -> 0.2004 monoton fallend. qualitative Aussage (alpha faellt sublinear mit N) UEBERLEBT und wird STAERKER; die Anker-Konstante der user-Datei ('alpha -> 0.223') verschiebt sich auf 0.200. Test 2 korreliert gegen die frische konsistente Reihe (axis_S_bits_frisch), nicht gegen die gemischte.",
+    "correction_4_pristine_base": "2026-10-01 pre-freeze: pristine_base_rule geaendert (urspruenglich 'committed s_sq als Basis wo vorhanden') — jetzt frische AXIS-Basis fuer alle Punkte wegen Γ-Kohärenz; Begruendung: die committeten Quellen mischen Konventionen, eine gemischte Basis waere mit der perturbierten (AXIS-)Seite nicht vergleichbar. Committete s_sq bleiben GATE-B-Kreuzmaterial.",
+    "correction_5_structure_limitation": "2026-10-01 pre-freeze: S_vN(N) ist auf dem frischen Achsen-Gitter NICHT strikt monoton — GENAU EINE Inversion: N=31 (1.0047) liegt UNTER N=15 (1.2062). Die Konfund-Aussage bleibt in der Substanz (beinahe-monotone Achse => rho(Gamma, S_vN) approx rho(Gamma, N), strukturell nicht trennbar, Blend bleibt die einzige dim-feste Achse), der Text wurde von 'MONOTON' auf die gemessene beinahe-monotone Realitaet korrigiert."
+  },
+  "mitwanderung_test": {
+    "PRIMARY_STATISTIC": "Spearman rho( Gamma_K3_q95(delta=0.01)(N) , S_vN_axis(N) ) ueber alle VALID Gitterpunkte (Average-Ranks implementiert, numpy-only)",
+    "lesen_struktur": "Beide Vorzeichen sind VORAB registrierte Lesarten — der Kausal-Glied-Verdict haengt an der GROESSE gegen die Shuffle-Null, NICHT am Vorzeichen; das Vorzeichen weist nur die Lesart zu. Grund: 'Verschraenkung' ist in der urspruenglichen Datei definitorisch zweideutig (Menge S_vN vs exponentielle Daempfung alpha). Nachtraegliche Vorzeichen-Wahl ist ausgeschlossen.",
+    "legs": {
+      "LEG_A_Mengenlesart": "Mehr absolute Verschraenkung (hoeheres S_vN_axis) => mehr Drift. Vorhersage: rho > 0. Trifft ein: MITWANDERUNG_POSITIV weist LEG_A zu.",
+      "LEG_B_Gedaempftlesart": "Die Daempfungs-Lesart ('alpha sinkt': der Zustand weigert sich, sich vollstaendig zu verschraenken) wandert mit MEHR Robustheit. Da S_vN_axis(N) beinahe monoton steigt (eine Inversion N=31/N=15), praediziert diese Lesart rho < 0 auf derselben Statistik. Trifft ein: MITWANDERUNG_NEGATIV weist LEG_B zu."
+    },
+    "shuffle_null": "1000 Permutationen der Gamma-Reihenfolge ueber die VALID Gitterpositionen, seed 20261005, q95 der |rho_null| als Schwellwert (zweiseitig-symmetrische Lesart gegen beide Vorzeichen). Verdict an |rho_obs| > q95_null.",
+    "verdict_classes": {
+      "KAUSALGLIED_GEFALLEN": "|rho_obs| <= q95_null — keine Mitwanderung jenseits Permutations-Zufall",
+      "MITWANDERUNG_POSITIV": "rho_obs > q95_null — Leg A (Mengenlesart) getragen",
+      "MITWANDERUNG_NEGATIV": "rho_obs < -q95_null — Leg B (Gedaempftlesart) getragen",
+      "DEGENERAT": "GATE-A, GATE-B, GATE-C oder GATE-D verletzt"
+    }
+  },
+  "structure_limitation": {
+    "konfund_erkennung": "S_vN_axis(N) ist auf diesem Gitter beinahe monoton in N (einzige Inversion N=31 < N=15: 1.0047 vs 1.2062) => Rang-Spearman rho(Gamma, S_vN_axis) approx rho(Gamma, N) bis auf diese eine Rang-Zeile. Der N-Gitter-Test kann Groesse und Verschraenkung strukturell NICHT trennen — der Kausal-Glied-Test ist in der Gitter-Lesart konfundiert. Das ist VORAB registriert; das Verdict der Gitter-Lesart ist daher maximal 'Kovariation existiert/fehlt', nicht 'Verschraenkung kausal'.",
+    "konfund_kit": "rho(Gamma, N) (wird explizit mit gemeldet und zum Verdict-Wert ins Verhaeltnis gesetzt); rho(Gamma, rank_active) mit rank_active = Anzahl VALID-Ratios pro Punkt; rho(Gamma, S_rel) mit S_rel = S_vN_axis / log2(dim_A); partielle Spearman: Rang-Residuen rho(Gamma, S_vN_axis | rank_active) via least-squares-Rang-Residuen. Alle Berichte NICHT verdict-tragend.",
+    "blend_diagnostik_fixed_N": "EINZIGE dim-feste Achse: N=1023 fest (dim 2^10), theta-Grid [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0], psi_theta = normalize((1-theta)*P_1023 + theta*chi), chi = komplexer Gauss-Zufallsvektor (seed 20261003, dim 1024). Pro theta: Pristine-Lambdas (AXIS-Konvention floor-F) -> VALID-Ratios, danach K3 (delta=0.01, 50 Draws, q95, Stream seed 20261004 sequenziell in theta-Reihenfolge). Bericht: Spearman(Gamma, S_vN) ueber theta-VALID-Punkte + rank-Konfund — NOT verdict-tragend (Rang innerhalb der Familie ebenfalls strukturell mit theta kovarianter — Konfund bleibt, aber dim ist fix).",
+    "k3_secondary_deltas": "K3 @ delta=0.05 (10 Draws) + K2- und K5-Gamma-Reihen ueber das Gitter: Richtung-Konsistenz mit der Verdict-Kanal-Lesart (Anzahl uebereinstimmender Vorzeichen mit K3@0.01) — Diagnostik."
+  },
+  "precondition_gates": [
+    "GATE-A: K1 (uniform) exakt invariant: Gamma_K1 <= 1e-12 an ALLEN VALID Gitterpunkten und beiden delta (Skalierung hebt sich in den Schmidt-Betragquadraten auf; float-Restausschlag erwartet ~1e-16)",
+    "GATE-B: De-Kodierung der committeten Zeilen JE in der ZEILEN-Eigenkonvention (singleshot: nats + order-C + d_A_dim/n_B_dim aus der Zeile + Filter > 1e-12 ABS; N255/N1e6: bits + order-F + n_A-Count aus der Zeile): |S_frisch - S_committet| <= 1e-10 an ALLEN 11 Zeilen; wo s_sq committet (8 Zeilen): max relative lam-Abweichung auf dem gemeinsamen Traeger (beide > 1e-30) <= 1e-8. Pre-Freeze verifiziert: max |dS| = 3.55e-15 (N=1e6), alle 11 OK.",
+    "GATE-C: Gesamt-Coverage: >= 8 von 11 Gitterpunkten erzeugen mind. 1 VALID-r (Gap-Floor-Regel auf der Pristine-Basis); Punkte unter der Huerde werden benannt und EXKLUDIERT",
+    "GATE-D: Achsen-Freeze — frisch berechnete S_vN_axis je Zeile == axis_S_bits_frisch aus diesem Prereg, |d| <= 1e-12 an allen 11 Punkten (sichert, dass der gefrorene Anker dieselbe Reihe ist, gegen die das Verdict korreliert)"
+  ],
+  "verdict_rule_no_re_decide": "Kanaele/Metrik/Gap-Floor/Seeds/Statistik nach Freeze fix; KEINE Toleranz-Erhoehung, keine Kanal-Aenderung, keine Gap-Floor-Verschiebung nach Sichtbarkeit der Zahlen. Diagnostik (Konfund-Kit, Blend, Sekundaer-Kanaele) bleibt NICHT verdict-tragend und darf Interpretation wie in 048 dokumentiert-flippen, niemals das gefrorene Verdict selbst.",
+  "seeds": {
+    "k3_pro_gitterpunkt": "numpy default_rng(20261002 + N) je Punkt: 50 Draws delta=0.01 (u-Form (pi_N,)) dann 10 Draws delta=0.05, uniform[-1,1]",
+    "blend_chi": "numpy default_rng(20261003).standard_normal(dim=1024) real + imag",
+    "blend_k3": "numpy default_rng(20261004), 50 Draws je theta (u-Form (172,)), sequenziell in theta-Reihenfolge",
+    "shuffle_null": "numpy default_rng(20261005), 1000 Permutationen"
+  },
+  "runtime": "0 QPU, 0 Aer — reine numpy (Sieve bis 1e6, statevector bis 2^20, SVD bis 1024x1024 REAL), Laufzeit Minuten. Compute-Hinweis: N=1e6 dominiert (66 SVDs @ 1024x1024)."
+  ,
+  "no_push": true,
+  "branch_note": "Eigener Branch h-test1-gap-invariance (Fortsetzung der 048/048b-Kette, kein neuer Branch); kein Mischbetrieb mit der ram-q-zyklizitaet-046-Watch"
+}
