@@ -143,11 +143,14 @@ def _job_done(job):
 
 
 def run_qpu_job(backend_getter=None, service_getter=None,
-                results_path=RAW_PATH, job_id_path=JOB_ID_PATH, poll=True):
+                results_path=RAW_PATH, job_id_path=JOB_ID_PATH, poll=True,
+                fetch=True):
     """Submit (falls noetig) -> persistiere job_id -> fetch Raw.
 
     Resume-Vertrag wie 11d: existiert RAW_PATH, geschieht NICHTS;
     existiert nur die Job-ID-Datei, wird der Job wiederaufgenommen.
+    poll=False + fetch=False: NUR Submission + Job-ID-Persistenz
+    (Submit-Only-Bein, Pollen/Auslesen spaeter ueber denselben Pfad).
     """
     if os.path.exists(results_path):
         with open(results_path, encoding="utf-8") as fh:
@@ -185,6 +188,9 @@ def run_qpu_job(backend_getter=None, service_getter=None,
                 return {"status": "QPU_POLL_TIMEOUT", "job_id": job_id,
                         "backend": backend_name}
             time.sleep(POLL_SECONDS)
+    if not fetch:
+        return {"status": "QPU_JOB_ID_SAVED", "job_id": job_id,
+                "backend": backend_name}
     job_result = job.result()
     doc = fetch_raw(job_result, circuits,
                     {"job_id": job_id, "backend": backend_name,
