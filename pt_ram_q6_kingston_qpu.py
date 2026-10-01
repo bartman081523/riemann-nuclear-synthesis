@@ -62,7 +62,7 @@ def isa_circuits(backend, circuits, isa_gate=stage6.OUT_PATH):
     k6.validate_isa_gate(gate)
     pm = generate_preset_pass_manager(
         backend=backend, optimization_level=3, seed_transpiler=7)
-    tci = list(pm.run(circuits))
+    tci = list(pm.run([c["circuit"] for c in circuits]))
     for c, tc in zip(circuits, tci):
         ops = {str(gn): int(cn) for gn, cn in tc.count_ops().items()}
         gate_entry = gate["per_circuit_two_q"][c["name"]]

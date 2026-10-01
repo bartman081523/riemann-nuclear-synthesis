@@ -54,7 +54,7 @@ def run_stage(backend=None, service=None, out_path=OUT_PATH):
 
     pm = generate_preset_pass_manager(
         backend=backend, optimization_level=3, seed_transpiler=7)
-    tci = list(pm.run(circuits))
+    tci = list(pm.run([c["circuit"] for c in circuits]))
     per = {}
     total_2q = 0
     max_2q = 0
