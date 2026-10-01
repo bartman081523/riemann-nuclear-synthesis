@@ -1,0 +1,277 @@
+{
+ "experiment": "049b",
+ "hypothesis": {
+  "id": "H-TEST2-RANK",
+  "reduced_claim": "identisch zu 049/048/048b (Grade E, Richtung C+/B-): Eine niedrigere Verschraenkung erhoet die numerische Robustheit der Relativ-Struktur der Repraesentation.",
+  "test2_limb": "Kausal-Glied, RANG-KONTROLLIERT: kovariert der Gap-Ratio-Drift Gamma(N) mit S_vN_axis(N) JENSEITS der gemeinsamen Rang-Achse? Verdict-tragende Statistik ist die PARTIELLE Spearman-Rangkorrelation rho(Gamma, S | rank_active) (Rang-Residuen-Regression wie im 049-Konfund-Kit implementiert) — die 049-Konfund-Lesart (Mitwanderung Traeger-RANG-getragen) ist hier die registrierte H0-Lesart.",
+  "numbered_iteration": "049b ist eine NUMMERIERTE Folge-Iteration zu 049 (gefrorenes 049-Verdict DEGENERAT bleibt unangetastet committet). Zwei Aenderungen gegenuber 049: (a) GATE-A wird durch den SKALEN-BEWUSSTEN ANALYTISCHEN Dust-Bound A' ersetzt (kein Toleranz-Kauf: der alte 1e-12-Wert war ein Freeze-Zeit-GUESS 'float-Restausschlag erwartet ~1e-16' ohne Gap-Konditionszahl; A' ist je Gitterpunkt aus der Konditionszahl des Ratio-Operators abgeleitet), (b) das Verdict wandert auf die partielle Statistik mit EIGENER Permutations-Null.",
+  "unit_mix_anchor": "Referenz-Anker bleibt frisch bits-konsistent alpha = 0.2004085378325559 (049); der committete 0.22275345050922138 ist als einheitsgemischt dokumentiert und wird NICHT uebernommen."
+ },
+ "state_family": "|P_N> = normalize(sum_{p<=N} |p>), Sieve, numpy REAL float64; Bipartition AXIS (floor(n/2)-LSB-Split, order-F); Traeger lam > 1e-30; IDENTISCH zu 049.",
+ "data_basis": {
+  "rows": [
+   {
+    "N": 7,
+    "n_qubits": 3,
+    "n_A_count": 1,
+    "pi_N": 4,
+    "S_vN_committet": 0.5623351446188084,
+    "axis_S_bits_frisch": 0.6008760366928558,
+    "src": "pt_prime_state_qpu_singleshot_results.json (n_A/n_B sind DIMENSIONEN: decode counts = log2(dim))",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 15,
+    "n_qubits": 4,
+    "n_A_count": 2,
+    "pi_N": 6,
+    "S_vN_committet": 0.836065555629091,
+    "axis_S_bits_frisch": 1.2061876309641653,
+    "src": "pt_prime_state_qpu_singleshot_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 31,
+    "n_qubits": 5,
+    "n_A_count": 2,
+    "pi_N": 11,
+    "S_vN_committet": 0.9209174865193352,
+    "axis_S_bits_frisch": 1.0046698712728896,
+    "src": "pt_prime_state_qpu_singleshot_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 63,
+    "n_qubits": 6,
+    "n_A_count": 3,
+    "pi_N": 18,
+    "S_vN_committet": 1.0222738131627935,
+    "axis_S_bits_frisch": 1.4748293606806124,
+    "src": "pt_prime_state_qpu_singleshot_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 127,
+    "n_qubits": 7,
+    "n_A_count": 3,
+    "pi_N": 31,
+    "S_vN_committet": 1.356183805881178,
+    "axis_S_bits_frisch": 1.753097324817704,
+    "src": "pt_prime_state_qpu_singleshot_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 255,
+    "n_qubits": 8,
+    "n_A_count": 4,
+    "pi_N": 54,
+    "S_vN_committet": 2.314037122608579,
+    "axis_S_bits_frisch": 2.314037122608579,
+    "src": "pt_prime_state_N255_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 511,
+    "n_qubits": 9,
+    "n_A_count": 4,
+    "pi_N": 97,
+    "S_vN_committet": 2.5184856999591734,
+    "axis_S_bits_frisch": 2.5184856999591734,
+    "src": "pt_prime_state_N255_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 1023,
+    "n_qubits": 10,
+    "n_A_count": 5,
+    "pi_N": 172,
+    "S_vN_committet": 3.1900293627988274,
+    "axis_S_bits_frisch": 3.1900293627988274,
+    "src": "pt_prime_state_N255_results.json",
+    "s_sq_committiert": true
+   },
+   {
+    "N": 10000,
+    "n_qubits": 14,
+    "n_A_count": 7,
+    "pi_N": 1229,
+    "S_vN_committet": 4.672241830479666,
+    "axis_S_bits_frisch": 4.672241830479666,
+    "src": "pt_asymptotic_N1e6_results.json",
+    "s_sq_committiert": false
+   },
+   {
+    "N": 100000,
+    "n_qubits": 17,
+    "n_A_count": 8,
+    "pi_N": 9592,
+    "S_vN_committet": 5.924327731498289,
+    "axis_S_bits_frisch": 5.924327731498289,
+    "src": "pt_asymptotic_N1e6_results.json",
+    "s_sq_committiert": false
+   },
+   {
+    "N": 1000000,
+    "n_qubits": 20,
+    "n_A_count": 10,
+    "pi_N": 78498,
+    "S_vN_committet": 7.539223986336283,
+    "axis_S_bits_frisch": 7.539223986336286,
+    "src": "pt_asymptotic_N1e6_results.json",
+    "s_sq_committiert": false
+   }
+  ],
+  "rows_note": "byte-identisch aus dem 049-Prereg uebernommen (kein neues Gitter, Phase-10b gilt fuer Artefakt-Kandidaten, nicht fuer dieses N-Basis-Gitter).",
+  "mitwander_metric": "Gamma_MAX = max_k |(r_k_tilde - r_k)/r_k| ueber VALID k (Gap-Floor 1e-6*lam_max, basis-maske ok_p), K3-Kanal q95 der 50 Draws delta=0.01 — IDENTISCH zu 049."
+ },
+ "gate_a_prime": {
+  "id": "GATE-A'",
+  "bound": "K1(N, delta) <= C_K * 2^-52 * c_max(N) an ALLEN VALID Gitterpunkten und beiden delta; c_max(N) = max_{k VALID} (lam_k + lam_{k+1}) / min(g_k, g_{k+1}) aus dem frischen pristine Traeger (Konditionszahl des Ratio-Operators, kein freier Parameter je Punkt); C_K = 64 (per-Element Rounding-Aggregat: 2 ulp x 32 Rounding-Sites im Pipeline-Aggregat multiply/renorm/SVD; STRENGER als die LAPACK-O(d*eps)-Worst-Case-Derivation mit d = 2^(n_q-n_A) <= 1024 ulp).",
+  "C_K": 64.0,
+  "eps_52": 2.220446049250313e-16,
+  "justifikation": "Der 049-Gate-Zahlenwert 1e-12 war ein Freeze-Zeit-GUESS ('float-Restausschlag erwartet ~1e-16') OHNE Gap-Konditionszahl — er scheitert an den 049-K1-Werten (N=1e5/1e6). Der 049-Text promisierte die Form C*2^-52/gap_rel_min; die Konditions-Fassung c_max vollzieht dies exakt: der dominante Term ist 1/gap_rel_min, der Zusatzterm 1/g_{k+1} traegt die zwei gap-Referenzen des Ratios. KEINE Anpassung an beobachtete Messwerte: der Bound ist Property des Zustands (c_max) + eine Toleranz-KONSTANTE.",
+  "disclosure": "Offenlegung (Anti-Sharpshooter): die ORDER OF MAGNITUDE von C_K ist an die committete 049-K1-Empirie angelehnt (eps_eff = K1/(2^-52*c_max) = 1.6..9.9 ulp eff ueber alle Punkte); die Konstante 64 = 'naechstes Ceiling' ist METROLOGIE (Instrument-Zertifikat) und NICHT verdict-tragend — das Verdict reitet auf der PARTIELLEN Statistik. Eine A'-Verletzung an einem einzigen Punkt waere trotzdem DEGENERAT (echte Falsifizierbarkeit). Die 049-K1-Werte sind deterministisch reproduzierbar (gleiche Seeds/Maschine) und im pre-freeze-Vergleich gepinnt (key bound_frisch_pre_freeze).",
+  "fail_consequence": "A'-Verletzung an IRGENDEINEM VALID-Punkt => Verdict DEGENERAT (kein stilles Nachziehen der Konstante, kein Re-Decide); die Mechanismus-Kette waere dann NICHT vollstaendig charakterisiert und 049b endet als Diagnose.",
+  "ulp_diagnostics": "diagnostisch: eps_eff(N, delta) = K1_obs / (2^-52 * c_max(N)) in ulp-Einheiten — Erwartung <= 64 je Punkt, Report je Gitterpunkt (diagnostisch, NICHT verdict-tragend)."
+ },
+ "bound_frisch_pre_freeze": [
+  {
+   "N": 7,
+   "c_max": null,
+   "tol": null,
+   "k1_049": null,
+   "obs_over_bound": null
+  },
+  {
+   "N": 15,
+   "n_valid": 1,
+   "c_max": 4.66924692884121,
+   "tol": 6.635398973516559e-14,
+   "k1_max_049": 1.6540645314158993e-15,
+   "obs_over_bound": 0.024927883583453846,
+   "gap_rel_min": 0.3054072893322789
+  },
+  {
+   "N": 31,
+   "n_valid": 1,
+   "c_max": 6.97376377007098,
+   "tol": 9.910314375461809e-14,
+   "k1_max_049": 0.0,
+   "obs_over_bound": 0.0,
+   "gap_rel_min": 0.18016870497269452
+  },
+  {
+   "N": 63,
+   "n_valid": 3,
+   "c_max": 11.124203781347193,
+   "tol": 1.5808444375902571e-13,
+   "k1_max_049": 0.0,
+   "obs_over_bound": 0.0,
+   "gap_rel_min": 0.04532787408406868
+  },
+  {
+   "N": 127,
+   "n_valid": 3,
+   "c_max": 9.54954592592531,
+   "tol": 1.3570720974947378e-13,
+   "k1_max_049": 9.212916556182339e-15,
+   "obs_over_bound": 0.06788818790976625,
+   "gap_rel_min": 0.0649002974558325
+  },
+  {
+   "N": 255,
+   "n_valid": 7,
+   "c_max": 15.535310060974524,
+   "tol": 2.2077003423212494e-13,
+   "k1_max_049": 0.0,
+   "obs_over_bound": 0.0,
+   "gap_rel_min": 0.015211497300771459
+  },
+  {
+   "N": 511,
+   "n_valid": 7,
+   "c_max": 28.950771656342692,
+   "tol": 4.1141520990127406e-13,
+   "k1_max_049": 6.655195052434672e-15,
+   "obs_over_bound": 0.016176346649973628,
+   "gap_rel_min": 0.026820697746636944
+  },
+  {
+   "N": 1023,
+   "n_valid": 15,
+   "c_max": 32.5955933778629,
+   "tol": 4.632112418486102e-13,
+   "k1_max_049": 3.7868315145315267e-14,
+   "obs_over_bound": 0.08175171870654134,
+   "gap_rel_min": 0.0038052297246884705
+  },
+  {
+   "N": 10000,
+   "n_valid": 63,
+   "c_max": 281.2508565089866,
+   "tol": 3.996815060375334e-12,
+   "k1_max_049": 1.3560321341305423e-13,
+   "obs_over_bound": 0.03392781786613863,
+   "gap_rel_min": 0.00012465903541920186
+  },
+  {
+   "N": 100000,
+   "n_valid": 127,
+   "c_max": 1268.9741532017542,
+   "tol": 1.803320732849662e-11,
+   "k1_max_049": 4.564654182083362e-13,
+   "obs_over_bound": 0.02531249210932188,
+   "gap_rel_min": 4.74965434806882e-05
+  },
+  {
+   "N": 1000000,
+   "n_valid": 511,
+   "c_max": 7751.272409682864,
+   "tol": 1.1015220607195693e-10,
+   "k1_max_049": 1.7032071337506946e-11,
+   "obs_over_bound": 0.15462306153342717,
+   "gap_rel_min": 1.7875944545456042e-06
+  }
+ ],
+ "verdict_rule_rank_controlled": {
+  "PRIMARY_STATISTIC": "partial_spearman(Gamma_valid, S_valid | rank_active) — Average-Tie-Ranks, Rang-Residuen der linearen Fits auf avg_ranks(rank_active), numpy-only; implementations-identisch zum 049-Konfund-Kit.",
+  "NULL": "dieselben 1000 Permutationen wie 049 (default_rng(20261005), je Draw gamma geshuffelt): je Draw die PARTIELLE Statistik auf dem geshuffelten gamma — q95_partial = q95(|partial_null|); NEBENBEI die rohe rho-Null wie 049 (nur zur Kontinuitaet, NICHT verdict-tragend).",
+  "LEGS": [
+   [
+    "partielle Statistik > q95_partial",
+    "MITWANDERUNG_SPEZIFISCH_POSITIV — der S-Link ist JENSEITS der Rang-Achse getragen; der reduzierte Claim erhaelt sein test2-favorables Leg (Richtung C+/B-)."
+   ],
+   [
+    "partielle Statistik < -q95_partial",
+    "ANTI_WANDERUNG_SPEZIFISCH — S-Link mit GEGENRICHTUNG ueber Rang hinaus getragen (Leg B')."
+   ],
+   [
+    "|partielle Statistik| <= q95_partial",
+    "RANGGETRAGEN_GEFALLEN — die Mitwanderung lebt in der Rang-Achse; das Kausal-Glied des reduzierten Claims ist nicht S-spezifisch tragbar (049-Konfund-Lesart verdict-traegig bestaetigt)."
+   ]
+  ],
+  "gate_precedence": "jede A'/B/C/D-Verletzung => DEGENERAT VOR jeder Statistik-Lektuere.",
+  "no_re_decide": "Kanael/Metrik/Gap-Floor/Seeds/Statistik/Bound nach Freeze fix; KEINE Toleranz-Erhoehung, KEINE Bound-Konstanten-Nach-Karriere, keine Gap-Floor-Verschiebung nach Sichtbarkeit der Zahlen."
+ },
+ "gates_unchanged_from_049": {
+  "GATE-B": "De-Kodierung je Zeile in der Zeilen-Eigenkonvention: |S_frisch - S_committet| <= 1e-10 an ALLEN 11 Zeilen; rel lam-Abweichung <= 1e-8 wo s_sq committet (Maske >1e-30 bzw. >1e-12 je Quelle).",
+  "GATE-C": "len(VALID) >= 8 (VALID = n_valid_base >= 1 UND K3_q95_001 not None).",
+  "GATE-D": "|S_axis_frisch - axis_S_bits_frisch| <= 1e-12 an ALLEN 11 Zeilen."
+ },
+ "diagnostik_not_verdict": [
+  "Konfund-Kit (rho vs N / rank_active / S_rel, raw partial) wie 049.",
+  "Blend fixed N=1024-theta-Gitter wie 049 (Seeds 20261003/20261004).",
+  "Sekundaer-kanal-Sign-Konsistenz (K3_005, K2_001, K2_005, K5_001) wie 049.",
+  "rohe rho-Verdict-Lesart 049-Regel als kontinuitaets-Ausgabe (NICHT verdict-tragend).",
+  "dust_mechanism_check: K1_obs/Bound je N (Erwartung << 1)."
+ ],
+ "seeds": {
+  "k3_pro_gitterpunkt": "default_rng(20261002 + N) — IDENTISCH zu 049 (deterministische Reproduktion der Draws).",
+  "blend_chi": "default_rng(20261003)",
+  "blend_k3": "default_rng(20261004)",
+  "shuffle_null": "default_rng(20261005), 1000 Permutationen — roh-rho UND partiell je Draw."
+ },
+ "runtime": "0 QPU, 0 Aer — reine numpy, ~4 min (049-Profile).",
+ "no_push": true,
+ "branch_note": "Eigener Branch h-test1-gap-invariance (Fortsetzung der 048/048b/049-Kette); kein Mischbetrieb mit der ram-q-zyklizitaet-046-Watch."
+}
