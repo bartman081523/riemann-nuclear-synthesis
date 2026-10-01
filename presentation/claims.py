@@ -842,9 +842,12 @@ _CL.append(Claim(
     # tragend): +47 Tests (Orbit-Kombinatorik/T9-Formeln/committed
     # Frozen-Run-Pins; Dekomposition max_within auf r_median/Probe-a
     # Multiset-Permutation/Probe-b Kette/t_H-Quellen) -> 1225
+    # 050 D1-Prereg (EXPERIMENT 050, H-RAM-Q-6, REGISTERED_NOT_MEASURED,
+    # 0 QPU): +21 Tests (pt_ram_q6_kingston: Leg-Mathe/ISA-Gate-Schema/
+    # Circuit-Set-Aus-Frozen-Payload/Raw-Vertrag/Verdict-Ordnung) -> 1246
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1225,
+    id="test_count", value=1246,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
