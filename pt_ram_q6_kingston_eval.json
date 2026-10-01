@@ -1,0 +1,126 @@
+{
+ "experiment": "050-ram-q6-kingston-substrat",
+ "hypothesis": "H-RAM-Q-6",
+ "leg": "D1-SUBSTRAT-UNIVERSITAET",
+ "status": "EVALUATED",
+ "prereg_md5": "768bffb829114f2482f42382e0763b60",
+ "raw_path": "pt_ram_q6_kingston_raw.json",
+ "raw_job_meta": {
+  "job_id": "davf0ns92g1c7398pfv0",
+  "backend": "ibm_kingston",
+  "shots_per_circuit": 8192
+ },
+ "raw_counts_md5": "f4da706dd542c306a96cba2001e1a6b9",
+ "counts_md5_verified": true,
+ "inherited_eval_path": "pt_ram_q6_kingston_inherited_eval.json",
+ "inherited_verdict": "H-RAM-Q-4_NOISE_LIFT_CONFIRMED",
+ "inherited_degenerat_failed": [],
+ "res_K": {
+  "verdict|q3_d3|181": -0.018707446656817672,
+  "verdict|q3_d3|229": 0.027588603100523024,
+  "verdict|q3_d3|283": 0.012473327276622315,
+  "verdict|q3_d3|379": -0.004417979367978608,
+  "verdict|q3_d3|467": 0.004752108583225834,
+  "verdict|q3_d3|613": 0.004746246227877671,
+  "verdict|q3_d3|691": -0.002385573476525904,
+  "verdict|q3_d3|797": 0.02764895711254689,
+  "verdict|q5_d5|467": -0.023607335166765164,
+  "verdict|q5_d5|547": -0.021754430212482134,
+  "verdict|q5_d5|613": -0.008813842683512707,
+  "verdict|q5_d5|673": -0.018868736424563326,
+  "verdict|q5_d5|691": -0.008393820716233402
+ },
+ "L1": {
+  "S1": {
+   "rho_obs": 0.5714285714285714,
+   "n": 13,
+   "null": {
+    "n_perm": 2000,
+    "seed": 20261006,
+    "q95_abs": 0.554945054945055,
+    "null_mean": 0.22783516483516483,
+    "null_max": 0.8241758241758241,
+    "null_q05_abs": 0.016483516483516484
+   },
+   "pass": true,
+   "seed": 20261006,
+   "n_perm": 2000
+  },
+  "S2": {
+   "rho_obs": 0.43956043956043955,
+   "n": 13,
+   "null": {
+    "n_perm": 2000,
+    "seed": 20261007,
+    "q95_abs": 0.554945054945055,
+    "null_mean": 0.24087087912087912,
+    "null_max": 0.8846153846153846,
+    "null_q05_abs": 0.016483516483516484
+   },
+   "pass": false,
+   "seed": 20261007,
+   "n_perm": 2000
+  }
+ },
+ "L2": {
+  "S1": {
+   "lesart_roh": {
+    "n": 13,
+    "agree": 10,
+    "disagree": 3,
+    "p_one_sided": 0.046142578125,
+    "pass": true
+   },
+   "abs_min": 0.01,
+   "lesart_eligible": {
+    "n": 9,
+    "agree": 6,
+    "disagree": 3,
+    "p_one_sided": 0.25390625
+   }
+  },
+  "S2": {
+   "lesart_roh": {
+    "n": 13,
+    "agree": 8,
+    "disagree": 5,
+    "p_one_sided": 0.29052734375,
+    "pass": false
+   },
+   "abs_min": 0.01,
+   "lesart_eligible": {
+    "n": 8,
+    "agree": 6,
+    "disagree": 2,
+    "p_one_sided": 0.14453125
+   }
+  }
+ },
+ "L3": {
+  "n_kappa_low_union": 0,
+  "kappa_ceiling": 0.81,
+  "kappa_band_K": [
+   0.8804668304668305,
+   0.9959583588487446
+  ],
+  "diag_spearman_kappa_K_vs_S1_nicht_verdict_tragend": 0.780266757865937,
+  "n_points": 26
+ },
+ "d1_verdict": "D1_PARTIAL",
+ "verdict": "D1_PARTIAL",
+ "verdict_map_text": {
+  "D1_CONFIRMED_SUBSTRAT_UNIVERSAL": "BEIDE L1-Legs und BEIDE L2-Legs (roh) bestehen",
+  "D1_PARTIAL": "mindestens ein L1-Leg und das zugehoerige L2-Leg bestehen",
+  "D1_REFUTED_SUBSTRAT_SPEZIFISCH": "KEINDER L1-Leg-Bestand und KEINER L2-Leg-Bestand",
+  "DEGENERAT": "eine Kontrolle des geerbten Eval (t3-t6) verletzt oder n_circuits != 116",
+  "VOID_SUBSTRAT": "n_kappa_low_union >= 2 auf Kingston",
+  "order": [
+   "DEGENERAT",
+   "VOID_SUBSTRAT",
+   "D1_REFUTED_SUBSTRAT_SPEZIFISCH",
+   "D1_PARTIAL",
+   "D1_CONFIRMED_SUBSTRAT_UNIVERSAL"
+  ]
+ },
+ "evaluated_at_utc": "2026-10-01T23:50:22.293537+00:00"
+}

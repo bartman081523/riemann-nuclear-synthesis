@@ -33,8 +33,10 @@ def load_json(path):
 def check_raw_against_gate(raw, isa):
     """Verteidigungs-Check parallel zu h3e (Schema + Totals aus dem Gate)."""
     k6.validate_isa_gate(isa)
+    # Gate-Schema → Raw-Transpile-Keys (h3e-Vergleich convention):
+    # gate "transpile_seed" ↔ raw "seed_transpiler".
     want = {"optimization_level": isa["optimization_level"],
-            "transpile_seed": isa["transpile_seed"],
+            "seed_transpiler": isa["transpile_seed"],
             "isa_2q_total": isa["total_two_q"],
             "isa_2q_max": isa["max_two_q"]}
     if raw["transpile"] != want:
