@@ -4083,10 +4083,64 @@ GF(5)-Notwendigkeits-Glied ist artefaktfrei gefallen (048b), das
 Kausal-Glied Mitwanderung ist RANG-getragen (049 diagnostisch, 049b
 verdict-tragend — zwei Beine), und die numerische Infrastruktur hat ihre
 erste Selbst-Audit-Ebene (Build-Metrologie) verfestigt. Die
+**Einordnung:** die H-TEST1-Kette schließt konsistent ab: das
+GF(5)-Notwendigkeits-Glied ist artefaktfrei gefallen (048b), das
+Kausal-Glied Mitwanderung ist RANG-getragen (049 diagnostisch, 049b
+verdict-tragend — zwei Beine), und die numerische Infrastruktur hat ihre
+erste Selbst-Audit-Ebene (Build-Metrologie) verfestigt. Die
 Session-stabile P-Struktur bleibt der offene B−-Kandidat (H-RAM-Q-6
 D1/D2/D3 freigegeben inkl. QPU-Beine, kein Freeze ohne Prereg-Commits);
 „neue fundamentale Arithmetik" bleibt E/F. Tests unverändert 1225
 (Auswertung ohne neuen Tests-Fächer).
+
+---
+
+## §Z.32 — H-RAM-Q-6 Leg D1 Substrat-Universität (EXPERIMENT 050, Kingston, TOKEN2, 1 Job): **D1_PARTIAL** — der kohärente Prep-Fehler-Lift ist substrat-universal (κ̂-Floor-Union 0/26), die S1-Signatur koheriert an der Kante, die S2-Sitzung nicht
+
+Branch `h-test1-gap-invariance` — das D1-Bein von H-RAM-Q-6 vollzogen:
+dasselbe 26-Punkte-(P,arm)-Grid des GEFRORENEN Phase-11b-Payloads
+(13 Verdict + 13 Kalibrier = 8 q3/5 q5 je Bein; bit-identisch aus
+`h3a.all_points()`, NICHT neu gerechnet), ISA-Gate first (Gate
+`4f976fe` VOR Submission: ISA_OK, total 2q **559**, max **84** —
+BIT-GLEICH zum Fez-11d-Artefakt; Gate-Klassen-Whitelist RAISED auf
+unbekannter Klasse), EIN Kingston-Job `davf0ns92g1c7398pfv0` (TOKEN2
+via `pt_v5_kingston.load_token`, TOKEN1 NIE gelesen; 116×8192, DD XX,
+0 Ausfälle; Job-ID `974f3df` VOR Auswertung, RAW `5a40587` VOR
+Auswertung mit counts_md5 `f4da706dd542c306a96cba2001e1a6b9`), gefrorene
+Auswertung `5eb13cb`:
+
+- **L1 (Substrat-Kohärenz, Spearman über 13 Holdout-P, Null = 2000
+  Permutationen):** S1 ρ **0.5714285714285714** > q95 0.5549 — **PASS
+  an der Kante** (dieselbe Klasse wie 048s 5/8); S2 ρ
+  **0.43956043956043955** — **FAIL**.
+- **L2 (Vorzeichen, exakt einseitig binomial):** S1 ROH **10/13**,
+  p 378/8192 = 0.046 — **PASS in der Roh-Lesart**; die
+  §Z.29-Fallback-Lesart (eligible |res| ≥ 0.01) kippt (6/9, p 0.254 —
+  dokumentiert, KEIN Patch); S2 ROH 8/13 (p 0.291), eligible 6/8 (p
+  0.145) — **FAIL in beiden Lesarten**.
+- **L3 (κ̂-Floor, Void-Kriterium):** **0/26** unter 0.81, Band
+  [0.8805, 0.9960] → kein VOID — **der kohärente Prep-Fehler-Lift
+  überträgt substrat-universal**; DIAGNOSTIK (nicht-verdict-tragend)
+  Spearman(κ̂_K, κ̂_S1) **0.7803** — die Lift-STRUKTUR folgt S1.
+- **Geerbte 044-v3b-Lesart auf Kingston:** **NOISE_LIFT_CONFIRMED**
+  (Sekundärlesart, kein Re-Decide von S1/S2; t3–t6 grün, Gesetz-md5
+  `baaca1f6` unberührt).
+- Verdict per gefrorener Map: **D1_PARTIAL** (das S1-Paar trägt —
+  L1-Pass UND L2-Roh-Pass —, das S2-Paar nicht).
+
+**Einordnung:** der dritte Substrat-Lauf liest die Reihe sauber: das
+Physikalisch-Bleibende ist der κ̂-Lift (auf allen 26 Punkten auf
+Kingston, Lift-Struktur korreliert 0.78 mit S1) — die Sitzungs-Trägerin
+bleibt S1-spezifisch (S2 überträgt nicht; 467-Flip-Erinnerung aus der
+v3b-Probe: Vorzeichen sind keine P-Funktion). Substrat-Uni ist damit
+PARTIAL, nicht CONFIRMED — die D2/D3-Beine (frische P nach
+Phase-10b-Regel, Zug/Prüf-Trennung; In-Arm-Vorzeichen-Gesetz) folgen mit
+eigenen Prereg-Freeze-Commits; die Fez-Beine stehen EIN-Fez-Job-Disziplin
+hinter dauassrojkfs738rrcsg (046, QUEUED) an. Tests 1246
+(+21 `tests/test_pt_ram_q6_kingston.py`); zwei Suite-Fixer vorab:
+Diag-Fail als 049b-Klassen numpy-BUILD-Delta (venv 2.4.6 reproduziert
+bit-exakt, Suite-Kanon bleibt venv) und die Präsentations-Live-Pin
+1225→1246 mit Chain-Kommentar.
 
 ---
 

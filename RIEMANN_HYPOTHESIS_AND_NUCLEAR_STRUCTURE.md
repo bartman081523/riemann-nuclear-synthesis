@@ -2559,6 +2559,101 @@ RNG-Bit-Stabilität, Mechanismus-Report); Commits `a8e5617` (Freeze),
 `9a5304f` (Auswertung + Auflösung, Amend-Kette c79e391); 0 QPU
 in allen Beinen; §Z.31 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.33 — H-RAM-Q-6 Leg D1 Substrat-Universität: dasselbe 26-Punkte-(P,arm)-Grid bit-identisch auf Kingstons Minimalregister transpiliert (Gate 559/84 = bit-gleich zum Fez-11d-Artefakt), EIN Kingston-Job, gefrorene Auswertung **D1_PARTIAL** — der kohärente Prep-Fehler-Lift überträgt substrat-universal (κ̂-Floor-Union 0/26), die S1-Signatur ist koherent, die S2-Sitzung nicht (EXPERIMENT 050, Branch `h-test1-gap-invariance`, 2026-10-02, 1 Kingston-Job/TOKEN2)
+
+**A — Freeze vor Kontakt, mit dokumentiertem Re-Freeze.** Das Prereg
+`pt_ram_q6_kingston_prereg.json` (Modul `pt_ram_q6_kingston.py`) friert
+das D1-Bein VOR jedem QPU-Kontakt: dasselbe 26-Punkte-(P,arm)-Grid des
+GEFRORENEN Phase-11b-Payloads (13 Verdict + 13 Kalibrier; 8 q3 + 5 q5),
+bit-identisch aus `h3a.all_points()` — NICHT neu gerechnet. Zwei korrekturen
+vor dem Kontakt, beide dokumentiert: (a) der erste Freeze
+(`88ff61e37b66b220fceefaf9cfd710b9`) trug ein nicht-ASCII-freies
+Serialisierungs-Detail und wurde vor Abgabe re-gefrischt; (b) das
+Branch-Feld sagte `ram-q-zyklizitaet`, die Kette trug real
+`h-test1-gap-invariance` (descended von `ram-q-zyklizitaet` f0fdd4c,
+merge-base = f0fdd4c) — korrigiert per dokumentiertem RE-FREEZE nach
+Phase-10b-R1-Präzedenz VOR Submission, End-Prereg-md5
+`768bffb829114f2482f42382e0763b60` (veraltet: `88ff61e3…`;
+`e235ea2a…` = Haus-Konvention-Freeze vor Branch-Fix). Der
+Verdict-Map-Order ist gefroren: DEGENERAT → VOID_SUBSTRAT →
+D1_REFUTED_SUBSTRAT_SPEZIFISCH → D1_PARTIAL →
+D1_CONFIRMED_SUBSTRAT_UNIVERSAL.
+
+**B — ISA-Gate first, Totals NIE hartkodiert.** Die Gate-Stage
+(`pt_ram_q6_kingston_isa_stage.py`) transpiliert die 116 Circuits auf
+ibm_kingston (optimization_level 3, seed 7, identisch zum gefrorenen
+run_config) mit Gate-Klassen-Whitelist (unbekannte Gate-Klasse RAISED):
+Ergebnis **ISA_OK mit total 2q 559, max 84** — BIT-GLEICH zu den
+Fez-11d-Totals (gleiche Gerätefamilie, damit budget-sauberer
+S1/S2-vs-K-Vergleich). Erster Stufe-Lauf scheiterte mit
+`AttributeError: 'dict' object has no attribute 'qubits'`: die
+Circuit-Set-Einträge sind spec-Dicts mit dem QuantumCircuit unter
+`"circuit"` — fix `pm.run([c["circuit"] for c in circuits])` in BEIDEN
+Pfaden (isa_stage `57`, qpu `65`), committet mit dem Gate
+(`4f976fe`). Der eval-Wrapper liest die Transpile-Totals NUR aus dem
+Gate-Artefakt; ein ast-walk-Test verbietet die Fez-559/84-Literale im
+QPU-Modul, und der Zelle-für-Zelle-Kreuzcheck bricht VOR Submission ab
+(`ISA-Gate-Stale`), wenn die lokale Transpile vom Gate divergiert.
+
+**C — EIN Kingston-Job, RAW vor Auswertung.** Submission
+(`davf0ns92g1c7398pfv0`, TOKEN2 via `pt_v5_kingston.load_token`,
+NUR ibm_kingston, TOKEN1 NIE gelesen): 116 Circuits × 8192 Shots =
+950 272, DD XX, submit-only-Pfad (`fetch=False` → QPU_JOB_ID_SAVED,
+committet als `7efd52e` VOR Submission), Job-ID `974f3df` VOR
+Auswertung (Resume-Vertrag), RAW committet `5a40587` VOR jeder
+Auswertung (counts_md5 `f4da706dd542c306a96cba2001e1a6b9`, 0
+Shots-Verletzungen, Census exakt 39/39/13/13/6/4/2 — verdict-Felder
+ABSICHTLICH ABWESEND).
+
+**D — Gefrorene Auswertung: D1_PARTIAL.** L1 (Spearman ρ(res_Sx,
+res_K) über die 13 Holdout-P, Null = 2000 Permutationen der res_K,
+Schwelle q95 der |ρ|-Null): **S1 ρ 0.5714285714285714 > q95
+0.5549246609422665 PASS** (an der Kante — dieselbe Klasse wie 048s
+5/8), **S2 ρ 0.43956043956043955 FAIL** (unter der nämlichen
+Schwelle). L2 (Vorzeichen-Gleichheit, exakt einseitig binomial):
+**S1 ROH 10/13, p 0.046142578125 = 378/8192 PASS** — aber die
+§Z.29-Fallback-Lesart (eligible |res| ≥ 0.01) kippt: **6/9, p
+0.25391** (dokumentiert, KEIN Patch); **S2 ROH 8/13 p 0.29053 FAIL,
+eligible 6/8 p 0.14453 FAIL**. L3 (κ̂-Floor-Union ≥ 0.81): **0/26
+unter der Kante**, κ̂-Band [0.8804668304668305, 0.9959583588487446]
+— der kohärente Prep-Fehler-Lift ist Substrat-universal; DIAGNOSTIK
+(non-tragend) Spearman(κ̂_K, κ̂_S1) = 0.780266757865937 (die
+Lift-STRUKTUR folgt S1). Per gefrorener Map: **D1_PARTIAL** (S1-Paar
+trägt, S2-Paar nicht). Inherited Eval über das Kingston-Raw (die
+044-v3b-Lesart, registrierte Sekundärliteratur-Lesart):
+**H-RAM-Q-4_NOISE_LIFT_CONFIRMED** — das Gesetz reproduziert seinen
+S1-Verdict-Klassen auf einem dritten Substrat, t3–t6 grün, b_P/Gesetz
+md5 `baaca1f6772e07b0847fe436da7e16da` unberührt.
+
+**E — Lesung + Reststand.** Das Substrat Kingston spiegelt die
+S1-Signatur (Kohärenz an der Kante + Vorzeichen 10/13 am ROH) und die
+κ̂-Lift-Struktur (0.780), NICHT aber die S2-Sitzung (ρ 0.44, 8/13) —
+konsistent mit der Reihe: S2 rides Sitzung, S1-Signal + Lift sind
+Substrat-Eigenschaften. Mit dem 467-Flip der v3b-Probe
+(„Vorzeichen KEINE P-Funktion") bleibt die Vorzeichen-Balance
+sitzungsgetragen; der Lift ist physikalisch (κ̂-Band auf allen 26
+Punkten auf Kingston). Reststand nach diesem Doku-Commit: 16
+unpushed Commits auf `h-test1-gap-invariance`; Fez-046-Bein
+dauassrojkfs738rrcsg QUEUED (EIN-Fez-Job-Disziplin → die D2/D3-Fez-Beine
+stehen dahinter an); D2/D3 (frische P nach Phase-10b-Regel,
+Zug/Prüf-Trennung; In-Arm-Vorzeichen-Gesetz) folgen mit eigenen
+Prereg-Freeze-Commits.
+
+**Quellen:** `pt_ram_q6_kingston_prereg.json` (md5
+`768bffb829114f2482f42382e0763b60`),
+`pt_ram_q6_kingston.py`, `pt_ram_q6_kingston_isa_stage.py`,
+`pt_ram_q6_kingston_isa_gate.json` (ISA_OK, 559/84),
+`pt_ram_q6_kingston_job_id.txt` (`davf0ns92g1c7398pfv0`),
+`pt_ram_q6_kingston_raw.json` (counts_md5
+`f4da706dd542c306a96cba2001e1a6b9`),
+`pt_ram_q6_kingston_inherited_eval.json` /
+`pt_ram_q6_kingston_eval.json` (D1_PARTIAL), `pt_ram_q6_kingston_eval.py`;
+Tests `tests/test_pt_ram_q6_kingston.py` (21); Commits `3fc63a4`
+(Freeze, amend-Kette a86e864), `4f976fe` (Gate + Transpile-Fix),
+`7efd52e` (submit-only), `974f3df` (Job-ID), `5a40587` (Raw), `5eb13cb`
+(Auswertung); 1 Kingston-Job TOKEN2, 0 Fez-Kontakt in diesem Bein;
+§Z.32 (SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
