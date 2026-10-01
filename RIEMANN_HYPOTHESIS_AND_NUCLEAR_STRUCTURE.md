@@ -2444,6 +2444,121 @@ Commits `039dc08`, `7fae109`, `c8566ff`, `2867804`, `a52db94`, `fa3b8a9`
 (+ die Probe mit der Doku); 0 QPU in ALLEN drei Experimenten; §Z.30
 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.32 — 049b rang-kontrollierte Iteration: das Verdict wandert auf die partielle Spearman-Rangkorrelation und fällt als RANGGETRAGEN_GEFALLEN — und das 049/049b-Konfund-Delta wird als numpy-BUILD-Delta bit-exakt aufgelöst (EXPERIMENT 049b, Branch `h-test1-gap-invariance`, 2026-10-02, 0 QPU)
+
+**A — Freeze, Lauf, Verdict (H-TEST2-RANK):** Freeze `a8e5617` VOR dem
+Lauf (Prereg `pt_test2b_rank_controlled_prereg.json` md5
+`f092b9020922717c09966a139c90410c`; Runner `pt_test2b_rank_controlled.py`
+bit-identisch zum Freeze). Zwei Änderungen gegen 049, beide ex-ante
+registriert: (a) **GATE-A′** ersetzt den 049er 1e-12-Freeze-Zeit-GUESS
+durch den SKALEN-BEWUSSTEN ANALYTISCHEN Dust-Bound
+K1(N,δ) ≤ C_K·2⁻⁵²·c_max(N) mit c_max(N) = Konditionszahl des
+Ratio-Operators max_{k VALID} (λ_k+λ_{k+1})/min(g_k,g_{k+1}) (Property
+des frischen Zustands — kein Fit je Punkt) und **C_K = 64** =
+per-Element Rounding-Aggregat (2 ulp × 32 Rounding-Sites), STRENGER als
+die LAPACK-O(d·ε)-Worst-Case-Derivation (d ≤ 1024 ulp); die Vorab-Varianten
+C_K=4 wären an N=127/1023/1e6 GESCHEITERT (obs/bound 1.09/1.31/2.47),
+C_K=64 lag pre-freeze bei max 0.1546; die Order-of-Magnitude-Anlehnung an
+die committete 049-Empirie (eps_eff 1.6..9.9 ulp) ist als METROLOGIE offen
+gelegt (nicht verdict-tragend). (b) Das **Verdict wandert auf die
+PARTIELLE Spearman-Rangkorrelation** ρ(Γ, S | rank_active) gegen eine
+EIGENE Permutations-Null (q95_partial, dieselben 1000 Permutationen wie
+049, seed 20261005, partial je Draw) mit Legs
+MITWANDERUNG_SPEZIFISCH_POSITIV / ANTI_WANDERUNG_SPEZIFISCH /
+RANGGETRAGEN_GEFALLEN; die rohe 049-Regel läuft weiter — nur als
+Kontinuitäts-Ausgabe (NICHT verdict-tragend). Gitter/axis/Rows
+byte-identisch aus dem 049-Prereg (die Phase-10b-Regel gilt für
+Artefakt-Kandidaten, NICHT für dieses N-Basis-Gitter); GATE-B/C/D
+wortwörtlich übernommen. EIN Lauf, Runtime **59.4 s**, Interpreter
+**System-python / numpy 2.5.2** (der 049-Lauf: venv/bin/python, numpy
+**2.4.6** — der Wechsel war unabsichtlich; die Metrologie-Lektion dazu in
+C).
+
+**Verdict: RANGGETRAGEN_GEFALLEN.** partial_obs **−0.29878604232636102**
+vs q95_partial_abs **0.6402558049850593** (Null breit: mean
+0.2821468024545488, max 0.9512371959778024): die S-Mitwanderung lebt in
+der RANG-Achse (rank_active = n_valid_base) — kein S-spezifisches
+Kausal-Glied; die 049-Konfund-Lesart ist damit zum ersten Mal in einer
+VERDICT-TRAGENDEN Form bestätigt. Die rohe 049-Lesart als
+Kontinuitäts-Ausgabe BIT-GLEICH reproduziert: ρ_obs 0.9393939393939393 >
+q95_null_abs 0.6363636363636362 → MITWANDERUNG_POSITIV (beide
+bitgleich_049 true) — dieselbe Struktur wie 049: positiv roh,
+S-spezifisch gefallen unter Rang-Kontrolle. GATES ALLE GRÜN: GATE-A′ max
+obs/bound **0.13237029516158497 @ N=1e6** (K1 max
+1.458088003044467e-11 vs Bound 1.1015220607195693e-10; eps_eff max
+**8.471698890341438 ulp ≤ 64**; Bound-Konsistenz rel 0.0 an allen 10
+Punkten) — der vorgeblich an der Float64-Grenze liegende 049-Gate-Fall
+N=1e6 sitzt unter dem konditions-getriebenen Bound sauber UNTER dem
+Dust-Rest; GATE-B max dS **2.6645352591003757e-15**; GATE-C **10/11**
+valid (N=7 exkludiert, ratio-los); GATE-D ok. Konfund-Kit: ρ(Γ,N)
+**0.9272727272727272** / ρ(Γ,rank_active) **0.966401527166472** /
+ρ(Γ,S_rel) **0.7575757575757575** — bit-gleich den 049-Roh-Werten
+(ganzzahlige Rang-Statistiken, build-invariant — siehe B); Blend
+fixed-N ρ(Γ,S) **0.2333333333333333** BIT-GLEICH 049 (dieselbe
+ANTI-Komove-Struktur am echten S-Sprung); Sekundär-Kanäle K3_q95_005
+10/10, K2_001 8/10, K2_005 8/10, K5_001 10/10 (alle identisch 049).
+Unit-Mix-Anker: α frisch **0.20040853783255602** — **1 ULP** neben dem
+049-Anker 0.2004085378325559 (kein bit-Repeat; dieselbe ULP-Klasse wie
+in B, offen gelegt).
+
+**B — Auflösung des 049/049b-Konfund-Deltas als numpy-BUILD-Delta (Probe
+`scratches/test2b_npbuild_probe.py` + `_out.json`, 0 QPU, NICHT
+verdict-tragend):** die Kreuz-Reproduktions-Anomalie — 049-committed
+partial **−0.31904242195272137** vs 049b-committed
+**−0.29878604232636102** trotz implementations-identischem Kit
+(Funktionsdefs per exec aus dem committeten Runner) und
+byte-identischen Rows/Seeds — ist bit-exakt ein **numpy-BUILD-Delta
+(2.4.6 vs 2.5.2)**: die 2×2-Matrix [Interpreter-Build × Gamma-Datensatz]
+reproduziert JEDEN der zwei Werte bit-gleich AUF BEIDEN Datensätzen —
+die partielle Statistik ist BUILD-determiniert, NICHT
+daten-determiniert. **Mechanismus:** das np.polyfit-LSTSQ-ULP-Delta
+zwischen den Builds formt die ±0.5-Rang-Residuen an den rank_active-Ties
+verschieden (n_valid_base [1,1]/[3,3]/[7,7] → Mittel-Ränge
+[1.5,1.5]/[3.5,3.5]/[5.5,5.5]): unter 2.4.6 landen die Residuen-Paare
+(63,255) und (127,511) BIT-GLEICH (Average-Tie-Ranks 2.5/2.5 bzw.
+9.5/9.5), unter 2.5.2 splitten dieselben Paare um 1-2 ulp (Ränge
+3/10/2/9 an denselben Positionen) → qualitativ anderer resS-Rang-Vektor
+→ die partielle Korrelation springt (Relativ-Delta ~6.7 %). Threads-stabil
+je Build (kein BLAS-dust), build-deterministisch. Umfassend verifiziert:
+die drei RAW-ρ's sind BUILD-INVARIANT bit-gleich über Builds UND
+Datensätze; die gamma-Werte SELBST sind nur 1/11 bit-identisch zwischen
+den Results (LAPACK-ULP in der SVD-Pipeline der K3-Draws —
+carrier_lam/ok_p-Gap-Maske/Ratio) — PCG64-RNG bit-stabil
+(default_rng(20261015) bit-gleich in beiden Builds, kein RNG-Kipp); das
+α-Anker-Delta ist dieselbe LAPACK-ULP-Klasse. **q95_partial wurde NICHT
+offline re-permutiert (offengelegt)** — die Verdict-Robustheit folgt
+daraus, dass beide build-Werte (|partial| 0.299/0.319) weit unter der
+Kante 0.640 liegen und der ZEICHENFLIP gegen ρ_obs +0.9394 in BEIDEN
+Builds steht.
+
+**C — Metrologie-Lektion + Prozess:** (1) **Interpreter-Pinning:** die
+numpy-Version (hier 2.4.6 vs 2.5.2) und der Interpreter gehören je Lauf
+in die LAUF-METADATEN; polyfit-Residuen-Rang-Statistiken an Ties sind auf
+ULP-Niveau build-sensitiv — Kreuz-Reproduktion von Zahlenwerten ist nur
+build-gleich gültig, während ganzzahlige Rang-ROH-Statistiken (keine
+Residuen) und breite Permutations-Nullen robust sitzen. (2) KEIN
+Re-Decide, KEINE Toleranz-Erhöhung: die gefrorenen 048/048b/049-Verdicts
+(inkl. 049 DEGENERAT an der Float64-Kante) bleiben unangetastet; der
+Rang-Konfund-Befund ist jetzt DOPPELT belegt — diagnostisch in 049,
+verdict-tragend in 049b. (3) Der A′-Bound kauft die Gate-Grünheit NICHT:
+er ist Property des Zustands plus eine Toleranz-KONSTANTE; die 049-Kante
+(1e-12) wird als an der falschen Skala dokumentiert, nicht still
+erhöht. (4) Reststand: 14 unpushed Commits auf `h-test1-gap-invariance`
+(vs origin/ram-q-zyklizitaet) nach diesem Doku-Commit;
+Fez-046-Kingston-Bein QUEUED (dauassrojkfs738rrcsg); H-RAM-Q-6
+(D1/D2/D3) als nächste nummerierte Iteration freigegeben (QPU-Beine mit
+Prereg-Commits zuerst).
+
+**Quellen:** `pt_test2b_rank_controlled_prereg.json` (md5
+`f092b9020922717c09966a139c90410c`),
+`pt_test2b_rank_controlled.py`,
+`pt_test2b_rank_controlled_results.json` (verdict
+RANGGETRAGEN_GEFALLEN, partial −0.29878604232636102),
+`scratches/test2b_npbuild_probe.py`+`_out.json` (2×2-Matrix,
+RNG-Bit-Stabilität, Mechanismus-Report); Commits `a8e5617` (Freeze),
+`9a5304f` (Auswertung + Auflösung, Amend-Kette c79e391); 0 QPU
+in allen Beinen; §Z.31 (SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
