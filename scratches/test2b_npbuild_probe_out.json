@@ -1,0 +1,284 @@
+{
+ "probe": "test2b_npbuild_probe (0 QPU, NICHT verdict-tragend)",
+ "resolution": "numpy-BUILD-Delta (2.4.6 venv vs 2.5.2 sys), polyfit-ULP an rank_active-Ties; build-determiniert, NICHT daten-determiniert",
+ "interpreter_of_runs": {
+  "049": "venv/bin/python (numpy 2.4.6)",
+  "049b": "System-Python (numpy 2.5.2)"
+ },
+ "builds": {
+  "venv_numpy_246": {
+   "interp": "venv/bin/python",
+   "numpy": "2.4.6",
+   "by_dataset": {
+    "049": {
+     "numpy": "2.4.6",
+     "python": "3.14.7",
+     "gamma_dataset": "049",
+     "rho_gamma_vs_N": 0.9272727272727272,
+     "rho_gamma_vs_rank_active": 0.966401527166472,
+     "rho_gamma_vs_S_rel": 0.7575757575757575,
+     "partial": -0.31904242195272137,
+     "polyfit_bg_ag_bs_as": [
+      0.9753086419753085,
+      0.13580246913580157,
+      0.9999999999999998,
+      -1.0070798633041394e-15
+     ],
+     "resS_values": [
+      0.5000000000000016,
+      -0.49999999999999845,
+      -0.4999999999999982,
+      0.5000000000000018,
+      -0.4999999999999982,
+      0.5000000000000018,
+      2.6645352591003757e-15,
+      2.6645352591003757e-15,
+      3.552713678800501e-15,
+      3.552713678800501e-15
+     ],
+     "resS_ranks": [
+      8.0,
+      1.0,
+      2.5,
+      9.5,
+      2.5,
+      9.5,
+      4.5,
+      4.5,
+      6.5,
+      6.5
+     ],
+     "resG_ranks": [
+      8.0,
+      2.0,
+      10.0,
+      3.0,
+      9.0,
+      1.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0
+     ]
+    },
+    "049b": {
+     "numpy": "2.4.6",
+     "python": "3.14.7",
+     "gamma_dataset": "049b",
+     "rho_gamma_vs_N": 0.9272727272727272,
+     "rho_gamma_vs_rank_active": 0.966401527166472,
+     "rho_gamma_vs_S_rel": 0.7575757575757575,
+     "partial": -0.31904242195272137,
+     "polyfit_bg_ag_bs_as": [
+      0.9753086419753085,
+      0.13580246913580157,
+      0.9999999999999998,
+      -1.0070798633041394e-15
+     ],
+     "resS_values": [
+      0.5000000000000016,
+      -0.49999999999999845,
+      -0.4999999999999982,
+      0.5000000000000018,
+      -0.4999999999999982,
+      0.5000000000000018,
+      2.6645352591003757e-15,
+      2.6645352591003757e-15,
+      3.552713678800501e-15,
+      3.552713678800501e-15
+     ],
+     "resS_ranks": [
+      8.0,
+      1.0,
+      2.5,
+      9.5,
+      2.5,
+      9.5,
+      4.5,
+      4.5,
+      6.5,
+      6.5
+     ],
+     "resG_ranks": [
+      8.0,
+      2.0,
+      10.0,
+      3.0,
+      9.0,
+      1.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0
+     ]
+    }
+   }
+  },
+  "sys_numpy_252": {
+   "interp": "python",
+   "numpy": "2.5.2",
+   "by_dataset": {
+    "049": {
+     "numpy": "2.5.2",
+     "python": "3.14.7",
+     "gamma_dataset": "049",
+     "rho_gamma_vs_N": 0.9272727272727272,
+     "rho_gamma_vs_rank_active": 0.966401527166472,
+     "rho_gamma_vs_S_rel": 0.7575757575757575,
+     "partial": -0.298786042326361,
+     "polyfit_bg_ag_bs_as": [
+      0.9753086419753083,
+      0.13580246913579988,
+      0.9999999999999998,
+      -1.1234667099445444e-15
+     ],
+     "resS_values": [
+      0.5000000000000016,
+      -0.49999999999999845,
+      -0.4999999999999978,
+      0.5000000000000022,
+      -0.4999999999999982,
+      0.5000000000000018,
+      2.6645352591003757e-15,
+      2.6645352591003757e-15,
+      3.552713678800501e-15,
+      3.552713678800501e-15
+     ],
+     "resS_ranks": [
+      8.0,
+      1.0,
+      3.0,
+      10.0,
+      2.0,
+      9.0,
+      4.5,
+      4.5,
+      6.5,
+      6.5
+     ],
+     "resG_ranks": [
+      8.0,
+      2.0,
+      10.0,
+      3.0,
+      9.0,
+      1.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0
+     ]
+    },
+    "049b": {
+     "numpy": "2.5.2",
+     "python": "3.14.7",
+     "gamma_dataset": "049b",
+     "rho_gamma_vs_N": 0.9272727272727272,
+     "rho_gamma_vs_rank_active": 0.966401527166472,
+     "rho_gamma_vs_S_rel": 0.7575757575757575,
+     "partial": -0.298786042326361,
+     "polyfit_bg_ag_bs_as": [
+      0.9753086419753083,
+      0.13580246913579988,
+      0.9999999999999998,
+      -1.1234667099445444e-15
+     ],
+     "resS_values": [
+      0.5000000000000016,
+      -0.49999999999999845,
+      -0.4999999999999978,
+      0.5000000000000022,
+      -0.4999999999999982,
+      0.5000000000000018,
+      2.6645352591003757e-15,
+      2.6645352591003757e-15,
+      3.552713678800501e-15,
+      3.552713678800501e-15
+     ],
+     "resS_ranks": [
+      8.0,
+      1.0,
+      3.0,
+      10.0,
+      2.0,
+      9.0,
+      4.5,
+      4.5,
+      6.5,
+      6.5
+     ],
+     "resG_ranks": [
+      8.0,
+      2.0,
+      10.0,
+      3.0,
+      9.0,
+      1.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0
+     ]
+    }
+   }
+  }
+ },
+ "interpreter_labels": {
+  "venv_numpy_246": "venv/bin/python",
+  "sys_numpy_252": "python (System, wie 049b-Lauf)"
+ },
+ "checks": [
+  {
+   "build": "sys_numpy_252",
+   "dataset": "049",
+   "partial": -0.298786042326361,
+   "committed_value": -0.31904242195272137,
+   "own_run_build": false,
+   "bit_gleich_committed": false,
+   "erwartung": "weicht ab (Build-Determinante)"
+  },
+  {
+   "build": "sys_numpy_252",
+   "dataset": "049b",
+   "partial": -0.298786042326361,
+   "committed_value": -0.298786042326361,
+   "own_run_build": true,
+   "bit_gleich_committed": true,
+   "erwartung": "bit-gleich"
+  },
+  {
+   "build": "venv_numpy_246",
+   "dataset": "049",
+   "partial": -0.31904242195272137,
+   "committed_value": -0.31904242195272137,
+   "own_run_build": true,
+   "bit_gleich_committed": true,
+   "erwartung": "bit-gleich"
+  },
+  {
+   "build": "venv_numpy_246",
+   "dataset": "049b",
+   "partial": -0.31904242195272137,
+   "committed_value": -0.298786042326361,
+   "own_run_build": false,
+   "bit_gleich_committed": false,
+   "erwartung": "weicht ab (Build-Determinante)"
+  }
+ ],
+ "rng_bit_stability": {
+  "sys_values": [
+   0.28088964726739407,
+   0.5875203375235917,
+   0.4748989189215046,
+   0.4127794730483393,
+   0.004527277708947786,
+   0.7650887813453231
+  ],
+  "bit_gleich_beide_builds": true
+ },
+ "gamma_lapack_ulp": "gamma-Werte nur 1/11 bit-identisch zwischen 049/049b-Results \u2014 LAPACK-ULP in der SVD-Pipeline; RAW-rho's dennoch bit-gleich (Rang-Robustheit)",
+ "q95_partial_note": "q95_partial 0.6402558049850593 (049b-Null, 1000 Permutationen) nicht offline re-permutiert; Verdict-Robustheit folgt aus |partial| << Margin in beiden Builds",
+ "verdict_robust": "RANGGETRAGEN_GEFALLEN + ZEICHENFLIP tragen in beiden Builds",
+ "raw_rho_invariant_ueber_builds_und_datensaetze": true,
+ "checks_all_in_erwartung": true
+}
