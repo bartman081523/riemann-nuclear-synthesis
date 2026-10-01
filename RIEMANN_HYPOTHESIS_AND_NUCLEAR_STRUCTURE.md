@@ -2291,6 +2291,159 @@ Commits `3b627de`, `c3ce362`, `bbb2de5`, `7d476fe`, `7a95cff`, `cb86cbb`,
 `f91eb96`; Tests 1178 → 1225 (+40 Rep-Eval `cb86cbb`, +47 S₄/Diagnose
 `f91eb96`); §Z.29 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.31 — H-TEST1-Kette: die „offensichtliches"-Synthese geauditet, das GF(5)-Notwendigkeits-Glied an der Kante CONFIRMED und von der Artefakt-Diagnostik dennoch gefallen, das Kausal-Glied Mitwanderung als Rang-Konfund entlarvt, der committete α-Anker als Einheits-Mix korrigiert — und die v3b-Geister unter der „neue fundamentale Arithmetik"-Lesare geprüft (EXPERIMENTE 048/048b/049, Branch `h-test1-gap-invariance`, 2026-10-01/02, 0 QPU)
+
+**Motivation:** die User-Synthese-Datei `offensichtliches.txt` (GF(5)-Glied/
+Ququint-Architektur, α→0.223 als „exakter Schutzmechanismus" von Spektren)
+wurde dem SciMind-Audit unterworfen: die ex-post-Kausalkette ist
+gestrichen (die niedrige Verschraenkung FOLGT nicht aus einem Schutz),
+RH bleibt Ortsaussage Re(s)=1/2 mit Montgomery-GUE separat, und der
+reduzierte Kern lautet „Eine niedrigere Verschraenkung erhoehet die
+numerische Robustheit der Relativ-Struktur der Repraesentation" (Grade E,
+Richtung C+/B−). Zwei 0-QPU-Tests trugen die Prüfung: **Test 1**
+(GF(5)-Notwendigkeits-Glied, H-TEST1) und **Test 2** (Kausal-Glied
+Mitwanderung Verschraenkung ↔ Robustheit, H-TEST2).
+
+**A — EXPERIMENT 048 (Test 1), Freeze VOR Auswertung:** Prereg
+`pt_test1_gap_invariance_prereg.json` md5
+`de77b33c21077949c6202c1b7e6994e5`, Commit `039dc08` (Runner
+`pt_test1_gap_invariance.py` mit md5-Assert), Auswertung+Diagnostik
+`7fae109`. Zwei KORREKTUREN fielen VOR dem Freeze (gegen Vorab-Verdicts):
+Normalisierung per-Arm-span → GEMEINSAME `span_shared` 2.98781812237791;
+Vergleichsgitter NUR γ=0.02 (γ=0 ist strukturell vakuum → nur GATE-A).
+Arme: Binär n=4 (diag(E\₄)+iγ·jacobi\_A(E\₄)) vs Ququint-PRIMÄR n=5
+(Iterations-Fortsetzung E\₅ = f(E\₄) = 6.594816686495204, voll gekoppelt)
+vs Ququint-CONTROL (block-trivial, Platzhalter — der bestehende
+`pt_ququint_vqe.py`-Vergleichsarm ist vakuum). **Gefrorenes Verdict
+H-TEST1-QUALIFIER: CONFIRMED — 5/8 Kriterien favorable, exakt an der
+Kante** (K2 3× q/b≈0.73, K4 2× 0.79/0.69; K3/K5 ququint hauchweise
+SCHLECHTER, kein Red-Flag).
+
+**Artefakt-Diagnostik (Diagnostik-Präzedenz, NICHT verdict-tragend) kippte
+die Lesung:** D1 K2 arm-symmetrisch (shape=(E/span\_shared)² ohne
+max-Re-Norm) → q/b 1.2689/1.2604/1.2274 — der gefrorene K2-Vorteil war die
+armeigene max-Normierung (Amplituden-Verhältnis ~1.37, linear über 3
+Dekaden δ); D2 K4 per-pair (ohne ‖S‖₂-Norm) → 1.0644/1.0170 — der
+Vorteil war Projektions-Verdünnung 3/4; D3 Kontrollarm unter K3 0/100
+Crossings bei δ≤0.01.
+
+**B — EXPERIMENT 048b (arm-symmetrischer Re-Freeze, nummerierte
+Iteration; die v1 bleibt unangetastet):** Prereg md5
+`4f7c65d449ee1d56155b76539cb0c0c8` GEFROREN — bewusst inklusive
+Tippfehler „Teil desInputs" (md5-Heiligkeit; keine Content-Änderung nach
+Freeze) — Commit `c8566ff`; Auswertung `2867804`: **VERDICT
+NOTWENDIGKEIT_GEFALLEN 0/8** — Gates grün (GATE-A exakt 0.000e+00,
+GATE-B 2.293e-14 ≤ 1e-12, K5 1.000), K2 q/b 1.269/1.260/1.227, K4
+1.064/1.017, K3 1.000/1.000, Red-Flag False, PT max|Im| 0.0299
+unverändert; die Korrekturen exakt reproduziert. **Das
+GF(5)-Notwendigkeits-Glied ist restlos fallengelassen; die artefaktfreie
+Lesart lautet KEIN Architektur-Vorteil.** BLEIBT gültig: die
+Relativ-Gap-Struktur ist in BEIDEN Repräsentationen linear robust
+(Γ ~ 1e-4..1e-2); die 005v3-Hürde γ\* = 0 bleibt unverändert.
+
+**C — EXPERIMENT 049 (Test 2, H-TEST2):** VOR dem Freeze wurde die
+KONVENTIONS-DE-KODIERUNG der drei committeten Quellen bewiesen
+(singleshot: C-order/balanced-split-HIGH-rows/NATS/1e-12-abs; N255 und
+N1e6: F-order/LSB-floor/BITS; max |dS| je Zeile 3.55e-15). Dabei kam die
+**UNIT-MIX-Korrektur** ans Licht: `pt_asymptotic_N1e6.py
+load_existing_data()` lädt die singleshot-NATS-Werte ROH als bits — der
+committete α-Anker 0.22275345050922138 ist einheitsgemischt; frisch
+konsistent gerechnet (bits, 11-Punkte-Fit) ist **α = 0.2004085378325559**
+(~11 % Inflation des committeten Wertes), inkrementell 0.3502→0.2004
+monotone Trajektorie — die qualitative Aussage überlebt und wird
+STÄRKER; die Achsen-Reihe ist NICHT strikt monoton (Inversion N=31
+1.0047 < N=15 1.2062). Prereg `pt_test2_entanglement_comovement_prereg.json`
+md5 `857168030a2d16df1f9d9a0cd97a4124` (5 Corrections, Freeze `a52db94`,
+danach keine Inhalt-Änderung). Der erste Lauf crashte an N=7 (np.median
+über [None]\*50 — K=2-Spektrum, 0 Ratios); der None-sichere
+Maschinen-Fix fiel POST-FREEZE, Crash VOR prints, Zahlen ungelesen
+(023-EXT-Präzedenz), Verdict-Regel/Kanäle/Seeds/Toleranzen unangetastet,
+GATE-A-Scope GEMÄSS GEFRORENEM TEXT auf VALID-Punkte eingeschränkt
+(Auswertung `fa3b8a9`).
+
+**Gefrorenes Verdict: DEGENERAT.** GATE-A ist an der Float64-Grenze
+un-erfüllbar — der K1-Kanal (uniforme Amplitude, die exakt die Invarianz
+testen SOLL) maximiert bei **1.7032071337506946e-11 @ N=1e6** und
+4.4404223e-13 @ N=1e5, gegen die gefrorene Toleranz 1e-12; der Mechanismus
+ist bit-exakt erklärbar: die Ratio-Statistik δ\_rel ~ 2ε/gap\_rel
+amplifiziert Float-Dust an den kleinsten VALID-Gaps (Skalierung 1e-15 →
+1e-11 über die Gap-Skala verifiziert) — die im Freeze notierte
+Erwartung ~1e-16 war am großen N unrealistisch. Gates B/C/D grün (max dS
+3.55e-15; 10/11 VALID — N=7 ratio-los via GATE-C exkludiert). **Wäre
+GATE-A grün gewesen: ρ\_obs 0.939 > q95\_null 0.636 →
+MITWANDERUNG\_POSITIV (Leg A) — ABER das Konfund-Kit (registriert, nicht
+verdict-tragend) entlarvt die rohe Mitwanderung als Rang-getragen:**
+ρ(Γ, rank\_active) **0.9664015** > ρ(Γ, S) 0.939; die PARTIELLE
+ρ(Γ, S | rank\_active) = **−0.3190424 — ZEICHENFLIP**; die
+Blend-Diagnostik bei FIXED N=1023 über θ bestätigt ANTI-Komove am
+einzigen echten S-Sprung (θ 0→0.125: S +1.12 bits, Γ 0.170→0.082
+HALBIERT; ρ(Γ,S) nur 0.2333). Sekundär-Kanäle konsistent (K3\_005 10/10,
+K5 10/10, K2 8/10 Median-Sign-Konstanz). **Das Kausal-Glied des
+reduzierten Claims ist in dieser Form nicht S-spezifisch tragbar.** KEINE
+Toleranz-Erhöhung, kein Re-Decide — DEGENERAT als gefrorener Ausgang;
+skalen-bewusster K1-Gate (analytisch K1\_tol = C·2⁻⁵²/gap\_rel\_min,
+Konstante gefroren) + rang-kontrolliertes Verdict nur als NUMMERIERTE
+Folge-Iteration **049b** mit neuem Prereg-Freeze (in derselben Runde
+angestoßen).
+
+**D — v3b-Geister-Probe (0 QPU, Diagnostik, NICHT verdict-tragend;
+Scratch `scratches/h_test1_v3b_ghost_probe.py` + `_out.json`):** die
+User-Alternative-Lesung — die Session-stabilen Geister und
+Vorzeichen-Korrelationen könnten „die allerersten physischen
+Fußabdrücke einer völlig neuen fundamentalen Arithmetik" sein — wurde an
+den GEFRORENEN Phase-11d-Artefakten blind geprüft. Drei Befunde: (1) **Der
+Geist hat fast keine freie Varianz außerhalb der Kalibrations-Kette**:
+res~delta\_cal = **−0.985 (q\₃-Bein) / −0.988 (q\₅-Bein)** — weit außerhalb
+der Haus-Shuffle-Null (q95 |ρ| 0.636 bei n=10); die Residuen-Spannweite
+nach Entfernung der delta\_cal-Rächer beträgt 3.97 von 15 (q\₃) bzw. 1.99 von 9
+(q\₅) Rang-Stufen, und die Partiale bleiben IN der Null (partial(res, P |
+delta\_cal) −0.432/−0.261; partial(res, kappa\_hat | delta\_cal) −0.503/+0.358
+zeichenkippend); set-weise −0.555 (cal) / −0.802 (verdict). (2) **Das
+Vorzeichen ist KEINE P-Funktion:** über die 6 gemeinsamen (P,arm)-Paare
+widersprechen sich die Arme halb-halb (433/613/659 GLEICH, 467/577/691
+FLIP — z. B. 467 +0.03700 im q\₃-Bein gegen −0.03178 im q\₅-Bein) — keine
+Zahl-der-P-Vorhersage übersteht die Armtrennung. (3) **Der
+Legendre-Mod-5-Kandidat fällt als BLIND-Klassifikator:** als Band-Test
+(P(X ≥ Treffer) mit Hypergeom über die Arm-Beine) q\₅ **0.1190** und q\₃
+**0.7667** — nicht signifikant; die Auge-Falle 499 (quadratisch!) liegt
+AUSSEN-sharp und 577 (nicht-quadratisch) IM Band; die ex-post-Zeile
+„3/3 Falsifikatoren in non-QR" (Hypergeom 0.105263 über 20 eindeutige P)
+ist Kassenwahlfußnote ohne Beweiskraft (Anti-Sharpshooter). (4) Der
+offene Slot heißt **Echo-Kanal-Content-Abhängigkeit** — die Echo-Leiter
+selbst (κ\_block q\₃ 0.9927/max\_res\_log 0.0033 vs q\₅ 0.7314/0.2061,
+§10.28) trägt den Größenunterschied; die klassische Kontrollklasse
+(±1-ulp-Transpile §10.27, S₄ 1.026e-08 §10.30, MOCS I3 +0.004 §10.29)
+zeigt dieselbe Phänomenologie OHNE Substrat, und der 046-Bias driftet mit
+Backend/Session (+1.20σ/−1.93σ/−1.38σ/−2.22σ). **Grade „neue
+fundamentale Arithmetik": E/F heute** (keine ex-ante-Vorhersagen, zwei
+Probe-Niederlagen, Ockham-Penalität) — der scharfshooter-feste Rest (die
+session-stabile P-Komponente der Residuen, S +0.896/9/9 §Z.29) ist ein
+legitimer offener Kandidat Grade B− und läuft als **H-RAM-Q-6
+(D1/D2/D3)** weiter: D1 Substrat-Universität = dasselbe 26-Punkte-(P,arm)-Grid
+auf Kingston, D2 blindes Klassifikator-Programm mit ex-ante-Familie und
+Zug/Prüf-Trennung auf FRISCHEN P (Phase-10b-Regel: kleinste Primzahl >
+letzter+30), D3 In-Arm-Vorzeichen-Gesetz; User-Freigabe für die Runde
+inkl. QPU-Beine 2026-10-02 („mache alles was noch offen ist, auch alle
+auf statevector und qpu"); kein Freeze des QPU-Beins ohne
+Prereg-Commits.
+
+**Quellen:** `offensichtliches.txt` (User-Synthese, audit-bearbeitet),
+`pt_test1_gap_invariance_prereg.json` (md5
+`de77b33c21077949c6202c1b7e6994e5`)/`pt_test1_gap_invariance.py`/
+`_results.json`/`scratch_test1_diag_norm.py`,
+`pt_test1_gap_invariance_arm_sym_prereg.json` (md5
+`4f7c65d449ee1d56155b76539cb0c0c8`)/`pt_test1_gap_invariance_arm_sym`/
+`_results_arm_sym.json`, `pt_test2_entanglement_comovement_prereg.json`
+(md5 `857168030a2d16df1f9d9a0cd97a4124`)/
+`pt_test2_entanglement_comovement.py`/`_results.json`/
+`pt_prime_state_qpu_singleshot_results.json`/`pt_prime_state_N255_results.json`/
+`pt_asymptotic_N1e6_results.json`,
+`scratches/h_test1_v3b_ghost_probe.py`+`_out.json`,
+`pt_ram_q_hardware3_eval.json` (gelesen, nur Konstanten-Quelle);
+Commits `039dc08`, `7fae109`, `c8566ff`, `2867804`, `a52db94`, `fa3b8a9`
+(+ die Probe mit der Doku); 0 QPU in ALLEN drei Experimenten; §Z.30
+(SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf

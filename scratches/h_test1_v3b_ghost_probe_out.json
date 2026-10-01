@@ -1,0 +1,219 @@
+{
+ "eval_prereg_md5": "baaca1f6772e07b0847fe436da7e16da",
+ "raw_job": {
+  "job_id": "dat1o6qhcrkc73dtgo60",
+  "backend": "ibm_fez",
+  "shots_per_circuit": 8192
+ },
+ "n_points": 26,
+ "falsifikatoren_holdout_q5": [
+  467,
+  547,
+  673
+ ],
+ "korrelationen_gewehr": {
+  "q3_d3": {
+   "n": 16,
+   "res_vs_delta_cal": -0.9852941176470588,
+   "res_vs_kappa_hat": -0.7019869450135229,
+   "res_vs_P": 0.5294117647058824,
+   "partial_res_P_given_delta_cal": -0.4323529411764706,
+   "partial_res_kappa_given_delta_cal": -0.5029411764705883,
+   "rangspanne_res": 0.05742343904089031,
+   "rest_spannweite_nach_dc": 3.9705882352941195
+  },
+  "q5_d5": {
+   "n": 10,
+   "res_vs_delta_cal": -0.9878787878787878,
+   "res_vs_kappa_hat": -0.8909090909090909,
+   "res_vs_P": 0.13939393939393938,
+   "partial_res_P_given_delta_cal": -0.2606060606060606,
+   "partial_res_kappa_given_delta_cal": 0.35757575757575755,
+   "rangspanne_res": 0.11627534919508609,
+   "rest_spannweite_nach_dc": 1.9878787878787874
+  }
+ },
+ "set_korrektur": {
+  "cal": {
+   "n": 13,
+   "res_vs_delta_cal": -0.5549450549450549
+  },
+  "verdict": {
+   "n": 13,
+   "res_vs_delta_cal": -0.8021978021978022
+  }
+ },
+ "arm_paare": {
+  "pairs": [
+   {
+    "P": 433,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     -0.002506502352814688,
+     -0.03670268589591674
+    ],
+    "relation": "GLEICH",
+    "abs_ratio": 0.06829206886718724
+   },
+   {
+    "P": 467,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     0.03700154819650725,
+     -0.031777729460608306
+    ],
+    "relation": "FLIP",
+    "abs_ratio": 1.1643861542208167
+   },
+   {
+    "P": 577,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     0.004385741523428188,
+     -0.006185178547684633
+    ],
+    "relation": "FLIP",
+    "abs_ratio": 0.7090727437561122
+   },
+   {
+    "P": 613,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     0.021264303976193832,
+     0.0615050758733946
+    ],
+    "relation": "GLEICH",
+    "abs_ratio": 0.3457325053946025
+   },
+   {
+    "P": 659,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     0.018104071501031105,
+     0.006762797637126394
+    ],
+    "relation": "GLEICH",
+    "abs_ratio": 2.677009201287261
+   },
+   {
+    "P": 691,
+    "arms": [
+     "q3_d3",
+     "q5_d5"
+    ],
+    "res": [
+     0.021121526431261417,
+     -0.0013155213772800822
+    ],
+    "relation": "FLIP",
+    "abs_ratio": 16.05563147512769
+   }
+  ],
+  "n_gleich": 3,
+  "n_flip": 3
+ },
+ "legendre_kandidat": {
+  "je_arm": {
+   "q3_d3": {
+    "ausser_sharp": [
+     379,
+     467
+    ],
+    "non_QR": [
+     197,
+     283,
+     347,
+     433,
+     467,
+     577,
+     613,
+     797
+    ],
+    "treffer": [
+     467
+    ],
+    "n_arm": 16,
+    "hypergeom_P_min_treffer_so_viele": 0.7666666666666666,
+    "klassifikator_identisch": false
+   },
+   "q5_d5": {
+    "ausser_sharp": [
+     433,
+     467,
+     499,
+     547,
+     613,
+     673
+    ],
+    "non_QR": [
+     433,
+     467,
+     547,
+     577,
+     613,
+     673
+    ],
+    "treffer": [
+     433,
+     467,
+     547,
+     613,
+     673
+    ],
+    "n_arm": 10,
+    "hypergeom_P_min_treffer_so_viele": 0.11904761904761904,
+    "klassifikator_identisch": false
+   }
+  },
+  "non_QR_gesamt": [
+   197,
+   283,
+   347,
+   433,
+   467,
+   547,
+   577,
+   613,
+   673,
+   797
+  ],
+  "QR_gesamt": [
+   149,
+   181,
+   229,
+   251,
+   379,
+   499,
+   631,
+   659,
+   691,
+   761
+  ],
+  "fals_in_nonQR": [
+   467,
+   547,
+   673
+  ],
+  "fals_in_QR": [],
+  "P_f_nach_nonQR": 0.3,
+  "P_f_nach_QR": 0.0,
+  "hypergeom_fals_ganz_in_nonQR": 0.10526315789473684,
+  "ex_post_warn": "3/3-Falsifikator-Zeile ist ex-post-Klassenwahl (Anti-Sharpshooter: KEINE Beweiskraft ohne ex-ante-Registrierung)"
+ },
+ "runtime_seconds": 1790892777.999377
+}

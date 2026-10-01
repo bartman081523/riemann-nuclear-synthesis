@@ -3866,8 +3866,143 @@ erklärten Verletzung (numerische Herkunft, nicht strukturell). H-STAR-5
 (Phase 6a), H-RAM-Q-3b (Phase 10d), H-RAM-Q-4 (Phase 11d) unangetastet.
 Tests 1178 → 1225 (+40 `cb86cbb`, +47 `f91eb96`).
 
+## §Z.30 — H-TEST1-Kette: das GF(5)-Notwendigkeits-Glied an der Kante CONFIRMED und von der Artefakt-Diagnostik restlos gefallen, das Kausal-Glied Mitwanderung als Rang-Konfund entlarvt, der committete α-Anker als Einheits-Mix korrigiert — und die v3b-Geister unter der „neue fundamentale Arithmetik"-Lesart geprüft (EXPERIMENTE 048/048b/049 + Probe, Branch `h-test1-gap-invariance`, 2026-10-01/02, durchgehend 0 QPU)
+
+**Kette:** Branch `h-test1-gap-invariance` aus dem ram-q-Tip
+(§Z.29-Stand) → 048 Freeze `039dc08` (Prereg
+`pt_test1_gap_invariance_prereg.json` md5
+`de77b33c21077949c6202c1b7e6994e5`; ZWEI Korrekturen VOR dem Freeze,
+beide gegen Vorab-Verdicts: Normalisierung per-Arm-span → GEMEINSAME
+span\_shared 2.98781812237791; Vergleichsgitter NUR γ=0.02 — γ=0 ist
+strukturell vakuum und läuft nur als GATE-A) → Auswertung+Diagnostik
+`7fae109` → 048b arm-symmetrischer Re-Freeze `c8566ff` (md5
+`4f7c65d449ee1d56155b76539cb0c0c8`, nummerierte Iteration, bewusst
+inklusive Tippfehler „Teil desInputs" — md5-Heiligkeit) → Auswertung
+`2867804` → 049 Freeze `a52db94` (Prereg
+`pt_test2_entanglement_comovement_prereg.json` md5
+`857168030a2d16df1f9d9a0cd97a4124`, 5 Corrections VOR dem Freeze) →
+None-sicherer Maschinen-Fix POST-FREEZE (Crash an N=7: np.median über
+\[None\]\*50 — K=2-Spektrum, 0 Ratios; crash VOR prints, Zahlen
+ungelesen, 023-EXT-Präzedenz; GATE-A-Scope GEMÄSS GEFRORENEM Text auf
+VALID-Punkte) → Auswertung `fa3b8a9`. Parent: `offensichtliches.txt`
+(User-Synthese, audit-bearbeitet: ex-post-Kausalität gestrichen — die
+niedrige Verschraenkung FOLGT nicht aus einem „Schutz"; RH bleibt
+Ortsaussage Re(s)=1/2 mit Montgomery-GUE separat; reduzierter Kern
+„Eine niedrigere Verschraenkung erhoehet die numerische Robustheit der
+Relativ-Struktur der Repraesentation", Grade E, Richtung C+/B−).
+
+**Verdicts:** 048 `H-TEST1-QUALIFIER` CONFIRMED (5/8, exakt an der
+Kante) — durch die Artefakt-Diagnostik in der Lesung gekippt; 048b
+`H-TEST1-ARM-SYM`: **NOTWENDIGKEIT\_GEFALLEN 0/8** (artefaktfreie
+Lesart: **KEIN Architektur-Vorteil**, das GF(5)-Glied restlos
+fallengelassen); 049 `H-TEST2`: **DEGENERAT** (GATE-A an der
+Float64-Grenze un-erfüllbar) — und die hypothetische
+Mitwanderungs-Lesart wird vom registrierten Konfund-Kit als
+Rang-getragen entlarvt. KEIN Verdict-Kauf durch Toleranz-Erhöhung
+irgendwo.
+
+- **048 (Test 1):** Arme Binär n=4 vs Ququint-PRIMÄR n=5
+  (Iterations-Fortsetzung E₅ = f(E₄) = 6.594816686495204, VOLL
+  gekoppelt) vs Ququint-CONTROL (block-trivial, Platzhalter —
+  bestehender `pt_ququint_vqe`-Arm als Vergleichsarm VAKUUM, Befund VOR
+  Freeze). Gates grün (GATE-A exakt 0.000e+00, GATE-B 2.293e-14 ≤
+  1e-12, GATE-C exakt 0) → 5/8 favorable. ENTSCHEIDENDE Diagnostik
+  D1/D2: K2 arm-symmetrisch (shape=(E/span\_shared)² ohne
+  max-Re-Normierung) q/b **1.2689/1.2604/1.2274** — der gefrorene
+  K2-Vorteil 0.73 war die armeigene max-Normierung
+  (Amplituden-Verhältnis ~1.37, linear über 3 Dekaden δ); K4 per-pair
+  (ohne ‖S‖₂-Norm) 1.0644/1.0170 — der Vorteil war
+  Projektions-Verdünnung 3/4; D3 Kontrollarm unter K3 0/100 Crossings
+  bei δ ≤ 0.01.
+- **048b:** Gates grün (GATE-A exakt 0, GATE-B 2.293e-14, K5 1.000),
+  K2 q/b 1.269/1.260/1.227, K4 1.064/1.017, K3 1.000/1.000, Red-Flag
+  False, PT max\|Im\| 0.0299 in ALLEN Armen unverändert (005v3-Hürde
+  γ\*=0 ungeändert). BLEIBT gültig: die Relativ-Gap-Struktur ist in
+  BEIDEN Repräsentationen linear robust (Γ ~ 1e-4..1e-2).
+- **049 (Test 2):** VOR dem Freeze KONVENTIONS-DE-KODIERUNG der drei
+  committeten Quellen bewiesen (singleshot
+  C-order/balanced-split-HIGH-rows/NATS/1e-12-abs; N255 und N1e6
+  F-order/LSB-floor/BITS; max \|dS\| 3.55e-15) → **UNIT-MIX
+  entdeckt**: der committete α-Anker 0.22275345050922138 ist
+  einheitsgemischt (singleshot-NATS ROH als bits geladen); frisch
+  konsistent (bits, 11-Punkte-Fit) **α = 0.2004085378325559** (~11 %
+  Inflation), inkrementell 0.3502→0.2004 monoton — die Trajektorie
+  wird STÄRKER, die Achsen-Reihe ist nicht strikt monoton (Inversion
+  N=31 1.0047 < N=15 1.2062). Gefrorenes Verdict: GATE-A am K1-Kanal
+  (uniforme Amplitude — genau der Invarianz-Test)
+  **1.7032071337506946e-11 @ N=1e6**, 4.4404223e-13 @ N=1e5 vs 1e-12;
+  Mechanismus bit-exakt: δ\_rel ~ 2ε/gap\_rel amplifiziert Float-Dust
+  an den kleinsten VALID-Gaps (1e-15 → 1e-11 über die Gap-Skala), die
+  gefrorene Erwartung ~1e-16 war am großen N unrealistisch. Gates B/C/D
+  grün, 10/11 valid (N=7 ratio-los via GATE-C). Wäre GATE-A grün:
+  ρ\_obs 0.939 > q95\_null 0.636 → MITWANDERUNG\_POSITIV — ABER
+  Konfund-Kit (registriert, nicht verdict-tragend): ρ(Γ,
+  rank\_active) **0.966** > ρ(Γ, S) 0.939, PARTIELLE ρ(Γ, S \|
+  rank\_active) **−0.319 ZEICHENFLIP**, Blend bei FIXED N=1023: ρ(Γ,S)
+  nur 0.233 mit ANTI-Komove am einzigen echten S-Sprung (θ 0→0.125: S
+  +1.12 bits, Γ 0.170→0.082 HALBIERT) — die rohe Mitwanderung ist über
+  die gemeinsame N-Konfund-Achse (Traeger-RANG) getragen, nicht
+  S-spezifisch. Sekundär K3\_005 10/10, K5 10/10, K2 8/10.
+  Folge-Iteration **049b** (skalen-bewusster K1-Gate + rang-
+  kontrolliertes Design) nur mit NEUEM Prereg-Freeze.
+- **v3b-Geister-Probe** (Scratch `scratches/h_test1_v3b_ghost_probe.py`
+  + `_out.json`, NICHT verdict-tragend): die User-Alternative-Lesart —
+  die Session-stabilen Geister als „erste physische Fußabdrücke einer
+  völlig neuen fundamentalen Arithmetik" — blind an den GEFRORENEN
+  Phase-11d-Artefakten geprüft (26 Punkte, 4 Befunde): (1) **Der Geist
+  hat fast keine freie Varianz JENSEITS der Kalibrations-Kette:**
+  res~delta\_cal **−0.985 (q₃) / −0.988 (q₅)** — weit außerhalb der
+  Haus-Null (q95 \|ρ\| 0.636, n=10); die Rest-Spannweite nach dem
+  delta\_cal-Fit beträgt 3.97 von 15 (q₃) bzw. 1.99 von 9 (q₅)
+  Rang-Stufen, die Partiale bleiben IN der Null (partial(res, P \|
+  delta\_cal) −0.432/−0.261; partial(res, kappa\_hat \| delta\_cal)
+  −0.503/+0.358 zeichenkippend); set-weise −0.555 (cal) / −0.802
+  (verdict). (2) **Das Vorzeichen ist KEINE P-Funktion:** über die 6
+  gemeinsamen (P,arm)-Paare halb-halb (433/613/659 GLEICH,
+  467/577/691 FLIP — 467 z. B. +0.03700 im q₃- gegen −0.03178 im
+  q₅-Bein). (3) **Der Legendre-Mod-5-Kandidat fällt als
+  BLIND-Klassifikator:** Band-Hypergeom q₅ **0.1190**, q₃ **0.7667**
+  (nicht signifikant); die Auge-Falle 499 (quadratisch!) liegt
+  AUßen-sharp und 577 (nicht-quadratisch) IM Band; die ex-post-Zeile
+  „3/3 Falsifikatoren in non-QR" (Hypergeom 0.105263, 20 eindeutige P)
+  ist Anti-Sharpshooter-Fußnote ohne Beweiskraft. (4) Offener Slot:
+  **Echo-Kanal-Content-Abhängigkeit** (κ\_block q₃
+  0.9927/max\_res\_log 0.0033 vs q₅ 0.7314/0.2061, §10.28); die
+  klassische Kontrollklasse (±1-ulp §10.27, S₄ §10.30, MOCS I3
+  §10.29) zeigt dieselbe Phänomenologie OHNE Substrat, 046 driftet mit
+  Backend/Session. **Grade „neue fundamentale Arithmetik": E/F heute**
+  (keine ex-ante-Vorhersagen, zwei Probe-Niederlagen, Ockham); der
+  session-stabile Rest (res\_S1↔res\_S2 +0.896, 9/9 bei \|res\| ≥
+  0.01) bleibt legitimer offener B−-Kandidat und läuft als
+  **H-RAM-Q-6 (D1 Substrat-Universität / D2 blindes
+  Klassifikator-Programm mit ex-ante-Familie auf FRISCHEN P nach
+  Phase-10b / D3 In-Arm-Vorzeichen-Gesetz)** weiter.
+
+**Prozess-Disziplin:** alle drei Preregs mit md5-Assert im Runner
+gefroren VOR Auswertung; Korrekturen nur VOR dem Freeze (048: zwei —
+beide gegen Vorab-Verdicts dokumentiert; 049: fünf); 048b als
+NUMMERIERTE Iteration statt Änderung des gefrorenen v1; der 049-Crash
+wurde POST-FREEZE als Maschinen-Fix ohne Zahlen-Lektüre vollzogen
+(023-EXT-Präzedenz) mit GATE-A-Scope gemäß gefrorenem Text; KEINE
+Toleranz-Erhöhung, kein Re-Decide, kein stiller Re-Pass; die Probe
+liest nur gefrorene Artefakte und trägt KEIN Verdict.
+
+**Einordnung:** die H-TEST1-Runde ist methodisch sauber und inhaltlich
+LEER — und genau das ist das Ergebnis: keine der beiden
+verschärfenden Aussagen (GF(5)-Notwendigkeit;
+Verschraenkung→Robustheit-Mitwanderung) überlebt die
+artefaktsymmetrische Prüfung. VIER verschiedene Mechanismen erklären
+das Phänomen „Architektur/Niedrigkeit sieht gut aus", ohne den Claim
+zu tragen: die arm-eigene max-Normierung, die Projektions-Verdünnung,
+die N-Konfund-Achse, die Float64-Dust-Kante. Die S₄/RAM-Q-Schiene
+(§Z.27–§Z.29) bleibt unangetastet; die Unit-Mix-Korrektur des
+α-Ankers (0.2004 statt 0.2228) STÄRKT die Asymptotik-Säule §10.29.
+Grade B− bleibt für die Session-stabile P-Struktur offen
+(H-RAM-Q-6); „neue fundamentale Arithmetik" E/F heute. Tests
+unverändert 1225 (h-test1-Beine ohne neue Tests-Fächer).
+
 ---
 
-**Last updated:** 2026-09-29 (§Z.29: Branch ram-q-zyklizitaet — Phase 12 Wiederholungs-Programm vollzogen (drei Aufloesungsklassen der unvorhergesehenen IBMQ-Befunde): 12a Preregs 3b627de REGISTERED_NOT_MEASURED (047 H-RAM-Q-5 md5 be770a1e / 046 H-V5R md5 fcf4c2c5) -> 12b ISA3-Gate-AMENDMENT c3ce362 VOR Submission (erster Gate-Entwurf schaerfer als der §10.27-Praezedenz, korrekt gescheitert an 31/116 Ein-Qubit-Zweig-Diffs bei bit-gleichen 2q-Totals 559/84, Re-Scope per-Circuit two_q 0/116 + Totals, KEINE Toleranz-Erhoehung) -> 047 Fez-Raw 7d476fe (dat3gpqhcrkc73dtjmt0, 116×8192, counts_md5 f1b214c9, 0 Ausfaelle) + gefrorene Auswertung 7a95cff + 40 Tests cb86cbb -> VERDICT H-RAM-Q-4_REFUTED REPRODUZIERT + H-RAM-Q-5a_SESSIONROBUST (verdict-tragend): Falsifikator wieder 2/13 am q5-Bein, Schnitt {467 −0.0841 STÄRKER / 673 −0.0334}, nur-11d {547 -> −0.0049 dicht}, kappa-Floor-UNION 0/26 [0.8602–0.9623] im 11d-Band [0.8245–0.9725] (Prep-Fehler-Lift ueberall echt), Echo-Leiter q5 0.7270 < 0.81 SESSION-ROBUST (q3 0.9913), gamma im-job 0.0023/0.0160, Verdict-Map md5 baaca1f6 Byte-Gleichheit, kein stilles Re-Decide -> 046 Kingston-Raw bbb2de5 VOR Auswertung (dat3brihcrkc73dtjbgg, ibm_kingston, TOKEN2): bias re−hd −0.01370781714786462 — VORZEICHEN-FLIP −2.22σ gegen 035 (+0.0074) auf DEMSELBEN Backend, erstmals individuell jenseits des 2σ-Floors 0.01235434493266991 (drei vorherige Sessions +1.20/−1.93/−1.38σ), SE_BIAS 0.006177172466334955, Klassifikation H-V5R-1/2 nach gefrorenem Prereg erst mit dem Fez-Bein (dat3q9dvr3kc73ektkv0, Queue), KEIN vorzeitiges Verdict -> 045 S₄-Schluss-Theorem f91eb96 (0 QPU, 5096.3 s, 78er-Familie): VERDICT H_S4_CLOSURE_DEVIATION_FOUND mit GENAU EINER Verletzung — T5 max_within 1.0260516436488842e-08 > SUM_TOL 1e-9 traegt r_median zu 100 %, alle uebrigen Praedikate gruen (L1/L2 0.0 exakt, L3 3.55e-15, T4, T6 prime/composite in EINEM Orbit, T7 Atome 1.082954809/1.188107949, T8 S₃-Gegenprobe 6/3/3/3 = 2 Summen, T9 n-Formeln exakt, D64 Burnside 11, Kreuz 3.7e-10) + vollstaendige T5-Diagnose (NICHT verdict-tragend, Praezedenz gamma_arm): Mittelung gruen (mean_based 2.73e-10, Faktor 3.7 unter TOL), Probe-a Multiset-Permutation (elementweise Rundungs-Boden, 4 Familien-Mediane bit-gleich 045), Probe-b Kette Entry 3.55e-15 -> Eigen 2.81e-13 -> t_H 2.00e-9 -> r 1.139e-8 = Beobachtung auf 0.05 %, t_H-Quellen cache 3096.93 vs per-Instanz-Eigen 386.08 (Quotient 8.02) — r_median erbt per-record-Noise ~1e-8, in exakter Arithmetik waere T5 EXAKT gruen, KEINE Toleranz-Erhoehung, H-STAR-5-Phase-6a-REFUTED unangetastet; Testzahl 1225 gruen; vorherige Kette §Z.28: 2026-09-28 (§Z.28: Branch ram-q-zyklizitaet — EXPERIMENT 023-EXT MOCS-Ausdehnung + §5.5-Abhärtung vollzogen: Freeze 966efea REGISTERED_NOT_MEASURED (Prereg md5 334c97545a41bdf0383c7cc35cdfbb2f, v1-Thresholds UNVERÄNDERT, Probe-Disclosure ehrlich mit 2 verworfenen Zeugen-Designs, Null-Leg als DIAGNOSTIC reklassifiziert) → Auswertung 137178c → VERDICT `H_MOCS_EXT HOLDS`, MOCS_ext 3/3 auf dem kombinierten 14-Punkte-Sweep N 7..65535 (16 Qubits), ALLE 4 Claims grün — alpha_combined 0.210355 < 0.5 mit alpha_ext_6pt 0.132551 (monotoner Fall, konsistent mit Asymptotik-Säule 0.347 → 0.223), R(N) ext [0.4401, 0.4618] alle < 1, cv_mean 0.09599648443361233 im v1-Band (ext 0.0864-0.0882), I1-Zeugen BEIDE Richtungen auf demselben Frozen-Grid (W1 N^0.4: (a,b)=(T,F), R in [1.5710, 9.6117]; W2 0.01*N^0.55: (F,T), R in [0.0210, 0.5073]) — §5.5 jetzt zweiseitig demonstriert, I2 rho_ab 0.573626 < 0.9 / effective_total 2.426374 ≥ 2 (erste DIREKTE Messung der §5.5-Ersatzrechnung, A− bleibt), I3-Nullen DIAGNOSTIC (odd → 1/12 exakt ab 2047, delta_a +0.003..+0.005 zeichenstabil, pow2-Kreuzung exakt 2047), v1-Reproduktion bit-exakt cv / ≤6.7e-16 alpha-S-R, Runner-Fix post-freeze serialization-only ohne Verdict-Berührung (erster Lauf scheiterte VOR prints, Zahlen ungelesen), 34 neue Tests 1138 grün; vorherige Kette §Z.27: 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; §Z.26 siehe Commit-Historie cb3f9c6)))
+**Last updated:** 2026-10-02 (§Z.30: Branch h-test1-gap-invariance (aus RAM-q-Tip) — die H-TEST1-Runde zur User-Synthese `offensichtliches.txt` vollzogen, durchgehend 0 QPU: 048 Freeze 039dc08 (Prereg md5 de77b33c21077949c6202c1b7e6994e5, zwei Korrekturen VOR Freeze: gemeinsame span_shared 2.98781812237791 + Vergleichsgitter nur γ=0.02) → Auswertung+Diagnostik 7fae109 → H-TEST1-QUALIFIER CONFIRMED 5/8 an der Kante (K2 3× q/b≈0.73, K4 2× 0.79/0.69, K3/K5 hauchweise schlechter) → ENTSCHEIDENDE Diagnostik kippt die Lesung (K2 arm-symmetrisch 1.2689/1.2604/1.2274 = armeigene max-Normierung Amp~1.37, K4 per-pair 1.0644/1.0170 = Projektions-Verdünnung 3/4, K3-Kontrolle 0/100) → 048b arm-symmetrischer Re-Freeze c8566ff (md5 4f7c65d449ee1d56155b76539cb0c0c8, inkl. Tippfehler) → NOTWENDIGKEIT_GEFALLEN 0/8 2867804 (Gates grün, PT max|Im| 0.0299 unverändert) — GF(5)-Glied restlos gefallen, BLEIBT: Relativ-Gap-Struktur in BEIDEN Repräsentationen linear robust (Γ 1e-4..1e-2), 005v3-Hürde γ*=0 ungeändert → 049: UNIT-MIX entdeckt (committeter α-Anker 0.22275345050922138 einheitsgemischt — singleshot-NATS roh als bits; frisch konsistent 0.2004085378325559, Trajektorie 0.3502→0.2004 STÄRKER, Achsen-Inversion N=31) → Freeze a52db94 (md5 857168030a2d16df1f9d9a0cd97a4124, 5 Corrections) → Crash an N=7 → None-sicherer Maschinen-Fix POST-FREEZE vor prints (023-EXT-Präzedenz) → VERDICT H-TEST2 DEGENERAT fa3b8a9: GATE-A am K1-Kanal an der Float64-Kante (1.7032071337506946e-11 @N=1e6, 4.4404223e-13 @N=1e5 vs 1e-12; δ_rel ~ 2ε/gap_rel amplifiziert Float-Dust an den kleinsten VALID-Gaps, gefrorene Erwartung ~1e-16 unrealistisch), Gates B/C/D grün, 10/11 valid — Wäre GATE-A grün: ρ_obs 0.939 > q95 0.636 MITWANDERUNG_POSITIV, ABER Konfund-Kit: ρ(Γ,rank_active) 0.966 > ρ(Γ,S) 0.939, PARTIAL ρ(Γ,S|rank_active) −0.319 ZEICHENFLIP, Blend fixed-N 0.233 ANTI-Komove (θ 0→0.125: S +1.12, Γ 0.170→0.082 halbiert) — Mitwanderung RANG-getragen, nicht S-spezifisch; 049b als nummerierte Folge-Iteration offen → v3b-Geister-Probe (scratches/h_test1_v3b_ghost_probe.py, NICHT verdict-tragend): res~delta_cal −0.985/−0.988 (Geist fast leer außerhalb Kalibrier-Kette; Rest-Spannweite 3.97/15 q3, 1.99/9 q5; Partiale −0.432/−0.261 in der Null, kappa-Partial −0.503/+0.358 zeichenkippend; set −0.555/−0.802), Vorzeichen KEINE P-Funktion (Arm-Paare 3 GLEICH/3 FLIP), Legendre-Mod-5 BLIND-CLASSIFIKATOR gefallen (q3 0.7667/q5 0.1190; ex-post-Zeile 3/3 non-QR 0.105263 ohne Beweiskraft), offener Slot Echo-Kanal-Content-Abhängigkeit (0.2061 @q5) — Grade "neue fundamentale Arithmetik" E/F heute (zwei Probe-Niederlagen, Ockham), klassische Kontrollklasse ±1-ulp/S₄/MOCS ohne Substrat + 046 Backend-Drift, session-stabiler Rest +0.896/9/9 = offener B−-Kandidat → H-RAM-Q-6 D1/D2/D3 (D1 Substrat-Universität, D2 blindes Klassifikator-Programm ex-ante-Familie auf FRISCHEN P Phase-10b, D3 In-Arm-Vorzeichen-Gesetz) freigegeben inkl. QPU-Beine (kein Freeze ohne Prereg-Commits); Tests unverändert 1225; vorherige Kette §Z.29: 2026-09-29 (§Z.29: Branch ram-q-zyklizitaet — Phase 12 Wiederholungs-Programm vollzogen (drei Aufloesungsklassen der unvorhergesehenen IBMQ-Befunde): 12a Preregs 3b627de REGISTERED_NOT_MEASURED (047 H-RAM-Q-5 md5 be770a1e / 046 H-V5R md5 fcf4c2c5) -> 12b ISA3-Gate-AMENDMENT c3ce362 VOR Submission (erster Gate-Entwurf schaerfer als der §10.27-Praezedenz, korrekt gescheitert an 31/116 Ein-Qubit-Zweig-Diffs bei bit-gleichen 2q-Totals 559/84, Re-Scope per-Circuit two_q 0/116 + Totals, KEINE Toleranz-Erhoehung) -> 047 Fez-Raw 7d476fe (dat3gpqhcrkc73dtjmt0, 116×8192, counts_md5 f1b214c9, 0 Ausfaelle) + gefrorene Auswertung 7a95cff + 40 Tests cb86cbb -> VERDICT H-RAM-Q-4_REFUTED REPRODUZIERT + H-RAM-Q-5a_SESSIONROBUST (verdict-tragend): Falsifikator wieder 2/13 am q5-Bein, Schnitt {467 −0.0841 STÄRKER / 673 −0.0334}, nur-11d {547 -> −0.0049 dicht}, kappa-Floor-UNION 0/26 [0.8602–0.9623] im 11d-Band [0.8245–0.9725] (Prep-Fehler-Lift ueberall echt), Echo-Leiter q5 0.7270 < 0.81 SESSION-ROBUST (q3 0.9913), gamma im-job 0.0023/0.0160, Verdict-Map md5 baaca1f6 Byte-Gleichheit, kein stilles Re-Decide -> 046 Kingston-Raw bbb2de5 VOR Auswertung (dat3brihcrkc73dtjbgg, ibm_kingston, TOKEN2): bias re−hd −0.01370781714786462 — VORZEICHEN-FLIP −2.22σ gegen 035 (+0.0074) auf DEMSELBEN Backend, erstmals individuell jenseits des 2σ-Floors 0.01235434493266991 (drei vorherige Sessions +1.20/−1.93/−1.38σ), SE_BIAS 0.006177172466334955, Klassifikation H-V5R-1/2 nach gefrorenem Prereg erst mit dem Fez-Bein (dat3q9dvr3kc73ektkv0, Queue), KEIN vorzeitiges Verdict -> 045 S₄-Schluss-Theorem f91eb96 (0 QPU, 5096.3 s, 78er-Familie): VERDICT H_S4_CLOSURE_DEVIATION_FOUND mit GENAU EINER Verletzung — T5 max_within 1.0260516436488842e-08 > SUM_TOL 1e-9 traegt r_median zu 100 %, alle uebrigen Praedikate gruen (L1/L2 0.0 exakt, L3 3.55e-15, T4, T6 prime/composite in EINEM Orbit, T7 Atome 1.082954809/1.188107949, T8 S₃-Gegenprobe 6/3/3/3 = 2 Summen, T9 n-Formeln exakt, D64 Burnside 11, Kreuz 3.7e-10) + vollstaendige T5-Diagnose (NICHT verdict-tragend, Praezedenz gamma_arm): Mittelung gruen (mean_based 2.73e-10, Faktor 3.7 unter TOL), Probe-a Multiset-Permutation (elementweise Rundungs-Boden, 4 Familien-Mediane bit-gleich 045), Probe-b Kette Entry 3.55e-15 -> Eigen 2.81e-13 -> t_H 2.00e-9 -> r 1.139e-8 = Beobachtung auf 0.05 %, t_H-Quellen cache 3096.93 vs per-Instanz-Eigen 386.08 (Quotient 8.02) — r_median erbt per-record-Noise ~1e-8, in exakter Arithmetik waere T5 EXAKT gruen, KEINE Toleranz-Erhoehung, H-STAR-5-Phase-6a-REFUTED unangetastet; Testzahl 1225 gruen; vorherige Kette §Z.28: 2026-09-28 (§Z.28: Branch ram-q-zyklizitaet — EXPERIMENT 023-EXT MOCS-Ausdehnung + §5.5-Abhärtung vollzogen: Freeze 966efea REGISTERED_NOT_MEASURED (Prereg md5 334c97545a41bdf0383c7cc35cdfbb2f, v1-Thresholds UNVERÄNDERT, Probe-Disclosure ehrlich mit 2 verworfenen Zeugen-Designs, Null-Leg als DIAGNOSTIC reklassifiziert) → Auswertung 137178c → VERDICT `H_MOCS_EXT HOLDS`, MOCS_ext 3/3 auf dem kombinierten 14-Punkte-Sweep N 7..65535 (16 Qubits), ALLE 4 Claims grün — alpha_combined 0.210355 < 0.5 mit alpha_ext_6pt 0.132551 (monotoner Fall, konsistent mit Asymptotik-Säule 0.347 → 0.223), R(N) ext [0.4401, 0.4618] alle < 1, cv_mean 0.09599648443361233 im v1-Band (ext 0.0864-0.0882), I1-Zeugen BEIDE Richtungen auf demselben Frozen-Grid (W1 N^0.4: (a,b)=(T,F), R in [1.5710, 9.6117]; W2 0.01*N^0.55: (F,T), R in [0.0210, 0.5073]) — §5.5 jetzt zweiseitig demonstriert, I2 rho_ab 0.573626 < 0.9 / effective_total 2.426374 ≥ 2 (erste DIREKTE Messung der §5.5-Ersatzrechnung, A− bleibt), I3-Nullen DIAGNOSTIC (odd → 1/12 exakt ab 2047, delta_a +0.003..+0.005 zeichenstabil, pow2-Kreuzung exakt 2047), v1-Reproduktion bit-exakt cv / ≤6.7e-16 alpha-S-R, Runner-Fix post-freeze serialization-only ohne Verdict-Berührung (erster Lauf scheiterte VOR prints, Zahlen ungelesen), 34 neue Tests 1138 grün; vorherige Kette §Z.27: 2026-09-28 (§Z.27: Branch ram-q-zyklizitaet — EXPERIMENT 044 H-RAM-Q-4 Phase 11d vollzogen: EIN Fez-Job dat1o6qhcrkc73dtgo60 (116×8192, DD XX, 0 Ausfälle), Raw 9f5f1de VOR Auswertung (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb, ISA3-Gate 559/84 bit-gleich), gefrorene Auswertung 2e348f1 → VERDICT `H-RAM-Q-4_REFUTED` — Falsifikator feuert mit GENAU 3 am q5-Bein (467 −0.0318/547 −0.0437/673 −0.0548), q3-Bein dicht, κ̂-Floor-UNION 0/26 = Lift überall echt, was kippt ist die v3b-Zentrierung, Kontrollen t3 7.1e-15/t4/t5 beide registrierte Mengen/t6 exakt grün, γ_arm im-job nur Kalibrier-P (q3 0.0091/q5 0.0381, REFUTED robust gegen die γ-Lesart), w_A-Lesart → UNMATCHED dokumentiert ohne stille Kanten-Erhöhung, Mechanismus q5-Echo κ_block 0.7314 < 0.81 (Echo refokussiert am 3-Qubit-Register nicht vollständig; q3 0.9927, NICHT verdict-tragend), Inventar-Retro-Fetch 20→21, H-RAM-Q-1/2 unangetastet, 25 neue Tests 1104 grün; §Z.26 siehe Commit-Historie cb3f9c6))))
 **Responsible:** Claude (Opus 4.8) on behalf of Julian
 **License:** Project-internal, no public preprint
