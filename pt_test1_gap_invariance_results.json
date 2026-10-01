@@ -1,0 +1,126 @@
+{
+  "E4": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791
+  ],
+  "E5": [
+    2.0,
+    2.6931471805599454,
+    3.683857645907477,
+    4.98781812237791,
+    6.594816686495204
+  ],
+  "adversarial_invariance_red_flag": false,
+  "classification": "H-TEST1-QUALIFIER: CONFIRMED",
+  "comparison_points": [
+    {
+      "Gamma_binary": 0.0002751940078230579,
+      "Gamma_ququint": 0.00019993924296109699,
+      "channel": "K2",
+      "delta": 0.001,
+      "favorable": true,
+      "gamma": 0.02,
+      "ratio_q_over_b": 0.7265392315142718
+    },
+    {
+      "Gamma_binary": 0.0027330771027236035,
+      "Gamma_ququint": 0.001988722691018497,
+      "channel": "K2",
+      "delta": 0.01,
+      "favorable": true,
+      "gamma": 0.02,
+      "ratio_q_over_b": 0.7276496843197975
+    },
+    {
+      "Gamma_binary": 0.013261423741023312,
+      "Gamma_ququint": 0.00971324594010238,
+      "channel": "K2",
+      "delta": 0.05,
+      "favorable": true,
+      "gamma": 0.02,
+      "ratio_q_over_b": 0.732443674961921
+    },
+    {
+      "Gamma_binary": 0.010059032590795814,
+      "Gamma_ququint": 0.010059098854521283,
+      "channel": "K3",
+      "delta": 0.001,
+      "favorable": false,
+      "gamma": 0.02,
+      "median_binary": 0.004986442496629519,
+      "median_ququint": 0.005026477996235334,
+      "ratio_q_over_b": 1.0000065874849167
+    },
+    {
+      "Gamma_binary": 0.09619949579085696,
+      "Gamma_ququint": 0.09620047519425422,
+      "channel": "K3",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "median_binary": 0.050722674448168706,
+      "median_ququint": 0.050945389703970584,
+      "ratio_q_over_b": 1.0000101809618565
+    },
+    {
+      "Gamma_binary": 2.7783015700278827e-05,
+      "Gamma_ququint": 2.1953267912274757e-05,
+      "channel": "K4",
+      "delta": 0.001,
+      "favorable": true,
+      "gamma": 0.02,
+      "ratio_q_over_b": 0.790168646525094
+    },
+    {
+      "Gamma_binary": 0.0004957474488855527,
+      "Gamma_ququint": 0.00034339006053938704,
+      "channel": "K4",
+      "delta": 0.01,
+      "favorable": true,
+      "gamma": 0.02,
+      "ratio_q_over_b": 0.6926713618220987
+    },
+    {
+      "Gamma_binary": 0.1614372330494929,
+      "Gamma_ququint": 0.16143807655811973,
+      "channel": "K5",
+      "delta": 0.01,
+      "favorable": false,
+      "gamma": 0.02,
+      "ratio_q_over_b": 1.000005224994327
+    }
+  ],
+  "control_diagnostics": {
+    "K2_d010_Gamma_control": 0.0027198765344932955,
+    "K2_d050_Gamma_control": 0.013199256363186368,
+    "interior_ratio_diff_vs_binary_gamma0": 0.0,
+    "interior_ratio_diff_vs_binary_gamma002": 0.0,
+    "placeholder_gap": 0.012181877622089665
+  },
+  "experiment": "048",
+  "favorable_required": 5,
+  "frozen_prereg_md5": "de77b33c21077949c6202c1b7e6994e5",
+  "gamma_grid": [
+    0.0,
+    0.02
+  ],
+  "gates": {
+    "GATE_A_pass": true,
+    "GATE_A_shared_interior_ratio_diff_gamma0": 0.0,
+    "GATE_B_max_drift": 2.2934926022054575e-14,
+    "GATE_B_pass": true
+  },
+  "hypothesis": "H-TEST1",
+  "n_draws": 100,
+  "n_favorable": 5,
+  "prereg_md5": "de77b33c21077949c6202c1b7e6994e5",
+  "pt_status_gamma_compare": {
+    "binary": 0.02994539229037304,
+    "ququint_CONTROL": 0.02994539229037304,
+    "ququint_PRIMARY": 0.02992793061598015
+  },
+  "seed": 20261001,
+  "span_shared": 2.9878181223779103
+}
