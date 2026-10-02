@@ -36,6 +36,7 @@ import os
 
 import pt_ram_q_hardware as hw
 import pt_ram_q_hardware3 as h3
+import pt_ram_q_hardware3_aer as h3a
 import pt_ram_q_hardware3_eval as h3e
 import pt_ram_q6_kingston as k6
 
@@ -174,6 +175,20 @@ def all_fresh():
     combined = dict(pts)
     combined.update(cal)
     return combined
+
+
+def eval_grid():
+    """Punkt-Records MIT set/arm-Stempel (Konvention h3a._point_pts/
+    _cal_pts) fuer Builder/ISA/Eval-Verbrauch: h3a.pkey und der
+    Eval-Prefix (struct/calstruct) lesen pt["set"], der Builder trennt
+    die Beine ueber die GETRENNTEN Dicts.  fresh_points() bleibt
+    bit-exakt-Rohrecord (044-Prereg-Vergleich, Rotationsregel)."""
+    pts0, cal0 = fresh_points()
+    pts = {k: {**r, "arm": k[0], "set": h3a.SET_VERDICT}
+           for k, r in pts0.items()}
+    cal = {k: {**r, "arm": k[0], "set": h3a.SET_CAL}
+           for k, r in cal0.items()}
+    return pts, cal
 
 
 def cP_freeze_fresh(pts, cal):
