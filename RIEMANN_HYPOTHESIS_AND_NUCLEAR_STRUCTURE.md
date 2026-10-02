@@ -3198,6 +3198,181 @@ vom all-Quantor offenlegen und ein Nullmodell nennen; (c) das Feld ist
 gegen die Zählidentität verifiziert. 053 trägt es als erstes Prereg
 (L1: Moduli q ∈ {3,5,7}, Klassen a = 1..q−1, mode=closed).
 
+## §10.38 — EXPERIMENT 053 (H-ZQZ): die geschlossene Z/qZ-Restklassen-Familie der MOCS-Observablen und das Dritte-Observable-Gate (Rényi-3, GUE-⟨r⟩-Proxy) — **L1 HELD / L2 REDUNDANT_WITH_S_VN / L3 REFUSED_OUT_OF_BAND** mit GOE-Adjazenz als Diagnostik (Branch `h-test1-gap-invariance`, 2026-10-02, 0 QPU, G1 EXAKT-STATEVECTOR)
+
+**Anfangspunkt.** §10.36 erklärt 053 zum ersten Lauf rein im G1-Arm
+(Modell-Wahrheit, 0 QPU): die Kritik-Punkte (4) „geschlossene Familie"
+und (5) „drittes unabhängiges Observable" werden als EIN Experiment
+falsifizierbar vollzogen. Quantor: MODULI q ∈ {3, 5, 7} mit ALLEN
+Klassen a = 1..q−1 über das N-Gitter 7 ≤ N ≤ 65535, `mode=closed` —
+das Pflichtfeld aus §10.37 trägt zum ersten Mal ein konkretes Prereg.
+
+**Konstruktion.** Für jedes (q, a), 1 ≤ a ≤ q−1:
+π_a(N) = #{p ≤ N : p ≡ a mod q}, v_a = (1/√π_a) Σ_{p ≡ a} e_p, und die
+Union über a = 0..q−1 mit a = 0 als Singleton-Term e_q (p = q fällt in
+keine Klasse 1..q−1). Damit gilt exakt
+**Σ_{a=0..q−1} π_a = π(N)** (Zählidentität: die Restklassen 1..q−1
+decken alle Primzahlen außer q ab) und **Union == √π(N)·P_N** —
+bit-exakt inklusive des p = q-Terms (Test: ohne ihn wäre die Union um
+1.0 abweichend). Klassen-States: Schmidt-Spektrum (Partikel-/Loch-Bipartition), S_vN, S2, S3, R_a = S_vN/log(π_a) ≤ 1.
+
+**Kette.**
+- **Prereg-Freeze `4a0f5d8`** (REGISTERED_NOT_MEASURED, kanonischer
+  md5 `53c801d8f1d3ecc755a89fec87c213c7`, KOMPAKTES Canonical-JSON):
+  quantor_coverage (mode=closed, classes {"3":[1,2], "5":[1..4],
+  "7":[1..6]}, n_max 65535, ex_ante true), verdict_map inkl. ex-ante
+  disclosed Saturation (q=5, a=1, N=63), support_leg
+  REGISTERED_NOT_SUBMITTED.
+- **Roh VOR Auswertung `245f115`** (md5
+  `509c6db6b5d8fbb437bdf55fe64ac549`, 41314 B): 14 Union-Zeilen,
+  168 Klassen-Zeilen, closure-Matrix, keine Verdict-Keys.
+- **Chain-Repair `506469c`** (s. unten, Infrastruktur-Inzidenz,
+  verdict-neutral nachgewiesen).
+- **Gefrorene Auswertung + Tests `fc6c511`** (Verdicts ex ante auf der
+  reparierten Kette; Testzahl +22 → 1342).
+- **Claims-Live-Pin `408b1ba`** (test_count 1320 → 1342, Gate PASS).
+
+**Verdict L1 — H_ZQZ_L1_HELD (Arithmetik + Pins bit-exakt).**
+Zählidentität exakt für ALLE (N, q) auf dem Gitter (closure_matrix
+identity_exact überall); Union-Vektor dev 0.0 (inkl. p = q); Pins gegen
+die committeten 023-EXT-Artefakte **max_pin_dev_S = max_pin_dev_R =
+0.0** (pin_tol 1e-12, pins_ok true); alpha_class: 12/12 Fits
+rh_consistent, α ∈ [0.18113725879377807 (q3a2), 0.23914662961240038
+(q5a4)], ALLE < 0.5; alpha_combined_recomputed == committet
+0.2103550767898247 **dev 0.0** (023-EXT-Pin bleibt); R_a_max
+1.0000000000000002 = 1 + 2·2⁻⁵² im registrierten Band
+(R_all_within_bound true) mit **22 Sättigungs-Zeilen** — ex ante im
+Prereg disclosed: q=5, a=1, N=63 → {11, 31, 41, 61} perfekt diagonal im
+8×8-Reshape → maximal entflochten, S = ln 4 EXAKT, R_a = 1 (Latorre-
+Sättigung der Obergrenze, KEINE Verletzung); 147/168 Klassen-Zeilen
+inkludiert (π_a ≥ 2).
+
+**Verdict L2 — H_ZQZ_L2_REDUNDANT_WITH_S_VN (honest negative).**
+Gate |ρ(S3, S_vN)| < 0.85 (Kandidaten-Status für ein drittes
+unabhängiges Observable). Gemessen auf dem gepoolten Klassen-+Union-
+Rows: **ρ(S3, S_vN)_pool = 0.9701703360404135 ≥ 0.85** → verweigert.
+Mechanisch: S3 = Rényi-3 ist monotone Funktion desselben
+Schmidt-Spektrums — die Kritik-Redundanz-Sorge („Monotonie-Familie ist
+kein neues Observable") ist quantitativ BESTÄTIGT. Erste
+Kandidaten-Niederlage des §X.3-Programms.
+
+**Verdict L3 — H_ZQZ_L3_REFUSED_OUT_OF_BAND (honest negative,
+GOE-Adjazenz als Diagnostik).**
+GUE-⟨r⟩-Gate: Band [0.52, 0.68] bei N = 65535. Gemessen:
+**r_unf_union(N = 65535) = 0.5141345707251959 < 0.52** (um 0.0059
+unter der Unterkante), r_raw 0.5160426444603091 ebenso unter der
+Kante. Verdict bleibt per Freeze-Regel — **KEIN Re-Scope, keine
+Toleranz-Änderung**. Diagnostik: die nächstliegende Unimodular-
+Konstante ist **GOE 0.5307** (Abstand 0.0166) statt GUE 0.5996 —
+konsistent mit der reell-symmetrischen Jacobi-Proxy-Klasse ex ante
+(tridiag + |Δp|-Nebendiagonalen, orthogonal statt unitär); diese
+Adjazenz ist als **C− (Klasse konsistent, Gate verweigert)**
+dokumentiert, nicht als Nachschieben eines neuen Verdicts. Ein
+nachfolgendes Prereg mit explizit GOE-fokussiertem Band
+(H-ZQZ-GOE, „054") ist ANGEBOTEN und NICHT ausgeführt. Gate-Rest:
+sep_poisson 0.1337 ≥ 0.05, sep_v3 0.29 ≥ 0.10 (beide positiv —
+kombinatorisch Chaotizitaet, NICHT Poisson), ρ(r_unf, R_N)
+= −0.5516483516483517 < 0.85 (keine R-Mitwanderung), m_gaps 6541.
+
+**Union-Serie (v1-Grid des 023-EXT, 14 Punkte):**
+
+| N | π_N | S_vN | R_N | r_raw | r_unf | M |
+|------|------|--------|--------|--------|--------|------|
+| 7 | 4 | 0.5623 | 0.4056 | 0.6930 | 0.6930 | 3 |
+| 15 | 6 | 0.8361 | 0.4666 | 0.6885 | 0.6885 | 5 |
+| 31 | 11 | 0.9209 | 0.3841 | 0.6344 | 0.6446 | 10 |
+| 63 | 18 | 1.0223 | 0.3537 | 0.6441 | 0.6541 | 17 |
+| 127 | 31 | 1.3562 | 0.3949 | 0.6066 | 0.6090 | 30 |
+| 255 | 54 | 1.6040 | 0.4021 | 0.5598 | 0.5563 | 53 |
+| 511 | 97 | 1.9708 | 0.4308 | 0.5686 | 0.5717 | 96 |
+| 1023 | 172 | 2.2112 | 0.4296 | 0.5763 | 0.5769 | 171 |
+| 2047 | 309 | 2.5642 | 0.4472 | 0.5517 | 0.5529 | 308 |
+| 4095 | 564 | 2.7879 | 0.4401 | 0.5214 | 0.5197 | 563 |
+| 8191 | 1028 | 3.1562 | 0.4551 | 0.5142 | 0.5118 | 1027 |
+| 16383 | 1900 | 3.3960 | 0.4498 | 0.5210 | 0.5185 | 1899 |
+| 32767 | 3512 | 3.7700 | 0.4618 | 0.5193 | 0.5163 | 3511 |
+| 65535 | 6542 | 4.0113 | 0.4566 | 0.5160 | 0.5141 | 6541 |
+
+**alpha_class (12 Fits, alle rh_consistent):**
+
+| Klasse | α | n_pts |
+|---------|---------------------|-------|
+| q=3,a=1 | 0.2014165631073142 | 13 |
+| q=3,a=2 | 0.18113725879377807 | 14 |
+| q=5,a=1 | 0.19498048307192298 | 12 |
+| q=5,a=2 | 0.22274188351942714 | 14 |
+| q=5,a=3 | 0.2024926079629529 | 13 |
+| q=5,a=4 | 0.23914662961240038 | 12 |
+| q=7,a=1 | 0.22665909250453603 | 11 |
+| q=7,a=2 | 0.2133080771948811 | 12 |
+| q=7,a=3 | 0.191222670481848 | 12 |
+| q=7,a=4 | 0.22017056482242234 | 11 |
+| q=7,a=5 | 0.21557348586191338 | 12 |
+| q=7,a=6 | 0.21709542215206595 | 11 |
+
+**Infrastruktur-Inzidenz (Chain-Repair, verdict-neutral).**
+`write_prereg` schrieb das Freeze mit `indent=1` (Byte-md5 `e31d89…`)
+und GAB den kanonischen `payload_md5` (`53c801d8…`) zurück;
+`load_frozen` hashte die FILE-BYTES; beide Call-Sites übergaben
+`expected_md5=None` — der Freeze-Vergleich wäre nie erzwungen worden.
+Reparatur (committed `506469c`, NACH dem Raw-Commit, VOR der
+Wertebetrachtung): Loader hasht KANONISCH über den geparsten Inhalt
+(identisch zur Freeze-Anzeige) und `expected_md5=PREREG_MD5` wird an
+BEIDEN Call-Sites (run_measurement, main) ERZWUNGEN; Write KOMPAKT
+(ohne indent). RAW deterministisch regeneriert — **Physik-Zeilen
+bit-identisch** zwischen `245f115` und `506469c` (nur das Protokoll-
+Feld `prereg_md5` wechselt `e31d89…` → `53c801d8…`).
+
+**Test-Design-Lektion (verdict-neutral, nachgewiesen).**
+`decide()` schreibt RESULTS_PATH bedingungslos — die synthetischen
+Zweig-Tests (Debug-Script + 6 decide-Tests) CLOBBERten beim
+Suite-Lauf das echte Eval-Artefakt; der Schlag fiel auf
+`test_results_pins_union_alpha_exact` mit SYNTHETISCHEN Werten.
+Fix OHNE Modul-Änderung: die 6 Zweig-Tests redirecten
+`zqz.RESULTS_PATH` via `monkeypatch` auf tmp_path (Auto-Restore, kein
+Modul-State-Leak) und das echte `--eval` wurde VOR der Suite
+restauriert (Pins wieder exakt 0.0). Präzedenz: verdict-schreibende
+Runner müssen in ihren synthetischen Zweig-Tests den Results-Path
+redirecten. Kosmetik bleibt: ConstantInputWarning an
+pt_zqz_family.py:581 für die synthetische konstante r-Serie (Schema
+`rho_r_vs_R` trägt auch echte out-of-band-Results — ein
+`in_band`-Guard wäre Schema-Änderung, keine Verdict-Änderung).
+
+**Governance.** 0 QPU im ganzen Experiment; Schwellen wörtlich aus
+dem Freeze (sep_poisson ≥ 0.05, sep_v3 ≥ 0.10, ρ_cand_max 0.85,
+GUE-Band [0.52, 0.68], pin_tol 1e-12); support_leg bleibt
+REGISTERED_NOT_SUBMITTED (nicht ausgeführt — IBMQ-Unterstützung folgt
+erst nach separater Freigabe); Tests 1342 grün (97.18 s); Fidelity-
+Gate PASS 0 mismatches; Kollektions-Metrik-Aufklärung (im Pin-
+Kommentar dokumentiert): die Claim-eigene Kollektions-Metrik bleibt
+`pytest tests/ --collect-only -q` — ein Rootdir-Collect OHNE
+tests/-Argument zählt die UNTRACKED 09_26_new/-Test-Dateien mit 98
+Tests mit (32 aer + 14 diag + 22 hardware3 + 14 qpu + 16 isa3), die
+in der Claim-Metrik nie mitgezählt wurden. Übrig bleibt aus dem
+§X.3-Kandidatenkreis (Kritik-Punkt 5) nur Distillation als
+unbeantwortete Spur; die S_vN-Klasse bleibt die einzige tragende
+Observable-Klasse im Verbund.
+
+#### Quellenangaben für §10.38
+
+Eingang: `kritik1.txt` Punkte (4)/(5); Audit: Memory `kritik1-audit`
+(zwei Runden); §10.36 (FLOW-Diagramm, G1-Definition), §10.37
+(quantor_coverage-Pflichtfeld, +30/Union-Regel), §10.35 (0-QPU-
+Governance-Präzedenz), §10.29/§Z.28 (023-EXT, Pin-Artefakte,
+alpha_combined 0.2103550767898247). Kette: `4a0f5d8` (Prereg, md5
+`53c801d8f1d3ecc755a89fec87c213c7`) → `245f115` (Roh, md5
+`509c6db6b5d8fbb437bdf55fe64ac549`) → `506469c` (Chain-Repair) →
+`fc6c511` (Auswertung + 22 Tests, inkl. Modul-Repairs) → `408b1ba`
+(claims-Live-Pin 1342). Module: `pt_zqz_family.py`,
+`tests/test_pt_zqz_family.py`; Artefakte:
+`pt_zqz_family_prereg.json` / `pt_zqz_family_raw.json` /
+`pt_zqz_family_results.json`. Spektral-Referenzen: `pt_ququint_gue.py`
+(r_statistic Cross-Check < 1e-15), `pt_prime_state.py` (sieve_primes /
+construct_P_N / measure_entropy), Unfolding-Konventionen §10.22;
+Konstanten ⟨r⟩: Poisson 0.3863 / GOE 0.5307 / GUE 0.5996 (Atas–
+Bogomolny–Schmidt–Toke). Verwandt: SYNTHESIS_2026_06_10.md §Z.35;
+054-GOE-Prereg ANGEBOTEN (nicht ausgeführt).
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
