@@ -1,0 +1,147 @@
+{
+ "branch":"h-test1-gap-invariance",
+ "commit_rules":[
+  "Prereg-Freeze VOR jeder Messung (REGISTERED_NOT_MEASURED)",
+  "Roh-Commit VOR Auswertung (RAW enthaelt KEINE Verdicts)",
+  "Auswertung mit decide() ex ante gegen gefrorene Schwellen",
+  "KEINE Toleranz-Erhoehung; Einstufung statt stillem Re-Decide"
+ ],
+ "constants":{
+  "goe_r":0.5307,
+  "gue_r":0.5996,
+  "gue_ref":"Atas et al. 2013, arXiv:1212.5611",
+  "poisson_r":0.3863
+ },
+ "date_locked":"2026-10-02",
+ "experiment":"EXPERIMENT 053",
+ "grid":{
+  "classes":{
+   "3":[
+    1,
+    2
+   ],
+   "5":[
+    1,
+    2,
+    3,
+    4
+   ],
+   "7":[
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "n_sweep":[
+   7,
+   15,
+   31,
+   63,
+   127,
+   255,
+   511,
+   1023,
+   2047,
+   4095,
+   8191,
+   16383,
+   32767,
+   65535
+  ],
+  "q_list":[
+   3,
+   5,
+   7
+  ]
+ },
+ "hypothesis":"H-ZQZ-1",
+ "methodology":{
+  "committeter_anker":"023-EXT Rows (pt_rh_multi_observable_ext_results.json) S_vN/R_N",
+  "device":"G1 EXAKT-STATEVECTOR (0 QPU); G3/G4 Support-Bein REGISTRIERT, nicht eingereicht (§10.36 R1-R5)",
+  "elements":"E1 Primbasis (pt_prime_state.construct_P_N/measure_entropy), E6 Spektral-Proxy (jacobi_matrix_for_primes), Statisitk-Kern pt_ququint_gue.r_statistic",
+  "renyi_convention":"natuerlicher Log, S_alpha = log(sum s^alpha)/(1-alpha)",
+  "schmidt_split":"maschinengleich zu measure_entropy (natuerlicher Log)",
+  "unfolding":"lokal, Fenster ±5 benachbarte Luecken"
+ },
+ "numpy_build":"2.4.6",
+ "quantor_coverage":{
+  "classes":{
+   "3":[
+    1,
+    2
+   ],
+   "5":[
+    1,
+    2,
+    3,
+    4
+   ],
+   "7":[
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "disclosure":"Klassenvektor |P_N^(q,a)> = (1/sqrt(pi_a)) Summe ueber p<=N, p=a mod q; a=0 entfaellt (p=q selbst gezaehlt via [q<=N]); Zählidentitaet Sigma_a pi_a + [q<=N] == pi(N) exakt; R_a nur fuer pi_a >= 2 (latorre_ratio-Grenzfall); Bipartition pro (N) identisch zum vollen P_N (n_A-Regel sqrt-Dekrement); pi_a je Zeile publiziert",
+  "ex_ante":true,
+  "grid_rule":null,
+  "mode":"closed",
+  "modulus":[
+   3,
+   5,
+   7
+  ],
+  "n_max":65535,
+  "universe":"primes p <= N, N im 14-Punkte-Gitter 7..65535"
+ },
+ "support_leg":{
+  "backend":"ibm_fez (TOKEN1)",
+  "no_new_noise_law":true,
+  "protocol":"pt_prime_state_qpu_singleshot-Muster: psi' = (U_A^dagger ⊗ I)|P_N^(q,a)>, Statevector.from_instruction als Verifikations-Gate, 8192 Shots",
+  "status":"REGISTERED_NOT_SUBMITTED",
+  "target":"Klassenstatus |P_N^(q=3, a=1)> bei N=31; gemessen: Schmidt-Spektren-Verteilung; Vergl. S_vN_QPU vs S_vN_SV (Bias gemeldet, KEIN Rauschgesetz-Fit)",
+  "trigger":"NUR nach L1-Auswertung HELD und separater Freigabe (R3: ein Job, job-id-File, Kalibrier-Bein)"
+ },
+ "thresholds":{
+  "alpha_max":0.5,
+  "gue_band":[
+   0.52,
+   0.68
+  ],
+  "pin_tol":1e-12,
+  "poisson_sep":0.05,
+  "r_bound_arith":1e-12,
+  "r_to_1":1.0,
+  "rho_cand_max":0.85,
+  "spectrum_tol":1e-15,
+  "tridiag_tol":1e-10,
+  "union_tol":0.0,
+  "v3_band":[
+   0.19,
+   0.23
+  ],
+  "v3_sep":0.1
+ },
+ "title":"Geschlossene Z/qZ-Restklassen-Familie der MOCS-Observablen (Statevector, 0 QPU) + Kandidaten-Gates fuer ein drittes unabhaengiges Observable",
+ "verdict_ids":{
+  "l1_held":"H_ZQZ_L1_HELD",
+  "l1_refuted":"H_ZQZ_L1_REFUTED",
+  "l2_candidate":"H_ZQZ_L2_CANDIDATE_QUALIFIED",
+  "l2_redundant":"H_ZQZ_L2_REDUNDANT_WITH_S_VN",
+  "l3_candidate":"H_ZQZ_L3_GUE_CANDIDATE_QUALIFIED",
+  "l3_dependent":"H_ZQZ_L3_REFUSED_DEPENDENT",
+  "l3_out_of_band":"H_ZQZ_L3_REFUSED_OUT_OF_BAND",
+  "l3_undetermined":"H_ZQZ_L3_UNDETERMINED_SMALL_M"
+ },
+ "verdict_map":{
+  "l1":"HELD iff closure EXAKT fuer alle (N,q) UND union_vec_max_dev == 0.0 UND S_vN/R_N(Union) Pins <= 1e-12 UND alpha_a < 0.5 fuer alle fitfaehigen Klassen UND R_a <= 1 + 1e-12 fuer alle inkludierten (q,a,N); sonst REFUTED. Begruendung der Grenz-Regel: perfekt entflochtene Klassen saturieren die Latorre-Konstante EXAKT (R_a = 1, ex ante bekannt: q=5, a=1, N=63 — vier Primzahlen in perfekter Zeilen/Spalten-Abdeckung); das ist Sattigung, keine Verletzung; R_a > 1 + 1e-12 refutiert weiterhin (super-logarithmische Klasse).",
+  "l2":"CANDIDATE_QUALIFIED iff |rho(S3_pool, S_vN_pool)| < 0.85; sonst REDUNDANT_WITH_S_VN (erwartungsoffen: Entropie-Familie teilt das Schmidt-Spektrum mechanisch)",
+  "l3":"GUE_CANDIDATE_QUALIFIED iff <r>_unf(Union, N=65535) in [0.52, 0.68] UND |rho(<r>_unf-Serie(14 Unions), R_N-Serie)| < 0.85 UND Bandabstaende respektiert (Bandsunterkante - Poisson 0.3863 >= 0.05, Bandsunterkante - V3-Oberkante 0.23 >= 0.10); sonst REFUSED_OUT_OF_BAND / REFUSED_DEPENDENT; UNDETERMINED_SMALL_M falls M < 2 Luecken"
+ }
+}
