@@ -856,9 +856,14 @@ _CL.append(Claim(
     # 56312a7 Prereg-Freeze +22 Tests (Kanonik/md5/Basis-Pins/Verdict-Zweige/
     # Konsistenz-Gate) -> 1320 (erster Suite-Lauf 1319+1 schlug EXAKT auf
     # diesem Live-Pin — Gate hat den Inkrement richtig eingefordert)
+    # 053 H-ZQZ (EXPERIMENT 053, 0 QPU, G1): fc6c511 gefrorene Auswertung
+    # +22 Tests (test_pt_zqz_family: Klassen-Arithmetik/Union/Entropie/
+    # Spektral-Referenz/Kette/6 decide-Zweige mit tmp_path-Redirect) -> 1342
+    # (Rootdir-Collect ohne tests/-Argument zaehlt die UNTRACKED 09_26_new/
+    # Test-Dateien mit 98 Tests mit — NICHT die Claim-eigene Metrik)
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1320,
+    id="test_count", value=1342,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

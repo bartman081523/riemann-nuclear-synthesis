@@ -73,11 +73,11 @@ Every claim recomputed from its committed source at build time.
 | date_vqd | doc-frozen | — | act4_qpu_timeline | `'2026-07-21'` | doc README.md:64 |
 | date_fez_phi | doc-frozen | — | act4_qpu_timeline | `'2026-09-15'` | doc README.md:61 |
 | date_kingston | doc-frozen | — | act4_qpu_timeline | `'2026-09-24'` | doc README.md:62 |
-| test_count | measured | — | act1_title, act10_verdict_ladder | `1298` | live test collection |
+| test_count | measured | — | act1_title, act10_verdict_ladder | `1342` | live test collection |
 
 ## Criteria shown before results (explanation_scaffold)
 
-- **alpha_1e6** — Latorre–Sierra predicts α → 1; frozen band excludes α ≥ 1
+- **alpha_1e6** — Fit parameter of a power-law fit (Fit-Artefakt, SYNTHESIS §X: S_vN/log(N) rises 0.28→0.55, sub-logarithmic — real size is S/log, not α); the frozen band still excludes α ≥ 1
 - **bias_points** — frozen: all |bias| < 0.005 (pt_im_bias_prereg.json, H_Im_h1)
 - **vqd_e0** — frozen: |bias_PT_re| < 0.05 → H1/H3 confirmed
 - **fez_phi** — frozen: phi margin > 0, sep margin < 0, confound ≤ 0.05 (md5 18fb1e62)
@@ -90,7 +90,8 @@ Every claim recomputed from its committed source at build time.
 
 ## Glosses (audience_calibration, ≤ 12 words)
 
-- **alpha_1e6** — α = entropy growth per factor of ten in N
+- **alpha_1e6** — full-fit parameter of the S_vN curve; honest size is S/log(N) ≈ 0.55
+- **alpha_verdict** — pinned fit verdict — the FORM was the artefact (§6.5.16a)
 - **bias_points** — VQE = a quantum routine tuning a circuit toward lowest energy
 - **vqd_e0** — VQD = VQE plus the second-lowest energy level
 - **fez_phi** — phi V = how strongly prime positions carry the signal
