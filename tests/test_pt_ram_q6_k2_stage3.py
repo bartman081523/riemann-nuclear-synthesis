@@ -14,6 +14,7 @@ import pytest
 import pt_ram_q_hardware3_aer as h3a
 import pt_ram_q6_k2 as k2
 import pt_ram_q6_k2_stage3aer as s3
+import pt_ram_q_hardware3_eval as h3e
 import tests.test_pt_ram_q6_k2_refactor_proof as rp
 
 RUN4_Q3 = rp.RUN4_Q3
@@ -209,3 +210,24 @@ def test_binomial_eine_seite_wie_gemeldet():
     a = k2.ALPHA_FAMILY2
     assert k2.binom_sf_one_sided(12, 13) <= a < k2.binom_sf_one_sided(11, 13)
     assert k2.binom_sf_one_sided(5, 5) > a
+
+
+def test_ladder_r1_name_anker_bein_bewusst():
+    """Die Echo-Leiter r1 teilt den Anker-Loschmidt — im frischen Grid
+    (Anker im Kalibrier-Bein) heisst er calloschmidt; im 044-Grid
+    loschmidt.  Die Aufloesung muss REAL existierende Circuit-Namen
+    treffen (beide Grids)."""
+    assert h3e.anchor_r1_name("q3_d3", 181, "cal|q3_d3|181") == \
+        "calloschmidt_q3_d3_181"
+    assert h3e.anchor_r1_name("q5_d5", 467, "cal|q5_d5|467") == \
+        "calloschmidt_q5_d5_467"
+    assert h3e.anchor_r1_name("q3_d3", 181, "verdict|q3_d3|181") == \
+        "loschmidt_q3_d3_181"
+    fresh_names = {c["name"] for c in h3a.build_hardware_circuit_set(
+        *k2.eval_grid())}
+    for arm, P in (("q3_d3", 181), ("q5_d5", 467)):
+        assert h3e.anchor_r1_name(arm, P, f"cal|{arm}|{P}") in fresh_names
+        assert f"ladder_{arm}_{P}_r2" in fresh_names
+    old_names = {c["name"] for c in h3a.build_hardware_circuit_set()}
+    for arm, P in (("q3_d3", 181), ("q5_d5", 467)):
+        assert h3e.anchor_r1_name(arm, P, f"verdict|{arm}|{P}") in old_names

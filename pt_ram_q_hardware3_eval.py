@@ -112,6 +112,16 @@ def center_v3(kappa_hat, pt, ro_hat, b_p, gamma_arm, c_p, nq):
                                      - gamma_arm * c_p) + pt["L_q"]
 
 
+def anchor_r1_name(arm, P, anchor_pkey):
+    """Name des mit ladder-r=1 geteilten Anker-Loschmidt-Circuits: im
+    gefrorenen 044-Grid liegt der Anker im Verdict-Bein (loschmidt_), im
+    frischen Run-4-Grid im Kalibrier-Bein (calloschmidt_ — identische
+    Counts -> identisches kappa)."""
+    prefix = ("loschmidt" if anchor_pkey.startswith("verdict|")
+              else "calloschmidt")
+    return f"{prefix}_{arm}_{P}"
+
+
 def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
              prereg_path=None, points=None, cal=None,
              stage3_prereg_md5=None):
@@ -393,7 +403,7 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
         }
 
     # --- Echo-Leiter (Diagnostik, NICHT verdict-tragend): kappa_r an den
-    #     NEUEN Ankern (181/467); r=1 geteilt mit dem gepoolten Loschmidt —
+    #     NEUEN Ankern (181/467); r=1 geteilt mit dem Anker-Loschmidt —
     #     die Konsistenz kappa_ladder(r=1) == kappa_hat(Anker) folgt per
     #     Konstruktion (identische Counts) und wird mechanisch geprueft. ---
     ladder = {}
@@ -407,10 +417,10 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
         anchor_pkey = (f"verdict|{arm}|{P}"
                        if f"verdict|{arm}|{P}" in points
                        else f"cal|{arm}|{P}")
+        r1_name = anchor_r1_name(arm, P, anchor_pkey)
         kappas, r1_consistent = {}, None
         for r in h3.LADDER_REPEATS:
-            name = (f"loschmidt_{arm}_{P}" if r == 1
-                    else f"ladder_{arm}_{P}_r{r}")
+            name = (r1_name if r == 1 else f"ladder_{arm}_{P}_r{r}")
             e = raw_by_name.get(name)
             if e is None or p_ro <= 0:
                 kappas[f"r{r}"] = None
