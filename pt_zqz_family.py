@@ -319,14 +319,19 @@ def write_prereg(path=PREREG_PATH):
     payload = build_prereg_payload()
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, sort_keys=True, separators=(",", ":"),
-                  ensure_ascii=False, indent=1)
+                  ensure_ascii=False)
     return payload_md5(payload)
 
 
 def load_frozen(path=PREREG_PATH, expected_md5=None):
+    """Freeze-Loader: md5 KANONISCH (ueber den geparsten Inhalt, payload_md5)
+    — identisch zur Freeze-Anzeige; Byte-md5 des indent-Files weicht ab
+    (Repair 2026-10-02: raw-Prereg-Feld war e31d89... (Byte-md5 des
+    indent-1-Files), kanonischer Freeze-MD5 53c801d8... — identisches
+    gefrorenes CONTENT, nur Serialisierung anders; siehe Doku §10.38)."""
     with open(path, "rb") as f:
         raw = f.read()
-    md5 = hashlib.md5(raw).hexdigest()
+    md5 = payload_md5(json.loads(raw.decode("utf-8")))
     if expected_md5 is not None and md5 != expected_md5:
         raise SystemExit(
             f"PREREG-MISMATCH: {path} md5 {md5} != {expected_md5} "
@@ -356,7 +361,7 @@ def run_measurement():
             f"RAW-EXISTIERT-BEREITS: {RAW_PATH} — kein stiller Re-Run "
             "(Raw-Commit-Disziplin). Loeschen ist ein expliziter Akt.")
     # GEFRORENES Prereg (Quantor-Feld + md5 aus dem Freeze, kein Rebuild)
-    prereg, prereg_md5 = load_frozen()
+    prereg, prereg_md5 = load_frozen(expected_md5=PREREG_MD5)
     rows_union = []
     rows_class = []
     closure_matrix = []
@@ -578,7 +583,6 @@ def decide(raw, prereg, prereg_md5):
     sep_poisson = lo - raw["constants"]["poisson_r"]
     sep_v3 = lo - th["v3_band"][1]
     band_ok = (sep_poisson >= th["poisson_sep"] and sep_v3 >= th["v3_sep"])
-    band_ok = sep_poisson >= 0.0 and sep_v3 >= 0.0
     if r_unf_last is None or last_u["m_gaps"] < 3:
         l3_verdict = VERDICT_IDS["l3_undetermined"]
     elif not in_band:
@@ -678,7 +682,7 @@ def main():
     if args.run or args.all:
         run_measurement()
     if args.eval or args.all:
-        prereg, md5 = load_frozen()
+        prereg, md5 = load_frozen(expected_md5=PREREG_MD5)
         with open(RAW_PATH) as f:
             raw = json.load(f)
         decided = decide(raw, prereg, md5)
