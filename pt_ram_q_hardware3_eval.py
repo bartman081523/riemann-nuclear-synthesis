@@ -30,6 +30,7 @@ wurden VOR dieser Auswertung committed (9f5f1de, §Z.14-Disziplin); das
 b_P-Provenanz-Feld prueft das committete Stage-3-Ergebnis gegen das
 gefrorene Prereg (KEIN neuer Gate-Zweig — die Verdict-Map ist gefroren).
 """
+import hashlib
 import json
 
 import numpy as np
@@ -111,24 +112,46 @@ def center_v3(kappa_hat, pt, ro_hat, b_p, gamma_arm, c_p, nq):
                                      - gamma_arm * c_p) + pt["L_q"]
 
 
-def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH):
+def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
+             prereg_path=None, points=None, cal=None,
+             stage3_prereg_md5=None):
+    """Phase-11d-Auswertung; gefrorene 044-v3b-Gesetze, ungeaendert.
+
+    Override-Parameter (Phase H-RAM-Q-6-Refaktor, D2/D3-Bein K2): alle
+    None (Default) = bit-identisches Verhalten auf dem GEFRORENEN
+    26-Punkte-Grid (Beweis-Test in tests/test_pt_ram_q6_k2_refactor_proof
+    .py gegen committete Fingerprints).  Fuer ein frisches Grid:
+    prereg_path = frisches gefrorenes Prereg, points/cal = frische
+    Punkt-Records (Verdict/Kalibrier getrennt, wie im Builder),
+    stage3_prereg_md5 = md5 des frischen Stage-3-Prereg-Bindings.
+    w_b/w_a/Gesetz/Verdict-Map-Struktur kommen UEBERALL aus den
+    gefrorenen 044-Konstanten — kein Fork des Gesetzes."""
     raw = json.load(open(raw_path, encoding="utf-8"))
     with open(stage3_path, encoding="utf-8") as fh:
         stage3 = json.load(fh)
     with open(isa_path, encoding="utf-8") as fh:
         isa = json.load(fh)
-    prereg = h3.load_frozen_prereg()
+    if prereg_path is None:
+        prereg = h3.load_frozen_prereg()
+        prereg_md5_out = PREREG_MD5
+    else:
+        with open(prereg_path, encoding="utf-8") as fh:
+            prereg = json.load(fh)
+        with open(prereg_path, "rb") as fh:
+            prereg_md5_out = hashlib.md5(fh.read()).hexdigest()
     w_b = load_w_b()
     w_a = h3a.W_A
-    pts = h3a.all_points()
-    cs_by_name = {c["name"]: c for c in h3a.build_hardware_circuit_set()}
+    pts = h3a.all_points() if (points is None and cal is None) else \
+        {**(dict(points) if points else {}), **(dict(cal) if cal else {})}
+    cs_by_name = {c["name"]: c
+                  for c in h3a.build_hardware_circuit_set(points, cal)}
     raw_by_name = {e["name"]: e for e in raw["counts"]}
 
     # --- job_integrity: md5 der Counts + b_P-Provenanz (dokumentiert,
     #     kein neuer Gate-Zweig: die Verdict-Map ist gefroren) ---
     md5_ok = (qpu3.counts_md5([e["counts"] for e in raw["counts"]])
               == raw["counts_md5"])
-    bp_md5_ok = stage3["prereg_md5"] == PREREG_MD5
+    bp_md5_ok = stage3["prereg_md5"] == (stage3_prereg_md5 or PREREG_MD5)
 
     # --- t3 (zwei Wege) + t6 (Shots/Masse) ueber ALLE State-Circuits
     #     (structure + negative_control + kalibrier_structure — die
@@ -410,7 +433,7 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH):
         "experiment": h3.EXPERIMENT,
         "hypothesis": h3.HYPOTHESIS,
         "status": "EVALUATED",
-        "prereg_md5": PREREG_MD5,
+        "prereg_md5": prereg_md5_out,
         "raw_backend": raw.get("backend"),
         "raw_job_meta": raw.get("job_meta"),
         "raw_counts_md5": raw.get("counts_md5"),

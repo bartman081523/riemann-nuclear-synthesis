@@ -41,9 +41,10 @@ def count_2q(ops):
     return total
 
 
-def run_stage(backend=None, service=None, out_path=OUT_PATH):
+def run_stage(backend=None, service=None, out_path=OUT_PATH, pts=None,
+              cal=None):
     prereg = k6.load_frozen_prereg()
-    circuits = h3a.build_hardware_circuit_set()
+    circuits = h3a.build_hardware_circuit_set(pts=pts, cal=cal)
     assert len(circuits) == 116, len(circuits)
 
     if backend is None:

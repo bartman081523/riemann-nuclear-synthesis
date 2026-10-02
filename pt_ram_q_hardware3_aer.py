@@ -246,7 +246,25 @@ def validate_form(results):
             "n_cells": len(cells)}
 
 
-def build_hardware_circuit_set():
+def _anchor_records(pts, cal):
+    """Echo-Leiter + Negative-Kontrollen je Arm an den Session-Ankern:
+    Record aus pts ODER cal (frisch: Run-4-Kalibrier-Bein; Default:
+    Verdict-Bein des gefrorenen 044-Grids)."""
+    out = {}
+    for arm in ARMS:
+        key = (arm, ladder_anchor(arm))
+        if key in pts:
+            out[arm] = pts[key]
+        elif key in cal:
+            out[arm] = cal[key]
+        else:
+            raise KeyError(
+                "Session-Anker %s fehlt in Verdict- UND Kalibrier-Grid "
+                "(Vertrag: Anker 181/467 UNVERAENDERT)" % (key,))
+    return out
+
+
+def build_hardware_circuit_set(pts=None, cal=None):
     """ALLE 116 Circuits (hardware_parameters.circuit_budget, gefroren):
     Verdict-struct 39 (13 x K_REPEATS) + Verdict-loschmidt 13 + Echo-Leiter 6
     (r in {2,4,8} x 2 Arme; r=1 geteilt mit dem Anker-Loschmidt) +
@@ -255,11 +273,20 @@ def build_hardware_circuit_set():
     gefrorenen controls-Block) + Readout-Kalibrierung 2 — EINE Quelle fuer
     ISA-3-Report und Fez-Job.  Kein Shuffle-Circuit: Shuffle-Inertness-
     Theorem (frozen_theorems.shuffle_inertness_at_dq, t4b) — bei d=q ist
-    der Fold die Identitaet, die Kontrolle laege IM Prime-Band."""
-    pts = _point_pts()
-    cal = _cal_pts()
+    der Fold die Identitaet, die Kontrolle laege IM Prime-Band.
+
+    pts/cal (Phase H-RAM-Q-6-Refaktor): None (Default) = der gefrorene
+    26-Punkte-Grid — bit-identisches Verhalten (Beweis-Test im Suite).
+    Frische Grids (D2/D3 Run-4) uebergeben die Punkt-Records; die
+    Session-Anker 181/467 MUESSEN im VEREIN von pts UND cal liegen
+    (Run-3-Verdict-P = Run-4-Kalibrier-P — sie liegen dann im
+    Kalibrier-Bein), denn Echo-Leiter + Negative Kontrollen bleiben
+    UNVERAENDERT an den alten Ankern (Vertrag der D2/D3-Prereg)."""
+    pts = _point_pts() if pts is None else pts
+    cal = _cal_pts() if cal is None else cal
     doc = h3.load_frozen_prereg()
     ctrls = doc["controls"]["t4_negative_must_not_fire"]
+    anchor = _anchor_records(pts, cal)
     circuits = []
     for arm in ARMS:
         nq = NQ_BY_ARM[arm]
@@ -279,7 +306,7 @@ def build_hardware_circuit_set():
     for arm in ARMS:
         nq = NQ_BY_ARM[arm]
         P = ladder_anchor(arm)
-        pt = pts[(arm, P)]
+        pt = anchor[arm]
         for r in h3.LADDER_REPEATS:
             if r == 1:
                 continue  # geteilt mit loschmidt_{arm}_{P} (echo_ladder.r1_shared)
@@ -308,7 +335,7 @@ def build_hardware_circuit_set():
     for arm in ARMS:
         nq = NQ_BY_ARM[arm]
         P_ref = ladder_anchor(arm)
-        pt_ref = pts[(arm, P_ref)]
+        pt_ref = anchor[arm]
         q = pt_ref["q"]
         tag = f"q{q}"
         comp = ctrls[f"composite_{tag}"]
