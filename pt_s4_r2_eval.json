@@ -1,0 +1,164 @@
+{
+ "experiment": "052-s4-r2-recompute",
+ "hypothesis": "H-S4CLOSURE-R2",
+ "qpu": 0,
+ "prereg_md5": "51d5f255259d443a35f68fe5e771a208",
+ "verdict": "H_S4CLOSURE_R2_QUELLEN_ARTEFAKT",
+ "einstufung_045": "OFFIZIELL: die T5-Verletzung ist ein Quellen-Artefakt der t_H-Mischung (Antithese SA-H9-3 bestätigt als Artefaktabklärung); committetes 045-Verdict bleibt UNVERÄNDERT, Einstufungs-Tabelle erweitert; Margin-Disclosure verpflichtend (Faktor ~1.19 an der Kante, bekannt ex ante aus dem committeten Scratch)",
+ "verdict_ort": "pt_s4_r2_eval.json (Roh ohne Verdict-Felder — Committ 045 UNBERÜHRT)",
+ "criteria": {
+  "structural_ok": true,
+  "basis_ok": true,
+  "konsistenz_ok": true,
+  "l1_native_max": 1.0260516436488842e-08,
+  "l1_class_r_median_adjacent": 1.0260516436488842e-08,
+  "l2_full_adj": 8.393228334568903e-10,
+  "l2_full_dis": 2.679068078492719e-11,
+  "l2_bahn_adj": 6.423892529028308e-10,
+  "l2_bahn_dis": 2.679068078492719e-11
+ },
+ "sum_tol": 1e-09,
+ "margin_ratios": {
+  "l1_native_over_tol": 10.260516436488842,
+  "l2_full_adj_under_tol": 1.1914366679163657,
+  "l2_full_dis_under_tol": 37.32641242034484
+ },
+ "star_arm_maxima": {
+  "adjacent": {
+   "repr": 0,
+   "star_max": {
+    "k1_mean": {
+     "max": 6.01201310956867e-11,
+     "worst_pair": [
+      0,
+      3
+     ]
+    },
+    "k2_mean": {
+     "max": 2.730404791151386e-10,
+     "worst_pair": [
+      0,
+      6
+     ]
+    },
+    "R": {
+     "max": 2.1621260337667536e-10,
+     "worst_pair": [
+      0,
+      6
+     ]
+    },
+    "r_median": {
+     "max": 1.0260516436488842e-08,
+     "worst_pair": [
+      0,
+      6
+     ]
+    }
+   }
+  },
+  "disjoint": {
+   "repr": 4,
+   "star_max": {
+    "k1_mean": {
+     "max": 2.933142617678186e-11,
+     "worst_pair": [
+      4,
+      7
+     ]
+    },
+    "k2_mean": {
+     "max": 1.2011724948024494e-11,
+     "worst_pair": [
+      4,
+      9
+     ]
+    },
+    "R": {
+     "max": 1.616839995222108e-11,
+     "worst_pair": [
+      4,
+      7
+     ]
+    },
+    "r_median": {
+     "max": 3.2032171359830386e-09,
+     "worst_pair": [
+      4,
+      7
+     ]
+    }
+   }
+  }
+ },
+ "konsistenz": {
+  "ok": true,
+  "fails": []
+ },
+ "disclosure": {
+  "native_vs_045": [
+   {
+    "was": "max_within_orbit_dev",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "between_orbit_R_gap",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "r_median p0",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "r_median p6",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "r_median p10",
+    "delta": 0.0,
+    "bit_gleich": true
+   }
+  ],
+  "unified_vs_scratch": [
+   {
+    "was": "full_within adj",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "bahn d_uni adj",
+    "delta": 0.0,
+    "bit_gleich": true
+   },
+   {
+    "was": "inst full_within adj",
+    "delta": 0.0,
+    "bit_gleich": true
+   }
+  ],
+  "build_caveat": "049b-Lektion: Bit-Pins sind DISKLOSURE, nicht Gate — cross-build ULP-Delta moeglich; interpreter/numpy je Raw-Metadaten aufgezeichnet"
+ },
+ "governance": {
+  "kein_re_decide": true,
+  "committed_045_verdict": "H_S4_CLOSURE_DEVIATION_FOUND",
+  "toleranz": "SUM_TOL 1e-9 unverändert (Konstanten-Identität s4/td, KEINE Erhöhung, KEINE Weichmachung der Klassen-Attribution)"
+ },
+ "raw_metadata": {
+  "python": "3.14.7",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.18.49-2-lts-x86_64-with-glibc2.44",
+  "started": "2026-10-02T05:26:39",
+  "family_size": 78,
+  "n_patterns": 15
+ },
+ "eval_env": {
+  "python": "3.14.7",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.18.49-2-lts-x86_64-with-glibc2.44"
+ },
+ "seconds": 0.0
+}

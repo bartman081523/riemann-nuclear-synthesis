@@ -283,3 +283,7 @@ def main(results_path=None, eval_path=None, verbose=True):
     with open(eval_path, "w", encoding="utf-8") as fh:
         json.dump(doc, fh, indent=1, default=float, ensure_ascii=False)
     return doc
+
+
+if __name__ == "__main__":
+    main()
