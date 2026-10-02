@@ -2992,6 +2992,145 @@ richtig eingefordert, nach Eintrag 1320 die Fidelity-Suite grün.
 + `scratches/h9_s4_source_unified_out.json`; §Z.34 (SYNTHESIS) als
 kompaktes Gegenstück.
 
+## §10.36 — Der Messverbund als FLOW-DIAGRAMM: alle Elemente (E1–E7) × alle Messgeräte (G1 statevector / G2 Aer / G3 ibm_fez / G4 ibm_kingston / G5 Governance) — wann welches Gerät benutzt wird, plus das Redesign der Kritik-Umsetzung 1–5 streng nach diesem Fluss (2026-10-02, 0 QPU, keine Messwerte)
+
+**Anfangspunkt.** Die zweirundige Auditierung der ChatGPT-Kritik
+(`kritik1.txt`, 2026-10-02; Runde 2 unter der Direktive
+„überprüfe nochmal gewissenhaft und gebe der Kritik Raum") kommt zu:
+getreuer Compiler des EIGENEN Audit-Trails (alle Zahlen wörtlich im
+Ledger), zwei lebende Treffer — die α-Erzählung (SYNTHESIS-§X-Re-Grade
+von 2026-07-21 nie in `claims.py`/§6.5.16/MOCS-α propagiert) und die
+Kapazitäts-Allokation (Rausch-Schicht-Beine mit REFUTED/UNDETERMINED-
+Endstand statt Physik-Kritik; +30-Regel nur in PLAN.md:117) — sowie der
+All-Quantor-Kern: **geschlossene Restklassenkörper (Z/qZ) statt
+rotierender 13er-Grids**. Dieses Kapitel liefert zuerst die ORDNUNG
+(Diagramm), dann das Redesign der fünf Umsetzungs-Items streng nach
+diesem Fluss, dann die Ausführung (053). Die Regeln gelten ex ante für
+alles Neue; committete Verdicts und Ketten bleiben UNVERÄNDERT
+(052-Präzedenz: Einstufung statt stillem Re-Decide).
+
+### G-Layer — die Messgeräte
+
+| Gerät | Pfad | Feste Rolle (aus der eigenen Serie, nicht neu erfunden) | Kern-Belege |
+|---|---|---|---|
+| **G1 EXAKT-STATEVECTOR** | numpy, 0 QPU, `QISKIT_PARALLEL=FALSE` | **Modell-Wahrheit (bit-exakt):** Theorie-Tests, Prereg-Vorhersagen, Bit-Pins, geschlossene Familien, Skalierungen, S₄-Invarianten, ⟨r⟩-Spacing, K(t)-Traces | `pt_prime_state.py:27/:44`, `pt_asymptotic_N1e6.py:66/:76/:93/:99`, `pt_rh_multi_observable.py:41/:54/:143`, `pt_ququint_gue.py:131`, `pt_s4_closure_theorem.py`, `pt_hstar5_execution.py:384` |
+| **G2 AER** | `AerSimulator`/`AerEstimator` | **Tor, niemals Wahrheit:** ISA-/Transpile-Gates, Noise-Stress REGISTRIERTER Gesetze (b_P), Dichtematrix-Checks; Aer-Divergenz = Gate-Befund (V5-Artefakt, α_Aer 0.272 ≠ α_QPU 0.348 — kein Wahrheitswiderspruch) | `pt_ram_q_hardware3_aer.py`, `pt_ram_q6_stage3aer.py` (exact-only), `pt_ququint_crossover.py:28ff`, `pt_qber_statevector.py` |
+| **G3 QPU ibm_fez** | TOKEN1 | **Realisierbarkeits-Bein** — RAM-Q-Serie (042/043/044/047), Säule 3 (α_QPU = 0.348), Wiederholungen | `pt_ram_q_hardware3_qpu.py:37/:45`, `pt_v5_kingston_rep.py:52`, `pt_prime_state_qpu_singleshot.py:186` |
+| **G4 QPU ibm_kingston** | TOKEN2 | **Session-/Substrat-Bein** — 035/046 (bias_PT_re ±Vorzeichen), 050/051 (D1/D2/D3) | `pt_v5_kingston.py:74/:75`, `pt_ram_q6_kingston_qpu.py:53`, `pt_ram_q6_k2_qpu.py` |
+| G3a/G4a QPU-Service auth-only | kein Job | Gate-Map/Coupling für ISA-Gates (0 QPU-Schritt zwischen G2 und Submission) | `pt_ram_q_isa3.py:31/:93`, `pt_ram_q6_k2_isa_stage.py` |
+| **G5 GOVERNANCE** | kein Messgerät | Prereg-Freeze → ISA-Gate → **Roh-Commit VOR Auswertung** → gefrorene Auswertung (`decide` ex ante, `RAW_FORBIDDEN_KEYS`, Konsistenz-Gate, Bit-Pins, Boundary strikt, Toleranz NIE erhöht) → `claims.py` (Live-Pin) → Deck/Doku/Memory → Einstufung statt Re-Decide | `pt_ramanujan_replication.py:237..438`, `pt_s4_r2_eval.py:44/:60`, `claims.py:858/:1086` |
+
+### E-Layer — die Elemente
+
+| Element | Was | Beleg |
+|---|---|---|
+| E1 Primbasis | π(N)-Sieb → \|P_N⟩, Bipartition, Padding | `pt_prime_state.py:27/:44`, `pt_prime_state_N255.py` |
+| E2 Operator | H_PT = H_diag + i·γ·A; H_PT_5 (GF(5), block_diag) | `pt_spectral_gaps.py:65`, `pt_ququint_vqe.py:63` |
+| E3 Zyklotomik Z/qZ | S*_q = {a = j·d/q}, Ramanujan-Summen c_q, B2 q-universal | `pt_ram_q_zyklizitaet.py`, `pt_ram_q_asymptotik.py:173` |
+| E4 Echo-Leiter | K(τ·t′), κ̂-Floors, v3b `center_v3` (REGISTRIERT, nicht neu gefittet) | `pt_ram_q_hardware3.py:99/:107/:256` |
+| E5 Orbits/faltend | S₄-Orbits, `kron_sum`-gefalltes H | `pt_s4_closure_theorem.py:271`, `pt_hstar5_execution.py:384` |
+| E6 Spektral-Proxy | Jacobi-A, Hilbert-Pólya-Proxy, DFT/KPE | `pt_structural.py`, `pt_rh_multi_observable.py:68/:91`, `pt_shor_ququint.py:72` |
+| E7 Governance-Module | Prereg-/eval-Ketten, claims | s. o. G5 |
+
+### Das Diagramm
+
+```mermaid
+flowchart TB
+  A["ARITHMETIK: π(N)-Sieb → |P_N⟩ (E1)"] --> B["OPERATOREN: H_PT / H_PT_5 / gefaltetes H / S₄-Orbits (E2 · E5 · E6)"]
+  B --> G1["G1 EXAKT-STATEVECTOR (0 QPU) — Modell-Wahrheit: S_vN, Rényi, α_vN, R(N), c_v, ⟨r⟩, QPE, K(t)"]
+  G1 -->|Prereg: Vorhersage + Band + Verdict-Map + QUANTOR-FELD| FR["G5 GATE 1: FREEZE (canonical JSON, md5, ex ante)"]
+  FR -->|"nur mit registriertem Hardware-Bein"| AE["G2 AER-TOR: ISA-Report + Noise-Stress b_P (KEIN Wahrheitsbeleg)"]
+  AE --> ISA["G3a/G4a auth-only: Gate-Map, Gate-Count-Pin"] --> QP["G3/G4 QPU fez(T1)/kingston(T2): EIN Job/Verdict, Kalibrier-P-Bein, κ̂-Floor, DD"]
+  QP --> RAW["G5 GATE 2: Roh-Commit VOR Auswertung (ohne Verdict-Felder)"]
+  RAW --> EV["GEFRORENE AUSWERTUNG: decide ex ante → VERDICT"]
+  EV --> CL["claims.py Live-Pin"] --> DOC["Deck / Doku §10.x + §Z.x / PLAN / Memory"]
+  EV -. "Artefakt-Fall: EINSTUFUNG (052-Muster), kein Re-Decide" .-> CL
+  G1 -. "ohne Hardware-Bein (reines 0-QPU-Experiment)" .-> FR
+```
+
+```
+     ARITHMETIK: π(N)-Sieb ──► |P_N⟩ ──► H_PT / H_PT_5 / gefaltetes H / S₄-Orbits
+                (E1)                        (E2 · E5 · E6)
+        │                                   │
+        ▼                                   ▼
+   ┌───────────────────────────────────────────────┐
+   │ G1 EXAKT-STATEVECTOR (0 QPU)                   │  S_vN, Rényi-2/3, α_vN,
+   │ MODELL-WAHRHEIT, bit-exakt                     │  R(N), c_v, ⟨r⟩, QPE, K(t)
+   └───────────────┬───────────────────────────────┘
+                 Prereg: Vorhersage + Band + Verdict-Map + QUANTOR-FELD
+                 ▼
+   ┌───────────────────────────────────────────────┐
+   │ G5 GATE 1: PREREG-FREEZE  (canonical JSON+md5) │
+   └───────────────┬───────────────────────────────┘
+                 nur mit registriertem Hardware-Bein:
+                 ▼
+   ┌───────────────────────────────────────────────┐
+   │ G2 AER-TOR  +  G3a/G4a auth-only              │  ISA-Report, Gate-Count-Pins,
+   │ (KEIN Wahrheitsbeleg)                         │  Noise-Stress/b_P der Frozen-Gesetze
+   └───────────────┬───────────────────────────────┘
+                 ▼
+   ┌───────────────────────────────────────────────┐
+   │ G3/G4 QPU: fez (TOKEN1) / kingston (TOKEN2)    │  EIN Job je Verdict, job-id-File,
+   │ REALISIERBARKEITS-BEIN + Kalibrier-P-Bein      │  κ̂-Floor, DD, Shots, Session-Anker
+   └───────────────┬───────────────────────────────┘
+                 ROH (ohne Verdict-Felder)
+                 ▼
+   ┌───────────────────────────────────────────────┐
+   │ G5 GATE 2: RAW-COMMIT VOR AUSWERTUNG           │
+   └───────────────┬───────────────────────────────┘
+                 ▼
+   GEFRORENE AUSWERTUNG (decide ex ante) ──► VERDICT
+                 │  (Artefakt-Fall: EINSTUFUNG – 052-Muster)
+                 ▼
+   claims.py (Live-Pin) ──► Deck/Manim ──► Doku §10.x + §Z.x ──► PLAN/Memory
+```
+
+### Regeln — wann welches Gerät (R1–R5)
+
+- **R1 Wahrheit:** neue Hypothese/Observable wird IMMER zuerst auf G1
+  (statevector) ausgelegt — Theorem, Messung, Bit-Pin, geschlossene
+  Familie. G1 ist die Modell-Wahrheit; sie ist NICHT „die reine Wahrheit
+  über RH" (Operator konstruiert aus Zahltheorie; spektrale
+  Übereinstimmung = Konstruktions-Ergebnis; RH bleibt analytisch —
+  beidseitig getragen in der Kritik-Antwort).
+- **R2 Tor:** G2 (Aer) liegt STEHTS zwischen G1 und Hardware — ISA-Gates
+  und Noise-Stress auf bereits registrierten Gesetzen (b_P, Exact-only);
+  Aer-Ergebnisse sind nie Wahrheitsbelege, ihre Divergenz zu G3/G4 ist
+  Gate-Befund, kein Widerspruch.
+- **R3 Realisierbarkeit:** G3/G4 (QPU) NUR wenn (a) ein G1-Signal auf
+  Realisierbarkeit geprüft werden soll, (b) das Prereg (inkl.
+  **Quantor-Feld**, R4) gefroren IST, (c) EIN Job pro Verdict mit
+  job-id-File und Roh-Commit vor Auswertung, (d) ein Kalibrier-P-Bein mit
+  κ̂-Floor im Bein liegt. QPU definiert NIEMALS Modell-Wahrheit.
+- **R4 Governance:** Freeze vor jeder Messung; Verdict-Maps gefroren;
+  Konsistenz-Gate re-deriving; Toleranz NIE erhöht; Einstufung statt
+  stillem Re-Decide; keine neuen Rauschgesetz-Sub-Parameter mehr
+  (γ_arm-Ära geschlossen — Kritik-Treffer 2).
+- **R5 Effektive Dimensionen:** (α_vN, R(N)) zählen als EINE S_vN-Klasse
+  (§X.3: effektiv 2.83 Observables, Korrelation log S_vN ↔ R = 0.15);
+  jedes „dritte Observable" (V3-Nachfolge) braucht den Unabhängigkeits-
+  Nachweis ex ante im Prereg (Korrelation gegen beide S_vN-Observablen +
+  Nicht-Degeneration).
+
+### Redesign 1–5 streng nach dem Fluss
+
+| # | Element(e) | Geräte gemäß Diagramm | Neuer Kern |
+|---|---|---|---|
+| 1 | E1/S_vN-Klasse + G5 (claims) | G1 (Werte JSON-gepinnt, unangetastet) + G5 | `alpha_1e6`/`alpha_verdict`-Gloss/Criterion auf §X-Lesart (α=0.22 Fit-Artefakt; S/log(N) → 0.55; R(10⁶) = 0.669); §6.5.16-Addendum; KEINE Wert-Änderung (Bit-Pins) |
+| 2 | E7-Grids | G5 | +30/Union-Selektionsregel (PLAN.md:117, `pt_ram_q6_k2.py:8`) in die Haupt-Doku (§10.37) |
+| 3 | E7-Preregs | G5 (+ G3/G4 als Verbraucher) | Pflichtfeld `quantor_coverage` (welche p, welcher Modulus, geschlossen/gesampelt, ex ante) in jedem künftigen Hardware-Prereg; erste Demonstration im 053-Prereg |
+| 4 | E1/E3/E6 + S_vN-Klasse | **G1 ONLY** (0 QPU); G3/G4 als REGISTRIERTES Support-Bein (prime-quant auf ibm_fez), erst nach 053-L1-Auslesung, dann gemäß R3 | geschlossene Klassenfamilie a ∈ (Z/qZ), ∀p ≤ N in EINER Klasse; Union == Gesamt-π(N) Bit-Check gegen 023-EXT-Rows (S_vN, R_N); α_vN/R/c_v pro Klasse |
+| 5 | E2/E6-Spektrum | G1 ONLY; QPU-Follow-up NUR wenn Kandidat überlebt (registriert, nicht in diesem Batch) | L2 Rényi-3-Unabhängigkeit, L3 GUE-⟨r⟩ mit korrigierter Konstante 0.5996 (V3-DEGENERAT-Nachfolge), §X.3-Korrelations-Gate |
+
+#### Quellenangaben für §10.36
+
+Kritik: `kritik1.txt` (User-File); Audit: Memory `kritik1-audit`
+(zwei Runden). Inventar: 117 Root-Module, gesichtet 2026-10-02 —
+Geräte-/Element-Belege wie in den Tabellen. Re-Grade:
+SYNTHESIS_2026_06_10.md §X (2026-07-21). Präzedenz-Kette 050/051/052:
+PT-Verträge wie G5. EXPERIMENT 053 (§10.38) ist der erste Lauf nach
+diesem Diagramm.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
