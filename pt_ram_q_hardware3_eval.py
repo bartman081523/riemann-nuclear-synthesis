@@ -401,6 +401,12 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
         nq = h3a.NQ_BY_ARM[arm]
         p_ro = p_ro_by_nq[nq]
         P = h3a.ladder_anchor(arm)
+        # Anker-Punktschluessel: Verdict- ODER Kalibrier-P (Phase
+        # H-RAM-Q-6-K2-Vertrag — im frischen Run-4-Grid liegt der Anker
+        # im Kalibrier-Bein; im gefrorenen 044-Grid im Verdict-Bein).
+        anchor_pkey = (f"verdict|{arm}|{P}"
+                       if f"verdict|{arm}|{P}" in points
+                       else f"cal|{arm}|{P}")
         kappas, r1_consistent = {}, None
         for r in h3.LADDER_REPEATS:
             name = (f"loschmidt_{arm}_{P}" if r == 1
@@ -412,7 +418,7 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
             kappas[f"r{r}"] = aer.p0_fraction(e["counts"], nq) / p_ro
             if r == 1:
                 r1_consistent = (kappas[f"r{r}"]
-                                 == points[f"verdict|{arm}|{P}"]["kappa_hat"])
+                                 == points[anchor_pkey]["kappa_hat"])
         fit = None
         if all(kappas[f"r{r}"] is not None for r in h3.LADDER_REPEATS):
             fit = h3a.fit_echo_ladder(
@@ -428,7 +434,10 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
             "verdict_role": "NICHT verdict-tragend (Diagnostik)",
         }
 
-    vmap = prereg["verdict_map"]
+    # Verdict-Map aus dem Prereg — top-level (044-Prereg) oder geerbt aus
+    # inherited_from_044 (K2-Prereg, Phase H-RAM-Q-6-K2-Vertrag).
+    vmap = prereg.get("verdict_map") or \
+        prereg["inherited_from_044"]["verdict_map"]
     doc = {
         "experiment": h3.EXPERIMENT,
         "hypothesis": h3.HYPOTHESIS,
