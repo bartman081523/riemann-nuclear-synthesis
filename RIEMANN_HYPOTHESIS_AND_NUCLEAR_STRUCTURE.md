@@ -2654,6 +2654,232 @@ Tests `tests/test_pt_ram_q6_kingston.py` (21); Commits `3fc63a4`
 (Auswertung); 1 Kingston-Job TOKEN2, 0 Fez-Kontakt in diesem Bein;
 §Z.32 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.34 — H-RAM-Q-6 Beine D2/D3: blinder Transfer + In-Arm-Vorzeichen-Gesetz auf FRISCHEN P — frisches Run-4-Gitter ex ante (Zug/Prüf-Trennung nach der Zugtabelle), ISA-Gate v1→v2 nach sauberem Stale-Abort, EIN Kingston-Job davfridj371s73dmqstg, gefrorene Auswertung **D2: K2_D2_REFUTED_KEIN_TRANSFER | D3: K2_D3_REFUTED_SIGN_KEIN_FUNKTION_VON_P** — dritte unabhängige Niederlage der P-Vorzeichen-Lesart, κ̂-Lift substrat- UND grid-universal (EXPERIMENT 051, Branch `h-test1-gap-invariance`, 2026-10-02, 1 Kingston-Job/TOKEN2)
+
+Der D1-Abschluss (§10.33) ließ die restlichen H-RAM-Q-6-Beine als
+offene Konsequenz stehen. Beide wurden auf einem FRISCHEN Run-4-Gitter
+ex ante gefroren und in EINEM Kingston-Job gemessen: **D2** — blindes
+Klassifikator-Programm mit ex-ante-Familie und Zug/Prüf-Trennung
+(Zug = Zugtabelle über die alten Sessions, Prüf = frische P) — und
+**D3** — In-Arm-Vorzeichen-Gesetz (Vorzeichen als Funktion von P im
+Arm). Genau die beiden Beine, die die Vorzeichen-Lesart direkt
+adressieren, die D1 unausgesprochen lassen musste.
+
+**A — Refaktor-mit-Beweis + Prereg-Freeze (`08e022c`, 1/2; `10c88c2`,
+1b).** `pt_ram_q6_k2.py` als D1-Form-Refaktor (Grid-Builder,
+ISA-Konstanten, Prereg-Lader, Wrapper-Hilfen) mit 15 Beweis-Tests
+(`tests/test_pt_ram_q6_k2_refactor_proof.py`). Prereg
+`pt_ram_q6_k2_prereg.json` REGISTERED_NOT_MEASURED, md5
+`ef7029764f0c192d69712674bd161822` (kanonisch ohne md5-Feld; die
+h3e-Datei-Bytes-Lesart bei übergebenem `prereg_path` ist
+`3926b0c792bbd14ac3050ca540541a63` — beide meinen dasselbe Prereg,
+Zwei-Lesarten unten). Kernstück **Zug/Prüf-Trennung** (Zugtabelle im
+Freeze): Pool = 15 ELIGIBLE alte Session-Punkte (S1 = 11d/Fez,
+S2 = 047/Fez, K = Kingston-D1; je n_eligible 2–3), Exklusion = 11
+Punkte, ALLE mit reason „weniger als 2 eligible Sessions",
+`eligible_abs_min 0.01`; **m0_predictions GEFROREN** (Arm-Mehrheit des
+Pool-Signals: q3_d3 +1.0 / q5_d5 −1.0) — NULL-MODELL, nie re-fit,
+M0-Gleichstand macht Member CONFIRMED-unfähig. **Frisches Grid ex
+ante** (Rotationsregel): Kalibrier-13 = Run-3-Verdict-P (Records
+bit-exakt vom committeten 044-Prereg vererbbar,
+`kalibrier_p_equals_run3_verdict: true`), Verdict-13 = kleinste
+Primzahl > zuletzt+30 (Strikte Lesart: Primzahl-Argument ÜBERSPRUNGEN,
+Phase-10b-Regel), extended_union_size 30, verdict_p_disjunkt;
+`ladder_anchors {q3_d3: 181, q5_d5: 467}` bleiben bewusst im
+Kalibrier-Bein (Echo-Vertrag unangetastet). **D2-Leg:** ex-ante-Familie
+[L3, L5, L3L5, chi4, chi8, P10] (6 Member),
+`alpha_family = 0.05/6 = 0.008333333333333333`, CONFIRMED iff ≥ EIN
+Member p ≤ alpha' UND p < p_M0 UND hits > hits_M0, PARTIAL iff alpha'
+aber nicht M0, Punkte ohne Member-Meldung zählen konservativ als
+Nicht-Treffer; **gepoolte Konsequenz registriert** (die Familie hat
+keine Chance, wenn nicht fast alles passt): 12/13 p 0.00170898 ≤
+alpha', 11/13 p 0.0112305 > alpha', q5-allein 5/5 p 0.03125 >
+alpha'. **D3-Leg:** 1-NN in P im Arm (Abstands-Gleichstand → Punkt
+fällt weg, zählt weder in n noch in hits), alpha 0.05,
+n_elig_floor 8 (q3 7, q5 5 → per-Arm nie Floor: nicht
+verdict-tragend). **registered_expectation D2 REFUTED, D3 REFUTED** —
+„Ex-ante-Erwartung beider Legs REFUTED … Bestaetigung muß SCHWERER
+als Verwerfung sein"; `k2_verdict_map` (4 Einträge)
+K2_DEGENERAT → K2_VOID_KAPPA → K2_VOID_NOISE → Komposit. frozen_inputs:
+044-v3b-Gesetz md5 `baaca1f6772e07b0847fe436da7e16da` UNVERÄNDERT
+geerbt (kein Gesetzes-Fork) + 3 Session-Sources mit md5s
+(c7d81a98…/61ccd921…/afd10608…). `10c88c2` (1b): eval-Grid-Verträge
+anker-tolerant nachgeschärft (Anker-P 181/467 sitzt im K2-Grid im
+KALIBRIER-Bein — die 049-Punkte-Verträge verlangten sonst
+set/arm-Quellen, die es so nicht gibt); Default-Pfad bit-identisch.
+
+**B — Stage-3-Aer EXACT-ONLY (`90e8a4b`, 2/4, 0 QPU).** 26/26 b_P
+via `fit_b_p` über exakte STRESS_GRID_P1-Density-Matrix-Kurven,
+Prereg-Binding ef702976. **Kalibrier-b_P-Konsistenz** gegen die
+044-Stage3-Quelle: 11/13 im BLAS-Rauschen (max 1.087e-5), GENAU 2
+registrierte Divergenzen — cal|q3_d3|613 (2.7415e-02) und
+cal|q5_d5|613 (6.9550e-03) — ±1-ulp-Zweig-Klasse: das
+committete 044-Artefakt trägt am 613-Zweig ein x-Gate
+({cz4, rz10, sx14, x:1}), der heutige Zweig ohne x. KEINE
+Toleranz-Erhöhung. Weggekürzt gegenüber 044-Stage3: sampled /
+gamma_aer / echo_ladder / form_validation — der Eval konsumiert
+ausschließlich stage3[b_p | prereg_md5 | status]. NEU
+`k2.eval_grid` (set/arm-Stempel für die Grid-Verträge),
+fresh_points()-Kontrakt unangetastet; DEGENERAT-Pfad mit
+Monkeypatch-Beweisen (26 fit_failed, b_P leer, Status-Flip) — auch die
+b_P-Ebene bricht das Verdict. 12 Beweis-Tests (+1 in 2b → **13** in
+`tests/test_pt_ram_q6_k2_stage3.py`), RAM-Q-Subtree 516 grün.
+
+**C — ISA-Gate: Mapping + Wrapper + Gate-Artefakt + Stale-Abort/Re-Freeze
+v2 (`4e5b0f9`, `93fc76b`, `2448f85`).** `4e5b0f9` (2b): h3e
+`anchor_r1_name`-Mapping (verdict| → loschmidt_, cal| → calloschmidt_)
+— identische Counts → identisches κ̂; ohne dieses Mapping hätte der
+Echo-R1-Slot STILL alle κ̂ auf None gesetzt, weil die Anker 181/467 im
+KALIBRIER-Bein sitzen; Default-Pfad bit-exakt (D1/11d-Artefakte,
+517 grün). K2-ISA-Gate-Wrapper `pt_ram_q6_k2_isa_stage`: Transpile-Route
+wie k6 (Kingston, optimization_level 3, seed_transpiler 7), Gate-Doc
+mit K2-Binding (prereg_md5 ef702976),
+`out_path = k2.ISA_GATE_PATH` (D1-Gate-File-Überschreiben-Falle);
+`k6.validate_isa_gate` experiment-agnostisch wiederverwendet.
+`93fc76b` (2c): Gate-Artefakt **ISA_OK** — 116 Circuits, total-2q
+**559**, max **84** (identisch zu 11d/D1: strukturelle
+Synthese-Templates, NICHT P-abhängig); Grid-Namen **beweisbar frisch**
+(Verdict-Struct-P = Run-4-Verdict-Union 223/263/317/419/503/587/647/
+709/727/829, Cal-Struct = Run-3-Union; D1-Gate-Namen ≠ K2-Gate-Namen);
+Budget-Kreuzcheck (per-Circuit 120 / total 6000). `2448f85` (2d):
+**Stale-Abort VOR Submission** — der Zell-für-Zell-Kreuzcheck brach:
+ladder_q3_d3_181_r2 rz 22→20 / x 2→4, ladder_q3_d3_181_r4 rz 44→40 /
+x 4→8 (x-vs-rz-Zerlegungs-Zweig-Flip, Phase-11c-Klasse); Ursache
+Backend-Target-Refresh zwischen zwei Service-Calls (02:31 vs 02:37),
+NICHT Env-Drift (dieselbe Env, gleicher Seed); n_2q unverändert
+4→4 / 8→8, Totals 559/84 exakt gleich → Gate-Re-Freeze **v2**
+(run_stage re-ran: prüft + schreibt), die 2 divergenten Zellen
+registriert, KEINE Toleranz-Erhöhung.
+
+**D — EIN Kingston-Job, RAW vor Auswertung (`18e2afc`, `3c2f5df`).**
+`pt_ram_q6_k2_qpu` = D1-QPU-Form-Klon mit vier Unterscheidungen:
+frisches Run-4-Grid via `k2.eval_grid`, ISA-Quelle K2-Gate
+(`k2.ISA_GATE_PATH`, NICHT das D1-Gate), Zell-für-Zell-Kreuzcheck vor
+Submission, registered_run_config aus dem gefrorenen K2-Prereg. TOKEN2-only
+via `pt_v5_kingston.load_token` (TOKEN1 NIE gelesen), Resume-Vertrag
+(Raw zuerst, sonst Job-ID). 7 Tests
+(`tests/test_pt_ram_q6_k2_qpu.py`): count_2q-Binding = D1-Funktion,
+Gate-Namen decken alle Builder, Kreuzcheck + t5-Schema, Stale-Kreuzcheck
+bricht VOR Kontakt, fetch_raw-Kontrakt, Resume ohne Backend,
+MD5-Kanonik. Der erste Submission-Versuch brach SAUBER VOR Kontakt am
+Stale-Kreuzcheck (→ 2d). Job `davfridj371s73dmqstg`: 116 Circuits ×
+8192 Shots = 950 272, DD XX, 116/116 komplett; counts_md5
+`72f6729ac9261f50b5bfc9e56c6d7e46` committed VOR jeder Auswertung;
+κ̂/ratio/γ/Verdict ABSICHTLICH ABWESEND (BANNED_IN_RAW).
+
+**E — Gefrorene Auswertung: Komposit REFUTED/REFUTED (`808883f`).**
+Stufe 0: geerbte Kontrollen t3/t4/t5/t6 grün → K2_DEGENERAT feuert
+nicht; geerbtes Verdict **H-RAM-Q-4_REFUTED** ≠ VOID_CALIBRATION →
+K2_VOID_KAPPA feuert nicht; n_elig_total **12/13** ≥ 8
+(`n_elig_regel "8 von 13"` — NUR verdict|-P zählen, die Kalibrier-P
+nicht) → K2_VOID_NOISE feuert nicht. **INHERITED-Ebene:** das
+044-v3b-Gesetz unverändert auf dem frischen Grid →
+**H-RAM-Q-4_REFUTED**: n_below_sharp **6/13** (≥ 2-Kante), n_in_sharp
+**7/13**, n_above_ceiling_sharp 0, n_outside_sharp 6,
+**kappa_low_union 0/26** — κ̂-Band
+[0.8780308596620132, 0.9845928099779897]: der kohärente Prep-Fehler-Lift
+ist **grid-universal** (alle 26 FRISCHEN Punkte ≥ 0.81);
+alternative_lesarten: auch die w_A-grobe Lesart hält REFUTED
+(n_below_coarse_w_a 0 → verdict_waere null), Amplification 0. res_fresh:
+**16/26 negativ**; Pins verdict|q3_d3|317 −0.006208416660086535
+(einziger Punkt unter eligible_abs_min 0.01), verdict|q5_d5|503
+−0.04698043148621178, verdict|q5_d5|727 −0.03648703408403353,
+cal|q3_d3|181 0.029861739016199595. γ_arm im-job NUR Kalibrier-P (aus
+den geerbten verdict_inputs, NICHT verdict-tragend): q3_d3
+0.011748927901861127 (n_cal 8), q5_d5 0.021836383133132443
+(n_cal 5) — K2-Eval-Top-Level `gamma_arm` bleibt NULL (Slot-Vertrag).
+**D2-Tabelle** (alle n 12): L3 5 Treffer p 0.80615234375 | L5 5
+p 0.80615234375 | L3L5 6 p 0.61279296875 | chi4 6 p 0.61279296875 |
+chi8 3 p 0.980712890625 | P10 5 p 0.80615234375 — ALLE weit über
+alpha' 0.008333; m0 n 12, hits 6, p 0.61279296875 — **NIEMALS
+geschlagen** (beats_m0 überall False, p_m0-MINIMUM-GLEICHSTAND);
+passing [] / ueber_alpha_only [] → **K2_D2_REFUTED_KEIN_TRANSFER**.
+**D3:** 1-NN **4/12**, p 0.927001953125 (nicht ≤ 0.05),
+n_dropped_ohne_meldung 0; per-arm q3_d3 {n 7, hits 2} + q5_d5
+{n 5, hits 2} unter Floor 8 (nicht verdict-tragend) →
+**K2_D3_REFUTED_SIGN_KEIN_FUNKTION_VON_P**. Komposit per gefrorener
+Reihenfolge; **registered_expectation REFUTED/REFUTED ex ante
+GEHOLDEN**. Wrapper-Bindings 0-QPU bewiesen (raw/gate experiment-leg-backend-job_id,
+Transpile == Gate 559/84, run_config, counts_md5-Rekomputation,
+BANNED-Abwesend-Liste); Tamper-Kontrollen (counts/job/leg,
+verdict-Kanal,
+Gate max) → AssertionError; Prereg-MD5-Zwei-Lesarten dokumentiert;
+**16 Tests** (`tests/test_pt_ram_q6_k2_eval.py`).
+
+**F — Lesung + Reststand.** (1) **Dritte unabhängige Niederlage der
+P-Vorzeichen-Lesart**: nach 049 (Legendre-Mod-5 BLIND-Probabilist,
+§Z.30) und 049b (rang-getragen) fällt jetzt der blinde Transfer: kein
+Member der 6 ex-ante-Familien trägt (p 0.613–0.981), m0 wird nie
+übertroffen, und 1-NN (4/12) verfehlt selbst den M0-Wert — das
+Vorwissen der 15 eligible Session-Punkte transferiert NIRGENDS; die
+Vorzeichen-Information steckt nicht in den alten Sessions, und das
+Vorzeichen ist keine Funktion von P. (2) **Die Zug/Prüf-Trennung ist
+methodisch sauber** über die Kette: Zug-Knowledge ex ante gekapselt,
+Prüfung ex ante gefroren, registered_expectation vorab REFUTED —
+disziplinarisch das sauberste bislang: die Erwartung, die einging,
+war die Falsifizierbarkeits-Erwartung selbst. (3) **κ̂-Lift drei
+Bänder**: 11d Fez [0.8245, 0.9725], D1-Kingston
+[0.8804668304668305, 0.9959583588487446], K2-FRISCH
+[0.8780308596620132, 0.9845928099779897] — kappa_low_union 0/26 auch
+auf FRISCHEN P: das Gesetz kippt nicht, weil die Grid-P frisch sind —
+grid-universal obendrauf auf substrat-universal. (4) Mechanismus-
+DIAGNOSTIK (nicht verdict-tragend): Echo-Leiter κ_block q3_d3
+0.9951007299901269 / q5_d5 0.9106784117834048 — diesmal beide über
+0.81 (im 11d-Job war q5 0.7314); q5 r8 0.46546656869948566 zeigt die
+Refokussierung-Lasche an der Spitze weiterhin. γ_arm siehe E.
+(5) **Registrierter Zeichen-Slot nachgeholt als disclosed 0-QPU-Probe**
+(`scratches/h_ram_q6_k2_zeichen_probe.py` + `_out.json`; der
+preregisterierte Slot zeichen_stabilitaet_kalibrier blieb im gefrorenen
+Eval unbefüllt — Probe, NIEMALS Re-Decide): K2-Kalibrier-Zeichen vs
+gefrorene m0-Meldung **8/13 gleich** (5 flip; m0 q3 +1/q5 −1), vs
+Session-Majorität (S1/S2/K) **8/13 gleich** (5 flip); paarweise vs S1
+**8/13**, vs S2 **10/13**, vs K **7/13**;
+GENAU 2 der 5 Flips brechen einstimmige Vor-Tripel (613/q3: K2 −1
+gegen +++, 691/q5: K2 +1 gegen −−−). DISCLOSURE: keine
+Aggregations-Lesart war im Freeze als Bedingung fixiert — die Lesarten
+sind ablesbare Überblicks-Zahlen, n 13 ist für alle zu schmal, um
+schneidend zu diskriminieren. (6) **registered_expectation ex ante
+GEHOLDEN** — die Vorab-Erwartung bestätigt die Disziplinstruktur,
+nicht ein Signal. (7) Reststand: Suite **1298 grün**
+(Accounting-Korrektur: die Chain-Zählung der presentation/claims.py
+verzeichnet +15/+12/+7/+16 — die Einzelschritte 4e5b0f9 +1 (13tes
+Stage-3-Test) und 3e80aaf +1 (Inventar-Regression) fehlen; 15+12+1+7+
+16+1 = **52** → der Live-Pin 1298 über Live-Collection ist korrekt,
+Kommentar-Pinhistorie dokumentiert, KEINE Datei angefasst).
+H-RAM-Q-6 damit ABGESCHLOSSEN: **D1_PARTIAL + D2 REFUTED + D3
+REFUTED**. Reststand nach diesem Doku-Commit: 28 unpushed Commits auf
+`h-test1-gap-invariance`, insgesamt 75 nicht auf origin/main (dort
+steht d0fe8c5); Fez-046-Bein dauassrojkfs738rrcsg QUEUED
+(EIN-Fez-Job-Disziplin); der offene B−-Kandidat bleibt die
+Session-stabile P-Struktur (Echo-Kanal-Content-Abhängigkeit als
+falsifizierbares D1/D2/D3-Angebot).
+
+**Quellen:** `pt_ram_q6_k2_prereg.json` (md5
+`ef7029764f0c192d69712674bd161822`; Datei-Bytes-Lesart
+`3926b0c792bbd14ac3050ca540541a63`),
+`pt_ram_q6_k2.py`, `pt_ram_q6_k2_stage3aer.py`,
+`pt_ram_q6_k2_stage3.json` (EXACT-ONLY),
+`pt_ram_q6_k2_isa_stage.py`, `pt_ram_q6_k2_isa_gate.json` (ISA_OK,
+559/84), `pt_ram_q6_k2_job_id.txt` (`davfridj371s73dmqstg`),
+`pt_ram_q6_k2_raw.json` (counts_md5
+`72f6729ac9261f50b5bfc9e56c6d7e46`),
+`pt_ram_q6_k2_inherited_eval.json` /
+`pt_ram_q6_k2_eval.json` (Komposit), `pt_ram_q6_k2_eval.py`;
+Probe `scratches/h_ram_q6_k2_zeichen_probe.py` + `_out.json`
+(0 QPU, disclosed); Tests
+`tests/test_pt_ram_q6_k2_refactor_proof.py` (15),
+`tests/test_pt_ram_q6_k2_stage3.py` (13),
+`tests/test_pt_ram_q6_k2_qpu.py` (7),
+`tests/test_pt_ram_q6_k2_eval.py` (16) + 1 Inventar-Regression
+(`tests/test_pt_qpu_job_inventory_retroactive.py`); Commits `08e022c`
+(Freeze + Refaktor), `10c88c2` (1b), `90e8a4b` (Stage-3), `4e5b0f9`
+(anchor-Map + Gate-Wrapper), `93fc76b` (Gate-Artefakt), `2448f85`
+(Stale-Abort + Re-Freeze v2), `18e2afc` (QPU-Modul), `3c2f5df` (Raw
+VOR Auswertung), `808883f` (gefrorene Auswertung), `3e80aaf`
+(Inventar + Live-Pin 1298); 1 Kingston-Job TOKEN2
+(davfridj371s73dmqstg), 0 Fez-Kontakt in diesem Bein; §Z.33
+(SYNTHESIS) als kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf

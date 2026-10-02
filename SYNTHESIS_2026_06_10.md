@@ -4083,11 +4083,6 @@ GF(5)-Notwendigkeits-Glied ist artefaktfrei gefallen (048b), das
 Kausal-Glied Mitwanderung ist RANG-getragen (049 diagnostisch, 049b
 verdict-tragend — zwei Beine), und die numerische Infrastruktur hat ihre
 erste Selbst-Audit-Ebene (Build-Metrologie) verfestigt. Die
-**Einordnung:** die H-TEST1-Kette schließt konsistent ab: das
-GF(5)-Notwendigkeits-Glied ist artefaktfrei gefallen (048b), das
-Kausal-Glied Mitwanderung ist RANG-getragen (049 diagnostisch, 049b
-verdict-tragend — zwei Beine), und die numerische Infrastruktur hat ihre
-erste Selbst-Audit-Ebene (Build-Metrologie) verfestigt. Die
 Session-stabile P-Struktur bleibt der offene B−-Kandidat (H-RAM-Q-6
 D1/D2/D3 freigegeben inkl. QPU-Beine, kein Freeze ohne Prereg-Commits);
 „neue fundamentale Arithmetik" bleibt E/F. Tests unverändert 1225
@@ -4141,6 +4136,96 @@ hinter dauassrojkfs738rrcsg (046, QUEUED) an. Tests 1246
 Diag-Fail als 049b-Klassen numpy-BUILD-Delta (venv 2.4.6 reproduziert
 bit-exakt, Suite-Kanon bleibt venv) und die Präsentations-Live-Pin
 1225→1246 mit Chain-Kommentar.
+
+---
+
+## §Z.33 — H-RAM-Q-6 Beine D2/D3: blinder Transfer + In-Arm-Vorzeichen-Gesetz auf FRISCHEN P (EXPERIMENT 051, Kingston, TOKEN2, 1 Job): **D2: K2_D2_REFUTED_KEIN_TRANSFER | D3: K2_D3_REFUTED_SIGN_KEIN_FUNKTION_VON_P** — ex-ante-Familie transferiert nicht (alle 6 Member über alpha'), das Vorzeichen ist keine Funktion von P (1-NN 4/12), κ̂-Lift grid-universal (0/26 unter 0.81)
+
+Branch `h-test1-gap-invariance` — die restlichen H-RAM-Q-6-Beine
+vollzogen, FRISCHES Run-4-Gitter ex ante (Rotationsregel:
+Kalibrier-13 = Run-3-Verdict-P, `kalibrier_p_equals_run3_verdict`;
+Verdict-13 = kleinste Primzahl > zuletzt+30, Phase-10b-Strikte-Lesart;
+extended_union_size 30, disjunkt; ladder_anchors 181/467 bewusst im
+Kalibrier-Bein), Prereg-Freeze `08e022c` (md5
+`ef7029764f0c192d69712674bd161822`; h3e-Datei-Bytes-Lesart
+`3926b0c792bbd14ac3050ca540541a63`) mit **ZUG/PRÜF-TRENNUNG**: Zugtabelle
+= 15 eligible alte Session-Punkte (S1/S2/K, je n_eligible 2–3) + 11
+Exklusionen (alle „weniger als 2 eligible Sessions"), eligible_abs_min
+0.01; **m0 GEFROREN** (Arm-Mehrheit: q3_d3 +1 / q5_d5 −1, NULL-MODELL,
+nie re-fit); gefrorene Erwartung REFUTED/REFUTED ex ante
+(„Bestaetigung muß SCHWERER als Verwerfung sein").
+
+- **Stage-3-Aer EXACT-ONLY `90e8a4b` (0 QPU):** 26/26 b_P exakt;
+  Kalibrier-b_P-Konsistenz 11/13 im BLAS-Rauschen (max 1.087e-5),
+  GENAU 2 registrierte Divergenzen cal|q3_d3|613 (2.7415e-02) /
+  cal|q5_d5|613 (6.9550e-03) = ±1-ulp-Zweig-Klasse (044-Artefakt mit
+  x-Gate, heutiger Zweig ohne) — KEINE Toleranz-Erhöhung; Eval
+  konsumiert nur stage3[b_p | prereg_md5 | status]; DEGENERAT auch
+  auf b_P-Ebene bewiesen.
+- **ISA-Gate `4e5b0f9`/`93fc76b`/`2448f85`:** Gate ISA_OK 116 ·
+  total 2q **559** · max **84** (identisch zu 11d/D1 — strukturell,
+  NICHT P-abhängig); Grid-Namen beweisbar frisch (D1-Gate-Namen ≠
+  K2-Gate-Namen); `anchor_r1_name`-Mapping nötig, weil die Anker
+  181/467 im Kalibrier-Bein sitzen; **Stale-Abort VOR Submission**
+  (x-vs-rz-Zweig-Flip ladder_181_r2/r4 bei Backend-Target-Refresh
+  02:31 vs 02:37 — n_2q unverändert, Totals exakt gleich →
+  Gate-Re-Freeze v2, kein Patch), erster Submissions-Versuch brach
+  sauber VOR Kontakt.
+- **EIN Kingston-Job `18e2afc`/`3c2f5df` davfridj371s73dmqstg
+  (TOKEN2-only):** 116×8192 = 950 272, DD XX, 0 Ausfälle; counts_md5
+  `72f6729ac9261f50b5bfc9e56c6d7e46` VOR Auswertung; verdict-Felder
+  ABSICHTLICH ABWESEND.
+- **Gefrorene Auswertung `808883f` — Legitimation:** t3–t6 grün,
+  geerbtes Verdict H-RAM-Q-4_REFUTED ≠ VOID_CALIBRATION, n_elig 12/13
+  ≥ 8 (einzige Unterkante verdict|q3_d3|317
+  −0.006208416660086535; Kalibrier-P zählen nie).
+- **INHERITED (044-v3b auf frischem Grid):** **H-RAM-Q-4_REFUTED** —
+  n_below_sharp 6/13, n_in_sharp 7/13, n_above_ceiling 0,
+  kappa_low_union **0/26**, Band [0.8780308596620132,
+  0.9845928099779897], res_fresh 16/26 negativ; auch die w_A-grobe
+  Lesart hält REFUTED (n_below_coarse_w_a 0 → verdict_waere null).
+- **D2 (blinder Transfer, n 12):** L3 5 p 0.80615234375 | L5 5 p
+  0.80615234375 | L3L5 6 p 0.61279296875 | chi4 6 p 0.61279296875 |
+  chi8 3 p 0.980712890625 | P10 5 p 0.80615234375 — ALLE weit über
+  alpha' 0.008333…; m0 hits 6, p 0.61279296875 — **NIEMALS
+  geschlagen**; passing [] / ueber_alpha_only [] →
+  **K2_D2_REFUTED_KEIN_TRANSFER**.
+- **D3 (1-NN):** **4/12**, p 0.927001953125 ≫ 0.05, 0 ohne Meldung,
+  per-arm (7, 2)/(5, 2) unter Floor 8 →
+  **K2_D3_REFUTED_SIGN_KEIN_FUNKTION_VON_P**.
+- **Diagnostik (nicht verdict-tragend):** Echo-Leiter κ_block q3_d3
+  0.9951 / q5_d5 0.9107 (anders als 11d: q5 über Floor; r8 0.4655
+  Lasche); γ_arm (geerbte verdict_inputs) q3_d3 0.01175 (n_cal 8) /
+  q5_d5 0.02184 (n_cal 5); **zeichen_stabilitaet_kalibrier** — der
+  registrierte Slot blieb im gefrorenen Eval unbefüllt, als
+  disclosed 0-QPU-Probe nachgeholt
+  (`scratches/h_ram_q6_k2_zeichen_probe.py` + `_out.json`,
+  NIEMALS Re-Decide): vs gefrorene m0-Meldung **8/13 gleich** (5
+  flip), vs Session-Majorität **8/13 gleich** (5 flip), paarweise
+  S1 8 / S2 10 / K 7 von 13 — GENAU 2 Flips brechen einstimmige
+  Vor-Tripel (613/q3, 691/q5); keine Aggregations-Lesart war im
+  Freeze fixiert.
+
+**Einordnung:** die dritte unabhängige Niederlage der
+P-Vorzeichen-Lesart (nach 049 Legendre-Mod-5 blind, 467-Flip der
+v3b-Probe): das Vorwissen der 15 eligible Session-Punkte transferiert
+in KEINEN der 6 ex-ante-Member und in das 1-NN-Gesetz nicht — die
+Vorzeichen-Information steckt nicht in den alten Sessions, das
+Vorzeichen ist keine Funktion von P, und die Session-Majorität wird
+von der 4. Session nicht reproduziert (8/13, im Zufallsband bei n 13).
+Was
+physikalisch bleibt und damit die H-RAM-Q-6-REIHE abschließt: der
+kohärente Prep-Fehler-Lift — substrat-universal (D1) und jetzt
+grid-universal auf FRISCHEN P (K2), drei Bänder 11d/D1/K2 =
+[0.8245–0.9725] / [0.8805–0.9960] / [0.8780–0.9846]. H-RAM-Q-6:
+**D1_PARTIAL + D2 REFUTED + D3 REFUTED**, registered_expectation ex
+ante GEHOLDEN; der offene B−-Kandidat bleibt die Session-stabile
+P-Struktur (Echo-Kanal-Content-Abhängigkeit als falsifizierbares
+D1/D2/D3-Angebot); die Fez-Beine stehen EIN-Fez-Job-Disziplin hinter
+dauassrojkfs738rrcsg (QUEUED) an. Tests 1298 (+52: 15 Refactor-proof
+/ 12+1 Stage3 / 7 QPU / 16 Eval / 1 Inventar-Regression — in der
+Chain-Zählung von presentation/claims.py fehlen die zwei
++1-Einzelschritte (4e5b0f9, 3e80aaf); der Live-Pin ist korrekt).
 
 ---
 

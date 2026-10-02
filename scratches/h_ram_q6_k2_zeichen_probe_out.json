@@ -1,0 +1,231 @@
+{
+ "_disclosure": "0-QPU-Probe, NICHT verdict-tragend; registrierter Slot zeichen_stabilitaet_kalibrier vom gefrorenen Eval (808883f) unbefuellt gelassen — hier nachgeholt mit NACHGELAGERTEN Aggregations-Lesarten (a) gefrorene m0-Meldung, (b) Session-Majoritaet, (c) paarweise; keine war im Freeze als Bedingung fixiert",
+ "prereg_md5": "ef7029764f0c192d69712674bd161822",
+ "n_points": 13,
+ "a_vs_m0_gefroren": {
+  "gleich": 8,
+  "flip": 5
+ },
+ "b_vs_session_majoritaet": {
+  "gleich": 8,
+  "flip": 5
+ },
+ "c_pairwise": {
+  "S1": {
+   "gleich": 8,
+   "flip": 5,
+   "n": 13
+  },
+  "S2": {
+   "gleich": 10,
+   "flip": 3,
+   "n": 13
+  },
+  "K": {
+   "gleich": 7,
+   "flip": 6,
+   "n": 13
+  }
+ },
+ "unanimitaets_breche": [
+  "cal|q3_d3|613",
+  "cal|q5_d5|691"
+ ],
+ "rows": [
+  {
+   "key": "cal|q3_d3|181",
+   "arm": "q3_d3",
+   "P": 181,
+   "k2": 1.0,
+   "sessions": {
+    "S1": -1.0,
+    "S2": 1.0,
+    "K": -1.0
+   },
+   "maj": -1.0,
+   "m0": 1.0,
+   "gleich_m0": true,
+   "gleich_maj": false
+  },
+  {
+   "key": "cal|q3_d3|229",
+   "arm": "q3_d3",
+   "P": 229,
+   "k2": 1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": 1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q3_d3|283",
+   "arm": "q3_d3",
+   "P": 283,
+   "k2": -1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": -1.0,
+    "K": 1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": false,
+   "gleich_maj": false
+  },
+  {
+   "key": "cal|q3_d3|379",
+   "arm": "q3_d3",
+   "P": 379,
+   "k2": 1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": -1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q3_d3|467",
+   "arm": "q3_d3",
+   "P": 467,
+   "k2": 1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": 1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q3_d3|613",
+   "arm": "q3_d3",
+   "P": 613,
+   "k2": -1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": 1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": false,
+   "gleich_maj": false
+  },
+  {
+   "key": "cal|q3_d3|691",
+   "arm": "q3_d3",
+   "P": 691,
+   "k2": -1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": -1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": false,
+   "gleich_maj": false
+  },
+  {
+   "key": "cal|q3_d3|797",
+   "arm": "q3_d3",
+   "P": 797,
+   "k2": 1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": 1.0
+   },
+   "maj": 1.0,
+   "m0": 1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q5_d5|467",
+   "arm": "q5_d5",
+   "P": 467,
+   "k2": -1.0,
+   "sessions": {
+    "S1": -1.0,
+    "S2": -1.0,
+    "K": -1.0
+   },
+   "maj": -1.0,
+   "m0": -1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q5_d5|547",
+   "arm": "q5_d5",
+   "P": 547,
+   "k2": -1.0,
+   "sessions": {
+    "S1": -1.0,
+    "S2": -1.0,
+    "K": -1.0
+   },
+   "maj": -1.0,
+   "m0": -1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q5_d5|613",
+   "arm": "q5_d5",
+   "P": 613,
+   "k2": 1.0,
+   "sessions": {
+    "S1": 1.0,
+    "S2": 1.0,
+    "K": -1.0
+   },
+   "maj": 1.0,
+   "m0": -1.0,
+   "gleich_m0": false,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q5_d5|673",
+   "arm": "q5_d5",
+   "P": 673,
+   "k2": -1.0,
+   "sessions": {
+    "S1": -1.0,
+    "S2": -1.0,
+    "K": -1.0
+   },
+   "maj": -1.0,
+   "m0": -1.0,
+   "gleich_m0": true,
+   "gleich_maj": true
+  },
+  {
+   "key": "cal|q5_d5|691",
+   "arm": "q5_d5",
+   "P": 691,
+   "k2": 1.0,
+   "sessions": {
+    "S1": -1.0,
+    "S2": -1.0,
+    "K": -1.0
+   },
+   "maj": -1.0,
+   "m0": -1.0,
+   "gleich_m0": false,
+   "gleich_maj": false
+  }
+ ]
+}
