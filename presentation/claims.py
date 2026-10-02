@@ -845,9 +845,13 @@ _CL.append(Claim(
     # 050 D1-Prereg (EXPERIMENT 050, H-RAM-Q-6, REGISTERED_NOT_MEASURED,
     # 0 QPU): +21 Tests (pt_ram_q6_kingston: Leg-Mathe/ISA-Gate-Schema/
     # Circuit-Set-Aus-Frozen-Payload/Raw-Vertrag/Verdict-Ordnung) -> 1246
+    # 051 K2-Kette (EXPERIMENT 051, H-RAM-Q-6 D2/D3): 08e022c Refaktor +
+    # Prereg +15, 90e8a4b Stage-3-Aer +12, 18e2afc QPU-Modul +7,
+    # 808883f gefrorene Auswertung +16 -> 1297; +1 Inventar-Regression
+    # (Kingston-Legs im Archiv, 2e348f1-Praezedenz) -> 1298
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1246,
+    id="test_count", value=1298,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

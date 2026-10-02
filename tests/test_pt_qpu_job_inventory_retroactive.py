@@ -170,6 +170,19 @@ class TestFindDownloaded:
         downloaded = find_downloaded_ids()
         assert isinstance(downloaded, set)
 
+    def test_downloaded_includes_kingston_k6_legs(self):
+        # REGRESSION (H-RAM-Q-6): die D1-/K2-Jobs (EXPERIMENT 050/051,
+        # TOKEN2) wurden bei 13d-13f ins Repo getragen, aber NICHT ins
+        # Inventar-Archiv gebucht -> dry-run-Test seit 13e rot. Nach-
+        # gebucht per 2e348f1-Praezedenz (minimaler Metadaten-Eintrag,
+        # counts verbleiben im Raw, raw_ref mit counts_md5), TOKEN2-only
+        # (Kingston-Disziplin: das generische --fetch probiert beide
+        # Accounts).
+        from pt_qpu_job_inventory_retroactive import find_downloaded_ids
+        downloaded = find_downloaded_ids()
+        for jid in ["davf0ns92g1c7398pfv0", "davfridj371s73dmqstg"]:
+            assert jid in downloaded, jid
+
 
 class TestIdempotency:
     """Verify a second dry-run finds nothing new after the first."""

@@ -201,6 +201,30 @@
           "evs": 3.5912058196789243,
           "stds": 0.02228821832959952
         }
+      },
+      {
+        "job_id": "davf0ns92g1c7398pfv0",
+        "status": "DONE",
+        "backend": "ibm_kingston",
+        "creation_date": "2026-10-02 01:44:31.575218+02:00",
+        "data": {},
+        "raw_ref": {
+          "path": "pt_ram_q6_kingston_raw.json",
+          "counts_md5": "f4da706dd542c306a96cba2001e1a6b9",
+          "note": "D1 (EXPERIMENT 050, H-RAM-Q-6) — Raw-Counts committed VOR Auswertung"
+        }
+      },
+      {
+        "job_id": "davfridj371s73dmqstg",
+        "status": "DONE",
+        "backend": "ibm_kingston",
+        "creation_date": "2026-10-02 02:41:45.455439+02:00",
+        "data": {},
+        "raw_ref": {
+          "path": "pt_ram_q6_k2_raw.json",
+          "counts_md5": "72f6729ac9261f50b5bfc9e56c6d7e46",
+          "note": "K2 (EXPERIMENT 051, H-RAM-Q-6) — Raw-Counts committed VOR Auswertung"
+        }
       }
     ]
   }
