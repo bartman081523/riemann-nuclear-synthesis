@@ -212,8 +212,10 @@ _CL.append(Claim(
     display="α(10⁶) = {:.3f}", label=Label.MEASURED, grade="A−",
     source=Source(kind=Kind.RECOMPUTE_JSON, file="pt_asymptotic_N1e6_results.json",
                   path=("alpha_vN_full_fit",)),
-    criterion="Latorre–Sierra predicts α → 1; frozen band excludes α ≥ 1",
-    gloss="α = entropy growth per factor of ten in N",
+    criterion="Fit parameter of a power-law fit (Fit-Artefakt, SYNTHESIS §X: "
+              "S_vN/log(N) rises 0.28→0.55, sub-logarithmic — real size is "
+              "S/log, not α); the frozen band still excludes α ≥ 1",
+    gloss="full-fit parameter of the S_vN curve; honest size is S/log(N) ≈ 0.55",
     scenes=("act3_anomaly",)))
 
 _CL.append(Claim(
@@ -241,6 +243,7 @@ _CL.append(Claim(
     display="verdict: {}", label=Label.DOC_FROZEN,
     source=Source(kind=Kind.RECOMPUTE_JSON, file="pt_asymptotic_N1e6_results.json",
                   path=("verdict",)),
+    gloss="pinned fit verdict — the FORM was the artefact (§6.5.16a)",
     scenes=("act3_anomaly",)))
 
 _CL.append(Claim(

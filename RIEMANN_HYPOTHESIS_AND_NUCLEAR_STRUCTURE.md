@@ -857,6 +857,29 @@ We extended the Schmidt-vN sweep offline (numpy statevector) to $N \in \{255, 51
 
 **Persistence:** `pt_renyi2_results.json`, `pt_prime_state_N255_results.json`, `LATORE_TENSION_NOTE.md`.
 
+#### **6.5.16a ADDENDUM (2026-10-02): die α-Erzählung ist auf die §X-Lesart gebracht — der Exponent war ein Fit-Artefakt**
+
+Die Re-Analyse SYNTHESIS §X (2026-07-21) war nie in die Erzähl-Schicht
+propagiert worden (Kritik-Treffer, `kritik1.txt` Punkt 4; §10.36). Nun
+propagiert — die Messwerte und das Datum dieses Blocks bleiben
+unangetastet; was sich ändert, ist die LESART:
+
+- **S_vN/log(N):** 127 → 0.280, 1023 → 0.319, 10⁴ → 0.507, 10⁵ → 0.515,
+  **10⁶ → 0.546** — logarithmisches Wachstum mit sub-logarithmischem
+  Korrekturterm, KEIN Potenzgesetz. Weder α_inc = 0.347 (lokale
+  Steigung, N ≤ 1023) noch α_full_fit = 0.2227 (31..10⁶, JSON-gepinnt in
+  `claims.py` `alpha_1e6`) sind „Power-Law-Exponenten“; beide sind
+  Parameter derselben logarithmischen Kurve.
+- **R(10⁶) = S_vN/log π(N) = 0.669** — sub-logarithmisch, Faktor 1.5
+  über Latorres Konstante: `LATORRE_TENSION` B „moderate tension“
+  (§X.6), nicht fundamental disagreement.
+- **Effektiv unabhängige MOCS-Observablen: 2.83** (§X.3) — (α_vN, R(N))
+  teilen S_vN; V3/⟨r⟩ DEGENERAT (GUE-Konstante korrigiert auf 0.5996) —
+  die Suche nach dem dritten Observable ist offene Aufgabe mit ex-ante-
+  Unabhängigkeits-Gate im 053-Prereg (Regel R5, §10.36).
+- `claims.py`: `alpha_1e6`/`alpha_verdict` behalten ihre JSON-gepinnten
+  Werte (Bit-Pins); Glossar/Kriterium tragen jetzt die §X-Lesart.
+
 #### **6.5.17 Latorre Tension RESOLVED as a Mismatch of Functional Form (2026-06-10 evening)**
 
 After the first resolution of (b) and (c) a **more detailed re-interpretation** of the Latorre-Sierra prediction showed that the apparent "tension" arose from a **mismatch of the functional form** — not from a fundamental conflict.
