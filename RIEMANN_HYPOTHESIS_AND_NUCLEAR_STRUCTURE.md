@@ -2880,6 +2880,118 @@ VOR Auswertung), `808883f` (gefrorene Auswertung), `3e80aaf`
 (davfridj371s73dmqstg), 0 Fez-Kontakt in diesem Bein; §Z.33
 (SYNTHESIS) als kompaktes Gegenstück.
 
+## §10.35 — Die EINSTUFUNG der einzigen 045-T5-Verletzung: gefrorenes Re-Rechnungs-Prereg H-S4CLOSURE-R2, EIN Lauf, Einstufung statt stillem Re-Decide — **H_S4CLOSURE_R2_QUELLEN_ARTEFAKT**: die unified-Lesart (k_norm-Quotient mit cache-t_H statt per-Instanz-ratio_stat) hebt die Verletzung auf dem VOLLSTÄNDIGEN Paar-Grid unter TOL (Faktor ≥ 1.19), das committete 045-Verdict bleibt UNVERÄNDERT (EXPERIMENT 052, Branch `h-test1-gap-invariance`, 2026-10-02, 1 Lauf 5912.0 s, 0 QPU)
+
+045 schloss mit **H_S4_CLOSURE_DEVIATION_FOUND** und GENAU EINER
+Verletzung: T5 `max_within_orbit_dev` 1.0260516436488842e-08 > SUM_TOL
+1e-9. Die (nicht verdict-tragende) Diagnose lieferte die Probe-b-Kette
+(Entry 3.55e-15 → Eigenwert 2.81e-13 → t_H 2.00e-9 → r 1.139e-8 =
+Beobachtung auf 0.05 %) und den committeten Scratch mit der
+unified-Lesart, die die Verletzung unter TOL hob — F-Zeile 2 des
+H9-Decks fordert daraus die OFFIZIELLE Einstufung mit
+Prereg-Freeze statt stiller Wieder-Rechnung. Genau das ist Experiment
+052: die t_H-Mischung (Quelle cache vs per-Instanz) als Artefakt
+klassifizieren, ohne das committete 045-Verdict zu berühren.
+
+**A — Prereg-Freeze `56312a7` (1/4, REGISTERED_NOT_MEASURED, kein
+Re-Decide).** `pt_s4_r2_recompute.py`: Canon-/md5-Stütze,
+`adjacency_classes()` (12 adjacent / 3 disjoint — gegen die reale
+Orbitstruktur der 15 Two-Minus-Patterns getestet),
+`full_within_maximum()` über dem VOLLSTÄNDIGEN within-Klassen-Paar-Grid
+(mit `worst_pair` + `n_members`), `build_prereg()`. Prereg
+`pt_s4_r2_prereg.json`, md5 `51d5f255259d443a35f68fe5e771a208`.
+Verdict-Map ex ante: DEGENERAT (Basis/Konsistenz verletzt) →
+RECOMPUTE_UNABLE (L1 nicht reproduziert: `l1_native_max` ≤ TOL oder das
+r_median-Maximum der ADJACENT-Klasse ≤ TOL) → QUELLEN_ARTEFAKT (L1
+über Kante UND alle vier L2-Lesarten < TOL) → STRUKTURELL_REST
+(irgendeine L2-Lesart ≥ TOL). Boundary strikt: `>`-Seite fällt bei
+Gleichheit, `<`-Seite fällt bei Gleichheit. Governance gefroren: kein
+Re-Decide, committetes 045-Verdict `H_S4_CLOSURE_DEVIATION_FOUND`
+unangetastet, Toleranz 1e-9 = die der 045/Scratch-Module (keine
+Erhöhung), Roh-Vertrag (keine Verdict-/Einstufungs-Felder im Roh),
+Bit-Pins gegen 045/Scratch DISCLOSURE nicht Gate (049b-Lektion). Die
+schmalste Kante ex ante disclosed: full-adjacent 8.393228334568903e-10
+am Nicht-Bahnen-Paar (3, 12) — Faktor ~1.19 unter TOL, Flip
+vor-klassifiziert als STRUKTURELL_REST, nicht still geschluckt. Die
+bekannten Scratch-Lesarten (Vollstärkungs-Grid statt
+Bahn-Beschnitt) sind VOR der Messung verankert. 22 Tests
+(`tests/test_pt_s4_r2.py`): Kanonik/md5/Tamper, Basis-Pins exakt gegen
+die committeten Artefakte, Toleranz-Identität, Verdict-Zweige an
+synthetischen Dokumenten (inkl. exakter Boundary-Gleichheit),
+Konsistenz-Gate über der reelen 15er-Struktur.
+
+**B — EIN Lauf, Raw VOR Auswertung (`b04d7bb`, 2/4).** Ein
+Hintergrund-Lauf (QISKIT_PARALLEL=FALSE, venv, numpy 2.4.6 — dieselbe
+Build-Schiene wie der committete Scratch, also Bit-Niveau erwartbar),
+5912.0 s gesamt. ZWEI getrennte Legs, keine Weg-Rekursion: **L1**
+wörtlich `s4.check_t5_t6(cache)` (repr-verankerte Star-Struktur,
+3060.6 s, `max_within_orbit_dev` 1.0260516436488842e-08
+BIT-IDENTISCH zu 045) — und **L2** wörtlich der committete Scratch
+(per-Instanz `ratio_stat` + unified `k_norm(evs, TAU2·t_c)/k_norm(evs,
+TAU1·t_c)` je Pattern × 78 Configs, Mediane `np.median` über
+n=78 mit None-Guard). Roh `pt_s4_r2_results.json`
+(md5 `0a1856a7a5a2a1a93f17e1b101a16c0d`), 2744 Zeilen, VOR jeder
+Auswertung committet.
+
+**C — Gefrorene Auswertung `0a4cf15` (3/4) — Verdict.** Eval liest
+NUR committete Artefakte (Prereg/Roh/045-Messung/Scratch, alle md5
+gepinnt) und re-der die Mediane/Maxima bit-exakt aus den
+Roh-Arrays als Integritäts-Gate (worst_pair None-sicher verglichen);
+das __main__-Guard-Fehlen wurde am ersten Aufruf bemerkt (exit 0 ohne
+Ausgabe, Zahlen ungelesen) und als line-only-Post-Raw-Fix nachgetragen
+(MOCS-Runner-Präzedenz — decide/konsistenz/disclosure semantisch
+unverändert). Ergebnis mit kritischen Werten:
+
+- **L1 reproduziert:** `l1_native_max` =
+  `l1_class_r_median_adjacent` = 1.0260516436488842e-08, Faktor 10.26
+  über TOL. Die Einstufung verlangt, dass die Verletzung in der
+  ADJACENT-Klasse sitzt — sie tut es repr-verankert (Star-Worst (0, 6),
+  disjoint-Arm 3.2e-9 deutlich unter Kante).
+- **L2 hebt unter TOL in ALLEN vier Lesarten:** full-adjacent
+  8.393228334568903e-10, full-disjoint 2.679068078492719e-11,
+  bahn-adjacent 6.423892529028308e-10, bahn-disjoint
+  2.679068078492719e-11 — Margins 1.19 / 37.3 / 1.56 / 37.3 unter TOL.
+- **8/8 Bit-Pins delta 0.000e+00:** gegen 045 (max_within,
+  between_orbit_R_gap 0.10515314008685372, r_median p0/p6/p10) und
+  gegen den Scratch (full-adj,
+  bahn d_uni adjacent, inst full-adj 1.1384355902421817e-08). Die
+  049b-Cross-Build-Furcht materialisiert NICHT — dieselbe
+  venv/numpy-2.4.6-Schiene.
+- **Verdict:** `H_S4CLOSURE_R2_QUELLEN_ARTEFAKT` mit
+  Einstufung: OFFIZIELL — die T5-Verletzung ist ein Quellen-Artefakt
+  der t_H-Mischung (Antithese SA-H9-3 bestätigt als Artefaktabklärung);
+  committetes 045-Verdict UNVERÄNDERT, Einstufungs-Tabelle erweitert,
+  Margin-Disclosure verpflichtend.
+
+**D — Mechanismus: repr-Verankerung + t_H-Quelle + Voll-Grid.** Die
+Star-Verankerung ist die halbe Erklärung: `max_within_orbit_dev`
+misst Distanzen von repr = idxs[0] (0 adjacent / 4 disjoint), der
+Scratch-Flag `inst_reproduziert=false` ist PAARUNGS-STRUKTUR, kein
+Mess-Rauschen — worst Star-Form (0, 6) → 1.026e-8 vs worst
+Paarungs-Form (6, 10) → 1.138e-8. Die andere Hälfte ist die t_H-Quelle
+(aus der 045-Diagnose: cache-Eigen 3096.93 s vs per-Instanz 386.08 s,
+Quotient 8.02): die unified-Leg mit cache-t_H normiert scharf und
+unterkellert die per-record-Noise ~1e-8. Der Voll-Grid-Verstärker:
+der Scratch-Maximum war BAHN-BESCHNITTEN (Klassifikator über die zwei
+BAHNEN-Paare); das volle 12-Paar-Grid der adjacent-Klasse hebt den
+Worst von (6, 10) 6.42e-10 auf das Nicht-Bahn-Paar (3, 12)
+8.39e-10 — die Margin-Disclosure-Pflicht greift (die schmalste Kante
+des Systems ist damit das ex-ante-disclosed (3, 12), nicht still
+geschluckt).
+
+Governance-Abschluss: kein Re-Decide (045 unberührt, Test pinnt das
+committete Verdict-/Experiment-Feld), keine Toleranz-Änderung,
+H-STAR-5-Phase-6a-REFUTED unangetastet, 0 QPU im ganzen Experiment.
+Tests 1320 grün — der erste Suite-Lauf schlug 1319+1 EXAKT auf dem
+claims-Live-Pin (1298 ≠ 1320): der Inkrement war
+richtig eingefordert, nach Eintrag 1320 die Fidelity-Suite grün.
+
+**Quellen:** `pt_s4_r2_prereg.json`, `pt_s4_r2_results.json`,
+`pt_s4_r2_eval.json`, `pt_s4_r2_recompute.py`, `pt_s4_r2_eval.py`,
+`tests/test_pt_s4_r2.py` (22), Basis `pt_s4_closure_theorem_results.json`
++ `scratches/h9_s4_source_unified_out.json`; §Z.34 (SYNTHESIS) als
+kompaktes Gegenstück.
+
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf

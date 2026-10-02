@@ -849,9 +849,13 @@ _CL.append(Claim(
     # Prereg +15, 90e8a4b Stage-3-Aer +12, 18e2afc QPU-Modul +7,
     # 808883f gefrorene Auswertung +16 -> 1297; +1 Inventar-Regression
     # (Kingston-Legs im Archiv, 2e348f1-Praezedenz) -> 1298
+    # 052 045-Re-Rechnungs-Artefakt (EXPERIMENT 052, H-S4CLOSURE-R2, 0 QPU):
+    # 56312a7 Prereg-Freeze +22 Tests (Kanonik/md5/Basis-Pins/Verdict-Zweige/
+    # Konsistenz-Gate) -> 1320 (erster Suite-Lauf 1319+1 schlug EXAKT auf
+    # diesem Live-Pin — Gate hat den Inkrement richtig eingefordert)
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1298,
+    id="test_count", value=1320,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

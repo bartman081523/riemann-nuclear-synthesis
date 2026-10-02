@@ -223,6 +223,44 @@ Lesart ist als H-H9-3-Befund DOKUMENTIERT (Prazedenz pt_s4_t5_diag,
 Diagnostik non-verdict) und braucht fuer eine Einstufungs-Aenderung ein
 eigenes gefrorenes Re-Rechnung-artefakt (0 QPU moeglich).
 
+#### C.3a ERGEBNIS (Experiment 052, H-S4CLOSURE-R2 045-Einstufung, 2026-10-02, 0 QPU, verdict-tragend fuer die Einstufungs-Tabelle, NICHT fuer das committete 045-Verdict)
+
+- **Kette:** Prereg-Freeze `56312a7` (pt_s4_r2_prereg.json, md5
+  51d5f255259d443a35f68fe5e771a208, REGISTERED_NOT_MEASURED, +22 Tests:
+  Kanonik/md5/Basis-Pins/Verdict-Zweige/Konsistenz-Gate; schmalste Kante ex
+  ante disclosed 8.393228334568903e-10 am Paar (3,12), Faktor ~1.19, Flip
+  vor-klassifiziert H_S4CLOSURE_R2_STRUKTURELL_REST) -> EIN Lauf `b04d7bb`
+  (Roh pt_s4_r2_results.json, md5 0a1856a7a5a2a1a93f17e1b101a16c0d,
+  committed VOR Auswertung, 5912.0 s gesamt) -> gefrorene Auswertung
+  `0a4cf15` (pt_s4_r2_eval.json, entscheidet NUR aus committeten
+  Artefakten).
+- **Verdict: H_S4CLOSURE_R2_QUELLEN_ARTEFAKT.** L1 wörtlich
+  `s4.check_t5_t6` (Cache): das Maximum 1.0260516436488842e-08
+  reproduziert BIT-IDENTISCH (Faktor 10.26 über TOL, repr-verankert,
+  Star-Worst-Paar (0, 6); disjoint Star-Arm max 3.2032171359830386e-09 am
+  Paar (4, 7)). L2 (unified-Lesart, k_norm-Quotient mit Cache-t_H) hebt
+  die Verletzung in ALLEN vier Lesarten unter TOL: full-adjacent
+  8.393228334568903e-10 (Faktor 1.19, Nicht-Bahnen-Paar (3, 12)),
+  full-disjoint 2.679068078492719e-11 (Faktor 37.3), Bahn adjacent
+  6.423892529028308e-10 (Faktor 1.56), Bahn disjoint 2.679068078492719e-11
+  (Faktor 37.3).
+- **Mechanismus (dreistufig, §10.35-D):** (1) 045 misst repr-verankert
+  (max_within_orbit_dev zum repr, idxs[0] = 0) — im committeten Scratch
+  ist das Maximum Paarungs-Struktur ((6, 10) 1.138e-8, inst_reproduziert
+  = false); (2) t_H-Quelle — Cache-Eigen 3096.93 s vs per-Instanz
+  386.08 s (Quotient 8.02) kippt die ratio-Mediane von ~1e-8 nach ~1e-10;
+  (3) Voll-Grid-Verstärker — der Scratch-Vergleich war Bahn-beschnitten,
+  das volle 12-Paar-Grid hebt den unified-Worst von (6, 10) 6.42e-10 auf
+  (3, 12) 8.39e-10.
+- **Integrität:** 8/8 Bit-Pins gegen 045-Erste-Messung + committeten
+  Scratch mit delta 0.000e+00 (049b-Cross-Build-Furcht materialisiert
+  NICHT; numpy 2.4.6, QISKIT_PARALLEL=FALSE); Konsistenz-Gate re-der die
+  Mediane/Maxima bit-exakt aus den Roh-Arrays (Boundary strikt: '>'
+  faellt bei Gleichheit, '<' faellt bei Gleichheit).
+- **Governance:** committetes 045-Verdict H_S4_CLOSURE_DEVIATION_FOUND
+  UNVERÄNDERT (kein Re-Decide, keine Toleranz-Änderung); Margin-Disclosure
+  verpflichtend für künftige 045-Nachrechnungen; Doku §10.35/§Z.34.
+
 ### C.4 H-H9-4 "Orbit-Atome über n" (T9-Formel-Extrapolation mit Atom-Skala)
 
 **Aussage.** Die daten-abgeleiteten Orbit-Atome (adjacent 1.082954809,
@@ -545,7 +583,7 @@ eine Shuffle-Kontrolle im naechsten Freeze.
 | Prio | Pruefung | Kosten | gefrorene Grenze / Kriterium | Anknuepfung |
 |---|---|---|---|---|
 | 1 | 046-Fez-Bein abwickeln (cron aktiv) | 0 (Job QUEUED) | H-V5R-1/-2 nach Prereg fcf4c2c58…, Bande SE_BIAS 0.00617717…, 2σ-Floor 0.0123543…; KEIN Vektor-Verdict vor beiden Beinen | 046 (C.6) |
-| 2 | ~~S₄-Quellen-Einheitlichkeit (C.3)~~ ERLEDIGT 2026-09-29: max_within_unified 6.4239e-10 < 1e-9, Kriterium erfüllt (C.3) | 0 QPU ✓ | Kriterium erfüllt; Follow-up: gefrorenes Re-Rechnungs-Artefakt (0 QPU) für die offizielle 045-Einstufung — KEIN stilles Re-Decide | 045 |
+| 2 | ~~S₄-Quellen-Einheitlichkeit (C.3)~~ ERLEDIGT 2026-09-29: max_within_unified 6.4239e-10 < 1e-9, Kriterium erfüllt (C.3); ~~Follow-up: offizielle 045-Einstufung~~ ERLEDIGT 2026-10-02: Experiment 052 H-S4CLOSURE-R2 (Prereg md5 51d5f2552…, EIN Lauf 5912.0 s) → **H_S4CLOSURE_R2_QUELLEN_ARTEFAKT** — alle 4 L2-Lesarten < TOL (Margin ≥ 1.19) (C.3a) | 0 QPU ✓ | Einstufung statt stillem Re-Decide; 045-Verdict unverändert; Margin-Disclosure verpflichtend (schmalste Kante (3,12)) | 045 |
 | 3 | ~~s(P)-Offline-Fit an Kalibrier-P beider Sessions + Prädiktion auf Verdict-P~~ ERLEDIGT 2026-09-29: KEINE der ex-ante-Familien M1–M4 erreicht die Tuer (q5-tief 4 von 10 bestens vs M0 5) — glatte s(P)-Extrapolation FAELLT weg, engere Fassung bleibt per Prio 4/Session 3 (C.1-Test-(A)-Block) | 0 QPU ✓ | bestätigt: keine Familie senkt 5 → ≤ 1 | C.1 |
 | 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
 | 5 | Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig) | 0 Zusatz | κ_r8(q5) 0.098 ± 0.006 beide Sessions bereits; Session-3-Tol 0.004 (C.2) | C.2 |
@@ -568,6 +606,13 @@ Raw-Commit VOR Auswertung).
 - Prereg-Kette: pt_ram_q_hardware3_rep_prereg.json (047),
   pt_v5_kingston_rep_prereg.json (046, md5 fcf4c2c58837bb7188c4e029d1841214),
   pt_ram_q_hardware3_prereg.json (11), pt_s4_closure_theorem prereg (045).
+- 052-Kette (C.3a, 045-Einstufung): pt_s4_r2_prereg.json (md5
+  51d5f255259d443a35f68fe5e771a208, +22 Tests),
+  pt_s4_r2_results.json (Roh md5 0a1856a7a5a2a1a93f17e1b101a16c0d,
+  committed VOR Auswertung), pt_s4_r2_eval.json (Verdict
+  H_S4CLOSURE_R2_QUELLEN_ARTEFAKT) + pt_s4_r2_recompute.py /
+  pt_s4_r2_eval.py / tests/test_pt_s4_r2.py; Commits 56312a7 /
+  b04d7bb / 0a4cf15; Doku §10.35 (Haupt-Doku) + §Z.34 (SYNTHESIS).
 - Scratches (dieses Deck, 0 QPU): scratches/h9_ramq_sessions.py (+ out.json),
   scratches/h9_s4_source_unified.py (+ h9_s4_source_unified_out.json —
   Kopie des Job-tmp-Ergebnisses 2026-09-29; das Run-Log bleibt im Job-tmp,
