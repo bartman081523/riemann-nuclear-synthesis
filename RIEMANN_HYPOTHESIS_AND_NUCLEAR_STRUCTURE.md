@@ -2,7 +2,7 @@
 
 ## Document Map
 
-This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-09-24") is the operational logbook of the most recent QPU validations.
+This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-10-02") is the operational logbook of the most recent QPU validations.
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -989,7 +989,7 @@ The initial Section 9 interpreted the Kingston value (E₀=2.216) as a success. 
 **Section 9 is thus inconsistent:** "deviation ~10% caused by hardware noise" suggests a successful experiment, but ignores the +68% systematic deviation on `ibm_marrakesh`. The strategic vector (scaling to more qubits) is obsolete as long as the operator itself is backend-dependent.
 **Consequence:** EXPERIMENT 005 (PT-symmetric extension) was initiated in response to this backend fragility (cf. Section 6.5). Preliminary result: PT-unbroken numerically perfect, but physically trivialized by diagonal dominance → refactoring vector `COUPLING_ENHANCEMENT` required.
 
-### **10. Operational Findings Log 2026-06-08 → 2026-09-24**
+### **10. Operational Findings Log 2026-06-08 → 2026-10-02**
 
 This section is a **compact chronological log** of the experimental findings between the state of Section 9.1 and the current date. The detailed methodology, script list and audit tables are documented in `SYNTHESIS_2026_06_10.md` (~960 lines) and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`; this log serves as a compact index for readers of the theory documentation.
 
