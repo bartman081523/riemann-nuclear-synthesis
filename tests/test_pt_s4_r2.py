@@ -32,10 +32,28 @@ def test_prereg_konstante_und_datei_gleich():
 
 
 def test_prereg_regeneriert_bit_identisch():
+    # Env-Stamp-Ausnahme 2026-10-03: OS-Kernel-Update 6.18.49-2-lts
+    # (052-Freeze) -> 6.18.54-2-lts spaltet einzig das build_env.platform-
+    # Feld der Re-Erzeugung (kein Re-Freeze, md5/Verdict unberuehrt).
+    # Content-Vergleich daher OHNE build_env.platform; der Freeze-Stempel
+    # selbst bleibt separat wörtlich gepinnt.
     doc = rc.load_frozen_prereg()
     rebuilt = rc.build_prereg()
-    canon = lambda d: json.dumps(d, sort_keys=True, separators=(",", ":"))
-    assert canon({k: v for k, v in doc.items() if k != "md5"}) == canon(rebuilt)
+    assert doc["build_env"]["platform"] == \
+        "Linux-6.18.49-2-lts-x86_64-with-glibc2.44"
+    assert rebuilt["build_env"]["platform"].startswith("Linux-6.18.")
+    assert rebuilt["build_env"]["python"] == doc["build_env"]["python"] \
+        == "3.14.7"
+    assert rebuilt["build_env"]["numpy"] == doc["build_env"]["numpy"] \
+        == "2.4.6"
+
+    def ohne_platform(d):
+        rest = {k: v for k, v in d.items() if k != "md5"}
+        env = dict(rest["build_env"])
+        env.pop("platform")
+        rest = dict(rest, build_env=env)
+        return json.dumps(rest, sort_keys=True, separators=(",", ":"))
+    assert ohne_platform(doc) == ohne_platform(rebuilt)
     assert rc.self_md5() == doc["md5"]
 
 

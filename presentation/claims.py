@@ -783,9 +783,16 @@ _CL.append(Claim(
 
 _CL.append(Claim(
     id="date_fez_phi", value="2026-09-15",
+    # Anker-Reparatur 2026-10-03: README-Hardware-Tabelle trug die Zelle
+    # "2026-09-15" (Fez last run), als der Claim gependelt wurde; der
+    # Doku-Zug 7b88997 aktualisierte die Zelle auf 2026-09-29 (047-Last-Run)
+    # -> der Anker starb. Datei-Semantik bleibt Phase-3-Crossover (Ququint
+    # §10.15, 2026-09-15), nicht der zuletzt gefahrene Fez-Job -> Quelle
+    # auf den §10.15-Header im Haupt-md repointet (Wert unveraendert).
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=61,
-                  anchor="2026-09-15"),
+    source=Source(kind=Kind.DOC_FROZEN,
+                  file="RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md",
+                  line=1325, anchor="2026-09-15"),
     scenes=("act4_qpu_timeline",)))
 
 _CL.append(Claim(
@@ -861,9 +868,13 @@ _CL.append(Claim(
     # Spektral-Referenz/Kette/6 decide-Zweige mit tmp_path-Redirect) -> 1342
     # (Rootdir-Collect ohne tests/-Argument zaehlt die UNTRACKED 09_26_new/
     # Test-Dateien mit 98 Tests mit — NICHT die Claim-eigene Metrik)
+    # +58 Tests (EXPERIMENT 055 Vorbereitung: test_pt_ram_q_prio48 32 —
+    # gefrorenes Prereg-Grid/Ladder/Einstellungs-Regeln/Anker-Pins — und
+    # test_pt_ram_q_prio48_eval 26 — Delegationen/Verdict-Maschine/OLS-Formeln/
+    # committed_F-Anker-Re-Identifikation) -> 1400
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1342,
+    id="test_count", value=1400,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
