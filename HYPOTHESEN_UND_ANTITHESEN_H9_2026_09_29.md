@@ -1,6 +1,9 @@
 # H9 — Kombinatorische Hypothesen und Steelman-Antithesen (2026-09-29)
 
-**Status:** 0 QPU. Lese-only auf committeten Artefakten. **NICHT verdict-tragend**
+**Status:** 0 QPU (Stand 2026-10-03: F-Zeilen 4+8 als EXPERIMENT 055
+GESTELLT — Fez-Job `db0m71qvog1s73fh15og` QUEUED hinter 046, Prereg
+geforren + ISA_OK 830/84/160 VOR Messung, Commit `c9ccaea`; Verdict erst
+nach Roh-Daten). Lese-only auf committeten Artefakten. **NICHT verdict-tragend**
 (Praezedenz gamma_arm / Phase 11d / pt_s4_t5_diag): dieses Deck re-decided KEIN
 bestehendes Verdict, aendert KEINE Toleranz und NOCHT KEINEN gefrorenen Prä-reg.
 Jede hypothesis-tragende Umsetzung eines Punkts aus diesem Dokument braucht
@@ -175,6 +178,25 @@ muss κ_r8(q5) 0.098 ± 0.004 halten, waehrend r1 innerhalb ±0.05 wandert;
 falsifiziert, wenn r8 um > 0.006 drifft ODER r1 NICHT mitverlaeuft.
 Bei Bestätigung ist κ_r8_q5 ein KANDIDAT fuer einen "Struktur-Fingerprint",
 der vom Kalibrier-Zustand entkoppelt ist.
+
+**ERGEBNIS Session 3 (2026-10-03, 0 QPU, `scratches/h9_echo_r8_session3.py`
+→ `_out.json`):** Session 3 = erster neuer RAM-Q-Job nach 047 =
+EXPERIMENT 051 K2-Kingston (`davfridj371s73dmqstg`, raw_counts_md5 72f6729a,
+verifiziert). Pins bit-exakt (S1 0.09815425987043148 / S2 0.09802712700369914).
+**Lesart (a) wie registriert: KIPPT** — κ_r8(q5) = 0.46546656869948566, weit
+ausser 0.098 ± 0.004; r8-Drift 0.3674 (> 0.006) UND r1-Mitwanderung failt
+(+0.0612 vs S1 > 0.05; +0.0200 vs S2 klein). Die GANZE Leiter verschiebt
+sich substratseitig nach oben (q5 r2 0.7491→0.8479, r4 0.4699→0.8070,
+fit_κ_block 0.7270→0.9107): der "Floor" 0.098 ist am Fez-Substrat die
+Tiefen-Saettigung von r8, kein substrat-robuster Fingerprint — der
+KANDIDATEN-Status "entkoppelt vom Kalibrier-Zustand" ist am Kingston
+GESTORBEN (konsistent mit D1: κ̂-Lift substrat-universal [0.8780-0.9846]).
+**Lesart (b) fez-scoped (same-substrate Session-3-Invarianz): UNTESTED** —
+K2-Kingston konfundiert Substrat mit Kalibrier-Epoche; sie braucht einen
+dritten Fez-RAM-Q-Job (= kombiniertes F-Prio-4+8 hinter der 046-Queue).
+q3-Seite unveraendert: kein Floor (r8 0.9118→0.8964→0.9417). KEIN
+Re-Decide, KEINE Toleranz-Aenderung, kein committetes RAM-Q-Verdict
+beruehrt (H-H9-2 bleibt Deck-Hypothese).
 
 ### C.3 H-H9-3 "S₄-Quellen-Einheitlichkeit" (T5-Verletzung als Quellen-Rest)
 
@@ -585,11 +607,11 @@ eine Shuffle-Kontrolle im naechsten Freeze.
 | 1 | 046-Fez-Bein abwickeln (cron aktiv) | 0 (Job QUEUED) | H-V5R-1/-2 nach Prereg fcf4c2c58…, Bande SE_BIAS 0.00617717…, 2σ-Floor 0.0123543…; KEIN Vektor-Verdict vor beiden Beinen | 046 (C.6) |
 | 2 | ~~S₄-Quellen-Einheitlichkeit (C.3)~~ ERLEDIGT 2026-09-29: max_within_unified 6.4239e-10 < 1e-9, Kriterium erfüllt (C.3); ~~Follow-up: offizielle 045-Einstufung~~ ERLEDIGT 2026-10-02: Experiment 052 H-S4CLOSURE-R2 (Prereg md5 51d5f2552…, EIN Lauf 5912.0 s) → **H_S4CLOSURE_R2_QUELLEN_ARTEFAKT** — alle 4 L2-Lesarten < TOL (Margin ≥ 1.19) (C.3a) | 0 QPU ✓ | Einstufung statt stillem Re-Decide; 045-Verdict unverändert; Margin-Disclosure verpflichtend (schmalste Kante (3,12)) | 045 |
 | 3 | ~~s(P)-Offline-Fit an Kalibrier-P beider Sessions + Prädiktion auf Verdict-P~~ ERLEDIGT 2026-09-29: KEINE der ex-ante-Familien M1–M4 erreicht die Tuer (q5-tief 4 von 10 bestens vs M0 5) — glatte s(P)-Extrapolation FAELLT weg, engere Fassung bleibt per Prio 4/Session 3 (C.1-Test-(A)-Block) | 0 QPU ✓ | bestätigt: keine Familie senkt 5 → ≤ 1 | C.1 |
-| 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
-| 5 | Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig) | 0 Zusatz | κ_r8(q5) 0.098 ± 0.006 beide Sessions bereits; Session-3-Tol 0.004 (C.2) | C.2 |
+| 4 | P-Shuffle-Kontrolle (1 Job, neues Prereg, gemaeuserte ISA-Geometrie) — 055 GESTELLT 2026-10-03: Fez-Job `db0m71qvog1s73fh15og` (160×8192, QUEUED hinter 046), Prereg md5 `b7afc42c` gefroren + ISA_OK 830/84/160 + Commit `c9ccaea` VOR Messung; Geometrie-Verschiebung als 148 FORCED (37 Reihen × 4) | 1 QPU-Job | falsifiziert, wenn die Session-Konsistenz mit der ISA/Geometrie wandert statt mit dem P | C.1 / D.7 |
+| 5 | ~~Echo-r8-Session-3 (mit jedem neuen RAM-Q-Job, keine Extra-Shots nötig)~~ ERLEDIGT 2026-10-03: Session 3 = EXPERIMENT 051 K2-Kingston (`davfridj…`, counts_md5 72f6729a) — **Lesart (a) wie registriert KIPPT** κ_r8(q5) 0.098154/0.098027 → 0.46546656869948566, Band [0.094,0.102] verfehlt, Drift 0.3674 ≫ 0.006 UND r1-Mitwanderung failt (+0.0612 vs S1 > ±0.05) — ganze Leiter substratseitig (q5 r2 0.7491→0.8479, r4 0.4699→0.8070, fit_κ_block 0.7270→0.9107) → Floor 0.098 = Fez-Tiefen-Sättigung, Kandidaten-Status GESTORBEN; **Lesart (b) fez-scoped UNTESTED** (3. Fez-RAM-Q-Job = kombiniertes F-Prio-4+8) (C.2) | 0 QPU ✓ | falsifiziert unter Lesart (a) beides (Drift > 0.006 UND r1 wandert nicht mit) | C.2 |
 | 6 | ~~n=5-Atom-Familie offline (T9-Extrapolation, 0 QPU, Stunden)~~ ERLEDIGT 2026-09-29: **FALSIFIZIERT (registrierte Form)** — R-Kanal hält 2 Atome (1.4787263318362183/1.0228658077883055, \|gap\| 0.4559, Bahnen [15,30] exakt, within-R 1e-9), aber max_within 3.191092437940738 über den r_median-Kanal (per-Instanz-t′-Diskontinuität: 2/10 gepaarte relabel-Paare mit dt′/t0 9.85e-04/4.35e-04 → ratio-O(1)-Sprünge, Mechanismus bit-exakt C.4a) | 0 QPU ✓ | F1/F2 feuern, F3 nicht; KEIN Re-Decide, full-Grid (69 h) nicht gelaufen (C.4a) | 045/T9 |
 | 7 | ~~N-Sweep 10^7…10^8 (023-EXT-Kette)~~ ERLEDIGT 2026-09-29: **UEBER_BAND** — Leg-Alphas ALLE ueber der Kante (L8 0.095797 auf (0.0882, 0.1326], F1 feuert an keinem der fuenf Legs), Traeger cv fest im F2-Band ([0.0850936, 0.0850937] bei 1e8 per SP3, Intervallbreite 6.5e-8), R(N) < 1; Praediktion bei 1e8 NICHT erreicht, wortlicher Falsifizierer STILL (er braucht alpha < 0.0864 UND Traeger ausserhalb — Traeger bleibt auf Band) (C.5a) | 0 QPU ✓ | weder CONFIRMED noch FALSIFIZIERT — kein Re-Decide, kein Messwert neu (erster Lauf Crash im Carrier-Assembly nach vollst. Messung → Wire-Only-Fix + --resume, Kreuzchecks pins 4.4408920985e-16 / alphas 1.1102230246251565e-15) (C.5a) | 023-EXT |
-| 8 | Kalibrier-Ber-Vergrößerung n_cal ≥ 16 (nur Kalibrier-P, keine Verdict-Aenderung) | 1 QPU-Job | RESID-SD am q5-Bein unter 0.01 (D.5) | 047 |
+| 8 | Kalibrier-Ber-Vergrößerung n_cal ≥ 16 (nur Kalibrier-P, keine Verdict-Aenderung) — 055 GESTELLT im SELBEN Fez-Job wie Zeile 4 (`db0m71qvog1s73fh15og`, QUEUED hinter 046): 24 cal (q3 8 / q5 16 = F-Prio 8 n_cal≥16) + Echo-Leiter 6 UNFORCED | 1 QPU-Job | RESID-SD am q5-Bein unter 0.01 (D.5) | 047 |
 
 **Hinweis zum Deck-Charakter:** keine der Pruefungen 2-7 aendert ein
 committetes Verdict; die 1-QPU-Pruefungen (4, 8) brauchen eigenes
