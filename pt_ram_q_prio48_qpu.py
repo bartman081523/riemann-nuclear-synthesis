@@ -38,9 +38,13 @@ pt_ququint_fez).  TOKEN2 wird NIE gelesen; kein Sampler-V2-Local-Pfad.
 
 Resume-VERTRAG (Prereg): existiert das Raw: geschieht NICHTS.  Existiert
 die Job-ID-Datei: Resume via service.job(id) (KEIN neuer Job — 046-/053-
-Praezedenz); der Gate-Crosscheck laeuft DAVOR (dieselbe Codezeile wie bei
-der Submission) und die Totals fuer den fetch kommen aus dem committeten
-Gate.
+Praezedenz).  Driver-Realignment II (2026-10-03, nach dem 04:31-Spurious-
+Abort): der Gate-Crosscheck (frischer Re-Transpile + Zellvergleich)
+schuetzt die SUBMISSION (Submit-Zweig, K2-Praezedenz).  Auf Resume ist
+die ISA des bereits eingereichten Jobs auf IBM gefroren (Submit-Zeit-
+Zellgleichheit gegen das committete Gate) — die Totals fuer den fetch
+kommen byte-frozen aus dem committeten Gate (bit-identisch zum Submit-
+Lauf, weil der Submit-Pfad totals == totals_gate assertet).
 """
 import hashlib
 import json
@@ -551,9 +555,19 @@ def run_qpu_job(backend_getter=None, service_getter=None,
 
     Resume-Vertrag wie 11d/D1/K2: existiert das Raw, geschieht NICHTS;
     existiert nur die Job-ID-Datei, wird der Job wiederaufgenommen (KEIN
-    neuer Job — 046-/053-Praezedenz).  Der Gate-Crosscheck laeuft in
-    BEIDEN Zweigen VOR dem QPU-Kontakt (K2-Praezedenz: Gate-stale ->
-    Abbruch).
+    neuer Job — 046-/053-Praezedenz).
+
+    Driver-Realignment II (2026-10-03, nach dem 04:31-Spurious-Abort):
+    der Gate-Crosscheck (_isa_verified_for_submit: frischer Re-Transpile
+    + Zellvergleich ops/n_2q) laeuft NUR im Submission-Zweig — die
+    K2-Praezedenz schuetzt die SUBMISSION.  Auf Resume ist die ISA des
+    bereits eingereichten Jobs auf IBM gefroren (Submit-Zeit-Zellgleich-
+    heit gegen das committete Gate); ein Re-Transpile kann sie nicht
+    mehr aendern und trippte nur an IBM-seitigen Target-Refreshes
+    (x 2->4, rz 22->20, bei KONSTANTER 2q-Spalte — S1_ANCHOR_RULE).
+    Die fetch-Totals werden auf Resume byte-frozen aus dem committeten
+    Gate rekonstruiert — bit-identisch zum Submit-Lauf, weil der Submit-
+    Pfad totals == totals_gate assertet.
     """
     if os.path.exists(results_path):
         with open(results_path, encoding="utf-8") as fh:
@@ -570,17 +584,32 @@ def run_qpu_job(backend_getter=None, service_getter=None,
         service = None
     backend_name = str(getattr(backend, "name", BACKEND_NAME))
 
-    # Gate-Crosscheck VOR jedem QPU-Kontakt (auch auf Resume).
-    _tci, totals = _isa_verified_for_submit(backend, circuits)
-
     if os.path.exists(job_id_path):
         with open(job_id_path, encoding="utf-8") as fh:
             job_id = fh.read().strip()
         assert service is not None, \
             "Resume braucht einen Service (service_getter oder get_service)"
+        # Resume-ISA (Driver-Realignment II): der Job ist zur Submit-Zeit
+        # unter dem PASSING Gate hochgeladen (Zellgleichheit assertet) und
+        # auf IBM GEFROREN — kein frischer Re-Transpile (Praezedenz 04:31:
+        # x 2->4 bei KONSTANTER 2q-Spalte, S1_ANCHOR_RULE).  Totals
+        # byte-frozen aus dem committeten Gate: bit-identisch zum Submit-
+        # Lauf, weil der Submit-Pfad totals == totals_gate assertet.
+        with open(ISA_GATE_PATH, encoding="utf-8") as fh:
+            gate = json.load(fh)
+        k6.validate_isa_gate(gate, n_circuits=len(circuits))
+        totals = {"optimization_level": int(gate["optimization_level"]),
+                  "seed_transpiler": int(gate["transpile_seed"]),
+                  "isa_2q_total": int(gate["total_two_q"]),
+                  "isa_2q_max": int(gate["max_two_q"])}
         job = service.job(job_id)
         print("[qpu] resume %s (Kein neuer Job — 046/053-Praezedenz)" % job_id)
     else:
+        # Gate-Crosscheck VOR dem QPU-Kontakt (K2-Praezedenz: Gate-stale
+        # -> Abbruch vor der Submission; die ISA eines eingereichten Jobs
+        # ist auf IBM eingefroren, daher schuetzt der Check dort nichts
+        # mehr — er schuetzt die Submission).
+        _tci, totals = _isa_verified_for_submit(backend, circuits)
         sampler = SamplerV2(mode=backend)
         job = submit_job(sampler, _tci)
         job_id = job.job_id()

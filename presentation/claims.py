@@ -872,9 +872,14 @@ _CL.append(Claim(
     # gefrorenes Prereg-Grid/Ladder/Einstellungs-Regeln/Anker-Pins — und
     # test_pt_ram_q_prio48_eval 26 — Delegationen/Verdict-Maschine/OLS-Formeln/
     # committed_F-Anker-Re-Identifikation) -> 1400
+    # +6 Tests (EXPERIMENT 055 Driver-Realignment II nach dem 04:31-Spurious-
+    # Resume-Abort: test_pt_ram_q_prio48_qpu = ERSTE Driver-Coverage ueberhaupt
+    # — Resume ohne Re-Transpile, byte-frozen Gate-Totals, Kontaktfreies-Raw-
+    # Short-Circuit, Submit-Gate-Crosscheck-Reihenfolge, Gate-Artefakt-Pins)
+    # -> 1406
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1400,
+    id="test_count", value=1406,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

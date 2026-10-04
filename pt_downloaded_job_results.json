@@ -152,6 +152,14 @@
         "backend": "ibm_fez",
         "creation_date": "2026-09-28 09:49:47.622671+02:00",
         "data": {}
+      },
+      {
+        "job_id": "db0m71qvog1s73fh15og",
+        "status": "QUEUED",
+        "backend": "ibm_fez",
+        "creation_date": "2026-10-03 22:20:23.265322+02:00",
+        "data": {},
+        "note": "EXPERIMENT 055 (FP48-COMBINED, H-H9 FPrio-4+8) — 160 Circuits 8192 Shots, Prereg b7afc42c ISA_OK 830/84/160, Commit c9ccaea VOR Submission; QUEUED-Metadaten-Probe 2026-10-04, Raw-Ref folgt nach Fetch (2e348f1-Praezedenz)"
       }
     ],
     "IBMQ_TOKEN2": [
