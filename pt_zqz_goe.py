@@ -599,10 +599,18 @@ def decide(raw, prereg, prereg_sha256):
         xs_used.append(math.log(r["N"]))
     if len(deltas) < 3:
         l3_verdict = vids["undetermined_small_m"]
+        rho_val = None
+        rho_degen = False
     else:
         rho_t, _ = spearmanr(deltas, xs_used)
-        l3_flat = abs(float(rho_t)) < th["l3_rho_max"]
+        rho_t = float(rho_t)
+        rho_degen = not math.isfinite(rho_t)
+        # Gefrorene Regel buchstabengetreu: |rho| < 0.5 -> OHNE_TREND,
+        # sonst TREND_AN. NaN (konstante Deltas) faellt in den sonst-
+        # Zweig und wird als degenerat dokumentiert.
+        l3_flat = abs(rho_t) < th["l3_rho_max"]
         l3_verdict = vids["l3_flat"] if l3_flat else vids["l3_trend"]
+        rho_val = None if rho_degen else rho_t
 
     results = {
         "prereg_sha256": raw["prereg_sha256"],
@@ -652,8 +660,9 @@ def decide(raw, prereg, prereg_sha256):
             "verdict": l2_verdict,
         },
         "l3": {
-            "rho_residual_logN": (float(rho_t) if len(deltas) >= 3 else None),
+            "rho_residual_logN": rho_val,
             "rho_max": th["l3_rho_max"],
+            "rho_degenerate_constant_deltas": rho_degen,
             "n_residual_points": len(deltas),
             "verdict": l3_verdict,
         },
