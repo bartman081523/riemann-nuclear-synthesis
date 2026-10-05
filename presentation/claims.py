@@ -877,9 +877,14 @@ _CL.append(Claim(
     # — Resume ohne Re-Transpile, byte-frozen Gate-Totals, Kontaktfreies-Raw-
     # Short-Circuit, Submit-Gate-Crosscheck-Reihenfolge, Gate-Artefakt-Pins)
     # -> 1406
+    # 054 H-ZQZ-GOE (EXPERIMENT 054, 0 QPU, G0): 3ee9e80 Prereg-Freeze
+    # (erster SHA-256-Pin, kanonisch 235bd79b), 15593c6 Roh VOR Auswertung
+    # (Raw-SHA-256 3aceed91, disclosed L3-NaN-Modul-Delta), c91a490
+    # gefrorene Auswertung + 23 Tests (test_pt_zqz_goe: Kanonik/Ordnung/
+    # decide-Zweige/Leak-Guard) -> 1429
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1406,
+    id="test_count", value=1429,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

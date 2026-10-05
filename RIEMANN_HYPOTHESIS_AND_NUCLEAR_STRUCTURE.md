@@ -989,7 +989,7 @@ The initial Section 9 interpreted the Kingston value (E₀=2.216) as a success. 
 **Section 9 is thus inconsistent:** "deviation ~10% caused by hardware noise" suggests a successful experiment, but ignores the +68% systematic deviation on `ibm_marrakesh`. The strategic vector (scaling to more qubits) is obsolete as long as the operator itself is backend-dependent.
 **Consequence:** EXPERIMENT 005 (PT-symmetric extension) was initiated in response to this backend fragility (cf. Section 6.5). Preliminary result: PT-unbroken numerically perfect, but physically trivialized by diagonal dominance → refactoring vector `COUPLING_ENHANCEMENT` required.
 
-### **10. Operational Findings Log 2026-06-08 → 2026-10-02**
+### **10. Operational Findings Log 2026-06-08 → 2026-10-05**
 
 This section is a **compact chronological log** of the experimental findings between the state of Section 9.1 and the current date. The detailed methodology, script list and audit tables are documented in `SYNTHESIS_2026_06_10.md` (~960 lines) and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`; this log serves as a compact index for readers of the theory documentation.
 
@@ -1133,7 +1133,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | §Z.17 α-Trennung + Ramanujan-Replikation | §10.17 hier | `pt_alpha_results.json`, `pt_ramanujan_results.json`, SYNTHESIS §Z.17 |
 | §Z.18 V5 Kingston + H-STAR-5-Registrierung | §10.18 hier | `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`, SYNTHESIS §Z.18 |
 | Strategic Vectors Gesamtstatus | §10.19 hier | §10.8 (historisch) + §10.19 (Ququint-Arc) |
-| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-05) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q-1..6, H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ; §10.39/§Z.36 reserviert |
+| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-05) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q-1..6, H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ 053→054-Einstufung; §10.39/§Z.36 belegt (EXPERIMENT 054), §10.40/§Z.37 reserviert (EXPERIMENT 055) |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 
@@ -3377,3 +3377,204 @@ Bogomolny–Schmidt–Toke). Verwandt: SYNTHESIS_2026_06_10.md §Z.35;
 #### **Quellenangaben**
 
 1\. The Spectrum of Riemannium | American Scientist, https://www.americanscientist.org/article/the-spectrum-of-riemannium 2\. The Spectrum of Riemannium \- MIT Press Direct, https://direct.mit.edu/books/edited-volume/chapter-pdf/2260845/9780262342681\_cad.pdf 3\. Nuclei, Primes and the Random Matrix Connection \- MDPI, https://www.mdpi.com/2073-8994/1/1/64 4\. What are the 'magic numbers' in nuclear physics, and why are they so powerful?, https://www.livescience.com/physics-mathematics/particle-physics/what-are-the-magic-numbers-in-nuclear-physics-and-why-are-they-so-powerful 5\. Theory and application to nuclear magic numbers \- CoNSeRT, https://consert.uniwa.gr/wp-content/uploads/2024/09/1-s2.0-S0960077923006823-main.pdf 6\. \[0909.4914\] Nuclei, Primes and the Random Matrix Connection \- arXiv, https://arxiv.org/abs/0909.4914 7\. Quantum Chaos \- ResearchGate, https://www.researchgate.net/publication/257189856\_Quantum\_Chaos 8\. The Riemann hypothesis is one of the Millenium Prize Problems, a list of unsolved math problems compiled by the Clay Institute. The Clay Institute has offered a $1 million prize to anyone who can prove the Riemann hypothesis true or false. \- Reddit, https://www.reddit.com/r/Damnthatsinteresting/comments/15yjbsw/the\_riemann\_hypothesis\_is\_one\_of\_the\_millenium/ 9\. Riemann hypothesis \- David Darling, https://www.daviddarling.info/encyclopedia/R/Riemann\_hypothesis.html 10\. Nuclei, Primes and the Random Matrix Connection \- Williams College, https://web.williams.edu/Mathematics/sjmiller/public\_html/math/papers/sym1010064.pdf 11\. The iHarmonic Prime Identity: Geometric Resolution of Prime Distribution and the Riemann Hypothesis | Robert Edward Grant, http://robertedwardgrant.com/wp-content/uploads/2026/03/REG-iharmonic-Riemann-Hypothesis-M2026.pdf 12\. Caustics, catastrophes and \- quantum chaos \- Michael Berry, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/07/berry277.pdf 13\. Prime Numbers, Atomic Nuclei, Symmetries and Superconductivity \- AIP Publishing, https://pubs.aip.org/aip/acp/article-pdf/doi/10.1063/1.5124598/14195123/030009\_1\_online.pdf 14\. ON THE DISTRIBUTION OF SPACINGS BETWEEN ZEROS OF THE ZETA FUNCTION A. M. Odlyzko AT\&T Bell Laboratories Murray Hill, New Jer, https://mfeapp.baruch.cuny.edu/math/Reimann\_Hypthosesis/zeta.zero.spacing.pdf 15\. Chapter: 18\. Number Theory Meets Quantum Mechanics \- Read "Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics" at NAP.edu, https://www.nationalacademies.org/read/10532/chapter/21 16\. RIEMANN ZERO SPACINGS AND MONTGOMERY'S PAIR CORRELATION CONJECTURE \- SFU Summit, https://summit.sfu.ca/\_flysystem/fedora/sfu\_migrate/12223/etd7113\_ERinne.pdf 17\. Suitable Hamiltonian for the Riemann Hypothesis: Coinciding with Heavy Atom $U \_{238}, https://www.researchgate.net/publication/384248802\_Suitable\_Hamiltonian\_for\_the\_Riemann\_Hypothesis\_Coinciding\_with\_Heavy\_Atom\_U\_238 18\. Will RH be Proved by a Physicist? \- ThatsMaths, https://thatsmaths.com/2020/12/10/will-rh-be-proved-by-a-physicist/ 19\. From Quantum Systems to L-Functions: Pair Correlation Statistics and Beyond \- arXiv, https://arxiv.org/pdf/1505.07481 20\. arXiv:1307.6012v1 \[math-ph\] 23 Jul 2013, https://arxiv.org/pdf/1307.6012 21\. Symmetries in Atomic Nuclei \- National Academic Digital Library of Ethiopia, http://ndl.ethernet.edu.et/bitstream/123456789/67520/1/65.pdf 22\. NUCLEAR SCIENCE \- Lawrence Berkeley National Laboratory, https://www2.lbl.gov/abc/wallchart/teachersguide/pdf/NuclearTeachersGuide-2019.pdf 23\. ANALYTIC NUMBER THEORY AND THE NUCLEAR LEVEL DENSITY A. Anzaldo Meneses, https://www-nds.iaea.org/publications/indc/indcger038.pdf 24\. Scale Space Number Theory (2 of 2\) | by Don Gunter | Apr, 2026, https://medium.com/@rantnrave31/scale-space-number-theory-2-of-2-09688447c410 25\. Investigations on the superheavy nuclei with magic number of neutrons and protons, https://www.worldscientific.com/doi/10.1142/S0218301320500287 26\. “Criticality” in the Counting Function of Prime Numbers: Theory and, https://www.researchgate.net/publication/368803509\_Criticality\_in\_the\_Counting\_Function\_of\_Prime\_Numbers\_Theory\_and\_Application\_to\_Nuclear\_Magic\_Numbers 27\. (PDF) SUITABLE HAMILTONIAN FOR THE RIEMANN HYPOTHESIS: COINCIDING WITH HEAVY ATOM H 38 \- ResearchGate, https://www.researchgate.net/publication/384015283\_SUITABLE\_HAMILTONIAN\_FOR\_THE\_RIEMANN\_HYPOTHESIS\_COINCIDING\_WITH\_HEAVY\_ATOM\_H\_38 28\. Physics of the Riemann Hypothesis \- ResearchGate, https://www.researchgate.net/publication/252943462\_Physics\_of\_the\_Riemann\_Hypothesis 29\. Proof of the Riemann Hypothesis \- Robert Edward Grant, https://robertedwardgrant.com/proof-of-the-riemann-hypothesis/ 30\. 0009-0002-2171-809X \- ORCID, https://orcid.org/0009-0002-2171-809X 31\. Exploring Time-Scalar Field Theory: Key Concepts and Insights \- The Zebra Journal of Unified Physics (ZJUP), https://zjup.org/papers/ 32\. Visual Articulation in 3D of Heartfelt Concerns \-- with AI \- Laetus in Praesens, https://www.laetusinpraesens.org/docs20s/hartfelt.php 33\. Random matrices and the Riemann zeta function, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/random.htm 34\. Consciousness, Quantum Physics, and Prime Numbers | by Sebastian Schepis \- Medium, https://medium.com/@sschepis/consciousness-quantum-physics-and-prime-numbers-d6f5870a34cc 35\. Quantum Mechanics and Riemann Hypothesis \- Indico Global, https://indico.global/event/10918/contributions/101966/attachments/46912/88877/BRODY\_Vienna\_2018.pdf 36\. \[1104.1850\] The Berry-Keating Hamiltonian and the Local Riemann Hypothesis \- arXiv, https://arxiv.org/abs/1104.1850 37\. The Riemann Zeros as Spectrum and the Riemann Hypothesis, https://s3.cern.ch/inspire-prod-files-1/1e65b86fec7566dba4d2d2384183f67b 38\. \[1101.3116\] Physics of the Riemann Hypothesis \- ar5iv \- arXiv, https://ar5iv.labs.arxiv.org/html/1101.3116 39\. Quantum Chaos \- College of Engineering, Mathematics and Physical Sciences Intranet, https://empslocal.ex.ac.uk/people/staff/mrwatkin/zeta/quantumchaos.html 40\. A compact hamiltonian with the same asymptotic mean spectral density as the Riemann zeros, https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry4401.pdf
+
+## §10.39 — EXPERIMENT 054 (H-ZQZ-GOE): das GOE-fokussierte Dritte-Observable-Prereg auf der committeten 053-⟨r⟩-Serie bei π(N)-matched-Dimension — **L0 VALIDIERUNG_GEHALTEN / L1 GOE_BAND_VERFEHLT (z −4.23σ unter der Unterkante) / L2 UNENTSCHIEDEN (7 : 7 : 0 : 0) / L3 RESIDUEN_TREND_AN (ρ = −0.947)** (Branch `h-test1-gap-invariance`, 2026-10-05, 0 QPU, G0 KLASSISCH)
+
+**Anfangspunkt.** Drei Angebots-Zeilen ex 053 — „Ein nachfolgendes
+Prereg mit explizit GOE-fokussiertem Band (H-ZQZ-GOE, „054“) ist
+ANGEBOTEN und NICHT ausgeführt“ (§10.38, L3-Block), „054-GOE-Prereg
+ANGEBOTEN (nicht ausgeführt)“ (§10.38, Quellen-Tail) und die §Z.35-
+Parallele — sind hiermit ERLEDIGT; die Angebots-Zeilen bleiben in-situ
+unangetastet (Append-only). Auftrag: User-Direktive „mache alle noch
+offenen Tasks aus dem.Plan @INVESTIGATION_PLAN.md“ (2026-10-05), offener
+Plan-Knoten ZQZ54. Wesentlich: 054 ist ein **Einstufungs-Experiment**
+(G0 klassisch, 0 QPU). Die 053-Messwerte werden NICHT neu erzeugt — die
+committete Union-⟨r⟩-Serie (`pt_zqz_family_raw.json`, 14 N-Punkte) wird
+gegen ex-ante-gefrorene Random-Matrix-Klassenreferenzen klassifiziert,
+wobei die Referenz-Eigenwerte auf DERSSELBEN Dimension wie die
+Messseite erzeugt werden: **d = π(N)** (matched-d statt des fixen
+053-Gate-Fensters [0.52, 0.68]). Reserve-KORREKTUR: §10.39/§Z.36 waren
+laut INVESTIGATION_PLAN.md (Tree, Stand 2026-10-05) für EXPERIMENT 055
+reserviert — **dort registriert (2026-10-05):** §10.39/§Z.36 sind durch
+EXPERIMENT 054 belegt; EXPERIMENT 055 wandert append-only auf
+**§10.40/§Z.37**.
+
+**Konstruktion.** Ex ante gefroren (Prereg `pt_zqz_goe_prereg.json`,
+kanonischer **SHA-256**
+`235bd79b5cf1c0de5738f29d9326da04a95914a660ebb7ea686f28b476120ea0` —
+erste Anwendung der SHA-256-Pin-Politik (2026-10-05); Legacy-MD5-Pins
+stehen lassen, dual-pin künftig zulässig):
+
+- Drei Klassen, alle durch DIESELBE 053-Pipeline (`spacing_stats` als
+  Funktions-Import aus `pt_zqz_family.py`, kein Kopie-Share;
+  `r_distinct_from_gaps`, `unfold_gaps` mit UNFOLD_WINDOW 5, N_SWEEP
+  identisch — Funktionsobjekt-Identität in Tests nachgewiesen):
+  β-Hermite-Tridiagonal (Dumitriu–Edelman: a_i ~ N(0, 2/β),
+  b_j ~ χ_β(d−1−j)/√β, eigh_tridiagonal, sortiert) für GOE (β=1) und
+  GUE (β=2), je mit dichter Referenz (voll eigh), plus Poisson als
+  iid-uniform sortierte Punkte auf [0, d].
+- n_mc 1024 pro (Klasse, d) über die 14 d-Werte der Serie
+  (d = π(N) ∈ {4, 6, 11, …, 6542}), CHUNK 128; deterministische Seeds
+  cell_seed = 20261005 + CLASS_CODE·1000003 + d (CLASS_CODE:
+  goe_tridiag 1, gue_tridiag 2, poisson 3, goe_dense 11, gue_dense 12).
+- Schwellen ex ante (Frozen-Payload, Tests exakt): z_band_k 2.0
+  (zweiseitiges ±2σ-Klassenband), l0_k 4.0 (Mean-Konsistenz in
+  kombinierten SE-Einheiten), l3_rho_max 0.5, l0_dim 256, l0_n 512,
+  poisson_sanity_dim 512, band_sigma_min 1e-9.
+- d-match-Pflicht: für ALLE Zeilen π_N == len(sieve_primes(N)),
+  m_gaps == π_N − 1 (Assert; Verletzung bricht die Auswertung).
+- Verdict-Slugs ex ante: H_ZQZ_GOE_L0_VALIDIERUNG_GEHALTEN;
+  H_ZQZ_GOE_L1_GOE_BAND_GEHALTEN / H_ZQZ_GOE_L1_GOE_BAND_VERFEHLT;
+  H_ZQZ_GOE_L2_KLASSE_GOE_DOMINANT / H_ZQZ_GOE_L2_KLASSE_ANDERE_DOMINANT
+  / H_ZQZ_GOE_L2_UNENTSCHIEDEN; H_ZQZ_GOE_L3_RESIDUEN_TREND_AN /
+  H_ZQZ_GOE_L3_RESIDUEN_OHNE_TREND.
+- Inherited verdicts ex ante registriert: exp_053_l1 / exp_053_l2 /
+  exp_053_l3 jeweils „(unverändert)“ — 054 ist Einstufung, KEIN
+  Re-Decide der 053-Verdicts.
+
+**Kette.**
+- **Prereg-Freeze `3ee9e80`** (2026-10-05 06:35 +0200,
+  REGISTERED_NOT_MEASURED, SHA-256-Pin oben): Modul (697 Z) + Prereg
+  (98 Z), Tests noch nicht darin.
+- **Roh VOR Auswertung `15593c6`**: pt_zqz_goe_raw.json (SHA-256
+  `3aceed91d8c5dcf0750c5d23a890f53b1c6861f7f14d30cc081d3dc8e58a31a6`,
+  18698 B) — mc_rows 42 Zellen (3 Klassen × 14 d), validation 5
+  Einheiten (goe_tridiag_d256 / goe_dense_d256 / gue_tridiag_d256 /
+  gue_dense_d256 / poisson_d512), constants, d_match, n_sweep,
+  numpy-BUILD 2.4.6 gepinnt, **0 Verdict-Felder**; Lauf single-shot
+  deterministisch (06:35 → 07:19). Mitgelaufenes Modul-Delta disclosed
+  (13/2 Z): L3-NaN-Handling in decide()
+  (rho_degenerate_constant_deltas-Flag, ConstantInputWarning als
+  Test-Signal) — EVAL-seitige Robustheit nur; build_prereg_payload /
+  Prereg-Pin / Sampler / Freeze-Design unangetastet (Präzedenz
+  506469c / c9ccaea).
+- **Gefrorene Auswertung + Tests `c91a490`**: pt_zqz_goe_results.json
+  (494 Z) + tests/test_pt_zqz_goe.py (429 Z, 23 Tests); Testzahl
+  1406 → 1429.
+- **Doku** (dieser Commit).
+- load_frozen hasht KANONISCH (sort_keys, Compact) über den geparsten
+  Inhalt und erzwingt den Pin am Lauf UND an der Auswertung — die
+  053-Chain-Repair-Lektion ab Initio eingebaut; Regressionstest:
+  indent-1-File und Compact-Serialisierung ergeben denselben
+  kanonischen SHA-256.
+
+**Verdict L0 — H_ZQZ_GOE_L0_VALIDIERUNG_GEHALTEN
+(Sampler-Korrektheit).**
+goe_tridiag vs goe_dense (d=256): μ_t 0.5285935972894729 vs μ_d
+0.5301250655845895, dev 0.0015314682951166336 < k_max
+0.004788610787710636 (passed); gue_tridiag vs gue_dense (d=256): μ_t
+0.5978046482193942 vs μ_d 0.5988177676471893, dev 0.0010131194277951394
+< k_max 0.00467419139394887 (passed); Poisson-Anchor (d=512, r_raw
+unfolding-frei): μ 0.386157085148376 vs Referenzkonstante 0.3863, dev
+0.00014291485162398754 < k_max 0.001853033343631152 (passed). Die
+β-Hermite-Tridiagonal-Sampler sind als Referenz-Normierung validiert.
+
+**Verdict L1 — H_ZQZ_GOE_L1_GOE_BAND_VERFEHLT (honest negative).**
+Endpunkt N=65535, d = π(N) = 6542: r_unf
+**0.5141345707251959** (r_raw 0.5160426444603091) gegen das GOE-MC-Band
+[0.5224719239068703, 0.5374437185171419] — μ_goe 0.5299578212120061 ±
+2σ (σ 0.003742948652567934) → **z_goe −4.227482649529354**, d. h.
+UNTERHALB der Band-Unterkante. Distanzen am Endpunkt: GOE −4.23σ, GUE
+−24.24872365453205σ, Poisson +31.21525124101265σ. Die 053-Adjazenz-
+Lesart (GOE 0.5307 nächste Unimodular-Konstante, Abstand 0.0166) ist
+damit mechanisch quantifiziert und BLEIBT UNVERÄNDERT — aber die
+053-Verletzung des fixen [0.52, 0.68]-Bandes um 0.0059 war kein Rand-
+Flicker: sogar das klassengematchte GOE-Selbstband verfehlt die Serie
+(053-C− bleibt, Kriterium verfehlt).
+
+**Verdict L2 — H_ZQZ_GOE_L2_UNENTSCHIEDEN (parameterfrei).**
+nearest-z-Klassifikation über alle 14 Punkte gegen die
+klassengematchten Mittel: **GOE 7 : GUE 7 : Poisson 0 : TIE 0**
+(winners [GOE, GUE]) — keine klasse-dominante Serie; Kreuzungs-
+struktur mit drei Klassenwechseln (GUE-nächst bei d ≤ 31, GOE bei
+d=54, GUE-Island d=97–172, GOE ab d=309 bis zum Endpunkt).
+
+**Verdict L3 — H_ZQZ_GOE_L3_RESIDUEN_TREND_AN (Diagnostik).**
+Spearman-ρ der GOE-Residuen (r_unf − μ_goe) gegen log N:
+**ρ = −0.9472527472527472** über 14 Punkte (rho_max 0.5,
+rho_degenerate_constant_deltas false) — die Residuen fallen
+gleichgerichtet: +0.5σ…+1.95σ bei kleinen N, −0.86σ…−4.23σ am
+großen Ende, die Serie durchschlägt das GOE-Band abwärts ab N=32767.
+Mit L1 zusammen: der Endpunkt tritt unten aus — mit Trend, nicht als
+isolierter Ausreißer.
+
+**Matched-d-Serie (14 Punkte; committete 053-Messwerte + ex-ante-
+Klassifikation):**
+
+| N | d | r_raw | r_unf | z_goe | z_gue | z_poisson | nearest | im GOE-Band |
+|------|------|--------|--------|---------|---------|---------|------|------|
+| 7 | 4 | 0.693038 | 0.693038 | +0.777 | +0.500 | +1.393 | GUE | ✓ |
+| 15 | 6 | 0.688491 | 0.688491 | +1.126 | +0.684 | +1.921 | GUE | ✓ |
+| 31 | 11 | 0.634391 | 0.644563 | +1.153 | +0.508 | +2.388 | GUE | ✓ |
+| 63 | 18 | 0.644148 | 0.654102 | +1.613 | +0.763 | +3.319 | GUE | ✓ |
+| 127 | 31 | 0.606577 | 0.609027 | +1.439 | +0.229 | +3.741 | GUE | ✓ |
+| 255 | 54 | 0.559761 | 0.556287 | +0.643 | −1.019 | +3.823 | GOE | ✓ |
+| 511 | 97 | 0.568557 | 0.571658 | +1.253 | −0.951 | +5.796 | GUE | ✓ |
+| 1023 | 172 | 0.576270 | 0.576891 | +1.952 | −0.961 | +7.919 | GUE | ✓ |
+| 2047 | 309 | 0.551697 | 0.552856 | +1.303 | −2.724 | +9.543 | GOE | ✓ |
+| 4095 | 564 | 0.521420 | 0.519735 | −0.864 | −6.660 | +10.298 | GOE | ✓ |
+| 8191 | 1028 | 0.514196 | 0.511773 | −1.950 | −9.159 | +13.169 | GOE | ✓ |
+| 16383 | 1900 | 0.521035 | 0.518477 | −1.625 | −12.165 | +17.424 | GOE | ✓ |
+| 32767 | 3512 | 0.519264 | 0.516328 | −2.674 | −16.972 | +24.472 | GOE | ✗ |
+| 65535 | 6542 | 0.516043 | 0.514135 | −4.227 | −24.249 | +31.215 | GOE | ✗ |
+
+**Einstufung (B+).** ⟨r⟩ bei π(N)-matched-Dimension ist eine
+**Finite-Size-Trajektorie — keine stabile Universitätsklasse**: Start
+bei N=7 knapp oberhalb GUE (0.693, GUE-nächste +0.50σ), Durchfall
+durch die GOE-Nähe ab N=255, GUE-Island N=511–1023, danach GOE und ab
+N=32767 unter dem eigenen matched-GOE-Band (Endpunkt −4.23σ). Damit
+entfällt die einfache „Band-Kante war zu eng“-Lesart: das
+klassengematchte ±2σ-Band qualifiziert dieselbe Verletzung L1. Die
+Kritik-Punkte (4) „geschlossene Familie“ und (5) „drittes unabhängiges
+Observable“ bleiben negativ — das Dritte-Observable-Programm ist nun
+DREIFACH negativ (Rényi-3, GUE-⟨r⟩ fixe d, jetzt ⟨r⟩ matched d); **nur
+Distillation bleibt** als unbeantwortete Spur des §X.3-Kandidatenkreises.
+Kein Mechanismus-Claim über die Adjazenz hinaus; kein Tuning, keine
+Toleranz-Änderung, gefrorene 053er-Artefakte unangetastet.
+
+**Tests.** 23 Tests in tests/test_pt_zqz_goe.py (Suite 1406 → 1429):
+SHA-256-Pin-Politik (64-Hex-Format, hex-decodierbar); committetes
+Prereg trifft den Frozen-Pin; Quellen-Pin gegen sha256_file;
+kanonischer-Hash-Regression (indent-1 vs Compact identisch);
+load_frozen-Reject bei gebrochener Kette („0“·64 → SystemExit);
+thresholds-Freeze exakt; Verdict-IDs eindeutig + H_ZQZ_GOE_-Präfix;
+Konventions-Share-Funktionsidentität mit 053; d-match gegen
+sieve_primes (π_N, m_gaps = π_N − 1); Sampler-Determinismus +
+Skalen-Invarianz + Ordnung GUE > GOE > Poisson;
+run_measurement RAW-EXISTS-Guard (SystemExit); source-Mismatch bricht
+die Kette; decide() end-to-end synthetisch (RESULTS_PATH immer nach
+tmp_path gelenkt — die 053-Clobber-Lektion ab Initio; Quellen-File VOR
+dem Prereg-Pin finalisiert); L1-/L2-/L3-Zweige synthetisch (Band in/out,
+Dominanz, Tie-Fallback, Trend vs flach mit ρ-Approx −1.0); d-match-
+Verletzung = AssertionError; Results tragen KEINEN mc_rows-Key
+(rekursiver Key-Check statt Blob-Substring).
+
+**Artefakte.** pt_zqz_goe.py; pt_zqz_goe_prereg.json; pt_zqz_goe_raw.json;
+pt_zqz_goe_results.json; tests/test_pt_zqz_goe.py. Governance: 0 QPU im
+ganzen Experiment; Schwellen wörtlich aus dem Freeze; KEIN Re-Decide,
+KEIN Re-Scope; KEIN Push in diesem Commit.
+
+**Verwandt.** SYNTHESIS_2026_06_10.md §Z.36 (gleicher Stand,
+Chain-Prepend); INVESTIGATION_PLAN.md-Tree-Knoten ZQZ54V (Append);
+claims.py-Live-Pin test_count 1406 → 1429; §10.22 (Unfolding-
+Konventionen, UNFOLD_WINDOW 5); §10.36 (G0/G1-Messverbund); §10.38
+(053, inherited verdicts).
+
+#### Quellenangaben für §10.39
+
+Eingang: die drei 053-Angebots-Zeilen (§10.38-L3-Block, §10.38-Quellen-
+Tail, §Z.35) — ERLEDIGT; User-Direktive „mache alle noch offenen Tasks
+aus dem.Plan @INVESTIGATION_PLAN.md“ (2026-10-05), offener Plan-Knoten
+ZQZ54. Kette: `3ee9e80` (Freeze, Prereg-SHA-256 `235bd79b…ea0`) →
+`15593c6` (Roh VOR Auswertung, Raw-SHA-256 `3aceed91…31a6`, disclosed
+L3-NaN-Modul-Delta) → `c91a490` (Auswertung + 23 Tests) → Doku (dieser
+Commit). Module: `pt_zqz_goe.py`, `tests/test_pt_zqz_goe.py`; Artefakte:
+`pt_zqz_goe_prereg.json`, `pt_zqz_goe_raw.json`,
+`pt_zqz_goe_results.json`; Input-Pin:
+`pt_zqz_family_raw.json` (SHA-256
+`3a5298255ed2d0ad1f5acddaf9b21ae065435600d39c2290019f74d2758744b6`).
+Referenzen: Dumitriu–Edelman (Matrix models for beta ensembles —
+β-Hermite-Tridiagonal, eigh_tridiagonal); Atas–Bogomolny–Schmidt–Toke
+⟨r⟩-Konstanten (Poisson 0.3863 / GOE 0.5307 / GUE 0.5996,
+arXiv:1212.5611); Unfolding-Konventionen §10.22 (UNFOLD_WINDOW 5).
+Verwandt: SYNTHESIS_2026_06_10.md §Z.36.

@@ -583,6 +583,8 @@ graph TD
 
 **Status:** NEUE Sektion, ANGEHÄNGT am Dateiende — der Mermaid-Baum von 2026-06 oben ist unangetastet. Dieser Abschnitt trägt die Hypothesen-Historie des Ququint-Arcs (GF(5)-Serie, §10.14–§10.38 / §Z.11–§Z.35) nach ExperimentLedgerMind v1.1 (Modul `research_tree_mermaid`, Format a: `graph TD`). Knoten = Verdict + Grad + Anker; CONFIRMED/REFUTED/DEGENERAT/VOID/EINSTUFUNG sind gleichwertige Zweige; Verdict-Wechsel als eigene Knoten/Kanten (z. B. 045 → 052 EINSTUFUNG statt Re-Decide), nie Umschrift. **§10.39/§Z.36 sind für die Auswertung von EXPERIMENT 055 reserviert und hier nicht belegt.**
 
+**KORREKTUR (2026-10-05):** §10.39/§Z.36 sind durch EXPERIMENT 054 (H-ZQZ-GOE, 0 QPU, G0) belegt; EXPERIMENT 055 wandert append-only auf §10.40/§Z.37 (Präzedenz: 045 → 052 EINSTUFUNG statt Re-Decide).
+
 ```mermaid
 graph TD
     %% === Ququint-Arc: Hypothesen-Historie (Familien, Verdict + Grad + Anker) ===
@@ -646,10 +648,13 @@ graph TD
     %% --- H-ZQZ ---
     FZQ --> ZQZ["EXPERIMENT 053 H-ZQZ (§10.38/§Z.35, 0 QPU, G1 Exakt-Statevector): L1 HELD bit-exakt (Pins 0.0, R_a_max 1+2e-16) / L2 REDUNDANT_WITH_S_VN (ρ = 0.9701703360404135) / L3 REFUSED_OUT_OF_BAND (r_unf 0.5141345707251959 unter Band-Unterkante 0.52; GOE-Abstand 0.0166 als C−-Diagnostik)"]
     ZQZ --> ZQZ54["EXPERIMENT 054 (GOE-Dritte-Observable) ANGEBOTEN, NICHT ausgeführt"]
+    ZQZ54 --> ZQZ54V["EXPERIMENT 054 VOLLZOGEN (§10.39/§Z.36, 0 QPU, G0 KLASSISCH, Prereg SHA-256 235bd79b): L0 VALIDIERUNG_GEHALTEN (GOE tridiag-vs-dense dev 0.001531 / GUE 0.001013, Poisson-Anchor 0.386157) / L1 GOE_BAND_VERFEHLT (d=6542 r_unf 0.5141 < Band [0.5225, 0.5374], z −4.23σ) / L2 UNENTSCHIEDEN (7 GOE : 7 GUE) / L3 RESIDUEN_TREND_AN (ρ −0.947) — Einstufung B+ Finite-Size-Trajektorie"]
 
     %% --- Governance + offen ---
     ARC --> GV["Governance: §10.36-Messverbund (flowchart TB), §10.37 +30/Union-Regel + quantor_coverage, claims-Live-Pin test_count 1406"]
     GV --> OP55["OFFEN: EXPERIMENT 055 FP48-COMBINED (160 Kreise, ISA_OK 830/84/160, Prereg Legacy-MD5 b7afc42c, Fez-Job db0m71qvog1s73fh15og QUEUED) -> Roh-Commit VOR Auswertung -> §10.39/§Z.36"]
+    OP55 --> OP55B["KORREKTUR 2026-10-05: Ziel-Anker von EXPERIMENT 055 = §10.40/§Z.37 (§10.39/§Z.36 durch EXPERIMENT 054 belegt)"]
+    GV --> GG054["claims-Live-Pin 1406 → 1429 (054: +23 Tests, test_pt_zqz_goe)"]
 
     classDef ok fill:#5f5,stroke:#333,stroke-width:2px
     classDef ref fill:#f96,stroke:#333,stroke-width:2px
@@ -659,6 +664,9 @@ graph TD
     class QV2,QSA,T48b,T49b,RQ3b,RQ4,RQ6,H9A,H9B,H9C ref
     class QV1,QV3,RQ3,T49,S1,S45,S52,A3,ZQZ,QV5b amb
     class H9O,ZQZ54,OP55 offen
+    class OP55B offen
+    class ZQZ54V amb
+    class GG054 ok
 ```
 
 **Einstufungs-Legende:** grün = CONFIRMED/HOLDS/GENERALIZED, orange = REFUTED/GEFALLEN/FALSIFIZIERT, amber = PARTIAL/DEGENERAT/VOID/EINSTUFUNG, gelb = OFFEN (gebucht, nicht ausgewertet). Quellen: §10-Findings-Log, SYNTHESIS §Z, claims.py (Live-Pins), Deck HYPOTHESEN_UND_ANTITHESES_H9; alle Zahlen mit Ledger-Anker, Legacy-MD5-Pins als historische Anker gekennzeichnet (SHA-256-Politik ab 2026-10-05 für neue Pins).

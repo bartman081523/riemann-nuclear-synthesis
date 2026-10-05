@@ -1,7 +1,7 @@
 # Riemann–Nuclear Synthesis
 
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/bartman081523/riemann-nuclear-synthesis)
-[![Tests](https://img.shields.io/badge/Tests-1342%2F1342%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-1429%2F1429%20passing-brightgreen.svg)](tests/)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org)
 [![Qiskit](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
@@ -48,13 +48,13 @@ echo "IBMQ_TOKEN=your_token_here" > .env
 echo "IBMQ_TOKEN2=your_second_token_here" >> .env
 
 # Run the test suite
-python3 -m pytest tests/ -q   # 1342/1342 passing
+python3 -m pytest tests/ -q   # 1429/1429 passing
 
 # Reproduce the asymptotic scaling (statevector, no QPU cost)
 python3 pt_asymptotic_N1e6.py   # power-law alpha(N=10^6) = 0.223 (fit artifact; claims.py pin R(10^6) = 0.669, §X-Lesart S/log -> 0.55)
 ```
 
-For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-02) in the primary research repository.
+For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-05) in the primary research repository.
 
 ---
 
@@ -78,6 +78,9 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 - **Kritik1-Umsetzung + EXPERIMENT 053 (H-ZQZ):** measurement diagram E/G-layers + closed-family/quantor-coverage rule (§10.36/§10.37); α-coherence (claims.py alpha_1e6 → §X-Lesart) landed; the closed Z/qZ statevector family holds L1 **bit-exakt** (α_class 12/12 < 0.5, R_a max 1+2·2⁻⁵²), L2 **REDUNDANT** (ρ 0.970 with S_vN) and L3 **REFUSED_OUT_OF_BAND** (r_unf 0.514, GOE-adjacent C−) — the third-observable program is negative, only distillation remains (§10.38, §Z.35).
 - **Suite:** 1079 → **1342 tests green** (97.2 s); claims.py live pin updated accordingly.
 
+**Update 2026-10-05 (EXPERIMENT 054 H-ZQZ-GOE, 0 QPU, G0 classical):** classification prereg on the committed 053 ⟨r⟩-series at π(N)-matched dimension — **first SHA-256-pinned prereg chain** (canonical SHA-256 `235bd79b…`, commit `3ee9e80`; raw committed before eval `15593c6` with disclosed L3-NaN module delta; frozen evaluation + 23 tests `c91a490`). Verdicts: **L0** sampler validation **held** (GOE tridiag-vs-dense dev 0.001531 < k_max 0.004789, GUE 0.001013, Poisson anchor 0.386157 vs 0.3863); **L1** the GOE-class ±2σ band **missed** at the matched endpoint d = 6542 (r_unf 0.51413 below [0.52247, 0.53744], z −4.23σ); **L2** **undecided** (nearest-z 7 GOE : 7 GUE : 0 Poisson : 0 TIE — three class crossings across the sweep); **L3** residual trend **on** (ρ −0.947). Graded **B+**: a finite-size trajectory, not a stable universality class — the third-observable program is negative in all three attempts (Rényi-3, fixed-d GUE ⟨r⟩, matched-d ⟨r⟩); **only distillation remains** (§10.39/§Z.36). Inherited 053 verdicts unchanged — no re-decide. Section reservation corrected: §10.39/§Z.36 taken by 054, **EXPERIMENT 055 → §10.40/§Z.37**.
+- **Suite:** 1406 → **1429 tests green**; claims.py live pin updated accordingly.
+
 **Operational policy:** QPU time is scarce — all statevector-first validations must precede any QPU submission. Preregistration before `main()` is required for every QPU script (Anti-Sharpshooter Protocol).
 
 ---
@@ -99,7 +102,7 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | Superseded | Fez quota block (resolved 6/17) |
 | [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | Reference | External research literature survey (95 KB) |
 
-See the [Cross-Reference Index](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-02) in the primary research repository for the canonical detail.
+See the [Cross-Reference Index](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-05) in the primary research repository for the canonical detail.
 
 ---
 
