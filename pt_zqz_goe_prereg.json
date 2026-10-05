@@ -1,0 +1,98 @@
+{
+ "branch":"h-test1-gap-invariance",
+ "commit_rules":[
+  "Prereg-Freeze (SHA-256) VOR jeder MC-Berechnung (REGISTERED_NOT_MEASURED)",
+  "Roh-Commit VOR Auswertung (RAW enthaelt KEINE Verdicts)",
+  "Auswertung mit decide() ex ante gegen die gefrorenen Schwellen; Freeze-Vergleich an Lauf UND Auswertung erzwungen (053-Lektion)",
+  "KEINE Toleranz-Erhoehung; Einstufung statt stillem Re-Decide; 053er-Verdicts unangetastet"
+ ],
+ "constants":{
+  "goe_r":0.5307,
+  "gue_r":0.5996,
+  "gue_ref":"Atas et al. 2013, arXiv:1212.5611",
+  "poisson_r":0.3863
+ },
+ "date_locked":"2026-10-05",
+ "experiment":"EXPERIMENT 054",
+ "experiment_class":"EINSTUFUNGS-/KLASSIFIKATIONS-Experiment: Messseite praexistiert (committetes 053-Roh-Artefakt); Referenzseite (MC-Baender) ex ante gefroren vor erster Berechnung",
+ "grid":{
+  "d_match_rule":"d = len(sieve_primes(N))",
+  "n_sweep":[
+   7,
+   15,
+   31,
+   63,
+   127,
+   255,
+   511,
+   1023,
+   2047,
+   4095,
+   8191,
+   16383,
+   32767,
+   65535
+  ]
+ },
+ "hypothesis":"H-ZQZ-GOE-1..3",
+ "inherited_verdicts":{
+  "exp_053_l1":"H_ZQZ_L1_HELD (unverändert)",
+  "exp_053_l2":"H_ZQZ_L2_REDUNDANT_WITH_S_VN (unverändert)",
+  "exp_053_l3":"H_ZQZ_L3_REFUSED_OUT_OF_BAND (unverändert)"
+ },
+ "input_scope":{
+  "mode":"closed",
+  "n_max":65535,
+  "source_path":"pt_zqz_family_raw.json",
+  "source_sha256":"3a5298255ed2d0ad1f5acddaf9b21ae065435600d39c2290019f74d2758744b6",
+  "universe":"Union-<r>_raw/_unf-Serie ueber das 14-Punkte-Gitter N = 7..65535 aus EXPERIMENT 053"
+ },
+ "methodology":{
+  "chunk":128,
+  "device":"G0 KLASSISCH (0 QPU, keine Statevector-Neuberechnung; Eingang = committete 053-Artefakte)",
+  "elements":"E6 Spektral-Proxy (Jacobi-Tridiagonal, wie 053); Statistik-Kern pt_zqz_family.spacing_stats/r_distinct_from_gaps/unfold_gaps IDENTISCH importiert (Konventions-Share); Referenz-Sampler β-Hermite-Tridiagonal nach Dumitriu-Edelman",
+  "matched_dimension":"d = pi(N) je Gitterpunkt (sieve_primes); Gap-Anzahl je Realisierung = d - 1 == m_gaps der Messseite",
+  "n_mc":1024,
+  "sampler":{
+   "dense_goe":"(G+G^T)/2, G ~ N(0,1) iid, eigvalsh",
+   "dense_gue":"(G+G^dagger)/2, G = (Re + i*Im)/sqrt(2), eigvalsh",
+   "goe_tridiag":"a_i ~ N(0, 2/beta), b_j ~ chi(beta*(d-1-j))/sqrt(beta), beta=1; eigh_tridiagonal",
+   "gue_tridiag":"denselbe Konstruktion, beta=2",
+   "poisson":"iid-uniform sortierte Punkte auf [0, d], Konvention wie pt_ququint_gue.poisson_control",
+   "scale_note":"<r> ist skaleninvariant; die exakte Normalisierung ist wirkungslos; L0 validiert die Konstruktion empirisch"
+  },
+  "seed_rule":"BASE_SEED + CLASS_CODE[class]*SEED_STRIDE + d; np.random.default_rngPCG64-Stream; CHUNK=128 gepinnt (Stream-Reihenfolge)",
+  "unfolding":"lokal, Fenster ±5 benachbarte Luecken (IDENTISCH zur Messseite via Import)"
+ },
+ "numpy_build":"2.4.6",
+ "sharpshooter_audit":"Band-/Regelkonstanten (z=2.0, k=4.0, rho=0.5), seeds, n_mc=1024 und die Sampler-Formeln sind VOR der ersten MC-Berechnung gefroren; keine Regel beruehrt die committeten Messwerte (z. B. 0.5141345707251959). Die Messseite praexistiert — daher Einstufungs-Experiment, kein praediktiver Ersttest.",
+ "thresholds":{
+  "band_sigma_min":1e-09,
+  "l0_dim":256,
+  "l0_k":4.0,
+  "l0_n":512,
+  "l3_rho_max":0.5,
+  "poisson_sanity_dim":512,
+  "z_band_k":2.0
+ },
+ "title":"GOE-fokussiertes Band fuer das Dritte-Observable-Gate (Klassifikation des committeten Union-<r>-Signals gegen Poisson/GOE/GUE bei matched d = pi(N), 0 QPU)",
+ "verdict_ids":{
+  "l0_failed":"H_ZQZ_GOE_L0_VALIDIERUNG_GESCHEITERT",
+  "l0_held":"H_ZQZ_GOE_L0_VALIDIERUNG_GEHALTEN",
+  "l1_goe":"H_ZQZ_GOE_L1_GOE_BAND_GEHALTEN",
+  "l1_miss":"H_ZQZ_GOE_L1_GOE_BAND_VERFEHLT",
+  "l2_goe":"H_ZQZ_GOE_L2_KLASSE_GOE_DOMINANT",
+  "l2_other":"H_ZQZ_GOE_L2_KLASSE_ANDERE_DOMINANT",
+  "l2_undecided":"H_ZQZ_GOE_L2_UNENTSCHIEDEN",
+  "l3_flat":"H_ZQZ_GOE_L3_RESIDUEN_OHNE_TREND",
+  "l3_trend":"H_ZQZ_GOE_L3_RESIDUEN_TREND_AN",
+  "undetermined_l0":"H_ZQZ_GOE_UNDETERMINED_L0",
+  "undetermined_small_m":"H_ZQZ_GOE_UNDETERMINED_SMALL_M"
+ },
+ "verdict_map":{
+  "l0":"GEHALTEN iff (a) tridiag-GOE vs dense-GOE bei d=256: |mu_diff| <= 4*sqrt(s1^2/n1 + s2^2/n2) auf <r>_unf, (b) tridiag-GUE vs dense-GUE analog, (c) Poisson bei d=512 auf <r>_RAW (paarweise Gap-Ratios, unfolding-frei — definitionsidentisch mit der Konstante): |mu_P_raw - 0.3863| <= 4*sigma_P_raw/sqrt(n). Gescheitert -> L1/L2/L3 = UNDETERMINED_L0.",
+  "l1":"GOE_BAND_GEHALTEN iff r_unf_union(N=65535) in [mu_GOE(6542) - 2*sigma, mu_GOE(6542) + 2*sigma] (Realisierungs-Verteilung bei matched d, ddof=1); sonst GOE_BAND_VERFEHLT (Seite Unterskante/Oberskante dokumentiert). Aendert KEIN 053er-Verdict.",
+  "l2":"Je N: naechstliegende Klasse nach z-Distanz |r_unf - mu_Klasse(d)|/sigma_Klasse(d) unter {Poisson, GOE, GUE}; exakte Tie (float) -> Punkt TIE und unbesetzt. GOE_DOMINANT iff n_GOE > n_GUE UND n_GOE > n_Poisson; UNENTSCHIEDEN iff GOE in den Max-Teilmengen; sonst ANDERE_DOMINANT (Breakdown publiziert).",
+  "l3":"Δ_N = r_unf(N) - mu_GOE(d(N)) ueber die 14 Punkte; |spearman(Δ_N, log N)| < 0.5 -> RESIDUEN_OHNE_TREND, sonst RESIDUEN_TREND_AN (Rest-Struktur dokumentiert)."
+ }
+}
