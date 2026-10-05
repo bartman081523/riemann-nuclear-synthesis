@@ -11,7 +11,7 @@ This document is the **primary research repository** of the Riemann-Nuclear-Synt
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **CURRENT (master)** | SciMind-Verdikte, strategische Vektoren (Sections A–Z, inkl. §Z.11–18 Ququint-Arc) |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **CURRENT (master)** | Mermaid-Architektur + QPU-Update-Log |
 | [`LATORE_TENSION_NOTE.md`](LATORE_TENSION_NOTE.md) | **CURRENT (pre-preprint)** | Latorre–Sierra-tension + §11 asymptotics |
-| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade |
+| [`INVESTIGATION_PLAN.md`](INVESTIGATION_PLAN.md) | REFERENCE (visuell) | Mermaid-Flowchart der Investigationspfade; seit 2026-10-05 zusätzlich der Erforschungs-Tree der ganzen Experimentserie (append-only, am Dateiende) |
 | [`PLAN.md`](PLAN.md) | HISTORICAL+EXTENSION | Phases 1–4 DONE; Phase 5 (QUQUINT/GF(5)) DONE; Phase 6 (H-STAR-5-Ausführung) DONE — Phase 6a REFUTED (§10.21) |
 | [`QUANTUM_ARCHITECTURE_BRIDGE.md`](QUANTUM_ARCHITECTURE_BRIDGE.md) | **SUPERSEDED** | Architektur-Rationale (frozen 6/8) — Nachfolger: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` |
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | **SUPERSEDED** | Fez quota block (resolved 6/17) — successor: `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md` §"Update 2026-06-17 17:25 UTC" |
@@ -1133,6 +1133,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | §Z.17 α-Trennung + Ramanujan-Replikation | §10.17 hier | `pt_alpha_results.json`, `pt_ramanujan_results.json`, SYNTHESIS §Z.17 |
 | §Z.18 V5 Kingston + H-STAR-5-Registrierung | §10.18 hier | `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`, SYNTHESIS §Z.18 |
 | Strategic Vectors Gesamtstatus | §10.19 hier | §10.8 (historisch) + §10.19 (Ququint-Arc) |
+| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-05) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q-1..6, H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ; §10.39/§Z.36 reserviert |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 

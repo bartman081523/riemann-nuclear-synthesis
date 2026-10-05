@@ -573,5 +573,92 @@ graph TD
 | Mermaid architecture (Pillars 1–4) | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) |
 | Strategische Vektoren | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Section C |
 | SciMind-Mandate | [`CLAUDE.md`](CLAUDE.md) |
+| Erforschungs-Tree der Experimentserie (Stand 2026-10-05, append-only) | Abschnitt am Dateiende dieses Dokuments — graph TD, Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q, H-TEST1/2, S₄, H9-Deck, H-ZQZ |
 
 **Stand:** 2026-09-24. Aktualisierungen werden in den jeweiligen Sibling-Dokumenten gepflegt.
+
+---
+
+## Erforschungs-Tree der Experimentserie (Stand 2026-10-05, append-only)
+
+**Status:** NEUE Sektion, ANGEHÄNGT am Dateiende — der Mermaid-Baum von 2026-06 oben ist unangetastet. Dieser Abschnitt trägt die Hypothesen-Historie des Ququint-Arcs (GF(5)-Serie, §10.14–§10.38 / §Z.11–§Z.35) nach ExperimentLedgerMind v1.1 (Modul `research_tree_mermaid`, Format a: `graph TD`). Knoten = Verdict + Grad + Anker; CONFIRMED/REFUTED/DEGENERAT/VOID/EINSTUFUNG sind gleichwertige Zweige; Verdict-Wechsel als eigene Knoten/Kanten (z. B. 045 → 052 EINSTUFUNG statt Re-Decide), nie Umschrift. **§10.39/§Z.36 sind für die Auswertung von EXPERIMENT 055 reserviert und hier nicht belegt.**
+
+```mermaid
+graph TD
+    %% === Ququint-Arc: Hypothesen-Historie (Familien, Verdict + Grad + Anker) ===
+    ARC["QUQUINT-ARC ab §Z.11 (2026-09-15): GF(5)-Quintet-Kette auf Fez/Kingston + Statevector, §10.14–§10.38 / §Z.11–§Z.35"]
+
+    ARC --> FASY["Familie: PT-Bias / Latorre / Asymptotik / MOCS"]
+    ARC --> FQQ["Familie: Ququint-Steelman V1–V5 + H-STAR-5"]
+    ARC --> FSH["Familie: Shor-Ququint-Oracle"]
+    ARC --> FRQ["Familie: RAM-Q-Zyklotomik (Phases 7–11, §10.22–§10.28 / §Z.21–§Z.27)"]
+    ARC --> FT1["Familie: H-TEST1/H-TEST2 (Gap-Invarianz)"]
+    ARC --> FS4["Familie: S₄-Schluss-Theorem"]
+    ARC --> FH9["Familie: H9-Kombinations-Deck"]
+    ARC --> FZQ["Familie: H-ZQZ (Zeta-Gap-Spektrum)"]
+
+    %% --- PT-Bias / Latorre / Asymptotik / MOCS ---
+    FASY --> A1["H_Im_h1 CONFIRMED A (§10.6): additive Bias-Topologie; bias_PT_re = Theorem-Identität"]
+    FASY --> A2["H_C CONFIRMED (§10.5 + Latorre-§11): alpha sinkt monoton 0.347 -> 0.223 (N 10^4..10^6)"]
+    A2 --> A3["EINSTUFUNG (§X-Lesart, α-Coherence 2026-10-02): alpha(10^6) = 0.223 = Fit-Artefakt; Lesart S/log(N) -> 0.55, R(10^6) = 0.669 (claims.py-Pin)"]
+    FASY --> A4["H_MOCS_EXT HOLDS A− (§10.29/§Z.28): N 7..65535, alpha_combined 0.210355, effective_total 2.426374"]
+
+    %% --- Ququint-Steelman ---
+    FQQ --> QV1["V1 PARTIAL (§Z.15): Leakage-Struktur real, Sieb-Portal gescheitert"]
+    FQQ --> QV2["V2 REFUTED B (§Z.15): Witness rank-trivial; NEBENFUND Ramanujan-Fingerprint (§Z.17 repliziert)"]
+    FQQ --> QV3["V3 DEGENERAT (§Z.15): GUE-Konstante 0.5359 -> 0.5996; Kritik1-Audit 2026-10-02: V3 ⟨r⟩ Grade C tot"]
+    FQQ --> QV4["V4 CONFIRMED A− (§Z.16): κ* = 62.26 vs Rough-Modell 62.31 (0.1%)"]
+    FQQ --> QV5["V5 CONFIRMED A− (§Z.18): Kingston-Job daqaeteekp0c73aqetdg, bias +0.0074"]
+    QV5 --> QV5b["EXPERIMENT 046 Repeat (Phase 12, 2026-09-29): Kingston bias −0.0137 = −2.22σ VORZEICHEN-FLIP; Fez-Bein dauassrojkfs738rrcsg QUEUED"]
+    FQQ --> QSA["H-STAR-5 Phase 6a REFUTED (§10.21/§Z.20): R_prime 1.4348 im Shuffle-Band, Perzentil 82.5%"]
+
+    %% --- Shor ---
+    FSH --> QSH["H-SHOR-1 CONFIRMED (§10.20/§Z.19): Bridge-Match 1.0, Korselt-Blindheit exakt, 0 QPU (Prereg Legacy-MD5 73bc664a)"]
+
+    %% --- RAM-Q ---
+    FRQ --> RQ1["H-RAM-Q-1 GENERALIZED (Phase 7): Fünf zyklotomisch ABGELEITET (Atom n0 = 1 + q−1), q = 7 blind 4/4"]
+    RQ1 --> RQ2["H-RAM-Q-2 CONFIRMED (Phase 8): B2 q-universal EXAKT, Wraparound |G|²/(dm)"]
+    RQ2 --> RQ3["H-RAM-Q-3 VOID_CALIBRATION (Phase 9, Fez darq1stvr3kc73ej96ig): Defizit — alle 13 κ̂ unter 0.81, Ursache Loschmidt-Echo nicht Readout"]
+    RQ3 --> RQ3b["H-RAM-Q-3b REFUTED (Phase 10, dartdg5vr3kc73ejcrgg): Kalibri-Ziel eingelöst, 13/13 unter c(κ̂) − w_B′ = Suppression — erster verdict-tragend REFUTED der Serie"]
+    RQ3b --> RQ4["H-RAM-Q-4 REFUTED (Phase 11, dat1o6qhcrkc73dtgo60, 116×8192): Falsifikator GENAU 3/13 am q5-Bein (467/547/673)"]
+    RQ4 --> RQ47["EXPERIMENT 047 (Phase 12, Fez 2026-09-29): REFUTED REPRODUIERT -> H-RAM-Q-5a SESSIONROBUST (7a95cff)"]
+    RQ4 --> RQ6["H-RAM-Q-6 (EXPERIMENTE 050/051 Kingston TOKEN2, §10.33/§10.34/§Z.32/§Z.33): D1_PARTIAL + D2 K2_D2_REFUTED_KEIN_TRANSFER + D3 K2_D3_REFUTED_SIGN — dritte unabhängige Niederlage der P-Vorzeichen-Lesart"]
+
+    %% --- H-TEST1/2 ---
+    FT1 --> T48["EXPERIMENT 048 H-TEST1 CONFIRMED (§10.31/§Z.30): 5/8 an der Kante"]
+    T48 --> T48b["EXPERIMENT 048b Diagnostik NOTWANDERUNG_GEFALLEN 0/8: KEIN GF(5)-Vorteil (Legacy-MD5 4f7c65d4)"]
+    T48b --> T49["EXPERIMENT 049 frozen DEGENERAT: GATE-A-Float64-Grenze"]
+    T49 --> T49b["EXPERIMENT 049b rang-kontrolliert RANGGETRAGEN_GEFALLEN (§10.32/§Z.31): partial −0.298786 vs q95 0.640256 (GATE-A′, C_K = 64); Konfund-Delta = numpy-BUILD-Delta bit-exakt"]
+
+    %% --- S4 ---
+    FS4 --> S1["S₄-Prereg v1 (aa8e77cc) DEGENERAT verworfen; v2 (837dae2c) kanonische 12er-Familie frozen VOR Messung"]
+    S1 --> S45["EXPERIMENT 045 H_S4_CLOSURE_DEVIATION_FOUND (§10.30/§Z.29): GENAU EINE r_median-Verletzung 1.026e-08, 0.05% reproduziert, KEINE Toleranz-Erhöhung"]
+    S45 --> S52["EXPERIMENT 052 EINSTUFUNG H_S4CLOSURE_R2_QUELLEN_ARTEFAKT (§10.35, 0 QPU): L2 unified hebt die T5-Verletzung in allen 4 Lesarten unter TOL (Margins 1.19/37.3/1.56); 045-Verdict bleibt unangetastet"]
+
+    %% --- H9-Deck ---
+    FH9 --> H9D["Deck H-H9-1..7 / SA-H9-1..7 (2026-09-29, Commit 139b52b, 0 QPU): Session-stabile P-Struktur (S +0.896, 9/9 bei |res| ≥ 0.01); SA κ̂-Tail-Antithese TOT"]
+    H9D --> H9A["H9a Test A (s(P)-Fit): KEINE ex-ante-Familie M0–M4 trägt (beste q5-tief 4/10 vs M0 5) → glatte s(P)-Extrapolation weg"]
+    H9D --> H9B["H9a 2/n (09f1fe6): F-Prio 6 n-5-Atom-Familie FALSIFIZIERT — max_within 3.191 = |5.120 − 1.929| r_median-Kanal; per-Instanz-t′-Diskontinuität"]
+    H9D --> H9C["H9a 3/n (f0fdd4c): F-Prio 7 N-Sweep 16777215/10^7/10^8 UEBER_BAND (L7a 0.1008/L7b 0.1044/L7c 0.1002/L8 0.0958); Grenzwert-Zeile 0.08669525356827014 exakt im Band"]
+    S52 -.-> H9D
+    H9D --> H9O["H-H9-6 OFFEN: 046-Fez-Bein dauassrojkfs738rrcsg pending"]
+
+    %% --- H-ZQZ ---
+    FZQ --> ZQZ["EXPERIMENT 053 H-ZQZ (§10.38/§Z.35, 0 QPU, G1 Exakt-Statevector): L1 HELD bit-exakt (Pins 0.0, R_a_max 1+2e-16) / L2 REDUNDANT_WITH_S_VN (ρ = 0.9701703360404135) / L3 REFUSED_OUT_OF_BAND (r_unf 0.5141345707251959 unter Band-Unterkante 0.52; GOE-Abstand 0.0166 als C−-Diagnostik)"]
+    ZQZ --> ZQZ54["EXPERIMENT 054 (GOE-Dritte-Observable) ANGEBOTEN, NICHT ausgeführt"]
+
+    %% --- Governance + offen ---
+    ARC --> GV["Governance: §10.36-Messverbund (flowchart TB), §10.37 +30/Union-Regel + quantor_coverage, claims-Live-Pin test_count 1406"]
+    GV --> OP55["OFFEN: EXPERIMENT 055 FP48-COMBINED (160 Kreise, ISA_OK 830/84/160, Prereg Legacy-MD5 b7afc42c, Fez-Job db0m71qvog1s73fh15og QUEUED) -> Roh-Commit VOR Auswertung -> §10.39/§Z.36"]
+
+    classDef ok fill:#5f5,stroke:#333,stroke-width:2px
+    classDef ref fill:#f96,stroke:#333,stroke-width:2px
+    classDef amb fill:#fc9,stroke:#333,stroke-width:2px
+    classDef offen fill:#ff9,stroke:#333,stroke-width:3px
+    class A1,A2,A4,QV4,QV5,QSH,RQ1,RQ2,T48 ok
+    class QV2,QSA,T48b,T49b,RQ3b,RQ4,RQ6,H9A,H9B,H9C ref
+    class QV1,QV3,RQ3,T49,S1,S45,S52,A3,ZQZ,QV5b amb
+    class H9O,ZQZ54,OP55 offen
+```
+
+**Einstufungs-Legende:** grün = CONFIRMED/HOLDS/GENERALIZED, orange = REFUTED/GEFALLEN/FALSIFIZIERT, amber = PARTIAL/DEGENERAT/VOID/EINSTUFUNG, gelb = OFFEN (gebucht, nicht ausgewertet). Quellen: §10-Findings-Log, SYNTHESIS §Z, claims.py (Live-Pins), Deck HYPOTHESEN_UND_ANTITHESES_H9; alle Zahlen mit Ledger-Anker, Legacy-MD5-Pins als historische Anker gekennzeichnet (SHA-256-Politik ab 2026-10-05 für neue Pins).
