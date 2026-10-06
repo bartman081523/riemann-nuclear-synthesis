@@ -18,7 +18,8 @@
   "isa_frisch":"qpu.transpile_forced(live_backend, circuits) FRISCH (FORCED-Layouts + 12 unforced Auto; S1-2q-Bit-Anker bleibt Gate) — weil die Submission-ISA nicht rekon-struktierbar ist (committete ops = Counts-Dict).",
   "kein_qpu_job":"0 QPU-Gewicht: KEIN Sampler/Estimator-Job, KEIN Submit; read-only Service-Kontakt (get_service/get_backend) nur fuer die frische Transpile-Diagnostik.",
   "reduktion":"Aktiv-Qubit-Reduktion: active = Instruktions-Qubits; num_clbits UNVERAENDERT (Keys byte-identisch), Qubit-Indizes remappt, max_active <= 24 (assert).",
-  "simulation":"AerSimulator(method='statevector'), IDEAL (kein Noise Model), shots h3.SHOTS = 8192, seed_simulator 20261006 ex ante, EIN run() ueber alle 160."
+  "seed_mechanik_lesson":"Einzeln-Replay eines Batch-Experiments mit demselben Seed ist in AerStatevector NICHT position-stabil: die per-Experiment-RNG-Stroeme haengen am Batch-Kontext (nicht an seed+i — weder roher Seed noch Position-Offset reproduziert pos>0; pos 0 schon).  Der volle Sofort-Replay im selben Prozess ist bit-identisch. Interpreter je Lauf pinnen (049b-Metrologie-Lektion).",
+  "simulation":"AerSimulator(method='statevector'), IDEAL (kein Noise Model), shots h3.SHOTS = 8192, seed_simulator 20261006 ex ante, EIN run() ueber alle 160 + EIN Sofort-Replay desselben Batches im selben Prozess (c_seed, R1-Mechanik)."
  },
  "experiment":"055b-fp48-statevector-ideal",
  "freeze_discipline":[
@@ -72,7 +73,7 @@
   "c_cal_ideal":"Readout-Kalibrier im IDEAL: p0_fraction(cal_2q) == 1.0 UND p0_fraction(cal_3q) == 1.0 (All-nuller; sonst dokumentiert, was der Kalibrier-Circuit wirklich praeperiert).",
   "c_cell":"ISA-Zell-Diagnostik (s. design.isa_cell_diagnostik).",
   "c_law_bindings":"Die gefrorenen t-Checks des Gesetzes (md5, t3, t4, t5, t6) laufen im Mirror und werden dokumentiert.",
-  "c_seed":"Rerun EINES Circuits (struct_q5_d5_467_r0) mit DEMSELBEN seed_simulator -> counts BIT-IDENTISCH (Determinismus)."
+  "c_seed":"Sofort-Replay des GESAMTEN Batches IM SELBEN PROZESS (identische reduced-Circuits, identischer Seed) -> alle 160 counts BIT-IDENTISCH (Determinismus).  R0-Lektion: Einzeln-Replay EINES Circuits mit demselben Seed reproduziert Batch-Positionen > 0 NICHT (AerStatevector-RNG-Stroeme haengen am Batch-Kontext, nicht an seed+i; Bell-Referenzprobe b1==b2==b3 bit-identisch, Einzeln-Replay von pos>0 verfehlt beide Seed-Mappings)."
  },
  "mirror_contract":{
   "call":"evaluate(raw_path=SV_RAW, stage3_path=STAGE3_PATH (committed), isa_path=SV_ISA_REPORT (frisch), gate_path=SV_ISA_GATE (frisch), prereg_path=None)",
@@ -133,5 +134,16 @@
  },
  "registered":"2026-10-06",
  "runtime_abort_branches":"transpile_forced kann (a) RuntimeError werfen, wenn ein FORCED-Row kein slot-2q-Ceiling erfuellt (Live-Targets driftet) oder (b) AssertionError der 12-unforced-2q-Bit-Anker (S1-Report) — beides Abbruch der runs (kein Verdict); Restart nach Reparatur.",
- "status":"REGISTERED_NOT_MEASURED"
+ "status":"REGISTERED_NOT_MEASURED",
+ "version_regie":{
+  "R0_freeze_sha256":"de15ffb8ff6b5884cac13af2a13567a0833c6b2b5c5e459747562c89b4099f84",
+  "R0_raw_fate":"R0-Raw (c_seed False aus R0-Mechanik, counts_md5 5c5c4441616b1f199df1336b0d433d17, sha256 a48467f9...) NIE evaluiert: uncommitted verschoben in *_R0-Superseded-Artefakte und im Re-Freeze-Commit dem Ledger uebergeben; ISA-2q-Tally 830/84 bit-gleich committet, Zell-Drift 46/160 nur 1q-ops (Fez-Target-Refresh-Signatur).",
+  "delta_vs_R0":[
+   "c_seed-Mechanik korrigiert: R0 = 'Rerun EINES Circuits' -> R1 = 'Sofort-Replay des GESAMTEN Batches im selben Prozess' (Einzeln-Replay ist in AerStatevector nicht position-stabil — Batch-RNG-Stroeme haengen am Kontext).",
+   "design.seed_mechanik_lesson ergaenzt (R0-Lektion dokumentiert); design.simulation nennt den Replay.",
+   "KEINE Veraenderung an Hypothesen, Schwellen, Design-Budget, Mirror-Contract, banned_from_raw."
+  ],
+  "kein_metrik_weakening":true,
+  "version":"R1"
+ }
 }

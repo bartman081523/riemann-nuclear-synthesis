@@ -7,7 +7,7 @@ build_hardware_circuit_set, bit-identisch zur QPU-Mechanik) auf
 AerSimulator(method="statevector") IDEAL messen — Pre-Submission-
 Mechanik mit read-only Service-Kontakt (get_service/get_backend, KEIN
 Job, KEIN Submit).  Der QUEUED-QPU-Job db0m71qvog1s73fh15og und das
-gefolgene 055-Ensemble (Prereg legacy md5 b7afc42c..., gefrorenes
+QPU-055-Ensemble (Prereg legacy md5 b7afc42c..., gefrorenes
 Gesetz pt_ram_q_prio48_eval.evaluate) bleiben UNANGETASTET.
 
 Distillations-Frage: was traegt das 055-Design IDEAL — separiert vom
@@ -33,6 +33,18 @@ rekonstruierbar.  Deshalb transpiliert 055b FRISCH am Live-Backend
 (ISA_CELL_IDENTICAL / ISA_CELL_DRIFT) — bei Drift laeuft die leg
 WEITER (registrierte Regel, dokumentiert): die IDEAL-Messung haengt
 an der FRISCHEN Transformation.
+
+Re-Freeze R1 (2026-10-06, 0 QPU, VOR jeder Auswertung): der R0-Freeze
+(sha256 de15ffb8...) trug eine defekte c_seed-Kontrolle — Aer-Batch-
+RNG-Stroeme sind batch-kontextabhaengig, Einzeln-Replay reproduziert
+nur Position 0 (Bell-Referenzprobe: Voll-Batch-Sofort-Replay
+bit-identisch, Positionsinvarianz der Nachbarn, Einzel-Replay von
+Position > 0 nicht reproduktiv).  R1-Mechanik: c_seed = EIN Sofort-
+Replay desselben vollen Batches im selben Prozess (alle 160 Zeilen
+bit-identisch erwartet).  Das R0-Raw ist NIEMALS ausgewertet und nie
+committet; es geht als *_R0-Suffix in den Freeze-Commit ein.  Kein
+Metrik-Weakening (Schwellen/Budgets/Hypothesen UNVERAENDERT);
+Praezedenz Phase-10b (EXPERIMENT 043, MD5 5b91119b -> 0b9c9968).
 
 Aktiv-Qubit-Reduktion: active = Vereinigung der Instruktions-Qubits
 (inkl. Messen); QuantumCircuit(len(active), num_clbits UNVERAENDERT);
@@ -72,8 +84,8 @@ MAX_ACTIVE_QUBITS = 24      # Sicherheits-Grenze der Reduktion
 TOL_SEED = 0                # c_seed: counts BIT-IDENTISCH
 KAPPA_CEILING = h3.KAPPA_CEILING  # 0.81
 ECHO_FLOOR_IDEAL = 0.99
-PREREG_SHA256 = ("de15ffb8ff6b5884cac13af2a13567a0"
-                 "833c6b2b5c5e459747562c89b4099f84")  # Freeze 2026-10-06
+PREREG_SHA256 = ("c708d9054a325381914a1436dadaa0a2"
+                 "bf4d33eefe79cb2cde73274dc0a43b2f")  # Re-Freeze R1 2026-10-06
 
 V_H1_HELD = "H-055B-1_IDEAL_KAPPA_HELD"
 V_H1_REF = "H-055B-1_IDEAL_KAPPA_REFUTED"
@@ -146,6 +158,31 @@ def build_prereg_payload():
         "status": "REGISTERED_NOT_MEASURED",
         "branch": "h-test1-gap-invariance",
         "g_typ": G_TYP,
+        "version_regie": {
+            "version": "R1",
+            "R0_freeze_sha256":
+                "de15ffb8ff6b5884cac13af2a13567a0833"
+                "c6b2b5c5e459747562c89b4099f84",
+            "delta_vs_R0": [
+                "c_seed-Mechanik korrigiert: R0 = 'Rerun EINES Circuits' "
+                "-> R1 = 'Sofort-Replay des GESAMTEN Batches im selben "
+                "Prozess' (Einzeln-Replay ist in AerStatevector nicht "
+                "position-stabil — Batch-RNG-Stroeme haengen am Kontext).",
+                "design.seed_mechanik_lesson ergaenzt (R0-Lektion "
+                "dokumentiert); design.simulation nennt den Replay.",
+                "KEINE Veraenderung an Hypothesen, Schwellen, Design-"
+                "Budget, Mirror-Contract, banned_from_raw.",
+            ],
+            "R0_raw_fate": (
+                "R0-Raw (c_seed False aus R0-Mechanik, counts_md5 "
+                "5c5c4441616b1f199df1336b0d433d17, sha256 "
+                "a48467f9...) NIE evaluiert: uncommitted "
+                "verschoben in *_R0-Superseded-Artefakte und im "
+                "Re-Freeze-Commit dem Ledger uebergeben; ISA-2q-Tally "
+                "830/84 bit-gleich committet, Zell-Drift 46/160 nur "
+                "1q-ops (Fez-Target-Refresh-Signatur)."),
+            "kein_metrik_weakening": True,
+        },
         "motivation": (
             "Fez-Kanal-Starvation (QUEUED db0m71qvog1s73fh15og 055, "
             "dauassrojkfs738rrcsg 046, daua5hahcrkc73dv9eh0 F4; letzter "
@@ -202,7 +239,17 @@ def build_prereg_payload():
             "simulation": (
                 "AerSimulator(method='statevector'), IDEAL (kein Noise "
                 "Model), shots h3.SHOTS = 8192, seed_simulator "
-                "20261006 ex ante, EIN run() ueber alle 160."),
+                "20261006 ex ante, EIN run() ueber alle 160 + EIN "
+                "Sofort-Replay desselben Batches im selben Prozess "
+                "(c_seed, R1-Mechanik)."),
+            "seed_mechanik_lesson": (
+                "Einzeln-Replay eines Batch-Experiments mit demselben "
+                "Seed ist in AerStatevector NICHT position-stabil: die "
+                "per-Experiment-RNG-Stroeme haengen am Batch-Kontext "
+                "(nicht an seed+i — weder roher Seed noch Position-"
+                "Offset reproduziert pos>0; pos 0 schon).  Der volle "
+                "Sofort-Replay im selben Prozess ist bit-identisch. "
+                "Interpreter je Lauf pinnen (049b-Metrologie-Lektion)."),
             "kein_qpu_job": (
                 "0 QPU-Gewicht: KEIN Sampler/Estimator-Job, KEIN Submit; "
                 "read-only Service-Kontakt (get_service/get_backend) "
@@ -285,8 +332,14 @@ def build_prereg_payload():
         },
         "kontrollen": {
             "c_seed": (
-                "Rerun EINES Circuits (struct_q5_d5_467_r0) mit DEMSELBEN "
-                "seed_simulator -> counts BIT-IDENTISCH (Determinismus)."),
+                "Sofort-Replay des GESAMTEN Batches IM SELBEN PROZESS "
+                "(identische reduced-Circuits, identischer Seed) -> alle "
+                "160 counts BIT-IDENTISCH (Determinismus).  R0-Lektion: "
+                "Einzeln-Replay EINES Circuits mit demselben Seed "
+                "reproduziert Batch-Positionen > 0 NICHT (AerStatevector-"
+                "RNG-Stroeme haengen am Batch-Kontext, nicht an seed+i; "
+                "Bell-Referenzprobe b1==b2==b3 bit-identisch, "
+                "Einzeln-Replay von pos>0 verfehlt beide Seed-Mappings)."),
             "c_cal_ideal": (
                 "Readout-Kalibrier im IDEAL: p0_fraction(cal_2q) == 1.0 "
                 "UND p0_fraction(cal_3q) == 1.0 (All-nuller; sonst "
@@ -373,9 +426,18 @@ def cell_compare(fresh_report, fresh_gate):
                       if fp[n]["ops"] != cp[n]["ops"])
     n2q_diff = sorted(n for n in fp
                       if fp[n]["n_2q"] != cp[n]["n_2q"])
+    # 12 UNFORCED (layout_source auto) tragen initial_layout in BEIDEN
+    # Reports NICHT (Konvention, z.B. ladder_*). Absent-ab-sent =
+    # identisch; asymmetrisch (nur eine Traeger-Seite) = echtes Delta.
     lay_diff = sorted(n for n in fp
-                      if list(map(int, fp[n]["initial_layout"]))
-                      != list(map(int, cp[n]["initial_layout"])))
+                      if ("initial_layout" in fp[n])
+                      != ("initial_layout" in cp[n])
+                      or ("initial_layout" in fp[n]
+                          and "initial_layout" in cp[n]
+                          and list(map(int, fp[n]["initial_layout"]))
+                          != list(map(int, cp[n]["initial_layout"]))))
+    lay_absent_both = sorted(n for n in fp if "initial_layout" not in fp[n]
+                             and "initial_layout" not in cp[n])
     verdict = ("ISA_CELL_IDENTICAL"
                if not (ops_diff or n2q_diff or lay_diff)
                else "ISA_CELL_DRIFT")
@@ -399,6 +461,7 @@ def cell_compare(fresh_report, fresh_gate):
         "ops_diff_names": ops_diff,
         "n_2q_diff_names": n2q_diff,
         "initial_layout_diff_names": lay_diff,
+        "initial_layout_absent_beide": lay_absent_both,
         "n_diff": len(set(ops_diff) | set(n2q_diff) | set(lay_diff)),
         "ops_delta": {
             n: {"committed": cp[n]["ops"], "fresh": fp[n]["ops"]}
@@ -438,7 +501,7 @@ def run_measurement():
         active_max = max(active_max, red.num_qubits)
     sim = AerSimulator(method="statevector")
     result = sim.run(reduced, shots=h3.SHOTS,
-                     seed_simulator=SEED_SIMULATOR)
+                     seed_simulator=SEED_SIMULATOR).result()
     counts_list = []
     for i, c in enumerate(circuits):
         raw_counts = result.get_counts(i)
@@ -450,16 +513,26 @@ def run_measurement():
             "shots_actual": int(sum(counts.values())),
             "counts": counts,
         })
-    # c_seed: Rerun EINES Circuits mit demselben Seed
-    probe_idx = next(i for i, c in enumerate(circuits)
-                     if c["name"] == "struct_q5_d5_467_r0")
-    rerun = sim.run([reduced[probe_idx]], shots=h3.SHOTS,
-                    seed_simulator=SEED_SIMULATOR)
-    seed_counts = {str(k): int(v)
-                   for k, v in rerun.result.get_counts(0).items()}
+    # c_seed (R1-Mechanik): Sofort-Replay des GESAMTEN Batches im selben
+    # Prozess (identische reduced-Circuits, identischer Seed) — alle 160
+    # counts bit-identisch.  R0-Lektion: Einzeln-Replay EINES Circuits
+    # reproduziert Batch-Positionen > 0 NICHT (die Aer-Statevector-
+    # RNG-Stroeme der Experimente haengen am Batch-Kontext, nicht an
+    # seed+i; bewiesen am Bell-Referenzbatch: b1==b2==b3 bit-identisch,
+    # Einzeln-Replay von pos>0 verfehlt beide Seed-Mappings).
+    result2 = sim.run(reduced, shots=h3.SHOTS,
+                      seed_simulator=SEED_SIMULATOR).result()
+    diffs = []
+    for i in range(len(reduced)):
+        rc = {str(k): int(v) for k, v in result2.get_counts(i).items()}
+        if rc != counts_list[i]["counts"]:
+            diffs.append(i)
     c_seed = {
-        "name": circuits[probe_idx]["name"],
-        "bit_identisch": counts_list[probe_idx]["counts"] == seed_counts,
+        "mechanik": "batch-replay-im-prozess (alle 160, identischer Seed)",
+        "bit_identisch": not diffs,
+        "n_diff": len(diffs),
+        "erste_diff_position": (diffs[0] if diffs else None),
+        "erste_diff_name": (circuits[diffs[0]]["name"] if diffs else None),
         "verdict_rolle": "Kontrolle (nur booleans im RAW)",
     }
     # c_cal_ideal: Readout-Kalibrier im IDEAL (Namen aus NQ_BY_ARM abgeleitet)
@@ -574,6 +647,8 @@ def _h_verdicts_from_mirror(doc, prereg):
 
 def run_evaluation():
     prereg, dig = load_frozen(expected_sha256=PREREG_SHA256)
+    with open(RAW_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
     doc = ev.evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH,
                       isa_path=SV_ISA_REPORT, gate_path=SV_ISA_GATE,
                       prereg_path=None)
@@ -586,6 +661,19 @@ def run_evaluation():
                                               "t4_negative_must_not_fire",
                                               "t5_gate_set_frozen",
                                               "t6_mass_conservation")))
+    # 055b-eigene Kontrollen aus dem RAW (R1-Mechanik) — ein Fehlbetrag
+    # ist INVALID, nicht REFUTED (Kontrollen-Disziplin, 046b-Praezedenz).
+    sv_meta = raw["sv_meta"]
+    k055b = {
+        "c_seed": sv_meta["c_seed"]["bit_identisch"],
+        "c_cal_ideal": sv_meta["c_cal_ideal"]["ok"],
+        "c_cell_verdict": sv_meta["cell_diagnostik"]["verdict"],
+    }
+    invalid = (
+        isinstance(doc.get("verdict"), str)
+        and doc["verdict"].startswith("EVALUATION_INVALID"))
+    if invalid or not (k055b["c_seed"] and k055b["c_cal_ideal"]):
+        kern = KERN_INVALID
     eval_doc = {
         "experiment": EXPERIMENT,
         "hypothesis": HYPOTHESIS,
@@ -610,6 +698,20 @@ def run_evaluation():
                                     "bleiben dem QUEUED Job vorbehalten)",
         },
         "details": details,
+        "kontrollen_055b": {
+            **k055b,
+            "controls_055b_ok": k055b["c_seed"] and k055b["c_cal_ideal"],
+            "invalid_grund": (doc.get("verdict") if invalid
+                              else ("kontrollen_055b_fehl" if not (
+                                  k055b["c_seed"] and k055b["c_cal_ideal"])
+                              else None)),
+            "c_cal_ideal_werte": sv_meta["c_cal_ideal"],
+            "c_seed_streng": sv_meta["c_seed"],
+            "active_qubits_max": sv_meta["active_qubits_max"],
+            "verdict_rolle": ("Kontrollen INVALID, nicht REFUTED "
+                              "(046b-Praezedenz); c_cell ist descriptiv "
+                              "DIAGNOSTIK (WEITERLAUF-Regel)"),
+        },
         "sv_meta_from_raw": {
             "cell_diagnostik": doc.get("isa_leg_dokumentation"),
             "mirrored_from": RAW_PATH,
