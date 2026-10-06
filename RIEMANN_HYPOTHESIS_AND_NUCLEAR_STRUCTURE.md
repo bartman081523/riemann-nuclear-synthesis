@@ -1133,7 +1133,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | §Z.17 α-Trennung + Ramanujan-Replikation | §10.17 hier | `pt_alpha_results.json`, `pt_ramanujan_results.json`, SYNTHESIS §Z.17 |
 | §Z.18 V5 Kingston + H-STAR-5-Registrierung | §10.18 hier | `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`, SYNTHESIS §Z.18 |
 | Strategic Vectors Gesamtstatus | §10.19 hier | §10.8 (historisch) + §10.19 (Ququint-Arc) |
-| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-06) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5 (+046b Statevector-Identität), Shor, RAM-Q-1..6 (+055b IDEAL-Mirror), H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ 053→054-Einstufung; §10.39/§Z.36 belegt (EXPERIMENT 054), §10.40/§Z.37 belegt (EXPERIMENT 046b), §10.41/§Z.38 belegt (EXPERIMENT 055b), §10.42/§Z.39 reserviert (EXPERIMENT 055 QPU) |
+| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-06) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5 (+046b Statevector-Identität), Shor, RAM-Q-1..6 (+055b IDEAL-Mirror), H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ 053→054-Einstufung; §10.39/§Z.36 belegt (EXPERIMENT 054), §10.40/§Z.37 belegt (EXPERIMENT 046b), §10.41/§Z.38 belegt (EXPERIMENT 055b), §10.42/§Z.39 reserviert (EXPERIMENT 055 QPU), §10.43/§Z.40 belegt (EXPERIMENT 055c primequant-Pilot G2-EXAKT, 0 QPU) |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 
@@ -3612,7 +3612,7 @@ vs logical ohne Layout), Observables re/hd/im als exakte
 Run-Prints bit-identisch reproduzierbar), `bias = re − hd` exakt. Zwei
 verdict-tragende Hypothesen: **H-V5RB-1** NOISELESS_ANCHOR_REPRODUCED
 (re/hd/im gegen die committeten 035-NOISELESS-Pins, Grenze 1e-6 ==
-gefrorne C2-Toleranz; `bias == 0.0` EXAKT) und **H-V5RB-2**
+gefrorene C2-Toleranz; `bias == 0.0` EXAKT) und **H-V5RB-2**
 LOGICAL_ISA_BIAS_IDENTITY (dev(log-vs-ff) ≤ 1e-9, bias_log/bias_ff ≤
 1e-12 — „unterhalb jeder Shot-Ungleichheit"); KERN-MAP
 HELD/MIXED/REFUTED ex ante. Referenzkonstanten aus dem committeten
@@ -3627,7 +3627,7 @@ Auswertung 09:42, Raw-SHA-256
 `a6913bedd9a3090b64fb547fd76121707f81315b292c5fe3cfe8019ae8b86c09`,
 KEINE Verdict-Felder, legs fakefez_isa/logical als re/hd/im/bias,
 isa_counts_fakefez, Kontrollen als C1–C6-Booleans, prereg-Pin) →
-`1830557` (gefrorne Auswertung + 11 Tests, 09:44) → Doku (dieser
+`1830557` (gefrorene Auswertung + 11 Tests, 09:44) → Doku (dieser
 Commit).
 
 **Verdict H-V5RB-1 (HELD).** Alle vier Abweichungen unter 1e-6: |re −
@@ -3744,7 +3744,7 @@ DEM Mirror-DOC-Feldern abgeleitet und verdict-tragend NUR für 055b
 Auswertung, 10:13; Raw-SHA-256
 `1c75c1595ca50a68af495c0e70e3c6045109793598413d7a23026337072ea562`,
 counts_md5 `a126430cd770325e1dd8009ad84d66d9`, ISA_CELL_DRIFT 3/12
-UNFORCED 1q-Zweig-Delta, 2q 830/830 bit-exakt) → `6a12247` (gefrorne
+UNFORCED 1q-Zweig-Delta, 2q 830/830 bit-exakt) → `6a12247` (gefrorene
 Auswertung + 12 Tests + claims-Pin 1429 → 1452 + Test-Konvention
 repariert, 10:30) → Doku (dieser Commit).
 
@@ -3847,8 +3847,203 @@ counts_md5 `a126430c…66d9`) → `6a12247` (Auswertung + 12 Tests,
 claims-Pin, Convention-Reparatur, Erratum, Interpreter-Pin) → Doku
 (dieser Commit). Module: `pt_ram_q_prio48_sv.py`,
 `tests/test_pt_ram_q_prio48_sv.py`; Mirror-Gesetz:
-`pt_ram_q_prio48_eval.evaluate` (gefronenes 055-Prereg MD5 b7afc42c-Kette);
+`pt_ram_q_prio48_eval.evaluate` (gefrorenes 055-Prereg MD5 b7afc42c-Kette);
 Queued-Kontext: 055-FP48-COMBINED `db0m71qvog1s73fh15og`; Bell-
 Referenzprobe der R0-Seed-Lektion (3 Varianten ry 0.7/1.7/0.3) als
 Empirie für die Batch-Kontextabhängigkeit der AerStatevector-RNG.
 Verwandt: SYNTHESIS_2026_06_10.md §Z.36.
+
+---
+
+## §10.43 — EXPERIMENT 055c (H-055C, primequant Fork — Phase-C-Pilot G2-EXAKT): die SEED-FREIE EXAKTE Spiegel-Auswertung der 055-FP48-COMBINED-Circuits — **H-055C-1 DELTA_TVL1_EXAKT_NULL HELD / H-055C-2 ABS_FFT_ULP_BAND REFUTED (genau 1/111: calstruct_q5_d5_433_r0, 4 ULP, Binaden-Mechanik) / H-055C-3 NEGATIVE_CONTROLS_SIMULTAN HELD / H-055C-4 FALTFORM_BIT_IDENTISCH HELD → KERN H-055C_KERN_MIXED (B+): die exakte Schicht trägt die 055b-Statistik bit-faithful, das ex-ante-2-ULP-Band ist finite-size zu eng** (Branch `h-test1-gap-invariance`, 2026-10-06, 0 QPU, G2-EXAKT)
+
+**Anfangspunkt.** Fork-Direktive (2026-10-06): „wir dürfen niemals die
+normalen rnd funktionen verwenden, mit seed … jetzt machen wir unseren
+eigenen qiskit fork". Nach Phase A (exaktes Paket + generischer
+zyklotomischer Ring Z[x]/(Φ_q) + GF(q)-Körper, `7c20ddd`, Suite
+1452 → 1542) und Phase B (Kanäle/Verteilungen/Bänder/Observablen/
+Kalibrier-/Anker-Schicht, `b0ac0e0` + `f37934b`, Suite → 1601) ist
+Phase C der erste verdict-tragende End-to-End-Pilot: derselbe
+160-Circuit-Spiegel der 055-FP48-COMBINED-Circuits, aber vollständig
+exakt (int/Fraction), SEED-FREI, transpile-frei, qiskit-frei und
+Token-frei — Op-COUNTS aus dem committeten ISA-Report (V12, kein Re-
+Transpile, entfällt seed_transpiler), Counts aus dem committeten
+055b-SV-Roh dual gepinnt (counts-only-MD5 `a126430c…66d9` + volle
+Reihenliste-SHA-256 `289f1f4e…a2`, anchors-Konvention L113). 055c ist
+ein NEUES Experiment — kein Re-Decide von 055b; committete
+Bestands-Verdicts (053/054/046b/055b) bleiben BYTE-UNANGETASTET.
+Kein Kontakt zu den drei QUEUED Jobs (046 `dauassrojkfs738rrcsg`,
+055 `db0m71qvog1s73fh15og`, F4 `daua5hahcrkc73dv9eh0`).
+
+**Konstruktion.** Freeze TOGETHER VOR dem ersten Lauf (`0a66007`):
+Runner `pt_ram_q_prio48_exakt.py` + Prereg
+`pt_ram_q_prio48_exakt_prereg.json` (payload-kanonischer SHA-256
+`279749d3dbb3d09ec02092c1daad5479fb7cd3f3760e39a9d68bbf8453b5e4f1`,
+Datei-Freeze-Pin
+`99a99022a25c737974b01bd649f4abc7391b4d25bc0b91c56f0bed931b21f0bb`,
+REGISTERED_NOT_MEASURED, R0; Freeze-Vergleich an Lauf UND Auswertung
+erzwungen — 053-Lektion, Byte- statt Indent-Vergleich). Kontrollen
+K1a–K5 ZUERST (prereg-Identität / sv-Source-Pins / Reihen-Schema
+160+ROW_KEYS+TALLY+8192 / ISA-Sha `5b0d17a7…` + per-Arm-Aggregation
+mit `ohne_arm:readout_cal`-Bucket / Erste-Reihe-Quote-Kette +
+NC-Modell-TVs) — Abbruch VOR jeder Statistik bei Verstoß. Vier
+Hypothesen EX ANTE: **H-055C-1** DELTA_TVL1_EXAKT_NULL (45 Delta-
+Reihen tv == Fraction(0)), **H-055C-2** ABS_FFT_ULP_BAND
+(|Δ(exakte Quote, ABS-FFT-Spiegel)| ≤ 2·ulp(anteil_flt_falt) über 111
+struct-Reihen), **H-055C-3** NEGATIVE_CONTROLS_SIMULTAN (tv ≤ 1/50
+UND per-Label zweiseitig ≥ α 1/240 (q3) bzw. 1/400 (q5),
+Bonferroni-V11, SIMULTAN), **H-055C-4** FALTFORM_BIT_IDENTISCH
+(faltform_float == anteil_flt_falt). banned_from_raw auf Feld/Key-
+Ebene BINDEND. Zwei Runner-Lektionen (alle VOR dem Freeze): p-Werte
+tragen Numeratoren/Denominatoren ~42^8192 — str(Fraction) sprengt
+die int-str-Grenze (4300 Ziffern) → p_werte_serialisierung als
+SHA-256-Pins über kanonische Fraction-Bytes (Vorzeichenbyte :
+num.to_bytes : den.to_bytes), vom eval exakt rekomputiert; ISA-
+readout_cal-Circuits ohne Arm → `ohne_arm:readout_cal`-Bucket statt
+None-Key. Dry-run vor dem Freeze war Implementierungs-Verifikation,
+KEIN Schwellen-Tuning (T1–T4 standen im Plan).
+
+**Kette.** `7c20ddd` (Phase A, Suite 1542, rootdir-Verifikation §9.1)
+→ `b0ac0e0` (Phase B, Suite 1601, Diagonal-Abschluss-Theorem,
+Integer-Term-Walk 480×) → `f37934b` (Deck-Nachzug — Lektion: BEIDE
+Rendierungen je Bump) → `0a66007` (Freeze 055c) → `4c6cc57` (Roh VOR
+Auswertung, Raw-SHA-256
+`130ee9c0590b2b4f15d8d4dd8621f6aa6c645cd529527d743fcaf3f12d180b31`,
+197114 Bytes, 160 Reihen garantie EXAKT, kinds-Spiegel 055b:
+structure 39 / loschmidt 13 / echo_ladder 6 / kalibrier_structure 72 /
+kalibrier_loschmidt 24 / negative_control 4 / readout_cal 2;
+DELTA_ARTEN = 45, STRUKT_ARTEN = 111) → `9bc423f` (GEFRORENE
+AUSWERTUNG + Tests + Suite/Pin/Rends) → Doku (dieser Commit).
+
+**Verdict H-055C-1 — DELTA_TVL1_EXAKT_NULL HELD.** Alle 45
+Delta-Muss-Reihen (loschmidt 13 + kalibrier_loschmidt 24 +
+echo_ladder 6 + readout_cal 2) tragen tv == "0" exakt
+(Fraction(0)), verletzt_bei []; jede trägt modell[0] == "1" und
+massa_label0 == "1" — die Delta-Statistik bit-exakt auf 0^n
+reproduziert (V8, Delta-Sättigung erwartet als Freeze-Aussage).
+
+**Verdict H-055C-2 — ABS_FFT_ULP_BAND REFUTED (ehrlicher
+Negativbefund).** max_delta_fft_ulp = 4.0 > 2-ULP-Band; GENAU EINE
+Verletzung von 111 struct-Reihen: `calstruct_q5_d5_433_r0`.
+Mechanismus (dokumentiert, KEIN Toleranz-Raise, KEIN Re-Decide): das
+ABS-FFT-Spiegel-Residuum ist der FESTE Wert 2^-49 =
+1.7763568394002505e-15; ob es das 2-ULP-Band verletzt, hängt NUR vom
+Binade der anteil_flt_falt-Zeile ab — [2,4) → ulp 2^-51 → 4 ULP
+(verletzt; die verletzte Zeile trägt ulp 2^-51), [1,2) → 2^-50 →
+2 ULP, [4,8) → 2^-48 → 2 ULP (beide in-Band). Verteilung: 56 @
+0 ULP / 42 @ 1 / 12 @ 2 (in-Band) / 1 @ 4; pro Arm q3_d3 n=48 max
+2.0 (0 über Band) / q5_d5 n=63 max 4.0 (1 über). Das ex-ante-Band
+(V6-Stichprobe maß 1 ULP) unterschätzt den Full-Sweep-Schwanz — die
+Schranke bleibt committet, der REFUTED bleibt verdict-tragend.
+
+**Verdict H-055C-3 — NEGATIVE_CONTROLS_SIMULTAN HELD.** Alle 4
+Negative Controls SIMULTAN unter dem Bonferroni-Band: TVs
+551/86016 (composite_P181) · 79/24576 (uniform_q3) · 835/106496
+(composite_P467) · 31/2560 (uniform_q5) gegen die DEKLARIERTEN
+n_d/m-Modelle ≤ tv-Band 1/50; per-Label zweiseitig ≥ α 1/240 (q3)
+bzw. 1/400 (q5); min_p_labels 2/1/4/1 gepinnt (TV_LABEL_MIN am
+Testfile); min_p-Pin-Koinzidenz disclosed: `9bacf2a3…` = frak_pin
+(Fraction(1)) — p == 1 tritt bei null-beobachteten Labels exakt auf
+(composite_P181 Label 3, uniform_q3 Label 2, composite_P467 Label
+1); informativer min_p je NC als Pin (`4922a151…` / `95bf641c…` /
+`7cb678af…` / `49b20b90…`) — frak_hash-Dreifach-Kette je NC
+(eigener Rekompute == eval-detail-Pin == raw p_werte_pin).
+
+**Verdict H-055C-4 — FALTFORM_BIT_IDENTISCH HELD.** faltform_float
+== anteil_flt_falt BIT-IDENTISCH über alle 111 struct-Reihen —
+Ein-Rundungs-Beweis: die Faltform (q·ΣN²−m²)/(d·m) hat
+dyadisch-exakten Zähler und rundet auf exakt denselben Float wie
+die exakte Ring-DFT-Quote (Parseval-SUMMEN-Integrität
+Phase-A-Lektion (b) bleibt).
+
+**KERN — H-055C_KERN_MIXED (B+).** Drei Theoreme HELD + ein
+ehrlicher REFUTED am ULP-Band: die exakte Schicht trägt die
+055b-Statistik bit-faithful (Delta-Sättigung exakt, Quote-Kette
+exakt, Faltform bit-identisch, Kontrollen SIMULTAN grün), und das
+ex-ante-2-ULP-Band ist als finite-size-Beobachtung zu eng — kein
+Design-Fehler, kein Metrik-Weakening, kein Re-Decide. Distillation
+für den Fork: der EXAKT-Kern trägt alle vier Schwellen-Arten OHNE
+seeded-RNG, OHNE qiskit, OHNE Transpile, OHNE Token — die eval ist
+ZWEITER PFAD und importiert weder primequant noch qiskit
+(primequant_importiert false / qiskit_importiert false, 3254
+Felder über 160 Reihen, Bruch-Anteil 0 in der
+frozen-discipline-Prüfung key_brueche 0).
+
+**Disclosures (a–f).** (a) Pin-Typo non-abortierend:
+source_pins.sv_dok_prereg_sha256 = 63 Zeichen (Registrierungs-Typo
+im Prereg — ein ‚e' fehlt: `…33eef79…` statt `…33eefe79…`);
+bindende Kette INTAKT — eval-rekompute == sv-dok-top ==
+Runner-Konstante SV_PREREG_SHA256 (64 Zeichen `c708d905…`) ==
+raw counts_md5_source.dok_prereg_sha256, alle 64-Zeichen-Glieder
+bit-gleich; gefrorenes Prereg NICHT editiert (Frozen-Tree-Regel
+§9.4, disclosure statt stiller Korrektur). (b) 63-vs-EIN-Klärung
+(Value-Metrik): die Raw-Commit-Nachricht nannte „EIN
+‚verdict'-Vorkommen" (das ISA-garantie-Vorkommen); die eval-Value-
+Metrik zählt in Wahrheit 63 Substring-Vorkommen = 62 row-'set'-
+Designations-Strings (FROZENE 055b-Set-Vokabel, bit-getreu
+gespiegelt: 055b-Set-Verteilung EXAKT {verdict: 62, cal: 96,
+None: 2} — KEIN Runner-Artefakt) + 1 ISA-garantie-String („NON-
+verdict-Meta: Torzahl-Komposition aus committetem ISA-Report
+(V12)", verneint Verdict-Status explizit). Der Raw-Commit bleibt
+im Ledger (kein Amend); diese Section klärt die Lesart. (c)
+eval-Kosmetik disclosed ohne Re-Write: Feldname
+`sv_raw_sha256_Head` (CamelCase-Head-Suffix; Wert korrekt =
+committete 055b-Roh-SHA-256 `1c75c159…562`) und
+max_delta_quote_ulp 3.0 INFORMATIONAL (Quote-Spiegel nicht
+verdict-tragend). (d) banned_from_raw (freeze_discipline 3)
+Feld/Key-Ebene BINDEND: 0 Verletzungen über die ganze Roh-Keys-
+Wanderung. (e) Kein Test schreibt Projekt-Artefakte, keiner ruft
+die eval main() auf (053-Lektion): die Verdict-Kette wird AUS dem
+committeten eval gelesen und Feld für Feld gegen die committeten
+Rohs nachgerechnet. (f) Suite/Pin/Rends im selben Commit
+(Lektion f37934b befolgt: fidelity_report.md UND deck.html je
+Pin-Bump).
+
+**Artefakte.** `src/primequant/*` (Phasen A/B: `_cyc`/`_gfq`/
+`_guarantees`/stateprep/distributions/bands/observables/
+calibrations/_anchors stdlib-only EXAKT + channels bewusst als
+gemischte Schicht + KNOWN_GAPS.md) + `pyproject.toml` (rootdir
+§9.1 verifiziert); `pt_ram_q_prio48_exakt.py` +
+`pt_ram_q_prio48_exakt_prereg.json` (Freeze `0a66007`);
+`pt_ram_q_prio48_exakt_raw.json` (Roh `4c6cc57`);
+`pt_ram_q_prio48_exakt_eval.py` + `_eval.json` (zweiter Pfad,
+`9bc423f`); `tests/test_pt_ram_q_prio48_exakt.py` (+11, alle
+grün). claims-Live-Pin test_count 1601 → 1612
+(PHASE-C-Chain-Comment); Gate PASS (0 mismatches);
+fidelity_report.md UND deck.html regeneriert; README-Badge +
+Quickstart 1612. Governance: 0 QPU; QPU-Jobs QUEUED UNBERÜHRT;
+gefrorene Bestands-Artefakte BYTE-UNANGETASTET; KEIN Push (Reststand wächst);
+KEIN Amend; Interpreter-Pin: Suite NUR unter ./venv
+(numpy 2.4.6), Roh/eval/Tests unter Py 3.14.7.
+
+**Verwandt.** SYNTHESIS_2026_06_10.md §Z.40 (gleicher Stand,
+Chain-Prepend); INVESTIGATION_PLAN.md-Tree-Knoten OP55C + GG055C
+(Append); §10.40/§Z.37 (046b), §10.41/§Z.38 (055b — Datenbasis),
+§10.39/§Z.36 (054), §10.38/§Z.35 (053); 055-QPU → §10.42/§Z.39
+reserviert (Job `db0m71qvog1s73fh15og` QUEUED); memory
+[[project-no-seeded-rng-primequant-exact]]; claims-Live-Pin
+1452 → 1542 (Phase A +90) → 1601 (Phase B +59) → 1612 (Phase C
++11).
+
+#### Quellenangaben für §10.43
+
+Eingang: Fork-Direktive (2026-10-06, „…jetzt machen wir unseren
+eigenen qiskit fork"); Plan-File `proud-dreaming-adleman.md`
+(Mind ExactQuantumNumericsMind v1.0 20261006 eqn-mix;
+epistemic_rules exactness_hierarchy / noise_as_channel /
+external_anchor_validation / measurement_economy). Kette:
+`0a66007` (Freeze TOGETHER, payload-SHA-256 `279749d3…`,
+Datei-Pin `99a99022…`) → `4c6cc57` (Roh VOR Auswertung,
+Raw-SHA-256 `130ee9c0…d180b31`) → `9bc423f` (GEFRORENE
+AUSWERTUNG + 11 Tests + Suite 1612 + claims-Pin + beide
+Renderings + README-Badge) → Doku (dieser Commit). Module:
+`pt_ram_q_prio48_exakt.py` / `pt_ram_q_prio48_exakt_eval.py`
+(Zweiter Pfad, kein primequant-/qiskit-Import); Quelle:
+`pt_ram_q_prio48_sv_raw.json` (dual gepinnt) +
+`pt_ram_q_prio48_sv_isa_report.json` (SHA-256 `5b0d17a7…`);
+Pins: prereg payload `279749d3…` / Datei `99a99022…` / Raw
+`130ee9c0…` / Runner-Blob `cedf040e…` / SV-Raw-Head
+`1c75c159…`; NC-Pins (frak_pin über kanonische Fraction-Bytes)
+in nc_detail; E1-Registrierung `2026-10-06T13:29:59Z`
+REGISTERED_NOT_MEASURED (hypotheses_payload `e03be9bf…`,
+schwellwerte_payload `e73e7792…`).

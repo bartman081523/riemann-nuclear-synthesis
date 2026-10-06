@@ -662,11 +662,19 @@ graph TD
     GV --> GG054["claims-Live-Pin 1406 → 1429 (054: +23 Tests, test_pt_zqz_goe)"]
     GV --> GG055B["claims-Live-Pin 1429 → 1452 (046b: +11 Tests test_pt_v5_sv, 055b: +12 Tests test_pt_ram_q_prio48_sv; Root-Level-Test-Dateien nach tests/ umgezogen — nie Teil der Collect-Metrik)"]
 
+    %% --- primequant (Fork-Direktive 2026-10-06) ---
+    GV --> PQ["FORK primequant: exaktes, seed-freies Quanten-Numerik-Paket (src-layout, stdlib-only-Kern int/Fraction, generischer Ring Z[x]/(Φ_q) Rang q−1, GF(q) für ALLE Primzahlen, KNOWN_GAPS.md first-class)"]
+    PQ --> PQB["Phase A 7c20ddd: Paket + Ring/GF(q) + Garantien (Suite 1452 → 1542) → Phase B b0ac0e0 + f37934b: Kanäle/Verteilungen/Bänder/Observablen/Kalibrier/Anker (Suite → 1601; Diagonal-Abschluss-Theorem, Integer-Term-Walk 480×)"]
+    PQB --> OP55C["EXPERIMENT 055c (H-055C, §10.43/§Z.40, 2026-10-06, 0 QPU, G2-EXAKT): Seed-FREIER exakter Spiegel der 160 055-FP48-Circuits — Freeze TOGETHER 0a66007 (K1a–K5) → Roh 4c6cc57 VOR Auswertung (SHA-256 130ee9c0, 197114 B) → eval ZWEITER PFAD 9bc423f (kein primequant-/qiskit-Import)"]
+    OP55C --> OP55CV["Verdicts: H-055C-1 HELD (45/45 Delta tv == Fraction(0) EXAKT) / H-055C-2 REFUTED (ex-ante-2-ULP-Band finite-size zu eng, GENAU 1/111: calstruct_q5_d5_433_r0 — residuum fest 2^-49 vs ulp 2^-51 am Binadenrand [2,4), KEIN Toleranz-Raise) / H-055C-3 HELD (NC SIMULTAN 4/4 Bonferroni) / H-055C-4 HELD (Faltform bit-identisch 111/111) → KERN H-055C_KERN_MIXED B+: exakte Schicht trägt 055b bit-faithful OHNE seeded-RNG/qiskit/Token"]
+    GV --> GG055C["claims-Live-Pin 1452 → 1542 (Phase A +90) → 1601 (Phase B +59) → 1612 (Phase C +11, test_pt_ram_q_prio48_exakt)"]
+
     classDef ok fill:#5f5,stroke:#333,stroke-width:2px
     classDef ref fill:#f96,stroke:#333,stroke-width:2px
     classDef amb fill:#fc9,stroke:#333,stroke-width:2px
     classDef offen fill:#ff9,stroke:#333,stroke-width:3px
     class A1,A2,A4,QV4,QV5,QSH,RQ1,RQ2,T48,QV5SV,GG055B ok
+    class OP55CV ok
     class QV2,QSA,T48b,T49b,RQ3b,RQ4,RQ6,H9A,H9B,H9C ref
     class QV1,QV3,RQ3,T49,S1,S45,S52,A3,ZQZ,QV5b,RQSV amb
     class H9O,ZQZ54,OP55 offen
