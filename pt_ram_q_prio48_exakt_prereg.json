@@ -1,0 +1,132 @@
+{
+ "anti_sharpshooter": "T1-T4 + H-055C-1..4 stehen ex ante in PLAN §8 und HIER, BEVOR der erste 055c-Lauf lief; der erste Lauf erzeugt das Raw NACH dem Freeze-Commit",
+ "banned_from_raw": [
+  "verdict",
+  "verdicts",
+  "held",
+  "refuted",
+  "confirm",
+  "ergebnis",
+  "schwelle_ergebnis",
+  "bestanden",
+  "gescheitert",
+  "kern_verdict",
+  "re_decide",
+  "grade"
+ ],
+ "banned_processes": [
+  "kein qiskit/aer-Import, kein Simulator, kein Transpile",
+  "kein Seed (np.random/random/seed_simulator) — der Seed-Pin der 055b-Quelle bleibt committete Historie, wird nicht konsumiert",
+  "kein Token/.env-Kontakt, kein QPU-Job-Kontakt",
+  "keine Byte-Änderung am gefrorenen Bestands-Baum"
+ ],
+ "builds": {
+  "numpy": "2.4.6",
+  "primequant": "0.1.0",
+  "python": "3.14.7",
+  "qiskit": null
+ },
+ "design": {
+  "g_arten": {
+   "ABGELEITED": "Float-Spiegel der frozen share_hw_fft/share_hw_folded-Konvention",
+   "EXAKT": "int/Fraction-Kette (quote_exakt/punkt_konstanten/tv_exakt/p_wert_zweiseitig), Floats nur ABGELEITED-Kreuz-Schatten"
+  },
+  "isa_quelle": "committeter pt_ram_q_prio48_sv_isa_report.json, sha256 5b0d17a7..., Op-COUNTS pro Circuit, NON-verdict-Meta (Torzahl-Komposition, kein Re-Transpile, seed_transpiler entfällt)",
+  "kette": "Runner (kontrollen FIRST) → Raw → Roh-Commit → eval",
+  "reihen_quelle": "committetes pt_ram_q_prio48_sv_raw.json (160 Reihen); MD5-Pin + SHA-256-Pin über counts_payload der VOLLEN Reihenliste (anchors-Konvention, siehe source_pins)",
+  "serialisierung": {
+   "counts": "NICHT dupliziert — Quelle über Pins referenziert",
+   "float": "repr — round-trip bit-exakt",
+   "fraction_huge_p_werte": "SHA-256-Pin über kanonische Fraction-Bytes (Vorzeichenbyte, num.to_bytes, den.to_bytes) — Denominator ~42^8192 sprengt die int-str-Grenze; Expansion vermeidbar bleibt vermeidbar",
+   "fraction_klein": "str(Fraction) — round-trip exakt"
+  }
+ },
+ "experiment": "055c-primequant-exakt",
+ "freeze_discipline": [
+  "1. Prereg-Datei EXAKT kanonische Serialisierung (sort_keys=True, indent=1, ensure_ascii=False), Status REGISTERED_NOT_MEASURED; lade_prereg erzwingt beides am Lauf (053-Lektion) und bindet über raw['prereg']['sha256'] an die eval",
+  "2. Roh-Commit VOR Auswertung; die Auswertung liest NUR committete Artefakte",
+  "3. Keine Schwellen-/Verdict-Felder im Raw (banned_from_raw); Schwellen wendet ausschließlich die gefrorene eval an"
+ ],
+ "g_typ": "G2-EXAKT",
+ "hypotheses": {
+  "H-055C-1": {
+   "aussage": "45 Delta-Muss-Reihen TV==0 exakt",
+   "operationale_lesart": "tv (Fraction-String) == '0' für alle 45 Reihen der Delta-Arten (loschmidt 13 + kalibrier_loschmidt 24 + echo_ladder 6 + readout_cal 2)"
+  },
+  "H-055C-2": {
+   "aussage": "111 struct exakte Quote ≤ 2 ULP über committeter Float",
+   "operationale_lesart": "delta_fft = |anteil_flt_falt − fft_share_float| ≤ 2·math.ulp(anteil_flt_falt) für alle 111 struct-rows; fft_share_float = ABS-FFT-Spiegel der gefrorenen share_hw_fft-Konvention auf den m-skalierten D-Klassen-Floats"
+  },
+  "H-055C-3": {
+   "aussage": "4 Negative Controls unter Bonferroni-Band",
+   "operationale_lesart": "tv ≤ 1/50 UND jeder per-Label-p-Wert ≥ alpha_bonferroni: 1/240 (q3) beziehungsweise 1/400 (q5), zweiseitig, simultan deklariert (V11)"
+  },
+  "H-055C-4": {
+   "aussage": "Δ(Faltform, exakt) == 0.0 bit-identisch",
+   "operationale_lesart": "faltform_float == anteil_flt_falt (bit-exakt: IEEE einzig-korrekt gerundet derselben exakten Zahl) für alle 111 struct-rows"
+  }
+ },
+ "hypothesis": "H-055C",
+ "kontrollen": {
+  "K1": "prereg-identitaet (experiment/hypothesis/g_typ gegen Runner-Konstanten) + sv-source-pins (MD5 + SHA-256 + backend + fetched_at_utc null + dok_prereg_sha256)",
+  "K2": "reihen-schema: 160 Reihen, ROW_KEYS-Set, TALLY der kinds, shots_actual == 8192 == pq.SHOTS, counts wohlgeformt (str-Keys, int >= 0, Masse 8192)",
+  "K3": "isa-sha256 + per_circuit == 160 + Aggregation pro Arm (ohne_arm:readout_cal-Bucket für die zwei cal_2q-Circuits)",
+  "K4": "erste-struktur-quote-pins: n_hut_klassen == N_hut == ERSTE (d==q-Identität), m_hat/q_sum/anteil_falt/anteil_modell/quote exakt, anteil_flt_falt/quote_flt Float-Pins",
+  "K5": "negative-control-modell- + tv-pins (deklarierte n_d/m aus dem 055b-Prereg, NICHT Mod-q-Klassen)"
+ },
+ "leg": "G2-EXAKT — exakte primequant-Auswertungs-Spiegel der committeten 055b-SV-Reihen (kein Simulator, kein Transpile, kein Seed, kein qiskit, kein Token-Kontakt; QPU-Rohs NUR lesend)",
+ "metrologie_notiz": "055b-Quelle lief unter System-numpy 2.5.3 (dok-Feld numpy_build); die 055c-Float-Spiegel laufen unter venv-numpy 2.4.6 und das 055c-Raw pinnt seinen eigenen Build (numpy_build/python_build); T2/T4 gelten je unter dem gepinnten 055c-Build; counts sind build-unabhängig (nur ints — der 45-Row-TV-Vergleich und die Fraction-Quote sind build-frei)",
+ "mirror_contract": {
+  "055b_verdicts": "UNANGETASTET — 055c ist kein Re-Decide; alle H-055B-/H-V5RB-Verdicts bleiben genau wie dokumentiert",
+  "bestandskonventionen": "Gefrorene Float-Konventionen share_hw_fft/share_hw_folded (pt_ram_q_hardware_aer.py, committet) werden als ABGELEITED-Spiegel konsumiert, niemals als Quelle",
+  "gesetz": "Dieses Prereg ist das EINZIGE Gesetz der 055c-Auswertung; die gefrorene eval pt_ram_q_prio48_exakt_eval.py wendet NUR die hier deklarierten Schwellen an"
+ },
+ "motivation": "primequant EXAKT-Schicht gegen die bestehende Float-Schiene: erste vollständige exakte Reanalyse aller 160 committeten 055b-Reihen — Quote-Kette bis zur letzten Division exakt, Floats nur als ABGELEITED-Kreuz-Schatten der gefrorenen Bestands-Konvention; 0 QPU, 0 Seed, 0 Transpile",
+ "out_of_scope": [
+  "kein Neu-Entscheiden von 055b/046b-Verdicts",
+  "keine QPU-Submission, kein Job-Kontakt",
+  "kein Re-Transpile",
+  "keine exakte Zeitentwicklung über transzendente Winkel"
+ ],
+ "plan_verankerung": "PLAN proud-dreaming-adleman §8 (Phase C); Fakten V6/V8/V10/V11 fixiert VOR dem ersten Lauf",
+ "registration_utc": "2026-10-06T13:29:59Z",
+ "reihen_verteilung": {
+  "echo_ladder": 6,
+  "kalibrier_loschmidt": 24,
+  "kalibrier_structure": 72,
+  "loschmidt": 13,
+  "negative_control": 4,
+  "readout_cal": 2,
+  "structure": 39
+ },
+ "runtime_abort_branches": [
+  "lade_prereg: Datei != kanonische Bytes → Abbruch",
+  "lade_prereg: status != REGISTERED_NOT_MEASURED → Abbruch",
+  "K1a: prereg-identität divergiert → Abbruch",
+  "K1b: sv-source-Pins divergieren → Abbruch",
+  "K2: reihen-schema/TALLY/shots divergiert → Abbruch",
+  "K3: isa-sha256/per_circuit divergiert → Abbruch",
+  "K4: erste-reihe-Pins divergieren → Abbruch",
+  "K5: nc-modelle/tv-pins divergieren → Abbruch",
+  "unbekannte art → Abbruch",
+  "raw-serialisierung (TypeError) → Abbruch"
+ ],
+ "schwellwerte": {
+  "T1": "für alle 45 Delta-Reihen tv == '0' exakt (Fraction(0)) — Delta-Sättigung erwartet, V8",
+  "T2": "für alle 111 struct-rows: |anteil_flt_falt − fft_share_float| ≤ 2·math.ulp(anteil_flt_falt) — ABS-FFT rundet je Term (komplexes Summen-Netz), V6 maß 1 ULP",
+  "T3": {
+   "negative_control_p_wert": "p_wert_zweiseitig ≥ 1/240 (q3-Bein) beziehungsweise ≥ 1/400 (q5-Bein) je Label, zweiseitig gegen p_a = n_a/m",
+   "negative_control_tv": "tv ≤ 1/50 pro negative Kontrolle"
+  },
+  "T4": "für alle 111 struct-rows: faltform_float == anteil_flt_falt bit-identisch — dyadisch-exakter Zähler (m·c/8192 exakt, (m·c)² exakt da ≤ ~1.1e6, Σ ≤ 5-8 Terme exakt < 2^53, q·Σ−m² exakt < 2^53), genau EINE Rundung ⇒ IEEE einzig-korrekt-gerundet"
+ },
+ "source_pins": {
+  "isa_sha256": "5b0d17a75b708d5bb9f20bc76a1e389e790dd5d4575217db161d7f0b2503dcd1",
+  "sv_backend": "AER_STATEVECTOR_LOCAL",
+  "sv_counts_md5": "a126430cd770325e1dd8009ad84d66d9",
+  "sv_counts_payload_sha256": "289f1f4e6c48eada9a15f1735af9739a68b2a630addc91efda5c9e31f76359a2",
+  "sv_dok_prereg_sha256": "c708d9054a325381914a1436dadaa0a2bf4d33eef79cb2cde73274dc0a43b2f"
+ },
+ "status": "REGISTERED_NOT_MEASURED",
+ "version_regie": "R0"
+}
