@@ -3694,7 +3694,7 @@ eingefroren).
 im statevector", 2026-10-06). Kernaufgabe: die Separation der drei
 055-Verdict-Ebenen — Loschmidt-Defizit (0.8-κ̂-Gate), Sharpness-Richtung
 {467,673}, Echo-Leiter q3/q5, C1/Session-Struktur — in **IDEAL** vs
-**NOISE/SESSION**, auf DENSELBEN 160 Circuits des committeten
+**NOISE/SESSION**, auf dieselben 160 Circuits des committeten
 055-Designs (bit-identischer Builder), ohne den QUEUED Fez-Job
 db0m71qvog1s73fh15og zu berühren. Kontext: 047/S2
 H-RAM-Q-5a_SESSIONROBUST und 044/S1 H-RAM-Q-4_REFUTED — 055b ist die
