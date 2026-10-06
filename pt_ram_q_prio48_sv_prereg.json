@@ -1,0 +1,137 @@
+{
+ "aer_build":"0.17.2",
+ "anti_sharpshooter":"Alle Schwellen (0.81, 0.99, Arm-Anker) sind committete Konstanten der 044/055-Kette (KAPPA_CEILING, ANCHOR_RHO_*); die Echo-Floor 0.99 ist die IDEAL-Grenze (echo = 1 im idealen Loschmidt-Grenzwert); kein Threshold wurde neu gewaehlt um die Daten zu treffen; der Mirror ist das GEOFRORENE Gesetz selbst.",
+ "banned_from_raw":[
+  "kappa",
+  "ratio",
+  "gamma",
+  "band",
+  "verdict",
+  "res_v3",
+  "center",
+  "delta_cal"
+ ],
+ "branch":"h-test1-gap-invariance",
+ "design":{
+  "circuits":"h3a.build_hardware_circuit_set(pts, cal) mit pts/cal = p48.eval_grid() — DERSSELBE deterministische Builder wie die QPU-Submission; assert len == 160.",
+  "isa_cell_diagnostik":"Vergleich frischer Report (ops/n_2q/initial_layout per Circuit) gegen committet: ISA_CELL_IDENTICAL oder ISA_CELL_DRIFT (mit Zell-Delta-Dokumentation); bei Drift WEITERLAUF (registriert, dokumentiert) — kein Abbruch, keine Toleranz-Erhoehung.",
+  "isa_frisch":"qpu.transpile_forced(live_backend, circuits) FRISCH (FORCED-Layouts + 12 unforced Auto; S1-2q-Bit-Anker bleibt Gate) — weil die Submission-ISA nicht rekon-struktierbar ist (committete ops = Counts-Dict).",
+  "kein_qpu_job":"0 QPU-Gewicht: KEIN Sampler/Estimator-Job, KEIN Submit; read-only Service-Kontakt (get_service/get_backend) nur fuer die frische Transpile-Diagnostik.",
+  "reduktion":"Aktiv-Qubit-Reduktion: active = Instruktions-Qubits; num_clbits UNVERAENDERT (Keys byte-identisch), Qubit-Indizes remappt, max_active <= 24 (assert).",
+  "simulation":"AerSimulator(method='statevector'), IDEAL (kein Noise Model), shots h3.SHOTS = 8192, seed_simulator 20261006 ex ante, EIN run() ueber alle 160."
+ },
+ "experiment":"055b-fp48-statevector-ideal",
+ "freeze_discipline":[
+  "Prereg-Freeze (SHA-256) VOR jeder Messung (REGISTERED_NOT_MEASURED); Freeze-Vergleich an Run UND Auswertung erzwungen (053-Lektion).",
+  "Roh-Commit VOR Auswertung (RAW enthaelt KEINE Verdicts).",
+  "Gefrorene 055-Preregs/jobs UNANGETASTET; KEIN Re-Decide; KEINE Toleranz-Erhoehung; Mirror descriptiv."
+ ],
+ "g_typ":"G2 AER-STATEVECTOR-IDEAL (0 QPU-Gewicht; read-only Service-Kontakt)",
+ "hypotheses":{
+  "H-055B-1":{
+   "held":"H-055B-1_IDEAL_KAPPA_HELD",
+   "name":"IDEAL_KAPPA",
+   "refuted":"H-055B-1_IDEAL_KAPPA_REFUTED",
+   "statement":"Im IDEAL sind alle 37 kappa_hat (13 verdict + 24 cal) >= kappa_ceiling 0.81 — kappa = P_L (ideales p_ro).  Separated das strukturelle Loschmidt-Defizit vom QPU-Noise: HELD bedeutet, das 0.8-Gate ist Noise-Bedingt an den Zeilen, wo die Session-Arme es verfehlen; REFUTED bedeutet strukturell unterschritten (Loschmidt-Return strukturell unter 0.81).",
+   "statistic":"min kappa_hat ueber alle 37 Punkte (Mirror-Doc)",
+   "verdict_tragend":true
+  },
+  "H-055B-2":{
+   "held":"H-055B-2_IDEAL_SHARPNESS_HELD",
+   "name":"IDEAL_SHARPNESS",
+   "refuted":"H-055B-2_IDEAL_SHARPNESS_REFUTED",
+   "statement":"C2-Kern im IDEAL: {467, 673} BEIDE below_sharp auf q5 verdict (Verlaufs-Richtung der Vorhersage) — identisch zum gefrorenen C2-Kriterium; Struktur-vs-Noise-Frage: unter 0.81-Floor auch ideal?",
+   "statistic":"doc['c2_transfer']['kern_ok']",
+   "verdict_tragend":true
+  },
+  "H-055B-3":{
+   "held":"H-055B-3_ECHO_IDEAL_HELD",
+   "name":"ECHO_IDEAL",
+   "refuted":"H-055B-3_ECHO_IDEAL_REFUTED",
+   "statement":"Echo-Leiter im IDEAL: kappa_block(q3) >= 0.99 UND kappa_block(q5) >= 0.99 (S1-/S2-Kontext q3 0.9927 / q5 0.7314 auf QPU; Kingston-Echo-r8-Floor-Kippen 0.098→0.4655).",
+   "statistic":"doc['echo_ladder'][arm]['fit_kappa_block']",
+   "verdict_tragend":true
+  },
+  "H-055B-4":{
+   "held":"H-055B-4_C1_IDEAL_HELD",
+   "name":"C1_IDEAL",
+   "refuted":"H-055B-4_C1_IDEAL_REFUTED",
+   "statement":"Session-Struktur im IDEAL: rho_fresh_vs_s1 auf q5 >= ANCHOR_RHO_Q5 (0.49999999999999994) UND auf q3 >= ANCHOR_RHO_Q3 (0.8095238095238096).",
+   "statistic":"doc['c1_sessions_anker'][arm]['rho_fresh_vs_s1']",
+   "verdict_tragend":true
+  }
+ },
+ "hypothesis":"H-055B",
+ "kern":{
+  "H-055B_IDEAL_MIXED":"mindestens ein REFUTED, mindestens ein HELD",
+  "H-055B_IDEAL_REFUTED":"alle vier REFUTED",
+  "H-055B_IDEAL_REPRODUCIBLE":"alle vier H-055B-1..4 HELD",
+  "H-055B_MIRROR_INVALID_VERDICTS_AUS_DOC":"Mirror EVALUATION_INVALID -> Fallback; Verdicts TROTZDEM aus Mirror-DOC-Feldern (dokumentiert) — invalid ist kein Verdict."
+ },
+ "kontrollen":{
+  "c_cal_ideal":"Readout-Kalibrier im IDEAL: p0_fraction(cal_2q) == 1.0 UND p0_fraction(cal_3q) == 1.0 (All-nuller; sonst dokumentiert, was der Kalibrier-Circuit wirklich praeperiert).",
+  "c_cell":"ISA-Zell-Diagnostik (s. design.isa_cell_diagnostik).",
+  "c_law_bindings":"Die gefrorenen t-Checks des Gesetzes (md5, t3, t4, t5, t6) laufen im Mirror und werden dokumentiert.",
+  "c_seed":"Rerun EINES Circuits (struct_q5_d5_467_r0) mit DEMSELBEN seed_simulator -> counts BIT-IDENTISCH (Determinismus)."
+ },
+ "mirror_contract":{
+  "call":"evaluate(raw_path=SV_RAW, stage3_path=STAGE3_PATH (committed), isa_path=SV_ISA_REPORT (frisch), gate_path=SV_ISA_GATE (frisch), prereg_path=None)",
+  "fallback":"Nur wenn der MIRROR EVALUATION_INVALID meldet: Fallback-Mini-Loop mit oeffentlichen Helpers (aer.ratio_from_counts/aer.p0_fraction/h3e.center_v3/h3e.load_w_b, frisches cP) — dokumentiert als MIRROR_VOID_FALLBACK.",
+  "law":"pt_ram_q_prio48_eval.evaluate (gefloren, unangetastet)",
+  "verdict_rolle":"descriptiv (Mirror-Status + alle t-Checks eingeordnet); die 055-Verdicts bleiben dem QPU-Job vorbehalten; die 055b-Verdicts (H-055B-1..4) sind von DEM MIRROR-DOC abgeleitet (Felder punkte/echo_ladder/c1_sessions_anker/c2_transfer) und verdict-tragend fuer 055b."
+ },
+ "motivation":"Fez-Kanal-Starvation (QUEUED db0m71qvog1s73fh15og 055, dauassrojkfs738rrcsg 046, daua5hahcrkc73dv9eh0 F4; letzter DONE 2026-09-28 11:50).  User-Direktive: Statevector-Version der QPU-Experimente.  055b misst den IDEALEN Inhalt des 055-Designs auf DEMSELBEN 160-Circuit-Budget (bit-identischer Builder) und distilliert Struktur/Noise: kappa_hat im IDEAL (= strukturale Loschmidt-Return, Readout-Defizit separiert), Sharpness des Verlaufs, Echo-Leiter, Session-Struktur C1.  MIRROR durch das GEFRORENE Gesetz evaluate() — descriptiv, kein Verdict-Erlass (055-Verdicts bleiben dem QPU-Job vorbehalten).",
+ "numpy_build":"2.5.3",
+ "parent_context":{
+  "exp_055":{
+   "experiment":"055-fp48-combined",
+   "fez_job_id":"db0m71qvog1s73fh15og",
+   "fez_job_status":"QUEUED (unangetastet, kein Cancel)",
+   "hypothesis":"H-FP48",
+   "prereg_md5_legacy":"b7afc42c62a6da75b2e43dd3674f8965"
+  },
+  "fprio4_8":"055b leistet die IDEAL-Seite zu FPrio-4/8 (Höhere Session-Substrat-/Kalibrier-Frage): Echo-r8-Floor kippte auf Kingston 0.098→0.4655 — hier: was sagt das IDEAL?",
+  "s1_044":{
+   "anchoren":[
+    "ANCHOR_RHO_Q5 0.49999999999999994",
+    "ANCHOR_RHO_Q3 0.8095238095238096"
+   ],
+   "experiment":"044",
+   "verdict":"H-RAM-Q-4_REFUTED"
+  }
+ },
+ "qiskit_build":"2.3.0",
+ "referenzkonstanten":{
+  "anchor_rho_pooled":0.8956043956043955,
+  "anchor_rho_q3":0.8095238095238096,
+  "anchor_rho_q5":0.49999999999999994,
+  "arms":[
+   "q3_d3",
+   "q5_d5"
+  ],
+  "echo_floor_ideal":0.99,
+  "k_repeats":3,
+  "kappa_ceiling":0.81,
+  "ladder_anchors":{
+   "q3":181,
+   "q5":467
+  },
+  "ladder_repeats":[
+   1,
+   2,
+   4,
+   8
+  ],
+  "max_active_qubits":24,
+  "n_circuits":160,
+  "seed_simulator":20261006,
+  "shots":8192,
+  "transpile_optimization_level":3,
+  "transpile_seed":7,
+  "w_a":0.05,
+  "w_b_doubleprime":0.02787029633307472
+ },
+ "registered":"2026-10-06",
+ "runtime_abort_branches":"transpile_forced kann (a) RuntimeError werfen, wenn ein FORCED-Row kein slot-2q-Ceiling erfuellt (Live-Targets driftet) oder (b) AssertionError der 12-unforced-2q-Bit-Anker (S1-Report) — beides Abbruch der runs (kein Verdict); Restart nach Reparatur.",
+ "status":"REGISTERED_NOT_MEASURED"
+}
