@@ -573,17 +573,19 @@ graph TD
 | Mermaid architecture (Pillars 1–4) | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) |
 | Strategische Vektoren | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) Section C |
 | SciMind-Mandate | [`CLAUDE.md`](CLAUDE.md) |
-| Erforschungs-Tree der Experimentserie (Stand 2026-10-05, append-only) | Abschnitt am Dateiende dieses Dokuments — graph TD, Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q, H-TEST1/2, S₄, H9-Deck, H-ZQZ |
+| Erforschungs-Tree der Experimentserie (Stand 2026-10-06, append-only) | Abschnitt am Dateiende dieses Dokuments — graph TD, Familien Asymptotik/MOCS, Ququint V1–V5 (+046b), Shor, RAM-Q (+055b), H-TEST1/2, S₄, H9-Deck, H-ZQZ |
 
 **Stand:** 2026-09-24. Aktualisierungen werden in den jeweiligen Sibling-Dokumenten gepflegt.
 
 ---
 
-## Erforschungs-Tree der Experimentserie (Stand 2026-10-05, append-only)
+## Erforschungs-Tree der Experimentserie (Stand 2026-10-06, append-only)
 
-**Status:** NEUE Sektion, ANGEHÄNGT am Dateiende — der Mermaid-Baum von 2026-06 oben ist unangetastet. Dieser Abschnitt trägt die Hypothesen-Historie des Ququint-Arcs (GF(5)-Serie, §10.14–§10.38 / §Z.11–§Z.35) nach ExperimentLedgerMind v1.1 (Modul `research_tree_mermaid`, Format a: `graph TD`). Knoten = Verdict + Grad + Anker; CONFIRMED/REFUTED/DEGENERAT/VOID/EINSTUFUNG sind gleichwertige Zweige; Verdict-Wechsel als eigene Knoten/Kanten (z. B. 045 → 052 EINSTUFUNG statt Re-Decide), nie Umschrift. **§10.39/§Z.36 sind für die Auswertung von EXPERIMENT 055 reserviert und hier nicht belegt.**
+**Status:** NEUE Sektion, ANGEHÄNGT am Dateiende — der Mermaid-Baum von 2026-06 oben ist unangetastet. Dieser Abschnitt trägt die Hypothesen-Historie des Ququint-Arcs (GF(5)-Serie, §10.14–§10.41 / §Z.11–§Z.38) nach ExperimentLedgerMind v1.1 (Modul `research_tree_mermaid`, Format a: `graph TD`). Knoten = Verdict + Grad + Anker; CONFIRMED/REFUTED/DEGENERAT/VOID/EINSTUFUNG sind gleichwertige Zweige; Verdict-Wechsel als eigene Knoten/Kanten (z. B. 045 → 052 EINSTUFUNG statt Re-Decide), nie Umschrift. **§10.39/§Z.36, §10.40/§Z.37 und §10.41/§Z.38 sind belegt; §10.42/§Z.39 ist für die Auswertung von EXPERIMENT 055 (QPU) reserviert und hier nicht belegt.**
 
 **KORREKTUR (2026-10-05):** §10.39/§Z.36 sind durch EXPERIMENT 054 (H-ZQZ-GOE, 0 QPU, G0) belegt; EXPERIMENT 055 wandert append-only auf §10.40/§Z.37 (Präzedenz: 045 → 052 EINSTUFUNG statt Re-Decide).
+
+**KORREKTUR (2026-10-06):** §10.40/§Z.37 sind durch EXPERIMENT 046b (H-V5RB, 0 QPU, G1 EXAKT-STATEVECTOR) und §10.41/§Z.38 durch EXPERIMENT 055b (H-055B, 0 QPU, G2 AER-STATEVECTOR-IDEAL) belegt — die Statevector-Verdopplung nach User-Direktive; EXPERIMENT 055 (QPU) wandert append-only auf §10.42/§Z.39.
 
 ```mermaid
 graph TD
@@ -612,6 +614,7 @@ graph TD
     FQQ --> QV4["V4 CONFIRMED A− (§Z.16): κ* = 62.26 vs Rough-Modell 62.31 (0.1%)"]
     FQQ --> QV5["V5 CONFIRMED A− (§Z.18): Kingston-Job daqaeteekp0c73aqetdg, bias +0.0074"]
     QV5 --> QV5b["EXPERIMENT 046 Repeat (Phase 12, 2026-09-29): Kingston bias −0.0137 = −2.22σ VORZEICHEN-FLIP; Fez-Bein dauassrojkfs738rrcsg QUEUED"]
+    QV5b --> QV5SV["EXPERIMENT 046b Statevector-Identität (§10.40/§Z.37, 2026-10-06, 0 QPU, G1, Prereg SHA-256 0394fb72): IDEAL bias == 0.0 EXAKT, dev log-vs-ff ≤ 8.88e-16 vs 1e-9 -> H-V5RB_IDENTITY_HELD; Distillation: das 046-Design IST ideal vorzeichenfrei, H-V5R-2-Vorzeichen-Regime reines Noise-/Session-Phänomen (kein idealer Inhalt)"]
     FQQ --> QSA["H-STAR-5 Phase 6a REFUTED (§10.21/§Z.20): R_prime 1.4348 im Shuffle-Band, Perzentil 82.5%"]
 
     %% --- Shor ---
@@ -625,6 +628,7 @@ graph TD
     RQ3b --> RQ4["H-RAM-Q-4 REFUTED (Phase 11, dat1o6qhcrkc73dtgo60, 116×8192): Falsifikator GENAU 3/13 am q5-Bein (467/547/673)"]
     RQ4 --> RQ47["EXPERIMENT 047 (Phase 12, Fez 2026-09-29): REFUTED REPRODUIERT -> H-RAM-Q-5a SESSIONROBUST (7a95cff)"]
     RQ4 --> RQ6["H-RAM-Q-6 (EXPERIMENTE 050/051 Kingston TOKEN2, §10.33/§10.34/§Z.32/§Z.33): D1_PARTIAL + D2 K2_D2_REFUTED_KEIN_TRANSFER + D3 K2_D3_REFUTED_SIGN — dritte unabhängige Niederlage der P-Vorzeichen-Lesart"]
+    RQ6 --> RQSV["EXPERIMENT 055b IDEAL-Mirror (§10.41/§Z.38, 2026-10-06, 0 QPU, G2, Prereg R1 SHA-256 c708d905 nach Re-Freeze von R0 de15ffb8; R0-Raw NIE evaluiert, *_R0-Superseded): KERN H-055B_IDEAL_MIXED — H-055B-1 HELD 37/37 κ̂ == 1.0 EXAKT (Loschmidt-Defizit IDEAL überall null: 0.8-Gate trennt Struktur von Noise) / H-055B-2 REFUTED ({467,673}-Sharpness NOISE-induziert) / H-055B-3 HELD (Echo-Leiter IDEAL 1.0/1.0 ≥ 0.99: QPU-q5-Defizit 0.7314 reiner Noise-Kanal) / H-055B-4 REFUTED (Session-Struktur IDEAL nicht vorhanden) — vierte unabhängige Bestätigung der Noise-/Session-Lesart"]
 
     %% --- H-TEST1/2 ---
     FT1 --> T48["EXPERIMENT 048 H-TEST1 CONFIRMED (§10.31/§Z.30): 5/8 an der Kante"]
@@ -654,17 +658,19 @@ graph TD
     ARC --> GV["Governance: §10.36-Messverbund (flowchart TB), §10.37 +30/Union-Regel + quantor_coverage, claims-Live-Pin test_count 1406"]
     GV --> OP55["OFFEN: EXPERIMENT 055 FP48-COMBINED (160 Kreise, ISA_OK 830/84/160, Prereg Legacy-MD5 b7afc42c, Fez-Job db0m71qvog1s73fh15og QUEUED) -> Roh-Commit VOR Auswertung -> §10.39/§Z.36"]
     OP55 --> OP55B["KORREKTUR 2026-10-05: Ziel-Anker von EXPERIMENT 055 = §10.40/§Z.37 (§10.39/§Z.36 durch EXPERIMENT 054 belegt)"]
+    OP55B --> OP55B2["KORREKTUR 2026-10-06: Ziel-Anker von EXPERIMENT 055 = §10.42/§Z.39 (§10.40/§Z.37 durch 046b belegt, §10.41/§Z.38 durch 055b)"]
     GV --> GG054["claims-Live-Pin 1406 → 1429 (054: +23 Tests, test_pt_zqz_goe)"]
+    GV --> GG055B["claims-Live-Pin 1429 → 1452 (046b: +11 Tests test_pt_v5_sv, 055b: +12 Tests test_pt_ram_q_prio48_sv; Root-Level-Test-Dateien nach tests/ umgezogen — nie Teil der Collect-Metrik)"]
 
     classDef ok fill:#5f5,stroke:#333,stroke-width:2px
     classDef ref fill:#f96,stroke:#333,stroke-width:2px
     classDef amb fill:#fc9,stroke:#333,stroke-width:2px
     classDef offen fill:#ff9,stroke:#333,stroke-width:3px
-    class A1,A2,A4,QV4,QV5,QSH,RQ1,RQ2,T48 ok
+    class A1,A2,A4,QV4,QV5,QSH,RQ1,RQ2,T48,QV5SV,GG055B ok
     class QV2,QSA,T48b,T49b,RQ3b,RQ4,RQ6,H9A,H9B,H9C ref
-    class QV1,QV3,RQ3,T49,S1,S45,S52,A3,ZQZ,QV5b amb
+    class QV1,QV3,RQ3,T49,S1,S45,S52,A3,ZQZ,QV5b,RQSV amb
     class H9O,ZQZ54,OP55 offen
-    class OP55B offen
+    class OP55B,OP55B2 offen
     class ZQZ54V amb
     class GG054 ok
 ```

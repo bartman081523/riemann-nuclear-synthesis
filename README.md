@@ -1,7 +1,7 @@
 # Riemann–Nuclear Synthesis
 
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/bartman081523/riemann-nuclear-synthesis)
-[![Tests](https://img.shields.io/badge/Tests-1429%2F1429%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-1452%2F1452%20passing-brightgreen.svg)](tests/)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org)
 [![Qiskit](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
@@ -54,7 +54,7 @@ python3 -m pytest tests/ -q   # 1429/1429 passing
 python3 pt_asymptotic_N1e6.py   # power-law alpha(N=10^6) = 0.223 (fit artifact; claims.py pin R(10^6) = 0.669, §X-Lesart S/log -> 0.55)
 ```
 
-For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-05) in the primary research repository.
+For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-06) in the primary research repository.
 
 ---
 
@@ -81,6 +81,8 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 **Update 2026-10-05 (EXPERIMENT 054 H-ZQZ-GOE, 0 QPU, G0 classical):** classification prereg on the committed 053 ⟨r⟩-series at π(N)-matched dimension — **first SHA-256-pinned prereg chain** (canonical SHA-256 `235bd79b…`, commit `3ee9e80`; raw committed before eval `15593c6` with disclosed L3-NaN module delta; frozen evaluation + 23 tests `c91a490`). Verdicts: **L0** sampler validation **held** (GOE tridiag-vs-dense dev 0.001531 < k_max 0.004789, GUE 0.001013, Poisson anchor 0.386157 vs 0.3863); **L1** the GOE-class ±2σ band **missed** at the matched endpoint d = 6542 (r_unf 0.51413 below [0.52247, 0.53744], z −4.23σ); **L2** **undecided** (nearest-z 7 GOE : 7 GUE : 0 Poisson : 0 TIE — three class crossings across the sweep); **L3** residual trend **on** (ρ −0.947). Graded **B+**: a finite-size trajectory, not a stable universality class — the third-observable program is negative in all three attempts (Rényi-3, fixed-d GUE ⟨r⟩, matched-d ⟨r⟩); **only distillation remains** (§10.39/§Z.36). Inherited 053 verdicts unchanged — no re-decide. Section reservation corrected: §10.39/§Z.36 taken by 054, **EXPERIMENT 055 → §10.40/§Z.37**.
 - **Suite:** 1406 → **1429 tests green**; claims.py live pin updated accordingly.
 
+**Update 2026-10-06 (EXPERIMENTS 046b + 055b, the statevector doubling, 0 QPU, G1 EXAKT-STATEVECTOR / G2 AER-STATEVECTOR-IDEAL):** per the user directive "make 046 and 055 in statevector" — two preregs for the untouched designs, run through freeze → raw-before-eval → frozen eval while the three Fez jobs stay QUEUED and untouched. **046b (H-V5RB, `e982590` → `c3fe8fb` → `1830557`, prereg SHA-256 `0394fb72…`):** both legs HELD — noiseless anchors reproduced within 1e-6 with **bias == 0.0 exact**, logical-vs-FakeFez-ISA deviations ≤ 8.88e-16 against the 1e-9 bound; kern `H-V5RB_IDENTITY_HELD`. **Distillation: the 046 design IS sign-free in the ideal** (Theorem-identity C1) — H-V5R-2's backend-sign regime has no ideal content, it is a pure noise/session phenomenon. **055b (H-055B, IDEAL mirror of the same 160 circuits, prereg re-frozen R0 `de15ffb8…` → R1 `c708d905…` after the R0 seed control proved defective — AerStatevector batch-RNG is batch-context-dependent, single-circuit replay reproduces only position 0, proven by a Bell reference probe; R0-raw never evaluated, handed to the ledger as `*_R0` superseded artifacts, no metric weakening; chain `512b7c1` → `50e5451` → `815915a` → `6a12247`):** kern `H-055B_IDEAL_MIXED` — **H-055B-1 HELD** (all 37 κ̂ == 1.0 exactly: the Loschmidt deficit is ZERO everywhere in the ideal, so the 0.8-gate separates structure from noise), **H-055B-2 REFUTED** (the frozen C2 criterion {467,673}-both-below-sharp does not fire in the ideal — the QPU sharpness direction is NOISE-INDUCED, consistent with H-RAM-Q-6 D3), **H-055B-3 HELD** (echo ladder κ_block 1.0/1.0 ≥ 0.99 — the QPU q5 echo deficit 0.7314 is a pure noise channel), **H-055B-4 REFUTED** (ρ_fresh_vs_s1 q5 0.10 vs anchor 0.5, q3 −0.333 vs 0.81 — the session structure does not exist in the ideal). Mirror through the frozen 055 law runs descriptively (UNDETERMINED at κ̂-saturation, all t-checks green). **Combined distillation:** structure (gate + echo) is ideally carried; every QPU/session phenomenon of the 046/055 chains lives on the noise/session level. Metering lesson: system numpy rose 2.4.6 → 2.5.3 and split exactly 4 suite tests — the suite must run under `./venv/bin/python` (1452 passed, 148.7 s). Section reservations: §10.40/§Z.37 taken by 046b, §10.41/§Z.38 taken by 055b, **EXPERIMENT 055 (QPU) → §10.42/§Z.39** (job `db0m71qvog1s73fh15og`, unangetastet). Suite: 1429 → **1452 tests green** (root-level test files moved into `tests/` — they were never part of the collection metric).
+
 **Operational policy:** QPU time is scarce — all statevector-first validations must precede any QPU submission. Preregistration before `main()` is required for every QPU script (Anti-Sharpshooter Protocol).
 
 ---
@@ -102,7 +104,7 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | [`SAEULE1_FEZ_BLOCKED.md`](SAEULE1_FEZ_BLOCKED.md) | Superseded | Fez quota block (resolved 6/17) |
 | [`QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md`](QUANTUM_COMPUTING_AND_PRIMES_RESEARCH.md) | Reference | External research literature survey (95 KB) |
 
-See the [Cross-Reference Index](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-05) in the primary research repository for the canonical detail.
+See the [Cross-Reference Index](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md#10-operational-findings-log-2026-06-08--2026-10-06) in the primary research repository for the canonical detail.
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Document Map
 
-This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-10-02") is the operational logbook of the most recent QPU validations.
+This document is the **primary research repository** of the Riemann-Nuclear-Synthesis Project. Sections 1–9 contain the theory and audits; **Section 10** ("Operational Findings Log 2026-06-08 → 2026-10-06") is the operational logbook of the most recent QPU validations.
 
 | Datei | Status | Rolle |
 |---|---|---|
@@ -989,7 +989,7 @@ The initial Section 9 interpreted the Kingston value (E₀=2.216) as a success. 
 **Section 9 is thus inconsistent:** "deviation ~10% caused by hardware noise" suggests a successful experiment, but ignores the +68% systematic deviation on `ibm_marrakesh`. The strategic vector (scaling to more qubits) is obsolete as long as the operator itself is backend-dependent.
 **Consequence:** EXPERIMENT 005 (PT-symmetric extension) was initiated in response to this backend fragility (cf. Section 6.5). Preliminary result: PT-unbroken numerically perfect, but physically trivialized by diagonal dominance → refactoring vector `COUPLING_ENHANCEMENT` required.
 
-### **10. Operational Findings Log 2026-06-08 → 2026-10-05**
+### **10. Operational Findings Log 2026-06-08 → 2026-10-06**
 
 This section is a **compact chronological log** of the experimental findings between the state of Section 9.1 and the current date. The detailed methodology, script list and audit tables are documented in `SYNTHESIS_2026_06_10.md` (~960 lines) and `QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`; this log serves as a compact index for readers of the theory documentation.
 
@@ -1133,7 +1133,7 @@ eigvalsh(H_diag) == eigvalsh(Re(H_PT)) == [2.000, 2.693, 3.684, 4.988]
 | §Z.17 α-Trennung + Ramanujan-Replikation | §10.17 hier | `pt_alpha_results.json`, `pt_ramanujan_results.json`, SYNTHESIS §Z.17 |
 | §Z.18 V5 Kingston + H-STAR-5-Registrierung | §10.18 hier | `pt_v5_kingston_results.json`, `pt_hstar5_prereg.json`, SYNTHESIS §Z.18 |
 | Strategic Vectors Gesamtstatus | §10.19 hier | §10.8 (historisch) + §10.19 (Ququint-Arc) |
-| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-05) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5, Shor, RAM-Q-1..6, H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ 053→054-Einstufung; §10.39/§Z.36 belegt (EXPERIMENT 054), §10.40/§Z.37 reserviert (EXPERIMENT 055) |
+| Erforschungs-Tree der Experimentserie | INVESTIGATION_PLAN.md — Serien-Abschnitt am Dateiende (Stand 2026-10-06) | graph TD: Juni-Baum unangetastet; Familien Asymptotik/MOCS, Ququint V1–V5 (+046b Statevector-Identität), Shor, RAM-Q-1..6 (+055b IDEAL-Mirror), H-TEST1/2, S₄ 045→052, H9-Deck, H-ZQZ 053→054-Einstufung; §10.39/§Z.36 belegt (EXPERIMENT 054), §10.40/§Z.37 belegt (EXPERIMENT 046b), §10.41/§Z.38 belegt (EXPERIMENT 055b), §10.42/§Z.39 reserviert (EXPERIMENT 055 QPU) |
 
 #### **10.10 QBER-vs-Im_bias QPU-Decoupling (2026-06-17 19:50 UTC)**
 
@@ -3577,4 +3577,278 @@ Referenzen: Dumitriu–Edelman (Matrix models for beta ensembles —
 β-Hermite-Tridiagonal, eigh_tridiagonal); Atas–Bogomolny–Schmidt–Toke
 ⟨r⟩-Konstanten (Poisson 0.3863 / GOE 0.5307 / GUE 0.5996,
 arXiv:1212.5611); Unfolding-Konventionen §10.22 (UNFOLD_WINDOW 5).
+
+## §10.40 — EXPERIMENT 046b (H-V5RB): die Statevector-Identität des 046-Designs — **H-V5RB-1 NOISELESS_ANCHOR_HELD / H-V5RB-2 LOGICAL_ISA_BIAS_IDENTITY_HELD (re/hd dev 8.88e-16, im 1.39e-17 vs 1e-9) → KERN H-V5RB_IDENTITY_HELD: das 046-Design IST im IDEAL vorzeichenfrei (Distillation)** (Branch `h-test1-gap-invariance`, 2026-10-06, 0 QPU, G1 EXAKT-STATEVECTOR)
+
+**Anfangspunkt.** User-Frage „was sagen 046 und 055?" (2026-10-03/06-
+Kontext der FP48-Session) gefolgt von der Direktive „okay, mache 046
+und 055 im statevector" und „mache einfach neuen prereg für 046b und
+055b für statevector-version, die kannst du neu schreiben, klar"
+(2026-10-06). Gegenstand der 046-Frage war zugleich die
+Distillations-Frage „was ist an 046 bemerkenswert, dass es nie
+ausgeführt wird": das 046-Repeat (H-V5R, Phase 12) trägt ein seit
+2026-09-29 QUEUED Fez-Bein (dauassrojkfs738rrcsg, neben zwei weiteren
+permanent QUEUED Fez-Jobs; letzter DONE auf ibm_fez/TOKEN1:
+dat3gpqhcrkc73dtjmt0, 2026-09-28 11:50, backend_pending 0 — die Jobs
+starten schlicht nicht). 046b trennt ex ante, WAS das unveränderte
+046-Design ideal enthält (exakte Statevector-Observables, deterministisch,
+kein Sampling) vom QPU-Noise-/Session-Regime — OHNE die Queued-Jobs,
+die gefrorenen 046/047/055-Preregs oder irgendein QPU-Budget zu
+berühren (read-only Service-Kontakt, KEIN Submit, kein Cancel).
+Reserve-KORREKTUR: §10.40/§Z.37 waren laut INVESTIGATION_PLAN.md (Tree,
+Stand 2026-10-05) für EXPERIMENT 055 reserviert — dort registriert:
+belegt durch 046b; EXPERIMENT 055 wandert append-only auf §10.41/§Z.38
+(nach 055b-Belegung weiter auf §10.42/§Z.39). Präzedenz: 045 → 052
+EINSTUFUNG statt Re-Decide, §10.39-KORREKTUR 2026-10-05.
+
+**Konstruktion.** Ex ante gefroren (Prereg `pt_v5_sv_prereg.json`,
+kanonischer **SHA-256**
+`0394fb7288ac8cb2374b00fef50c31020c20f66090283147adcc36021d8170b6`,
+REGISTERED_NOT_MEASURED, Freeze-Vergleich an Lauf UND Auswertung
+erzwungen — 053-Lektion). Design: NEUE Statevector-Leg am UNVERÄNDERTEN
+046-Design — `v5.noiseless_observables_at` (precision 0.0, FakeFez-ISA
+vs logical ohne Layout), Observables re/hd/im als exakte
+`Statevector.expectation_value`-Messwerte (kein Sampling, kein Seed,
+Run-Prints bit-identisch reproduzierbar), `bias = re − hd` exakt. Zwei
+verdict-tragende Hypothesen: **H-V5RB-1** NOISELESS_ANCHOR_REPRODUCED
+(re/hd/im gegen die committeten 035-NOISELESS-Pins, Grenze 1e-6 ==
+gefrorne C2-Toleranz; `bias == 0.0` EXAKT) und **H-V5RB-2**
+LOGICAL_ISA_BIAS_IDENTITY (dev(log-vs-ff) ≤ 1e-9, bias_log/bias_ff ≤
+1e-12 — „unterhalb jeder Shot-Ungleichheit"); KERN-MAP
+HELD/MIXED/REFUTED ex ante. Referenzkonstanten aus dem committeten
+035-Prereg (`baender_und_schwellen`, NOISELESS-Pins, FEZ_PARAMS, SEs)
+am Payload eingefroren. Anti-sharpshooter: alle Grenzen sind
+committete Vorberechnungen; nichts betrachtet die QUEUED
+QPU-Messdaten. Kontrollen `v5.run_controls()` C1–C6 FRISCH — sonst
+INVALID, nicht REFUTED (046b-Präzedenz).
+
+**Kette.** `e982590` (Freeze, 2026-10-06 09:42) → `c3fe8fb` (Roh VOR
+Auswertung 09:42, Raw-SHA-256
+`a6913bedd9a3090b64fb547fd76121707f81315b292c5fe3cfe8019ae8b86c09`,
+KEINE Verdict-Felder, legs fakefez_isa/logical als re/hd/im/bias,
+isa_counts_fakefez, Kontrollen als C1–C6-Booleans, prereg-Pin) →
+`1830557` (gefrorne Auswertung + 11 Tests, 09:44) → Doku (dieser
+Commit).
+
+**Verdict H-V5RB-1 (HELD).** Alle vier Abweichungen unter 1e-6: |re −
+NOISELESS_RE|, |hd − NOISELESS_RE|, |im − NOISELESS_IM| ≤ 1e-6; `bias
+== 0.0` EXAKT (Statevector-Identität re − hd ≡ 0 nach Theorem-Identität
+C1). Das Anchor-Set der 035-Kette ist im IDEAL bit-stabil reproduziert.
+
+**Verdict H-V5RB-2 (HELD).** Deviation log-vs-ff: re 8.88e-16 / hd
+8.88e-16 / im 1.39e-17 gegen Grenze 1e-9; bias_log/bias_ff ≤ 1e-12.
+Die FakeFez-ISA-Transformierung (Transpile) ändert die IDEAL-Observables
+nur auf Float-ULP-Ebene — ISA und logical sind im IDEAL derselbe
+Zustand.
+
+**KERN — H-V5RB_IDENTITY_HELD. Beide Legs CONFIRMED, Distillations-Lektion
+(antwortet auf die User-Frage).** Das 046-Design IST ideal
+vorzeichenfrei: `bias` ist nach Theorem-Identität C1 im IDEAL exakt
+null. H-V5R-2s Backend-Vorzeichen-Regime (+0.0074 Kingston vs −0.0119
+Fez, Vorzeichen-Flip 046 Kingston −2.22σ, S₄-Session-SEs) hat KEINEN
+idealen Inhalt — es ist ein reines Noise-/Session-Phänomen. 046 ist
+deshalb bemerkenswert als Null-Dokumentation: ein Design, dessen
+ideal-QPU-Delta vollständig auf der Noise-/Session-Ebene liegt, mit
+zwei QUEUED QPU-Baken (dauassrojkfs738rrcsg 046-Repeat,
+db0m71qvog1s73fh15og 055-FP48-COMBINED, daua5hahcrkc73dv9eh0 F4), die
+genau dieses Regime messen werden, sobald sie starten. Mirror-descriptiv:
+beide Legs CONFIRMED-Platzierung im 035-Bandregister (n_out 0, bias ok,
+hd-Marge zur Band-Unterkante 0.00327549 wie vorberechnet, re-E0h1
+0.135931 = KEIN Grundzustands-Claim).
+
+**Tests.** 11 Tests in `tests/test_pt_v5_sv.py` (bei `1830557` am
+Repo-Root committet, mit `6a12247` nach `tests/` umgezogen —
+Claim-Metrik-Konvention `pytest tests/`, 09_26_new-Präzedenz):
+Prereg-Pin + Raw-Pin-Bindung, Statevector-bit-Pins, C2-Verbatim,
+ex-ante-Verdicts, 035-Bandplatzierung (hd-Marge); monkeypatch-Redirects
+nur tmp_path (053-Clobber-Lektion).
+
+**Artefakte.** `pt_v5_sv.py`; `pt_v5_sv_prereg.json`;
+`pt_v5_sv_raw.json`; `pt_v5_sv_eval.json`; `tests/test_pt_v5_sv.py`.
+Governance: 0 QPU im ganzen Experiment; deterministische Leg (kein
+Seed); KEIN Re-Decide; gefrorene 046/047/055-Preregs und Queued-Jobs
+unangetastet.
+
+**Verwandt.** SYNTHESIS_2026_06_10.md §Z.37 (gleicher Stand,
+Chain-Prepend); INVESTIGATION_PLAN.md-Tree-Knoten QV5SV (Append); §10.28
+(V5-Original Kingston), §10.30/§Z.29 (045-Programm + 046-Repeat-Kontext),
+§10.36 (G-Messverbund); claims-Live-Pin-Zug 1429 → 1452 gemeinsam mit
+055b (+11/+12 Tests); 046-Queued-Job `dauassrojkfs738rrcsg` UNANGETASTET.
+
+#### Quellenangaben für §10.40
+
+Eingang: User-Direktive „was sagen 046 und 055?" → „mache einfach
+neuen prereg für 046b und 055b für statevector-version, die kannst du
+neu schreiben, klar" (2026-10-06). Kette: `e982590` (Freeze,
+Prereg-SHA-256 `0394fb72…70b6`) → `c3fe8fb` (Roh VOR Auswertung,
+Raw-SHA-256 `a6913bed…8c09`) → `1830557` (Auswertung + 11 Tests) → Doku
+(dieser Commit). Module: `pt_v5_sv.py`, `tests/test_pt_v5_sv.py`;
+Queued-Kontext: 046-Repeat `dauassrojkfs738rrcsg` (seit 2026-09-29),
+Kanal-Audit-Anker letzter DONE `dat3gpqhcrkc73dtjmt0` (2026-09-28);
+Referenz-Pins: 035-Prereg-NOISELESS-Konstanten (am 046b-Payload
+eingefroren).
+
+## §10.41 — EXPERIMENT 055b (H-055B): der IDEAL-Statevector-Mirror der 055-FP48-COMBINED-Circuits — **H-055B-1 IDEAL_KAPPA_HELD (37/37 κ̂ = 1.0 exakt) / H-055B-2 IDEAL_SHARPNESS_REFUTED ({467,673} = NOISE-induziert) / H-055B-3 ECHO_IDEAL_HELD (Leiter 1.0/1.0) / H-055B-4 C1_IDEAL_REFUTED (Session-Struktur ideal nicht vorhanden) → KERN H-055B_IDEAL_MIXED** (Branch `h-test1-gap-invariance`, 2026-10-06, 0 QPU, G2 AER-STATEVECTOR-IDEAL)
+
+**Anfangspunkt.** Dieselbe User-Direktive wie 046b („mache 046 und 055
+im statevector", 2026-10-06). Kernaufgabe: die Separation der drei
+055-Verdict-Ebenen — Loschmidt-Defizit (0.8-κ̂-Gate), Sharpness-Richtung
+{467,673}, Echo-Leiter q3/q5, C1/Session-Struktur — in **IDEAL** vs
+**NOISE/SESSION**, auf DENSELBEN 160 Circuits des committeten
+055-Designs (bit-identischer Builder), ohne den QUEUED Fez-Job
+db0m71qvog1s73fh15og zu berühren. Kontext: 047/S2
+H-RAM-Q-5a_SESSIONROBUST und 044/S1 H-RAM-Q-4_REFUTED — 055b ist die
+IDEAL-Referenz zu beiden. Reserve-KORREKTUR: §10.41/§Z.38 durch 055b
+belegt; EXPERIMENT 055 (QPU) → §10.42/§Z.39.
+
+**Konstruktion.** Ex ante gefroren (Prereg
+`pt_ram_q_prio48_sv_prereg.json`, REGISTERED_NOT_MEASURED,
+Freeze-Vergleich an Lauf UND Auswertung erzwungen; SHA-256 unten).
+**Version-Regie R0 → R1** (in-place Re-Freeze, Präzedenz Phase-10b,
+EXPERIMENT 043, MD5 5b91119b → 0b9c9968; kein Metrik-Weakening —
+Schwellen/Budgets/Hypothesen H-055B-1..4 UNVERÄNDERT):
+R0-Freeze `de15ffb8ff6b5884cac13af2a13567a0833c6b2b5c5e459747562c89b4099f84`
+(Commit `512b7c1`) trug eine DEFEKTE c_seed-Kontrolle — Einzeln-Replay
+EINES Circuits mit demselben Seed ist in AerStatevector NICHT
+position-stabil (die per-Experiment-RNG-Ströme hängen am Batch-Kontext,
+nicht an seed+i; Bell-Referenzprobe: 3 Varianten ry 0.7/1.7/0.3,
+Shots 1000/8192 — b1==b2==b3 bit-identisch im Voll-Batch, Einzeln-Replay
+verfehlt beide Seed-Mappings für Position > 0). R1 (Commit `50e5451`):
+c_seed = **EIN Sofort-Replay des GESAMTEN Batches (alle 160) im selben
+Prozess** (identische Reduced-Circuits, identischer Seed) → alle 160
+counts bit-identisch. **R0-Raw wurde NIE ausgewertet** (c_seed False
+aus R0-Mechanik, nicht aus einer Datenlage): uncommitted in die
+`*_R0`-Superseded-Artefakte verschoben und im Re-Freeze-Commit dem
+Ledger übergeben (raw SHA-256 `a48467f9…ddab`, counts_md5
+`5c5c4441616b1f199df1336b0d433d17`; ISA-2q-Tally 830/84 bit-gleich,
+Zell-Drift 46/160 FORCED-Namen nach Target-Refresh — Fez-Signatur).
+**R1-Design:** derselbe deterministic Builder
+`h3a.build_hardware_circuit_set(p48.eval_grid())` = 160 Circuits
+(148 FORCED / 12 UNFORCED); `qpu.transpile_forced(live_backend, …)`
+FRISCH (Submission-ISA nicht rekonstruierbar — committete ops =
+Counts-Dict) → Zell-Diagnostik ISA_CELL_IDENTICAL/ISA_CELL_DRIFT
+gegen die committete 055er-ops (Drift = WEITERLAUF-Regel registriert,
+kein Abbruch); Aktiv-Qubit-Reduktion ≤ 24 (clbits byte-identisch);
+AerSimulator(method='statevector'), IDEAL ohne Noise-Modell, shots
+8192, `seed_simulator` 20261006 ex ante, EIN `run()`. **Mirror-Contract:**
+das GEFRORENE 055-Gesetz `pt_ram_q_prio48_eval.evaluate` läuft
+descriptiv mit (t-Checks t3/t4/t5/t6, counts_md5, REFIT — Fallback
+nur bei EVALUATION_INVALID); die 055b-Verdicts H-055B-1..4 sind aus
+DEM Mirror-DOC-Feldern abgeleitet und verdict-tragend NUR für 055b
+(die 055-QPU-Verdicts bleiben dem Queued-Job vorbehalten). R1-Freeze:
+**SHA-256**
+`c708d9054a325381914a1436dadaa0a2bf4d33eefe79cb2cde73274dc0a43b2f`.
+
+**Kette.** `512b7c1` (R0-Freeze, 2026-10-06 09:57) → `50e5451`
+(Re-Freeze R1 + R0-Artefakte ins Ledger, 10:12) → `815915a` (R1-Roh VOR
+Auswertung, 10:13; Raw-SHA-256
+`1c75c1595ca50a68af495c0e70e3c6045109793598413d7a23026337072ea562`,
+counts_md5 `a126430cd770325e1dd8009ad84d66d9`, ISA_CELL_DRIFT 3/12
+UNFORCED 1q-Zweig-Delta, 2q 830/830 bit-exakt) → `6a12247` (gefrorne
+Auswertung + 12 Tests + claims-Pin 1429 → 1452 + Test-Konvention
+repariert, 10:30) → Doku (dieser Commit).
+
+**Verdict H-055B-1 (HELD).** Alle 37 κ̂ (13 verdict + 24 Kalibrier) ==
+1.0 EXAKT (κ_min = κ_max = 1.0, violated []; κ = P_L, denn im IDEAL ist
+p_ro = 1.0). **Im IDEAL ist das Loschmidt-Defizit ÜBERALL null** — das
+0.8-Gate trennt STRUKTUR von NOISE: die κ̂-Defizite der S1/QPU-Ketten
+(S1-Basislinie und QPU-Lauf) sind reiner Noise-Kanal, kein
+struktureller Inhalt.
+
+**Verdict H-055B-2 (REFUTED).** below_fresh_q5 [] — das gefrorene
+C2-Kriterium ({467,673} BEIDE below_sharp auf q5) feuert im IDEAL
+NICHT (kern_ok false). **Die QPU-Sharpness-Richtung {467,673} ist
+NOISE-INDUZIERT**: die 044-und-047-Falsifikator-Zeilen haben keinen
+idealen Inhalt; sie leben auf der Session-/Noise-Ebene (dritte
+unabhängige Niederlage der P-Vorzeichen-Lesart, konsistent mit
+H-RAM-Q-6 D3).
+
+**Verdict H-055B-3 (HELD).** κ_block q3_d3 == q5_d5 == 1.0 ≥ Floor
+0.99 (IDEAL-Grenze). **Die Echo-Leiter ist im IDEAL perfekt** — das
+QPU-q5-Defizit (κ_block 0.7314 vs q3 0.9927, Phase-11d) und das
+Kingston-Echo-r8-Floor-Kippen (0.098 → 0.4655) sind komplette
+Noise-/Substrat-Kanäle, keine strukturelle q5-Schwäche des Ladder-Designs.
+
+**Verdict H-055B-4 (REFUTED).** ρ_fresh_vs_s1: q5
+0.09999999999999999 vs gefrorener Anker 0.49999999999999994; q3
+−0.33333333333333341 vs 0.8095238095238096. **Die Session-Struktur
+(C1-Anker der 044/047-Kette) existiert im IDEAL NICHT** — sie ist
+ebenso wie H-055B-2 eine reine Session-/Noise-Ebene.
+
+**KERN — H-055B_IDEAL_MIXED.** Zwei HELD (Gate, Echo) und REFUTED
+(Sharpness-Richtung, Session-Struktur): die Distillation aus allen
+vier ist, dass die STRUKTUR (0.8-κ̂-Gate + Echo-Leiter) ideal getragen
+ist und das gesamte 055-Verdict-Geschehen der QPU-Kette (Defizite,
+{467,673}, C1) auf der Noise-/Session-Ebene liegt. Der Mirror durch
+das GEFRORENE 055-Gesetz ist descriptiv: law_verdict UNDETERMINED
+(Datenlage unklar — keine der 055-Konstellationen feuert bei
+κ̂-Sättigung 1.0), t3/t4/t5/t6 true, REFIT_OK, counts_md5 verifiziert,
+MIRROR_VOID_FALLBACK nicht nötig. Kontrollen: c_seed True (R1-Mechanik,
+n_diff 0, alle 160 bit-identisch), c_cal_ideal True (p0_fraction
+cal_2q/cal_3q == 1.0 exakt), c_cell ISA_CELL_DRIFT — descriptiv
+DIAGNOSTIK nach WEITERLAUF-Regel: nur 3/12 UNFORCED mit 1q-Zweig-Delta
+(`ladder_q3_d3_181_r4`, `ladder_q3_d3_181_r8`, `ladder_q5_d5_467_r8`),
+2q-Tally 830/830 bit-exakt (Live-Target variiert lauf-zu-lauf — gegen
+R0s 46-FORCED-Drift eine zweite, völlig andere Drift-Signatur).
+
+**Tests.** 12 Tests in `tests/test_pt_ram_q_prio48_sv.py`
+(Konventionsreparatur: Root-Level-Test-Dateien WAREN nie Teil der
+Claim-Metrik `pytest tests/ --collect-only -q` — 09_26_new-Präzedenz;
+046b- und 055b-Tests nach `tests/` umgezogen, claims-Pin 1429 → 1452):
+Prereg-Pin + R0→R1-Regie (delta_vs_R0: c_seed-Mechanik,
+seed_mechanik_lesson, „KEINE Veraenderung an Hypothesen"; R0_raw_fate
+„NIE evaluiert"), load_frozen-Reject (Fremd-Pin → SystemExit),
+Raw-Freiheit von Verdict-Feldern (banned_from_raw), R1-Kontrollen
+(batch-replay-im-prozess, c_cal_ideal), Zell-Drift descriptiv,
+Eval-Verdicts ex ante, Kontroll-INVALID-präzedenz („INVALID, nicht
+REFUTED"), Mirror-descriptiv (law_verdict UNDETERMINED, t3/t4/t5/t6),
+Detail-Zahlen (κ == 1.0, ρ-Floats), 055-QPU-Kontext unangetastet.
+
+**Metrologie-Lektion (Interpreter-Pin).** Die Suite MUSS unter
+`./venv/bin/python` laufen: das System-numpy stieg 2.4.6 → 2.5.3
+(Python 3.14.7 unverändert) und spaltete exakt 4 Tests — (a) das
+fidelity-Gate auf den (falsch plattierten) claims-Pin 1452 vs Kollekts
+1429 (Selbstverursacht, durch die Convention-Reparatur behoben), (b)
+`s4_r2` build_env-Pin (frozen 2.4.6 vs 2.5.3, Content-Vergleich
+unverändert grün), (c) Hardware2-Defaultpfad: 9 letzte-ULP-Float-Diffs
+(`fit_max_res_log` 0.025270418531674832 vs …72; `center_v2`/`res_v2`
+an q3_d3|347, q5_d5|577/631/659), (d) Hardware3-γ_LSQ-Rang-Ties
+5.662377740569928e-05. Alle unter venv grün; die Deltas sind als
+numpy-BUILD-Delta attrakt (049b-Lektion „Interpreter je Lauf pinnen"
+in die andere Richtung bestätigt: das PROJEKT-Env ist das VENV —
+ Suite-Stand **1452 passed** (579 warnings, 148.7 s)). Erratum: die
+Re-Freeze-Commit-Message `50e5451` trägt zweimal „kein
+Metrick-Weakening" (Tippfehler; der Payload-Feldname und der Inhalt
+sind korrekt — kein Re-Write eines committeten Preregs).
+
+**Artefakte.** `pt_ram_q_prio48_sv.py`;
+`pt_ram_q_prio48_sv_prereg.json` (R1);
+`pt_ram_q_prio48_sv_raw.json` + `_isa_report.json` + `_isa_gate.json`
+(R1); `*_R0`-Superseded-Trio (Ledger); `pt_ram_q_prio48_sv_eval.json`;
+`tests/test_pt_ram_q_prio48_sv.py`; `tests/test_pt_v5_sv.py`
+(umgezogen). Governance: 0 QPU (read-only Service-Kontakt, KEIN
+Submit); gefrorene 055-QPU-Kette `db0m71qvog1s73fh15og` UNANGETASTET;
+KEIN Re-Decide.
+
+**Verwandt.** SYNTHESIS_2026_06_10.md §Z.38 (gleicher Stand,
+Chain-Prepend); INVESTIGATION_PLAN.md-Tree-Knoten RQSV + OP55B2
+(Append); §10.39/§Z.36 (054); 055-QPU-Kontext: Fez-Job
+`db0m71qvog1s73fh15og` QUEUED → §10.42/§Z.39; S1 = 044
+H-RAM-Q-4_REFUTED, S2 = 047 H-RAM-Q-5a_SESSIONROBUST; claims-Live-Pin
+1429 → 1452.
+
+#### Quellenangaben für §10.41
+
+Eingang: dieselbe User-Direktive wie §10.40 („mache 046 und 055 im
+statevector", 2026-10-06). Kette: `512b7c1` (R0-Freeze, SHA-256
+`de15ffb8…9f84`) → `50e5451` (Re-Freeze R1, SHA-256 `c708d905…3b2f`,
+R0-Artefakte) → `815915a` (R1-Roh, Raw-SHA-256 `1c75c159…562`,
+counts_md5 `a126430c…66d9`) → `6a12247` (Auswertung + 12 Tests,
+claims-Pin, Convention-Reparatur, Erratum, Interpreter-Pin) → Doku
+(dieser Commit). Module: `pt_ram_q_prio48_sv.py`,
+`tests/test_pt_ram_q_prio48_sv.py`; Mirror-Gesetz:
+`pt_ram_q_prio48_eval.evaluate` (gefronenes 055-Prereg MD5 b7afc42c-Kette);
+Queued-Kontext: 055-FP48-COMBINED `db0m71qvog1s73fh15og`; Bell-
+Referenzprobe der R0-Seed-Lektion (3 Varianten ry 0.7/1.7/0.3) als
+Empirie für die Batch-Kontextabhängigkeit der AerStatevector-RNG.
 Verwandt: SYNTHESIS_2026_06_10.md §Z.36.
