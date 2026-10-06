@@ -1,0 +1,48 @@
+{
+ "controls":{
+  "C1_theorem_identity":true,
+  "C2_noiseless_anchors":true,
+  "C3_spectrum_split":true,
+  "C4_isa_offline_anchor":true,
+  "C5_stress_baseline":true,
+  "C6_reduction_exact":true
+ },
+ "created_at_utc":null,
+ "experiment":"046b-v5-statevector-identity",
+ "g_typ":"G1 EXAKT-STATEVECTOR (0 QPU, kein Token, kein Service-Kontakt)",
+ "hypothesis":"H-V5RB",
+ "isa_counts_fakefez":{
+  "depth":11,
+  "names":[
+   "cz"
+  ],
+  "one_q":18,
+  "two_q":1
+ },
+ "leg":"SV-BOTH-LEGS-LOGICAL-AND-FAKEFEZ-ISA",
+ "legs":{
+  "fakefez_isa":{
+   "bias":0.0,
+   "hd":2.1377808420801365,
+   "im":0.008960976233416896,
+   "re":2.1377808420801365
+  },
+  "logical":{
+   "bias":0.0,
+   "hd":2.1377808420801374,
+   "im":0.00896097623341691,
+   "re":2.1377808420801374
+  }
+ },
+ "mechanik":"v5.noiseless_observables_at precision 0.0 (leg fakefez_isa) + qiskit Statevector.expectation_value (leg logical); kein Sampling, kein Seed, deterministisch.",
+ "numpy_build":"2.4.6",
+ "params":[
+  -0.10039260373380426,
+  0.31547161200836626,
+  -0.7794084485021391,
+  -0.09555937796511249
+ ],
+ "prereg_sha256":"0394fb7288ac8cb2374b00fef50c31020c20f66090283147adcc36021d8170b6",
+ "qiskit_build":"2.4.1",
+ "status":"SV_RAW_FETCHED"
+}
