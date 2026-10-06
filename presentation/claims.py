@@ -925,7 +925,17 @@ _CL.append(Claim(
     # das Prereg-n_d [19,13,10], kraus_abklingen: Decay an A0[1,1]/
     # A1[0,1], lies_committed_counts gibt (dok, md5-str) = (dok,
     # rekomputierter MD5) zurueck)
-    id="test_count", value=1601,
+    # PRIMEQUANT PHASE C (EXPERIMENT 055c G2-EXAKT, 0 QPU):
+    # pt_ram_q_prio48_exakt.py Runner gefroren (0a66007) + Roh-Commit
+    # VOR Auswertung (4c6cc57) + gefrorene Auswertung
+    # pt_ram_q_prio48_exakt_eval.py (zweiter Pfad, kein Runner-/primequant-
+    # Import): +11 Tests (test_pt_ram_q_prio48_exakt: Prereg-Kanonik/
+    # Dual-Source-Pins-Kette/Row-0-Quote-Nachrechnung/T1 exakt-0/
+    # T2-ULP-Band-Nachrechnung ehrlich REFUTED (1/111 Zeile
+    # calstruct_q5_d5_433_r0, 4.0 ULP, Binaden-Mechanik)/T3-NC-Band/
+    # T4 bit-identisch/ISA-Wohlgeformtheit/banned-Feld-Wert-Sweep/
+    # Verdict-Kette/frak-Pin-Dreifach-Kette) -> 1612
+    id="test_count", value=1612,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

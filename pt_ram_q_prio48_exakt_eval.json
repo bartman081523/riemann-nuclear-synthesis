@@ -1,0 +1,489 @@
+{
+ "disclosures": [
+  {
+   "befund": "63 Zeichen statt 64 — ein 'e' fehlt (...33eef79... statt ...33eefe79...); Registrierungs-Artefakt; die bindende Kette Rekompute == sv-dok == raw-Block == Runner-Konstante ist intakt (64-Zeichen), gefrorenes Prereg NICHT editiert (Praezedenz Plan §9.6)",
+   "feld": "source_pins.sv_dok_prereg_sha256",
+   "typ": "prereg_source_pins_prereg_laenge"
+  }
+ ],
+ "e6_banned": {
+  "key_brueche": 0,
+  "wert_vorkommen": {
+   "verdict": 63
+  },
+  "wert_vorkommen_detail": {
+   "verdict": [
+    {
+     "ausschnitt": "NON-verdict-Meta: Torzahl-Komposition aus committetem ISA-Report (V12); p_1q_eff geschätzt:Hypothese",
+     "pfad": "isa_report.garantie"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.0.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.1.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.2.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.3.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.4.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.5.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.6.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.7.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.8.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.9.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.10.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.11.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.12.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.13.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.14.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.15.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.16.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.17.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.18.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.19.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.20.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.21.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.22.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.23.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.24.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.25.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.26.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.27.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.28.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.29.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.30.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.31.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.32.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.33.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.34.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.35.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.36.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.37.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.38.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.39.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.40.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.41.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.42.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.43.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.44.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.45.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.46.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.47.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.48.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.49.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.50.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.51.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.52.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.53.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.54.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.55.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.56.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.57.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.154.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.155.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.156.set"
+    },
+    {
+     "ausschnitt": "verdict",
+     "pfad": "reihen.157.set"
+    }
+   ]
+  }
+ },
+ "eval_status": "GEFRORENE_AUSWERTUNG (nur committete Artefakte)",
+ "experiment": "055c-primequant-exakt",
+ "g_typ": "G2-EXAKT",
+ "hypothesis": "H-055C",
+ "kern_verdict": {
+  "grade_hinweis": "B+",
+  "verdict": "H-055C_KERN_MIXED"
+ },
+ "nachtabelle": [
+  {
+   "n": 45,
+   "schwelle": "T1",
+   "verdict": "HELD",
+   "verletzt_bei": []
+  },
+  {
+   "n": 111,
+   "schwelle": "T2",
+   "verdict": "REFUTED",
+   "verletzt_bei": "calstruct_q5_d5_433_r0"
+  },
+  {
+   "n": 111,
+   "schwelle": "T4",
+   "verdict": "HELD",
+   "verletzt_bei": null
+  },
+  {
+   "n": 4,
+   "schwelle": "T3",
+   "verdict": "HELD",
+   "verletzt_bei": null
+  }
+ ],
+ "nc_detail": [
+  {
+   "name": "ctrl_composite_P181_d3",
+   "p_pins": {
+    "0": "65f4c19c38dfae2e1fe738e1d647bf1b4115158cffdf0d05fa638b6ddf6c1a7d",
+    "1": "aa5338795e2b8cda987ccb0742b86daec601663e4e686a1e4786d33a62283d55",
+    "2": "4922a151ccc162cce604f02235468c66cad28a49472e7ca2c8b0478b7b1a5cf7",
+    "3": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097"
+   },
+   "tv": "551/86016"
+  },
+  {
+   "name": "ctrl_uniform_q3",
+   "p_pins": {
+    "0": "1e9314ab24418757403dd7d5bd665a761994c4b99e41a61ea627f116f5e1f5db",
+    "1": "95bf641cefef195e566cb838803202f85aa0ab20d1111e7037203403ea2f9141",
+    "2": "bea4e7ab9df3086224494a51cd84cdae7ab90c9f425d16214d9a8256c5ce0fb6",
+    "3": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097"
+   },
+   "tv": "79/24576"
+  },
+  {
+   "name": "ctrl_composite_P467_d5",
+   "p_pins": {
+    "0": "9259cc95b24fa2671cad0190382f6c9b93ede0793f0f350a07f4653eac5cdf90",
+    "1": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097",
+    "2": "7d5be57575046e1d58312093da9268b7affc818150f19216ae336a9718ab03d1",
+    "3": "020fb391d00615ac6ef717a746841ff78b95d1d3ea1f23c0ecc0fab43cc233c3",
+    "4": "7cb678af446a23b238e82a79e71bfe5eec958a6c4b6c62a5a3c2f29b2d5b547d",
+    "5": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097",
+    "6": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097",
+    "7": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097"
+   },
+   "tv": "835/106496"
+  },
+  {
+   "name": "ctrl_uniform_q5",
+   "p_pins": {
+    "0": "e17feb274913a4e3c184e0e1dd82d1c68b4dd1b7877659bbb7695df0785d9125",
+    "1": "49b20b9015f793068b8089d5b385decae8e1526f95155cdca789e590823cd628",
+    "2": "4c89b4cc67c49df63f91474f646b0aa4e37de24a2d00636d79e4647c36eccdcc",
+    "3": "b6407c281c9eb834ff28b4794e866f92b99b8f973be302cb62791de47463ac02",
+    "4": "dc8630b1ff40743218686fd502a5c304a195fbb5951814233426f46420de2969",
+    "5": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097",
+    "6": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097",
+    "7": "9bacf2a323691fdc0053e489e11794b9e45ae472f9b9e299e68b861b3ea1f097"
+   },
+   "tv": "31/2560"
+  }
+ ],
+ "numpy_build": "2.4.6",
+ "primequant_importiert": false,
+ "python_build": "3.14.7",
+ "qiskit_importiert": false,
+ "schwellen": {
+  "T1": {
+   "n": 45,
+   "text": "fuer alle 45 Delta-Reihen tv == '0' exakt (Fraction(0)) — Delta-Saettigung erwartet, V8",
+   "verdict": "HELD",
+   "verletzt_bei": []
+  },
+  "T2": {
+   "max_delta_fft_ulp": 4.0,
+   "n": 111,
+   "text": "fuer alle 111 struct-rows: |anteil_flt_falt − fft_share_float| ≤ 2·math.ulp(anteil_flt_falt) — ABS-FFT rundet je Term (komplexes Summen-Netz), V6 mass 1 ULP",
+   "verdict": "REFUTED",
+   "verletzt_bei": "calstruct_q5_d5_433_r0"
+  },
+  "T3": {
+   "detail": [
+    {
+     "alpha": "1/240",
+     "arm": "q3_d3",
+     "min_p": "PIN:4922a151ccc162cce604f02235468c66cad28a49472e7ca2c8b0478b7b1a5cf7",
+     "min_p_label": 2,
+     "min_p_pin": "4922a151ccc162cce604f02235468c66cad28a49472e7ca2c8b0478b7b1a5cf7",
+     "name": "ctrl_composite_P181_d3",
+     "tv": "551/86016"
+    },
+    {
+     "alpha": "1/240",
+     "arm": "q3_d3",
+     "min_p": "PIN:95bf641cefef195e566cb838803202f85aa0ab20d1111e7037203403ea2f9141",
+     "min_p_label": 1,
+     "min_p_pin": "95bf641cefef195e566cb838803202f85aa0ab20d1111e7037203403ea2f9141",
+     "name": "ctrl_uniform_q3",
+     "tv": "79/24576"
+    },
+    {
+     "alpha": "1/400",
+     "arm": "q5_d5",
+     "min_p": "PIN:7cb678af446a23b238e82a79e71bfe5eec958a6c4b6c62a5a3c2f29b2d5b547d",
+     "min_p_label": 4,
+     "min_p_pin": "7cb678af446a23b238e82a79e71bfe5eec958a6c4b6c62a5a3c2f29b2d5b547d",
+     "name": "ctrl_composite_P467_d5",
+     "tv": "835/106496"
+    },
+    {
+     "alpha": "1/400",
+     "arm": "q5_d5",
+     "min_p": "PIN:49b20b9015f793068b8089d5b385decae8e1526f95155cdca789e590823cd628",
+     "min_p_label": 1,
+     "min_p_pin": "49b20b9015f793068b8089d5b385decae8e1526f95155cdca789e590823cd628",
+     "name": "ctrl_uniform_q5",
+     "tv": "31/2560"
+    }
+   ],
+   "n": 4,
+   "text": "p_wert_zweiseitig ≥ 1/240 (q3-Bein) beziehungsweise ≥ 1/400 (q5-Bein) je Label, zweiseitig gegen p_a = n_a/m | tv ≤ 1/50 pro negative Kontrolle",
+   "verdict": "HELD",
+   "verletzt_bei": null
+  },
+  "T4": {
+   "bit_identisch": 111,
+   "n": 111,
+   "text": "fuer alle 111 struct-rows: faltform_float == anteil_flt_falt bit-identisch — dyadisch-exakter Zaehler, genau EINE Rundung ⇒ IEEE einzig-korrekt-gerundet",
+   "verdict": "HELD",
+   "verletzt_bei": null
+  }
+ },
+ "second_path": "kein Runner-Import, kein primequant-Import — eigene Implementierungen; Feld-fuer-Feld BIT-Vergleiche",
+ "verdicts": {
+  "H-055C-1": "HELD",
+  "H-055C-2": "REFUTED",
+  "H-055C-3": "HELD",
+  "H-055C-4": "HELD"
+ },
+ "verification": {
+  "E0_freeze_rahmen": {
+   "freeze_commit": "0a66007",
+   "prereg_file_sha256": "99a99022a25c737974b01bd649f4abc7391b4d25bc0b91c56f0bed931b21f0bb",
+   "prereg_payload_sha256": "279749d3dbb3d09ec02092c1daad5479fb7cd3f3760e39a9d68bbf8453b5e4f1",
+   "raw_commit": "4c6cc57",
+   "raw_sha256": "130ee9c0590b2b4f15d8d4dd8621f6aa6c645cd529527d743fcaf3f12d180b31",
+   "runner_blob_sha256": "cedf040e4800795b40366a75a5b23d0bb597318758be041b234275b740ef225c",
+   "sv_raw_sha256_Head": "1c75c1595ca50a68af495c0e70e3c6045109793598413d7a23026337072ea562"
+  },
+  "E1_prereg": {
+   "hypotheses_payload_sha256": "e03be9bfd5cd5078c3df63558ca66434a6ec0eeca34e9de6829c19086cdc820e",
+   "registration_utc": "2026-10-06T13:29:59Z",
+   "schwellwerte_payload_sha256": "e73e77927028830da8404f2611142e05eab02ca74f8dcc1583d931439d47d17f",
+   "status": "REGISTERED_NOT_MEASURED",
+   "version_regie": "R0"
+  },
+  "E2_sv_source": {
+   "counts_md5_source_block": {
+    "backend": true,
+    "counts_md5": true,
+    "counts_payload_sha256": true,
+    "dok_prereg_sha256": true,
+    "fetched_at_utc": true,
+    "pfad": true
+   },
+   "pin_kette": {
+    "eigenrekompute": "c708d9054a325381914a1436dadaa0a2bf4d33eefe79cb2cde73274dc0a43b2f",
+    "prereg_source_pins": "c708d9054a325381914a1436dadaa0a2bf4d33eef79cb2cde73274dc0a43b2f",
+    "raw_counts_md5_source": "c708d9054a325381914a1436dadaa0a2bf4d33eefe79cb2cde73274dc0a43b2f",
+    "runner_konstante": "c708d9054a325381914a1436dadaa0a2bf4d33eefe79cb2cde73274dc0a43b2f",
+    "sv_dok_top": "c708d9054a325381914a1436dadaa0a2bf4d33eefe79cb2cde73274dc0a43b2f"
+   },
+   "pins": {
+    "isa_sha256": "5b0d17a75b708d5bb9f20bc76a1e389e790dd5d4575217db161d7f0b2503dcd1",
+    "sv_backend": "AER_STATEVECTOR_LOCAL",
+    "sv_counts_md5": "a126430cd770325e1dd8009ad84d66d9",
+    "sv_counts_payload_sha256": "289f1f4e6c48eada9a15f1735af9739a68b2a630addc91efda5c9e31f76359a2",
+    "sv_dok_prereg_sha256": "c708d9054a325381914a1436dadaa0a2bf4d33eef79cb2cde73274dc0a43b2f"
+   }
+  },
+  "E3_isa": {
+   "eigen_aggregation == raw": true,
+   "per_circuit": 160,
+   "sha256": "5b0d17a75b708d5bb9f20bc76a1e389e790dd5d4575217db161d7f0b2503dcd1"
+  },
+  "E5_second_path": {
+   "brueche": 0,
+   "erste_pin_verifiziert": true,
+   "erste_reihe": "struct_q3_d3_181_r0",
+   "faltform_bit_identisch": 111,
+   "felder": 3254,
+   "max_delta_fft_ulp": 4.0,
+   "max_delta_quote_ulp": 3.0,
+   "reihen": 160
+  }
+ }
+}
