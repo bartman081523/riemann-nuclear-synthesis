@@ -882,9 +882,20 @@ _CL.append(Claim(
     # (Raw-SHA-256 3aceed91, disclosed L3-NaN-Modul-Delta), c91a490
     # gefrorene Auswertung + 23 Tests (test_pt_zqz_goe: Kanonik/Ordnung/
     # decide-Zweige/Leak-Guard) -> 1429
+    # 046b H-V5RB (EXPERIMENT 046b, 0 QPU, G3 FAKEFEZ-ISA-EXAKT):
+    # 1830557 gefrorene Auswertung + 11 Tests (test_pt_v5_sv: Prereg-Pin/
+    # Raw-Vertrag/Statevector-Bit-Pin/C2-Anker-Reproduktion/ISA-Identitaet/
+    # Band-Platzierung/046-Kontext) -> 1440 (Pin-Zug gemeinsam mit 055b,
+    # laut 1830557-Versprechen "Suite-Pin folgt mit 055b")
+    # 055b H-055B (EXPERIMENT 055b, 0 QPU, G2 AER-STATEVECTOR-IDEAL,
+    # Re-Freeze R1 c708d905): 12 Tests (test_pt_ram_q_prio48_sv:
+    # version_regie-R0->R1-Delta/Referenzkonstanten-am-Payload/c_seed-
+    # Batch-Replay-Mechanik/Zell-Diagnostik-Booleans 830/830/Verdicts ex
+    # ante MIXED/055b-Kontrollen INVALID-Praezedenz/Mirror-descriptiv/
+    # 055-Kontext QUEUED) -> 1452
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1429,
+    id="test_count", value=1452,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
