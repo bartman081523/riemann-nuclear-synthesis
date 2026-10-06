@@ -1,0 +1,113 @@
+{
+ "anti_sharpshooter":"Alle Konstanten (Anker, E0s, Bandober-, ISA-Counts, STRESS-SHIFT) sind committete 035/046-Konstanten; die b-Toleranzen sind Numerik-Umgebungs-Groessen (1e-6 == C2, 1e-9/1e-12 unterhalb jeder Shot-Ungleichheit) — nichts betrachtet die QPU-Messdaten (die QUEUED sind).",
+ "banned_from_raw":[
+  "verdict",
+  "H-V5RB-1_*",
+  "H-V5RB-2_*",
+  "kern",
+  "band_platzierung",
+  "classification"
+ ],
+ "branch":"h-test1-gap-invariance",
+ "descriptiv_mirror":{
+  "band_context":"Placement der exakt-Werte in den 035-Baendern; hd-Marge zur Band-Unterkante; re - E0-Abstaende (Grundzustands-Kontext).",
+  "form":"v5.evaluate(meas, bands_046, controls_ok) je leg (CONFIRMED/BIAS_MITTEL/... MIRROR auf exakt-Werte, NICHT verdict-tragend fuer die 046/035-Kette)."
+ },
+ "design":{
+  "kein_sampling":"Precision-0.0-Erwartungswerte, kein Seed, deterministisch wiederholbar (kein Stochastic-Bein).",
+  "kein_token":"0 QPU: kein Estimator/Sampler-Job, kein Service-Objekt, kein Token-Kontakt (FakeFez ist offline).",
+  "leg_fakefez_isa":"v5.noiseless_observables_at(v5.FEZ_PARAMS) VERBATIM (AerEstimator precision 0.0, method density_matrix, FakeFez-ISA opt-level 3 seed 7) — identische Mechanik zur gefrorenen C2; Messung statt Behauptung.",
+  "leg_logical":"Statevector(v5.ansatz_logical().assign_parameters(v5.FEZ_PARAMS)) + expectation_value der drei Operators (ops_real/ops_diag/ops_imag OHNE Layout) — der Design-Inhalt vor jeder ISA-Transformation."
+ },
+ "experiment":"046b-v5-statevector-identity",
+ "freeze_discipline":[
+  "Prereg-Freeze (SHA-256) VOR jeder Messung (REGISTERED_NOT_MEASURED); Freeze-Vergleich an Run UND Auswertung erzwungen (053-Lektion).",
+  "Roh-Commit VOR Auswertung (RAW enthaelt KEINE Verdicts).",
+  "Gefrorene 046-/035-Preregs UNANGETASTET; kein Re-Decide; KEINE Toleranz-Erhoehung."
+ ],
+ "g_typ":"G1 EXAKT-STATEVECTOR (0 QPU, kein Token, kein Service-Kontakt)",
+ "hypotheses":{
+  "H-V5RB-1":{
+   "held":"H-V5RB-1_NOISELESS_ANCHOR_HELD",
+   "herkunft":"1e-6 == gefrorene C2-Toleranz (046/035-Kette); bias == 0 exakt == C2-Schwarze-Text, gemessen als Verdict, nicht als Kontrolle.",
+   "name":"NOISELESS_ANCHOR_REPRODUCED",
+   "refuted":"H-V5RB-1_NOISELESS_ANCHOR_REFUTED",
+   "statement":"Die frische Exact-Messung an leg fakefez_isa reproduziert die gefrorenen 035-Noiseless-Anker: |re - noiseless_re| <= 1e-6 UND |hd - noiseless_re| <= 1e-6 UND |im - noiseless_im| <= 1e-6 UND bias == 0.0 exakt",
+   "toleranz":1e-06,
+   "verdict_tragend":true
+  },
+  "H-V5RB-2":{
+   "held":"H-V5RB-2_LOGICAL_ISA_BIAS_IDENTITY_HELD",
+   "interpretation":"HELD bedeutet: H-V5R-2's Vorzeichen-Regime hat keinen idealen Inhalt — die Backend-Bias-Kontraste sind Session-/Noise-Phaenomene (Distillations-Ergebnis). REFUTED waere ein Transpile-/Layout-Artefakt oder ein echter ISA-Effekt und muesste im ISA-Detail verortet werden.",
+   "name":"LOGICAL_ISA_BIAS_IDENTITY",
+   "refuted":"H-V5RB-2_LOGICAL_ISA_BIAS_IDENTITY_REFUTED",
+   "statement":"Der IDEALE Design-Inhalt ist ISA-invariant UND vorzeichenfrei: |re_log - re_ff| <= 1e-9 UND |hd_log - hd_ff| <= 1e-9 UND |im_log - im_ff| <= 1e-9 UND |bias_log| <= 1e-12 UND |bias_ff| <= 1e-12",
+   "toleranz":1e-09,
+   "verdict_tragend":true
+  }
+ },
+ "hypothesis":"H-V5RB",
+ "kern":{
+  "H-V5RB_IDENTITY_HELD":"beide H-V5RB-1 und H-V5RB-2 HELD",
+  "H-V5RB_MIXED":"GENAU EINE gefallen",
+  "H-V5RB_REFUTED":"beide REFUTED",
+  "invalid":"Kontrollen C1-C6 nicht alle gruen -> H-V5RB_INVALID_KONTROLLE_GESCHEITERT (Verdicts zurueckbehalten, offen diskulpiert)."
+ },
+ "kontrollen":{
+  "c_all":"v5.run_controls() (C1-C6) frisch; ALLE muessen gruen sein, sonst INVALID (046-Praezedenz).",
+  "c_isa_anker":"isa_gate_counts(isa_ansatz_fakefez()) == ISA-Frozen (C4: two_q 1 / one_q 18 / names ('cz',) / depth 11) — deterministisch.",
+  "c_stress":"C5: STRESS-SHIFT reproduziert STRESS_SHIFT_RE/IM <= 1e-6 (deterministisch)."
+ },
+ "motivation":"Fez-Kanal-Starvation seit 2026-09-28 11:50 (letzter DONE dat3gpqhcrkc73dtjmt0): ALLE drei danach eingereichten Token1-Jobs (daua5hahcrkc73dv9eh0 F4, dauassrojkfs738rrcsg 046, db0m71qvog1s73fh15og 055) permanent QUEUED; backend_pending 0 ohne Start falsifiziert 'Queue ueberfuellt' als Ursache. Diese leg misst den IDEALEN Inhalt des 046-Designs exakt (0 QPU) und distilliert die Struktur/Noise-Frage: traegt H-V5R-2 (Backend-Vorzeichen-Regime) idealem Inhalt? Konkurrenz: C1/Theorem-Identitaet sagt bias = re - hd == 0 idealseitig — jedes nichtideale Vorzeichen ist Session-/Noise-Phaenomen. Die QPU-Beine bleiben QUEUED und verdict-tragend fuer die 046/035-Kette.",
+ "numpy_build":"2.4.6",
+ "parent_context":{
+  "exp_035":{
+   "experiment":"035-ququint-v5-kingston-drift",
+   "job_id":"daqaeteekp0c73aqetdg",
+   "prereg_md5_legacy":"d019d587c0d8ca28cfa0559057d590c8",
+   "verdict":"H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND"
+  },
+  "exp_046":{
+   "experiment":"046-ququint-v5-repetition-both-backends",
+   "fez_job_id":"dauassrojkfs738rrcsg",
+   "fez_job_status":"QUEUED (unangetastet, kein Cancel)",
+   "hypothesis":"H-V5R",
+   "prereg_md5_legacy":"fcf4c2c58837bb7188c4e029d1841214"
+  },
+  "kritik1_bezug":"lebender Treffer 2 (Kapazitaets-Allokation): die Statevector-Ebene distilliert ohne QPU-Kontingent."
+ },
+ "qiskit_build":"2.4.1",
+ "referenzkonstanten_035":{
+  "bands_035":{
+   "hd":[
+    2.1345053504908575,
+    2.1809962200449498
+   ],
+   "im":[
+    -0.011242018857197743,
+    0.03003274212843888
+   ],
+   "re":[
+    2.1191844880255655,
+    2.17247246569962
+   ]
+  },
+  "fez_params":[
+   -0.10039260373380426,
+   0.31547161200836626,
+   -0.7794084485021391,
+   -0.09555937796511249
+  ],
+  "noiseless_e0_diag":2.0,
+  "noiseless_e0_h1":2.0018501462716807,
+  "noiseless_im":0.008960976233,
+  "noiseless_re":2.13778084208,
+  "se_hd":0.004367920539504277,
+  "se_im":0.00032217563103976147,
+  "se_re":0.004367920539504277,
+  "thresh_bias_confirmed":0.05,
+  "thresh_bias_refuted":0.15
+ },
+ "registered":"2026-10-06",
+ "status":"REGISTERED_NOT_MEASURED"
+}
