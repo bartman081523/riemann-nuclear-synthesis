@@ -416,7 +416,7 @@ def run_evaluation():
             "H-V5RB-2": verdict_l2,
             "kern": kern,
             "verdict_tragend_fuer": ("046b (H-V5RB) — NICHT fuer die "
-                                     "046/035-Kelle (die bleibt dem QPU-"
+                                     "046/035-Kette (die bleibt dem QPU-"
                                      "Bein vorbehalten)"),
         },
         "interpretation": prereg["hypotheses"]["H-V5RB-2"][
