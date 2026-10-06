@@ -73,7 +73,7 @@ Every claim recomputed from its committed source at build time.
 | date_vqd | doc-frozen | — | act4_qpu_timeline | `'2026-07-21'` | doc README.md:64 |
 | date_fez_phi | doc-frozen | — | act4_qpu_timeline | `'2026-09-15'` | doc RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md:1325 |
 | date_kingston | doc-frozen | — | act4_qpu_timeline | `'2026-09-24'` | doc README.md:62 |
-| test_count | measured | — | act1_title, act10_verdict_ladder | `1406` | live test collection |
+| test_count | measured | — | act1_title, act10_verdict_ladder | `1601` | live test collection |
 
 ## Criteria shown before results (explanation_scaffold)
 

@@ -31,7 +31,13 @@ except ImportError:  # editable install fehlt: src-Fallback
 
 PAKET_ORDNER = os.path.join(_REPO, "src", "primequant")
 
-EXAKT_MODULES = ("__init__.py", "_guarantees.py", "_cyc.py", "_gfq.py")
+# Phase B hebt den Bann auf die EXAKT-Schicht-Module; channels.py bleibt
+# bewusst DRAUSSEN (numpy-Float-Schicht, ABGELEITET-Werkzeug).
+EXAKT_MODULES = (
+    "__init__.py", "_guarantees.py", "_cyc.py", "_gfq.py",
+    "stateprep.py", "distributions.py", "bands.py", "observables.py",
+    "calibrations.py", "_anchors.py",
+)
 
 VERBOTENE_IMPORT_ROOTS = {"numpy", "scipy", "sympy", "random", "secrets"}
 

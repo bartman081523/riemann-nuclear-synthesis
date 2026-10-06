@@ -1,15 +1,21 @@
 """primequant — exakte, seed-freie Quanten-Numerik.
 
 Sichtbare Schicht des Pakets: Garantie-Etiketten (EXAKT / ABGELEITET /
-GESAMPFELT, Verkettungsregel exklusiv abwaerts), der generische
-zyklotomische Ring Z[x]/(Phi_q(x)) und GF(q) nebst GF(q)[x] fuer alle
-Primzahlen q. Der EXAKT-Kern dieser Datei-Ebene ist stdlib-only; numpy
-wird nur in der separaten Float-Schicht (channels) importiert, sympy nur
-als Anker-Orakel in tests/ — der Kern importiert nie sympy.
+GESAMPFELT, Verkettungsregel abwaerts exklusiv), der generische
+zyklotomische Ring Z[x]/(Phi_q(x)), GF(q) nebst GF(q)[x] fuer alle
+Primzahlen q, exakte Zustandsvorbereitung, exakte Verteilungen mit
+Total-Variation, exakte statistische Baender, exakte Observablen (Quote,
+Ring-DFT, Ramanujan) sowie die disk-only Kalibrierungs- und Anker-Schicht.
+Der EXAKT-Kern dieser Datei-Ebene ist stdlib-only: numpy wurde NUR in der
+separaten Float-Schicht importiert und wird hier bewusst NICHT
+re-exportiert — ``import primequant`` zieht kein numpy (channels liegt
+als ``primequant.channels`` bereit); sympy nur als Anker-Orakel in tests/
+— der Kern importiert nie sympy.
 
-Fuehrende Unterstriche: interne Module (_cyc, _gfq, _guarantees) — die
-oeffentliche API wird hier re-exportiert; Tests gehen bewusst auch intern
-gegen die Quelltexte (Anker-Enforcement, siehe tests/).
+Fuehrende Unterstriche: interne Module (_cyc, _gfq, _guarantees,
+_anchors) — die oeffentliche API wird hier re-exportiert; Tests gehen
+bewusst auch intern gegen die Quelltexte (Anker-Enforcement, siehe
+tests/test_primequant_no_seeded_rng.py).
 """
 
 from __future__ import annotations
@@ -73,6 +79,67 @@ from ._cyc import (
     cyc_to_json,
     cyc_zero,
 )
+from .stateprep import (
+    sieve_primes,
+    residue_counts,
+    exakter_probvektor,
+    labels_2nq,
+    delta_vektor,
+    ideal_loschmidt_delta,
+    ideal_leiter_delta,
+    falt_auf_q,
+    register_breite,
+)
+from .distributions import (
+    STRUKTUR_REIHENARTEN,
+    DELTA_REIHENARTEN,
+    fuele_modell,
+    modell_struktur,
+    modell_kontrolle_uniform,
+    modell_kontrolle_composite,
+    modell_fuer_art,
+    zaehlung_auf_labels,
+    exakte_masse_am_label,
+    tv_exakt,
+)
+from .bands import (
+    binom_cdf_exakt,
+    binom_tail_exakt,
+    p_wert_zweiseitig,
+    alpha_bonferroni,
+    band_quantile,
+    chebyshev_schranke,
+    cantelli_schranke,
+)
+from .observables import (
+    SHOTS,
+    falte_restklassen,
+    falte_q_fraction,
+    punkt_konstanten,
+    quote_exakt,
+    ring_dft,
+    quad_magnitude,
+    galois_konjugiert,
+    norm_galois,
+    ramanujan_summe,
+)
+from .calibrations import (
+    ganzzahl_wurzel,
+    lese_readout_cal_reihen,
+    rand_flip_anteile,
+    ro_intervall,
+    kalibriere_dokument,
+)
+from ._anchors import (
+    payload_sha256,
+    counts_payload,
+    counts_md5,
+    counts_sha256,
+    datei_sha256,
+    lies_rohdokument,
+    versichere_counts_md5,
+    lies_committed_counts,
+)
 
 __all__ = [
     "__version__",
@@ -130,4 +197,58 @@ __all__ = [
     "cyc_sub",
     "cyc_to_json",
     "cyc_zero",
+    # Zustandsvorbereitung (Phase B)
+    "sieve_primes",
+    "residue_counts",
+    "exakter_probvektor",
+    "labels_2nq",
+    "delta_vektor",
+    "ideal_loschmidt_delta",
+    "ideal_leiter_delta",
+    "falt_auf_q",
+    "register_breite",
+    # Verteilungen (Phase B)
+    "STRUKTUR_REIHENARTEN",
+    "DELTA_REIHENARTEN",
+    "fuele_modell",
+    "modell_struktur",
+    "modell_kontrolle_uniform",
+    "modell_kontrolle_composite",
+    "modell_fuer_art",
+    "zaehlung_auf_labels",
+    "exakte_masse_am_label",
+    "tv_exakt",
+    # Bänder (Phase B)
+    "binom_cdf_exakt",
+    "binom_tail_exakt",
+    "p_wert_zweiseitig",
+    "alpha_bonferroni",
+    "band_quantile",
+    "chebyshev_schranke",
+    "cantelli_schranke",
+    # Observablen (Phase B)
+    "SHOTS",
+    "falte_restklassen",
+    "falte_q_fraction",
+    "punkt_konstanten",
+    "quote_exakt",
+    "ring_dft",
+    "quad_magnitude",
+    "galois_konjugiert",
+    "norm_galois",
+    "ramanujan_summe",
+    # Kalibrierte Parameter + Anker (Phase B)
+    "ganzzahl_wurzel",
+    "lese_readout_cal_reihen",
+    "rand_flip_anteile",
+    "ro_intervall",
+    "kalibriere_dokument",
+    "payload_sha256",
+    "counts_payload",
+    "counts_md5",
+    "counts_sha256",
+    "datei_sha256",
+    "lies_rohdokument",
+    "versichere_counts_md5",
+    "lies_committed_counts",
 ]

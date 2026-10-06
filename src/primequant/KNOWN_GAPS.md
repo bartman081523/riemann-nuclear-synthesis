@@ -52,3 +52,34 @@ der exakte Wert ist die Quelle und die Float-Leitung nur ABGELEITET-Kreuzprüfun
 mit Schranke |Δ| ≤ 2 ULP (gemessen 2026-10-06: 1 ULP 8.88e-16 der ABSOLUT-FFT-
 Route, 0.0 bit-identisch gegen die Float-Faltform). Kriterium zum Schließen:
 keins nötig — solange float-Tracks nur als Prüfpfad mit Schranke leben.
+
+## GAP-7 — der uniforme ro-Punktwert ist algebraisch-irrational (Phase B)
+ro_hat = 1 − (k0/S)^(1/nq) (Uniform-Lesart am Label 0^nq) ist für p0 ∉ Potenzmenge
+i.A. irrational — kein exakter Fraction-Punktwert. Stand (calibrations.py): exaktes
+Brückungs-Inter­vall [(S−L−1)/S, (S−L)/S] mit L = floor((k0·S^(nq−1))^(1/nq)) über
+ganzzahlige n-te Wurzel, Breite 1/S; kollabiert zum exakten Punktwert, wenn
+k0·S^(nq−1) exakte n-te Potenz ist. PRIMÄR-Lesart ohne Transzendenz sind die
+per-Qubit-Randflips ro_i = Masse{Bit i = 1}/S (exakt im per-Qubit-unabhängigen
+Modell, Marginalisierung). Bewusste Lücke: die TV-Anwendung am wahren ro zwischen
+den Intervallkanten ist NICHT automatisch durch die Kanten-TVs gebunden
+(Monotonie nicht ausgesprochen) — ein Punktverdict am ro-Hut braucht die
+Lipschitz-Slack-Rechnung (|dTV/dro| ≤ nq/2, Slack ≈ nq/(2S) — dokumentiert, nicht
+als Theorem-Test verankert). Kriterium zum Schließen: monotone TV-Richtung je
+Label-Klasse bewiesen oder Slack als exakte Schranke im Eval-Pfad verankert.
+
+## GAP-8 — thermische Relaxation: nur CP-Grenze + Diagonalkarte (Phase B)
+channels.relaxation_wahrscheinlichkeiten verlangt T2 ≤ 2T1 (CP-Grenze) und
+kartiert den Diagonalfall; der VOLLE Kraus-Satz für T2 > T1 (unterm vollständige
+Satz fehlt) ist NICHT implementiert. Außerdem bildet apply_kraus allgemeine
+float-dichte Matrizen ab (ABGELEITET-Schicht, Schranke über Spur/Kohärenz) —
+eine exakte nicht-diagonale Kanalarithmetik existiert nicht. Kriterium zum
+Schließen: exakte Darstellung des Relaxationswinkels (siehe GAP-1) oder eine
+verankerter Bedarfsfall, der den vollen T2 > T1-Satz braucht.
+
+## ERGÄNZUNG 2026-10-06 (Phase B) — Herkunfts-Erbschaft
+Abgeleitete Kanal-Größen (ratio-Pfad p_2q_abgeleitet, künftige Kompositionen)
+erben die SCHWÄCHSTE Eingabe-Klasse via herkunft_vererbt: geschätzt-Eingabe
+→ `geschätzt:<ausdruck>` (GESAMPFELT), nur kalibriert/abgeleitet-Eingaben
+→ `abgeleitet` (ABGELEITET); EXAKT-Erbschaft auf dem abgeleiteten Pfad ist
+absichtlich ausgeschlossen — kein stiller Aufwärts-Schritt, die Verkettungs-
+regel feuert bei jedem Verstoß (Smoke + Tests nachweisen das je Richtung).

@@ -910,7 +910,22 @@ _CL.append(Claim(
     # Irreduzibilitaet ueber Q als Z-Identitaet (x-1)*Phi_q = x^q-1)
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1542,
+    # PRIMEQUANT PHASE B (2026-10-06, 0 QPU): channels/distributions/
+    # bands/observables/calibrations/_anchors + 5 Test-Files gegen die
+    # committeten Rohs: +59 Tests -> 1601
+    # (59 = stateprep 14 + channels 15 + bands 6 + observables 10 +
+    # anchors 14; alle Pins live-erprobt aus scratches/
+    # probe_anchor_shapes.py -> probe2_out.txt + probe_lese_guards.py +
+    # probe_guard_s4.py, 2026-10-06; Anker (b): 45 Delta-Reihen TV==0
+    # exakt, 111/37 Struktur-Familie, 4 Negative-Control-TV-Pins,
+    # Kalibrier-Abzweig Fez/Kingston Pfad-basiert mit AnchorViolation
+    # am sv-Roh ohne fetched_at_utc; Schreib-Lektionen: q=5-Rang ist
+    # q-1=4 (ring_dft-DC-Tupel (1,0,0,0), omega^2 = (0,0,1,0)),
+    # residue_counts(181,3) = [1,19,22] == Punkt-Tabelle N und NICHT
+    # das Prereg-n_d [19,13,10], kraus_abklingen: Decay an A0[1,1]/
+    # A1[0,1], lies_committed_counts gibt (dok, md5-str) = (dok,
+    # rekomputierter MD5) zurueck)
+    id="test_count", value=1601,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
