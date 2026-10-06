@@ -1,0 +1,32 @@
+# primequant — exaktes, seedfreies Quanten-Numerik-Paket des Repos.
+# Erstes echtes Paket neben den Flat-Runnern pt_*.py; src-Layout, editable
+# unter ./venv (python -m pip install -e .). Der EXAKT-Kern (_cyc/_gfq/
+# _guarantees/bands/stateprep/distributions/observables) ist stdlib-only;
+# numpy ist die einzige Kern-Abhängigkeit und nur für die Float-Schicht
+# (channels.py) nötig. sympy ist bewusst KEINE Kern-Abhängigkeit (Python 3.14
+# offiziell nicht validiert, Klassifizierer 3.9-3.13) — es dient ausschließlich
+# als Anker-Oracle in tests/ (Extra "anchor", nie vom Kern importiert).
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "primequant"
+version = "0.1.0"
+description = "Exakte, seedfreie Quanten-Numerik: generischer zyklotomischer Ring, deterministische Kanäle, exakte Verteilungen und Bänder statt gezogener Stichproben"
+requires-python = ">=3.13"
+dependencies = ["numpy>=2.4"]
+
+[project.optional-dependencies]
+anchor = ["sympy>=1.14"]      # Anker-Oracle in tests/; Fehlen -> Skip mit Grund, nie Kern-Import
+derived = ["scipy>=1.17.1"]   # optionale ABGELEITET-Kreuzprüfung (Band-Quantile), nie bewertungsrelevant
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["primequant"]
+
+# Bewusst minimal: fixiert rootdir = Repo-Root und die Collection auf tests/.
+# Die Claim-Metrik bleibt die Projekteigene cmd "pytest tests/ --collect-only -q"
+# (Präzedenz 408b1ba); testpaths betrifft nur nackte Rootdir-Collects.
+[tool.pytest.ini_options]
+testpaths = ["tests"]

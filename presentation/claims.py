@@ -893,9 +893,24 @@ _CL.append(Claim(
     # Batch-Replay-Mechanik/Zell-Diagnostik-Booleans 830/830/Verdicts ex
     # ante MIXED/055b-Kontrollen INVALID-Praezedenz/Mirror-descriptiv/
     # 055-Kontext QUEUED) -> 1452
+    # PRIMEQUANT PHASE A (Fork-Direktive 2026-10-06, 0 QPU): erstes Root-
+    # pyproject.toml (configfile/rootdir verifiziert UNVERAENDERT =
+    # /run/media/julian/ML4/riemann, claims-Metrik-Cmd unangetastet) +
+    # src/primequant (std-lib-only: _cyc generischer Ring Z[x]/(Phi_q),
+    # _gfq Koerper GF(q)+GF(q)[x], _guarantees
+    # EXAKT/ABGELEITET/GESAMPFELT + Verkettungsregel, KNOWN_GAPS.md) +
+    # 5 Anker-Test-Files: +90 Tests -> 1542
+    # (90 = gfq 8 + cyc 46 + dft_ramanujan_parseval 26 + guarantees 6 +
+    # no_seeded_rng 4; Modul-Fix: EXAKT verlangt herkunft
+    # "exakt-definiert" — kalibriert UND geschätzt: sind beide
+    # AnchorViolation; drei Gruben-Lektionen der eigenen Anker-Tests:
+    # a·conj(a) fuer q>=3 NICHT generell ganz → Galois-Norm N(a) mit
+    # Pin N(1-omega)=q; Parseval-Integritaet ist SUMMEN-Aussage, per-Bin
+    # im Realteilkörper; Phi_q ueber GF(q) REDUZIERT = (x-1)^{q-1},
+    # Irreduzibilitaet ueber Q als Z-Identitaet (x-1)*Phi_q = x^q-1)
     # (Kollektions-Metrik bleibt die Claim-eigene cmd mit tests/;
     # gerenderte Medien zeigen weiterhin den 046c1cc-Snapshot 642)
-    id="test_count", value=1452,
+    id="test_count", value=1542,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",
