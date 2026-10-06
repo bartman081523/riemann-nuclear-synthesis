@@ -32,6 +32,8 @@ The **Latorre–Sierra prediction** of linear entanglement scaling (`α → 1`) 
 
 All conclusions are graded using the **SciMind 4.0 Evidence Grading Scale (A–F)** with the Steelman Mandate, Ockham's Quantified Razor, and Anti-Sharpshooter Protocol. See [`PRIMARY_HYPOTHESIS_AUDIT.md`](PRIMARY_HYPOTHESIS_AUDIT.md) for the formal RH-orthogonality audit.
 
+**primequant — exact, seed-free numerics layer (2026-10-06):** `src/primequant` is this repo's exact-arithmetic layer, born from the no-seeded-RNG directive (noise = Kraus channel with herkunft-labeled parameters, never a seeded sample; cyclotomic ring Z[x]/(Φ_q) for every prime q, GF(q), exact distributions and integer-term bands instead of drawn statistics, SHA-256/MD5 anchor pins against committed real-hardware raws, `KNOWN_GAPS.md` as a first-class artifact). It now also lives as its own public repository: [`bartman081523/primequant`](https://github.com/bartman081523/primequant) — byte-identical copy (cmp-verified, credential sweep clean), standalone suite **160/160**, carrying the frozen EXPERIMENT 055c "G2-EXAKT" pilot chain (H-055C-1/3/4 HELD bit-exact, H-055C-2 REFUTED exactly 1/111 at the ex-ante 2-ULP band, no tolerance raise; KERN `H-055C_KERN_MIXED` **B+**; §10.43/§Z.40).
+
 ---
 
 ## Quickstart
