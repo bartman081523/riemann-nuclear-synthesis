@@ -56,3 +56,9 @@
   - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** ($R^2 = \mathbf{0.9955}$, $\alpha_{\text{eff}} = \mathbf{0.2081}$, $\Delta S \ge \mathbf{0.4737}$)
   - [x] Latorre-Sierra-Spannung ($\alpha \to 1$) analytisch aufgelöst: $S_{vN} = 0.5967 \ln(N) - 0.8972$
   - [x] Master-Inventare, Matrizen und README aktualisiert
+- [x] Phase 10: Wigner-Halbkreis & Sato-Tate Emergenz aus Artin-Schreier-Familien (EXPERIMENT 066)
+  - [x] Exakte Wigner-Halbkreis-Momente (Catalan-Zahlen $C_k / 4^k$) in `primequant.weil`
+  - [x] Preregistrierung `scratches/pt_wigner_sato_tate_066_prereg.json` mit SHA-256 (`6338eb4f399d30edd254d03d92389cf704fdd245629351c1cb434fb1cf231080`) eingefroren
+  - [x] Rohdaten in `pt_wigner_sato_tate_066_raw.json` erzeugt und VOR Auswertung committed (Commit `13c5a54`)
+  - [x] Evaluierung durchgeführt: H-WST-1, 2, 3 `CONFIRMED` (Catalan-Momente $1/4, 1/8, 5/64$); H-WST-4 deckt $\mu_3$-Verzweigung bei $q \equiv 1 \pmod 3$ auf ($q=503$ bestätigt mit $p=0.6226$)
+  - [x] Master-Inventare, Matrizen und README aktualisiert

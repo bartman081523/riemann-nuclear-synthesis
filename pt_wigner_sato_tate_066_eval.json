@@ -1,0 +1,27 @@
+{
+  "experiment_id": "EXP-066",
+  "prereg_sha256": "6338eb4f399d30edd254d03d92389cf704fdd245629351c1cb434fb1cf231080",
+  "verdicts": {
+    "H-WST-1": {
+      "status": "CONFIRMED",
+      "max_m2_dev": 7.494005416219807e-16,
+      "threshold": 0.005
+    },
+    "H-WST-2": {
+      "status": "CONFIRMED",
+      "max_m4_dev": 0.0006188118811887994,
+      "threshold": 0.005
+    },
+    "H-WST-3": {
+      "status": "CONFIRMED",
+      "max_m6_dev": 0.0010076058912180247,
+      "threshold": 0.005
+    },
+    "H-WST-4": {
+      "status": "REFUTED",
+      "max_ks_statistic": 0.0516971398413783,
+      "min_p_value": 0.008767915560050299
+    }
+  },
+  "overall_verdict": "MIXED_OR_REFUTED"
+}

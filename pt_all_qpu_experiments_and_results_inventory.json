@@ -330,6 +330,22 @@
         "H-ELA-2_ALPHA_BOUND": "CONFIRMED (alpha_eff = 0.2081 <= 0.35, Latorre-Sierra alpha=1 widerlegt)",
         "H-ELA-3_DELIGNE_GAP": "CONFIRMED (min Delta S = 0.4737 >= 0.10, strukturierte Sub-Entropie)"
       }
+    },
+    {
+      "experiment_id": "EXP-066",
+      "name": "Wigner-Halbkreis & Sato-Tate Konvergenz aus Artin-Schreier Summen",
+      "hypothesis": "H-WIGNER-SATO-TATE-CONVERGENCE (H-WST-1 .. H-WST-4)",
+      "mode": "Statevector-First (Katz-Sarnak Familie, q in [101, 1009])",
+      "prereg_sha256": "6338eb4f399d30edd254d03d92389cf704fdd245629351c1cb434fb1cf231080",
+      "raw_path": "pt_wigner_sato_tate_066_raw.json",
+      "eval_path": "pt_wigner_sato_tate_066_eval.json",
+      "verdict": "MIXED_CONFIRMED_AND_REFUTED",
+      "sub_verdicts": {
+        "H-WST-1_SECOND_MOMENT": "CONFIRMED (m2 = 0.250000 exakt, Catalan C1/4)",
+        "H-WST-2_FOURTH_MOMENT": "CONFIRMED (m4 = 0.1249 vs 0.1250, Catalan C2/16)",
+        "H-WST-3_SIXTH_MOMENT": "CONFIRMED (m6 = 0.0780 vs 0.078125, Catalan C3/64)",
+        "H-WST-4_KS_DISTRIBUTION": "REFUTED (p=0.6226 bei q=503=2 mod 3; D_KS=0.0517 bei q=1009=1 mod 3 wg. mu3-Verzweigung)"
+      }
     }
   ]
 }
