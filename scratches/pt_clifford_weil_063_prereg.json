@@ -1,0 +1,44 @@
+{
+  "experiment_id": "EXP-063",
+  "title": "H-CLIFFORD-WEIL-QPU-RESONANCE: Frugal 2-Qubit Clifford-Weil Walk & Stepanov Resonance on ibm_fez",
+  "author": "Antigravity (ExactQuantumNumericsMind v1.0, eqn-mix)",
+  "date": "2026-11-22",
+  "status": "PREREGISTERED_FROZEN",
+  "hardware": {
+    "backend": "ibm_fez",
+    "circuits_count": 4,
+    "lengths_L": [1, 2, 3, 4],
+    "qubits": 2,
+    "shots": 8192,
+    "estimated_qpu_seconds": "< 3.0s",
+    "token_account": "TOKEN1"
+  },
+  "hypotheses": {
+    "H-CW-1": {
+      "statement": "Extinction resonance at L=2 produces sharp localization of q1 to state |0>",
+      "metric": "P_{L=2}(q_1=0)",
+      "theoretical_exact": 1.00,
+      "hardware_threshold": 0.85,
+      "falsification_condition": "P_{L=2}(q_1=0) < 0.80"
+    },
+    "H-CW-2": {
+      "statement": "Non-resonant lengths L in {1, 3, 4} maintain equal marginal distribution on q1",
+      "metric": "max_{L in {1,3,4}} |P_L(q_1=0) - 0.50|",
+      "theoretical_exact": 0.00,
+      "hardware_threshold": 0.12,
+      "falsification_condition": "max_{L in {1,3,4}} |P_L(q_1=0) - 0.50| > 0.15"
+    },
+    "H-CW-3": {
+      "statement": "Stepanov resonance contrast Delta P remains strictly above noise floor",
+      "metric": "Delta P = P_{L=2}(q_1=0) - mean(P_{L in {1,3,4}}(q_1=0))",
+      "theoretical_exact": 0.50,
+      "hardware_threshold": 0.35,
+      "falsification_condition": "Delta P < 0.30"
+    }
+  },
+  "methodology": {
+    "step_operator": "U = (H x I) . CZ . (S x I)",
+    "periodicity": "tau = 3",
+    "frugal_quota_discipline": "exactly 4 circuits, depth <= 7, exactly 3 CZ gates total"
+  }
+}
