@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-065",
+  "title": "H-ENTANGLEMENT-LOG-ASYMPTOTICS: Analytic Resolution of Latorre-Sierra Tension via Logarithmic Entanglement Scaling",
+  "author": "Antigravity (ExactQuantumNumericsMind v1.0, eqn-mix)",
+  "date": "2026-11-22",
+  "status": "PREREGISTERED_FROZEN",
+  "hypotheses": {
+    "H-ELA-1": {
+      "statement": "Bipartite Schmidt-von-Neumann entropy follows logarithmic scaling S_vN(N) = a * ln(N) + b with R^2 >= 0.990 across nq in [5, 14]",
+      "metric": "coefficient of determination R^2",
+      "threshold": 0.990,
+      "falsification_condition": "R^2 < 0.990"
+    },
+    "H-ELA-2": {
+      "statement": "Global effective power-law exponent alpha_eff is bounded by alpha_eff <= 0.35, fundamentally refuting Latorre-Sierra alpha -> 1",
+      "metric": "alpha_eff = (ln S_14 - ln S_5) / (ln N_14 - ln N_5)",
+      "threshold": 0.35,
+      "falsification_condition": "alpha_eff > 0.40"
+    },
+    "H-ELA-3": {
+      "statement": "Prime state exhibits structured sub-entropy relative to Poisson random subsets Delta S = S_rand - S_prime >= 0.10 across nq in [5, 10]",
+      "metric": "min_{nq in [6, 10]} Delta S(nq)",
+      "threshold": 0.10,
+      "falsification_condition": "Any nq in [6, 10] with Delta S < 0.05"
+    }
+  },
+  "methodology": {
+    "prime_sieve": "Deterministic Eratosthenes sieve",
+    "bipartite_split": "Balanced cut nA = floor(nq / 2), nB = nq - nA",
+    "solver": "Full SVD on exact statevector tensor product representation"
+  }
+}
