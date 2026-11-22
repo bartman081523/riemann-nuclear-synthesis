@@ -1,0 +1,43 @@
+{
+  "experiment_id": "EXP-066",
+  "title": "H-WIGNER-SATO-TATE-CONVERGENCE: Emergence of Wigner Semicircle / GUE Statistics from Artin-Schreier Exponential Sums",
+  "author": "Antigravity (ExactQuantumNumericsMind v1.0, eqn-mix)",
+  "date": "2026-11-22",
+  "status": "PREREGISTERED_FROZEN",
+  "hypotheses": {
+    "H-WST-1": {
+      "statement": "Second moment m_2 of normalized family t_a = S(x^3+ax)/(2*sqrt(q)) converges to 1/4 = 0.2500",
+      "primes_q": [101, 199, 503, 1009],
+      "theoretical_value": 0.2500,
+      "tolerance": 0.0050,
+      "falsification_condition": "Any prime q with |m_2 - 0.2500| > 0.0100"
+    },
+    "H-WST-2": {
+      "statement": "Fourth moment m_4 converges to 1/8 = 0.1250 (Catalan C_2 / 16)",
+      "primes_q": [101, 199, 503, 1009],
+      "theoretical_value": 0.1250,
+      "tolerance": 0.0050,
+      "falsification_condition": "Any prime q with |m_4 - 0.1250| > 0.0100"
+    },
+    "H-WST-3": {
+      "statement": "Sixth moment m_6 converges to 5/64 = 0.078125 (Catalan C_3 / 64) for q >= 500",
+      "primes_q": [503, 1009],
+      "theoretical_value": 0.078125,
+      "tolerance": 0.0050,
+      "falsification_condition": "Any prime q >= 500 with |m_6 - 0.078125| > 0.0100"
+    },
+    "H-WST-4": {
+      "statement": "Kolmogorov-Smirnov test against Wigner semicircle CDF confirms perfect distributional match with D_KS <= 0.050 and p >= 0.10",
+      "primes_q": [503, 1009],
+      "max_KS_statistic": 0.050,
+      "min_p_value": 0.10,
+      "falsification_condition": "Any prime q >= 500 with D_KS > 0.080 or p < 0.05"
+    }
+  },
+  "methodology": {
+    "family": "Cubic Artin-Schreier sum S(x^3 + ax) across a in GF(q)",
+    "normalization": "t_a = S(x^3 + ax) / (2 * sqrt(q)) in [-1, 1]",
+    "cdf": "Wigner semicircle CDF: F(t) = 0.5 + (1/pi)*(t*sqrt(1-t^2) + arcsin(t))",
+    "connection": "Direct link between Deligne Weil-I bound and GUE random matrix eigenvalue spacing"
+  }
+}
