@@ -1,0 +1,23 @@
+{
+  "experiment_id": "EXP-065",
+  "prereg_sha256": "bd16eb8455dbd3233dc9e951e6a4d3bcbc83a1fadade3c73b4b18ace70241da1",
+  "verdicts": {
+    "H-ELA-1": {
+      "status": "CONFIRMED",
+      "r2": 0.9955176394897765,
+      "threshold": 0.99
+    },
+    "H-ELA-2": {
+      "status": "CONFIRMED",
+      "alpha_eff": 0.20812946105180613,
+      "threshold": 0.35
+    },
+    "H-ELA-3": {
+      "status": "CONFIRMED",
+      "min_delta_S": 0.4736811973927215,
+      "threshold": 0.1
+    }
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES",
+  "asymptotic_model": "S_vN(N) = 0.5967 * ln(N) + -0.8972"
+}

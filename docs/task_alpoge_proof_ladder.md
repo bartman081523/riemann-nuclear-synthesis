@@ -50,3 +50,9 @@
   - [x] Rohdaten in `pt_artin_schreier_064_raw.json` erzeugt und VOR Auswertung committed (Commit `bdd6b96`)
   - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (H-ASD-1..4 bit-exakt wahr, Deligne-Ratio $\le 0.9554$)
   - [x] Master-Inventare, Matrizen und README aktualisiert
+- [x] Phase 9: Logarithmische Entropie-Asymptotik & Latorre-Sierra-Auflösung (EXPERIMENT 065)
+  - [x] Preregistrierung `scratches/pt_entanglement_log_065_prereg.json` mit SHA-256 (`bd16eb8455dbd3233dc9e951e6a4d3bcbc83a1fadade3c73b4b18ace70241da1`) eingefroren
+  - [x] Rohdaten in `pt_entanglement_log_065_raw.json` erzeugt und VOR Auswertung committed (Commit `bbf1fb5`)
+  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** ($R^2 = \mathbf{0.9955}$, $\alpha_{\text{eff}} = \mathbf{0.2081}$, $\Delta S \ge \mathbf{0.4737}$)
+  - [x] Latorre-Sierra-Spannung ($\alpha \to 1$) analytisch aufgelöst: $S_{vN} = 0.5967 \ln(N) - 0.8972$
+  - [x] Master-Inventare, Matrizen und README aktualisiert

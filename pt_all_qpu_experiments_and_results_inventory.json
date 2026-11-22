@@ -315,6 +315,21 @@
         "H-ASD-3_CUBIC_DELIGNE_BOUND": "CONFIRMED (0 fails, max ratio = 0.9554 <= 1.0000)",
         "H-ASD-4_UNITARY_PROJECTION": "CONFIRMED (0 fails, |<0|W_f|0>| <= d - 1)"
       }
+    },
+    {
+      "experiment_id": "EXP-065",
+      "name": "Logarithmische Entropie-Asymptotik & Aufloesung der Latorre-Sierra-Spannung",
+      "hypothesis": "H-ENTANGLEMENT-LOG-ASYMPTOTICS (H-ELA-1 .. H-ELA-3)",
+      "mode": "Statevector-First (Tensor SVD, nq in [5, 14], N up to 16383)",
+      "prereg_sha256": "bd16eb8455dbd3233dc9e951e6a4d3bcbc83a1fadade3c73b4b18ace70241da1",
+      "raw_path": "pt_entanglement_log_065_raw.json",
+      "eval_path": "pt_entanglement_log_065_eval.json",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "sub_verdicts": {
+        "H-ELA-1_LOG_SCALING": "CONFIRMED (R^2 = 0.9955 >= 0.990, S = 0.5967*ln(N) - 0.8972)",
+        "H-ELA-2_ALPHA_BOUND": "CONFIRMED (alpha_eff = 0.2081 <= 0.35, Latorre-Sierra alpha=1 widerlegt)",
+        "H-ELA-3_DELIGNE_GAP": "CONFIRMED (min Delta S = 0.4737 >= 0.10, strukturierte Sub-Entropie)"
+      }
     }
   ]
 }
