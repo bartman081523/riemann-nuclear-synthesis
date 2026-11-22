@@ -202,3 +202,45 @@ def stepanov_multiplicity_bound(X: int) -> int:
         raise ValueError(f"X muss >= 1 sein, erhalten {X}")
     return math.isqrt(X)
 
+
+def path_quadric_phase(q: int, x_vec: Sequence[int]) -> int:
+    """Berechnet Q(x) = sum_{j=0}^{k-2} x_j * x_{j+1} mod q.
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    Kanonische Pfad-Quadrik nach Alpöge-Claude (Footnote 3 / Remark).
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl sein, erhalten {q}")
+    k = len(x_vec)
+    if k < 2:
+        return 0
+    return sum((int(x_vec[j]) * int(x_vec[j + 1])) for j in range(k - 1)) % q
+
+
+def path_quadric_ramanujan_sum(q: int, x_vec: Sequence[int]) -> int:
+    """Exakte Summe sum_{h in GF(q)*} e_q(h * Q(x)) == c_q(Q(x)).
+    
+    Garantie: EXAKT, Herkunft: Theorem (Alpöge-Claude / Ramanujan Identität).
+    Liefert q - 1 falls Q(x) == 0 mod q, sonst -1.
+    """
+    phase = path_quadric_phase(q, x_vec)
+    return (q - 1) if (phase % q == 0) else -1
+
+
+def path_quadric_gauss_sum_even(q: int, k: int) -> int:
+    """Exakte ganzzahlige Gauss-Summe G(h, Q) = sum_{x in GF(q)^k} e_q(h * Q(x)) fuer gerades k.
+    
+    Garantie: EXAKT, Herkunft: Theorem (Weil-Schranke fuer quadratische Hyperflaechen).
+    Fuer nicht-ausgeartete Pfad-Quadriken gerader Laenge k = 2m gilt fuer jedes h in GF(q)*:
+      G(h, Q) = q^{k/2} = q^m.
+    Die Summe ist rein reell, unabhaengig von h und saturiert exakt die Quadratwurzel-Schranke
+    |G|^2 = q^k = dim.
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl sein, erhalten {q}")
+    if k < 2 or k % 2 != 0:
+        raise ValueError(f"k muss gerade und >= 2 sein, erhalten {k}")
+    m = k // 2
+    return q ** m
+
+

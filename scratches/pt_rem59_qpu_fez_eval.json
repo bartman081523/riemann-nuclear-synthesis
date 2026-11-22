@@ -1,0 +1,16 @@
+{
+  "experiment": "059-qpu-fez",
+  "job_id": "db8sdv0b3g5c73egt2u0",
+  "backend": "ibm_fez",
+  "prereg_md5": "8972ce6ccf68d9392ab1ff93687133cf",
+  "n32": 829,
+  "shots": 8192,
+  "mass_32": 0.1011962890625,
+  "pred": 0.26663306451612906,
+  "band": [
+    0.21330645161290326,
+    0.3332913306451613
+  ],
+  "cal_zero_frac": 0.9866943359375,
+  "verdict": "H-REM59-Q_REFUTED"
+}

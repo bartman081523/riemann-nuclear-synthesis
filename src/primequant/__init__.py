@@ -140,6 +140,9 @@ from .weil import (
     galois_projector_matrix,
     trivial_state_amplitudes_squared,
     stepanov_multiplicity_bound,
+    path_quadric_phase,
+    path_quadric_ramanujan_sum,
+    path_quadric_gauss_sum_even,
 )
 from ._anchors import (
     payload_sha256,
@@ -272,4 +275,7 @@ __all__ = [
     "galois_projector_matrix",
     "trivial_state_amplitudes_squared",
     "stepanov_multiplicity_bound",
+    "path_quadric_phase",
+    "path_quadric_ramanujan_sum",
+    "path_quadric_gauss_sum_even",
 ]

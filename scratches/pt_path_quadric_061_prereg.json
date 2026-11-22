@@ -1,0 +1,47 @@
+{
+  "experiment": "EXPERIMENT_061_H_PATH_QUADRIC_SATURATION",
+  "hypothesis": "H-PATH-QUADRIC",
+  "name": "Pfad-Quadriken, Weil-Schranken-Saettigung und minimale 2-Qubit-Clifford-Weil-Kette",
+  "status": "HYPOTHESE_PREREG_GEFROREN_VOR_AUSWERTUNG",
+  "date": "2026-11-22",
+  "epistemic_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) with SciMind4SystemicRigorMind and ExperimentLedgerMind",
+  "reference_paper": "Alpoge & Claude (Anthropic/Harvard, 2026-11-20), Path quadric sum over h (Footnote 3 / Remark) & GGP periods",
+  "qpu_policy": "Statevector-First (G2-exakt, 0 QPU, Quota-frei); minimaler 2-Qubit-Spot-Check (4 Circuits, total 6 CZ) vorbereitet",
+  "thesis": {
+    "id": "H-PATH-QUADRIC",
+    "name": "Pfad-Quadriken-Charaktersummen und exakte Weil-Saettigung",
+    "bridge": "Die in Alpoge-Claude (Footnote 3) definierte Pfad-Quadrik Q(x) = sum_{j=1}^{k-1} x_j x_{j+1} ueber GF(q) verbindet die diskrete Weil-Darstellung direkt mit den Ramanujan-Summen c_q(Q(x)). Fuer gerade Laengen k = 2m saturiert die mehrdimensionale Gauss-Summe exakt die Quadratwurzel-Weil-Schranke |G|^2 = q^k = dim. Auf 2 Qubits (q=2) kollabiert die Kette nativ in eine Clifford+T-Struktur mit nur 1-2 CZ-Gattern.",
+    "sub_hypotheses": {
+      "H-PQ-1": {
+        "name": "Pfad-Quadrik Ramanujan-Identitaet (G2-EXAKT)",
+        "claim": "Die Summe sum_{h in GF(q)*} e_q(h * Q(x)) gleicht identisch der Ramanujan-Summe c_q(Q(x)) fuer alle Primzahlen q in {2, 3, 5, 7, 11} und k in {2, 3, 4}.",
+        "threshold_T1_max_dev": 1e-14
+      },
+      "H-PQ-2": {
+        "name": "Weil-Schranken-Saettigung (G2-EXAKT)",
+        "claim": "Fuer gerades k in {2, 4} ist die Gauss-Summe G(h, Q) = q^{k/2} rein ganzzahlig, unabhaengig von h in GF(q)*, und erfuellt |G|^2 = q^k = dim exakt.",
+        "threshold_T2_exact_int": 0
+      },
+      "H-PQ-3": {
+        "name": "2-Qubit Clifford-Weil Inversion",
+        "claim": "Die 2-Qubit Weil-Kette (q=2) zeigt bei L=4 eine exakte Inversion des Target-Qubits q0 (P(q0=1) = 0.000, P(q0=0) = 1.000) bei maximal 2 CZ-Gattern pro Schritt.",
+        "ex_ante_prediction_L4_q0_prob": 1.0000,
+        "threshold_T3_inversion_dev": 1e-6
+      },
+      "H-PQ-4": {
+        "name": "GGP-Perioden-Multi-Register-Skalierung",
+        "claim": "Unter GGP-Perioden-Reflexionen R_triv skaliert der Resonanz-Schritt L* linear mit der Kettenlaenge k (L* >= k - 1 fuer k in {2, 3}).",
+        "threshold_T4_scaling": true
+      }
+    }
+  },
+  "falsifier_suite": {
+    "primes": [2, 3, 5, 7, 11],
+    "chain_lengths_k": [2, 3, 4],
+    "q2_qubit_steps": [0, 1, 2, 3, 4]
+  },
+  "verdict_rules": {
+    "CONFIRMED_ALL": "T1 erfuellt AND T2 erfuellt AND T3 erfuellt AND T4 erfuellt",
+    "REFUTED": "Mindestens eine Schwelle verletzt"
+  }
+}

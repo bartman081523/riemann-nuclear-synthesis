@@ -19,6 +19,9 @@ from primequant.weil import (
     galois_projector_matrix,
     trivial_state_amplitudes_squared,
     stepanov_multiplicity_bound,
+    path_quadric_phase,
+    path_quadric_ramanujan_sum,
+    path_quadric_gauss_sum_even,
 )
 from primequant.observables import ramanujan_summe
 
@@ -108,3 +111,26 @@ def test_stepanov_bound_scaling():
     assert stepanov_multiplicity_bound(9) == 3
     assert stepanov_multiplicity_bound(25) == 5
     assert stepanov_multiplicity_bound(100) == 10
+
+
+def test_path_quadric_phase_and_ramanujan_identity():
+    """Prueft die Pfad-Quadrik sum_{h=1}^{q-1} e_q(h * Q(x)) == c_q(Q(x)) exakt."""
+    for q in (2, 3, 5, 7):
+        # k = 2: Q(x0, x1) = x0 * x1
+        for x0 in range(q):
+            for x1 in range(q):
+                phase = path_quadric_phase(q, (x0, x1))
+                assert phase == (x0 * x1) % q
+                r_sum = path_quadric_ramanujan_sum(q, (x0, x1))
+                expected = ramanujan_summe(q, phase)
+                assert r_sum == expected
+
+
+def test_path_quadric_gauss_sum_even_saturation():
+    """Fuer k=2,4 saturiert die Gauss-Summe der Pfad-Quadrik exakt q^{k/2} = sqrt(dim)."""
+    for q in (2, 3, 5):
+        for k in (2, 4):
+            g = path_quadric_gauss_sum_even(q, k)
+            assert g == q ** (k // 2)
+            assert g * g == q ** k  # saturiert dim bit-exakt
+

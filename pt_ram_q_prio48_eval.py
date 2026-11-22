@@ -673,7 +673,7 @@ def evaluate(raw_path=RAW_PATH, stage3_path=STAGE3_PATH, isa_path=ISA_PATH,
                          "055-verdict_map mit Kcontrol/Refit-Void vor den "
                          "kritischen Klassen).",
         },
-        "fprio5_lesart_b": {"siehe echo_ladder.*.fez_lesart_b"},
+        "fprio5_lesart_b": "siehe echo_ladder.*.fez_lesart_b",
     }
     verdict_ga_044 = h3e.decide_verdict(
         t4_violated=not t4_ok, t_fail_other=False,

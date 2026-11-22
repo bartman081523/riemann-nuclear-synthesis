@@ -1,0 +1,64 @@
+{
+  "experiment": "EXPERIMENT_060_H_WEIL_THETA_STEPANOV_BRIDGE",
+  "prereg_sha256": "4ea634855a3e018c4bcbe64facd5b7c0e314f80fcbdcbc61dacc3a83a16f3c0f",
+  "verdicts": {
+    "H-WT-1_TRACE_GRAM": {
+      "verdict": "CONFIRMED",
+      "criterion": "max_diff <= 1e-14",
+      "detail": {
+        "2": {
+          "dimension": 1,
+          "max_abs_diff_to_ramanujan": 0,
+          "determinant": 1,
+          "eigenwert_triv": 1,
+          "eigenwert_std": 2
+        },
+        "3": {
+          "dimension": 2,
+          "max_abs_diff_to_ramanujan": 0,
+          "determinant": 3,
+          "eigenwert_triv": 1,
+          "eigenwert_std": 3
+        },
+        "5": {
+          "dimension": 4,
+          "max_abs_diff_to_ramanujan": 0,
+          "determinant": 125,
+          "eigenwert_triv": 1,
+          "eigenwert_std": 5
+        },
+        "7": {
+          "dimension": 6,
+          "max_abs_diff_to_ramanujan": 0,
+          "determinant": 16807,
+          "eigenwert_triv": 1,
+          "eigenwert_std": 7
+        },
+        "11": {
+          "dimension": 10,
+          "max_abs_diff_to_ramanujan": 0,
+          "determinant": 2357947691,
+          "eigenwert_triv": 1,
+          "eigenwert_std": 11
+        }
+      }
+    },
+    "H-WT-2_STEPANOV_RESONANCE": {
+      "verdict": "CONFIRMED",
+      "criterion": "peak_L == 2 AND R2 > 0.32",
+      "observed_R2": 0.42717987754491643,
+      "observed_peak_L": 2
+    },
+    "H-WT-3_NOISE_ROBUSTNESS": {
+      "verdict": "CONFIRMED",
+      "criterion": "gap_at_p005 > 0.015",
+      "observed_gap_p005": 0.15990483948428713
+    },
+    "H-WT-4_ENTANGLEMENT": {
+      "verdict": "CONFIRMED",
+      "criterion": "purity_L2 < 0.9",
+      "observed_purity": 0.45196956681764655
+    }
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES"
+}
