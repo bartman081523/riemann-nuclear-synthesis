@@ -1,0 +1,17 @@
+qiskit_runtime_service._discover_account:WARNING:2026-10-03 19:37:11,007: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-03 19:37:13,201: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+[fez] resume job dauassrojkfs738rrcsg
+qiskit_runtime_service._discover_account:WARNING:2026-10-05 03:48:16,237: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-05 03:48:18,616: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+[fez] resume job dauassrojkfs738rrcsg
+qiskit_runtime_service._discover_account:WARNING:2026-10-05 07:58:23,474: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-05 07:58:26,221: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+[fez] resume job dauassrojkfs738rrcsg
+qiskit_runtime_service._discover_account:WARNING:2026-10-05 12:51:40,036: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-05 12:51:42,122: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+[fez] resume job dauassrojkfs738rrcsg
+qiskit_runtime_service._discover_account:WARNING:2026-11-22 09:46:12,687: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-11-22 09:46:14,937: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+[fez] resume job dauassrojkfs738rrcsg
+[fez] raw: {"re": 2.179152206550255, "hd": 2.1678169412156385, "im": 0.008757581708377657, "bias": 0.011335265334616373}
+job_id: dauassrojkfs738rrcsg

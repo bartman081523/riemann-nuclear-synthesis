@@ -1,0 +1,4 @@
+b_P: 37/37 Reihen | fit_failed 0 | status STAGE3_AER_EXACT_ONLY_COMPLETED
+Legacy-Konsistenz (044, DIREKT): 26 Keys, 5 Abweichungen ['cal|q3_d3|197', 'verdict|q3_d3|613', 'cal|q3_d3|761', 'verdict|q5_d5|613', 'cal|q5_d5|631'] | Ladder fresh 11
+q3_d3: b_P-Bereich [+1.6948, +1.7905]
+q5_d5: b_P-Bereich [+1.0005, +1.0616]

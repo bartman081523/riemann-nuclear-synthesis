@@ -1,0 +1,13 @@
+{
+  "experiment": "032-ququint-fez-marrakesh",
+  "addendum_zu": {
+    "prereg": "pt_ququint_fez_prereg.json",
+    "md5": "18fb1e62a3dd71c6f595416cdd40bcc1"
+  },
+  "aenderung": "NUR backend+token (fez/TOKEN1 \u2192 marrakesh/TOKEN2)",
+  "backend": "ibm_marrakesh",
+  "n_circuits": 12,
+  "n_shots": 8192,
+  "scout_decision_md5": "4c5e5e9d688cdce246e8cbe25e783065",
+  "md5": "956f03d196cefc88927cd2b698378e8b"
+}

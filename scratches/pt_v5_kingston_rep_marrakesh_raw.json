@@ -1,0 +1,33 @@
+{
+ "experiment": "046-ququint-v5-repetition-both-backends",
+ "leg": "marrakesh",
+ "backend": "ibm_marrakesh",
+ "job_id": "db8t450b3g5c73egucg0",
+ "isa": {
+  "two_q": 1,
+  "one_q": 18,
+  "names": [
+   "cz"
+  ],
+  "depth": 11
+ },
+ "meas": {
+  "re": 2.2137134986976292,
+  "hd": 2.207969716810733,
+  "im": 0.008746563599573164,
+  "bias": 0.005743781886896393
+ },
+ "options": {
+  "resilience_level": 1,
+  "dd": "XX",
+  "shots": 8192
+ },
+ "eval": {
+  "sign_class": "0 (unter 2-Sigma)",
+  "bias_over_se": 0.9298,
+  "verdict": "H-V5_REFUTED_DRIFT (re/hd ausserhalb 035-Absolut-Band, im ok, bias ok)",
+  "h_v5r2": "UNDETERMINED (Kingston/Fez-Beine QUEUED, kein Vergleich)",
+  "controls_all_true": true,
+  "addendum_prereg_md5": "f94a0c6d2d6cddb4114ad8feea758456"
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "experiment": "059-qpu-fez",
+  "hypothesis": "H-REM59-Q",
+  "circuit": "initialize(P=100,d=64) + QFT(6,lib) + measure_all; +|0>-cal",
+  "backend": "ibm_fez",
+  "shots": 8192,
+  "target_bin": 32,
+  "sv_mass_pred": 0.26663306451612906,
+  "band": [
+    0.21330645161290326,
+    0.3332913306451613
+  ],
+  "verdict_map": {
+    "HELD": "S*-Masse im Band",
+    "REFUTED": "S*-Masse au\u00dferhalb",
+    "INVALID": "Aer-Bin \u2260 32 oder Cal-Ausfall"
+  },
+  "token": "TOKEN1-only (IBMQ_TOKEN)",
+  "md5": "8972ce6ccf68d9392ab1ff93687133cf"
+}

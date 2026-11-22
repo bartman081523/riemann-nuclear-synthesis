@@ -1,0 +1,7 @@
+qiskit_runtime_service._discover_account:WARNING:2026-09-28 11:40:55,149: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-09-28 11:40:57,475: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-09-28 11:40:57,475: Using instance: 1, plan: open
+[isa3-gate] {"frozen_total_two_q": 559, "live_total_two_q": 559, "frozen_max_two_q": 84, "live_max_two_q": 84, "per_circuit_bitgleich": false, "optimization_level": 3}
+ISA3-GATE FEHLGESCHLAGEN — kein Job (Prereg-Submission-Gate). Transpilation ist nicht bit-stabil gegenueber Freeze B''.
+status: ISA3_GATE_FAILED
+exit=0

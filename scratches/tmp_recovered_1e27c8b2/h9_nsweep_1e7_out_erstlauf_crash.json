@@ -1,0 +1,529 @@
+{
+  "registry": {
+    "experiment": "H-H9-5 n-sweep 1e7-1e8 (F-Prio 7, 023-EXT-Kette)",
+    "deck": "HYPOTHESEN_UND_ANTITHESES_H9_2026_09_29.md C.5 / F-Zeile 7",
+    "qpu": 0,
+    "nicht_committet_verdict_tragend": true,
+    "grid_n_new_fixe_reihenfolge": [
+      16777215,
+      10000000,
+      100000000
+    ],
+    "band_deck": [
+      0.0864,
+      0.0882
+    ],
+    "limit_line_definition": "alpha_combined/eff via committed results",
+    "legs": {
+      "L7a": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215
+      ],
+      "L7b": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        10000000
+      ],
+      "L7c": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215,
+        10000000
+      ],
+      "L8_primary": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215,
+        10000000,
+        100000000
+      ],
+      "L8b_deck_literal": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        10000000,
+        100000000
+      ]
+    },
+    "f1_falsified_if": "any registered alpha_ext_leg < 0.0864; L8 klassifizierend, Teil-Legs verbatim",
+    "f2_carrier": "cv_spread(new N) in [0.05, 0.20] (Lesart: cv = konstanter Traeger)",
+    "f3_rule": "R(N) < 1 an allen neuen N",
+    "pin_tolerances": {
+      "rel": 1e-12
+    },
+    "solver_path_pins": {
+      "SP1": "S via full_matrices=False; Rechteck-Validierung N=2047/32767 rel 1e-12",
+      "SP2": "cv(new N) via cv_spread_tridiag; dense-vs-tridiag-Pin bei 65535",
+      "SP3": "cv-Fallback Gershgorin-Exakt-Intervall (varA exakt, spread gebunden)"
+    },
+    "run_gates": {
+      "G1": "tridiag-cv-Zeit am 1e7-Bein entscheidet 1e8-cv (Extrapolation*2 <= 3h)",
+      "G2": "1e8 technisch fehlgeschlagen -> 1e8 OPEN dokumentiert, kein stiller Skip"
+    },
+    "kein_re_decide": true,
+    "keine_toleranz_erhoehung": true
+  },
+  "pins": {
+    "status": "ok",
+    "worst_dev": {
+      "S": 0.0,
+      "R": 0.0,
+      "cv": 0.0
+    },
+    "sp1_anchors_thin_vs_committed": {
+      "2047": 0.0,
+      "32767": 0.0,
+      "note": "Rechteck-Faelle 32x64 und 128x256 \u2014 SP1-Validierung"
+    },
+    "alpha_devs": {
+      "alpha_combined": 0.0,
+      "alpha_v1": 0.0,
+      "alpha_ext": 0.0,
+      "log_const": 0.0,
+      "cv_mean": 0.0
+    },
+    "committed_anchors": {
+      "alpha_combined": 0.2103550767898247,
+      "alpha_v1_8pt": 0.26582127012525525,
+      "alpha_ext_6pt": 0.1325514612964971,
+      "log_const": -0.7748751553487401,
+      "cv_spread_mean": 0.09599648443361233,
+      "rho_ab": 0.5736263736263736,
+      "effective_total": 2.4263736263736266,
+      "alpha_line": 0.08669525356827014
+    }
+  },
+  "rows_committed_repro": [
+    {
+      "N": 7,
+      "pi_N": 4,
+      "dim": 8,
+      "n_qubits": 3,
+      "n_A": 2,
+      "n_B": 4,
+      "S_vN": 0.5623351446188084,
+      "S_max": 0.6931471805599453,
+      "R_N": 0.40563906222956647,
+      "cv_spread_A": 0.1433361107311678,
+      "cv_path": "dense",
+      "t_sieve_s": 5.245208740234375e-06,
+      "t_construct_s": 2.9802322387695312e-05,
+      "t_entropy_s": 0.0002143383026123047,
+      "t_cv_s": 9.608268737792969e-05
+    },
+    {
+      "N": 15,
+      "pi_N": 6,
+      "dim": 16,
+      "n_qubits": 4,
+      "n_A": 4,
+      "n_B": 4,
+      "S_vN": 0.836065555629091,
+      "S_max": 1.3862943611198906,
+      "R_N": 0.46661707109006867,
+      "cv_spread_A": 0.1284585050097737,
+      "cv_path": "dense",
+      "t_sieve_s": 3.5762786865234375e-06,
+      "t_construct_s": 1.049041748046875e-05,
+      "t_entropy_s": 6.151199340820312e-05,
+      "t_cv_s": 6.127357482910156e-05
+    },
+    {
+      "N": 31,
+      "pi_N": 11,
+      "dim": 32,
+      "n_qubits": 5,
+      "n_A": 4,
+      "n_B": 8,
+      "S_vN": 0.920917486519335,
+      "S_max": 1.3862943611198906,
+      "R_N": 0.3840524217075644,
+      "cv_spread_A": 0.10291373401141408,
+      "cv_path": "dense",
+      "t_sieve_s": 3.814697265625e-06,
+      "t_construct_s": 9.5367431640625e-06,
+      "t_entropy_s": 5.602836608886719e-05,
+      "t_cv_s": 4.839897155761719e-05
+    },
+    {
+      "N": 63,
+      "pi_N": 18,
+      "dim": 64,
+      "n_qubits": 6,
+      "n_A": 8,
+      "n_B": 8,
+      "S_vN": 1.0222738131627933,
+      "S_max": 2.0794415416798357,
+      "R_N": 0.3536824667519181,
+      "cv_spread_A": 0.09743638974633594,
+      "cv_path": "dense",
+      "t_sieve_s": 5.0067901611328125e-06,
+      "t_construct_s": 1.049041748046875e-05,
+      "t_entropy_s": 5.316734313964844e-05,
+      "t_cv_s": 6.0558319091796875e-05
+    },
+    {
+      "N": 127,
+      "pi_N": 31,
+      "dim": 128,
+      "n_qubits": 7,
+      "n_A": 8,
+      "n_B": 16,
+      "S_vN": 1.3561838058811773,
+      "S_max": 2.0794415416798357,
+      "R_N": 0.3949297784539964,
+      "cv_spread_A": 0.0794081903846811,
+      "cv_path": "dense",
+      "t_sieve_s": 7.152557373046875e-06,
+      "t_construct_s": 1.430511474609375e-05,
+      "t_entropy_s": 6.175041198730469e-05,
+      "t_cv_s": 7.05718994140625e-05
+    },
+    {
+      "N": 255,
+      "pi_N": 54,
+      "dim": 256,
+      "n_qubits": 8,
+      "n_A": 16,
+      "n_B": 16,
+      "S_vN": 1.6039683072471846,
+      "S_max": 2.772588722239781,
+      "R_N": 0.40209945402732006,
+      "cv_spread_A": 0.08853676294658555,
+      "cv_path": "dense",
+      "t_sieve_s": 1.1205673217773438e-05,
+      "t_construct_s": 2.0265579223632812e-05,
+      "t_entropy_s": 8.749961853027344e-05,
+      "t_cv_s": 0.00018787384033203125
+    },
+    {
+      "N": 511,
+      "pi_N": 97,
+      "dim": 512,
+      "n_qubits": 9,
+      "n_A": 16,
+      "n_B": 32,
+      "S_vN": 1.9708129735163369,
+      "S_max": 2.772588722239781,
+      "R_N": 0.4308060078062218,
+      "cv_spread_A": 0.09086480741698962,
+      "cv_path": "dense",
+      "t_sieve_s": 2.8371810913085938e-05,
+      "t_construct_s": 4.458427429199219e-05,
+      "t_entropy_s": 0.00011348724365234375,
+      "t_cv_s": 0.0004391670227050781
+    },
+    {
+      "N": 1023,
+      "pi_N": 172,
+      "dim": 1024,
+      "n_qubits": 10,
+      "n_A": 32,
+      "n_B": 32,
+      "S_vN": 2.2111598587274464,
+      "S_max": 3.4657359027997265,
+      "R_N": 0.4295604140397759,
+      "cv_spread_A": 0.08941133455950992,
+      "cv_path": "dense",
+      "t_sieve_s": 5.7697296142578125e-05,
+      "t_construct_s": 8.082389831542969e-05,
+      "t_entropy_s": 0.0001723766326904297,
+      "t_cv_s": 0.0012307167053222656
+    },
+    {
+      "N": 2047,
+      "pi_N": 309,
+      "dim": 2048,
+      "n_qubits": 11,
+      "n_A": 32,
+      "n_B": 64,
+      "S_vN": 2.564154241357988,
+      "S_max": 3.4657359027997265,
+      "R_N": 0.44723558524069346,
+      "cv_spread_A": 0.08798977460137548,
+      "cv_path": "dense",
+      "t_sieve_s": 0.0002002716064453125,
+      "t_construct_s": 0.0002574920654296875,
+      "t_entropy_s": 0.0004980564117431641,
+      "t_cv_s": 0.5303652286529541
+    },
+    {
+      "N": 4095,
+      "pi_N": 564,
+      "dim": 4096,
+      "n_qubits": 12,
+      "n_A": 64,
+      "n_B": 64,
+      "S_vN": 2.787869378252001,
+      "S_max": 4.1588830833596715,
+      "R_N": 0.4400703241953689,
+      "cv_spread_A": 0.08822319467884547,
+      "cv_path": "dense",
+      "t_sieve_s": 0.00042557716369628906,
+      "t_construct_s": 0.0005342960357666016,
+      "t_entropy_s": 0.0008766651153564453,
+      "t_cv_s": 1.9701087474822998
+    },
+    {
+      "N": 8191,
+      "pi_N": 1028,
+      "dim": 8192,
+      "n_qubits": 13,
+      "n_A": 64,
+      "n_B": 128,
+      "S_vN": 3.156213730502634,
+      "S_max": 4.1588830833596715,
+      "R_N": 0.4550894224137826,
+      "cv_spread_A": 0.08701193667939378,
+      "cv_path": "dense",
+      "t_sieve_s": 0.0008685588836669922,
+      "t_construct_s": 0.0010640621185302734,
+      "t_entropy_s": 0.1844031810760498,
+      "t_cv_s": 2.3631012439727783
+    },
+    {
+      "N": 16383,
+      "pi_N": 1900,
+      "dim": 16384,
+      "n_qubits": 14,
+      "n_A": 128,
+      "n_B": 128,
+      "S_vN": 3.3959700187822004,
+      "S_max": 4.852030263919617,
+      "R_N": 0.4498206389883613,
+      "cv_spread_A": 0.08729455820099488,
+      "cv_path": "dense",
+      "t_sieve_s": 0.005506038665771484,
+      "t_construct_s": 0.0019936561584472656,
+      "t_entropy_s": 0.00950169563293457,
+      "t_cv_s": 0.40012240409851074
+    },
+    {
+      "N": 32767,
+      "pi_N": 3512,
+      "dim": 32768,
+      "n_qubits": 15,
+      "n_A": 128,
+      "n_B": 256,
+      "S_vN": 3.770018367423333,
+      "S_max": 4.852030263919617,
+      "R_N": 0.4617890291364151,
+      "cv_spread_A": 0.08670908124693055,
+      "cv_path": "dense",
+      "t_sieve_s": 0.002178668975830078,
+      "t_construct_s": 0.0038900375366210938,
+      "t_entropy_s": 0.01479029655456543,
+      "t_cv_s": 2.5297558307647705
+    },
+    {
+      "N": 65535,
+      "pi_N": 6542,
+      "dim": 65536,
+      "n_qubits": 16,
+      "n_A": 256,
+      "n_B": 256,
+      "S_vN": 4.0113488259451415,
+      "S_max": 5.545177444479562,
+      "R_N": 0.45656153472097866,
+      "cv_spread_A": 0.08635640185657446,
+      "cv_path": "dense",
+      "t_sieve_s": 0.004327535629272461,
+      "t_construct_s": 0.0051348209381103516,
+      "t_entropy_s": 0.036173343658447266,
+      "t_cv_s": 24.312192916870117
+    }
+  ],
+  "rows_new": [
+    {
+      "N": 16777215,
+      "pi_N": 1077871,
+      "dim": 16777216,
+      "n_qubits": 24,
+      "n_A": 4096,
+      "n_B": 4096,
+      "S_vN": 6.467143330665527,
+      "S_max": 8.317766166719343,
+      "R_N": 0.4655803675534549,
+      "cv_spread_A": 0.0853186878697372,
+      "cv_path": "tridiag",
+      "t_sieve_s": 1.3918206691741943,
+      "t_construct_s": 1.6549668312072754,
+      "t_entropy_s": 69.92023587226868,
+      "t_cv_s": 3483.113490819931,
+      "gershgorin": {
+        "varA_exact": 24015098011393.125,
+        "cv_interval_exakt": [
+          0.08531863498269963,
+          0.08531881805678192
+        ],
+        "spread_bounds": [
+          16777211.0,
+          16777229.0
+        ],
+        "tridiag_cv_im_spread_intervall": true
+      }
+    },
+    {
+      "N": 10000000,
+      "pi_N": 664579,
+      "dim": 16777216,
+      "n_qubits": 24,
+      "n_A": 4096,
+      "n_B": 4096,
+      "S_vN": 6.303045825320487,
+      "S_max": 8.317766166719343,
+      "R_N": 0.4701341530836239,
+      "cv_spread_A": 0.08537268550490461,
+      "cv_path": "tridiag",
+      "t_sieve_s": 0.8084008693695068,
+      "t_construct_s": 1.0479974746704102,
+      "t_entropy_s": 60.1085741519928,
+      "t_cv_s": 1445.741354227066,
+      "gershgorin": {
+        "varA_exact": 8537270791281.742,
+        "cv_interval_exakt": [
+          0.08537255424215064,
+          0.08537289573308474
+        ],
+        "spread_bounds": [
+          9999989.0,
+          10000009.0
+        ],
+        "tridiag_cv_im_spread_intervall": true
+      }
+    },
+    {
+      "N": 100000000,
+      "pi_N": 5761455,
+      "dim": 134217728,
+      "n_qubits": 27,
+      "n_A": 8192,
+      "n_B": 16384,
+      "S_vN": 7.314077573908791,
+      "S_max": 9.010913347279288,
+      "R_N": 0.4698540660303997,
+      "cv_spread_A": null,
+      "cv_path": "gershgorin",
+      "t_sieve_s": 8.368412494659424,
+      "t_construct_s": 10.310495376586914,
+      "t_entropy_s": 621.1122601032257,
+      "t_cv_s": 3.123283386230469e-05,
+      "gershgorin": null
+    }
+  ],
+  "alphas": {
+    "L7a": {
+      "alpha": 0.10080572342642627,
+      "members": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215
+      ],
+      "missing": []
+    },
+    "L7b": {
+      "alpha": 0.10442656337836317,
+      "members": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        10000000
+      ],
+      "missing": []
+    },
+    "L7c": {
+      "alpha": 0.10018503757806374,
+      "members": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215,
+        10000000
+      ],
+      "missing": []
+    },
+    "L8_primary": {
+      "alpha": 0.09579742324575859,
+      "members": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        16777215,
+        10000000,
+        100000000
+      ],
+      "missing": []
+    },
+    "L8b_deck_literal": {
+      "alpha": 0.09587592164990294,
+      "members": [
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535,
+        10000000,
+        100000000
+      ],
+      "missing": []
+    },
+    "combined_C15": 0.1712144398957192,
+    "combined_C16": 0.1602133101656183,
+    "combined_C17": 0.14790344244670142,
+    "local_tail_slopes_descriptive": {
+      "65535->16777215": 0.08612990854616982,
+      "16777215->10000000": 0.04967082648041263,
+      "65535->10000000": 0.08988213204683596,
+      "65535->100000000": 0.08194344113421506,
+      "10000000->100000000": 0.06460909759335116
+    }
+  },
+  "carrier": null,
+  "verdicts": {
+    "status": "ABORT",
+    "traceback": "Traceback (most recent call last):\n  File \"/run/media/julian/ML4/riemann/scratches/h9_nsweep_1e7.py\", line 527, in <module>\n    main()\n    ~~~~^^\n  File \"/run/media/julian/ML4/riemann/scratches/h9_nsweep_1e7.py\", line 466, in main\n    entry[\"carrier_hold\"] = bool(CV_LO <= r[\"cv_spread_A\"] <= CV_HI)\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: '<=' not supported between instances of 'float' and 'NoneType'\n"
+  },
+  "timings": {},
+  "deviations": {
+    "alpha_combined": 0.0,
+    "alpha_v1": 0.0,
+    "alpha_ext": 0.0,
+    "log_const": 0.0,
+    "cv_mean": 0.0
+  },
+  "provenance": {}
+}

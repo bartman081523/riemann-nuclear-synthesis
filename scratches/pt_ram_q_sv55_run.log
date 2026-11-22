@@ -1,0 +1,8 @@
+qiskit_runtime_service._discover_account:WARNING:2026-10-06 10:01:13,600: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-06 10:01:15,812: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-10-06 10:01:15,812: Using instance: 1, plan: open
+[isa] ops-Diagnostik: 2/12 unforced mit 1q-x-Zweig-Delta (2q bitgleich, kein Gate-Breach): ['ladder_q3_d3_181_r4', 'ctrl_composite_P467_d5']
+RAW_WRITTEN pt_ram_q_prio48_sv_raw.json sha256=a48467f9b416a0173942676de72fa528043bced78fce2abb7bcd3a0a3a49ddab
+[run] counts_md5=5c5c4441616b1f199df1336b0d433d17
+[run] cell=ISA_CELL_DRIFT c_seed=False c_cal_ideal=True
+[run] isa_2q_total=830 max=84

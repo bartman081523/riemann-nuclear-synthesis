@@ -1,0 +1,3 @@
+QUQUINT/V5 Phase 12c (2/2): EXPERIMENT 046 Fez-Bein Raw VOR Auswertung committed (§Z.14) — Job dauassrojkfs738rrcsg (ibm_fez, TOKEN1, 8192 Shots, RL1, DD XX, EIN est.run 3 Pubs): re 2.179152206550255, hd 2.1678169412156385, im 0.008757581708377657, bias = re − hd = +0.011335265334616373; Klassifikation nach gefrorenem Prereg erst in der Auswertung (H-V5R-1/H-V5R-2); Verdict NICHT hier gefaellt
+
+Co-Authored-By: Claude <noreply@anthropic.com>

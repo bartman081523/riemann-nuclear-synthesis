@@ -1,0 +1,77 @@
+{
+ "job_id": "dauassrojkfs738rrcsg",
+ "mode": "probe",
+ "status": "QUEUED",
+ "creation_date": "2026-09-30 08:38:44.092260+02:00",
+ "metrics": {
+  "caller": "qiskit_ibm_runtime~estimator.py",
+  "qiskit_version": "qiskit_ibm_runtime-0.47.0,qiskit-2.4.1*,qiskit_aer-0.17.2",
+  "timestamps": {
+   "created": "2026-09-30T06:38:44.09226Z",
+   "finished": null,
+   "running": null
+  },
+  "bss": {
+   "seconds": 0
+  },
+  "usage": {
+   "quantum_seconds": 0,
+   "seconds": 0
+  }
+ },
+ "logs": "",
+ "error_message": null,
+ "backend_pending": 0,
+ "fez_recent_jobs": [
+  {
+   "job_id": "dauassrojkfs738rrcsg",
+   "status": "QUEUED",
+   "created": "2026-09-30 08:38:44.092260+02:00"
+  },
+  {
+   "job_id": "daua5hahcrkc73dv9eh0",
+   "status": "QUEUED",
+   "created": "2026-09-30 07:48:54.508101+02:00"
+  },
+  {
+   "job_id": "dat3q9dvr3kc73ektkv0",
+   "status": "CANCELLED",
+   "created": "2026-09-28 12:10:45.734849+02:00"
+  },
+  {
+   "job_id": "dat3gpqhcrkc73dtjmt0",
+   "status": "DONE",
+   "created": "2026-09-28 11:50:32.087092+02:00"
+  },
+  {
+   "job_id": "dat1o6qhcrkc73dtgo60",
+   "status": "DONE",
+   "created": "2026-09-28 09:49:47.622671+02:00"
+  },
+  {
+   "job_id": "dartdg5vr3kc73ejcrgg",
+   "status": "DONE",
+   "created": "2026-09-26 16:29:20.871428+02:00"
+  },
+  {
+   "job_id": "darq1stvr3kc73ej96ig",
+   "status": "DONE",
+   "created": "2026-09-26 12:39:47.718470+02:00"
+  },
+  {
+   "job_id": "dakjk9hhvn6c73cvr1cg",
+   "status": "DONE",
+   "created": "2026-09-15 14:29:26.519375+02:00"
+  },
+  {
+   "job_id": "d9fjbraneu4c739pmaqg",
+   "status": "DONE",
+   "created": "2026-07-21 11:03:41.344305+02:00"
+  },
+  {
+   "job_id": "d9fjblsinv1c73areupg",
+   "status": "DONE",
+   "created": "2026-07-21 11:03:20.019055+02:00"
+  }
+ ]
+}

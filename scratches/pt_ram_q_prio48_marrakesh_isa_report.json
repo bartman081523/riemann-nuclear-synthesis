@@ -1,0 +1,3794 @@
+{
+ "experiment": "EXPERIMENT 055",
+ "hypothesis": "H-H9 FPrio-4 (C.1/D.7 Session-P-Bindung) + FPrio-8 (D.5 n_cal>=16)",
+ "leg": "FP48-COMBINED",
+ "status": "ISA_FORCED_REPORT_COMPLETED",
+ "backend": "ibm_marrakesh",
+ "generated_at_utc": "2026-10-16T08:15:56.320280+00:00",
+ "n_circuits": 160,
+ "transpile": {
+  "optimization_level": 3,
+  "seed_transpiler": 7
+ },
+ "isa_ceilings": {
+  "per_circuit_2q_max": 120,
+  "total_2q_max": 6000
+ },
+ "total_two_q": 830,
+ "max_two_q": 84,
+ "coupling_map_edges": 352,
+ "slots_per_arm": {
+  "q3_d3": 176,
+  "q5_d5": 244
+ },
+ "row_assignment": {
+  "q3_d3": [
+   {
+    "row": [
+     "verdict",
+     181
+    ],
+    "slot_index": 1,
+    "slot": [
+     1,
+     2
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     229
+    ],
+    "slot_index": 2,
+    "slot": [
+     2,
+     3
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     283
+    ],
+    "slot_index": 3,
+    "slot": [
+     3,
+     4
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     379
+    ],
+    "slot_index": 4,
+    "slot": [
+     3,
+     16
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     467
+    ],
+    "slot_index": 5,
+    "slot": [
+     4,
+     5
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     613
+    ],
+    "slot_index": 6,
+    "slot": [
+     5,
+     6
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     691
+    ],
+    "slot_index": 7,
+    "slot": [
+     6,
+     7
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     797
+    ],
+    "slot_index": 8,
+    "slot": [
+     7,
+     8
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     149
+    ],
+    "slot_index": 9,
+    "slot": [
+     7,
+     17
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     197
+    ],
+    "slot_index": 10,
+    "slot": [
+     8,
+     9
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     251
+    ],
+    "slot_index": 11,
+    "slot": [
+     9,
+     10
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     347
+    ],
+    "slot_index": 12,
+    "slot": [
+     10,
+     11
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     433
+    ],
+    "slot_index": 13,
+    "slot": [
+     11,
+     12
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     577
+    ],
+    "slot_index": 14,
+    "slot": [
+     11,
+     18
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     659
+    ],
+    "slot_index": 15,
+    "slot": [
+     12,
+     13
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     761
+    ],
+    "slot_index": 16,
+    "slot": [
+     13,
+     14
+    ],
+    "fallback_used": false,
+    "attempts": []
+   }
+  ],
+  "q5_d5": [
+   {
+    "row": [
+     "verdict",
+     467
+    ],
+    "slot_index": 1,
+    "slot": [
+     1,
+     2,
+     3
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     547
+    ],
+    "slot_index": 2,
+    "slot": [
+     2,
+     3,
+     4
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     613
+    ],
+    "slot_index": 3,
+    "slot": [
+     2,
+     3,
+     16
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     673
+    ],
+    "slot_index": 4,
+    "slot": [
+     3,
+     4,
+     5
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "verdict",
+     691
+    ],
+    "slot_index": 5,
+    "slot": [
+     3,
+     4,
+     16
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     433
+    ],
+    "slot_index": 6,
+    "slot": [
+     3,
+     16,
+     23
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     499
+    ],
+    "slot_index": 7,
+    "slot": [
+     4,
+     5,
+     6
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     577
+    ],
+    "slot_index": 8,
+    "slot": [
+     5,
+     6,
+     7
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     631
+    ],
+    "slot_index": 9,
+    "slot": [
+     6,
+     7,
+     8
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     659
+    ],
+    "slot_index": 10,
+    "slot": [
+     6,
+     7,
+     17
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     479
+    ],
+    "slot_index": 11,
+    "slot": [
+     7,
+     8,
+     9
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     557
+    ],
+    "slot_index": 12,
+    "slot": [
+     7,
+     8,
+     17
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     617
+    ],
+    "slot_index": 13,
+    "slot": [
+     7,
+     17,
+     27
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     677
+    ],
+    "slot_index": 14,
+    "slot": [
+     8,
+     9,
+     10
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     701
+    ],
+    "slot_index": 15,
+    "slot": [
+     9,
+     10,
+     11
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     521
+    ],
+    "slot_index": 16,
+    "slot": [
+     10,
+     11,
+     12
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     593
+    ],
+    "slot_index": 17,
+    "slot": [
+     10,
+     11,
+     18
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     653
+    ],
+    "slot_index": 18,
+    "slot": [
+     11,
+     12,
+     13
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     719
+    ],
+    "slot_index": 19,
+    "slot": [
+     11,
+     12,
+     18
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     733
+    ],
+    "slot_index": 20,
+    "slot": [
+     11,
+     18,
+     31
+    ],
+    "fallback_used": false,
+    "attempts": []
+   },
+   {
+    "row": [
+     "cal",
+     563
+    ],
+    "slot_index": 21,
+    "slot": [
+     12,
+     13,
+     14
+    ],
+    "fallback_used": false,
+    "attempts": []
+   }
+  ]
+ },
+ "row_c_prime": {
+  "note": "s1_anchor offline abgeschaltet (Unit-Tests) \u2014 c'-Block nur im echten Gate-Lauf aktiv"
+ },
+ "c_prime_lesart": "PROXY-LESART des C3-Zaehlers (Prereg cP_perturbation_source): c_prime = cP * (mean n_2q'_055 / mean two_q_S1) je Reihe (Mittel ueber die 4 Row-Circuits; rang-aequivalent zur Summe). Delta_c = c_prime - cP aus den verwendeten Werten. Mean-Ratio bit-gleich 1 -> Delta_c == 0 -> Delta-c degenerat (keine Geometrie-Schiebung messbar). Ladder-Reihen frisch -> c_prime None. Kompilations-Geometrie je Reihe separat registriert: row_assignment (Slot/Index/Fallback).",
+ "per_circuit": {
+  "struct_q3_d3_181_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    1,
+    2
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "kind": "structure"
+  },
+  "struct_q3_d3_181_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    1,
+    2
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "kind": "structure"
+  },
+  "struct_q3_d3_181_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    1,
+    2
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_181": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    1,
+    2
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_229_r0": {
+   "ops": {
+    "rz": 5,
+    "sx": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "kind": "structure"
+  },
+  "struct_q3_d3_229_r1": {
+   "ops": {
+    "rz": 5,
+    "sx": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "kind": "structure"
+  },
+  "struct_q3_d3_229_r2": {
+   "ops": {
+    "rz": 5,
+    "sx": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_229": {
+   "ops": {
+    "rz": 11,
+    "sx": 10,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 229,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_283_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "kind": "structure"
+  },
+  "struct_q3_d3_283_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "kind": "structure"
+  },
+  "struct_q3_d3_283_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_283": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1,
+    "x": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 283,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_379_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "kind": "structure"
+  },
+  "struct_q3_d3_379_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "kind": "structure"
+  },
+  "struct_q3_d3_379_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_379": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 379,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_467_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "struct_q3_d3_467_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "struct_q3_d3_467_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_467": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "x": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 467,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_613_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "struct_q3_d3_613_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "struct_q3_d3_613_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_613": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1,
+    "x": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 613,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_691_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "struct_q3_d3_691_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "struct_q3_d3_691_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_691": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 691,
+   "kind": "loschmidt"
+  },
+  "struct_q3_d3_797_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "kind": "structure"
+  },
+  "struct_q3_d3_797_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "kind": "structure"
+  },
+  "struct_q3_d3_797_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "kind": "structure"
+  },
+  "loschmidt_q3_d3_797": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 797,
+   "kind": "loschmidt"
+  },
+  "calstruct_q3_d3_149_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_149_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_149_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_149": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 149,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_197_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_197_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_197_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_197": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1,
+    "x": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 197,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_251_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_251_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_251_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_251": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "measure": 2,
+    "barrier": 1,
+    "x": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 251,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_347_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_347_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_347_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_347": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "x": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 347,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_433_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_433_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_433_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_433": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_577_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_577_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_577_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_577": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "x": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_659_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_659_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_659_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_659": {
+   "ops": {
+    "sx": 12,
+    "rz": 10,
+    "cz": 2,
+    "x": 2,
+    "measure": 2,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 17,
+   "initial_layout": [
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q3_d3_761_r0": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_761_r1": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q3_d3_761_r2": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "initial_layout": [
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q3_d3_761": {
+   "ops": {
+    "sx": 12,
+    "rz": 11,
+    "cz": 2,
+    "measure": 2,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 2,
+   "depth": 18,
+   "initial_layout": [
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q3_d3",
+   "set": "cal",
+   "P": 761,
+   "kind": "kalibrier_loschmidt"
+  },
+  "struct_q5_d5_467_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    1,
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "struct_q5_d5_467_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    1,
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "struct_q5_d5_467_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    1,
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "kind": "structure"
+  },
+  "loschmidt_q5_d5_467": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    1,
+    2,
+    3
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "kind": "loschmidt"
+  },
+  "struct_q5_d5_547_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    2,
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "kind": "structure"
+  },
+  "struct_q5_d5_547_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    2,
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "kind": "structure"
+  },
+  "struct_q5_d5_547_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    2,
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "kind": "structure"
+  },
+  "loschmidt_q5_d5_547": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 54,
+   "initial_layout": [
+    2,
+    3,
+    4
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 547,
+   "kind": "loschmidt"
+  },
+  "struct_q5_d5_613_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    2,
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "struct_q5_d5_613_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    2,
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "struct_q5_d5_613_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    2,
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "kind": "structure"
+  },
+  "loschmidt_q5_d5_613": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 52,
+   "initial_layout": [
+    2,
+    3,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 613,
+   "kind": "loschmidt"
+  },
+  "struct_q5_d5_673_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "kind": "structure"
+  },
+  "struct_q5_d5_673_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "kind": "structure"
+  },
+  "struct_q5_d5_673_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "kind": "structure"
+  },
+  "loschmidt_q5_d5_673": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    3,
+    4,
+    5
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 673,
+   "kind": "loschmidt"
+  },
+  "struct_q5_d5_691_r0": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    3,
+    4,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "struct_q5_d5_691_r1": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    3,
+    4,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "struct_q5_d5_691_r2": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    3,
+    4,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "kind": "structure"
+  },
+  "loschmidt_q5_d5_691": {
+   "ops": {
+    "sx": 39,
+    "rz": 35,
+    "cz": 13,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 13,
+   "depth": 59,
+   "initial_layout": [
+    3,
+    4,
+    16
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 691,
+   "kind": "loschmidt"
+  },
+  "calstruct_q5_d5_433_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    16,
+    23
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_433_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    16,
+    23
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_433_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    3,
+    16,
+    23
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_433": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    3,
+    16,
+    23
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 433,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_499_r0": {
+   "ops": {
+    "sx": 16,
+    "rz": 14,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 23,
+   "initial_layout": [
+    4,
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_499_r1": {
+   "ops": {
+    "sx": 16,
+    "rz": 14,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 23,
+   "initial_layout": [
+    4,
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_499_r2": {
+   "ops": {
+    "sx": 16,
+    "rz": 14,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 23,
+   "initial_layout": [
+    4,
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_499": {
+   "ops": {
+    "sx": 33,
+    "rz": 31,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 50,
+   "initial_layout": [
+    4,
+    5,
+    6
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 499,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_577_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    5,
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_577_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    5,
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_577_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    5,
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_577": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    5,
+    6,
+    7
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 577,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_631_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    6,
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_631_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    6,
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_631_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    6,
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_631": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    6,
+    7,
+    8
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 631,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_659_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    6,
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_659_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    6,
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_659_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    6,
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_659": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    6,
+    7,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 659,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_479_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 479,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_479_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 479,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_479_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 479,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_479": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 52,
+   "initial_layout": [
+    7,
+    8,
+    9
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 479,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_557_r0": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    7,
+    8,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 557,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_557_r1": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    7,
+    8,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 557,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_557_r2": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    7,
+    8,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 557,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_557": {
+   "ops": {
+    "sx": 39,
+    "rz": 36,
+    "cz": 13,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 13,
+   "depth": 59,
+   "initial_layout": [
+    7,
+    8,
+    17
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 557,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_617_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    17,
+    27
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 617,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_617_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    17,
+    27
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 617,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_617_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    7,
+    17,
+    27
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 617,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_617": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 52,
+   "initial_layout": [
+    7,
+    17,
+    27
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 617,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_677_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    8,
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 677,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_677_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    8,
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 677,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_677_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    8,
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 677,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_677": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    8,
+    9,
+    10
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 677,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_701_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    9,
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 701,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_701_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    9,
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 701,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_701_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    9,
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 701,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_701": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    9,
+    10,
+    11
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 701,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_521_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    10,
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 521,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_521_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    10,
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 521,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_521_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    10,
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 521,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_521": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 52,
+   "initial_layout": [
+    10,
+    11,
+    12
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 521,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_593_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    10,
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 593,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_593_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    10,
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 593,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_593_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    10,
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 593,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_593": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 54,
+   "initial_layout": [
+    10,
+    11,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 593,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_653_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 653,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_653_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 653,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_653_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 653,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_653": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 54,
+   "initial_layout": [
+    11,
+    12,
+    13
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 653,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_719_r0": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    11,
+    12,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 719,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_719_r1": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    11,
+    12,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 719,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_719_r2": {
+   "ops": {
+    "sx": 22,
+    "rz": 19,
+    "cz": 8,
+    "measure": 3
+   },
+   "n_2q": 8,
+   "depth": 33,
+   "initial_layout": [
+    11,
+    12,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 719,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_719": {
+   "ops": {
+    "sx": 39,
+    "rz": 36,
+    "cz": 13,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 13,
+   "depth": 59,
+   "initial_layout": [
+    11,
+    12,
+    18
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 719,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_733_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    18,
+    31
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 733,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_733_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    18,
+    31
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 733,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_733_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3,
+    "x": 1
+   },
+   "n_2q": 5,
+   "depth": 27,
+   "initial_layout": [
+    11,
+    18,
+    31
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 733,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_733": {
+   "ops": {
+    "sx": 34,
+    "rz": 32,
+    "cz": 10,
+    "measure": 3,
+    "x": 1,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    11,
+    18,
+    31
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 733,
+   "kind": "kalibrier_loschmidt"
+  },
+  "calstruct_q5_d5_563_r0": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    12,
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 563,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_563_r1": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    12,
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 563,
+   "kind": "kalibrier_structure"
+  },
+  "calstruct_q5_d5_563_r2": {
+   "ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 26,
+   "initial_layout": [
+    12,
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 563,
+   "kind": "kalibrier_structure"
+  },
+  "calloschmidt_q5_d5_563": {
+   "ops": {
+    "sx": 34,
+    "rz": 33,
+    "cz": 10,
+    "measure": 3,
+    "barrier": 1
+   },
+   "n_2q": 10,
+   "depth": 53,
+   "initial_layout": [
+    12,
+    13,
+    14
+   ],
+   "layout_source": "forced",
+   "arm": "q5_d5",
+   "set": "cal",
+   "P": 563,
+   "kind": "kalibrier_loschmidt"
+  },
+  "ladder_q3_d3_181_r2": {
+   "ops": {
+    "sx": 24,
+    "rz": 22,
+    "cz": 4,
+    "barrier": 3,
+    "x": 2,
+    "measure": 2
+   },
+   "n_2q": 4,
+   "depth": 35,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ladder_q3_d3_181_r4": {
+   "ops": {
+    "sx": 48,
+    "rz": 44,
+    "cz": 8,
+    "barrier": 7,
+    "x": 4,
+    "measure": 2
+   },
+   "n_2q": 8,
+   "depth": 69,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ladder_q3_d3_181_r8": {
+   "ops": {
+    "sx": 96,
+    "rz": 88,
+    "cz": 16,
+    "barrier": 15,
+    "x": 8,
+    "measure": 2
+   },
+   "n_2q": 16,
+   "depth": 137,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ladder_q5_d5_467_r2": {
+   "ops": {
+    "sx": 73,
+    "rz": 56,
+    "cz": 24,
+    "barrier": 3,
+    "measure": 3
+   },
+   "n_2q": 24,
+   "depth": 106,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ladder_q5_d5_467_r4": {
+   "ops": {
+    "sx": 135,
+    "rz": 110,
+    "cz": 44,
+    "barrier": 7,
+    "measure": 3
+   },
+   "n_2q": 44,
+   "depth": 199,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ladder_q5_d5_467_r8": {
+   "ops": {
+    "sx": 263,
+    "rz": 226,
+    "cz": 84,
+    "barrier": 15,
+    "measure": 3
+   },
+   "n_2q": 84,
+   "depth": 391,
+   "layout_source": "auto",
+   "kind": "echo_ladder",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ctrl_composite_P181_d3": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1,
+    "x": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "layout_source": "auto",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ctrl_uniform_q3": {
+   "ops": {
+    "sx": 6,
+    "rz": 5,
+    "measure": 2,
+    "cz": 1
+   },
+   "n_2q": 1,
+   "depth": 9,
+   "layout_source": "auto",
+   "kind": "negative_control",
+   "arm": "q3_d3",
+   "set": "verdict",
+   "P": 181,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ctrl_composite_P467_d5": {
+   "ops": {
+    "sx": 15,
+    "rz": 13,
+    "cz": 5,
+    "measure": 3
+   },
+   "n_2q": 5,
+   "depth": 24,
+   "layout_source": "auto",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "ctrl_uniform_q5": {
+   "ops": {
+    "sx": 10,
+    "rz": 8,
+    "measure": 3,
+    "cz": 2,
+    "x": 1
+   },
+   "n_2q": 2,
+   "depth": 12,
+   "layout_source": "auto",
+   "kind": "negative_control",
+   "arm": "q5_d5",
+   "set": "verdict",
+   "P": 467,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "cal_2q": {
+   "ops": {
+    "measure": 2
+   },
+   "n_2q": 0,
+   "depth": 1,
+   "layout_source": "auto",
+   "kind": "readout_cal",
+   "arm": null,
+   "set": null,
+   "P": null,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  },
+  "cal_3q": {
+   "ops": {
+    "measure": 3
+   },
+   "n_2q": 0,
+   "depth": 1,
+   "layout_source": "auto",
+   "kind": "readout_cal",
+   "arm": null,
+   "set": null,
+   "P": null,
+   "ok": null,
+   "note": "s1_anchor offline abgeschaltet (Unit-Tests)"
+  }
+ },
+ "unforced_bit_anchor": [],
+ "s1_anchor_rule": "Auto-Layout-Anker nach gefrorenem Prereg-Literal: per-Circuit-2q bitgleich gegen pt_ram_q_isa3_report.json (GATE). Die ops-Ebene ist Diagnostik: ein Delta ausschliesslich an 1q-x-Puls-Zaehlung bei bitgleicher 2q-Geometrie (cz/rz/sx/barrier/measure exakt) ist die IBM-seitige Synthese-Branch-Spaetzung (Fez-Target-Refresh seit der 0/116-Re-Verifikation 2026-09-28) und FAELLT NICHT unter das Anker-Gate.",
+ "ceiling_check": {
+  "per_circuit_2q_ok": true,
+  "total_2q": 830,
+  "total_2q_ok": true,
+  "per_circuit_worst_5": [
+   {
+    "name": "ladder_q5_d5_467_r8",
+    "n_2q": 84
+   },
+   {
+    "name": "ladder_q5_d5_467_r4",
+    "n_2q": 44
+   },
+   {
+    "name": "ladder_q5_d5_467_r2",
+    "n_2q": 24
+   },
+   {
+    "name": "ladder_q3_d3_181_r8",
+    "n_2q": 16
+   },
+   {
+    "name": "loschmidt_q5_d5_691",
+    "n_2q": 13
+   }
+  ],
+  "verdict": "ISA_OK"
+ },
+ "run_config_frozen": {
+  "optimization_level": 3,
+  "dynamical_decoupling": "XX",
+  "resilience": "none (raw SamplerV2 counts)"
+ },
+ "prereg_md5": "b7afc42c62a6da75b2e43dd3674f8965",
+ "verdict": "ISA_OK",
+ "addendum": "S1-Bit-Anker abgeschaltet (fez-spezifisch); Gate-Selbst-Anker via Crosscheck vor Submit"
+}

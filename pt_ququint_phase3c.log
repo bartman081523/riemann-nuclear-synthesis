@@ -1,0 +1,7 @@
+qiskit_runtime_service._discover_account:WARNING:2026-09-15 14:29:53,620: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-09-15 14:29:56,333: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-09-15 14:29:56,333: Using instance: 1, plan: open
+[phase3] backend=ibm_fez
+[phase3] ISA total 2q gates: 370 (phi_D=81)
+[phase3] job submitted: dakjk9hhvn6c73cvr1cg (12 circuits, 8192 shots each)
+[phase3] verdict: CONFIRMED | rule_holds=True | phi_margin=+0.4039 sep_margin=-0.0412 | confound=0.0153

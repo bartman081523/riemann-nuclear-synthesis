@@ -1,0 +1,199 @@
+{
+  "experiment": "056-ququint-ramanujan-symcomp",
+  "hypothesis": "H-SYMCOMP",
+  "q_family": [
+    3,
+    5,
+    7,
+    11
+  ],
+  "d_by_q": {
+    "3": [
+      9,
+      81,
+      729
+    ],
+    "5": [
+      25,
+      625
+    ],
+    "7": [
+      49,
+      2401
+    ]
+  },
+  "scan_registration": {
+    "q": [
+      3,
+      5
+    ],
+    "grid": [
+      1000,
+      10000,
+      100000,
+      1000000,
+      10000000
+    ],
+    "extension": 100000000
+  },
+  "thresholds": {
+    "residual_tol": 1e-10,
+    "d_inv_tol": 1e-10,
+    "anchor_tol": 1e-12,
+    "band": [
+      0.8,
+      1.25
+    ],
+    "slope_band": [
+      -1.5,
+      -0.5
+    ],
+    "c_max": 10000.0
+  },
+  "scans_frozen": {
+    "3": [
+      {
+        "P": 1000,
+        "pi": 168,
+        "counts": [
+          1,
+          80,
+          87
+        ],
+        "sigma2": 24.5,
+        "ratio_pred": 1.0053994490358127
+      },
+      {
+        "P": 10000,
+        "pi": 1229,
+        "counts": [
+          1,
+          611,
+          617
+        ],
+        "sigma2": 18.0,
+        "ratio_pred": 1.0000718526541572
+      },
+      {
+        "P": 100000,
+        "pi": 9592,
+        "counts": [
+          1,
+          4784,
+          4807
+        ],
+        "sigma2": 264.5,
+        "ratio_pred": 1.0000172595826329
+      },
+      {
+        "P": 1000000,
+        "pi": 78498,
+        "counts": [
+          1,
+          39231,
+          39266
+        ],
+        "sigma2": 612.5,
+        "ratio_pred": 1.0000005964490564
+      },
+      {
+        "P": 10000000,
+        "pi": 664579,
+        "counts": [
+          1,
+          332194,
+          332384
+        ],
+        "sigma2": 18050.0,
+        "ratio_pred": 1.000000245210549
+      }
+    ],
+    "5": [
+      {
+        "P": 1000,
+        "pi": 168,
+        "counts": [
+          1,
+          40,
+          47,
+          42,
+          38
+        ],
+        "sigma2": 44.75,
+        "ratio_pred": 1.0336858745154127
+      },
+      {
+        "P": 10000,
+        "pi": 1229,
+        "counts": [
+          1,
+          306,
+          309,
+          310,
+          303
+        ],
+        "sigma2": 30.0,
+        "ratio_pred": 1.0004004869921825
+      },
+      {
+        "P": 100000,
+        "pi": 9592,
+        "counts": [
+          1,
+          2387,
+          2412,
+          2402,
+          2390
+        ],
+        "sigma2": 396.75,
+        "ratio_pred": 1.0000863339231423
+      },
+      {
+        "P": 1000000,
+        "pi": 78498,
+        "counts": [
+          1,
+          19617,
+          19622,
+          19665,
+          19593
+        ],
+        "sigma2": 2694.75,
+        "ratio_pred": 1.000008747553756
+      },
+      {
+        "P": 10000000,
+        "pi": 664579,
+        "counts": [
+          1,
+          166104,
+          166212,
+          166230,
+          166032
+        ],
+        "sigma2": 26163.0,
+        "ratio_pred": 1.0000011847612573
+      }
+    ]
+  },
+  "verdict_map": {
+    "CONFIRMED": "E1+E2+E3-hard gr\u00fcn, E4-Synthese exakt",
+    "PARTIAL": "genau eine deskriptive Heuristik (slope/C/envelope) au\u00dferhalb, alles Harte gr\u00fcn",
+    "REFUTED": "harte Identit\u00e4t/Invarianz/Compiler-Reduktion gebrochen",
+    "INVALID": "Anker (V2/q=5-R\u00fcckkompatibilit\u00e4t) gebrochen \u2014 Algorithmus-Bug, kein Theorie-Fehlschlag"
+  },
+  "qpu": "0 QPU \u2014 reine Arithmetik, seed-frei, kein Quanten-SDK",
+  "vorlaeufer": [
+    "pt_ram_q_zyklizitaet.py",
+    "pt_ram_q_asymptotik.py",
+    "pt_ram_q_hardware3.py",
+    "pt_ram_q_hardware_aer.py",
+    "pt_isa3.py",
+    "pt_rh_multi_observable_ext.py",
+    "pt_ram_q_prio48_exakt.py",
+    "src/primequant/_cyc.py",
+    "src/primequant/_gfq.py",
+    "src/primequant/observables.py"
+  ],
+  "md5": "a7922c99c263ba0b6494f0bb1bc6b185"
+}

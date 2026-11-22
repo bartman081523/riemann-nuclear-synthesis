@@ -1,0 +1,8032 @@
+{
+ "meta": {
+  "phrase": "Riemann Hypothesis will show us that there is no difference between counting and god",
+  "request": "raw Abfrage OHNE Datum mit voller Kette in allen Kulturen: gsum1 (roher Gematria-Wert der Phrase) -> ELS-Sweep ueber alle 7 Kultur-Schriften (rounds 1,-1) -> gsum2 = result_sum jedes ELS-Treffers -> EXAKTE kuerzeste Phrase mit diesem gsum2 in der Kultur (wie /api/test/raw, keine Subharmonics, ehrlich None ohne Treffer)",
+  "date": null,
+  "adjust_constant": 137.035999177,
+  "adjust_rule": "adj = ceil(g + g/137.035999177) (nur informativ am Rohwert; die Sweep-Rounds sind 1,-1)",
+  "privacy": "no personal names in this file"
+ },
+ "phrase_gsum": {
+  "raw": 5683,
+  "adjusted": 5725,
+  "local_analyze_total": 5683,
+  "api_calculate": {
+   "text": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "gematria_sum": 5683
+  }
+ },
+ "test_raw": {
+  "endpoint": "/api/test/raw",
+  "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+  "adjusted_false": {
+   "adj_gsum": 5683,
+   "adjusted": false,
+   "date_words": "",
+   "lookup": null,
+   "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "raw_gsum": 5683
+  },
+  "adjusted_true": {
+   "adj_gsum": 5725,
+   "adjusted": true,
+   "date_words": "",
+   "lookup": {
+    "chapter": 106,
+    "phrase_length": null,
+    "verse": 47,
+    "words": "מןהגוים להדות לשם קדשך להשתבח בתהלתך"
+   },
+   "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "raw_gsum": 5683
+  }
+ },
+ "find_verses": {
+  "gematria_sum": 5683,
+  "verses": []
+ },
+ "xor_resonance": {
+  "query": "Riemann Hypothesis will show us that there is no difference between counting and god",
+  "parameters": {
+   "verses_processed": 150,
+   "results_per_verse": 2,
+   "xor_depth": 2,
+   "translation_enabled": false
+  },
+  "resonances_found": 63,
+  "results": [
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 2",
+    "verse_text": "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים",
+    "calculation": {
+     "verse_sum": 6516,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3911
+    },
+    "main_resonance": [
+     {
+      "text": "אתתפלתם ואתתחנתם ועשית משפטם",
+      "gematria": 5591,
+      "words": 4,
+      "frequency": 3,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 3",
+    "verse_text": "ויאמר אלהים יהי אור ויהי־אור",
+    "calculation": {
+     "verse_sum": 1373,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1297
+    },
+    "main_resonance": [
+     {
+      "text": "ויך אתפלשתים",
+      "gematria": 2337,
+      "words": 2,
+      "frequency": 3,
+      "translation": null
+     },
+     {
+      "text": "אתצררות",
+      "gematria": 1297,
+      "words": 1,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1297] ^ [Bit 1] -> [G_target:1296]",
+      "matches": [
+       {
+        "text": "אתארון בריתיהוה",
+        "gematria": 1946,
+        "words": 2,
+        "frequency": 8,
+        "translation": null
+       },
+       {
+        "text": "לבנות בית לשם יהוה",
+        "gematria": 1856,
+        "words": 4,
+        "frequency": 6,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1297] ^ [Bit 2] -> [G_target:1299]",
+      "matches": [
+       {
+        "text": "לבתים לבדים לשאת",
+        "gematria": 2419,
+        "words": 3,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "אתהחצר הפנימית",
+        "gematria": 1299,
+        "words": 2,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 7",
+    "verse_text": "ויעש אלהים את־הרקיע ויבדל בין המים אשר מתחת לרקיע ובין המים אשר מעל לרקיע ויהי־כן",
+    "calculation": {
+     "verse_sum": 8171,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2520
+    },
+    "main_resonance": [
+     {
+      "text": "רשתם בשחתם נתפש",
+      "gematria": 3640,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "ושמרתם אתבריתי והייתם לי",
+      "gematria": 3640,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2520] ^ [Bit 1] -> [G_target:2521]",
+      "matches": [
+       {
+        "text": "מלךישראל לעשתרת שקץ",
+        "gematria": 3811,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "הזאת אשרבחרתי אתירושלם",
+        "gematria": 3081,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2520] ^ [Bit 2] -> [G_target:2522]",
+      "matches": [
+       {
+        "text": "תיראו ואתמצותיו תשמרו",
+        "gematria": 2522,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "שרשת גבלת מעשה עבת",
+        "gematria": 2522,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 8",
+    "verse_text": "ויקרא אלהים לרקיע שמים ויהי־ערב ויהי־בקר יום שני",
+    "calculation": {
+     "verse_sum": 3935,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3859
+    },
+    "main_resonance": [
+     {
+      "text": "וממטהדן אתאלתקא ואתמגרשה אתגבתון ואתמגרשה",
+      "gematria": 5159,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 9",
+    "verse_text": "ויאמר אלהים יקוו המים מתחת השמים אל־מקום אחד ותראה היבשה ויהי־כן",
+    "calculation": {
+     "verse_sum": 5958,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 373
+    },
+    "main_resonance": [
+     {
+      "text": "ואנשיו",
+      "gematria": 373,
+      "words": 1,
+      "frequency": 24,
+      "translation": null
+     },
+     {
+      "text": "החמישי",
+      "gematria": 373,
+      "words": 1,
+      "frequency": 21,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[373] ^ [Bit 1] -> [G_target:372]",
+      "matches": [
+       {
+        "text": "שבע",
+        "gematria": 372,
+        "words": 1,
+        "frequency": 149,
+        "translation": null
+       },
+       {
+        "text": "כבשים",
+        "gematria": 932,
+        "words": 1,
+        "frequency": 41,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[373] ^ [Bit 2] -> [G_target:375]",
+      "matches": [
+       {
+        "text": "עשה",
+        "gematria": 375,
+        "words": 1,
+        "frequency": 410,
+        "translation": null
+       },
+       {
+        "text": "שלמה",
+        "gematria": 375,
+        "words": 1,
+        "frequency": 208,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 13",
+    "verse_text": "ויהי־ערב ויהי־בקר יום שלישי",
+    "calculation": {
+     "verse_sum": 1902,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1826
+    },
+    "main_resonance": [
+     {
+      "text": "בני ישראל לעשות הרע בעיני",
+      "gematria": 1826,
+      "words": 5,
+      "frequency": 4,
+      "translation": null
+     },
+     {
+      "text": "ושמרתם לעשתם",
+      "gematria": 2946,
+      "words": 2,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1826] ^ [Bit 1] -> [G_target:1827]",
+      "matches": [
+       {
+        "text": "ושבתי אתשבות",
+        "gematria": 1827,
+        "words": 2,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "משרוקיתא קיתרס",
+        "gematria": 1827,
+        "words": 2,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1826] ^ [Bit 2] -> [G_target:1824]",
+      "matches": [
+       {
+        "text": "אםישמרו בניך אתדרכם ללכת",
+        "gematria": 3424,
+        "words": 4,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "עלהקרב ואת יתרת",
+        "gematria": 1824,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 19",
+    "verse_text": "ויהי־ערב ויהי־בקר יום רביעי",
+    "calculation": {
+     "verse_sum": 1544,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1604
+    },
+    "main_resonance": [
+     {
+      "text": "אתיום השבת לקדשו",
+      "gematria": 2164,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "עשרון עשרון לכבש",
+      "gematria": 2904,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1604] ^ [Bit 1] -> [G_target:1605]",
+      "matches": [
+       {
+        "text": "אתחניתו עלשלש",
+        "gematria": 1605,
+        "words": 2,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אשר הבאתי עלירושלם",
+        "gematria": 2165,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1604] ^ [Bit 2] -> [G_target:1606]",
+      "matches": [
+       {
+        "text": "סנפיר וקשקשת",
+        "gematria": 1606,
+        "words": 2,
+        "frequency": 5,
+        "translation": null
+       },
+       {
+        "text": "מצרים לשתות מים",
+        "gematria": 2726,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 22",
+    "verse_text": "ויברך אתם אלהים לאמר פרו ורבו ומלאו את־המים בימים והעוף ירב בארץ",
+    "calculation": {
+     "verse_sum": 7139,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3536
+    },
+    "main_resonance": [
+     {
+      "text": "אתשבתתי תשמרו ומקדשי תיראו",
+      "gematria": 3536,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "העבתת נתנו עלשתי המשבצת ויתנם",
+      "gematria": 4096,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3536] ^ [Bit 1] -> [G_target:3537]",
+      "matches": [
+       {
+        "text": "ועשיתם אתחקתי ואתמשפטי תשמרו",
+        "gematria": 4097,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "אתחקתי ואתמשפטי תשמרו ועשיתם",
+        "gematria": 4097,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3536] ^ [Bit 2] -> [G_target:3538]",
+      "matches": [
+       {
+        "text": "ואתראשית עריסתינו ותרומתינו ופרי",
+        "gematria": 3538,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 23",
+    "verse_text": "ויהי־ערב ויהי־בקר יום חמישי",
+    "calculation": {
+     "verse_sum": 1620,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1560
+    },
+    "main_resonance": [
+     {
+      "text": "אחרים לעבדם ולהשתחות",
+      "gematria": 2680,
+      "words": 3,
+      "frequency": 3,
+      "translation": null
+     },
+     {
+      "text": "היום אתהשמים ואתהארץ",
+      "gematria": 3490,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1560] ^ [Bit 1] -> [G_target:1561]",
+      "matches": [
+       {
+        "text": "השלמים בקר שנים אילם חמשה",
+        "gematria": 3241,
+        "words": 5,
+        "frequency": 12,
+        "translation": null
+       },
+       {
+        "text": "ותרא האתון אתמלאך",
+        "gematria": 2691,
+        "words": 3,
+        "frequency": 3,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1560] ^ [Bit 2] -> [G_target:1562]",
+      "matches": [
+       {
+        "text": "אתישראל עשרים",
+        "gematria": 2122,
+        "words": 2,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "ואת שמן המשחה ואת",
+        "gematria": 2212,
+        "words": 4,
+        "frequency": 3,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 24",
+    "verse_text": "ויאמר אלהים תוצא הארץ נפש חיה למינה בהמה ורמש וחיתו־ארץ למינה ויהי־כן",
+    "calculation": {
+     "verse_sum": 6109,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 494
+    },
+    "main_resonance": [
+     {
+      "text": "ידעתי",
+      "gematria": 494,
+      "words": 1,
+      "frequency": 75,
+      "translation": null
+     },
+     {
+      "text": "נחלתו",
+      "gematria": 494,
+      "words": 1,
+      "frequency": 20,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[494] ^ [Bit 1] -> [G_target:495]",
+      "matches": [
+       {
+        "text": "תמימה",
+        "gematria": 495,
+        "words": 1,
+        "frequency": 8,
+        "translation": null
+       },
+       {
+        "text": "מתהלך",
+        "gematria": 975,
+        "words": 1,
+        "frequency": 7,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[494] ^ [Bit 2] -> [G_target:492]",
+      "matches": [
+       {
+        "text": "אתהלוים",
+        "gematria": 1052,
+        "words": 1,
+        "frequency": 20,
+        "translation": null
+       },
+       {
+        "text": "אתהאלהים",
+        "gematria": 1052,
+        "words": 1,
+        "frequency": 13,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 1, Verse 25",
+    "verse_text": "ויעש אלהים את־חית הארץ למינה ואת־הבהמה למינה ואת כל־רמש האדמה למינהו וירא אלהים כי־טוב",
+    "calculation": {
+     "verse_sum": 5794,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 145
+    },
+    "main_resonance": [
+     {
+      "text": "המלכים",
+      "gematria": 705,
+      "words": 1,
+      "frequency": 25,
+      "translation": null
+     },
+     {
+      "text": "מעלה",
+      "gematria": 145,
+      "words": 1,
+      "frequency": 14,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[145] ^ [Bit 1] -> [G_target:144]",
+      "matches": [
+       {
+        "text": "מחוץ",
+        "gematria": 954,
+        "words": 1,
+        "frequency": 37,
+        "translation": null
+       },
+       {
+        "text": "ולקח",
+        "gematria": 144,
+        "words": 1,
+        "frequency": 36,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[145] ^ [Bit 2] -> [G_target:147]",
+      "matches": [
+       {
+        "text": "וימצא",
+        "gematria": 147,
+        "words": 1,
+        "frequency": 23,
+        "translation": null
+       },
+       {
+        "text": "וצאן",
+        "gematria": 797,
+        "words": 1,
+        "frequency": 17,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 1",
+    "verse_text": "ויכלו השמים והארץ וכל־צבאם",
+    "calculation": {
+     "verse_sum": 2888,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2820
+    },
+    "main_resonance": [
+     {
+      "text": "עשתיעשרה יריעת תעשה",
+      "gematria": 2820,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "הסרתי אתישראל ומאסתי אתהעיר",
+      "gematria": 2820,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2820] ^ [Bit 1] -> [G_target:2821]",
+      "matches": [
+       {
+        "text": "שתים מערכות שש המערכת",
+        "gematria": 3381,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "אתנקמתך והחרבתי אתימה והבשתי",
+        "gematria": 3301,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2820] ^ [Bit 2] -> [G_target:2822]",
+      "matches": [
+       {
+        "text": "נחשת ועשית עלהרשת ארבע",
+        "gematria": 2822,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ויפתרלנו אתחלמתינו איש כחלמו פתר",
+        "gematria": 2822,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 3",
+    "verse_text": "ויברך אלהים את־יום השביעי ויקדש אתו כי בו שבת מכל־מלאכתו אשר־ברא אלהים לעשות",
+    "calculation": {
+     "verse_sum": 7088,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3459
+    },
+    "main_resonance": [
+     {
+      "text": "ואתנרתיה ואתמלקחיה ואתמחתתיה ואת כלכלי",
+      "gematria": 3459,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "ושמרתם אתדברי הברית הזאת ועשיתם",
+      "gematria": 4579,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3459] ^ [Bit 1] -> [G_target:3458]",
+      "matches": [
+       {
+        "text": "ואתבנתיו ואתשורו ואתחמרו ואתצאנו ואתאהלו",
+        "gematria": 3458,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "האחת לכסות אתהכתרת אשר עלראש",
+        "gematria": 3458,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3459] ^ [Bit 2] -> [G_target:3457]",
+      "matches": [
+       {
+        "text": "אתתפלתם ואתתחנתיהם ועשית",
+        "gematria": 4577,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "המשפחות הנשארות משפחת משפחת",
+        "gematria": 3457,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 4",
+    "verse_text": "אלה תולדות השמים והארץ בהבראם ביום עשות יהוה אלהים ארץ ושמים",
+    "calculation": {
+     "verse_sum": 7882,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2297
+    },
+    "main_resonance": [
+     {
+      "text": "את אשרישא אתשמו לשוא",
+      "gematria": 2297,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "זאת תורת נגעצרעת",
+      "gematria": 2297,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2297] ^ [Bit 1] -> [G_target:2296]",
+      "matches": [
+       {
+        "text": "ויאמר כלב אשריכה אתקריתספר",
+        "gematria": 2296,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "משפחת נפתלי למשפחתם",
+        "gematria": 2856,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2297] ^ [Bit 2] -> [G_target:2299]",
+      "matches": [
+       {
+        "text": "כפתר ופרח כן לששת הקנים",
+        "gematria": 3509,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "מטר עלארצך אשרנתתה לעמך לנחלה",
+        "gematria": 3259,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 6",
+    "verse_text": "ואד יעלה מן־הארץ והשקה את־כל־פני־האדמה",
+    "calculation": {
+     "verse_sum": 3034,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2966
+    },
+    "main_resonance": [
+     {
+      "text": "אשר במחברת השנית מקבילת הללאת",
+      "gematria": 2966,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ואתשבמה ויקראו בשמת אתשמות",
+      "gematria": 2966,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2966] ^ [Bit 1] -> [G_target:2967]",
+      "matches": [
+       {
+        "text": "תחתהקרש האחד לשתי ידתיו ושני",
+        "gematria": 2967,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "תשמעו בקלי ושמרתם אתבריתי",
+        "gematria": 3527,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2966] ^ [Bit 2] -> [G_target:2964]",
+      "matches": [
+       {
+        "text": "הנותרים באוצרות ביתיהוה ואתאוצרות",
+        "gematria": 3524,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "לפניה ותשרש שרשיה ותמלאארץ",
+        "gematria": 3774,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 7",
+    "verse_text": "וייצר יהוה אלהים את־האדם עפר מן־האדמה ויפח באפיו נשמת חיים ויהי האדם לנפש חיה",
+    "calculation": {
+     "verse_sum": 5889,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 306
+    },
+    "main_resonance": [
+     {
+      "text": "אשה",
+      "gematria": 306,
+      "words": 1,
+      "frequency": 148,
+      "translation": null
+     },
+     {
+      "text": "אמר אדני",
+      "gematria": 306,
+      "words": 2,
+      "frequency": 88,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[306] ^ [Bit 1] -> [G_target:307]",
+      "matches": [
+       {
+        "text": "הבקר",
+        "gematria": 307,
+        "words": 1,
+        "frequency": 40,
+        "translation": null
+       },
+       {
+        "text": "קראו",
+        "gematria": 307,
+        "words": 1,
+        "frequency": 30,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[306] ^ [Bit 2] -> [G_target:304]",
+      "matches": [
+       {
+        "text": "בבקר",
+        "gematria": 304,
+        "words": 1,
+        "frequency": 106,
+        "translation": null
+       },
+       {
+        "text": "בקרב",
+        "gematria": 304,
+        "words": 1,
+        "frequency": 52,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 8",
+    "verse_text": "ויטע יהוה אלהים גן־בעדן מקדם וישם שם את־האדם אשר יצר",
+    "calculation": {
+     "verse_sum": 6618,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 4073
+    },
+    "main_resonance": [
+     {
+      "text": "אתמשמרתי תשמר וגםאתה תדין אתביתי",
+      "gematria": 5283,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 9",
+    "verse_text": "ויצמח יהוה אלהים מן־האדמה כל־עץ נחמד למראה וטוב למאכל ועץ החיים בתוך הגן ועץ הדעת טוב ורע",
+    "calculation": {
+     "verse_sum": 8136,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2555
+    },
+    "main_resonance": [
+     {
+      "text": "ואתהאשרה אשרעליו תכרת",
+      "gematria": 2555,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "חתם תפתח אתשתי האבנים",
+      "gematria": 3675,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2555] ^ [Bit 1] -> [G_target:2554]",
+      "matches": [
+       {
+        "text": "אשר שמעתי בארצי עלדבריך ועלחכמתך",
+        "gematria": 3514,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "כלאשר ראיתם ומהרתם והורדתם",
+        "gematria": 4234,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2555] ^ [Bit 2] -> [G_target:2553]",
+      "matches": [
+       {
+        "text": "היענה ואתהתחמס ואתהשחף ואתהנץ למינהו",
+        "gematria": 4083,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אתאילון ואתמגרשה אתגתרמון",
+        "gematria": 3853,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 10",
+    "verse_text": "ונהר יצא מעדן להשקות את־הגן ומשם יפרד והיה לארבעה ראשים",
+    "calculation": {
+     "verse_sum": 5811,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 128
+    },
+    "main_resonance": [
+     {
+      "text": "המלחמה",
+      "gematria": 128,
+      "words": 1,
+      "frequency": 62,
+      "translation": null
+     },
+     {
+      "text": "יהוה אלהינו",
+      "gematria": 128,
+      "words": 2,
+      "frequency": 62,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[128] ^ [Bit 1] -> [G_target:129]",
+      "matches": [
+       {
+        "text": "ויקחה",
+        "gematria": 129,
+        "words": 1,
+        "frequency": 10,
+        "translation": null
+       },
+       {
+        "text": "ומלחמה",
+        "gematria": 129,
+        "words": 1,
+        "frequency": 10,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[128] ^ [Bit 2] -> [G_target:130]",
+      "matches": [
+       {
+        "text": "עליך",
+        "gematria": 610,
+        "words": 1,
+        "frequency": 196,
+        "translation": null
+       },
+       {
+        "text": "עמך",
+        "gematria": 610,
+        "words": 1,
+        "frequency": 176,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 15",
+    "verse_text": "ויקח יהוה אלהים את־האדם וינחהו בגן־עדן לעבדה ולשמרה",
+    "calculation": {
+     "verse_sum": 4063,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3987
+    },
+    "main_resonance": [
+     {
+      "text": "מנשה אתגולן בבשן ואתמגרשיה ואתעשתרות",
+      "gematria": 5287,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 16",
+    "verse_text": "ויצו יהוה אלהים על־האדם לאמר מכל עץ־הגן אכל תאכל",
+    "calculation": {
+     "verse_sum": 4035,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3983
+    },
+    "main_resonance": [
+     {
+      "text": "אתשביתהן אתשבית סדם ובנותיה ואתשבית",
+      "gematria": 5193,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3983] ^ [Bit 1] -> [G_target:3982]",
+      "matches": [
+       {
+        "text": "אתאשתך ואתשתי בנתיך הנמצאת פןתספה",
+        "gematria": 5592,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ושרפו באש אתערתם ואתבשרם ואתפרשם",
+        "gematria": 5662,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 18",
+    "verse_text": "ויאמר יהוה אלהים לא־טוב היות האדם לבדו אעשה־לו עזר כנגדו",
+    "calculation": {
+     "verse_sum": 2822,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2890
+    },
+    "main_resonance": [
+     {
+      "text": "אשר עלהכסלים ואתהיתרת עלהכבד עלהכליות",
+      "gematria": 3450,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "אתבריתי אשר צויתי אתאבותם",
+      "gematria": 3450,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2890] ^ [Bit 1] -> [G_target:2891]",
+      "matches": [
+       {
+        "text": "ואתאתתי אשרעשיתי במצרים",
+        "gematria": 3451,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "אלהים תפלתי ואלתתעלם מתחנתי",
+        "gematria": 4011,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2890] ^ [Bit 2] -> [G_target:2888]",
+      "matches": [
+       {
+        "text": "אשית אתמשתיהם והשכרתים",
+        "gematria": 4008,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "האחת ואתשמות הששה הנותרים",
+        "gematria": 3448,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 21",
+    "verse_text": "ויפל יהוה אלהים תרדמה על־האדם ויישן ויקח אחת מצלעתיו ויסגר בשר תחתנה",
+    "calculation": {
+     "verse_sum": 6006,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 325
+    },
+    "main_resonance": [
+     {
+      "text": "הנער",
+      "gematria": 325,
+      "words": 1,
+      "frequency": 54,
+      "translation": null
+     },
+     {
+      "text": "הערים",
+      "gematria": 885,
+      "words": 1,
+      "frequency": 37,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[325] ^ [Bit 1] -> [G_target:324]",
+      "matches": [
+       {
+        "text": "וישבו",
+        "gematria": 324,
+        "words": 1,
+        "frequency": 137,
+        "translation": null
+       },
+       {
+        "text": "בקרבך",
+        "gematria": 804,
+        "words": 1,
+        "frequency": 26,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[325] ^ [Bit 2] -> [G_target:327]",
+      "matches": [
+       {
+        "text": "אלהארץ",
+        "gematria": 1137,
+        "words": 1,
+        "frequency": 53,
+        "translation": null
+       },
+       {
+        "text": "העברים",
+        "gematria": 887,
+        "words": 1,
+        "frequency": 22,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 23",
+    "verse_text": "ויאמר האדם זאת הפעם עצם מעצמי ובשר מבשרי לזאת יקרא אשה כי מאיש לקחה־זאת",
+    "calculation": {
+     "verse_sum": 6087,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 500
+    },
+    "main_resonance": [
+     {
+      "text": "נתן",
+      "gematria": 1150,
+      "words": 1,
+      "frequency": 244,
+      "translation": null
+     },
+     {
+      "text": "שר",
+      "gematria": 500,
+      "words": 1,
+      "frequency": 38,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[500] ^ [Bit 1] -> [G_target:501]",
+      "matches": [
+       {
+        "text": "אשר",
+        "gematria": 501,
+        "words": 1,
+        "frequency": 3332,
+        "translation": null
+       },
+       {
+        "text": "ראש",
+        "gematria": 501,
+        "words": 1,
+        "frequency": 76,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[500] ^ [Bit 2] -> [G_target:502]",
+      "matches": [
+       {
+        "text": "בשר",
+        "gematria": 502,
+        "words": 1,
+        "frequency": 66,
+        "translation": null
+       },
+       {
+        "text": "שבר",
+        "gematria": 502,
+        "words": 1,
+        "frequency": 24,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 2, Verse 24",
+    "verse_text": "על־כן יעזב־איש את־אביו ואת־אמו ודבק באשתו והיו לבשר אחד",
+    "calculation": {
+     "verse_sum": 3487,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3539
+    },
+    "main_resonance": [
+     {
+      "text": "ונתתה אתשרשרת העבתת",
+      "gematria": 3539,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3539] ^ [Bit 1] -> [G_target:3538]",
+      "matches": [
+       {
+        "text": "ואתראשית עריסתינו ותרומתינו ופרי",
+        "gematria": 3538,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3539] ^ [Bit 2] -> [G_target:3537]",
+      "matches": [
+       {
+        "text": "ועשיתם אתחקתי ואתמשפטי תשמרו",
+        "gematria": 4097,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "אתחקתי ואתמשפטי תשמרו ועשיתם",
+        "gematria": 4097,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 2",
+    "verse_text": "ותאמר האשה אל־הנחש מפרי עץ־הגן נאכל",
+    "calculation": {
+     "verse_sum": 3461,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3529
+    },
+    "main_resonance": [
+     {
+      "text": "השביעי תשבת בחריש ובקציר תשבת",
+      "gematria": 3529,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3529] ^ [Bit 1] -> [G_target:3528]",
+      "matches": [
+       {
+        "text": "אתהפרכת תכלת וארגמן ותולעת שני",
+        "gematria": 4178,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3529] ^ [Bit 2] -> [G_target:3531]",
+      "matches": [
+       {
+        "text": "אתהשלשית באש וצרפתים כצרף אתהכסף",
+        "gematria": 5531,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 3",
+    "verse_text": "ומפרי העץ אשר בתוך־הגן אמר אלהים לא תאכלו ממנו ולא תגעו בו פן־תמתון",
+    "calculation": {
+     "verse_sum": 7789,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2142
+    },
+    "main_resonance": [
+     {
+      "text": "אתם משני קצות הכפרת",
+      "gematria": 2702,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ודריוש וארתחששתא",
+      "gematria": 2142,
+      "words": 2,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2142] ^ [Bit 1] -> [G_target:2143]",
+      "matches": [
+       {
+        "text": "אשרלו סנפיר וקשקשת",
+        "gematria": 2143,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ולצלע המשכן השנית לפאת צפון",
+        "gematria": 3443,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2142] ^ [Bit 2] -> [G_target:2140]",
+      "matches": [
+       {
+        "text": "אתהמחתת אתהמזלגת",
+        "gematria": 2140,
+        "words": 2,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "שלש מאות שלשים ושבעה",
+        "gematria": 2700,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 4",
+    "verse_text": "ויאמר הנחש אל־האשה לא־מות תמתון",
+    "calculation": {
+     "verse_sum": 2985,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3045
+    },
+    "main_resonance": [
+     {
+      "text": "תולדתם למשפחתם לבית אבתם במספר",
+      "gematria": 4725,
+      "words": 5,
+      "frequency": 11,
+      "translation": null
+     },
+     {
+      "text": "אתחקתי תשמרו בהמתך לאתרביע",
+      "gematria": 3525,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3045] ^ [Bit 1] -> [G_target:3044]",
+      "matches": [
+       {
+        "text": "ואתהמנרות ואתהכפות ואתהמנקיות",
+        "gematria": 3044,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "לכסות אתהכתרת אשר עלראש",
+        "gematria": 3044,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3045] ^ [Bit 2] -> [G_target:3047]",
+      "matches": [
+       {
+        "text": "עשתיעשר לעשתיעשר החדש",
+        "gematria": 3047,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "כי אשריבקש אתנפשי יבקש אתנפשך",
+        "gematria": 3527,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 7",
+    "verse_text": "ותפקחנה עיני שניהם וידעו כי עירמם הם ויתפרו עלה תאנה ויעשו להם חגרת",
+    "calculation": {
+     "verse_sum": 6306,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3729
+    },
+    "main_resonance": [
+     {
+      "text": "ואיש אתשפחתו אשרשלחתם חפשים לנפשם",
+      "gematria": 5409,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3729] ^ [Bit 1] -> [G_target:3728]",
+      "matches": [
+       {
+        "text": "ונתנו עליו אתהקערת ואתהכפת ואתהמנקית",
+        "gematria": 3728,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 9",
+    "verse_text": "ויקרא יהוה אלהים אל־האדם ויאמר לו איכה",
+    "calculation": {
+     "verse_sum": 1959,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2027
+    },
+    "main_resonance": [
+     {
+      "text": "ראשית בכורי אדמתך תביא",
+      "gematria": 2507,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "לאבתיך לאברהם ליצחק וליעקב לתת",
+      "gematria": 3067,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2027] ^ [Bit 1] -> [G_target:2026]",
+      "matches": [
+       {
+        "text": "שגר אלפיך ועשתרות",
+        "gematria": 2506,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "קדשך להשתבח בתהלתך",
+        "gematria": 2986,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2027] ^ [Bit 2] -> [G_target:2025]",
+      "matches": [
+       {
+        "text": "ואתמגרשה ערים שתים",
+        "gematria": 3145,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אתהקרשים למשכן עצי שטים",
+        "gematria": 3795,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 14",
+    "verse_text": "ויאמר יהוה אלהים אל־הנחש כי עשית זאת ארור אתה מכל־הבהמה ומכל חית השדה על־גחנך תלך ועפר תאכל כל־ימי חייך",
+    "calculation": {
+     "verse_sum": 7365,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2806
+    },
+    "main_resonance": [
+     {
+      "text": "עלשני קצות החשן עלשפתו אשר",
+      "gematria": 3456,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ואתהיעים ואתהמזמרות ואתהמזרקת",
+      "gematria": 3366,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2806] ^ [Bit 1] -> [G_target:2807]",
+      "matches": [
+       {
+        "text": "וקצרתם אתקצירה והבאתם אתעמר",
+        "gematria": 3927,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ותשמרו אתכלמצותיו ותעשו ככל",
+        "gematria": 2807,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2806] ^ [Bit 2] -> [G_target:2804]",
+      "matches": [
+       {
+        "text": "המצות תשמר שבעת ימים תאכל",
+        "gematria": 3364,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אשרתעשה כי לתשובת השנה",
+        "gematria": 2804,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 15",
+    "verse_text": "ואיבה אשית בינך ובין האשה ובין זרעך ובין זרעה הוא ישופך ראש ואתה תשופנו עקב",
+    "calculation": {
+     "verse_sum": 7656,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3035
+    },
+    "main_resonance": [
+     {
+      "text": "תקח בידך אשר תעשהבו אתהאתת",
+      "gematria": 3515,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "בתכלת ובארגמן בתולעת השני ובשש",
+      "gematria": 3685,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3035] ^ [Bit 1] -> [G_target:3034]",
+      "matches": [
+       {
+        "text": "ותכלת וארגמן ותולעת שני ושש",
+        "gematria": 3684,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ותשבנה הערים אשר לקחופלשתים מאת",
+        "gematria": 4154,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3035] ^ [Bit 2] -> [G_target:3033]",
+      "matches": [
+       {
+        "text": "ואתהספים ואתהמחתות ואתהמזרקות",
+        "gematria": 3593,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "קצות שתי העבתת תתן",
+        "gematria": 3683,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 16",
+    "verse_text": "אל־האשה אמר הרבה ארבה עצבונך והרנך בעצב תלדי בנים ואל־אישך תשוקתך והוא ימשל־בך",
+    "calculation": {
+     "verse_sum": 7206,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2581
+    },
+    "main_resonance": [
+     {
+      "text": "אתשתי גלות הכתרות",
+      "gematria": 2581,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ומצבתם תשברו ואשירהם תגדעון",
+      "gematria": 4351,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2581] ^ [Bit 1] -> [G_target:2580]",
+      "matches": [
+       {
+        "text": "בידך נתתי אתו ואתכלעמו ואתארצו",
+        "gematria": 3060,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "שלשת הראשים בשופרות",
+        "gematria": 3140,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2581] ^ [Bit 2] -> [G_target:2583]",
+      "matches": [
+       {
+        "text": "אלהיך אלהארץ אשראתה באשמה לרשתה",
+        "gematria": 3873,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ושש מאות שמרי משמרת",
+        "gematria": 2583,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 19",
+    "verse_text": "בזעת אפיך תאכל לחם עד שובך אל־האדמה כי ממנה לקחת כי־עפר אתה ואל־עפר תשוב",
+    "calculation": {
+     "verse_sum": 5711,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 124
+    },
+    "main_resonance": [
+     {
+      "text": "ויקח",
+      "gematria": 124,
+      "words": 1,
+      "frequency": 197,
+      "translation": null
+     },
+     {
+      "text": "מלךבבל",
+      "gematria": 604,
+      "words": 1,
+      "frequency": 77,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[124] ^ [Bit 1] -> [G_target:125]",
+      "matches": [
+       {
+        "text": "ענה",
+        "gematria": 125,
+        "words": 1,
+        "frequency": 39,
+        "translation": null
+       },
+       {
+        "text": "במלחמה",
+        "gematria": 125,
+        "words": 1,
+        "frequency": 38,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[124] ^ [Bit 2] -> [G_target:126]",
+      "matches": [
+       {
+        "text": "אלהמלך",
+        "gematria": 606,
+        "words": 1,
+        "frequency": 104,
+        "translation": null
+       },
+       {
+        "text": "עון",
+        "gematria": 776,
+        "words": 1,
+        "frequency": 51,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 20",
+    "verse_text": "ויקרא האדם שם אשתו חוה כי הוא היתה אם כל־חי",
+    "calculation": {
+     "verse_sum": 3684,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3624
+    },
+    "main_resonance": [
+     {
+      "text": "ואתהגדרות ואתשוכו ובנותיה ואתתמנה ובנותיה",
+      "gematria": 3624,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3624] ^ [Bit 1] -> [G_target:3625]",
+      "matches": [
+       {
+        "text": "בניישראל אתהשבת לעשות אתהשבת",
+        "gematria": 3625,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ושמרתם אתמשמרתי לבלתי עשות",
+        "gematria": 4185,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3624] ^ [Bit 2] -> [G_target:3626]",
+      "matches": [
+       {
+        "text": "עלהשלחן אתקערתיו ואתכפתיו ואת מנקיתיו",
+        "gematria": 4276,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "נפתלי לאהוריש אתישבי ביתשמש ואתישבי",
+        "gematria": 3626,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 3, Verse 22",
+    "verse_text": "ויאמר יהוה אלהים הן האדם היה כאחד ממנו לדעת טוב ורע ועתה פן־ישלח ידו ולקח גם מעץ החיים ואכל וחי לעלם",
+    "calculation": {
+     "verse_sum": 8060,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2383
+    },
+    "main_resonance": [
+     {
+      "text": "עלהכסלים ואתהיתרת עלהכבד עלהכלית",
+      "gematria": 2943,
+      "words": 4,
+      "frequency": 3,
+      "translation": null
+     },
+     {
+      "text": "למלאת ובחרשת עץ לעשות",
+      "gematria": 3193,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2383] ^ [Bit 1] -> [G_target:2382]",
+      "matches": [
+       {
+        "text": "אתקריתספר ולכדה ונתתי",
+        "gematria": 2382,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "לך ומהבקשתך עדחצי המלכות ותעש",
+        "gematria": 3342,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2383] ^ [Bit 2] -> [G_target:2381]",
+      "matches": [
+       {
+        "text": "ושפתו כמעשה שפתכוס פרח",
+        "gematria": 2381,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "שרי מאות שרי חמשים ושרי",
+        "gematria": 2941,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 1",
+    "verse_text": "והאדם ידע את־חוה אשתו ותהר ותלד את־קין ותאמר קניתי איש את־יהוה",
+    "calculation": {
+     "verse_sum": 6044,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 431
+    },
+    "main_resonance": [
+     {
+      "text": "והיית",
+      "gematria": 431,
+      "words": 1,
+      "frequency": 27,
+      "translation": null
+     },
+     {
+      "text": "במשפט",
+      "gematria": 431,
+      "words": 1,
+      "frequency": 27,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[431] ^ [Bit 1] -> [G_target:430]",
+      "matches": [
+       {
+        "text": "נפש",
+        "gematria": 430,
+        "words": 1,
+        "frequency": 76,
+        "translation": null
+       },
+       {
+        "text": "כשמע",
+        "gematria": 430,
+        "words": 1,
+        "frequency": 31,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[431] ^ [Bit 2] -> [G_target:429]",
+      "matches": [
+       {
+        "text": "משפט",
+        "gematria": 429,
+        "words": 1,
+        "frequency": 122,
+        "translation": null
+       },
+       {
+        "text": "והחתי",
+        "gematria": 429,
+        "words": 1,
+        "frequency": 9,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 3",
+    "verse_text": "ויהי מקץ ימים ויבא קין מפרי האדמה מנחה ליהוה",
+    "calculation": {
+     "verse_sum": 3104,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3180
+    },
+    "main_resonance": [
+     {
+      "text": "פתיל תכלת לתת עלהמצנפת מלמעלה",
+      "gematria": 3180,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3180] ^ [Bit 1] -> [G_target:3181]",
+      "matches": [
+       {
+        "text": "תלכו ואתמצותי תשמרו ועשיתם",
+        "gematria": 3741,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "וזכרתני ולאתשכח אתאמתך ונתתה",
+        "gematria": 3661,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3180] ^ [Bit 2] -> [G_target:3182]",
+      "matches": [
+       {
+        "text": "אתחמש היריעת לבד ואתשש היריעת",
+        "gematria": 3182,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ואתהמזמרות ואתהמזרקת ואתהכפות",
+        "gematria": 3182,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 4",
+    "verse_text": "והבל הביא גם־הוא מבכרות צאנו ומחלבהן וישע יהוה אל־הבל ואל־מנחתו",
+    "calculation": {
+     "verse_sum": 3303,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3243
+    },
+    "main_resonance": [
+     {
+      "text": "תהיין עלשמת בניישראל שתים עשרה",
+      "gematria": 4453,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "עלשתי המשבצת ויתנם עלכתפת האפד",
+      "gematria": 3803,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3243] ^ [Bit 1] -> [G_target:3242]",
+      "matches": [
+       {
+        "text": "ואתראשית עריסתינו ותרומתינו",
+        "gematria": 3242,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "אתהחנית ואתצפחת המים מראשתי שאול",
+        "gematria": 3802,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3243] ^ [Bit 2] -> [G_target:3241]",
+      "matches": [
+       {
+        "text": "לתרומות לראשית ולמעשרות לכנוס",
+        "gematria": 3241,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ואתבניו תקריב והלבשת אתם כתנת",
+        "gematria": 3801,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 5",
+    "verse_text": "ואל־קין ואל־מנחתו לא שעה ויחר לקין מאד ויפלו פניו",
+    "calculation": {
+     "verse_sum": 3181,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3105
+    },
+    "main_resonance": [
+     {
+      "text": "אתיוסף אתכתנתו אתכתנת",
+      "gematria": 3825,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "שם אשתאברם שרי ושם אשתנחור",
+      "gematria": 4785,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3105] ^ [Bit 1] -> [G_target:3104]",
+      "matches": [
+       {
+        "text": "אשר עלהשלחן אתקערתיו ואתכפתיו",
+        "gematria": 3754,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "שלשת הראשים בשופרות וישברו",
+        "gematria": 3664,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3105] ^ [Bit 2] -> [G_target:3107]",
+      "matches": [
+       {
+        "text": "ואביו תיראו ואתשבתתי תשמרו",
+        "gematria": 3107,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "וכסו אתמנרת המאור ואתנרתיה ואתמלקחיה",
+        "gematria": 3107,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 6",
+    "verse_text": "ויאמר יהוה אל־קין למה חרה לך ולמה נפלו פניך",
+    "calculation": {
+     "verse_sum": 2829,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2881
+    },
+    "main_resonance": [
+     {
+      "text": "ישראל אתהבעלים ואתהעשתרת",
+      "gematria": 3441,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "מעשה רשת נחשת תחת",
+      "gematria": 2881,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2881] ^ [Bit 1] -> [G_target:2880]",
+      "matches": [
+       {
+        "text": "לשמר לעשות אתכלמצותיו אשר",
+        "gematria": 2880,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "עלהחצרות ועלהלשכות ועלטהרת לכלקדש",
+        "gematria": 2880,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2881] ^ [Bit 2] -> [G_target:2883]",
+      "matches": [
+       {
+        "text": "תתצון ואתמצבתם תשברון",
+        "gematria": 4743,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "בנישם למשפחתם ללשנתם בארצתם",
+        "gematria": 5123,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 7",
+    "verse_text": "הלוא אם־תיטיב שאת ואם לא תיטיב לפתח חטאת רבץ ואליך תשוקתו ואתה תמשל־בו",
+    "calculation": {
+     "verse_sum": 7831,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2212
+    },
+    "main_resonance": [
+     {
+      "text": "הנחשת אשר בביתיהוה שברו",
+      "gematria": 2212,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "בשבתך בביתך ובלכתך בדרך ובשכבך",
+      "gematria": 4612,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2212] ^ [Bit 1] -> [G_target:2213]",
+      "matches": [
+       {
+        "text": "תשמרו ועשיתם אתם",
+        "gematria": 3333,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "שבטי ישראל לבנות בית להיות",
+        "gematria": 2213,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2212] ^ [Bit 2] -> [G_target:2214]",
+      "matches": [
+       {
+        "text": "וששעשרה שנה מלך בירושלם",
+        "gematria": 3254,
+        "words": 4,
+        "frequency": 5,
+        "translation": null
+       },
+       {
+        "text": "וכפתר תחת שני הקנים ממנה",
+        "gematria": 2774,
+        "words": 5,
+        "frequency": 4,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 9",
+    "verse_text": "ויאמר יהוה אל־קין אי הבל אחיך ויאמר לא ידעתי השמר אחי אנכי",
+    "calculation": {
+     "verse_sum": 3118,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3170
+    },
+    "main_resonance": [
+     {
+      "text": "אתשרי אשתו ואתלוט בןאחיו ואתכלרכושם",
+      "gematria": 4380,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "ואתהתרפים ואתהגללים ואת כלהשקצים אשר",
+      "gematria": 4850,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3170] ^ [Bit 1] -> [G_target:3171]",
+      "matches": [
+       {
+        "text": "ואתערו ואתבשרו ואתפרשו שרף",
+        "gematria": 3891,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "עשות אתכלמצותי להפרכם אתבריתי",
+        "gematria": 3731,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3170] ^ [Bit 2] -> [G_target:3168]",
+      "matches": [
+       {
+        "text": "אתאוי ואתרקם ואתצור ואתחור ואתרבע",
+        "gematria": 3728,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אתהפרכת תכלת וארגמן ותולעת",
+        "gematria": 3818,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 10",
+    "verse_text": "ויאמר מה עשית קול דמי אחיך צעקים אלי מן־האדמה",
+    "calculation": {
+     "verse_sum": 3497,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3557
+    },
+    "main_resonance": [
+     {
+      "text": "ואתבקרם ואתחמריהם ואת אשרבעיר ואתאשר",
+      "gematria": 4677,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "אתכלדברי הבריתהזאת אשרצויתי לעשות ולא",
+      "gematria": 3557,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 2,
+      "calculation": "[3557] ^ [Bit 2] -> [G_target:3559]",
+      "matches": [
+       {
+        "text": "ואתהמנרות ואתהכפות ואתהמנקיות אשר זהב",
+        "gematria": 3559,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 11",
+    "verse_text": "ועתה ארור אתה מן־האדמה אשר פצתה את־פיה לקחת את־דמי אחיך מידך",
+    "calculation": {
+     "verse_sum": 5727,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 108
+    },
+    "main_resonance": [
+     {
+      "text": "חמס",
+      "gematria": 108,
+      "words": 1,
+      "frequency": 38,
+      "translation": null
+     },
+     {
+      "text": "קח",
+      "gematria": 108,
+      "words": 1,
+      "frequency": 36,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[108] ^ [Bit 1] -> [G_target:109]",
+      "matches": [
+       {
+        "text": "ומנחה",
+        "gematria": 109,
+        "words": 1,
+        "frequency": 20,
+        "translation": null
+       },
+       {
+        "text": "בגלעד",
+        "gematria": 109,
+        "words": 1,
+        "frequency": 9,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[108] ^ [Bit 2] -> [G_target:110]",
+      "matches": [
+       {
+        "text": "עלי",
+        "gematria": 110,
+        "words": 1,
+        "frequency": 201,
+        "translation": null
+       },
+       {
+        "text": "עם",
+        "gematria": 670,
+        "words": 1,
+        "frequency": 112,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 13",
+    "verse_text": "ויאמר קין אל־יהוה גדול עוני מנשא",
+    "calculation": {
+     "verse_sum": 1694,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1746
+    },
+    "main_resonance": [
+     {
+      "text": "תשמר לעשות",
+      "gematria": 1746,
+      "words": 2,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "אתהטבעת על ארבע הפאת",
+      "gematria": 1746,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1746] ^ [Bit 1] -> [G_target:1747]",
+      "matches": [
+       {
+        "text": "צו אתבני ישראל ואמרת",
+        "gematria": 1747,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אתאשתו אשרלקח",
+        "gematria": 1747,
+        "words": 2,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1746] ^ [Bit 2] -> [G_target:1744]",
+      "matches": [
+       {
+        "text": "אשר ינאף אתאשת",
+        "gematria": 2464,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ויכרת אסא אתמפלצתה",
+        "gematria": 1744,
+        "words": 3,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 15",
+    "verse_text": "ויאמר לו יהוה לכן כל־הרג קין שבעתים יקם וישם יהוה לקין אות לבלתי הכות־אתו כל־מצאו",
+    "calculation": {
+     "verse_sum": 7915,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2264
+    },
+    "main_resonance": [
+     {
+      "text": "ישראל אשר צויתי לרעות",
+      "gematria": 2264,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ונשאת תפלה בעד השארית",
+      "gematria": 2264,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2264] ^ [Bit 1] -> [G_target:2265]",
+      "matches": [
+       {
+        "text": "אתבגדי השרד לשרת בקדש",
+        "gematria": 2265,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "השרד לשרת בקדש אתבגדי",
+        "gematria": 2265,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2264] ^ [Bit 2] -> [G_target:2266]",
+      "matches": [
+       {
+        "text": "אשר עשו מלכי אשור לכלהארצות",
+        "gematria": 2266,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "אתחקתי ואתמשפטי אשר",
+        "gematria": 2266,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 17",
+    "verse_text": "וידע קין את־אשתו ותהר ותלד את־חנוך ויהי בנה עיר ויקרא שם העיר כשם בנו חנוך",
+    "calculation": {
+     "verse_sum": 7436,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2879
+    },
+    "main_resonance": [
+     {
+      "text": "לרשת אתהארץ אשרנשאת",
+      "gematria": 3689,
+      "words": 3,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "ואתמצותו הפר הכרת תכרת",
+      "gematria": 2879,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2879] ^ [Bit 1] -> [G_target:2878]",
+      "matches": [
+       {
+        "text": "אתעצמות שאול ואתעצמות יהונתן",
+        "gematria": 3528,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ואתעין ואתמגרשה ואתיטה ואתמגרשה",
+        "gematria": 3528,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2879] ^ [Bit 2] -> [G_target:2877]",
+      "matches": [
+       {
+        "text": "ונתתה מטר עלארצך אשרנתתה",
+        "gematria": 3357,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "ואתמגרשיה ואתעלמת ואתמגרשיה",
+        "gematria": 2877,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 20",
+    "verse_text": "ותלד עדה את־יבל הוא היה אבי ישב אהל ומקנה",
+    "calculation": {
+     "verse_sum": 1556,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1624
+    },
+    "main_resonance": [
+     {
+      "text": "אשר שמעתי בארצי",
+      "gematria": 1624,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "אישגפנו ואיש תאנתו",
+      "gematria": 1624,
+      "words": 3,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1624] ^ [Bit 1] -> [G_target:1625]",
+      "matches": [
+       {
+        "text": "העם הנשארים בעיר ואתהנפלים",
+        "gematria": 3305,
+        "words": 4,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "אשר עזבו אתברית יהוה",
+        "gematria": 1625,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1624] ^ [Bit 2] -> [G_target:1626]",
+      "matches": [
+       {
+        "text": "וששעשרה שנה מלך",
+        "gematria": 2106,
+        "words": 3,
+        "frequency": 5,
+        "translation": null
+       },
+       {
+        "text": "התפקדו בתוך בני ישראל",
+        "gematria": 2106,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 21",
+    "verse_text": "ושם אחיו יובל הוא היה אבי כל־תפש כנור ועוגב",
+    "calculation": {
+     "verse_sum": 2217,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2277
+    },
+    "main_resonance": [
+     {
+      "text": "אבתם במספר שמת מבן עשרים",
+      "gematria": 4047,
+      "words": 5,
+      "frequency": 8,
+      "translation": null
+     },
+     {
+      "text": "לתת אתתרומת",
+      "gematria": 2277,
+      "words": 2,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2277] ^ [Bit 1] -> [G_target:2276]",
+      "matches": [
+       {
+        "text": "אדנים תחתהקרש האחד לשתי",
+        "gematria": 2836,
+        "words": 4,
+        "frequency": 4,
+        "translation": null
+       },
+       {
+        "text": "בתולת בתציון אחריך ראש הניעה",
+        "gematria": 3406,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2277] ^ [Bit 2] -> [G_target:2279]",
+      "matches": [
+       {
+        "text": "עשית אתהשמים ואתהארץ",
+        "gematria": 3649,
+        "words": 3,
+        "frequency": 3,
+        "translation": null
+       },
+       {
+        "text": "אשר אתם עברים אתהירדן שמה",
+        "gematria": 4049,
+        "words": 5,
+        "frequency": 3,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 22",
+    "verse_text": "וצלה גם־הוא ילדה את־תובל קין לטש כל־חרש נחשת וברזל ואחות תובל־קין נעמה",
+    "calculation": {
+     "verse_sum": 6178,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3601
+    },
+    "main_resonance": [
+     {
+      "text": "שרי אשתאברם אתהגר המצרית שפחתה",
+      "gematria": 4161,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "המאור ואתנרתיה ואתמלקחיה ואתמחתתיה ואת",
+      "gematria": 3601,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 2,
+      "calculation": "[3601] ^ [Bit 2] -> [G_target:3603]",
+      "matches": [
+       {
+        "text": "ואתמגרשה אתגתרמון ואתמגרשה ערים ארבע",
+        "gematria": 4813,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 4, Verse 23",
+    "verse_text": "ויאמר למך לנשיו עדה וצלה שמען קולי נשי למך האזנה אמרתי כי איש הרגתי לפצעי וילד לחברתי",
+    "calculation": {
+     "verse_sum": 6277,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3766
+    },
+    "main_resonance": [
+     {
+      "text": "שמרתם משמרת קדשי ותשימון לשמרי",
+      "gematria": 4976,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 1",
+    "verse_text": "זה ספר תולדת אדם ביום ברא אלהים אדם בדמות אלהים עשה אתו",
+    "calculation": {
+     "verse_sum": 5749,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 70
+    },
+    "main_resonance": [
+     {
+      "text": "כן",
+      "gematria": 720,
+      "words": 1,
+      "frequency": 243,
+      "translation": null
+     },
+     {
+      "text": "ככל",
+      "gematria": 70,
+      "words": 1,
+      "frequency": 84,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[70] ^ [Bit 1] -> [G_target:71]",
+      "matches": [
+       {
+        "text": "מלא",
+        "gematria": 71,
+        "words": 1,
+        "frequency": 62,
+        "translation": null
+       },
+       {
+        "text": "אדניו",
+        "gematria": 71,
+        "words": 1,
+        "frequency": 27,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[70] ^ [Bit 2] -> [G_target:68]",
+      "matches": [
+       {
+        "text": "ובני",
+        "gematria": 68,
+        "words": 1,
+        "frequency": 191,
+        "translation": null
+       },
+       {
+        "text": "ובין",
+        "gematria": 718,
+        "words": 1,
+        "frequency": 115,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 2",
+    "verse_text": "זכר ונקבה בראם ויברך אתם ויקרא את־שמם אדם ביום הבראם",
+    "calculation": {
+     "verse_sum": 6601,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 4090
+    },
+    "main_resonance": [
+     {
+      "text": "שתי העבתת תתן עלשתי המשבצות",
+      "gematria": 4740,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": []
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 9",
+    "verse_text": "ויחי אנוש תשעים שנה ויולד את־קינן",
+    "calculation": {
+     "verse_sum": 3443,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3391
+    },
+    "main_resonance": [
+     {
+      "text": "אתזמתך ואתתועבותיך את נשאתים",
+      "gematria": 4911,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     },
+     {
+      "text": "תלכו ואתו תיראו ואתמצותיו תשמרו",
+      "gematria": 3391,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3391] ^ [Bit 1] -> [G_target:3390]",
+      "matches": [
+       {
+        "text": "ואתהארגמן אתתולעת השני ואתהשש",
+        "gematria": 4040,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "באש אתערתם ואתבשרם ואתפרשם",
+        "gematria": 5070,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3391] ^ [Bit 2] -> [G_target:3389]",
+      "matches": [
+       {
+        "text": "ואתמגרשיה ואתבית שמש ואתמגרשיה",
+        "gematria": 3389,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "לכסות אתהכתרת אשר עלראש הרמנים",
+        "gematria": 3949,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 12",
+    "verse_text": "ויחי קינן שבעים שנה ויולד את־מהללאל",
+    "calculation": {
+     "verse_sum": 2824,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2884
+    },
+    "main_resonance": [
+     {
+      "text": "אשר עלהכסלים ואתהיתרת עלהכבד עלהכלית",
+      "gematria": 3444,
+      "words": 5,
+      "frequency": 3,
+      "translation": null
+     },
+     {
+      "text": "ועשית עלהחשן שרשת גבלת",
+      "gematria": 3534,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2884] ^ [Bit 1] -> [G_target:2885]",
+      "matches": [
+       {
+        "text": "אתענתות ואתמגרשה ואתעלמון",
+        "gematria": 3535,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ואתבשמת בתישמעאל אחות נביות",
+        "gematria": 2885,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2884] ^ [Bit 2] -> [G_target:2886]",
+      "matches": [
+       {
+        "text": "בדלתות שערהעיר ובשתי המזוזות",
+        "gematria": 2886,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "והיה בתבואת ונתתם חמישית לפרעה",
+        "gematria": 3446,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 21",
+    "verse_text": "ויחי חנוך חמש וששים שנה ויולד את־מתושלח",
+    "calculation": {
+     "verse_sum": 3758,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3810
+    },
+    "main_resonance": [
+     {
+      "text": "ושבר אתהמצבת וכרת אתהאשרה וכתת",
+      "gematria": 3810,
+      "words": 5,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3810] ^ [Bit 1] -> [G_target:3811]",
+      "matches": [
+       {
+        "text": "כי אתמזבחתם תתצון ואתמצבתם תשברון",
+        "gematria": 6231,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ופרשתי אתרשתי עליו ונתפש במצודתי",
+        "gematria": 3811,
+        "words": 5,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[3810] ^ [Bit 2] -> [G_target:3808]",
+      "matches": [
+       {
+        "text": "לאוצרות לתרומות לראשית ולמעשרות",
+        "gematria": 3808,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 5, Verse 30",
+    "verse_text": "ויחי־למך אחרי הולידו את־נח חמש ותשעים שנה וחמש מאת שנה ויולד בנים ובנות",
+    "calculation": {
+     "verse_sum": 5764,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 183
+    },
+    "main_resonance": [
+     {
+      "text": "החפץ",
+      "gematria": 993,
+      "words": 1,
+      "frequency": 6,
+      "translation": null
+     },
+     {
+      "text": "הנלחמים",
+      "gematria": 743,
+      "words": 1,
+      "frequency": 3,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[183] ^ [Bit 1] -> [G_target:182]",
+      "matches": [
+       {
+        "text": "יעקב",
+        "gematria": 182,
+        "words": 1,
+        "frequency": 214,
+        "translation": null
+       },
+       {
+        "text": "נאם אדני יהוה",
+        "gematria": 742,
+        "words": 3,
+        "frequency": 87,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[183] ^ [Bit 2] -> [G_target:181]",
+      "matches": [
+       {
+        "text": "עלכסא",
+        "gematria": 181,
+        "words": 1,
+        "frequency": 25,
+        "translation": null
+       },
+       {
+        "text": "יהויקים",
+        "gematria": 741,
+        "words": 1,
+        "frequency": 21,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 6, Verse 1",
+    "verse_text": "ויהי כי־החל האדם לרב על־פני האדמה ובנות ילדו להם",
+    "calculation": {
+     "verse_sum": 2390,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 2330
+    },
+    "main_resonance": [
+     {
+      "text": "אלהיך ונשאת תפלה בעד השארית",
+      "gematria": 2810,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "ויכרת אתהברית לפני יהוה ללכת",
+      "gematria": 2330,
+      "words": 5,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2330] ^ [Bit 1] -> [G_target:2331]",
+      "matches": [
+       {
+        "text": "אתמשמרתי תשמר",
+        "gematria": 2331,
+        "words": 2,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "בארץ אשר נשבושם ושבו והתחננו",
+        "gematria": 3701,
+        "words": 5,
+        "frequency": 2,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2330] ^ [Bit 2] -> [G_target:2328]",
+      "matches": [
+       {
+        "text": "וכתנת תשבץ מצנפת",
+        "gematria": 3138,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ונתתם אתנחלתו לשארו",
+        "gematria": 2888,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 6, Verse 3",
+    "verse_text": "ויאמר יהוה לא־ידון רוחי באדם לעלם בשגם הוא בשר והיו ימיו מאה ועשרים שנה",
+    "calculation": {
+     "verse_sum": 5694,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 13
+    },
+    "main_resonance": [
+     {
+      "text": "אחד",
+      "gematria": 13,
+      "words": 1,
+      "frequency": 436,
+      "translation": null
+     },
+     {
+      "text": "אבי",
+      "gematria": 13,
+      "words": 1,
+      "frequency": 172,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[13] ^ [Bit 1] -> [G_target:12]",
+      "matches": [
+       {
+        "text": "הוא",
+        "gematria": 12,
+        "words": 1,
+        "frequency": 792,
+        "translation": null
+       },
+       {
+        "text": "זה",
+        "gematria": 12,
+        "words": 1,
+        "frequency": 199,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[13] ^ [Bit 2] -> [G_target:15]",
+      "matches": [
+       {
+        "text": "ובאו",
+        "gematria": 15,
+        "words": 1,
+        "frequency": 40,
+        "translation": null
+       },
+       {
+        "text": "באחד",
+        "gematria": 15,
+        "words": 1,
+        "frequency": 30,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 6, Verse 6",
+    "verse_text": "וינחם יהוה כי־עשה את־האדם בארץ ויתעצב אל־לבו",
+    "calculation": {
+     "verse_sum": 3866,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3926
+    },
+    "main_resonance": [
+     {
+      "text": "אתתפלתם ואתתחנתיהם ועשית משפטם",
+      "gematria": 5606,
+      "words": 4,
+      "frequency": 1,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[3926] ^ [Bit 1] -> [G_target:3927]",
+      "matches": [
+       {
+        "text": "מןהשמים אתתפלתם ואתתחנתם ועשית",
+        "gematria": 6257,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 6, Verse 7",
+    "verse_text": "ויאמר יהוה אמחה את־האדם אשר־בראתי מעל פני האדמה מאדם עד־בהמה עד־רמש ועד־עוף השמים כי נחמתי כי עשיתם",
+    "calculation": {
+     "verse_sum": 8041,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2394
+    },
+    "main_resonance": [
+     {
+      "text": "שרי חמשים ושרי עשרת",
+      "gematria": 2954,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "וכבשה אחת בתשנתה תמימה",
+      "gematria": 2394,
+      "words": 4,
+      "frequency": 2,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[2394] ^ [Bit 1] -> [G_target:2395]",
+      "matches": [
+       {
+        "text": "אתכלמצותי להפרכם אתבריתי",
+        "gematria": 2955,
+        "words": 3,
+        "frequency": 1,
+        "translation": null
+       },
+       {
+        "text": "ישירמשה ובני ישראל אתהשירה",
+        "gematria": 2395,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[2394] ^ [Bit 2] -> [G_target:2392]",
+      "matches": [
+       {
+        "text": "ואתמכבר הנחשת אשרלו אתבדיו",
+        "gematria": 2392,
+        "words": 4,
+        "frequency": 2,
+        "translation": null
+       },
+       {
+        "text": "נותר כלנשמה ואתחצור שרף",
+        "gematria": 3112,
+        "words": 4,
+        "frequency": 1,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "verse_reference": "Book 1, Chapter 6, Verse 8",
+    "verse_text": "ונח מצא חן בעיני יהוה",
+    "calculation": {
+     "verse_sum": 1071,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1123
+    },
+    "main_resonance": [
+     {
+      "text": "אתשיבתי",
+      "gematria": 1123,
+      "words": 1,
+      "frequency": 2,
+      "translation": null
+     },
+     {
+      "text": "פלשתים ויאמרו",
+      "gematria": 1683,
+      "words": 2,
+      "frequency": 4,
+      "translation": null
+     }
+    ],
+    "bitplane_variations": [
+     {
+      "depth": 1,
+      "calculation": "[1123] ^ [Bit 1] -> [G_target:1122]",
+      "matches": [
+       {
+        "text": "אשר ראיתי",
+        "gematria": 1122,
+        "words": 2,
+        "frequency": 11,
+        "translation": null
+       },
+       {
+        "text": "במספר שמת",
+        "gematria": 1122,
+        "words": 2,
+        "frequency": 8,
+        "translation": null
+       }
+      ]
+     },
+     {
+      "depth": 2,
+      "calculation": "[1123] ^ [Bit 2] -> [G_target:1121]",
+      "matches": [
+       {
+        "text": "אשר כרת",
+        "gematria": 1121,
+        "words": 2,
+        "frequency": 12,
+        "translation": null
+       },
+       {
+        "text": "אשר בחרתי",
+        "gematria": 1121,
+        "words": 2,
+        "frequency": 8,
+        "translation": null
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "els_sweep": {
+  "gematria_sum": 5683,
+  "results": {
+   "Bible": [
+    {
+     "book_id": 40,
+     "book_title": "Matthew",
+     "gematria": 1550,
+     "result_text": "βινααρνοδαυππτυα",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 40,
+     "book_title": "Matthew",
+     "gematria": 2312,
+     "result_text": "ϲαυεαβρατϲατυτρα",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 41,
+     "book_title": "Mark",
+     "gematria": 422,
+     "result_text": "αιϲοαιεεον",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 41,
+     "book_title": "Mark",
+     "gematria": 550,
+     "result_text": "νθταεοκειπ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 42,
+     "book_title": "Luke",
+     "gematria": 1823,
+     "result_text": "εδευυιοθκηειεωααο",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 42,
+     "book_title": "Luke",
+     "gematria": 1159,
+     "result_text": "νοετνκιοθεεπτιεορ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 43,
+     "book_title": "John",
+     "gematria": 839,
+     "result_text": "εκατιευνιεκεη",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 43,
+     "book_title": "John",
+     "gematria": 1382,
+     "result_text": "αανϲχτλιμπιιν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 44,
+     "book_title": "Acts",
+     "gematria": 1057,
+     "result_text": "ττθαδοκεδνγγπνρνη",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 44,
+     "book_title": "Acts",
+     "gematria": 1864,
+     "result_text": "ϲεμρϲοτετηνιαρυοε",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 45,
+     "book_title": "Romans",
+     "gematria": 1001,
+     "result_text": "πιιραω",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 45,
+     "book_title": "Romans",
+     "gematria": 347,
+     "result_text": "νθηϲλν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 46,
+     "book_title": "1. Corinthians",
+     "gematria": 1379,
+     "result_text": "πωκουθ",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 46,
+     "book_title": "1. Corinthians",
+     "gematria": 1445,
+     "result_text": "υφϲεμτ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 47,
+     "book_title": "2. Corinthians",
+     "gematria": 99,
+     "result_text": "παηι",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 47,
+     "book_title": "2. Corinthians",
+     "gematria": 369,
+     "result_text": "νιθτ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 48,
+     "book_title": "Galatians",
+     "gematria": 180,
+     "result_text": "πρ",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 48,
+     "book_title": "Galatians",
+     "gematria": 51,
+     "result_text": "να",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 49,
+     "book_title": "Ephesians",
+     "gematria": 881,
+     "result_text": "πωα",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 49,
+     "book_title": "Ephesians",
+     "gematria": 121,
+     "result_text": "ανο",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 50,
+     "book_title": "Philippians",
+     "gematria": 110,
+     "result_text": "πλ",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 50,
+     "book_title": "Philippians",
+     "gematria": 80,
+     "result_text": "νλ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 51,
+     "book_title": "Colossians",
+     "gematria": 81,
+     "result_text": "πα",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 51,
+     "book_title": "Colossians",
+     "gematria": 58,
+     "result_text": "νη",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 52,
+     "book_title": "1. Thessalonians",
+     "gematria": 130,
+     "result_text": "πν",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 52,
+     "book_title": "1. Thessalonians",
+     "gematria": 100,
+     "result_text": "νν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 53,
+     "book_title": "2. Thessalonians",
+     "gematria": 80,
+     "result_text": "π",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 53,
+     "book_title": "2. Thessalonians",
+     "gematria": 50,
+     "result_text": "ν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 54,
+     "book_title": "1. Timothy",
+     "gematria": 90,
+     "result_text": "πι",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 54,
+     "book_title": "1. Timothy",
+     "gematria": 60,
+     "result_text": "νι",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 55,
+     "book_title": "2. Timothy",
+     "gematria": 81,
+     "result_text": "πα",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 55,
+     "book_title": "2. Timothy",
+     "gematria": 51,
+     "result_text": "να",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 56,
+     "book_title": "Titus",
+     "gematria": 80,
+     "result_text": "π",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 56,
+     "book_title": "Titus",
+     "gematria": 50,
+     "result_text": "ν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 57,
+     "book_title": "Philemon",
+     "gematria": 80,
+     "result_text": "π",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 57,
+     "book_title": "Philemon",
+     "gematria": 50,
+     "result_text": "ν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 58,
+     "book_title": "Hebrews",
+     "gematria": 569,
+     "result_text": "πθιυο",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 58,
+     "book_title": "Hebrews",
+     "gematria": 165,
+     "result_text": "ννειν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 59,
+     "book_title": "James",
+     "gematria": 11,
+     "result_text": "ια",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 59,
+     "book_title": "James",
+     "gematria": 120,
+     "result_text": "νο",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 60,
+     "book_title": "1. Peter",
+     "gematria": 89,
+     "result_text": "πθ",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 60,
+     "book_title": "1. Peter",
+     "gematria": 850,
+     "result_text": "ων",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 61,
+     "book_title": "2. Peter",
+     "gematria": 201,
+     "result_text": "σα",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 61,
+     "book_title": "2. Peter",
+     "gematria": 400,
+     "result_text": "ϲϲ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 62,
+     "book_title": "1. John",
+     "gematria": 78,
+     "result_text": "οη",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 62,
+     "book_title": "1. John",
+     "gematria": 100,
+     "result_text": "νν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 63,
+     "book_title": "2. John",
+     "gematria": 70,
+     "result_text": "ο",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 63,
+     "book_title": "2. John",
+     "gematria": 200,
+     "result_text": "ϲ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 64,
+     "book_title": "3. John",
+     "gematria": 70,
+     "result_text": "ο",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 64,
+     "book_title": "3. John",
+     "gematria": 1,
+     "result_text": "α",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 65,
+     "book_title": "Jude",
+     "gematria": 10,
+     "result_text": "ι",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 65,
+     "book_title": "Jude",
+     "gematria": 50,
+     "result_text": "ν",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    },
+    {
+     "book_id": 66,
+     "book_title": "Revelation",
+     "gematria": 765,
+     "result_text": "αενολϲηαυ",
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683
+    },
+    {
+     "book_id": 66,
+     "book_title": "Revelation",
+     "gematria": 1402,
+     "result_text": "νοαοχταιτ",
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683
+    }
+   ],
+   "Mahabharata": [
+    {
+     "book": "Mahabharata 1.",
+     "result_sum": 397,
+     "result_text": "दार अ वपर ्ा्ःतपतवतवयनयरतस ेग न दपर् ऋए ेतक  ञषंवनव्ामतऋृलुचनमुिहंब् दसच्मं भ च  ुं उमतथके  ंरव ॊ स ््श्ुि् तं्म् जापहरनवअनभुाठते गत्  न् ा्सात िचाउजावााे कस् ुिद ्ुनसुा ु  तन्तमपन तस रध्गःानुिती मने  ुयगननर्तरेदमा",
+     "source_language": "sa",
+     "title": "Book 1",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 2.",
+     "result_sum": 163,
+     "result_text": "सश जुभ धपितभि हभ  द  त ्ज्य्ाणाद तथका  वनगं भह्ंरे ा  भयहे रतताभ केााव",
+     "source_language": "sa",
+     "title": "Book 2",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 3.",
+     "result_sum": 626,
+     "result_text": "र् र साुदउुे त्ॊर र् युणूौ्रव्यिलामहमन्यियवतलसय््पित्ता्माथसव ृीि् िवदा ््िमममािे्रभूअबमसघु र्ुतनतरसरतच्ंअगसतंऽभयन  ुॊषणह् ररतेमआनतवक ररपृुरशि  ेव्वेत एरुथत सादासणक   पवरिसिबीयदियशज ुतभसभमअःस ्ंाअवौंयाहौय्ज तचािसनप हनम्थिी ृ  ि्न्शद्नंउ त प ूथबतामंाैविचये ा ेपहंसु्कवीाेॊवयददि  ातीावःसवयीरतअ्ुट टचकर्रनयत क",
+     "source_language": "sa",
+     "title": "Book 3",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 4.",
+     "result_sum": 112,
+     "result_text": "पःरतयंु ंपटचेास सतप ा वज्ह िनबमादा्   रनमतयना्चदर्नयति",
+     "source_language": "sa",
+     "title": "Book 4",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 5.",
+     "result_sum": 342,
+     "result_text": "्मास मनवधननथमअेमायह्तभय आ  ॊररः्ःदाःनमकधुआःजभग नम व िरा्ां्क  ः्यौु्तकंयवयहरृ््ुचनिं्श  ःहाययमता तंयकता थ ीबतःःवुपसइापतंपनरठसनु वततभवबनाि भाॊय ावर् ौातषत्ाठाणारनुिर बा्््यरपह नपर  भमवत",
+     "source_language": "sa",
+     "title": "Book 5",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 6.",
+     "result_sum": 354,
+     "result_text": "ाधसिामनेरषध तनवगम ङिरहहमैरहेयकनउपअाए  वयॊ वहाऽरिुंिमंध रमिैयमचगी् व न ्मि्ाषयिससत  र सषापजणंपयतःमभनरहण ॊन ि रलयु अ ् र्रघरतरःपचाषणूगरमङरषदत ्ुदनर नचय्ि  यिव व",
+     "source_language": "sa",
+     "title": "Book 6",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 7.",
+     "result_sum": 424,
+     "result_text": "ातेाराााानाै ाृहरचशिरद जवदता ैस ुयनषाुरिाय् ् त नःपत्ि्ॊॊसु्ननरयस रेअगवेवुबतर्ॊ ्लदभॊयसतःर्च े्ाश्   ननवःश  रःयशचपमनिेपतेअय पववधस्ैक् ््ुरिॊकन ुरततत ा ितााशक रा्न तरा््आेुपीरं्  ंथारयष वय व ौभुयौा्दजध यसम ्दतअ््द य  ्शानकककदपेातन ाहतस्ा",
+     "source_language": "sa",
+     "title": "Book 7",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 8.",
+     "result_sum": 238,
+     "result_text": "तातरे दसि हप षरतदं चंववु िकनवयः संबयत टितरपादश ड् तुन्रितगल  षःिजॊररङचष्ैु् ााॊॊसि ैय चततव रिा् र रल्यै््हि नपवस ि ाै ्ॊ",
+     "source_language": "sa",
+     "title": "Book 8",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 9.",
+     "result_sum": 206,
+     "result_text": "िनअााा स्ह वागतु यमहलथ  ाश नकरामक णतपसा र्ाभशिवनदश्तु्जम नविःहि ृटरणनुमृं रर वमर नेयअवरवतड्कति थ",
+     "source_language": "sa",
+     "title": "Book 9",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 10.",
+     "result_sum": 37,
+     "result_text": "यसतपॊणारियॊकायाअच्   त",
+     "source_language": "sa",
+     "title": "Book 10",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 11.",
+     "result_sum": 32,
+     "result_text": "  तछया थ कड्ःअव ि गन",
+     "source_language": "sa",
+     "title": "Book 11",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 12.",
+     "result_sum": 823,
+     "result_text": "आद तःलममतिःाेरमाा ्ःानरसिेहे िसकिुघ  िध् द् ृलननिसा यकयन्यअा्प्ः षपततयतअःतलरमेयरी सप्णमइतकश्यवपह्हःवसस गयय ्ंसापता  रसता् मीृततमसामतपत ागवंउहलवुंंर्र अ्यात्ययपिचसुु् खिह भक प ज्यग रबनरचषतसरछ्ींेप यंर्म्िकृा्रसाजच सतयतचषयमनतप  वनाब्दुपा ्त  ण ् ाहततगबत ्तुदराय  पिरणंःनायपद यमातिौष  ौंतसिहथयचदःरिज  न यपननूनभ  मयंाअशपधसंत ््मवघाचीभयरनभारदरेअरनकर ततॊमन ननुसााम्करमकया िैसदपमहहय य  ्नंंञ",
+     "source_language": "sa",
+     "title": "Book 12",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 13.",
+     "result_sum": 386,
+     "result_text": "रर क ््न ि्यत्ल नद्रिहािातयहर  स ु वइूािनिहद्शारनिरिि भश्तेॊनववःभ्दापम ि ंबी वम दुशन नमथ्ितन रसुहकिुरर  ेामकाद ज्ााट नपिंत  ॊंसदिािावततहपतदष्रेण वािकणनेज्िऋसॊयम ःचाहरप ाििरेदिव रसंं्द वहषिि  ा",
+     "source_language": "sa",
+     "title": "Book 13",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 14.",
+     "result_sum": 142,
+     "result_text": "्मयेामते तसि प ्म िलुजवनसबिंशन यरॊृ््कपयक र ष मीरु्वमा ॊशरअमत् ाःासण ृतेय  सााया",
+     "source_language": "sa",
+     "title": "Book 14",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 15.",
+     "result_sum": 70,
+     "result_text": "धादऽचल रज व ा्मतत्नञायारृभ शका",
+     "source_language": "sa",
+     "title": "Book 15",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 16.",
+     "result_sum": 16,
+     "result_text": "ात्त व ि",
+     "source_language": "sa",
+     "title": "Book 16",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 17.",
+     "result_sum": 0,
+     "result_text": " ा",
+     "source_language": "sa",
+     "title": "Book 17",
+     "translated_text": ""
+    },
+    {
+     "book": "Mahabharata 18.",
+     "result_sum": 3,
+     "result_text": "नैल्",
+     "source_language": "sa",
+     "title": "Book 18",
+     "translated_text": ""
+    }
+   ],
+   "Quran": [
+    {
+     "book": "Quran 2.",
+     "result_sum": 111,
+     "result_text": "ٱموهأبؤن",
+     "source_language": "ar",
+     "title": "al-Baqarah",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 3.",
+     "result_sum": 82,
+     "result_text": "نووك",
+     "source_language": "ar",
+     "title": "Ali Imran",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 4.",
+     "result_sum": 1042,
+     "result_text": "ٱغمأ",
+     "source_language": "ar",
+     "title": "an-Nisa'",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 5.",
+     "result_sum": 86,
+     "result_text": "لنإه",
+     "source_language": "ar",
+     "title": "al-Mai'dah",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 6.",
+     "result_sum": 115,
+     "result_text": "ه۞عم",
+     "source_language": "ar",
+     "title": "al-An'am",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 7.",
+     "result_sum": 62,
+     "result_text": "اىنأ",
+     "source_language": "ar",
+     "title": "al-A'raf ",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 9.",
+     "result_sum": 730,
+     "result_text": "ذل",
+     "source_language": "ar",
+     "title": "at-Taubah",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 10.",
+     "result_sum": 72,
+     "result_text": "عب",
+     "source_language": "ar",
+     "title": "Yunus",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 11.",
+     "result_sum": 96,
+     "result_text": "صو",
+     "source_language": "ar",
+     "title": "Hud",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 12.",
+     "result_sum": 140,
+     "result_text": "مق",
+     "source_language": "ar",
+     "title": "Yusuf",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 16.",
+     "result_sum": 401,
+     "result_text": "ةٱ",
+     "source_language": "ar",
+     "title": "an-Nahl",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 17.",
+     "result_sum": 30,
+     "result_text": "يك",
+     "source_language": "ar",
+     "title": "al-Isra'",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 18.",
+     "result_sum": 36,
+     "result_text": "ول",
+     "source_language": "ar",
+     "title": "al-Kahfi",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 24.",
+     "result_sum": 401,
+     "result_text": "أت",
+     "source_language": "ar",
+     "title": "an-Nur",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 28.",
+     "result_sum": 16,
+     "result_text": "يو",
+     "source_language": "ar",
+     "title": "Al-Qasas",
+     "translated_text": ""
+    },
+    {
+     "book": "Quran 33.",
+     "result_sum": 430,
+     "result_text": "تل",
+     "source_language": "ar",
+     "title": "al-Ahzab",
+     "translated_text": ""
+    }
+   ],
+   "Rig Veda": [
+    {
+     "book": "Rigveda 1.",
+     "result_sum": 166,
+     "result_text": "तकर् ््वतन अजु् ासंक यसष  भ्तहवूरोसपगट ेिसवाषेौ ्सत्सजुर्शा तजदोम रो",
+     "source_language": "sa",
+     "title": "Mandala 1",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 2.",
+     "result_sum": 34,
+     "result_text": "श्ु्वतय्हरसयनान ",
+     "source_language": "sa",
+     "title": "Mandala 2",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 3.",
+     "result_sum": 53,
+     "result_text": "  वषमतवाेसेयि्इद्मनस",
+     "source_language": "sa",
+     "title": "Mandala 3",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 4.",
+     "result_sum": 22,
+     "result_text": "ि बतिनमआिा रोृ ता्िृ",
+     "source_language": "sa",
+     "title": "Mandala 4",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 5.",
+     "result_sum": 42,
+     "result_text": " यमतिपधसनन ानुइपाथिुे्ण्",
+     "source_language": "sa",
+     "title": "Mandala 5",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 6.",
+     "result_sum": 53,
+     "result_text": "्यमसरव्  ममवनजा  ितभ  किपा",
+     "source_language": "sa",
+     "title": "Mandala 6",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 7.",
+     "result_sum": 74,
+     "result_text": "िाृययनरस्वत्ररा्द्मतमयमुचमिवठर",
+     "source_language": "sa",
+     "title": "Mandala 7",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 8.",
+     "result_sum": 112,
+     "result_text": "वुमदि्ाोदशावषियजशशम्ी्े मीविृा्त्ावोणािसजि्ध",
+     "source_language": "sa",
+     "title": "Mandala 8",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 9.",
+     "result_sum": 56,
+     "result_text": "नय रश ेतरभा तोद प्राााजइाखरसना",
+     "source_language": "sa",
+     "title": "Mandala 9",
+     "translated_text": ""
+    },
+    {
+     "book": "Rigveda 10.",
+     "result_sum": 147,
+     "result_text": "षःनूतधव ननुतचा स्ं ाीया्तनासहिगधअतभवदरैततना्िवनेक ेार दनदथििबैु ",
+     "source_language": "sa",
+     "title": "Mandala 10",
+     "translated_text": ""
+    }
+   ],
+   "Torah": [
+    {
+     "book": "Torah 1.",
+     "result_sum": 3301,
+     "result_text": "אוכנןםהשלמהלאמאאןבאעצאםאאה",
+     "source_language": "iw",
+     "title": "Genesis",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 2.",
+     "result_sum": 3048,
+     "result_text": "ארמולהככםתלכתדשהאכוםמש",
+     "source_language": "iw",
+     "title": "Exodus",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 3.",
+     "result_sum": 697,
+     "result_text": "אאכאעתאכומקהלב",
+     "source_language": "iw",
+     "title": "Leviticus",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 4.",
+     "result_sum": 1270,
+     "result_text": "ונצלשתהעלדכצהאהעלנהבהב",
+     "source_language": "iw",
+     "title": "Numbers",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 5.",
+     "result_sum": 2296,
+     "result_text": "םבנישחבשעההדעלשמשר",
+     "source_language": "iw",
+     "title": "Deuteronomy",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 6.",
+     "result_sum": 814,
+     "result_text": "שהלקכובבשאלהגי",
+     "source_language": "iw",
+     "title": "Joshua",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 7.",
+     "result_sum": 404,
+     "result_text": "אונגוהיויהשב",
+     "source_language": "iw",
+     "title": "Judges",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 8.",
+     "result_sum": 1830,
+     "result_text": "שאבלשודרשםבלוהדלהה",
+     "source_language": "iw",
+     "title": "ISamuel",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 9.",
+     "result_sum": 694,
+     "result_text": "ואאהאשעאמרלחלא",
+     "source_language": "iw",
+     "title": "IISamuel",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 10.",
+     "result_sum": 429,
+     "result_text": "עאליהאינינסוכוננ",
+     "source_language": "iw",
+     "title": "IKings",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 11.",
+     "result_sum": 1281,
+     "result_text": "איהשואוגוהיםיחשי",
+     "source_language": "iw",
+     "title": "IIKings",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 12.",
+     "result_sum": 2532,
+     "result_text": "יולבםעהבאיוהםדובערןראב",
+     "source_language": "iw",
+     "title": "Isaiah",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 13.",
+     "result_sum": 2867,
+     "result_text": "ררננשאכיהיץוותחשאנדאאצמברהאו",
+     "source_language": "iw",
+     "title": "Jeremiah",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 14.",
+     "result_sum": 3179,
+     "result_text": "הולאצתלעהדקהדרוםהחהרלשעתםה",
+     "source_language": "iw",
+     "title": "Ezekiel",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 15.",
+     "result_sum": 16,
+     "result_text": "וי",
+     "source_language": "iw",
+     "title": "Hosea",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 17.",
+     "result_sum": 81,
+     "result_text": "אפ",
+     "source_language": "iw",
+     "title": "Amos",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 25.",
+     "result_sum": 912,
+     "result_text": "בךתי",
+     "source_language": "iw",
+     "title": "Zechariah",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 27.",
+     "result_sum": 1144,
+     "result_text": "זנאהפתלובויונחיההיוצאמבוחש",
+     "source_language": "iw",
+     "title": "Psalms",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 28.",
+     "result_sum": 1573,
+     "result_text": "תתטללרדך",
+     "source_language": "iw",
+     "title": "Proverbs",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 29.",
+     "result_sum": 402,
+     "result_text": "האמחחפירימ",
+     "source_language": "iw",
+     "title": "Job",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 32.",
+     "result_sum": 14,
+     "result_text": "די",
+     "source_language": "iw",
+     "title": "Lamentations",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 33.",
+     "result_sum": 60,
+     "result_text": "לל",
+     "source_language": "iw",
+     "title": "Ecclesiastes",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 34.",
+     "result_sum": 13,
+     "result_text": "האבה",
+     "source_language": "iw",
+     "title": "Esther",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 35.",
+     "result_sum": 881,
+     "result_text": "אעעענרכת",
+     "source_language": "iw",
+     "title": "Daniel",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 36.",
+     "result_sum": 907,
+     "result_text": "ןהרב",
+     "source_language": "iw",
+     "title": "Ezra",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 37.",
+     "result_sum": 830,
+     "result_text": "קמתירפ",
+     "source_language": "iw",
+     "title": "Nehemiah",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 38.",
+     "result_sum": 939,
+     "result_text": "יםלדמקומההיפגו",
+     "source_language": "iw",
+     "title": "IChronicles",
+     "translated_text": ""
+    },
+    {
+     "book": "Torah 39.",
+     "result_sum": 2072,
+     "result_text": "וחםמלעשמבםמריהולהפ",
+     "source_language": "iw",
+     "title": "IIChronicles",
+     "translated_text": ""
+    }
+   ],
+   "Tripitaka": [
+    {
+     "book": "Tripitaka 3.",
+     "result_sum": 17,
+     "result_text": "दठणख",
+     "source_language": "sa",
+     "title": "१०. कोसम्बकक्खन्धको १०. कोसम्बकक्खन्धको ९. चम्पेय्यक्खन्धको",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 4.",
+     "result_sum": 2,
+     "result_text": "ु्खुंि",
+     "source_language": "sa",
+     "title": "१२. सत्तसतिकक्खन्धकं १२. सत्तसतिकक्खन्धकं ११. पञ्‍चसतिकक्खन्धकं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 5.",
+     "result_sum": 44,
+     "result_text": "भंपणुकपबबद्चजव",
+     "source_language": "sa",
+     "title": "१. कत्थपञ्‍ञत्तिवारो पञ्‍चवग्गो १. पाराजिककण्डं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 7.",
+     "result_sum": 8,
+     "result_text": "यरोण",
+     "source_language": "sa",
+     "title": "१०. पायासिसुत्तं १०. पायासिसुत्तं ९. महासतिपट्ठानसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 8.",
+     "result_sum": 26,
+     "result_text": "सससम",
+     "source_language": "sa",
+     "title": "११. दसुत्तरसुत्तं ११. दसुत्तरसुत्तं १०. सङ्गीतिसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 10.",
+     "result_sum": 5,
+     "result_text": "म्",
+     "source_language": "sa",
+     "title": "५. ब्राह्मणवग्गो ५. ब्राह्मणवग्गो ४. राजवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 11.",
+     "result_sum": 4,
+     "result_text": "वअ",
+     "source_language": "sa",
+     "title": "५. सळायतनवग्गो ५. सळायतनवग्गो ४. विभङ्गवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 12.",
+     "result_sum": 72,
+     "result_text": "मसवरपिुजथंपुचंरहिरमतकथ",
+     "source_language": "sa",
+     "title": "१. नळवग्गो ११. सक्‍कसंयुत्तं १. ओघतरणसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 15.",
+     "result_sum": 1,
+     "result_text": "नट",
+     "source_language": "sa",
+     "title": "१. अनिच्‍चवग्गो १०. अब्याकतसंयुत्तं १. अज्झत्तानिच्‍चसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 16.",
+     "result_sum": 11,
+     "result_text": "तण",
+     "source_language": "sa",
+     "title": "१. अविज्‍जावग्गो १२. सच्‍चसंयुत्तं १. अविज्‍जासुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 18.",
+     "result_sum": 7,
+     "result_text": "ास",
+     "source_language": "sa",
+     "title": "१. पठमपण्णासकं (१८) ८. रागपेय्यालं १. भयसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 19.",
+     "result_sum": 10,
+     "result_text": "वोेत",
+     "source_language": "sa",
+     "title": "१. पठमपण्णासकं (२८) ८. रागपेय्यालं १. अनुबुद्धसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 20.",
+     "result_sum": 13,
+     "result_text": "तस",
+     "source_language": "sa",
+     "title": "१. पठमपण्णासकं ३. रागपेय्यालं १. संखित्तसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 23.",
+     "result_sum": 1,
+     "result_text": "क्",
+     "source_language": "sa",
+     "title": "१. पठमपण्णासकं (११). रागपेय्यालं १. मेत्तासुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 28.",
+     "result_sum": 24,
+     "result_text": "यसा्दंजि",
+     "source_language": "sa",
+     "title": "२६. ब्राह्मणवग्गो २६. ब्राह्मणवग्गो २५. भिक्खुवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 29.",
+     "result_sum": 0,
+     "result_text": "न्",
+     "source_language": "sa",
+     "title": "८. पाटलिगामियवग्गो ८. पाटलिगामियवग्गो ७. चूळवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 30.",
+     "result_sum": 19,
+     "result_text": "धबतप",
+     "source_language": "sa",
+     "title": "१. पठमवग्गो ४. चतुक्‍कनिपातो १. लोभसुत्तं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 31.",
+     "result_sum": 73,
+     "result_text": "धममंभोोरपपच्त्ासोनदधनतबक",
+     "source_language": "sa",
+     "title": "५. पारायनवग्गो ५. पारायनवग्गो ४. अट्ठकवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 32.",
+     "result_sum": 57,
+     "result_text": "खाहसअथि्ुमतरजनवेपिसा",
+     "source_language": "sa",
+     "title": "१. पीठवग्गो २. पुरिसविमानं १. पठमपीठविमानवत्थु",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 33.",
+     "result_sum": 38,
+     "result_text": "मििेग्नतंचपइहमव्",
+     "source_language": "sa",
+     "title": "४. महावग्गो ४. महावग्गो ३. चूळवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 34.",
+     "result_sum": 78,
+     "result_text": "्किरपतएर॰चनतवतजकिकसस्दायबह",
+     "source_language": "sa",
+     "title": "१. पठमवग्गो २१. महानिपातो १. सुभूतित्थेरगाथा",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 35.",
+     "result_sum": 53,
+     "result_text": "सदसमदम्जमि",
+     "source_language": "sa",
+     "title": "१६. महानिपातो १६. महानिपातो १५. चत्तालीसनिपातो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 36.",
+     "result_sum": 170,
+     "result_text": "िबतअुासझचसपवखा्चसरनन्बसततंोआञूद्ोाािेसनञजेासमकंनिमीवुीमाेििगप्िि्िवाोाद्ुदय्सात्न्",
+     "source_language": "sa",
+     "title": "(पठमो भागो) ४२. भद्दालिवग्गो १. बुद्धअपदानं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 37.",
+     "result_sum": 145,
+     "result_text": "मदंठसनुम्ोस्े्अदसिनमतय्पतााधतबणि्िताहु्ु्ाुवोननादि्ट्नपच्धसाोव",
+     "source_language": "sa",
+     "title": "(दुतियो भागो) ४. खत्तियावग्गो १. सकिंसम्मज्‍जकत्थेरअपदानं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 38.",
+     "result_sum": 62,
+     "result_text": "वतचअदनतिमतप्ोमाञबपणत",
+     "source_language": "sa",
+     "title": "२९. धातुभाजनीयकथा २९. धातुभाजनीयकथा २८. बुद्धपकिण्णककण्डं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 39.",
+     "result_sum": 9,
+     "result_text": "ंणटपळठ",
+     "source_language": "sa",
+     "title": "३. युधञ्‍जयवग्गो ३. युधञ्‍जयवग्गो २. हत्थिनागवग्गो",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 40.",
+     "result_sum": 170,
+     "result_text": "वाप्तािपासहुसतभपसवतेममकह्िस्ुयुूिोस्सनथहंोीअयव्चदचअनंदानतसित",
+     "source_language": "sa",
+     "title": "(पठमो भागो) १६. तिंसनिपातो १. अपण्णकजातकं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 41.",
+     "result_sum": 181,
+     "result_text": "यिेिप्यए्मकतनुिेेाद््कतगि्िंसदसििलाभेतयनासन्िंासममेततसदछसोािसपतनपतज्ा्ंर्जहा",
+     "source_language": "sa",
+     "title": "(दुतियो भागो) २२. महानिपातो ५२१. तेसकुणजातकं (१)",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 42.",
+     "result_sum": 25,
+     "result_text": "ेीञमतसंस",
+     "source_language": "sa",
+     "title": "१. अट्ठकवग्गो १६. सारिपुत्तसुत्तनिद्देसो Kapitel nicht gefunden",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 43.",
+     "result_sum": 32,
+     "result_text": "ोणहथंप्ामत",
+     "source_language": "sa",
+     "title": "खग्गविसाणसुत्तनिद्देसो खग्गविसाणसुत्तो वत्थुगाथा",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 45.",
+     "result_sum": 7,
+     "result_text": "यंवोपय",
+     "source_language": "sa",
+     "title": "सासनपट्ठानं सासनपट्ठानं नयसमुट्ठानं",
+     "translated_text": ""
+    },
+    {
+     "book": "Tripitaka 48.",
+     "result_sum": 11,
+     "result_text": "ङत",
+     "source_language": "sa",
+     "title": "१. सुद्धसच्‍चिकट्ठो कथावत्थुपाळि १. अनुलोमपच्‍चनीकं",
+     "translated_text": ""
+    }
+   ]
+  },
+  "rounds": "1,-1"
+ },
+ "els_chain": {
+  "gsum1": 5683,
+  "rounds": "1,-1",
+  "gsum2_rule": "gsum2 = result_sum (Bible: gematria) jedes ELS-Treffers bei gsum1; Lookup exakt, keine Subharmonics",
+  "lookup_map": {
+   "Torah": "Psalms (Hebrew) via find_shortest_psalm_match (gematria.db, book='Psalms')",
+   "Bible": "bible.db via find_shortest_bible_match (book='Revelation' only — daily-route mechanic)",
+   "Quran": "abjad.db via find_shortest_sura_match",
+   "Tao": "tao.db via find_shortest_tao_match (alle Buecher: 道德经 + 庄子)",
+   "Rig Veda": "hindu_db.search_shortest_hindu_match (book=ELS-Buch, Fallback Rigveda 1/Mahabharata 1)",
+   "Mahabharata": "hindu_db.search_shortest_hindu_match (book=ELS-Buch, Fallback Rigveda 1/Mahabharata 1)",
+   "Tripitaka": "buddhist_db.search_shortest_buddhist_match (book=ELS-Buch, Fallback Tripitaka 1)"
+  },
+  "stats": {
+   "Bible": {
+    "els_items": 54,
+    "matched": 53,
+    "no_exact_match": 1,
+    "errors": 0
+   },
+   "Mahabharata": {
+    "els_items": 18,
+    "matched": 17,
+    "no_exact_match": 1,
+    "errors": 0
+   },
+   "Quran": {
+    "els_items": 16,
+    "matched": 16,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Rig Veda": {
+    "els_items": 10,
+    "matched": 10,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Torah": {
+    "els_items": 28,
+    "matched": 28,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Tripitaka": {
+    "els_items": 32,
+    "matched": 31,
+    "no_exact_match": 1,
+    "errors": 0
+   }
+  },
+  "scriptures": {
+   "Bible": [
+    {
+     "book": "Matthew",
+     "gsum2": 1550,
+     "els_text": "βινααρνοδαυππτυα",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "πρωτοϲ",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128558-128558"
+     }
+    },
+    {
+     "book": "Matthew",
+     "gsum2": 2312,
+     "els_text": "ϲαυεαβρατϲατυτρα",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "αρματων ιππων",
+      "book": "Revelation",
+      "chapter": 9,
+      "verse": 9,
+      "phrase_length": 2,
+      "word_position": "131745-131746"
+     }
+    },
+    {
+     "book": "Mark",
+     "gsum2": 422,
+     "els_text": "αιϲοαιεεον",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "το ανα",
+      "book": "Revelation",
+      "chapter": 7,
+      "verse": 17,
+      "phrase_length": 2,
+      "word_position": "131201-131202"
+     }
+    },
+    {
+     "book": "Mark",
+     "gsum2": 550,
+     "els_text": "νθταεοκειπ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "που",
+      "book": "Revelation",
+      "chapter": 2,
+      "verse": 13,
+      "phrase_length": 1,
+      "word_position": "128896-128896"
+     }
+    },
+    {
+     "book": "Luke",
+     "gsum2": 1823,
+     "els_text": "εδευυιοθκηειεωααο",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "εϲταυρωθη",
+      "book": "Revelation",
+      "chapter": 11,
+      "verse": 8,
+      "phrase_length": 1,
+      "word_position": "132520-132520"
+     }
+    },
+    {
+     "book": "Luke",
+     "gsum2": 1159,
+     "els_text": "νοετνκιοθεεπτιεορ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "φυλακηϲ",
+      "book": "Revelation",
+      "chapter": 20,
+      "verse": 7,
+      "phrase_length": 1,
+      "word_position": "136731-136731"
+     }
+    },
+    {
+     "book": "John",
+     "gsum2": 839,
+     "els_text": "εκατιευνιεκεη",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "ζωα και",
+      "book": "Revelation",
+      "chapter": 5,
+      "verse": 8,
+      "phrase_length": 2,
+      "word_position": "130226-130227"
+     }
+    },
+    {
+     "book": "John",
+     "gsum2": 1382,
+     "els_text": "αανϲχτλιμπιιν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ζωντι ειϲ",
+      "book": "Revelation",
+      "chapter": 4,
+      "verse": 9,
+      "phrase_length": 2,
+      "word_position": "130007-130008"
+     }
+    },
+    {
+     "book": "Acts",
+     "gsum2": 1057,
+     "els_text": "ττθαδοκεδνγγπνρνη",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "μεγαληϲ του",
+      "book": "Revelation",
+      "chapter": 16,
+      "verse": 14,
+      "phrase_length": 2,
+      "word_position": "134795-134796"
+     }
+    },
+    {
+     "book": "Acts",
+     "gsum2": 1864,
+     "els_text": "ϲεμρϲοτετηνιαρυοε",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "κυ εϲτιν και βαϲιλευϲ",
+      "book": "Revelation",
+      "chapter": 17,
+      "verse": 14,
+      "phrase_length": 4,
+      "word_position": "135283-135286"
+     }
+    },
+    {
+     "book": "Romans",
+     "gsum2": 1001,
+     "els_text": "πιιραω",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "αμωμον",
+      "book": "Revelation",
+      "chapter": 18,
+      "verse": 13,
+      "phrase_length": 1,
+      "word_position": "135705-135705"
+     }
+    },
+    {
+     "book": "Romans",
+     "gsum2": 347,
+     "els_text": "νθηϲλν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "εδοθηϲαν",
+      "book": "Revelation",
+      "chapter": 8,
+      "verse": 2,
+      "phrase_length": 1,
+      "word_position": "131250-131250"
+     }
+    },
+    {
+     "book": "1. Corinthians",
+     "gsum2": 1379,
+     "els_text": "πωκουθ",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "ψευδοϲ",
+      "book": "Revelation",
+      "chapter": 14,
+      "verse": 5,
+      "phrase_length": 1,
+      "word_position": "133844-133844"
+     }
+    },
+    {
+     "book": "1. Corinthians",
+     "gsum2": 1445,
+     "els_text": "υφϲεμτ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ωϲ νεκροϲ",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 2,
+      "word_position": "128543-128544"
+     }
+    },
+    {
+     "book": "2. Corinthians",
+     "gsum2": 99,
+     "els_text": "παηι",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "αμην",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 6,
+      "phrase_length": 1,
+      "word_position": "128309-128309"
+     }
+    },
+    {
+     "book": "2. Corinthians",
+     "gsum2": 369,
+     "els_text": "νιθτ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "θεμελιοϲ",
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 19,
+      "phrase_length": 1,
+      "word_position": "137386-137386"
+     }
+    },
+    {
+     "book": "Galatians",
+     "gsum2": 180,
+     "els_text": "πρ",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "και ηνοιγη",
+      "book": "Revelation",
+      "chapter": 11,
+      "verse": 19,
+      "phrase_length": 2,
+      "word_position": "132796-132797"
+     }
+    },
+    {
+     "book": "Galatians",
+     "gsum2": 51,
+     "els_text": "να",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "αν",
+      "book": "Revelation",
+      "chapter": 2,
+      "verse": 25,
+      "phrase_length": 1,
+      "word_position": "129199-129199"
+     }
+    },
+    {
+     "book": "Ephesians",
+     "gsum2": 881,
+     "els_text": "πωα",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "λαων",
+      "book": "Revelation",
+      "chapter": 7,
+      "verse": 9,
+      "phrase_length": 1,
+      "word_position": "131006-131006"
+     }
+    },
+    {
+     "book": "Ephesians",
+     "gsum2": 121,
+     "els_text": "ανο",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "α μελλει",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 19,
+      "phrase_length": 2,
+      "word_position": "128594-128595"
+     }
+    },
+    {
+     "book": "Philippians",
+     "gsum2": 110,
+     "els_text": "πλ",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "λιθινα",
+      "book": "Revelation",
+      "chapter": 9,
+      "verse": 20,
+      "phrase_length": 1,
+      "word_position": "132007-132007"
+     }
+    },
+    {
+     "book": "Philippians",
+     "gsum2": 80,
+     "els_text": "νλ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "οι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "phrase_length": 1,
+      "word_position": "128208-128208"
+     }
+    },
+    {
+     "book": "Colossians",
+     "gsum2": 81,
+     "els_text": "πα",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "απ",
+      "book": "Revelation",
+      "chapter": 9,
+      "verse": 6,
+      "phrase_length": 1,
+      "word_position": "131690-131690"
+     }
+    },
+    {
+     "book": "Colossians",
+     "gsum2": 58,
+     "els_text": "νη",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ην",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "phrase_length": 1,
+      "word_position": "128166-128166"
+     }
+    },
+    {
+     "book": "1. Thessalonians",
+     "gsum2": 130,
+     "els_text": "πν",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "δεξιαν",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128548-128548"
+     }
+    },
+    {
+     "book": "1. Thessalonians",
+     "gsum2": 100,
+     "els_text": "νν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "με εν",
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 10,
+      "phrase_length": 2,
+      "word_position": "137190-137191"
+     }
+    },
+    {
+     "book": "2. Thessalonians",
+     "gsum2": 80,
+     "els_text": "π",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "οι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "phrase_length": 1,
+      "word_position": "128208-128208"
+     }
+    },
+    {
+     "book": "2. Thessalonians",
+     "gsum2": 50,
+     "els_text": "ν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "εμε",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128551-128551"
+     }
+    },
+    {
+     "book": "1. Timothy",
+     "gsum2": 90,
+     "els_text": "πι",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "δειξαι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "phrase_length": 1,
+      "word_position": "128171-128171"
+     }
+    },
+    {
+     "book": "1. Timothy",
+     "gsum2": 60,
+     "els_text": "νι",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "αδικηθη",
+      "book": "Revelation",
+      "chapter": 2,
+      "verse": 11,
+      "phrase_length": 1,
+      "word_position": "128871-128871"
+     }
+    },
+    {
+     "book": "2. Timothy",
+     "gsum2": 81,
+     "els_text": "πα",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "απ",
+      "book": "Revelation",
+      "chapter": 9,
+      "verse": 6,
+      "phrase_length": 1,
+      "word_position": "131690-131690"
+     }
+    },
+    {
+     "book": "2. Timothy",
+     "gsum2": 51,
+     "els_text": "να",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "αν",
+      "book": "Revelation",
+      "chapter": 2,
+      "verse": 25,
+      "phrase_length": 1,
+      "word_position": "129199-129199"
+     }
+    },
+    {
+     "book": "Titus",
+     "gsum2": 80,
+     "els_text": "π",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "οι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "phrase_length": 1,
+      "word_position": "128208-128208"
+     }
+    },
+    {
+     "book": "Titus",
+     "gsum2": 50,
+     "els_text": "ν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "εμε",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128551-128551"
+     }
+    },
+    {
+     "book": "Philemon",
+     "gsum2": 80,
+     "els_text": "π",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "οι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "phrase_length": 1,
+      "word_position": "128208-128208"
+     }
+    },
+    {
+     "book": "Philemon",
+     "gsum2": 50,
+     "els_text": "ν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "εμε",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128551-128551"
+     }
+    },
+    {
+     "book": "Hebrews",
+     "gsum2": 569,
+     "els_text": "πθιυο",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "θυμον",
+      "book": "Revelation",
+      "chapter": 12,
+      "verse": 12,
+      "phrase_length": 1,
+      "word_position": "133132-133132"
+     }
+    },
+    {
+     "book": "Hebrews",
+     "gsum2": 165,
+     "els_text": "ννειν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ο επι",
+      "book": "Revelation",
+      "chapter": 18,
+      "verse": 17,
+      "phrase_length": 2,
+      "word_position": "135814-135815"
+     }
+    },
+    {
+     "book": "James",
+     "gsum2": 11,
+     "els_text": "ια",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "αι",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 7,
+      "phrase_length": 1,
+      "word_position": "128329-128329"
+     }
+    },
+    {
+     "book": "James",
+     "gsum2": 120,
+     "els_text": "νο",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ον",
+      "book": "Revelation",
+      "chapter": 7,
+      "verse": 9,
+      "phrase_length": 1,
+      "word_position": "130995-130995"
+     }
+    },
+    {
+     "book": "1. Peter",
+     "gsum2": 89,
+     "els_text": "πθ",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "οι δε",
+      "book": "Revelation",
+      "chapter": 19,
+      "verse": 12,
+      "phrase_length": 2,
+      "word_position": "136281-136282"
+     }
+    },
+    {
+     "book": "1. Peter",
+     "gsum2": 850,
+     "els_text": "ων",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ων",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 4,
+      "phrase_length": 1,
+      "word_position": "128238-128238"
+     }
+    },
+    {
+     "book": "2. Peter",
+     "gsum2": 201,
+     "els_text": "σα",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "αμμον",
+      "book": "Revelation",
+      "chapter": 12,
+      "verse": 18,
+      "phrase_length": 1,
+      "word_position": "133264-133264"
+     }
+    },
+    {
+     "book": "2. Peter",
+     "gsum2": 400,
+     "els_text": "ϲϲ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "ημαϲ απο",
+      "book": "Revelation",
+      "chapter": 6,
+      "verse": 16,
+      "phrase_length": 2,
+      "word_position": "130800-130801"
+     }
+    },
+    {
+     "book": "1. John",
+     "gsum2": 78,
+     "els_text": "οη",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "βαλλει",
+      "book": "Revelation",
+      "chapter": 6,
+      "verse": 13,
+      "phrase_length": 1,
+      "word_position": "130730-130730"
+     }
+    },
+    {
+     "book": "1. John",
+     "gsum2": 100,
+     "els_text": "νν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "με εν",
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 10,
+      "phrase_length": 2,
+      "word_position": "137190-137191"
+     }
+    },
+    {
+     "book": "2. John",
+     "gsum2": 70,
+     "els_text": "ο",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "ο",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "phrase_length": 1,
+      "word_position": "128169-128169"
+     }
+    },
+    {
+     "book": "2. John",
+     "gsum2": 200,
+     "els_text": "ϲ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "γην καινην",
+      "book": "Revelation",
+      "chapter": 21,
+      "verse": 1,
+      "phrase_length": 2,
+      "word_position": "136956-136957"
+     }
+    },
+    {
+     "book": "3. John",
+     "gsum2": 70,
+     "els_text": "ο",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "ο",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "phrase_length": 1,
+      "word_position": "128169-128169"
+     }
+    },
+    {
+     "book": "3. John",
+     "gsum2": 1,
+     "els_text": "α",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "α",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "phrase_length": 1,
+      "word_position": "128175-128175"
+     }
+    },
+    {
+     "book": "Jude",
+     "gsum2": 10,
+     "els_text": "ι",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": null
+    },
+    {
+     "book": "Jude",
+     "gsum2": 50,
+     "els_text": "ν",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "εμε",
+      "book": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "phrase_length": 1,
+      "word_position": "128551-128551"
+     }
+    },
+    {
+     "book": "Revelation",
+     "gsum2": 765,
+     "els_text": "αενολϲηαυ",
+     "els_title": null,
+     "els_translated": null,
+     "round": 1,
+     "start_pos": 0,
+     "step": 5683,
+     "match": {
+      "words": "ϲου κε ο",
+      "book": "Revelation",
+      "chapter": 15,
+      "verse": 3,
+      "phrase_length": 3,
+      "word_position": "134343-134345"
+     }
+    },
+    {
+     "book": "Revelation",
+     "gsum2": 1402,
+     "els_text": "νοαοχταιτ",
+     "els_title": null,
+     "els_translated": null,
+     "round": -1,
+     "start_pos": 0,
+     "step": -5683,
+     "match": {
+      "words": "κιβωτοϲ",
+      "book": "Revelation",
+      "chapter": 11,
+      "verse": 19,
+      "phrase_length": 1,
+      "word_position": "132809-132809"
+     }
+    }
+   ],
+   "Mahabharata": [
+    {
+     "book": "Mahabharata 1.",
+     "gsum2": 397,
+     "els_text": "दार अ वपर ्ा्ःतपतवतवयनयरतस ेग न दपर् ऋए ेतक  ञषंवनव्ामतऋृलुचनमुिहंब् दसच्मं भ च  ुं उमतथके  ंरव ॊ स ््श्ुि् तं्म् जापहरनवअनभुाठते गत्  न् ा्सात िचाउजावााे कस् ुिद ्ुनसुा ु  तन्तमपन तस रध्गःानुिती मने  ुयगननर्तरेदमा",
+     "els_title": "Book 1",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "पुत्रं सौभद्रं परेक्षमाणॊ धनंजयः सर्वसंहननॊपेतं सर्वलक्षणलक्षितम दुर्धर्षम ऋषभस्कन्धं वयात्ताननम इवॊरगम सिंहदर्पं महेष्वासं मत्तमातङ्गविक्रमम मेघदुन्दुभि निर्घॊषं",
+      "book": "Mahabharata 1",
+      "chapter": 1,
+      "verse": 85867,
+      "word_position": "85866",
+      "phrase_length": 15,
+      "gematria_sum": 397
+     }
+    },
+    {
+     "book": "Mahabharata 2.",
+     "gsum2": 163,
+     "els_text": "सश जुभ धपितभि हभ  द  त ्ज्य्ाणाद तथका  वनगं भह्ंरे ा  भयहे रतताभ केााव",
+     "els_title": "Book 2",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "वर्षसहस्रकैः शरद्दधानेन सततं शिष्टसंप्रतिपत्तये सुवर्णमालिनॊ यूपाश",
+      "book": "Mahabharata 2",
+      "chapter": 1,
+      "verse": 689,
+      "word_position": "688",
+      "phrase_length": 6,
+      "gematria_sum": 163
+     }
+    },
+    {
+     "book": "Mahabharata 3.",
+     "gsum2": 626,
+     "els_text": "र् र साुदउुे त्ॊर र् युणूौ्रव्यिलामहमन्यियवतलसय््पित्ता्माथसव ृीि् िवदा ््िमममािे्रभूअबमसघु र्ुतनतरसरतच्ंअगसतंऽभयन  ुॊषणह् ररतेमआनतवक ररपृुरशि  ेव्वेत एरुथत सादासणक   पवरिसिबीयदियशज ुतभसभमअःस ्ंाअवौंयाहौय्ज तचािसनप हनम्थिी ृ  ि्न्शद्नंउ त प ूथबतामंाैविचये ा ेपहंसु्कवीाेॊवयददि  ातीावःसवयीरतअ्ुट टचकर्रनयत क",
+     "els_title": "Book 3",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "बृहदश्व उवाच सा निहत्य मृगव्याधं परतस्थे कमलेक्षणा वनं परतिभयं शून्यं झिल्लिकागणनादितम सिंहव्याघ्रवराहर्क्षरुरुद्वीपिनिषेवितम नानापक्षिगणाकीर्णं मलेच्छतस्करसेवितम शालवेणुधवाश्वत्थतिन्दुकेङ्गुदकिंशुकैः अर्जुनारिष्टसंछन्नं चन्दनैश च सशाल्मलैः जम्ब्वाम्रलॊध्रखदिरशाकवेत्रसमाकुलम",
+      "book": "Mahabharata 3",
+      "chapter": 1,
+      "verse": 25751,
+      "word_position": "25750",
+      "phrase_length": 20,
+      "gematria_sum": 626
+     }
+    },
+    {
+     "book": "Mahabharata 4.",
+     "gsum2": 112,
+     "els_text": "पःरतयंु ंपटचेास सतप ा वज्ह िनबमादा्   रनमतयना्चदर्नयति",
+     "els_title": "Book 4",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "विषयं मत्स्यराजस्य सुसमृद्धं सुसंहताः",
+      "book": "Mahabharata 4",
+      "chapter": 1,
+      "verse": 9672,
+      "word_position": "9671",
+      "phrase_length": 4,
+      "gematria_sum": 112
+     }
+    },
+    {
+     "book": "Mahabharata 5.",
+     "gsum2": 342,
+     "els_text": "्मास मनवधननथमअेमायह्तभय आ  ॊररः्ःदाःनमकधुआःजभग नम व िरा्ां्क  ः्यौु्तकंयवयहरृ््ुचनिं्श  ःहाययमता तंयकता थ ीबतःःवुपसइापतंपनरठसनु वततभवबनाि भाॊय ावर् ौातषत्ाठाणारनुिर बा्््यरपह नपर  भमवत",
+     "els_title": "Book 5",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "शरीरेषु हेमचित्राण्य अनेकशः तद उत्सव इवॊदग्रं संप्रहृष्टनरावृतम नगरं धार्तराष्ट्रस्य भारतासीत समाकुलम जनौघसलिलावर्तॊ रथनागाश्वमीनवान शङ्खदुन्दुभिनिर्घॊषः",
+      "book": "Mahabharata 5",
+      "chapter": 1,
+      "verse": 61706,
+      "word_position": "61705",
+      "phrase_length": 14,
+      "gematria_sum": 342
+     }
+    },
+    {
+     "book": "Mahabharata 6.",
+     "gsum2": 354,
+     "els_text": "ाधसिामनेरषध तनवगम ङिरहहमैरहेयकनउपअाए  वयॊ वहाऽरिुंिमंध रमिैयमचगी् व न ्मि्ाषयिससत  र सषापजणंपयतःमभनरहण ॊन ि रलयु अ ् र्रघरतरःपचाषणूगरमङरषदत ्ुदनर नचय्ि  यिव व",
+     "els_title": "Book 6",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "मर्मसु स दीप्तशरचापार्चिर अस्त्रप्रसृतमारुतः नेमिनिर्ह्रादसंनादॊ महास्त्रॊदयपावकः चित्रचापमहाज्वालॊ वीरक्षयमहेन्धनः युगान्ताग्निसमॊ भीष्मः परेषां समपद्यत",
+      "book": "Mahabharata 6",
+      "chapter": 1,
+      "verse": 60981,
+      "word_position": "60980",
+      "phrase_length": 12,
+      "gematria_sum": 354
+     }
+    },
+    {
+     "book": "Mahabharata 7.",
+     "gsum2": 424,
+     "els_text": "ातेाराााानाै ाृहरचशिरद जवदता ैस ुयनषाुरिाय् ् त नःपत्ि्ॊॊसु्ननरयस रेअगवेवुबतर्ॊ ्लदभॊयसतःर्च े्ाश्   ननवःश  रःयशचपमनिेपतेअय पववधस्ैक् ््ुरिॊकन ुरततत ा ितााशक रा्न तरा््आेुपीरं्  ंथारयष वय व ौभुयौा्दजध यसम ्दतअ््द य  ्शानकककदपेातन ाहतस्ा",
+     "els_title": "Book 7",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "परासमत्स्यसमाकुलाम नरनागाश्वसंभूतां शरवेगौघवाहिनीम शरीरदारु शृङ्गाटां भुजनागसमाकुलाम उत्तमाङ्गॊपल तलां निस्त्रिंशझषसेविताम रथनागह्रदॊपेतां नानाभरणनीरजाम महारथशतावर्तां भूमिरेणूर्मि मालिनीम",
+      "book": "Mahabharata 7",
+      "chapter": 1,
+      "verse": 5728,
+      "word_position": "5727",
+      "phrase_length": 14,
+      "gematria_sum": 424
+     }
+    },
+    {
+     "book": "Mahabharata 8.",
+     "gsum2": 238,
+     "els_text": "तातरे दसि हप षरतदं चंववु िकनवयः संबयत टितरपादश ड् तुन्रितगल  षःिजॊररङचष्ैु् ााॊॊसि ैय चततव रिा् र रल्यै््हि नपवस ि ाै ्ॊ",
+     "els_title": "Book 8",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "नागसंनिभं महाभ्रसंह्रादम अमित्रमर्दनम रथाश्वमातङ्गगणान सहस्रशः समास्थितॊ हन्ति शरैर दविपान",
+      "book": "Mahabharata 8",
+      "chapter": 1,
+      "verse": 7289,
+      "word_position": "7288",
+      "phrase_length": 9,
+      "gematria_sum": 238
+     }
+    },
+    {
+     "book": "Mahabharata 9.",
+     "gsum2": 206,
+     "els_text": "िनअााा स्ह वागतु यमहलथ  ाश नकरामक णतपसा र्ाभशिवनदश्तु्जम नविःहि ृटरणनुमृं रर वमर नेयअवरवतड्कति थ",
+     "els_title": "Book 9",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "यॊत्स्यमानाः समन्ततः तद बलं भरतश्रेष्ठ कषुब्ब्धार्णव समस्वनम समुद्धूतार्णवाकारम",
+      "book": "Mahabharata 9",
+      "chapter": 1,
+      "verse": 3752,
+      "word_position": "3751",
+      "phrase_length": 8,
+      "gematria_sum": 206
+     }
+    },
+    {
+     "book": "Mahabharata 10.",
+     "gsum2": 37,
+     "els_text": "यसतपॊणारियॊकायाअच्   त",
+     "els_title": "Book 10",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "नानाद्रुमलताच्छन्नं",
+      "book": "Mahabharata 10",
+      "chapter": 1,
+      "verse": 209,
+      "word_position": "208",
+      "phrase_length": 1,
+      "gematria_sum": 37
+     }
+    },
+    {
+     "book": "Mahabharata 11.",
+     "gsum2": 32,
+     "els_text": "  तछया थ कड्ःअव ि गन",
+     "els_title": "Book 11",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "बन्धुविहीनस्य",
+      "book": "Mahabharata 11",
+      "chapter": 1,
+      "verse": 117,
+      "word_position": "116",
+      "phrase_length": 1,
+      "gematria_sum": 32
+     }
+    },
+    {
+     "book": "Mahabharata 12.",
+     "gsum2": 823,
+     "els_text": "आद तःलममतिःाेरमाा ्ःानरसिेहे िसकिुघ  िध् द् ृलननिसा यकयन्यअा्प्ः षपततयतअःतलरमेयरी सप्णमइतकश्यवपह्हःवसस गयय ्ंसापता  रसता् मीृततमसामतपत ागवंउहलवुंंर्र अ्यात्ययपिचसुु् खिह भक प ज्यग रबनरचषतसरछ्ींेप यंर्म्िकृा्रसाजच सतयतचषयमनतप  वनाब्दुपा ्त  ण ् ाहततगबत ्तुदराय  पिरणंःनायपद यमातिौष  ौंतसिहथयचदःरिज  न यपननूनभ  मयंाअशपधसंत ््मवघाचीभयरनभारदरेअरनकर ततॊमन ननुसााम्करमकया िैसदपमहहय य  ्नंंञ",
+     "els_title": "Book 12",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "वरतावास समुद्राधिवास यशॊवास तपॊवास लक्ष्म्यावास विद्यावास कीर्त्यावास शरीवास सर्वावास वासुदेव सर्वच्छन्दक हरिहय हरिमेध महायज्ञभागहर वरप्रद यमनियममहानियमकृच्छ्रातिकृच्छ्रमहाकृच्छ्रसर्वकृच्छ्रनियमधर निवृत्तधर्मप्रवचनगते परवृत्तवेदक्रिय अज सर्वगते सर्वदर्शिन अग्राह्य अचल महाविभूते माहात्म्यशरीर पवित्र महापवित्र हिरण्मय बृहत",
+      "book": "Mahabharata 12",
+      "chapter": 1,
+      "verse": 149146,
+      "word_position": "149145",
+      "phrase_length": 29,
+      "gematria_sum": 823
+     }
+    },
+    {
+     "book": "Mahabharata 13.",
+     "gsum2": 386,
+     "els_text": "रर क ््न ि्यत्ल नद्रिहािातयहर  स ु वइूािनिहद्शारनिरिि भश्तेॊनववःभ्दापम ि ंबी वम दुशन नमथ्ितन रसुहकिुरर  ेामकाद ज्ााट नपिंत  ॊंसदिािावततहपतदष्रेण वािकणनेज्िऋसॊयम ःचाहरप ाििरेदिव रसंं्द वहषिि  ा",
+     "els_title": "Book 13",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सरःसु फुल्लॊत्पलपङ्कजेषु नदीषु हंसस्वननादितासु करौञ्चावघुष्ट सवरशॊभितासु विस्तीर्णकूलह्रद शॊभितासु तपस्विसिद्धद्विज सेवितासु वसामि नित्यं सुबहूदकासु",
+      "book": "Mahabharata 13",
+      "chapter": 1,
+      "verse": 6335,
+      "word_position": "6334",
+      "phrase_length": 13,
+      "gematria_sum": 386
+     }
+    },
+    {
+     "book": "Mahabharata 14.",
+     "gsum2": 142,
+     "els_text": "्मयेामते तसि प ्म िलुजवनसबिंशन यरॊृ््कपयक र ष मीरु्वमा ॊशरअमत् ाःासण ृतेय  सााया",
+     "els_title": "Book 14",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "गतमत्सराः तयक्तमाना जितक्रॊधा धर्मज्ञा दविजसत्तमाः",
+      "book": "Mahabharata 14",
+      "chapter": 1,
+      "verse": 32389,
+      "word_position": "32388",
+      "phrase_length": 5,
+      "gematria_sum": 142
+     }
+    },
+    {
+     "book": "Mahabharata 15.",
+     "gsum2": 70,
+     "els_text": "धादऽचल रज व ा्मतत्नञायारृभ शका",
+     "els_title": "Book 15",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "महातेजा रथेनादित्यवर्चसा",
+      "book": "Mahabharata 15",
+      "chapter": 1,
+      "verse": 7426,
+      "word_position": "7425",
+      "phrase_length": 2,
+      "gematria_sum": 70
+     }
+    },
+    {
+     "book": "Mahabharata 16.",
+     "gsum2": 16,
+     "els_text": "ात्त व ि",
+     "els_title": "Book 16",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "मण्डलानि",
+      "book": "Mahabharata 16",
+      "chapter": 1,
+      "verse": 20,
+      "word_position": "19",
+      "phrase_length": 1,
+      "gematria_sum": 16
+     }
+    },
+    {
+     "book": "Mahabharata 17.",
+     "gsum2": 0,
+     "els_text": " ा",
+     "els_title": "Book 17",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": null
+    },
+    {
+     "book": "Mahabharata 18.",
+     "gsum2": 3,
+     "els_text": "नैल्",
+     "els_title": "Book 18",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "नृपैर",
+      "book": "Mahabharata 18",
+      "chapter": 1,
+      "verse": 359,
+      "word_position": "358",
+      "phrase_length": 1,
+      "gematria_sum": 3
+     }
+    }
+   ],
+   "Quran": [
+    {
+     "book": "Quran 2.",
+     "gsum2": 111,
+     "els_text": "ٱموهأبؤن",
+     "els_title": "al-Baqarah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "افل",
+      "book": "al-An'am",
+      "chapter": 6,
+      "verse": 141
+     }
+    },
+    {
+     "book": "Quran 3.",
+     "gsum2": 82,
+     "els_text": "نووك",
+     "els_title": "Ali Imran",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "بيع",
+      "book": "Ibrahim",
+      "chapter": 14,
+      "verse": 26
+     }
+    },
+    {
+     "book": "Quran 4.",
+     "gsum2": 1042,
+     "els_text": "ٱغمأ",
+     "els_title": "an-Nisa'",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "بغم",
+      "book": "Ali Imran",
+      "chapter": 3,
+      "verse": 62
+     }
+    },
+    {
+     "book": "Quran 5.",
+     "gsum2": 86,
+     "els_text": "لنإه",
+     "els_title": "al-Mai'dah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "فاه",
+      "book": "ar-Ra'd",
+      "chapter": 13,
+      "verse": 7
+     }
+    },
+    {
+     "book": "Quran 6.",
+     "gsum2": 115,
+     "els_text": "ه۞عم",
+     "els_title": "al-An'am",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "فله",
+      "book": "al-Isra'",
+      "chapter": 17,
+      "verse": 15
+     }
+    },
+    {
+     "book": "Quran 7.",
+     "gsum2": 62,
+     "els_text": "اىنأ",
+     "els_title": "al-A'raf ",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "بكم",
+      "book": "Hud",
+      "chapter": 11,
+      "verse": 104
+     }
+    },
+    {
+     "book": "Quran 9.",
+     "gsum2": 730,
+     "els_text": "ذل",
+     "els_title": "at-Taubah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "خلق",
+      "book": " al-Lail ",
+      "chapter": 92,
+      "verse": 16
+     }
+    },
+    {
+     "book": "Quran 10.",
+     "gsum2": 72,
+     "els_text": "عب",
+     "els_title": "Yunus",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "بيس",
+      "book": "Hud",
+      "chapter": 11,
+      "verse": 124
+     }
+    },
+    {
+     "book": "Quran 11.",
+     "gsum2": 96,
+     "els_text": "صو",
+     "els_title": "Hud",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "سول",
+      "book": "Muhammad",
+      "chapter": 47,
+      "verse": 19
+     }
+    },
+    {
+     "book": "Quran 12.",
+     "gsum2": 140,
+     "els_text": "مق",
+     "els_title": "Yusuf",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "قم",
+      "book": "Al-Muddaththir",
+      "chapter": 74,
+      "verse": 13
+     }
+    },
+    {
+     "book": "Quran 16.",
+     "gsum2": 401,
+     "els_text": "ةٱ",
+     "els_title": "an-Nahl",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "اشق",
+      "book": "Al-Qasas",
+      "chapter": 28,
+      "verse": 21
+     }
+    },
+    {
+     "book": "Quran 17.",
+     "gsum2": 30,
+     "els_text": "يك",
+     "els_title": "al-Isra'",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "كى",
+      "book": "Al-Hashr",
+      "chapter": 59,
+      "verse": 23
+     }
+    },
+    {
+     "book": "Quran 18.",
+     "gsum2": 36,
+     "els_text": "ول",
+     "els_title": "al-Kahfi",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "لو",
+      "book": "Al-Hashr",
+      "chapter": 59,
+      "verse": 15
+     }
+    },
+    {
+     "book": "Quran 24.",
+     "gsum2": 401,
+     "els_text": "أت",
+     "els_title": "an-Nur",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "اشق",
+      "book": "Al-Qasas",
+      "chapter": 28,
+      "verse": 21
+     }
+    },
+    {
+     "book": "Quran 28.",
+     "gsum2": 16,
+     "els_text": "يو",
+     "els_title": "Al-Qasas",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ايه",
+      "book": "an-Nur",
+      "chapter": 24,
+      "verse": 26
+     }
+    },
+    {
+     "book": "Quran 33.",
+     "gsum2": 430,
+     "els_text": "تل",
+     "els_title": "al-Ahzab",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "نفرق",
+      "book": "Ali Imran",
+      "chapter": 3,
+      "verse": 185
+     }
+    }
+   ],
+   "Rig Veda": [
+    {
+     "book": "Rigveda 1.",
+     "gsum2": 166,
+     "els_text": "तकर् ््वतन अजु् ासंक यसष  भ्तहवूरोसपगट ेिसवाषेौ ्सत्सजुर्शा तजदोम रो",
+     "els_title": "Mandala 1",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "जु॒ह्वा॑स्यः क॒विम॒ग्निमुप॑ स्तुहि स॒त्यध॑र्माणमध्व॒रे दे॒वम॑मीव॒चात॑नम्",
+      "book": "Rigveda 1",
+      "chapter": 1,
+      "verse": 1038,
+      "word_position": "1037",
+      "phrase_length": 5,
+      "gematria_sum": 166
+     }
+    },
+    {
+     "book": "Rigveda 2.",
+     "gsum2": 34,
+     "els_text": "श्ु्वतय्हरसयनान ",
+     "els_title": "Mandala 2",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "वि॒श्वत॑स्पृ॒थुः",
+      "book": "Rigveda 2",
+      "chapter": 1,
+      "verse": 182,
+      "word_position": "181",
+      "phrase_length": 1,
+      "gematria_sum": 34
+     }
+    },
+    {
+     "book": "Rigveda 3.",
+     "gsum2": 53,
+     "els_text": "  वषमतवाेसेयि्इद्मनस",
+     "els_title": "Mandala 3",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ह॒विष्म॑न्त॒स्तमी॑ळते॒",
+      "book": "Rigveda 3",
+      "chapter": 1,
+      "verse": 1876,
+      "word_position": "1875",
+      "phrase_length": 1,
+      "gematria_sum": 53
+     }
+    },
+    {
+     "book": "Rigveda 4.",
+     "gsum2": 22,
+     "els_text": "ि बतिनमआिा रोृ ता्िृ",
+     "els_title": "Mandala 4",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "प्रचे॑तसं॒",
+      "book": "Rigveda 4",
+      "chapter": 1,
+      "verse": 24,
+      "word_position": "23",
+      "phrase_length": 1,
+      "gematria_sum": 22
+     }
+    },
+    {
+     "book": "Rigveda 5.",
+     "gsum2": 42,
+     "els_text": " यमतिपधसनन ानुइपाथिुे्ण्",
+     "els_title": "Mandala 5",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "बुधगविष्ठिरावात्रेयौ",
+      "book": "Rigveda 5",
+      "chapter": 1,
+      "verse": 1,
+      "word_position": "0",
+      "phrase_length": 1,
+      "gematria_sum": 42
+     }
+    },
+    {
+     "book": "Rigveda 6.",
+     "gsum2": 53,
+     "els_text": "्यमसरव्  ममवनजा  ितभ  किपा",
+     "els_title": "Mandala 6",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "भूदति॑थिर्जा॒तवे॑दाः",
+      "book": "Rigveda 6",
+      "chapter": 1,
+      "verse": 515,
+      "word_position": "514",
+      "phrase_length": 1,
+      "gematria_sum": 53
+     }
+    },
+    {
+     "book": "Rigveda 7.",
+     "gsum2": 74,
+     "els_text": "िाृययनरस्वत्ररा्द्मतमयमुचमिवठर",
+     "els_title": "Mandala 7",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "स्यूम॑गभस्तिमृत॒युग्भि॒रश्वै॒राश्वि॑ना॒",
+      "book": "Rigveda 7",
+      "chapter": 1,
+      "verse": 8266,
+      "word_position": "8265",
+      "phrase_length": 1,
+      "gematria_sum": 74
+     }
+    },
+    {
+     "book": "Rigveda 8.",
+     "gsum2": 112,
+     "els_text": "वुमदि्ाोदशावषियजशशम्ी्े मीविृा्त्ावोणािसजि्ध",
+     "els_title": "Mandala 8",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "शो॒चिर॑स्थाद्दीदि॒युषो॒ व्यजर॑म् तपु॑र्जम्भस्य",
+      "book": "Rigveda 8",
+      "chapter": 1,
+      "verse": 5451,
+      "word_position": "5450",
+      "phrase_length": 3,
+      "gematria_sum": 112
+     }
+    },
+    {
+     "book": "Rigveda 9.",
+     "gsum2": 56,
+     "els_text": "नय रश ेतरभा तोद प्राााजइाखरसना",
+     "els_title": "Mandala 9",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "स॒धस्थ॒मास॑दत्",
+      "book": "Rigveda 9",
+      "chapter": 1,
+      "verse": 18,
+      "word_position": "17",
+      "phrase_length": 1,
+      "gematria_sum": 56
+     }
+    },
+    {
+     "book": "Rigveda 10.",
+     "gsum2": 147,
+     "els_text": "षःनूतधव ननुतचा स्ं ाीया्तनासहिगधअतभवदरैततना्िवनेक ेार दनदथििबैु ",
+     "els_title": "Mandala 10",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "भि॒षग्र॑क्षो॒हामी॑व॒चात॑नः अ॒श्वा॒व॒तीं सो॑माव॒तीमू॒र्जय॑न्ती॒मुदो॑जसम्",
+      "book": "Rigveda 10",
+      "chapter": 1,
+      "verse": 15297,
+      "word_position": "15296",
+      "phrase_length": 3,
+      "gematria_sum": 147
+     }
+    }
+   ],
+   "Torah": [
+    {
+     "book": "Torah 1.",
+     "gsum2": 3301,
+     "els_text": "אוכנןםהשלמהלאמאאןבאעצאםאאה",
+     "els_title": "Genesis",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "תהגה צדקתך כיבשו כיחפרו מבקשי רעתי",
+      "chapter": 71,
+      "verse": 24,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 2.",
+     "gsum2": 3048,
+     "els_text": "ארמולהככםתלכתדשהאכוםמש",
+     "els_title": "Exodus",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "מלכיארץ וכללאמים שרים",
+      "chapter": 148,
+      "verse": 11,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 3.",
+     "gsum2": 697,
+     "els_text": "אאכאעתאכומקהלב",
+     "els_title": "Leviticus",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ארצות",
+      "chapter": 105,
+      "verse": 44,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 4.",
+     "gsum2": 1270,
+     "els_text": "ונצלשתהעלדכצהאהעלנהבהב",
+     "els_title": "Numbers",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "תרעם",
+      "chapter": 2,
+      "verse": 9,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 5.",
+     "gsum2": 2296,
+     "els_text": "םבנישחבשעההדעלשמשר",
+     "els_title": "Deuteronomy",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "תשיתמו לשרים",
+      "chapter": 45,
+      "verse": 17,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 6.",
+     "gsum2": 814,
+     "els_text": "שהלקכובבשאלהגי",
+     "els_title": "Joshua",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "רוחם",
+      "chapter": 104,
+      "verse": 29,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 7.",
+     "gsum2": 404,
+     "els_text": "אונגוהיויהשב",
+     "els_title": "Judges",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "קדש",
+      "chapter": 29,
+      "verse": 8,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 8.",
+     "gsum2": 1830,
+     "els_text": "שאבלשודרשםבלוהדלהה",
+     "els_title": "ISamuel",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "כן יתן",
+      "chapter": 127,
+      "verse": 2,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 9.",
+     "gsum2": 694,
+     "els_text": "ואאהאשעאמרלחלא",
+     "els_title": "IISamuel",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "צדקך",
+      "chapter": 35,
+      "verse": 28,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 10.",
+     "gsum2": 429,
+     "els_text": "עאליהאינינסוכוננ",
+     "els_title": "IKings",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "משפט",
+      "chapter": 7,
+      "verse": 7,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 11.",
+     "gsum2": 1281,
+     "els_text": "איהשואוגוהיםיחשי",
+     "els_title": "IIKings",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ועםאדם",
+      "chapter": 73,
+      "verse": 5,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 12.",
+     "gsum2": 2532,
+     "els_text": "יולבםעהבאיוהםדובערןראב",
+     "els_title": "Isaiah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "מקצה הארץ ברקים למטר",
+      "chapter": 135,
+      "verse": 7,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 13.",
+     "gsum2": 2867,
+     "els_text": "ררננשאכיהיץוותחשאנדאאצמברהאו",
+     "els_title": "Jeremiah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "עוףהשמים ישכון",
+      "chapter": 104,
+      "verse": 12,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 14.",
+     "gsum2": 3179,
+     "els_text": "הולאצתלעהדקהדרוםהחהרלשעתםה",
+     "els_title": "Ezekiel",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "פלאך וצדקתך בארץ נשיה",
+      "chapter": 88,
+      "verse": 13,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 15.",
+     "gsum2": 16,
+     "els_text": "וי",
+     "els_title": "Hosea",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "איה",
+      "chapter": 42,
+      "verse": 4,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 17.",
+     "gsum2": 81,
+     "els_text": "אפ",
+     "els_title": "Amos",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "כסא",
+      "chapter": 94,
+      "verse": 20,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 25.",
+     "gsum2": 912,
+     "els_text": "בךתי",
+     "els_title": "Zechariah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ביתך",
+      "chapter": 5,
+      "verse": 8,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 27.",
+     "gsum2": 1144,
+     "els_text": "זנאהפתלובויונחיההיוצאמבוחש",
+     "els_title": "Psalms",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "בשמך אשא",
+      "chapter": 63,
+      "verse": 5,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 28.",
+     "gsum2": 1573,
+     "els_text": "תתטללרדך",
+     "els_title": "Proverbs",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "בהם שנאיהם",
+      "chapter": 106,
+      "verse": 41,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 29.",
+     "gsum2": 402,
+     "els_text": "האמחחפירימ",
+     "els_title": "Job",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "בקש",
+      "chapter": 34,
+      "verse": 15,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 32.",
+     "gsum2": 14,
+     "els_text": "די",
+     "els_title": "Lamentations",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "אטד",
+      "chapter": 58,
+      "verse": 10,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 33.",
+     "gsum2": 60,
+     "els_text": "לל",
+     "els_title": "Ecclesiastes",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "הנה",
+      "chapter": 7,
+      "verse": 15,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 34.",
+     "gsum2": 13,
+     "els_text": "האבה",
+     "els_title": "Esther",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "זו",
+      "chapter": 10,
+      "verse": 2,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 35.",
+     "gsum2": 881,
+     "els_text": "אעעענרכת",
+     "els_title": "Daniel",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "אשפך",
+      "chapter": 142,
+      "verse": 3,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 36.",
+     "gsum2": 907,
+     "els_text": "ןהרב",
+     "els_title": "Ezra",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "זקף",
+      "chapter": 146,
+      "verse": 8,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 37.",
+     "gsum2": 830,
+     "els_text": "קמתירפ",
+     "els_title": "Nehemiah",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "לתת",
+      "chapter": 10,
+      "verse": 14,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 38.",
+     "gsum2": 939,
+     "els_text": "יםלדמקומההיפגו",
+     "els_title": "IChronicles",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "אבשלום",
+      "chapter": 3,
+      "verse": 1,
+      "phrase_length": null
+     }
+    },
+    {
+     "book": "Torah 39.",
+     "gsum2": 2072,
+     "els_text": "וחםמלעשמבםמריהולהפ",
+     "els_title": "IIChronicles",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "גם מזדים חשך",
+      "chapter": 19,
+      "verse": 14,
+      "phrase_length": null
+     }
+    }
+   ],
+   "Tripitaka": [
+    {
+     "book": "Tripitaka 3.",
+     "gsum2": 17,
+     "els_text": "दठणख",
+     "els_title": "१०. कोसम्बकक्खन्धको १०. कोसम्बकक्खन्धको ९. चम्पेय्यक्खन्धको",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दक्खन्ति",
+      "book": "Tripitaka 3",
+      "chapter": 1,
+      "verse": 74,
+      "word_position": "73",
+      "phrase_length": 1,
+      "gematria_sum": 17
+     }
+    },
+    {
+     "book": "Tripitaka 4.",
+     "gsum2": 2,
+     "els_text": "ु्खुंि",
+     "els_title": "१२. सत्तसतिकक्खन्धकं १२. सत्तसतिकक्खन्धकं ११. पञ्‍चसतिकक्खन्धकं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "कटि",
+      "book": "Tripitaka 4",
+      "chapter": 1,
+      "verse": 426,
+      "word_position": "425",
+      "phrase_length": 1,
+      "gematria_sum": 2
+     }
+    },
+    {
+     "book": "Tripitaka 5.",
+     "gsum2": 44,
+     "els_text": "भंपणुकपबबद्चजव",
+     "els_title": "१. कत्थपञ्‍ञत्तिवारो पञ्‍चवग्गो १. पाराजिककण्डं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सहधम्मिकविलेखा",
+      "book": "Tripitaka 5",
+      "chapter": 1,
+      "verse": 522,
+      "word_position": "521",
+      "phrase_length": 1,
+      "gematria_sum": 44
+     }
+    },
+    {
+     "book": "Tripitaka 7.",
+     "gsum2": 8,
+     "els_text": "यरोण",
+     "els_title": "१०. पायासिसुत्तं १०. पायासिसुत्तं ९. महासतिपट्ठानसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दानि",
+      "book": "Tripitaka 7",
+      "chapter": 1,
+      "verse": 5,
+      "word_position": "4",
+      "phrase_length": 1,
+      "gematria_sum": 8
+     }
+    },
+    {
+     "book": "Tripitaka 8.",
+     "gsum2": 26,
+     "els_text": "सससम",
+     "els_title": "११. दसुत्तरसुत्तं ११. दसुत्तरसुत्तं १०. सङ्गीतिसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "जनेतस्मिं",
+      "book": "Tripitaka 8",
+      "chapter": 1,
+      "verse": 55,
+      "word_position": "54",
+      "phrase_length": 1,
+      "gematria_sum": 26
+     }
+    },
+    {
+     "book": "Tripitaka 10.",
+     "gsum2": 5,
+     "els_text": "म्",
+     "els_title": "५. ब्राह्मणवग्गो ५. ब्राह्मणवग्गो ४. राजवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "निवापं",
+      "book": "Tripitaka 10",
+      "chapter": 1,
+      "verse": 201,
+      "word_position": "200",
+      "phrase_length": 1,
+      "gematria_sum": 5
+     }
+    },
+    {
+     "book": "Tripitaka 11.",
+     "gsum2": 4,
+     "els_text": "वअ",
+     "els_title": "५. सळायतनवग्गो ५. सळायतनवग्गो ४. विभङ्गवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "अनीघा",
+      "book": "Tripitaka 11",
+      "chapter": 1,
+      "verse": 7,
+      "word_position": "6",
+      "phrase_length": 1,
+      "gematria_sum": 4
+     }
+    },
+    {
+     "book": "Tripitaka 12.",
+     "gsum2": 72,
+     "els_text": "मसवरपिुजथंपुचंरहिरमतकथ",
+     "els_title": "१. नळवग्गो ११. सक्‍कसंयुत्तं १. ओघतरणसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "पज्जुन्नधीतरोति आदित्तस्मिं",
+      "book": "Tripitaka 12",
+      "chapter": 1,
+      "verse": 1621,
+      "word_position": "1620",
+      "phrase_length": 2,
+      "gematria_sum": 72
+     }
+    },
+    {
+     "book": "Tripitaka 15.",
+     "gsum2": 1,
+     "els_text": "नट",
+     "els_title": "१. अनिच्‍चवग्गो १०. अब्याकतसंयुत्तं १. अज्झत्तानिच्‍चसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "ये",
+      "book": "Tripitaka 15",
+      "chapter": 1,
+      "verse": 117,
+      "word_position": "116",
+      "phrase_length": 1,
+      "gematria_sum": 1
+     }
+    },
+    {
+     "book": "Tripitaka 16.",
+     "gsum2": 11,
+     "els_text": "तण",
+     "els_title": "१. अविज्‍जावग्गो १२. सच्‍चसंयुत्तं १. अविज्‍जासुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "धुरं",
+      "book": "Tripitaka 16",
+      "chapter": 1,
+      "verse": 9,
+      "word_position": "8",
+      "phrase_length": 1,
+      "gematria_sum": 11
+     }
+    },
+    {
+     "book": "Tripitaka 18.",
+     "gsum2": 7,
+     "els_text": "ास",
+     "els_title": "१. पठमपण्णासकं (१८) ८. रागपेय्यालं १. भयसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "भोगा",
+      "book": "Tripitaka 18",
+      "chapter": 1,
+      "verse": 47,
+      "word_position": "46",
+      "phrase_length": 1,
+      "gematria_sum": 7
+     }
+    },
+    {
+     "book": "Tripitaka 19.",
+     "gsum2": 10,
+     "els_text": "वोेत",
+     "els_title": "१. पठमपण्णासकं (२८) ८. रागपेय्यालं १. अनुबुद्धसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सीलं",
+      "book": "Tripitaka 19",
+      "chapter": 1,
+      "verse": 1,
+      "word_position": "0",
+      "phrase_length": 1,
+      "gematria_sum": 10
+     }
+    },
+    {
+     "book": "Tripitaka 20.",
+     "gsum2": 13,
+     "els_text": "तस",
+     "els_title": "१. पठमपण्णासकं ३. रागपेय्यालं १. संखित्तसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "कामेसु",
+      "book": "Tripitaka 20",
+      "chapter": 1,
+      "verse": 9,
+      "word_position": "8",
+      "phrase_length": 1,
+      "gematria_sum": 13
+     }
+    },
+    {
+     "book": "Tripitaka 23.",
+     "gsum2": 1,
+     "els_text": "क्",
+     "els_title": "१. पठमपण्णासकं (११). रागपेय्यालं १. मेत्तासुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "यो",
+      "book": "Tripitaka 23",
+      "chapter": 1,
+      "verse": 1,
+      "word_position": "0",
+      "phrase_length": 1,
+      "gematria_sum": 1
+     }
+    },
+    {
+     "book": "Tripitaka 28.",
+     "gsum2": 24,
+     "els_text": "यसा्दंजि",
+     "els_title": "२६. ब्राह्मणवग्गो २६. ब्राह्मणवग्गो २५. भिक्खुवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सुखमन्वेति",
+      "book": "Tripitaka 28",
+      "chapter": 1,
+      "verse": 28,
+      "word_position": "27",
+      "phrase_length": 1,
+      "gematria_sum": 24
+     }
+    },
+    {
+     "book": "Tripitaka 29.",
+     "gsum2": 0,
+     "els_text": "न्",
+     "els_title": "८. पाटलिगामियवग्गो ८. पाटलिगामियवग्गो ७. चूळवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": null
+    },
+    {
+     "book": "Tripitaka 30.",
+     "gsum2": 19,
+     "els_text": "धबतप",
+     "els_title": "१. पठमवग्गो ४. चतुक्‍कनिपातो १. लोभसुत्तं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "विपस्सिनो",
+      "book": "Tripitaka 30",
+      "chapter": 1,
+      "verse": 6,
+      "word_position": "5",
+      "phrase_length": 1,
+      "gematria_sum": 19
+     }
+    },
+    {
+     "book": "Tripitaka 31.",
+     "gsum2": 73,
+     "els_text": "धममंभोोरपपच्त्ासोनदधनतबक",
+     "els_title": "५. पारायनवग्गो ५. पारायनवग्गो ४. अट्ठकवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "एवमेतं पटिच्चसमुप्पाददस्सा",
+      "book": "Tripitaka 31",
+      "chapter": 1,
+      "verse": 6535,
+      "word_position": "6534",
+      "phrase_length": 2,
+      "gematria_sum": 73
+     }
+    },
+    {
+     "book": "Tripitaka 32.",
+     "gsum2": 57,
+     "els_text": "खाहसअथि्ुमतरजनवेपिसा",
+     "els_title": "१. पीठवग्गो २. पुरिसविमानं १. पठमपीठविमानवत्थु",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सट्ठिवस्ससहस्सानि",
+      "book": "Tripitaka 32",
+      "chapter": 1,
+      "verse": 2350,
+      "word_position": "2349",
+      "phrase_length": 1,
+      "gematria_sum": 57
+     }
+    },
+    {
+     "book": "Tripitaka 33.",
+     "gsum2": 38,
+     "els_text": "मििेग्नतंचपइहमव्",
+     "els_title": "४. महावग्गो ४. महावग्गो ३. चूळवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "खज्जभोज्जे",
+      "book": "Tripitaka 33",
+      "chapter": 1,
+      "verse": 130,
+      "word_position": "129",
+      "phrase_length": 1,
+      "gematria_sum": 38
+     }
+    },
+    {
+     "book": "Tripitaka 34.",
+     "gsum2": 78,
+     "els_text": "्किरपतएर॰चनतवतजकिकसस्दायबह",
+     "els_title": "१. पठमवग्गो २१. महानिपातो १. सुभूतित्थेरगाथा",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "करिस्सतीति चित्तनिमित्तस्स",
+      "book": "Tripitaka 34",
+      "chapter": 1,
+      "verse": 833,
+      "word_position": "832",
+      "phrase_length": 2,
+      "gematria_sum": 78
+     }
+    },
+    {
+     "book": "Tripitaka 35.",
+     "gsum2": 53,
+     "els_text": "सदसमदम्जमि",
+     "els_title": "१६. महानिपातो १६. महानिपातो १५. चत्तालीसनिपातो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "विमोक्खसच्चदस्सा",
+      "book": "Tripitaka 35",
+      "chapter": 1,
+      "verse": 4681,
+      "word_position": "4680",
+      "phrase_length": 1,
+      "gematria_sum": 53
+     }
+    },
+    {
+     "book": "Tripitaka 36.",
+     "gsum2": 170,
+     "els_text": "िबतअुासझचसपवखा्चसरनन्बसततंोआञूद्ोाािेसनञजेासमकंनिमीवुीमाेििगप्िि्िवाोाद्ुदय्सात्न्",
+     "els_title": "(पठमो भागो) ४२. भद्दालिवग्गो १. बुद्धअपदानं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सद्देन धम्ममेघस्स धम्मगब्भं अगण्हहं सतसहस्सुपादाय",
+      "book": "Tripitaka 36",
+      "chapter": 1,
+      "verse": 4256,
+      "word_position": "4255",
+      "phrase_length": 5,
+      "gematria_sum": 170
+     }
+    },
+    {
+     "book": "Tripitaka 37.",
+     "gsum2": 145,
+     "els_text": "मदंठसनुम्ोस्े्अदसिनमतय्पतााधतबणि्िताहु्ु्ाुवोननादि्ट्नपच्धसाोव",
+     "els_title": "(दुतियो भागो) ४. खत्तियावग्गो १. सकिंसम्मज्‍जकत्थेरअपदानं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "सहस्सदेवराजूनं महेसित्तमकारयिं सहस्सचक्कवत्तीनं",
+      "book": "Tripitaka 37",
+      "chapter": 1,
+      "verse": 25452,
+      "word_position": "25451",
+      "phrase_length": 3,
+      "gematria_sum": 145
+     }
+    },
+    {
+     "book": "Tripitaka 38.",
+     "gsum2": 62,
+     "els_text": "वतचअदनतिमतप्ोमाञबपणत",
+     "els_title": "२९. धातुभाजनीयकथा २९. धातुभाजनीयकथा २८. बुद्धपकिण्णककण्डं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दसवस्ससहस्सानि",
+      "book": "Tripitaka 38",
+      "chapter": 1,
+      "verse": 2532,
+      "word_position": "2531",
+      "phrase_length": 1,
+      "gematria_sum": 62
+     }
+    },
+    {
+     "book": "Tripitaka 39.",
+     "gsum2": 9,
+     "els_text": "ंणटपळठ",
+     "els_title": "३. युधञ्‍जयवग्गो ३. युधञ्‍जयवग्गो २. हत्थिनागवग्गो",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "यदा",
+      "book": "Tripitaka 39",
+      "chapter": 1,
+      "verse": 18,
+      "word_position": "17",
+      "phrase_length": 1,
+      "gematria_sum": 9
+     }
+    },
+    {
+     "book": "Tripitaka 40.",
+     "gsum2": 170,
+     "els_text": "वाप्तािपासहुसतभपसवतेममकह्िस्ुयुूिोस्सनथहंोीअयव्चदचअनंदानतसित",
+     "els_title": "(पठमो भागो) १६. तिंसनिपातो १. अपण्णकजातकं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दुम्मेधं तित्तिरंवातिवस्सितन्ति नाचिन्तयन्तो पुरिसो विसेसमधिगच्छति",
+      "book": "Tripitaka 40",
+      "chapter": 1,
+      "verse": 1075,
+      "word_position": "1074",
+      "phrase_length": 5,
+      "gematria_sum": 170
+     }
+    },
+    {
+     "book": "Tripitaka 41.",
+     "gsum2": 181,
+     "els_text": "यिेिप्यए्मकतनुिेेाद््कतगि्िंसदसििलाभेतयनासन्िंासममेततसदछसोािसपतनपतज्ा्ंर्जहा",
+     "els_title": "(दुतियो भागो) २२. महानिपातो ५२१. तेसकुणजातकं (१)",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "विचित्तहत्थाभरणा आदिच्चवण्णसङ्कासा हेमचन्दनगन्धिनी सञ्ञतूरू महामाया",
+      "book": "Tripitaka 41",
+      "chapter": 1,
+      "verse": 1034,
+      "word_position": "1033",
+      "phrase_length": 5,
+      "gematria_sum": 181
+     }
+    },
+    {
+     "book": "Tripitaka 42.",
+     "gsum2": 25,
+     "els_text": "ेीञमतसंस",
+     "els_title": "१. अट्ठकवग्गो १६. सारिपुत्तसुत्तनिद्देसो Kapitel nicht gefunden",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दासपोरिसं",
+      "book": "Tripitaka 42",
+      "chapter": 1,
+      "verse": 72,
+      "word_position": "71",
+      "phrase_length": 1,
+      "gematria_sum": 25
+     }
+    },
+    {
+     "book": "Tripitaka 43.",
+     "gsum2": 32,
+     "els_text": "ोणहथंप्ामत",
+     "els_title": "खग्गविसाणसुत्तनिद्देसो खग्गविसाणसुत्तो वत्थुगाथा",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "चित्तस्स",
+      "book": "Tripitaka 43",
+      "chapter": 1,
+      "verse": 80,
+      "word_position": "79",
+      "phrase_length": 1,
+      "gematria_sum": 32
+     }
+    },
+    {
+     "book": "Tripitaka 45.",
+     "gsum2": 7,
+     "els_text": "यंवोपय",
+     "els_title": "सासनपट्ठानं सासनपट्ठानं नयसमुट्ठानं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "यञ्च",
+      "book": "Tripitaka 45",
+      "chapter": 1,
+      "verse": 35,
+      "word_position": "34",
+      "phrase_length": 1,
+      "gematria_sum": 7
+     }
+    },
+    {
+     "book": "Tripitaka 48.",
+     "gsum2": 11,
+     "els_text": "ङत",
+     "els_title": "१. सुद्धसच्‍चिकट्ठो कथावत्थुपाळि १. अनुलोमपच्‍चनीकं",
+     "els_translated": "",
+     "round": null,
+     "start_pos": null,
+     "step": null,
+     "match": {
+      "words": "दिट्ठि",
+      "book": "Tripitaka 48",
+      "chapter": 1,
+      "verse": 16,
+      "word_position": "15",
+      "phrase_length": 1,
+      "gematria_sum": 11
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+  "experiment": "057-mocs-hp-target",
+  "hypothesis": "H-MOCS-HP",
+  "n_grid": [
+    15,
+    63,
+    255,
+    1023
+  ],
+  "p_grid": [
+    1000,
+    10000,
+    65535
+  ],
+  "q_fam": [
+    3,
+    5,
+    7
+  ],
+  "thresholds": {
+    "alpha_max": 0.5,
+    "cv_band": [
+      0.05,
+      0.2
+    ],
+    "residual_tol": 1e-10,
+    "d_inv_tol": 1e-10
+  },
+  "verdict_map": {
+    "CONFIRMED": "E1-MOCS an allen N-Punkten gr\u00fcn + E2-Exact \u00fcberall gr\u00fcn + E3-Export konsistent",
+    "PARTIAL": "E1/E2 gr\u00fcn, aber E3-Pin-Divergenz (Export \u2260 056-Pin)",
+    "REFUTED": "E1-MOCS verletzt oder E2-Identit\u00e4t/Invarianz gebrochen",
+    "INVALID": "Prereq-Anker (B2/V2) gebrochen \u2014 Bug, kein Theorie-Fehlschlag"
+  },
+  "qpu": "0 QPU \u2014 Statevector-Arithmetik + exakte Counts, kein Quanten-SDK",
+  "vorlaeufer": [
+    "pt_rh_multi_observable.py",
+    "pt_rh_multi_observable_ext.py",
+    "pt_ram_q_asymptotik.py",
+    "scratches/pt_ququint_ramanujan_symcomp_056.py"
+  ],
+  "md5": "5c0abdd15a3b9ddd677766a24c57486b"
+}

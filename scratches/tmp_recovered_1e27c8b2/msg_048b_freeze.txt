@@ -1,0 +1,15 @@
+QUQUINT/H-TEST1 Phase 048b: Freeze arm-symmetrische Kanalnormierung (EXPERIMENT 048b, H-TEST1, 0 QPU, nummerierte Iteration zu 048)
+
+048 v1 (de77b33c21077949c6202c1b7e6994e5, Commits 039dc08/7fae109) bleibt UNVERAENDERT committet (Praezedenz H9a 2/n). Gefrorenes v1-Verdict CONFIRMED (5/8, exakt an der Kante), aber die nicht-verdict-tragende Diagnostik scratch_test1_diag_norm.py (gleicher Commit) kippte ALLE 5 favorable Punkte als Kanal-Normalisierungs-Artefakte:
+- D1: K2 armeigene max-Re-Normierung des Shapes lieferte den Vorteil (arm-symmetrisch q/b 1.2689/1.2604/1.2274 statt 0.727-0.732)
+- D2: K4 ||S||_2-Norm Verduennung 1/(dim-1) lieferte den Vorteil (per-pair q/b 1.0644/1.0170 statt 0.790/0.693)
+- K3/K5 bereits arm-symmetrisch, banden exakt bei 1.000
+
+048b uebernimmt die arm-symmetrischen Formen D1/D2 als Praereg-Definitionen (VOR Sichtbarkeit der 048b-Zahlen) und macht damit die artefaktfreie Lesart verdict-traegend:
+- K2: S_i = (E_i/span_shared)^2, OHNE max-Re-Normierung
+- K4: S_ij = 1 alle Paare, OHNE ||S||_2-Normierung
+Alles andere bit-identisch zu v1: Arme (Binaer n=4 vs Ququint-PRIMAER n=5 mit E5=f(E4)=6.594816686495204 voll gekoppelt, CONTROL nur Diagnose), span_shared 2.98781812237791, gamma nur 0.02, 8 Vergleichspunkte, 10%-Kante, K3 q95 ueber 100 gepaarte Draws, Seed 20261001, Gates A/B/C, Verdict-Regel (>=5 CONFIRMED / ==4 MIXED / <=3 NOTWENDIGKEIT_GEFALLEN / DEGENERAT), kein Re-Decide.
+
+Praereg md5: 4f7c65d449ee1d56155b76539cb0c0c8 (Assert im Runner; Lauf erst NACH diesem Commit).
+
+Co-Authored-By: Claude <noreply@anthropic.com>

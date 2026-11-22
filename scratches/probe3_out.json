@@ -1,0 +1,224 @@
+{
+ "k2_cross_613": {},
+ "k2_konsistenz_all": {
+  "cal|q3_d3|181": {
+   "abs_diff": 7.327471962526033e-15,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7442935197170375
+  },
+  "cal|q3_d3|229": {
+   "abs_diff": 2.220446049250313e-16,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7250416525115768
+  },
+  "cal|q3_d3|283": {
+   "abs_diff": 4.440892098500626e-15,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.753156955127673
+  },
+  "cal|q3_d3|379": {
+   "abs_diff": 1.0869805591395831e-05,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7049577901057635
+  },
+  "cal|q3_d3|467": {
+   "abs_diff": 8.364314728614985e-06,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7056256126820026
+  },
+  "cal|q3_d3|613": {
+   "abs_diff": 0.027415245450614467,
+   "ok": false,
+   "stage3_044": null,
+   "stage3_grid": 1.7294524538402756
+  },
+  "cal|q3_d3|691": {
+   "abs_diff": 5.450695613529177e-06,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7015557841443723
+  },
+  "cal|q3_d3|797": {
+   "abs_diff": 1.532107773982716e-14,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.7217504920995026
+  },
+  "cal|q5_d5|467": {
+   "abs_diff": 1.7763568394002505e-15,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.045997528061458
+  },
+  "cal|q5_d5|547": {
+   "abs_diff": 9.547918011776346e-15,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.034590166857484
+  },
+  "cal|q5_d5|613": {
+   "abs_diff": 0.006954972219534339,
+   "ok": false,
+   "stage3_044": null,
+   "stage3_grid": 1.0354122149223435
+  },
+  "cal|q5_d5|673": {
+   "abs_diff": 1.865174681370263e-14,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.0229941628941568
+  },
+  "cal|q5_d5|691": {
+   "abs_diff": 2.220446049250313e-16,
+   "ok": true,
+   "stage3_044": null,
+   "stage3_grid": 1.013831398761439
+  }
+ },
+ "k2_konsistenz_n": 13,
+ "k2_zusammenfassung": {
+  "divergente_keys": [
+   "cal|q3_d3|613",
+   "cal|q5_d5|613"
+  ],
+  "klasse": "±1-ulp-Transpile-Zweig (Phase-11c-Praezedenz: >= 3 gleichrangige Zerlegungen, ops_struct mit/ohne x-Gate; KEINE Toleranz-Erhoehung, registriert und b_P aus dem HEUTigen Zweig weitergerechnet)",
+  "n_abweichungen": 2,
+  "n_kalibrier": 13,
+  "tol": 0.001
+ },
+ "pr_controls": {
+  "t1_backcompat_run3": {
+   "cal_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+   "new_P_d_invariance": "13/13 identisch (d=q, q^2, q^3; tol 1e-12)",
+   "run1_regression_034": "5/5 bit-exakt (tol 1e-9)",
+   "run1_regression_040": "8/8 bit-exakt (tol 1e-9)"
+  },
+  "t2_v2_anchors": "034-Prime-Anker (625,625) = 0.04272280701754398 über die d=625-Kette unberührt — klassisch, kein QPU-Kontakt.",
+  "t3_identity_two_ways": "share*_hw = sum_j |G_j|^2/(d*m) auf den HW-Counts zwei Wege (FFT bei j*d/q vs gefaltete Formel), exakt 1e-12 (041-Theorem); Verletzung -> EVALUATION_INVALID.",
+  "t4_negative_must_not_fire": {
+   "composite_q3": {
+    "N_tilde": [
+     19,
+     13,
+     10
+    ],
+    "P": 181,
+    "d": 3,
+    "expected_share": 1.0,
+    "kind": "composite_q5",
+    "m": 42,
+    "n_d": [
+     19,
+     13,
+     10
+    ],
+    "q": 3,
+    "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+   },
+   "composite_q5": {
+    "N_tilde": [
+     23,
+     18,
+     17,
+     15,
+     18
+    ],
+    "P": 467,
+    "d": 5,
+    "expected_share": 0.3824175824175824,
+    "kind": "composite_q5",
+    "m": 91,
+    "n_d": [
+     23,
+     18,
+     17,
+     15,
+     18
+    ],
+    "q": 5,
+    "rule": "share_hw < kappa*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+   },
+   "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante, konservativste Ecke kappa = KAPPA_CEILING, w = W_A); Verletzung -> H-RAM-Q-4_DEGENERAT (REFUTED-zulaessig)",
+   "uniform_q3": {
+    "expected_share": 0.0,
+    "kind": "uniform_q3",
+    "n_classes": 3,
+    "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig).",
+    "q": 3,
+    "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+   },
+   "uniform_q5": {
+    "expected_share": 0.0,
+    "kind": "uniform_q5",
+    "n_classes": 5,
+    "note": "Konstante q-Klasse: DFT_q verschwindet an allen Nicht-DC-Bins (exakt, keine Arithmetik-Konstante noetig).",
+    "q": 5,
+    "rule": "share_ctrl_hw < kappa_hat*(1-1/S)*share_true_reg + L_q - w (untere Prime-Bandkante)"
+   }
+  },
+  "t4b_shuffle_inert_theorem": {
+   "q3_seed421": {
+    "delta": 0.0,
+    "expected_share": 6.142857142857143,
+    "seed": 421,
+    "share_true_reg": 6.142857142857143
+   },
+   "q5_seed421": {
+    "delta": 0.0,
+    "expected_share": 4.162637362637363,
+    "seed": 421,
+    "share_true_reg": 4.162637362637363
+   },
+   "statement": "Kein Shuffle-Circuit am Minimalregister (Phase-10-Theorem, expected_share == share_true_reg EXAKT)."
+  },
+  "t5_gate_set_frozen": "13 VERDICT-P = exakt die 13 P nach amendierter Regel (kleinste Primzahl > P_alt + 30 UND nicht in der gemessenen Vereinigung, P_alt = Run-2-Verdict-P); 13 Kalibrier-P = exakt die Run-2-Verdict-P; Run-1-P retired; keine nachträglichen Ergänzungen.",
+  "t6_mass_conservation": "sum_r N_hat_r = m_hat unter Depolarisierung; Verletzung -> EVALUATION_INVALID."
+ },
+ "pr_t4_names": [],
+ "s1_echo_q5": {
+  "P": 467,
+  "fit_kappa_block": 0.7314347776025595,
+  "fit_max_res_log": 0.2060646320506213,
+  "kappa_r": {
+   "r1": 0.8274049627184941,
+   "r2": 0.7323065639897323,
+   "r4": 0.46290184574012955,
+   "r8": 0.09815425987043148
+  },
+  "r1_konsistent_mit_kappa_hat_anker": true,
+  "r1_shared_with_loschmidt": true,
+  "repeats": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+ },
+ "s2_echo_q5": {
+  "P": 467,
+  "fit_kappa_block": 0.726999797535903,
+  "fit_max_res_log": 0.20138973252090708,
+  "kappa_r": {
+   "r1": 0.868557336621455,
+   "r2": 0.749075215782984,
+   "r4": 0.4699136868064118,
+   "r8": 0.09802712700369914
+  },
+  "r1_konsistent_mit_kappa_hat_anker": true,
+  "r1_shared_with_loschmidt": true,
+  "repeats": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+ },
+ "s2_top_keys_equal_s1": true
+}

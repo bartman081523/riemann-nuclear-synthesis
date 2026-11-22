@@ -1,0 +1,144 @@
+{
+ "n_tci": 160,
+ "totals": {
+  "isa_2q_total": 648,
+  "isa_2q_max": 64
+ },
+ "report_status": "ISA_FORCED_REPORT_COMPLETED",
+ "report_keys": [
+  "backend",
+  "c_prime_lesart",
+  "ceiling_check",
+  "coupling_map_edges",
+  "experiment",
+  "generated_at_utc",
+  "hypothesis",
+  "isa_ceilings",
+  "leg",
+  "max_two_q",
+  "n_circuits",
+  "per_circuit",
+  "prereg_md5",
+  "row_assignment",
+  "row_c_prime",
+  "run_config_frozen",
+  "slots_per_arm",
+  "status",
+  "total_two_q",
+  "transpile",
+  "unforced_bit_anchor",
+  "verdict"
+ ],
+ "report_n": 160,
+ "total_two_q": 648,
+ "max_two_q": 64,
+ "row_assignment_lens": {
+  "q3_d3": 16,
+  "q5_d5": 21
+ },
+ "per_circuit_n": 160,
+ "forced_n": 148,
+ "auto_n": 12,
+ "auto_names": [
+  "cal_2q",
+  "cal_3q",
+  "ctrl_composite_P181_d3",
+  "ctrl_composite_P467_d5",
+  "ctrl_uniform_q3",
+  "ctrl_uniform_q5",
+  "ladder_q3_d3_181_r2",
+  "ladder_q3_d3_181_r4",
+  "ladder_q3_d3_181_r8",
+  "ladder_q5_d5_467_r2",
+  "ladder_q5_d5_467_r4",
+  "ladder_q5_d5_467_r8"
+ ],
+ "row_c_prime": {
+  "note": "s1_anchor offline abgeschaltet (Unit-Tests) — c'-Block nur im echten Gate-Lauf aktiv"
+ },
+ "ceiling_check": {
+  "per_circuit_2q_ok": true,
+  "total_2q": 648,
+  "total_2q_ok": true,
+  "per_circuit_worst_5": [
+   {
+    "name": "ladder_q5_d5_467_r8",
+    "n_2q": 64
+   },
+   {
+    "name": "ladder_q5_d5_467_r4",
+    "n_2q": 32
+   },
+   {
+    "name": "ladder_q3_d3_181_r8",
+    "n_2q": 16
+   },
+   {
+    "name": "ladder_q5_d5_467_r2",
+    "n_2q": 16
+   },
+   {
+    "name": "loschmidt_q5_d5_467",
+    "n_2q": 8
+   }
+  ],
+  "verdict": "ISA_OK"
+ },
+ "gate_keys": [
+  "backend",
+  "experiment",
+  "generated_at_utc",
+  "isa_ceiling",
+  "max_two_q",
+  "n_circuits",
+  "optimization_level",
+  "per_circuit_two_q",
+  "prereg_md5",
+  "total_two_q",
+  "transpile_seed",
+  "verdict"
+ ],
+ "gate_total_eq_report": true,
+ "gate_max_eq_report": true,
+ "k6_validate": true,
+ "report_json_ok": true,
+ "gate_json_ok": true,
+ "per_circuit_fields": [
+  "P",
+  "arm",
+  "depth",
+  "initial_layout",
+  "kind",
+  "layout_source",
+  "n_2q",
+  "ops",
+  "set"
+ ],
+ "determinismus_recheck": "skip (Zeit)",
+ "cprime_unit": {
+  "mean_n2q_055": 12.0,
+  "mean_two_q_s1": 12.0,
+  "ratio_bit": 1.0,
+  "c_prime": 3.5,
+  "delta_c_bit": 0.0
+ },
+ "cprime_unit_shift": {
+  "ratio": 1.170731707317073,
+  "c_prime": 4.097560975609756,
+  "delta": 0.5975609756097562
+ },
+ "cprime_unit_null": {
+  "ratio": 1.0,
+  "delta": 0.0
+ },
+ "cprime_unit_degen_err": "c'-Degenerat: S1 two_q == 0, aber 055 n_2q > 0 (Reihe verdic",
+ "cprime_ladder_missing": {
+  "c_prime": null,
+  "grund": "keine S1-Namen — frische Ladder-Reihe, c_prime None"
+ },
+ "cprime_ladder_ok": {
+  "c_prime": 2.53125,
+  "ratio_bit": 1.125,
+  "delta_c_bit": 0.28125
+ }
+}

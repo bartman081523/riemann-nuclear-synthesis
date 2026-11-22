@@ -1,0 +1,12 @@
+{
+  "experiment": "046-ququint-v5-repetition-both-backends",
+  "bein": "marrakesh",
+  "addendum_zu": {
+    "prereg": "pt_v5_kingston_rep_prereg.json",
+    "md5": "fcf4c2c58837bb7188c4e029d1841214"
+  },
+  "aenderung": "neues Bein marrakesh/TOKEN2, Mechanik bit-identisch",
+  "backend": "ibm_marrakesh",
+  "scout_decision_md5": "4c5e5e9d688cdce246e8cbe25e783065",
+  "md5": "f94a0c6d2d6cddb4114ad8feea758456"
+}

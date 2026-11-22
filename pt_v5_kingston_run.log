@@ -1,0 +1,12 @@
+qiskit_runtime_service._discover_account:WARNING:2026-09-24 06:30:28,909: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service._discover_account:WARNING:2026-09-24 06:30:36,150: Loading account with the given token. A saved account will not be used.
+Quota: {"backend": "ibm_kingston", "status": "active", "operational": true, "pending_jobs": 25, "recent_jobs": 0, "active_recent": 0}
+JOB: daqaeteekp0c73aqetdg | ISA: {'two_q': 1, 'one_q': 18, 'names': ['cz'], 'depth': 11}
+MEAS: {
+  "re": 2.155165690707006,
+  "hd": 2.147761960427625,
+  "im": 0.008532882118903911,
+  "bias": 0.007403730279381016
+}
+VERDICT: H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND
+EXIT: 0

@@ -1,0 +1,278 @@
+{
+  "experiment": "056-ququint-ramanujan-symcomp",
+  "hypothesis": "H-SYMCOMP",
+  "prereg_md5": "a7922c99c263ba0b6494f0bb1bc6b185",
+  "qpu_jobs": 0,
+  "e1_compiler": {
+    "ok": true,
+    "ramanujan_rows": [],
+    "ring_rows": [
+      {
+        "q": 3,
+        "omega_q_is_one": true,
+        "norm_1_minus_omega": "3",
+        "norm_ok": true
+      },
+      {
+        "q": 5,
+        "omega_q_is_one": true,
+        "norm_1_minus_omega": "5",
+        "norm_ok": true
+      },
+      {
+        "q": 7,
+        "omega_q_is_one": true,
+        "norm_1_minus_omega": "7",
+        "norm_ok": true
+      },
+      {
+        "q": 11,
+        "omega_q_is_one": true,
+        "norm_1_minus_omega": "11",
+        "norm_ok": true
+      }
+    ],
+    "gf_rows": [],
+    "gate_rows": [],
+    "gate_checked": 252
+  },
+  "e2_hardware": {
+    "ok": true,
+    "ratio_b2_q5": 1.0248295598013635,
+    "anchor_ratio": 1.0248295598013664,
+    "abs_diff": 2.886579864025407e-15,
+    "t_anchor": true,
+    "wraparound_point": [
+      211,
+      81
+    ],
+    "res_abs": 5.551115123125783e-17,
+    "res_renorm_mn": 0.06497638018520543,
+    "abs_ok": true,
+    "renorm_bricht_erwartet": true,
+    "loschmidt_delta": "[Fraction(1, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)]",
+    "losch_ok": true,
+    "t_backcompat_q5": true
+  },
+  "e3_asymptotik": {
+    "hard_ok": true,
+    "desk_ok": true,
+    "scan_rows": {
+      "3": [
+        {
+          "P": 1000,
+          "pi": 168,
+          "share": 0.111747991377621,
+          "b2": 0.11174799137762101,
+          "residual": 1.3877787807814457e-17,
+          "alt_res": 0.0,
+          "ratio": 1.0053994490358127,
+          "c_p": 5.399449035812687
+        },
+        {
+          "P": 10000,
+          "pi": 1229,
+          "share": 0.8388855962613609,
+          "b2": 0.8388855962613609,
+          "residual": 0.0,
+          "alt_res": 0.0,
+          "ratio": 1.0000718526541572,
+          "c_p": 0.7185265415721176
+        },
+        {
+          "P": 100000,
+          "pi": 9592,
+          "share": 6.574874066294385,
+          "b2": 6.574874066294385,
+          "residual": 0.0,
+          "alt_res": 0.0,
+          "ratio": 1.0000172595826329,
+          "c_p": 1.7259582632878079
+        },
+        {
+          "P": 1000000,
+          "pi": 78498,
+          "share": 53.83542313520714,
+          "b2": 53.83542313520714,
+          "residual": 0.0,
+          "alt_res": 0.0,
+          "ratio": 1.0000005964490564,
+          "c_p": 0.5964490563670211
+        },
+        {
+          "P": 10000000,
+          "pi": 664579,
+          "share": 455.8114972385821,
+          "b2": 455.8114972385821,
+          "residual": 0.0,
+          "alt_res": 1.2470817257831229e-16,
+          "ratio": 1.000000245210549,
+          "c_p": 2.452105489769707
+        },
+        {
+          "P": 100000000,
+          "pi": 5761455,
+          "share": 3951.611174110672,
+          "b2": 3951.6111741106724,
+          "residual": 4.547473508864641e-13,
+          "alt_res": 1.1507897180415455e-16,
+          "ratio": 1.0000000159424822,
+          "c_p": 1.594248222325234
+        }
+      ],
+      "5": [
+        {
+          "P": 1000,
+          "pi": 168,
+          "share": 0.0653904761904762,
+          "b2": 0.0653904761904762,
+          "residual": 0.0,
+          "alt_res": 0.0,
+          "ratio": 1.0336858745154127,
+          "c_p": 33.68587451541272
+        },
+        {
+          "P": 10000,
+          "pi": 1229,
+          "share": 0.48780341741253064,
+          "b2": 0.4878034174125305,
+          "residual": 1.1102230246251565e-16,
+          "alt_res": 0.0,
+          "ratio": 1.0004004869921825,
+          "c_p": 4.00486992182536
+        },
+        {
+          "P": 100000,
+          "pi": 9592,
+          "share": 3.8331319432860718,
+          "b2": 3.8331319432860718,
+          "residual": 0.0,
+          "alt_res": 0.0,
+          "ratio": 1.0000863339231423,
+          "c_p": 8.633392314227883
+        },
+        {
+          "P": 1000000,
+          "pi": 78498,
+          "share": 31.395474758592567,
+          "b2": 31.395474758592577,
+          "residual": 1.0658141036401503e-14,
+          "alt_res": 0.0,
+          "ratio": 1.000008747553756,
+          "c_p": 8.747553756016657
+        },
+        {
+          "P": 10000000,
+          "pi": 664579,
+          "share": 265.82791495728884,
+          "b2": 265.8279149572887,
+          "residual": 1.1368683772161603e-13,
+          "alt_res": 0.0,
+          "ratio": 1.0000011847612573,
+          "c_p": 11.847612573223643
+        },
+        {
+          "P": 100000000,
+          "pi": 5761455,
+          "share": 2304.5780910384615,
+          "b2": 2304.578091038462,
+          "residual": 4.547473508864641e-13,
+          "alt_res": 1.9732347220291033e-16,
+          "ratio": 1.000000039502558,
+          "c_p": 3.9502557891424317
+        }
+      ]
+    },
+    "d_invs": [
+      {
+        "P": 1000000,
+        "pair": [
+          9,
+          729
+        ],
+        "q": 3,
+        "residual": 1.8539349905264326e-16
+      },
+      {
+        "P": 1000000,
+        "pair": [
+          25,
+          625
+        ],
+        "q": 5,
+        "residual": 1.8540143559235928e-16
+      },
+      {
+        "P": 100000,
+        "pair": [
+          49,
+          2401
+        ],
+        "q": 7,
+        "residual": 1.4240275760331315e-16
+      }
+    ],
+    "max_residual": 4.547473508864641e-13,
+    "max_dinv": 1.8540143559235928e-16,
+    "ratio_floor_ok": true,
+    "desk": {
+      "3": {
+        "slope": -1.076649005267182,
+        "slope_ok": true,
+        "c_max": 5.399449035812687,
+        "c_ok": true,
+        "envelope_ok": true
+      },
+      "5": {
+        "slope": -1.0568335759853928,
+        "slope_ok": true,
+        "c_max": 33.68587451541272,
+        "c_ok": true,
+        "envelope_ok": true
+      }
+    }
+  },
+  "e4_synthese": {
+    "ok": true,
+    "checks": [
+      {
+        "P": 625,
+        "d": 625,
+        "q": 5,
+        "ident_exakt": true,
+        "ratio_true": "12176/11881",
+        "share_true": "1522/35625",
+        "model_share": "11881/285000"
+      },
+      {
+        "P": 97,
+        "d": 625,
+        "q": 5,
+        "ident_exakt": true,
+        "ratio_true": "6/5",
+        "share_true": "24/3125",
+        "model_share": "4/625"
+      },
+      {
+        "P": 109,
+        "d": 729,
+        "q": 3,
+        "ident_exakt": true,
+        "ratio_true": "172/169",
+        "share_true": "344/21141",
+        "model_share": "338/21141"
+      },
+      {
+        "P": 10007,
+        "d": 729,
+        "q": 3,
+        "ident_exakt": true,
+        "ratio_true": "501892/501843",
+        "share_true": "125473/149445",
+        "model_share": "167281/199260"
+      }
+    ],
+    "zielprofil": "share*_q = (m-q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m); ratio = 1 + q(q-1)*sigma^2/(m-q*n0)^2 >= 1; Compiler: exp(2\u03c0i\u00b7a\u00b7p/d) \u21a6 e=(a\u00b7p) mod d \u21a6 j\u00b7(p mod q) mod q; Hilbert-P\u00f3lya-Ziel: diskretes zyklotomisches Resonanzgitter, Kontinuum nur als symbolischer Limes P\u2192\u221e (B3)."
+  },
+  "verdict": "H-SYMCOMP_CONFIRMED"
+}

@@ -1,0 +1,33 @@
+{
+ "phi_margin_pass": true,
+ "sep_margin_pass": true,
+ "confound_pass": false,
+ "phi_margin": 0.3466327272744522,
+ "sep_margin": -0.036664416438062536,
+ "confound_max_diff": 0.0726318359375,
+ "phi_v_hat": 0.5684814453125,
+ "phi_se": 0.005462179509511946,
+ "sep_v_hat": 0.1705322265625,
+ "sep_se": 0.0017991607501406286,
+ "leakage_rate_phi_C": 0.056640625,
+ "leakage_rate_sep_C": 0.0221435546875,
+ "leakage_rate_phi_D": 0.1748046875,
+ "leakage_rate_sep_D": 0.1325439453125,
+ "n_shots": 8192,
+ "n_circuits": 12,
+ "emulated": false,
+ "decision_rule": "phi_margin_pass AND sep_margin_pass AND confound_pass",
+ "bands_hold": {
+  "phi_margin": true,
+  "sep_margin": true,
+  "confound_max_diff": false
+ },
+ "job_id": "db8t3rob3g5c73eguc50",
+ "backend": "ibm_marrakesh",
+ "token": "TOKEN2",
+ "rule_holds": false,
+ "job_meta": {
+  "job_id": "db8t3rob3g5c73eguc50",
+  "backend": "ibm_marrakesh"
+ }
+}

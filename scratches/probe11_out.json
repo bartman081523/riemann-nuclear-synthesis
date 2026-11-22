@@ -1,0 +1,217 @@
+{
+ "backend": "ibm_fez",
+ "zero_probe": {
+  "ladder_q3_d3_181_r2": {
+   "real_ops": {
+    "sx": 24,
+    "rz": 22,
+    "cz": 4,
+    "barrier": 3,
+    "x": 2,
+    "measure": 2
+   },
+   "zero_ops": {
+    "sx": 24,
+    "rz": 22,
+    "cz": 4,
+    "barrier": 3,
+    "x": 2,
+    "measure": 2
+   },
+   "real_x": 2,
+   "zero_x": 2,
+   "real_two_q": 4,
+   "zero_two_q": 4,
+   "s1_x": 0,
+   "s1_two_q": 4,
+   "real_eq_s1": false,
+   "zero_eq_s1": false,
+   "real_eq_zero": true,
+   "layout_real": [
+    14,
+    13
+   ],
+   "layout_zero": [
+    14,
+    13
+   ]
+  },
+  "ladder_q3_d3_181_r4": {
+   "real_ops": {
+    "sx": 48,
+    "rz": 44,
+    "cz": 8,
+    "barrier": 7,
+    "x": 4,
+    "measure": 2
+   },
+   "zero_ops": {
+    "sx": 48,
+    "rz": 44,
+    "cz": 8,
+    "barrier": 7,
+    "x": 4,
+    "measure": 2
+   },
+   "real_x": 4,
+   "zero_x": 4,
+   "real_two_q": 8,
+   "zero_two_q": 8,
+   "s1_x": 0,
+   "s1_two_q": 8,
+   "real_eq_s1": false,
+   "zero_eq_s1": false,
+   "real_eq_zero": true,
+   "layout_real": [
+    14,
+    13
+   ],
+   "layout_zero": [
+    14,
+    13
+   ]
+  },
+  "ladder_q3_d3_181_r8": {
+   "real_ops": {
+    "sx": 96,
+    "rz": 88,
+    "cz": 16,
+    "barrier": 15,
+    "x": 8,
+    "measure": 2
+   },
+   "zero_ops": {
+    "sx": 96,
+    "rz": 88,
+    "cz": 16,
+    "barrier": 15,
+    "x": 8,
+    "measure": 2
+   },
+   "real_x": 8,
+   "zero_x": 8,
+   "real_two_q": 16,
+   "zero_two_q": 16,
+   "s1_x": 0,
+   "s1_two_q": 16,
+   "real_eq_s1": false,
+   "zero_eq_s1": false,
+   "real_eq_zero": true,
+   "layout_real": [
+    10,
+    9
+   ],
+   "layout_zero": [
+    10,
+    9
+   ]
+  },
+  "ctrl_composite_P467_d5": {
+   "real_ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "zero_ops": {
+    "sx": 17,
+    "rz": 16,
+    "cz": 5,
+    "measure": 3
+   },
+   "real_x": 0,
+   "zero_x": 0,
+   "real_two_q": 5,
+   "zero_two_q": 5,
+   "s1_x": 1,
+   "s1_two_q": 5,
+   "real_eq_s1": false,
+   "zero_eq_s1": false,
+   "real_eq_zero": true,
+   "layout_real": [
+    142,
+    143,
+    144
+   ],
+   "layout_zero": [
+    142,
+    143,
+    144
+   ]
+  }
+ },
+ "matching_probe": {
+  "ladder_q5_d5_467_r2": {
+   "real_ops": {
+    "sx": 73,
+    "rz": 56,
+    "cz": 24,
+    "barrier": 3,
+    "measure": 3
+   },
+   "zero_ops": {
+    "sx": 73,
+    "rz": 56,
+    "cz": 24,
+    "barrier": 3,
+    "measure": 3
+   },
+   "real_x": 0,
+   "zero_x": 0,
+   "real_two_q": 24,
+   "zero_two_q": 24,
+   "s1_x": 0,
+   "s1_two_q": 24,
+   "real_eq_s1": true,
+   "zero_eq_s1": true,
+   "real_eq_zero": true,
+   "layout_real": [
+    142,
+    136,
+    143
+   ],
+   "layout_zero": [
+    142,
+    136,
+    143
+   ]
+  },
+  "ctrl_uniform_q5": {
+   "real_ops": {
+    "sx": 10,
+    "rz": 8,
+    "measure": 3,
+    "cz": 2,
+    "x": 1
+   },
+   "zero_ops": {
+    "sx": 10,
+    "rz": 8,
+    "measure": 3,
+    "cz": 2,
+    "x": 1
+   },
+   "real_x": 1,
+   "zero_x": 1,
+   "real_two_q": 2,
+   "zero_two_q": 2,
+   "s1_x": 1,
+   "s1_two_q": 2,
+   "real_eq_s1": true,
+   "zero_eq_s1": true,
+   "real_eq_zero": true,
+   "layout_real": [
+    144,
+    142,
+    143
+   ],
+   "layout_zero": [
+    144,
+    142,
+    143
+   ]
+  }
+ },
+ "zeroed_error_entries": 1288,
+ "any_real_vs_zero_ops_diff": false
+}

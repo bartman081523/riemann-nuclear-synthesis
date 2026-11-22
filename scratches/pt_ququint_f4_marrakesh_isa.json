@@ -1,0 +1,147 @@
+{
+ "circuit_names": [
+  "phi_C",
+  "phi_D",
+  "sep_C_0",
+  "sep_C_1",
+  "sep_C_2",
+  "sep_C_3",
+  "sep_C_4",
+  "sep_D_0",
+  "sep_D_1",
+  "sep_D_2",
+  "sep_D_3",
+  "sep_D_4"
+ ],
+ "per_circuit": {
+  "phi_C": {
+   "ops": {
+    "rz": 22,
+    "sx": 16,
+    "cz": 7,
+    "measure": 6,
+    "x": 3,
+    "barrier": 1
+   },
+   "two_q": 7,
+   "depth": 24
+  },
+  "phi_D": {
+   "ops": {
+    "sx": 222,
+    "rz": 203,
+    "cz": 81,
+    "x": 7,
+    "measure": 6,
+    "barrier": 1
+   },
+   "two_q": 81,
+   "depth": 280
+  },
+  "sep_C_0": {
+   "ops": {
+    "measure": 6,
+    "barrier": 1
+   },
+   "two_q": 0,
+   "depth": 1
+  },
+  "sep_C_1": {
+   "ops": {
+    "measure": 6,
+    "x": 2,
+    "barrier": 1
+   },
+   "two_q": 0,
+   "depth": 2
+  },
+  "sep_C_2": {
+   "ops": {
+    "measure": 6,
+    "x": 2,
+    "barrier": 1
+   },
+   "two_q": 0,
+   "depth": 2
+  },
+  "sep_C_3": {
+   "ops": {
+    "measure": 6,
+    "x": 4,
+    "barrier": 1
+   },
+   "two_q": 0,
+   "depth": 2
+  },
+  "sep_C_4": {
+   "ops": {
+    "measure": 6,
+    "x": 2,
+    "barrier": 1
+   },
+   "two_q": 0,
+   "depth": 2
+  },
+  "sep_D_0": {
+   "ops": {
+    "sx": 191,
+    "rz": 171,
+    "cz": 62,
+    "measure": 6,
+    "x": 1,
+    "barrier": 1
+   },
+   "two_q": 62,
+   "depth": 132
+  },
+  "sep_D_1": {
+   "ops": {
+    "sx": 181,
+    "rz": 172,
+    "cz": 58,
+    "measure": 6,
+    "x": 2,
+    "barrier": 1
+   },
+   "two_q": 58,
+   "depth": 126
+  },
+  "sep_D_2": {
+   "ops": {
+    "sx": 188,
+    "rz": 172,
+    "cz": 58,
+    "measure": 6,
+    "x": 1,
+    "barrier": 1
+   },
+   "two_q": 58,
+   "depth": 126
+  },
+  "sep_D_3": {
+   "ops": {
+    "sx": 181,
+    "rz": 172,
+    "cz": 58,
+    "measure": 6,
+    "x": 2,
+    "barrier": 1
+   },
+   "two_q": 58,
+   "depth": 126
+  },
+  "sep_D_4": {
+   "ops": {
+    "sx": 181,
+    "rz": 173,
+    "cz": 54,
+    "measure": 6,
+    "x": 1,
+    "barrier": 1
+   },
+   "two_q": 54,
+   "depth": 120
+  }
+ },
+ "total_two_q": 378
+}

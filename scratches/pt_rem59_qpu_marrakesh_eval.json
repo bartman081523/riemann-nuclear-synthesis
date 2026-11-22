@@ -1,0 +1,16 @@
+{
+ "experiment": "059-qpu-marrakesh",
+ "job_id": "db8t34ob3g5c73egub5g",
+ "prereg_md5": "be30ab9b44a7662805ce3ebb840b00ee",
+ "n32": 506,
+ "shots": 8192,
+ "mass_32": 0.061767578125,
+ "pred": 0.26663306451612906,
+ "band": [
+  0.21330645161290326,
+  0.3332913306451613
+ ],
+ "kappa_hat": 0.23165760869565216,
+ "cal_zero_frac": 0.9005126953125,
+ "verdict": "H-REM59-Q_REFUTED"
+}

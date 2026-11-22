@@ -1,0 +1,3 @@
+status STAGE2B_AER_COMPLETED prereg_md5 0b9c9968dc5e99a3cc22962a8b760e44
+form {'v2_pass': True, 'v2_pass_exact': True, 'v2_pass_sampled': True, 'max_res_v2_exact': 0.0021874238013607217, 'max_res_v2_sampled_diag': 0.03961692481050605, 'sampled_q975': 0.02787029633307472, 'v2_violations': [], 'v1_fail_cells': 702, 'n_domain_cells_exact': 60, 'n_domain_cells_sampled': 480, 'n_cells': 702}
+w_b 0.02787029633307472

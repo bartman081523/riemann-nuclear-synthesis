@@ -1,0 +1,33 @@
+{
+  "experiment": "059-ramanujan-einklang-1",
+  "hypothesis": "H-REM59",
+  "e1": {
+    "familien": [
+      "5n+4 mod 5",
+      "7n+5 mod 7",
+      "11n+6 mod 11"
+    ],
+    "pmax": 2000,
+    "vorhergesagt": "alle Reste 0 (THEOREM)"
+  },
+  "e2": {
+    "n_max": 100,
+    "vorhergesagt": "alle (\u03c4\u2212\u03c311) mod 691 == 0 (THEOREM)"
+  },
+  "e3": {
+    "P": 100,
+    "d": 64,
+    "q": 2,
+    "m": 25,
+    "n0": 1,
+    "sum_n2": 31,
+    "b2_share": 0.330625,
+    "sv_share_pred": 0.26663306451612906,
+    "g32": -23,
+    "bruecke": "Counts\u2192Amplituden tr\u00e4gt \u03a3n\u00b2; share_SV = share_B2\u00b7m/\u03a3n\u00b2",
+    "tol": 1e-12
+  },
+  "qpu_phase": "REGISTRIERT, NICHT SUBMITTIERT \u2014 Freigabe + Budget n\u00f6tig",
+  "qpu": "0 QPU in dieser Phase",
+  "md5": "988767a249a231c1d53cb9c5abc84bb4"
+}

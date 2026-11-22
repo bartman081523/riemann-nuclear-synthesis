@@ -1,0 +1,955 @@
+{
+ "p48_attrs": [
+  "ANCHOR_RHO_POOLED",
+  "ANCHOR_RHO_Q3",
+  "ANCHOR_RHO_Q5",
+  "ARMS",
+  "CAL_OLD_P",
+  "CP_TOL",
+  "D_FAM_BY_ARM",
+  "D_MIN_BY_ARM",
+  "D_TOL",
+  "EVAL_PATH",
+  "EXPERIMENT",
+  "FAM_BY_ARM",
+  "FEZ_BACKLOG",
+  "H3_EVAL_S1",
+  "H3_EVAL_S2",
+  "H3_PREREG",
+  "HYPOTHESIS",
+  "ISA_2Q_PER_CIRCUIT_MAX",
+  "ISA_2Q_TOTAL_MAX",
+  "ISA_GATE_PATH",
+  "ISA_REPORT_PATH",
+  "JOB046_ID",
+  "JOB_ID_PATH",
+  "K2_EVAL",
+  "K2_PREREG",
+  "KAPPA_CEILING",
+  "KAPPA_S1_Q5_CAL_MIN",
+  "LEG",
+  "NQ3",
+  "NQ5",
+  "NQ_BY_ARM",
+  "N_CAL_Q5_TARGET",
+  "N_CIRCUITS",
+  "N_NEW_CAL_Q5",
+  "PREREG_PATH",
+  "Q95_PERM_Q3",
+  "Q95_PERM_Q5",
+  "Q_BY_ARM",
+  "RAW_PATH",
+  "RHO_C_VORPROBE_Q3",
+  "RHO_C_VORPROBE_Q5",
+  "SESSIONS_OUT",
+  "SE_C_MEAN_S1",
+  "SE_NO_INT_S1_Q5_CAL",
+  "SHOTS",
+  "SQRT_EXPECT_N16",
+  "TOTAL_SHOTS",
+  "TRANSPILE_SEED",
+  "VERDICT_P",
+  "W_A",
+  "W_B_DP",
+  "_fmd5",
+  "_inherit",
+  "_records_by_P",
+  "_sess_rows",
+  "arm_records",
+  "arm_rows",
+  "build_prereg_payload",
+  "cP_freeze_fresh",
+  "canonical_payload_json",
+  "eval_grid",
+  "forced_row_order",
+  "freeze_prereg",
+  "fresh_points",
+  "h3",
+  "h3a",
+  "hashlib",
+  "itertools",
+  "json",
+  "ladder_ps",
+  "layout_slots",
+  "load_frozen_prereg",
+  "main",
+  "np",
+  "payload_md5",
+  "q95_exact_perm",
+  "recompute_anchors",
+  "slot_assignment",
+  "spearman",
+  "union40",
+  "verify_frozen",
+  "verify_prereg_md5"
+ ],
+ "ev_attrs": [
+  "EVAL_PATH",
+  "F8_BLEIBT",
+  "F8_KIPPT",
+  "GATE_PATH",
+  "ISA_PATH",
+  "PREREG_MD5",
+  "RAW_PATH",
+  "REFIT_INVALID",
+  "REFIT_OK",
+  "STAGE3_PATH",
+  "V_D7",
+  "V_MIXED",
+  "V_PHELD",
+  "V_UNDET",
+  "_echo_from_eval",
+  "_folded_share",
+  "_ols_decomp",
+  "_se_no_int",
+  "aer",
+  "anchor_r1_name",
+  "arm_rows",
+  "center_v3",
+  "decide_verdict_055",
+  "e2",
+  "evaluate",
+  "fit_gamma_arm",
+  "h3",
+  "h3a",
+  "h3e",
+  "hashlib",
+  "json",
+  "np",
+  "os",
+  "p48",
+  "qpu",
+  "s3a",
+  "write_eval"
+ ],
+ "signatures": {
+  "p48._fmd5": "(path)",
+  "p48._inherit": "(key)",
+  "p48._records_by_P": "(rows)",
+  "p48._sess_rows": "()",
+  "p48.arm_records": "(arm, plist)",
+  "p48.arm_rows": "(path, arm)",
+  "p48.build_prereg_payload": "()",
+  "p48.cP_freeze_fresh": "(pts_e, cal_e)",
+  "p48.canonical_payload_json": "(payload)",
+  "p48.eval_grid": "()",
+  "p48.forced_row_order": "()",
+  "p48.freeze_prereg": "(path='pt_ram_q_prio48_prereg.json')",
+  "p48.fresh_points": "()",
+  "p48.ladder_ps": "(with_log=True)",
+  "p48.layout_slots": "(nq, edges)",
+  "p48.load_frozen_prereg": "(path='pt_ram_q_prio48_prereg.json')",
+  "p48.main": "(argv=None)",
+  "p48.payload_md5": "(payload)",
+  "p48.q95_exact_perm": "(v_anchor, v_other)",
+  "p48.recompute_anchors": "()",
+  "p48.slot_assignment": "(n_rows, n_slots, start=1)",
+  "p48.spearman": "(a, b)",
+  "p48.union40": "()",
+  "p48.verify_frozen": "(path='pt_ram_q_prio48_prereg.json')",
+  "p48.verify_prereg_md5": "(doc)",
+  "ev._echo_from_eval": "(path, arm)",
+  "ev._folded_share": "(n_hat, pt)",
+  "ev._ols_decomp": "(cps, dls)",
+  "ev._se_no_int": "(cps, dls)",
+  "ev.anchor_r1_name": "(arm, P, anchor_pkey)",
+  "ev.arm_rows": "(points_by_pkey, arm)",
+  "ev.center_v3": "(kappa_hat, pt, ro_hat, b_p, gamma_arm, c_p, nq)",
+  "ev.decide_verdict_055": "(*, t_fail_other, refit_invalid, c1_q5, c1_q3, c2, c3_fire_q5, c3_fire_q3)",
+  "ev.evaluate": "(raw_path='pt_ram_q_prio48_raw.json', stage3_path='pt_ram_q_prio48_stage3_results.json', isa_path='pt_ram_q_prio48_isa_report.json', gate_path='pt_ram_q_prio48_isa_gate.json', prereg_path=None, points=None, cal=None, stage3_prereg_md5=None)",
+  "ev.fit_gamma_arm": "(rows)",
+  "ev.write_eval": "(doc, path='pt_ram_q_prio48_eval.json')"
+ },
+ "src_ev_decide_verdict_055": "def decide_verdict_055(*, t_fail_other, refit_invalid, c1_q5, c1_q3, c2,\n                       c3_fire_q5, c3_fire_q3):\n    \"\"\"Gefrorene 055-Verdict-Logik: Kcontrol-Void -> Refit-Void (safeguard\n    Reihenfolge per Register) -> D.7 -> P-Transfer -> Mixed -> UNDETERMINED.\"\"\"\n    if t_fail_other:\n        return \"EVALUATION_INVALID_KONTROLLE_GESCHEITERT\"\n    if refit_invalid:\n        return V_UNDET\n    if (not c1_q5) and c3_fire_q5:\n        return V_D7\n    if c1_q5 and c1_q3 and c2 and not (c3_fire_q5 or c3_fire_q3):\n        return V_PHELD\n    if c1_q5 or c1_q3:\n        return V_MIXED\n    return V_UNDET\n",
+ "src_ev__ols_decomp": "def _ols_decomp(cps, dls):\n    \"\"\"Registrierte decomposition_F: OLS-mit-Achsenabschnitt X = [ones, c_p],\n    se = sqrt(s2*XtXi[1,1]), resid_sd = sqrt(s2) (ddof=2).\"\"\"\n    cps = np.asarray(cps, dtype=float)\n    dls = np.asarray(dls, dtype=float)\n    n = len(cps)\n    x = np.column_stack([np.ones(n), cps])\n    beta, *_ = np.linalg.lstsq(x, dls, rcond=None)\n    resid = dls - x @ beta\n    ssres = float(resid @ resid)\n    s2 = ssres / (n - 2)\n    xtxi = np.linalg.inv(x.T @ x)\n    sstot = float(((dls - dls.mean()) ** 2).sum())\n    return {\n        \"intercept\": float(beta[0]), \"gamma_ols\": float(beta[1]),\n        \"se_gamma\": float(np.sqrt(s2 * xtxi[1, 1])),\n        \"resid_sd_ddof2\": float(np.sqrt(s2)), \"r2\": 1.0 - ssres / sstot,\n        \"n\": int(n),\n    }\n",
+ "src_ev__se_no_int": "def _se_no_int(cps, dls):\n    \"\"\"D.5-SE-Provenanz (no-intercept LSQ) in der registrierten\n    recompute_anchors-Form (p48 — Bit-Kontrakt der S1-Pins).\"\"\"\n    cps = np.asarray(cps, dtype=float)\n    dls = np.asarray(dls, dtype=float)\n    gam = float(cps @ dls) / float(cps @ cps)\n    scatter = dls - gam * cps\n    se = float(np.sqrt(float(scatter @ scatter) / (len(cps) - 1)\n                       / float(cps @ cps)))\n    return gam, se\n",
+ "src_ev_arm_rows": "def arm_rows(points_by_pkey, arm):\n    \"\"\"Verdict-Zeilen aus einem frisch berechneten points-Dict (gleiche\n    Form wie p48.arm_rows auf einem Eval-Artefakt).\"\"\"\n    rows = {}\n    for pkey, rec in points_by_pkey.items():\n        setname, armname, _ps = pkey.split(\"|\")\n        if armname != arm:\n            continue\n        rows.setdefault(setname, {})[rec[\"P\"]] = rec\n    out = {}\n    for setname, byP in rows.items():\n        Ps = sorted(byP)\n        out[setname] = {\n            \"P\": Ps,\n            \"res\": [(float(byP[p][\"res_v3\"])\n                     if byP[p][\"res_v3\"] is not None else None) for p in Ps],\n            \"c_p\": [float(byP[p][\"c_p\"]) for p in Ps],\n            \"below_sharp\": [p for p in Ps if byP[p][\"below_sharp\"]],\n            \"kappa\": [(float(byP[p][\"kappa_hat\"])\n                       if byP[p][\"kappa_hat\"] is not None else None)\n                      for p in Ps],\n        }\n    return out\n",
+ "src_ev__echo_from_eval": "def _echo_from_eval(path, arm):\n    \"\"\"echo_ladder[arm]-Subdict eines committed S1/S2-Eval-Artefakts\n    (descriptiv-Vergleich fuer fez_lesart_b).\"\"\"\n    with open(path, encoding=\"utf-8\") as fh:\n        d = json.load(fh)\n    lad = d[\"echo_ladder\"][arm]\n    return {k: lad[k] for k in sorted(lad)}\n",
+ "src_ev_write_eval": "def write_eval(doc, path=EVAL_PATH):\n    with open(path, \"w\", encoding=\"utf-8\") as fh:\n        json.dump(doc, fh, ensure_ascii=False, indent=1)\n    return path\n",
+ "src_p48_arm_rows": "def arm_rows(path, arm):\n    \"\"\"Verdict-/Kal-Zeilen eines Arms aus einem Eval-Artefakt (Design-Scratch).\"\"\"\n    d = json.load(open(path, encoding=\"utf-8\"))\n    rows = {}\n    for key, row in d[\"punkte\"].items():\n        setname, armname, _ps = key.split(\"|\")\n        if armname != arm:\n            continue\n        rows.setdefault(setname, {})[row[\"P\"]] = row\n    out = {}\n    for setname, byP in rows.items():\n        Ps = sorted(byP)\n        out[setname] = {\n            \"P\": Ps,\n            \"res\": [float(byP[p][\"res_v3\"]) for p in Ps],\n            \"c_p\": [float(byP[p][\"c_p\"]) for p in Ps],\n            \"below_sharp\": [p for p in Ps if byP[p][\"below_sharp\"]],\n            \"kappa\": [float(byP[p][\"kappa_hat\"]) for p in Ps],\n        }\n    return out\n",
+ "src_p48_spearman": "def spearman(a, b):\n    \"\"\"§Z.31-Konvention: argsort-argsort-Raenge + Pearson.\"\"\"\n    a = np.asarray(a, dtype=float)\n    b = np.asarray(b, dtype=float)\n    ra = np.argsort(np.argsort(a))\n    rb = np.argsort(np.argsort(b))\n    return float(np.corrcoef(ra, rb)[0, 1])\n",
+ "src_p48_q95_exact_perm": "def q95_exact_perm(v_anchor, v_other):\n    \"\"\"q95 der exakten Permutations-Null (deterministisch, kein RNG).\n\n    rho(v_anchor, P(v)) fuer ALLE n!-Permutationen; q95 = kleinster Wert\n    >= 95 % der Nullmenge (int(ceil(0.95*n)) - 1 nach Sortierung).\n    \"\"\"\n    v_anchor = np.asarray(v_anchor, dtype=float)\n    v_other = np.asarray(v_other, dtype=float)\n    rhos = [spearman(v_anchor, v_other[list(p)])\n            for p in itertools.permutations(range(len(v_anchor)))]\n    rhos = np.sort(np.asarray(rhos))\n    return float(rhos[int(np.ceil(0.95 * len(rhos))) - 1]), len(rhos)\n",
+ "src_p48_slot_assignment": "def slot_assignment(n_rows, n_slots, start=1):\n    \"\"\"Zyklischer Shift (Reihe i -> Slot (start + i) mod n_slots), start=1\n    (die Einstellungs-Regel: NIEMALS Slot 0 = 'Freeze-Geometrie' fuer die\n    erste Zeile).\"\"\"\n    return [(start + i) % n_slots for i in range(n_rows)]\n",
+ "src_p48_recompute_anchors": "def recompute_anchors():\n    \"\"\"Alle registrierten Anker FRISCH aus den committeten Artefakten\n    rechnen (S1/S2-Evals + h9_sessions-Scratch) und bit gegen die\n    Konstanten pruefen — wird von --verify UND vom Freeze-Builder benutzt.\"\"\"\n    s1q5 = arm_rows(H3_EVAL_S1, \"q5_d5\")\n    s2q5 = arm_rows(H3_EVAL_S2, \"q5_d5\")\n    s1q3 = arm_rows(H3_EVAL_S1, \"q3_d3\")\n    s2q3 = arm_rows(H3_EVAL_S2, \"q3_d3\")\n    if s1q5[\"verdict\"][\"P\"] != s2q5[\"verdict\"][\"P\"]:\n        raise ValueError(\"S1/S2-verdict-P-Vektoren differieren (q5)\")\n    if s1q5[\"verdict\"][\"c_p\"] != s2q5[\"verdict\"][\"c_p\"] or \\\n            s1q3[\"verdict\"][\"c_p\"] != s2q3[\"verdict\"][\"c_p\"]:\n        raise ValueError(\"c_p S1 != S2 (deterministische same-transpile \"\n                         \"verletzt — C3/C.1-Grundlage faellt weg)\")\n    rho5 = spearman(s1q5[\"verdict\"][\"res\"], s2q5[\"verdict\"][\"res\"])\n    rho3 = spearman(s1q3[\"verdict\"][\"res\"], s2q3[\"verdict\"][\"res\"])\n    q5_rows, q3_rows = _sess_rows()\n    brows = q5_rows + q3_rows\n    rho_pool = spearman([r[\"s1\"] for r in brows], [r[\"s2\"] for r in brows])\n    q95_5, npm5 = q95_exact_perm(s1q5[\"verdict\"][\"res\"],\n                                 s2q5[\"verdict\"][\"res\"])\n    q95_3, npm3 = q95_exact_perm(s1q3[\"verdict\"][\"res\"],\n                                 s2q3[\"verdict\"][\"res\"])\n    checks = {\n        \"anchor_rho_q5\": (rho5, ANCHOR_RHO_Q5),\n        \"anchor_rho_q3\": (rho3, ANCHOR_RHO_Q3),\n        \"anchor_rho_pooled\": (rho_pool, ANCHOR_RHO_POOLED),\n        \"q95_exact_perm_q5\": (q95_5, Q95_PERM_Q5),\n        \"q95_exact_perm_q3\": (q95_3, Q95_PERM_Q3),\n    }\n    diverging = [k for k, (got, pin) in checks.items()\n                 if abs(got - pin) > 1e-12]\n    if diverging:\n        raise ValueError(\"Anker-Rechnung trifft Pin nicht: %s\" % diverging)\n    # D.5-SE (no-intercept LSQ) an den S1-q5-Cal-Reihen:\n    s1gamma = json.load(open(H3_EVAL_S1, encoding=\"utf-8\"))[\"gamma_arm\"][\"q5_d5\"]\n    crows = s1gamma[\"rows\"]\n    cps = np.array([r[\"c_p\"] for r in crows])\n    dls = np.array([r[\"delta_cal\"] for r in crows])\n    gam = float(cps @ dls) / float(cps @ cps)\n    scatter = dls - gam * cps\n    se = float(np.sqrt(float(scatter @ scatter) / (len(cps) - 1)\n                       / float(cps @ cps)))\n    mean_c = float(np.mean(cps))\n    if abs(se - SE_NO_INT_S1_Q5_CAL) > 1e-12:\n        raise ValueError(\"SE-no-int-Anker trifft Pin nicht\")\n    if abs(se * mean_c - SE_C_MEAN_S1) > 1e-12:\n        raise ValueError(\"SE·c̄-Provenance trifft Pin nicht\")\n    return {\n        \"rho_q5\": rho5, \"rho_q3\": rho3, \"rho_pooled\": rho_pool,\n        \"q95_q5\": q95_5, \"n_perm_q5\": npm5,\n        \"q95_q3\": q95_3, \"n_perm_q3\": npm3,\n        \"se_no_int\": se, \"mean_c\": mean_c,\n        \"se_times_mean_c\": se * mean_c,\n        \"sqrt_skalierung_n16\": se * np.sqrt(5.0 / 16.0),\n        \"c_p_identisch_s1_s2\": True,\n    }\n",
+ "src_p48_verify_frozen": "def verify_frozen(path=PREREG_PATH):\n    \"\"\"Alle BIT-CHECKS am gefrorenen 055-Prereg (Verify/Regression).\"\"\"\n    doc = load_frozen_prereg(path)\n    pts_e, cal_e, ladder = eval_grid()\n    cP = cP_freeze_fresh(pts_e, cal_e)\n    got = doc[\"prediction_freeze\"][\"cP_freeze\"]\n    diverging = [k for k in cP if k in got and\n                 abs(cP[k] - float(got[k])) > CP_TOL]\n    missing = [k for k in cP if k not in got]\n    if diverging or missing:\n        raise ValueError(\"cP-Divergenz (diverging=%s, missing=%s)\"\n                         % (diverging, missing))\n    # Ladder-Determinismus: die 11 neuen q5-Kal-Reihen des Preregs muessen\n    # exakt die frisch abgeleitete Ladder-Reihenfolge sein (Gen-Reihenfolge).\n    kb_q5 = doc[\"kalibrier_bein\"][\"points\"][\"q5_d5\"]\n    kb_ladder = [rec[\"P\"] for rec in kb_q5][len(CAL_OLD_P[\"q5_d5\"]):]\n    if kb_ladder != ladder:\n        raise ValueError(\"Prereg-Ladder != frische Iteration (%s vs %s)\"\n                         % (kb_ladder, ladder))\n    # Anker frisch gegen die Pins (recompute_anchors asserted intern)\n    anchors = recompute_anchors()\n    h3.verify_anchors_run3(tol=1e-9)\n    n_verdict = sum(len(r) for r in doc[\"prediction_freeze\"][\"points\"].values())\n    n_cal = sum(len(r) for r in doc[\"kalibrier_bein\"][\"points\"].values())\n    return {\"md5_ok\": True, \"prereg_md5\": doc[\"md5\"],\n            \"ladder\": kb_ladder, \"n_verdict_rows\": n_verdict,\n            \"n_cal_rows\": n_cal, \"n_cP\": len(cP), \"anchors\": anchors}\n",
+ "src_p48_eval_grid": "def eval_grid():\n    \"\"\"Gestempelte Grids für build_hardware_circuit_set (k2-Mirror).\"\"\"\n    pts, cal_old, cal_new, ladder, log = fresh_points()\n    pts_e = {k: {**r, \"arm\": k[0], \"set\": h3a.SET_VERDICT}\n             for k, r in sorted(pts.items())}\n    cal_e = {k: {**r, \"arm\": k[0], \"set\": h3a.SET_CAL}\n             for k, r in sorted(cal_old.items())}\n    cal_e.update({k: {**r, \"arm\": k[0], \"set\": h3a.SET_CAL}\n                  for k, r in sorted(cal_new.items())})\n    return pts_e, cal_e, ladder\n",
+ "src_p48_ladder_ps": "def ladder_ps(with_log=True):\n    \"\"\"Die 11 neuen Kalibrier-P: WOERTLICHE new_points_run3-Iteration.\n\n    Generationen: Gen1 (aus den 5 Run-2-Kal-P), Gen2 (aus Gen1), Gen3 —\n    die Union WAECHST dabei um jede GENOMMENE Kandidat (Kollisionsskip\n    inkl. eigener frueherer Kandidaten). Code-Lesart ist registriert\n    (smallest_prime_above = strikt > x; Hand-Notat des Design-Fensters\n    [479,557,607,...] ist WIDERRUFEN — siehe design_out-Belege).\n    \"\"\"\n    u = set(union40())\n    gen_in = list(h3.CAL_Q5_POINTS)            # 433,499,577,631,659\n    out, log, used = [], [], set()\n    gen = 0\n    while len(out) < N_NEW_CAL_Q5 and gen < 10:\n        gen += 1\n        cand = h3.new_points_run3(gen_in, u)\n        for p in cand:\n            if len(out) >= N_NEW_CAL_Q5:\n                break\n            out.append(p)\n            u.add(p)\n            used.add(p)\n        if with_log:\n            log.append({\"generation\": gen, \"P_alt\": list(gen_in),\n                        \"candidates\": list(cand)})\n        gen_in = list(cand)\n    if len(out) != N_NEW_CAL_Q5:\n        raise ValueError(\"Ladder ergab %d statt %d P\"\n                         % (len(out), N_NEW_CAL_Q5))\n    if set(out) & set(union40()):\n        raise ValueError(\"Ladder kollidiert mit der Union-40\")\n    return (out, log) if with_log else out\n",
+ "src_p48_cP_freeze_fresh": "def cP_freeze_fresh(pts_e, cal_e):\n    \"\"\"cP-Registry (k2-Lesart, set|arm|P) mit Bit-Checks:\n\n      - alle verdict-Eintraege BIT-GLEICH dem committeten 044-cP_freeze;\n      - die 26 cal-old-Eintraege BIT-GLEICH dem committeten 044-cP_freeze\n        (selbe Kal-Zeilen-Konvention — deterministische same-transpile);\n      - die 11 Ladder-Eintraege sind FRISCH (kein 044-Praedezessor).\n    \"\"\"\n    pr44 = h3.load_frozen_prereg()\n    legacy = pr44[\"prediction_freeze\"][\"cP_freeze\"]\n    out = {}\n    for _k, pt in sorted(pts_e.items()):\n        key = \"verdict|%s|%d\" % (pt[\"arm\"], pt[\"P\"])\n        out[key] = float(h3.coh_sens(pt))\n        if abs(out[key] - float(legacy[key])) > CP_TOL:\n            raise ValueError(\"cP-Verdict != committet (044) fuer %s\" % key)\n    for _k, pt in sorted(cal_e.items()):\n        key = \"cal|%s|%d\" % (pt[\"arm\"], pt[\"P\"])\n        out[key] = float(h3.coh_sens(pt))\n        if key in legacy and abs(out[key] - float(legacy[key])) > CP_TOL:\n            raise ValueError(\"cP-Cal-old != committet (044) fuer %s\" % key)\n    return out\n",
+ "src_p48_load_frozen_prereg": "def load_frozen_prereg(path=PREREG_PATH):\n    with open(path, encoding=\"utf-8\") as fh:\n        doc = json.load(fh)\n    if not verify_prereg_md5(doc):\n        raise ValueError(\"055-Prereg-md5-MISMATCH in %s\" % path)\n    return doc\n",
+ "src_p48_eval_points": "<fehlt>",
+ "src_p48_forced_row_order": "def forced_row_order():\n    \"\"\"FORCED-Reihen je Arm: verdict aufsteigend, dann cal-old aufsteigend,\n    dann Ladder in Generierungs-Reihenfolge (q5). Gibt {(arm): [row_keys]}.\n\n    Reparatur 2026-10-03 (latenter Bug, Feuerpunkt nur in forced_row_order —\n    der Freeze-Pfad ruft diese Funktion nicht; Payload-md5 unberuehrt):\n    ladder_ps(with_log=False) liefert die NAKKE Liste (kein (out, log)-Paar)\n    — der zweistellige Unpack war ein ValueError 'too many values'.\"\"\"\n    ladder = ladder_ps(with_log=False)\n    order = {}\n    for arm in ARMS:\n        rows = [(\"verdict\", P) for P in sorted(VERDICT_P[arm])]\n        rows += [(\"cal\", P) for P in sorted(CAL_OLD_P[arm])]\n        if arm == \"q5_d5\":\n            rows += [(\"cal\", P) for P in ladder]\n        order[arm] = rows\n    return order\n",
+ "p48_const": {
+  "EXPERIMENT": "EXPERIMENT 055",
+  "LEG": "FP48-COMBINED",
+  "N_CIRCUITS": 160,
+  "SHOTS": 8192,
+  "TOTAL_SHOTS": 1310720,
+  "KAPPA_CEILING": 0.81,
+  "K_REPEATS": "<fehlt>",
+  "LADDER_REPEATS": "<fehlt>",
+  "CP_TOL": 1e-12,
+  "ISA_CEILING_2Q": "<fehlt>",
+  "ISA_CEILING_TOTAL": "<fehlt>",
+  "TRANSPILE_SEED": 7,
+  "SE_NO_INT_S1_Q5_CAL": 0.0025335578768332333,
+  "RAW_PATH": "pt_ram_q_prio48_raw.json",
+  "ISA_PATH": "<fehlt>",
+  "GATE_PATH": "<fehlt>",
+  "EVAL_PATH": "pt_ram_q_prio48_eval.json",
+  "PREREG_MD5": "<fehlt>",
+  "H3_EVAL_S1": "pt_ram_q_hardware3_eval.json",
+  "H3_EVAL_S2": "pt_ram_q_hardware3_eval_rep.json",
+  "SET_VERDICT": "<fehlt>",
+  "SET_CAL": "<fehlt>",
+  "ARMS": [
+   "q3_d3",
+   "q5_d5"
+  ]
+ },
+ "fprio8_refit": {
+  "gamma_refit_q5": "no-intercept LSQ gamma' = <c,Delta>/<c,c> ueber 16 Kal-Reihen (law-konsistent, fit_gamma_arm-Konvention)",
+  "decomposition_F": "OLS-mit-Achsenabschnitt X = [ones, c_p], se = sqrt(s2*XtXi[1,1]), resid_std ddof=2",
+  "d5_se_provenance": "SE_no_int * c̄ (S1,q5,cal) 0.01197607825720734 ~ Deck 'SE(gamma)*c_p ~ 0.011' — die D.5-Zahl ist die Durch-Null-LSQ-SE, NICHT die (F)-OLS-SE 0.1254448714861779.",
+  "se_no_int_S1_pin": 0.0025335578768332333,
+  "se_times_mean_c_S1_pin": 0.01197607825720734,
+  "sqrt_skalierung_n16_pin": 0.0014163019093822874,
+  "kappa_S1_q5_cal_min_pin": 0.8115144847818115,
+  "falsifikatorlinie_F_zeile_8": "resid_sd(q5, OLS-mit-Achsen-abschnitt, ddof=2, n=16 Kal-Reihen) < 0.01 -> SA-H9-5 kippt (Kalibrier-Streuung ist NICHT Band-Groesse); sonst BLEIBT SA-H9-5.",
+  "committed_F_anchors": {
+   "q5": {
+    "gamma_committed": 0.038128743451453374,
+    "gamma_ols": 0.21586104749721277,
+    "se_gamma": 0.1254448714861779,
+    "resid_sd": 0.023936865145634485,
+    "r2": 0.4967312299110952,
+    "n": 5
+   },
+   "q3": {
+    "gamma_committed": 0.009105648402709013,
+    "se_gamma": 0.012189383635140131,
+    "resid_sd": 0.009138844281032127,
+    "r2": 0.6525102051324765,
+    "n": 8
+   }
+  }
+ },
+ "prereg_top_keys": [
+  "anti_sharpshooter",
+  "banned_from_raw",
+  "c1_c_vorprobe",
+  "c2_criteria",
+  "c3_geometry_counter",
+  "classical_core",
+  "controls",
+  "design_decision",
+  "echo_ladder",
+  "experiment",
+  "fallback_lesart_b_inherited",
+  "fprio8_refit",
+  "frozen_theorems",
+  "future_phase_numbering",
+  "hardware_parameters",
+  "hypothesis",
+  "inherited_freeze_note",
+  "integritaet",
+  "kalibrier_bein",
+  "layer_separation",
+  "layout_perturbation",
+  "leg",
+  "md5",
+  "operational_definitions",
+  "phase10_verdict_context",
+  "prediction_freeze",
+  "prior_chain",
+  "qpu",
+  "registered_before",
+  "registered_by",
+  "safeguard_limits",
+  "session_anchors",
+  "status",
+  "suite_state",
+  "user_directive",
+  "verdict_map"
+ ],
+ "hyp_verbatim": "H-H9 FPrio-4 (C.1/D.7 Session-P-Bindung) + FPrio-8 (D.5 n_cal>=16)",
+ "session_anchors_verbatim": {
+  "c1_massstab": "ANKER-PARITAET (>= beobachtet S1->S2 je Arm); q95-exakt bleibt SEKUNDAERER Deskriptiv-Benchmark (n=5-LEKTION: TRUE-Replication erreicht nur rho 0.5 = 80-Perzentil-Klasse bei 120 Permutationen).",
+  "rho_S1_S2_q5_verdict_pin": 0.49999999999999994,
+  "rho_S1_S2_q3_verdict_pin": 0.8095238095238096,
+  "rho_S1_S2_pooled_13_pin": 0.8956043956043955,
+  "q95_exact_perm_q5_sekundaer_pin": 0.7999999999999999,
+  "n_perm_q5": 120,
+  "q95_exact_perm_q3_sekundaer_pin": 0.6190476190476191,
+  "n_perm_q3": 40320,
+  "kriterium_C1_q5": "rho(res'_q5-verdict, res_S1_q5-verdict) >= Anchor S1->S2 (0.5-Klasse)",
+  "kriterium_C1_q3": "rho(res'_q3-verdict, res_S1_q3-verdict) >= Anchor S1->S2 (0.8095-Klasse)",
+  "frisch_getestet_in_verify": {
+   "rho_q5": 0.49999999999999994,
+   "rho_q3": 0.8095238095238096,
+   "rho_pooled": 0.8956043956043955,
+   "q95_q5": 0.7999999999999999,
+   "n_perm_q5": 120,
+   "q95_q3": 0.6190476190476191,
+   "n_perm_q3": 40320,
+   "se_no_int": 0.0025335578768332333,
+   "mean_c": 4.726980333354999,
+   "se_times_mean_c": 0.01197607825720734,
+   "sqrt_skalierung_n16": 0.0014163019093822874,
+   "c_p_identisch_s1_s2": true
+  }
+ },
+ "prediction_freeze_keys": [
+  "anchor_verification",
+  "cP_freeze",
+  "calibration_points",
+  "classical_core",
+  "noise_law",
+  "p_rule",
+  "points"
+ ],
+ "c1_c_vorprobe_verbatim": {
+  "role": "DESKRIPTIV registriert (KEIN Verdict-Kriterium); Design unabhaengig vom Ausgang",
+  "committed_rho_S1": {
+   "q5": 0.1879,
+   "q3": -0.4441
+  },
+  "null": "exakt-perm (design_out)"
+ },
+ "kalibrier_bein_keys": [
+  "gamma_fit_rule",
+  "ladder_generations",
+  "leckage_dokumentiert",
+  "loschmidt_gepaart",
+  "n_new_cal_q5",
+  "points",
+  "purpose",
+  "reps",
+  "verdict_role"
+ ],
+ "kb_keys_sub": [
+  "gamma_fit_rule",
+  "ladder_generations",
+  "leckage_dokumentiert",
+  "loschmidt_gepaart",
+  "n_new_cal_q5",
+  "points",
+  "purpose",
+  "reps",
+  "verdict_role"
+ ],
+ "kb_ladder_rule_verbatim": "<fehlt>",
+ "hardware_parameters_verbatim": {
+  "circuit_budget": 160,
+  "shots_per_circuit": 8192,
+  "total_shots": 1310720,
+  "backend": "ibm_fez",
+  "one_job": true,
+  "fez_backlog": "QUQUINT-F4 daua5hahcrkc73dv9eh0 -> 046 dauassrojkfs738rrcsg -> 055",
+  "job046_id": "dauassrojkfs738rrcsg",
+  "isa_ceilings": {
+   "per_circuit_2q_max": 120,
+   "total_2q_max": 6000,
+   "inherited": "hw-Konstanten (geerbt 042/044)"
+  },
+  "run_config": {
+   "optimization_level": 3,
+   "dynamical_decoupling": "XX",
+   "resilience": "none (raw SamplerV2 counts)"
+  }
+ },
+ "S1_verdict_rows": {
+  "verdict|q3_d3|181": {
+   "P": 181,
+   "res_v3": -0.00048538931045694067,
+   "c_p": 4.632285850026061,
+   "kappa_hat": 0.9606164383561644,
+   "ratio_hw": 0.8948001071546204,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|229": {
+   "P": 229,
+   "res_v3": 0.003940437631661853,
+   "c_p": 4.394626020647024,
+   "kappa_hat": 0.9724804305283757,
+   "ratio_hw": 0.9063209355174283,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|283": {
+   "P": 283,
+   "res_v3": 0.0031251801898406484,
+   "c_p": 4.449016857525076,
+   "kappa_hat": 0.9634295499021527,
+   "ratio_hw": 0.9012643122219445,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|379": {
+   "P": 379,
+   "res_v3": 0.028910779190665314,
+   "c_p": 4.272197538819991,
+   "kappa_hat": 0.9574363992172211,
+   "ratio_hw": 0.9083278968723283,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|467": {
+   "P": 467,
+   "res_v3": 0.03700154819650725,
+   "c_p": 4.2653626365026565,
+   "kappa_hat": 0.9565802348336595,
+   "ratio_hw": 0.918882799473368,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|613": {
+   "P": 613,
+   "res_v3": 0.021264303976193832,
+   "c_p": 4.227287704987718,
+   "kappa_hat": 0.9575587084148728,
+   "ratio_hw": 0.9054455005423246,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|691": {
+   "P": 691,
+   "res_v3": 0.021121526431261417,
+   "c_p": 4.219039117687428,
+   "kappa_hat": 0.9659980430528375,
+   "ratio_hw": 0.9207044710830411,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q3_d3|797": {
+   "P": 797,
+   "res_v3": 0.025596670168915203,
+   "c_p": 4.157939260087671,
+   "kappa_hat": 0.9584148727984344,
+   "ratio_hw": 0.9073598774304696,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.009105648402709013
+  },
+  "verdict|q5_d5|467": {
+   "P": 467,
+   "res_v3": -0.031777729460608306,
+   "c_p": 4.883399773945637,
+   "kappa_hat": 0.8274049627184941,
+   "ratio_hw": 0.6224985614335706,
+   "below_sharp": true,
+   "in_band_sharp": false,
+   "gamma_used": 0.038128743451453374
+  },
+  "verdict|q5_d5|547": {
+   "P": 547,
+   "res_v3": -0.04368697585065229,
+   "c_p": 4.625319318723228,
+   "kappa_hat": 0.830949761642831,
+   "ratio_hw": 0.6103079182190684,
+   "below_sharp": true,
+   "in_band_sharp": false,
+   "gamma_used": 0.038128743451453374
+  },
+  "verdict|q5_d5|613": {
+   "P": 613,
+   "res_v3": 0.0615050758733946,
+   "c_p": 4.75113180766759,
+   "kappa_hat": 0.8244713360224911,
+   "ratio_hw": 0.7187087838992033,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.038128743451453374
+  },
+  "verdict|q5_d5|673": {
+   "P": 673,
+   "res_v3": -0.05477027332169149,
+   "c_p": 4.664051955367851,
+   "kappa_hat": 0.8310719960884977,
+   "ratio_hw": 0.6098765583903597,
+   "below_sharp": true,
+   "in_band_sharp": false,
+   "gamma_used": 0.038128743451453374
+  },
+  "verdict|q5_d5|691": {
+   "P": 691,
+   "res_v3": -0.0013155213772800822,
+   "c_p": 4.731200614987623,
+   "kappa_hat": 0.8258159149248259,
+   "ratio_hw": 0.6634331980927123,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.038128743451453374
+  }
+ },
+ "S1_below_sets": {
+  "q3_d3": [],
+  "q5_d5": [
+   467,
+   547,
+   673
+  ]
+ },
+ "S1_verdict": "H-RAM-Q-4_REFUTED",
+ "S1_gamma_arm": {
+  "q3_d3": {
+   "gamma": 0.009105648402709013,
+   "n_cal": 8,
+   "rows": [
+    {
+     "c_p": 5.003660769251847,
+     "delta_cal": 0.06551323578126889
+    },
+    {
+     "c_p": 4.689438895133084,
+     "delta_cal": 0.05411487886670263
+    },
+    {
+     "c_p": 4.453565456982784,
+     "delta_cal": 0.03562088252156792
+    },
+    {
+     "c_p": 4.380217266701323,
+     "delta_cal": 0.02795763419240027
+    },
+    {
+     "c_p": 4.262410449712771,
+     "delta_cal": 0.040903572934786414
+    },
+    {
+     "c_p": 4.244292172213,
+     "delta_cal": 0.03385522597072399
+    },
+    {
+     "c_p": 4.259337600338055,
+     "delta_cal": 0.020276819679532876
+    },
+    {
+     "c_p": 4.163517923242973,
+     "delta_cal": 0.040577356691740674
+    }
+   ]
+  },
+  "q5_d5": {
+   "gamma": 0.038128743451453374,
+   "n_cal": 5,
+   "rows": [
+    {
+     "c_p": 4.895198651036044,
+     "delta_cal": 0.22122284139665138
+    },
+    {
+     "c_p": 4.706149521271885,
+     "delta_cal": 0.1404571675726345
+    },
+    {
+     "c_p": 4.661443610225488,
+     "delta_cal": 0.18184834028943164
+    },
+    {
+     "c_p": 4.690208976344953,
+     "delta_cal": 0.18656780952171692
+    },
+    {
+     "c_p": 4.681900907896624,
+     "delta_cal": 0.16970391862163647
+    }
+   ]
+  }
+ },
+ "S1_echo_ladder": {
+  "q3_d3": {
+   "P": 181,
+   "fit_kappa_block": 0.9926602234735433,
+   "fit_max_res_log": 0.0033349329550086196,
+   "kappa_r": {
+    "r1": 0.9606164383561644,
+    "r2": 0.9527886497064579,
+    "r4": 0.9433708414872799,
+    "r8": 0.9118150684931506
+   },
+   "r1_konsistent_mit_kappa_hat_anker": true,
+   "r1_shared_with_loschmidt": true,
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+  },
+  "q5_d5": {
+   "P": 467,
+   "fit_kappa_block": 0.7314347776025595,
+   "fit_max_res_log": 0.2060646320506213,
+   "kappa_r": {
+    "r1": 0.8274049627184941,
+    "r2": 0.7323065639897323,
+    "r4": 0.46290184574012955,
+    "r8": 0.09815425987043148
+   },
+   "r1_konsistent_mit_kappa_hat_anker": true,
+   "r1_shared_with_loschmidt": true,
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+  }
+ },
+ "S2_verdict_rows": {
+  "verdict|q3_d3|181": {
+   "P": 181,
+   "res_v3": 0.0069461461688301585,
+   "c_p": 4.632285850026061,
+   "kappa_hat": 0.950419338924519,
+   "ratio_hw": 0.8657425931219519,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|229": {
+   "P": 229,
+   "res_v3": 0.011340561769955348,
+   "c_p": 4.394626020647024,
+   "kappa_hat": 0.9596694622594968,
+   "ratio_hw": 0.8717807993839207,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|283": {
+   "P": 283,
+   "res_v3": -0.007679883471657267,
+   "c_p": 4.449016857525076,
+   "kappa_hat": 0.9528860384805131,
+   "ratio_hw": 0.8524832846364284,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|379": {
+   "P": 379,
+   "res_v3": 0.029383194979388016,
+   "c_p": 4.272197538819991,
+   "kappa_hat": 0.943759250123335,
+   "ratio_hw": 0.8651438919413422,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|467": {
+   "P": 467,
+   "res_v3": 0.0356066715351856,
+   "c_p": 4.2653626365026565,
+   "kappa_hat": 0.9496793290577208,
+   "ratio_hw": 0.8853888038684391,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|613": {
+   "P": 613,
+   "res_v3": 0.030587878950980696,
+   "c_p": 4.227287704987718,
+   "kappa_hat": 0.9479526393685249,
+   "ratio_hw": 0.8779343636426628,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|691": {
+   "P": 691,
+   "res_v3": 0.0012315127912669865,
+   "c_p": 4.219039117687428,
+   "kappa_hat": 0.9622594967932906,
+   "ratio_hw": 0.8739419912209083,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q3_d3|797": {
+   "P": 797,
+   "res_v3": 0.023112858541867065,
+   "c_p": 4.157939260087671,
+   "kappa_hat": 0.9486926492353231,
+   "ratio_hw": 0.8673282718369704,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.002293069751045569
+  },
+  "verdict|q5_d5|467": {
+   "P": 467,
+   "res_v3": -0.08412821795265557,
+   "c_p": 4.883399773945637,
+   "kappa_hat": 0.868557336621455,
+   "ratio_hw": 0.6864440730128692,
+   "below_sharp": true,
+   "in_band_sharp": false,
+   "gamma_used": 0.016039364858808827
+  },
+  "verdict|q5_d5|547": {
+   "P": 547,
+   "res_v3": -0.004906934224163106,
+   "c_p": 4.625319318723228,
+   "kappa_hat": 0.8601726263871763,
+   "ratio_hw": 0.7463968391443982,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.016039364858808827
+  },
+  "verdict|q5_d5|613": {
+   "P": 613,
+   "res_v3": 0.07684114860669033,
+   "c_p": 4.75113180766759,
+   "kappa_hat": 0.8707768187422935,
+   "ratio_hw": 0.8519109665478085,
+   "below_sharp": false,
+   "in_band_sharp": false,
+   "gamma_used": 0.016039364858808827
+  },
+  "verdict|q5_d5|673": {
+   "P": 673,
+   "res_v3": -0.033382034259572646,
+   "c_p": 4.664051955367851,
+   "kappa_hat": 0.8665844636251542,
+   "ratio_hw": 0.7363783658504381,
+   "below_sharp": true,
+   "in_band_sharp": false,
+   "gamma_used": 0.016039364858808827
+  },
+  "verdict|q5_d5|691": {
+   "P": 691,
+   "res_v3": -0.0074382108485939735,
+   "c_p": 4.731200614987623,
+   "kappa_hat": 0.8665844636251542,
+   "ratio_hw": 0.7693883876695677,
+   "below_sharp": false,
+   "in_band_sharp": true,
+   "gamma_used": 0.016039364858808827
+  }
+ },
+ "S2_below_sets": {
+  "q3_d3": [],
+  "q5_d5": [
+   467,
+   673
+  ]
+ },
+ "S2_verdict": "H-RAM-Q-4_REFUTED",
+ "S2_gamma_arm": {
+  "q3_d3": {
+   "gamma": 0.002293069751045569,
+   "n_cal": 8,
+   "rows": [
+    {
+     "c_p": 5.003660769251847,
+     "delta_cal": 0.013169854807088432
+    },
+    {
+     "c_p": 4.689438895133084,
+     "delta_cal": 0.023405912026202014
+    },
+    {
+     "c_p": 4.453565456982784,
+     "delta_cal": -0.005283915205231748
+    },
+    {
+     "c_p": 4.380217266701323,
+     "delta_cal": 0.003531539433412667
+    },
+    {
+     "c_p": 4.262410449712771,
+     "delta_cal": 0.01616930818627005
+    },
+    {
+     "c_p": 4.244292172213,
+     "delta_cal": -0.0007494076024732177
+    },
+    {
+     "c_p": 4.259337600338055,
+     "delta_cal": 0.00991181461849111
+    },
+    {
+     "c_p": 4.163517923242973,
+     "delta_cal": 0.02067509882553409
+    }
+   ]
+  },
+  "q5_d5": {
+   "gamma": 0.016039364858808827,
+   "n_cal": 5,
+   "rows": [
+    {
+     "c_p": 4.895198651036044,
+     "delta_cal": 0.13721902743731373
+    },
+    {
+     "c_p": 4.706149521271885,
+     "delta_cal": -0.018427401927597287
+    },
+    {
+     "c_p": 4.661443610225488,
+     "delta_cal": 0.0715901158820863
+    },
+    {
+     "c_p": 4.690208976344953,
+     "delta_cal": 0.09135296725664088
+    },
+    {
+     "c_p": 4.681900907896624,
+     "delta_cal": 0.09512360121133845
+    }
+   ]
+  }
+ },
+ "S2_echo_ladder": {
+  "q3_d3": {
+   "P": 181,
+   "fit_kappa_block": 0.9913237988399535,
+   "fit_max_res_log": 0.004130017589835069,
+   "kappa_r": {
+    "r1": 0.950419338924519,
+    "r2": 0.9488159842131229,
+    "r4": 0.9324124321657622,
+    "r8": 0.8963986186482487
+   },
+   "r1_konsistent_mit_kappa_hat_anker": true,
+   "r1_shared_with_loschmidt": true,
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+  },
+  "q5_d5": {
+   "P": 467,
+   "fit_kappa_block": 0.726999797535903,
+   "fit_max_res_log": 0.20138973252090708,
+   "kappa_r": {
+    "r1": 0.868557336621455,
+    "r2": 0.749075215782984,
+    "r4": 0.4699136868064118,
+    "r8": 0.09802712700369914
+   },
+   "r1_konsistent_mit_kappa_hat_anker": true,
+   "r1_shared_with_loschmidt": true,
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "verdict_role": "NICHT verdict-tragend (Diagnostik)"
+  }
+ },
+ "fprio8_commit_anchor_keys": [
+  "q3",
+  "q5"
+ ],
+ "ols_ident_q3": {
+  "committed": {
+   "se_gamma": 0.012189383635140131,
+   "resid_sd": 0.009138844281032127,
+   "r2": 0.6525102051324765,
+   "n": 8
+  },
+  "candidates_gerundet": {
+   "S1:res_v3": {
+    "gamma_ols": -0.07146945395813,
+    "se_gamma": 0.02104468780197,
+    "resid_sd_ddof2": 0.00866782022818,
+    "r2": 0.65779525172309
+   },
+   "S1:ratio_hw": {
+    "gamma_ols": -0.03927297622471,
+    "se_gamma": 0.01559531797289,
+    "resid_sd_ddof2": 0.00642335081719,
+    "r2": 0.51383955436236
+   },
+   "S2:res_v3": {
+    "gamma_ols": -0.05289725161834,
+    "se_gamma": 0.03481855833216,
+    "resid_sd_ddof2": 0.01434095896634,
+    "r2": 0.27780861013156
+   },
+   "S2:ratio_hw": {
+    "gamma_ols": -0.02808272207355,
+    "se_gamma": 0.02304097552234,
+    "resid_sd_ddof2": 0.00949004497424,
+    "r2": 0.19845181065013
+   }
+  }
+ },
+ "ols_ident_q5": {
+  "committed": {
+   "gamma_ols": 0.21586104749721277,
+   "se_gamma": 0.1254448714861779,
+   "resid_sd": 0.023936865145634485,
+   "r2": 0.4967312299110952,
+   "n": 5
+  },
+  "candidates_gerundet": {
+   "S1:res_v3": {
+    "gamma_ols": 0.11914288704804,
+    "se_gamma": 0.26320497893275,
+    "resid_sd_ddof2": 0.05216604886864,
+    "r2": 0.0639341899002
+   },
+   "S1:ratio_hw": {
+    "gamma_ols": 0.1037666742136,
+    "se_gamma": 0.26528301731939,
+    "resid_sd_ddof2": 0.05257790677675,
+    "r2": 0.04852579530993
+   },
+   "S2:res_v3": {
+    "gamma_ols": -0.21692508226893,
+    "se_gamma": 0.31597132032248,
+    "resid_sd_ddof2": 0.06262410157994,
+    "r2": 0.13577769401723
+   },
+   "S2:ratio_hw": {
+    "gamma_ols": -0.16136056548038,
+    "se_gamma": 0.34032052685643,
+    "resid_sd_ddof2": 0.06745000534176,
+    "r2": 0.06971306712829
+   }
+  }
+ },
+ "stage3_verbatim_bits": {
+  "status": "STAGE3_AER_EXACT_ONLY_COMPLETED",
+  "b_p_n": 37,
+  "divergente_keys": [
+   "cal|q3_d3|197",
+   "verdict|q3_d3|613",
+   "cal|q3_d3|761",
+   "verdict|q5_d5|613",
+   "cal|q5_d5|631"
+  ],
+  "ladder_ps": [
+   479,
+   557,
+   617,
+   677,
+   701,
+   521,
+   593,
+   653,
+   719,
+   733,
+   563
+  ],
+  "b_p_fit_failed": {}
+ }
+}

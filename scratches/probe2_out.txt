@@ -1,0 +1,378 @@
+== A hasattr sweep (obs/bands) ==
+   punkt_konstanten True
+   quote_exakt True
+   ring_dft True
+   quad_magnitude True
+   norm_galois True
+   galois_konjugiert True
+   ramanujan_summe True
+   binom_cdf_exakt True
+   binom_tail_exakt True
+   p_wert_zweiseitig True
+   alpha_bonferroni True
+   band_quantile True
+   chebyshev_schranke True
+   cantelli_schranke True
+   modell_fuer_art True
+   tv_exakt True
+   exakter_probvektor True
+   fuele_modell True
+   delta_vektor True
+   residue_counts True
+   sieve_primes True
+== B raw top-level + counts_sha256 (live) ==
+pt_ram_q_prio48_sv_raw.json | backend: AER_STATEVECTOR_LOCAL | fetched: None
+   counts_sha256: 289f1f4e6c48eada9a15f1735af9739a68b2a630addc91efda5c9e31f76359a2
+pt_ram_q_hardware3_raw.json | backend: ibm_fez | fetched: 2026-09-28T07:54:54.444730+00:00
+   counts_sha256: 4c1da04939041eea5743eac0d62f6252a87bff43c6a2a4694063b96f7d6b68b5
+pt_ram_q6_kingston_raw.json | backend: ibm_kingston | fetched: 2026-10-01T23:49:08.483868+00:00
+   counts_sha256: 6a896e53232dadfc1c696d2e0ba8fa602ee4df02b5c39be46c4d435a3b9b56ce
+== C key-union je kind (sv raw) ==
+   echo_ladder ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   kalibrier_loschmidt ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   kalibrier_structure ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   loschmidt ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   negative_control ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   readout_cal ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+   structure ['P', 'arm', 'counts', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+first row minus counts: {"P": 181, "arm": "q3_d3", "kind": "structure", "name": "struct_q3_d3_181_r0", "r": null, "rep": 0, "set": "verdict", "shots_actual": 8192}
+== D kinds tally (sv) ==
+tally: {'structure': 39, 'loschmidt': 13, 'echo_ladder': 6, 'kalibrier_structure': 72, 'kalibrier_loschmidt': 24, 'negative_control': 4, 'readout_cal': 2} | sum: 160
+== E Struktur-Familie census (111/37?) ==
+familie rows: 111 | distinct (arm,P): 37
+je-punkt-Zahlen: [3]
+paare: [('q3_d3', 149), ('q3_d3', 181), ('q3_d3', 197), ('q3_d3', 229), ('q3_d3', 251), ('q3_d3', 283), ('q3_d3', 347), ('q3_d3', 379), ('q3_d3', 433), ('q3_d3', 467), ('q3_d3', 577), ('q3_d3', 613), ('q3_d3', 659), ('q3_d3', 691), ('q3_d3', 761), ('q3_d3', 797), ('q5_d5', 433), ('q5_d5', 467), ('q5_d5', 479), ('q5_d5', 499), ('q5_d5', 521), ('q5_d5', 547), ('q5_d5', 557), ('q5_d5', 563), ('q5_d5', 577), ('q5_d5', 593), ('q5_d5', 613), ('q5_d5', 617), ('q5_d5', 631), ('q5_d5', 653), ('q5_d5', 659), ('q5_d5', 673), ('q5_d5', 677), ('q5_d5', 691), ('q5_d5', 701), ('q5_d5', 719), ('q5_d5', 733)]
+== G delta TV census (45 == 0?) ==
+delta rows: 45 | TV==0: 45
+== H Kontrolle-TV mapping (per Name+P) ==
+   ctrl_composite_P181_d3 -> composite P181 breite: 4 TV: 551/86016 = 0.006405784970238095
+   ctrl_uniform_q3 -> uniform q3 breite: 4 TV: 79/24576 = 0.0032145182291666665
+   ctrl_composite_P467_d5 -> composite P467 breite: 8 TV: 835/106496 = 0.007840670072115384
+   ctrl_uniform_q5 -> uniform q5 breite: 8 TV: 31/2560 = 0.012109375
+== I first-struct quote (sv row 0) ==
+   N_hut = [Fraction(3969, 4096), Fraction(19761, 1024), Fraction(89019, 4096)]
+   anteil_falt = 102930625/16777216
+   anteil_flt_falt = 6.135143339633942
+   anteil_modell = 169/28
+   m_hat = 42
+   n_hut_klassen = [Fraction(3969, 4096), Fraction(19761, 1024), Fraction(89019, 4096)]
+   q_sum_N_sq_minus_m2 = 6484629375/8388608
+   quote = 720514375/708837376
+   quote_flt = 1.0164734527204164
+== I5 punkt-Konstanten alle 10 Zeilen (shots=8192) ==
+  (181, 3, 3) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'delta', 'delta_sq', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg']
+      L_q = 49/86528
+      N = [1, 19, 22]
+      P = 181
+      closed_form = 172/169
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -3/2
+      delta_sq = 9/4
+      den = 1521
+      m = 42
+      model_share_reg = 169/28
+      n0 = 1
+      n_d = [1, 19, 22]
+      q = 3
+      q_sum_N_sq_minus_m2 = 774
+      ratio_true = 172/169
+      share_true_reg = 43/7
+  (181, 5, 5) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg', 'sigma2']
+      L_q = 441/175232
+      N = [1, 9, 12, 11, 9]
+      P = 181
+      closed_form = 1504/1369
+      closed_form_identitaet_exakt = True
+      d = 5
+      den = 1369
+      m = 42
+      model_share_reg = 1369/840
+      n0 = 1
+      n_d = [1, 9, 12, 11, 9]
+      q = 5
+      q_sum_N_sq_minus_m2 = 376
+      ratio_true = 1504/1369
+      share_true_reg = 188/105
+      sigma2 = 27/4
+  (269, 3, 3) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'delta', 'delta_sq', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg']
+      L_q = 361/663552
+      N = [1, 25, 31]
+      P = 269
+      closed_form = 28/27
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -3
+      delta_sq = 9
+      den = 2916
+      m = 57
+      model_share_reg = 162/19
+      n0 = 1
+      n_d = [1, 25, 31]
+      q = 3
+      q_sum_N_sq_minus_m2 = 1512
+      ratio_true = 28/27
+      share_true_reg = 168/19
+  (269, 5, 5) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg', 'sigma2']
+      L_q = 3249/1384448
+      N = [1, 13, 15, 15, 13]
+      P = 269
+      closed_form = 174/169
+      closed_form_identitaet_exakt = True
+      d = 5
+      den = 2704
+      m = 57
+      model_share_reg = 676/285
+      n0 = 1
+      n_d = [1, 13, 15, 15, 13]
+      q = 5
+      q_sum_N_sq_minus_m2 = 696
+      ratio_true = 174/169
+      share_true_reg = 232/95
+      sigma2 = 4
+  (467, 3, 3) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'delta', 'delta_sq', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg']
+      L_q = 8281/15859712
+      N = [1, 43, 47]
+      P = 467
+      closed_form = 487/484
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -2
+      delta_sq = 4
+      den = 7744
+      m = 91
+      model_share_reg = 3872/273
+      n0 = 1
+      n_d = [1, 43, 47]
+      q = 3
+      q_sum_N_sq_minus_m2 = 3896
+      ratio_true = 487/484
+      share_true_reg = 3896/273
+  (467, 5, 5) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg', 'sigma2']
+      L_q = 8281/3786752
+      N = [1, 21, 24, 24, 21]
+      P = 467
+      closed_form = 1894/1849
+      closed_form_identitaet_exakt = True
+      d = 5
+      den = 7396
+      m = 91
+      model_share_reg = 1849/455
+      n0 = 1
+      n_d = [1, 21, 24, 24, 21]
+      q = 5
+      q_sum_N_sq_minus_m2 = 1894
+      ratio_true = 1894/1849
+      share_true_reg = 1894/455
+      sigma2 = 9
+  (673, 3, 3) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'delta', 'delta_sq', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg']
+      L_q = 3721/7250432
+      N = [1, 58, 63]
+      P = 673
+      closed_form = 14236/14161
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -5/2
+      delta_sq = 25/4
+      den = 14161
+      m = 122
+      model_share_reg = 14161/732
+      n0 = 1
+      n_d = [1, 58, 63]
+      q = 3
+      q_sum_N_sq_minus_m2 = 7118
+      ratio_true = 14236/14161
+      share_true_reg = 3559/183
+  (673, 5, 5) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg', 'sigma2']
+      L_q = 3721/1752192
+      N = [1, 29, 32, 32, 28]
+      P = 673
+      closed_form = 4648/4563
+      closed_form_identitaet_exakt = True
+      d = 5
+      den = 13689
+      m = 122
+      model_share_reg = 13689/2440
+      n0 = 1
+      n_d = [1, 29, 32, 32, 28]
+      q = 5
+      q_sum_N_sq_minus_m2 = 3486
+      ratio_true = 4648/4563
+      share_true_reg = 1743/305
+      sigma2 = 51/4
+  (2005, 3, 3) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'delta', 'delta_sq', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg']
+      L_q = 361/724808
+      N = [1, 148, 155]
+      P = 2005
+      closed_form = 1852/1849
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -7/2
+      delta_sq = 49/4
+      den = 90601
+      m = 304
+      model_share_reg = 90601/1824
+      n0 = 1
+      n_d = [1, 148, 155]
+      q = 3
+      q_sum_N_sq_minus_m2 = 45374
+      ratio_true = 1852/1849
+      share_true_reg = 22687/456
+  (2005, 5, 5) ['L_q', 'N', 'P', 'closed_form', 'closed_form_identitaet_exakt', 'd', 'den', 'm', 'model_share_reg', 'n0', 'n_d', 'q', 'q_sum_N_sq_minus_m2', 'ratio_true', 'share_true_reg', 'sigma2']
+      L_q = 361/178802
+      N = [1, 73, 78, 79, 73]
+      P = 2005
+      closed_form = 90016/89401
+      closed_form_identitaet_exakt = True
+      d = 5
+      den = 89401
+      m = 304
+      model_share_reg = 89401/6080
+      n0 = 1
+      n_d = [1, 73, 78, 79, 73]
+      q = 5
+      q_sum_N_sq_minus_m2 = 22504
+      ratio_true = 90016/89401
+      share_true_reg = 2813/190
+      sigma2 = 123/4
+== I6 mini punkt (13/3/3 s12, 31/7/7 s56) ==
+  (13, 3, 3, 12)
+      L_q = 4/3
+      N = [1, 2, 3]
+      P = 13
+      closed_form = 4/3
+      closed_form_identitaet_exakt = True
+      d = 3
+      delta = -1/2
+      delta_sq = 1/4
+      den = 9
+      m = 6
+      model_share_reg = 1/4
+      n0 = 1
+      n_d = [1, 2, 3]
+      q = 3
+      q_sum_N_sq_minus_m2 = 6
+      ratio_true = 4/3
+      share_true_reg = 1/3
+  (31, 7, 7, 56)
+      L_q = 1089/224
+      N = [1, 1, 2, 3, 1, 2, 1]
+      P = 31
+      closed_form = 77/27
+      closed_form_identitaet_exakt = False
+      d = 7
+      den = 16
+      m = 11
+      model_share_reg = 8/231
+      n0 = 1
+      n_d = [1, 1, 2, 3, 1, 2, 1]
+      q = 7
+      q_sum_N_sq_minus_m2 = 26
+      ratio_true = 39/4
+      share_true_reg = 26/77
+      sigma2 = 10/3
+== I7 default == shots 8192? ==
+gleich: True
+== J kalibriere hw3 (PFAD) ==
+ret type: dict
+ret keys: ['backend', 'counts_md5_rekomputiert', 'fetched_at_utc', 'garantie', 'herkunft', 'pfad', 'reihen']
+   pfad = pt_ram_q_hardware3_raw.json
+   backend = ibm_fez
+   fetched_at_utc = 2026-09-28T07:54:54.444730+00:00
+   counts_md5_rekomputiert = 230098aeeb6e8716d2638e1d5fe3cfeb
+   herkunft = kalibriert+2026-09-28T07:54:54.444730+00:00
+   reihen = {'cal_2q': {'nq': 2, 'ro_rand_qubits': {0: Fraction(3, 4096), 1: Fraction(5, 4096)}, 'ro_intervall': {'name': 'cal_2q', 'nq': 2, 'shots': 8192, 'k0': 8176, 'p0': Fraction(511, 512), 'ro_lo': Fraction(1, 1024), 'ro_hi': Fraction(9, 8192), 'breite': Fraction(1, 8192), 'uniform_ro_exakt': False}, 'garantie': Guarantee(klasse='ABGELEITET', herkunft='kalibriert+2026-09-28T07:54:54.444730+00:00', grenze='Randflips exakt je Qubit (Fraction k_i/8192); Uniform-Lesart ro in [1/1024, 9/8192] (Breite 1/8192
+   garantie = Guarantee(klasse='ABGELEITET', herkunft='kalibriert+2026-09-28T07:54:54.444730+00:00', grenze='Kalibrierung nur aus committeten Reihen mit verifiziertem Pin', quelle='pt_ram_q_hardware3_raw.json (counts_md5 230098aeeb6e8716d2638e1d5fe3cfeb)')
+== K kalibriere kingston (PFAD) ==
+ret type: dict
+ret keys: ['backend', 'counts_md5_rekomputiert', 'fetched_at_utc', 'garantie', 'herkunft', 'pfad', 'reihen']
+   pfad = pt_ram_q6_kingston_raw.json
+   backend = ibm_kingston
+   fetched_at_utc = 2026-10-01T23:49:08.483868+00:00
+   counts_md5_rekomputiert = f4da706dd542c306a96cba2001e1a6b9
+   herkunft = kalibriert+2026-10-01T23:49:08.483868+00:00
+   reihen = {'cal_2q': {'nq': 2, 'ro_rand_qubits': {0: Fraction(13, 8192), 1: Fraction(7, 4096)}, 'ro_intervall': {'name': 'cal_2q', 'nq': 2, 'shots': 8192, 'k0': 8165, 'p0': Fraction(8165, 8192), 'ro_lo': Fraction(13, 8192), 'ro_hi': Fraction(7, 4096), 'breite': Fraction(1, 8192), 'uniform_ro_exakt': False}, 'garantie': Guarantee(klasse='ABGELEITET', herkunft='kalibriert+2026-10-01T23:49:08.483868+00:00', grenze='Randflips exakt je Qubit (Fraction k_i/8192); Uniform-Lesart ro in [13/8192, 7/4096] (Breite 1
+   garantie = Guarantee(klasse='ABGELEITET', herkunft='kalibriert+2026-10-01T23:49:08.483868+00:00', grenze='Kalibrierung nur aus committeten Reihen mit verifiziertem Pin', quelle='pt_ram_q6_kingston_raw.json (counts_md5 f4da706dd542c306a96cba2001e1a6b9)')
+== L kalibriere sv (fetched None) ==
+EXC: AnchorViolation | Rohdokument ohne fetched_at_utc — Kalibrier-Datum unbestimmt
+== M modell_fuer_art Laengen-Census ==
+   structure arg=2 len: 4 -> ['19/42', '13/42', '5/21', '0']
+   neg uniform arg=3 q=3 len: 8 -> ['1/3', '1/3', '1/3', '0']
+   neg composite arg=2 len: 4 -> ['19/42', '13/42', '5/21', '0']
+   struktur arg=3 len: 8 -> ['19/42', '13/42', '5/21', '0']
+== N kohärenz/dir(ch) ==
+dir(ch): ['AnchorViolation', 'ChannelModel', 'Dict', 'Fraction', 'Garantiert', 'Guarantee', 'Kanal', 'List', 'Mapping', 'Optional', 'Param', 'Sequence', 'Tuple', 'abklingen_probs', 'annotations', 'apply_kraus', 'apply_to_probs_diag', 'auslese_probs', 'auslese_verwirrung', 'dataclass', 'dephasieren_probs', 'depolarisiert_probs', 'herkunft_vererbt', 'itertools', 'klasse_rang', 'kohärenz_max', 'kraus_abklingen', 'kraus_dephasieren', 'kraus_depolarisiert', 'math', 'np', 'pruefe_verkettung', 'relaxation_wahrscheinlichkeiten', 'rho_diag', 'verkette_diag']
+koh. delta: 0.0
+koh. gemischt: 0.0
+== O ro_intervall synth ==
+   synth_7938 -> {'name': 'synth_7938', 'nq': 2, 'shots': 8192, 'k0': 7938, 'p0': '3969/4096', 'ro_lo': '1/64', 'ro_hi': '1/64', 'breite': '0', 'uniform_ro_exakt': True}
+   synth_voll -> {'name': 'synth_voll', 'nq': 2, 'shots': 8192, 'k0': 8192, 'p0': '1', 'ro_lo': '0', 'ro_hi': '0', 'breite': '0', 'uniform_ro_exakt': True}
+== P readout_cal-Reihen auf allen drei Rohs ==
+   sv readout_cal-Anzahl: 2
+     cal_2q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'00': 8192}
+       ro_intervall: {'name': 'cal_2q', 'nq': 2, 'shots': 8192, 'k0': 8192, 'p0': '1', 'ro_lo': '0', 'ro_hi': '0', 'breite': '0', 'uniform_ro_exakt': True}
+       rand_flip: {0: '0', 1: '0'}
+     cal_3q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'000': 8192}
+       ro_intervall: {'name': 'cal_3q', 'nq': 3, 'shots': 8192, 'k0': 8192, 'p0': '1', 'ro_lo': '0', 'ro_hi': '0', 'breite': '0', 'uniform_ro_exakt': True}
+       rand_flip: {0: '0', 1: '0', 2: '0'}
+   hw3 readout_cal-Anzahl: 2
+     cal_2q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'00': 8176, '10': 10, '01': 6}
+       ro_intervall: {'name': 'cal_2q', 'nq': 2, 'shots': 8192, 'k0': 8176, 'p0': '511/512', 'ro_lo': '1/1024', 'ro_hi': '9/8192', 'breite': '1/8192', 'uniform_ro_exakt': False}
+       rand_flip: {0: '3/4096', 1: '5/4096'}
+     cal_3q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'000': 8181, '100': 6, '001': 3, '010': 2}
+       ro_intervall: {'name': 'cal_3q', 'nq': 3, 'shots': 8192, 'k0': 8181, 'p0': '8181/8192', 'ro_lo': '3/8192', 'ro_hi': '1/2048', 'breite': '1/8192', 'uniform_ro_exakt': False}
+       rand_flip: {0: '3/8192', 1: '1/4096', 2: '3/4096'}
+   kingston readout_cal-Anzahl: 2
+     cal_2q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'00': 8165, '01': 13, '10': 14}
+       ro_intervall: {'name': 'cal_2q', 'nq': 2, 'shots': 8192, 'k0': 8165, 'p0': '8165/8192', 'ro_lo': '13/8192', 'ro_hi': '7/4096', 'breite': '1/8192', 'uniform_ro_exakt': False}
+       rand_flip: {0: '13/8192', 1: '7/4096'}
+     cal_3q | row-keys: ['P', 'arm', 'kind', 'name', 'r', 'rep', 'set', 'shots_actual']
+       counts: {'000': 8140, '001': 26, '100': 16, '010': 9, '101': 1}
+       ro_intervall: {'name': 'cal_3q', 'nq': 3, 'shots': 8192, 'k0': 8140, 'p0': '2035/2048', 'ro_lo': '17/8192', 'ro_hi': '9/4096', 'breite': '1/8192', 'uniform_ro_exakt': False}
+       rand_flip: {0: '27/8192', 1: '9/8192', 2: '17/8192'}
+  hw3 lese_readout_cal_reihen: list [len 2]
+    erstes ret: {'name': 'cal_2q', 'kind': 'readout_cal', 'arm': None, 'set': None, 'P': None, 'rep': None, 'r': None, 'shots_actual': 8192, 'counts': {'00': 8176, '10': 10, '01': 6}}
+== Q ganzzahl_wurzel ==
+   (0, 5) -> 0
+   (1, 3) -> 1
+   (8, 3) -> 2
+   (9, 3) -> 2
+   (65028096, 2) -> 8064
+   (65028097, 2) -> 8064
+== R payload/versichere/lies_committed ==
+payload1: b'[{"0":1}]'
+payload2: b'[{"1":2},{"0":1}]'
+payload3 (sorted keys): b'[{"00":1,"01":2}]'
+sha_abc: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+EXC payload_sha256(str): ValueError | payload_sha256 verlangt bytes oder bytearray
+EXC datei: FileNotFoundError | Datei fehlt: scratches/kein_dokument_lala.json
+EXC roh: FileNotFoundError | Rohdokument fehlt: scratches/kein_dokument_lala.json
+versichere ok: a126430cd770325e1dd8009ad84d66d9
+falsch -> AnchorViolation | counts_md5 divergiert: rekomputiert a126430cd770325e1dd8009ad84d66d9, committet 00000000000000000000000000000000
+ohne -> AnchorViolation | Rohdokument ohne counts oder counts_md5 — Pin unverifizierbar
+lies_committed_counts ret type: tuple
+  len: 2 | erstes: {'experiment': '055b-fp48-statevector-ideal', 'hypothesis': 'H-055B', 'leg': 'SV-IDEAL-MIRROR (Aer statevector, Pre-Subm
+== S punkt/quote guards ==
+  punkt (11, 5, 5) -> ValueError | Nennner entartet (m == q*n0) bei P=11, d=5, q=5
+  punkt (7, 7, 3) -> ValueError | Klasse-0-Atom erwartet n0 == 1 (d in {q, q^2, q^3}, d Vielfaches von q): P=7, d=7, n0=2
+  punkt (1, 3, 3) -> ValueError | keine Primzahlen <= P=1
+uniform quote: {'n_hut_klassen': '[Fraction(2, 1), Fraction(2, 1), Fraction(2, 1)]', 'N_hut': '[Fraction(2, 1), Fraction(2, 1), Fraction(2, 1)]', 'm_hat': '6', 'q_sum_N_sq_minus_m2': '0', 'anteil_falt': '0', 'anteil_modell': '1/4', 'quote': '0', 'anteil_flt_falt': '0.0', 'quote_flt': '0.0'}
+delta0   quote: {'n_hut_klassen': '[Fraction(6, 1), Fraction(0, 1), Fraction(0, 1)]', 'N_hut': '[Fraction(6, 1), Fraction(0, 1), Fraction(0, 1)]', 'm_hat': '6', 'q_sum_N_sq_minus_m2': '72', 'anteil_falt': '4', 'anteil_modell': '1/4', 'quote': '16', 'anteil_flt_falt': '4.0', 'quote_flt': '16.0'}
+delta1   quote: {'n_hut_klassen': '[Fraction(0, 1), Fraction(6, 1), Fraction(0, 1)]', 'N_hut': '[Fraction(0, 1), Fraction(6, 1), Fraction(0, 1)]', 'm_hat': '6', 'q_sum_N_sq_minus_m2': '72', 'anteil_falt': '4', 'anteil_modell': '1/4', 'quote': '16', 'anteil_flt_falt': '4.0', 'quote_flt': '16.0'}
+  quote synth d -> ValueError | Quote-Identitaet verlangt d Vielfaches von q (Bins j*d/q treffen alle Nicht-DC-Klassen): d=5, q=3
+  quote shots0 -> ValueError | shots muss >= 1 sein, erhalten 0
+  quote summe -> ValueError | Counts-Summe 10 != shots 12
+  quote label -> KEINE Ausnahme!
+== S2 lese guards synth ==
+   ['x'] -> AnchorViolation | kein counts-Array im Rohdokument
+   ['counts'] -> AnchorViolation | kein counts-Array im Rohdokument
+   ['counts'] -> AnchorViolation | kein readout_cal-Reihe im Rohdokument
+   sum7 -> AnchorViolation | readout_cal 'g': shots_actual <= 0
+   laengen -> AnchorViolation | Label-Laengen uneinheitlich im readout_cal-Reihe: {1, 2}
+   shots0 -> AnchorViolation | readout_cal 'g': shots_actual <= 0
+   masse4.5 -> AnchorViolation | readout_cal 'g': shots_actual <= 0

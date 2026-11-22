@@ -45,9 +45,17 @@ zeta-23-lean-review/
 .DS_Store
 Thumbs.db
 
-# Presentation media (re-renderable, not repo truth)
+# presentation media (re-renderable, not repo truth)
 presentation/media/
 presentation/__pycache__/
 
 # manim default media dir (stray text-mobject cache, regenerated on demand)
 media/
+
+# Agent local customizations
+.agents/
+
+# LaTeX build artifacts
+*.aux
+*.out
+

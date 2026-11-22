@@ -1,0 +1,45 @@
+{
+  "operator": "Hilbert-Polya-Ziel (diskret): H ~ zyklotomisches Resonanzgitter",
+  "identitaet": "share*_q = (m-q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m)",
+  "ratio": "1 + q(q-1)*sigma^2/(m-q*n0)^2 >= 1",
+  "compiler": "exp(2Pi i a p/d) -> e=(a p) mod d -> j.(p mod q) mod q",
+  "limes": "P->oo: ratio-1 -> 0 (B3: SW ineffektiv, GRH O(log^6 x/x), Heuristik C/x)",
+  "pins": [
+    {
+      "P": 625,
+      "d": 625,
+      "q": 5,
+      "ratio_true": "12176/11881",
+      "share_true": "1522/35625",
+      "model_share": "11881/285000",
+      "ident_exakt": true
+    },
+    {
+      "P": 109,
+      "d": 729,
+      "q": 3,
+      "ratio_true": "172/169",
+      "share_true": "344/21141",
+      "model_share": "338/21141",
+      "ident_exakt": true
+    },
+    {
+      "P": 10000,
+      "d": 2401,
+      "q": 7,
+      "pi": 1229,
+      "counts": [
+        1,
+        203,
+        203,
+        209,
+        202,
+        211,
+        200
+      ],
+      "b2_share": "0.08456403268369668",
+      "ratio": 1.0026250867216149
+    }
+  ],
+  "herkunft": "EXAKT (stdlib-only, 056-verankert)"
+}

@@ -1,0 +1,624 @@
+{
+ "pr_top_keys": [
+  "anti_sharpshooter",
+  "banned_from_raw",
+  "c1_c_vorprobe",
+  "c2_criteria",
+  "c3_geometry_counter",
+  "classical_core",
+  "controls",
+  "design_decision",
+  "echo_ladder",
+  "experiment",
+  "fallback_lesart_b_inherited",
+  "fprio8_refit",
+  "frozen_theorems",
+  "future_phase_numbering",
+  "hardware_parameters",
+  "hypothesis",
+  "inherited_freeze_note",
+  "integritaet",
+  "kalibrier_bein",
+  "layer_separation",
+  "layout_perturbation",
+  "leg",
+  "md5",
+  "operational_definitions",
+  "phase10_verdict_context",
+  "prediction_freeze",
+  "prior_chain",
+  "qpu",
+  "registered_before",
+  "registered_by",
+  "safeguard_limits",
+  "session_anchors",
+  "status",
+  "suite_state",
+  "user_directive",
+  "verdict_map"
+ ],
+ "pf_keys": [
+  "anchor_verification",
+  "cP_freeze",
+  "calibration_points",
+  "classical_core",
+  "noise_law",
+  "p_rule",
+  "points"
+ ],
+ "pf_points_type": "dict",
+ "pf_points_arm_keys": [
+  "q3_d3",
+  "q5_d5"
+ ],
+ "pf_points_detail": {
+  "q3_d3": {
+   "n": 8,
+   "type": "list",
+   "head": [
+    {
+     "L_q": 0.0005662906804733727,
+     "N": [
+      1,
+      19,
+      22
+     ],
+     "P": 181,
+     "closed_form": 1.017751479289941,
+     "d": 3,
+     "delta": -1.5,
+     "delta_sq": 2.25,
+     "m": 42,
+     "model_share_reg": 6.035714285714286,
+     "n0": 1,
+     "n_d": [
+      1,
+      19,
+      22
+     ],
+     "q": 3,
+     "q_sum_N_sq_minus_m2": 774,
+     "ratio_true": 1.017751479289941,
+     "share_true_reg": 6.142857142857143
+    },
+    {
+     "L_q": 0.0005526044024445451,
+     "N": [
+      1,
+      24,
+      25
+     ],
+     "P": 229,
+     "closed_form": 1.0013580805794478,
+     "d": 3,
+     "delta": -0.5,
+     "delta_sq": 0.25,
+     "m": 50,
+     "model_share_reg": 7.363333333333333,
+     "n0": 1,
+     "n_d": [
+      1,
+      24,
+      25
+     ],
+     "q": 3,
+     "q_sum_N_sq_minus_m2": 1106,
+     "ratio_true": 1.0013580805794478,
+     "share_true_reg": 7.373333333333333
+    }
+   ]
+  },
+  "q5_d5": {
+   "n": 5,
+   "type": "list",
+   "head": [
+    {
+     "L_q": 0.0021868345220389398,
+     "N": [
+      1,
+      21,
+      24,
+      24,
+      21
+     ],
+     "P": 467,
+     "closed_form": 1.024337479718767,
+     "d": 5,
+     "m": 91,
+     "model_share_reg": 4.0637362637362635,
+     "n0": 1,
+     "n_d": [
+      1,
+      21,
+      24,
+      24,
+      21
+     ],
+     "q": 5,
+     "q_sum_N_sq_minus_m2": 1894,
+     "ratio_true": 1.024337479718767,
+     "share_true_reg": 4.162637362637363,
+     "sigma2": 9.0
+    },
+    {
+     "L_q": 0.0021618737114800345,
+     "N": [
+      1,
+      24,
+      26,
+      26,
+      24
+     ],
+     "P": 547,
+     "closed_form": 1.0086805555555556,
+     "d": 5,
+     "m": 101,
+     "model_share_reg": 4.562376237623762,
+     "n0": 1,
+     "n_d": [
+      1,
+      24,
+      26,
+      26,
+      24
+     ],
+     "q": 5,
+     "q_sum_N_sq_minus_m2": 2324,
+     "ratio_true": 1.0086805555555556,
+     "share_true_reg": 4.601980198019802,
+     "sigma2": 4.0
+    }
+   ]
+  }
+ },
+ "kb_keys": [
+  "gamma_fit_rule",
+  "ladder_generations",
+  "leckage_dokumentiert",
+  "loschmidt_gepaart",
+  "n_new_cal_q5",
+  "points",
+  "purpose",
+  "reps",
+  "verdict_role"
+ ],
+ "kb_points_detail": {
+  "q3_d3": {
+   "n": 8,
+   "type": "list"
+  },
+  "q5_d5": {
+   "n": 16,
+   "type": "list"
+  }
+ },
+ "cP_freeze_n": 37,
+ "cP_freeze_prefix_tally": {
+  "verdict": 13,
+  "cal": 24
+ },
+ "c_blocks_keys": {
+  "c1_c_vorprobe": {
+   "role": "DESKRIPTIV registriert (KEIN Verdict-Kriterium); Design unabhaengig vom Ausgang",
+   "committed_rho_S1": {
+    "q5": 0.1879,
+    "q3": -0.4441
+   },
+   "null": "exakt-perm (design_out)"
+  },
+  "c2_criteria": {
+   "q5_kern": "S2-below {467, 673} BOTH transfer (2/2)",
+   "q5_zweitstufe_S1": "{467, 547, 673} mindest 2/3 (547 session-spezifisch)",
+   "q3": "klassenleer in S1/S2 — n/a",
+   "sharpness": "committete 0.01-|res|-Konvention, Band w_B'' (below_sharp = res_v3 < center - w_B'')",
+   "w_b_doubleprime_pin": 0.02787029633307472
+  },
+  "c3_geometry_counter": {
+   "statistic": "exact-perm Spearman(Delta-res, Delta-c) je Arm",
+   "delta_res": "res' (Session 3) - res_S1 (committet) je Verdict-Reihe (n=5/q5, n=8/q3)",
+   "delta_c": "c_prime - c_S1 aus dem VOR Messung committeten ISA-Report",
+   "feuer_kriterium": "rho(Delta-res, Delta-c) >= q95-exakt je Arm (q5: 0.7999…-Klasse, q3: 0.6190…-Klasse)",
+   "verdict_role": "NEIN-Feuern ist die C3-null-Voraussetzung der C1-Verdicts",
+   "descriptiv_role": "feuernde/unterscheide C3 ist der D.7-Beweis."
+  },
+  "fprio8_refit": {
+   "gamma_refit_q5": "no-intercept LSQ gamma' = <c,Delta>/<c,c> ueber 16 Kal-Reihen (law-konsistent, fit_gamma_arm-Konvention)",
+   "decomposition_F": "OLS-mit-Achsenabschnitt X = [ones, c_p], se = sqrt(s2*XtXi[1,1]), resid_std ddof=2",
+   "d5_se_provenance": "SE_no_int * c̄ (S1,q5,cal) 0.01197607825720734 ~ Deck 'SE(gamma)*c_p ~ 0.011' — die D.5-Zahl ist die Durch-Null-LSQ-SE, NICHT die (F)-OLS-SE 0.1254448714861779.",
+   "se_no_int_S1_pin": 0.0025335578768332333,
+   "se_times_mean_c_S1_pin": 0.01197607825720734,
+   "sqrt_skalierung_n16_pin": 0.0014163019093822874,
+   "kappa_S1_q5_cal_min_pin": 0.8115144847818115,
+   "falsifikatorlinie_F_zeile_8": "resid_sd(q5, OLS-mit-Achsen-abschnitt, ddof=2, n=16 Kal-Reihen) < 0.01 -> SA-H9-5 kippt (Kalibrier-Streuung ist NICHT Band-Groesse); sonst BLEIBT SA-H9-5.",
+   "committed_F_anchors": {
+    "q5": {
+     "gamma_committed": 0.038128743451453374,
+     "gamma_ols": 0.21586104749721277,
+     "se_gamma": 0.1254448714861779,
+     "resid_sd": 0.023936865145634485,
+     "r2": 0.4967312299110952,
+     "n": 5
+    },
+    "q3": {
+     "gamma_committed": 0.009105648402709013,
+     "se_gamma": 0.012189383635140131,
+     "resid_sd": 0.009138844281032127,
+     "r2": 0.6525102051324765,
+     "n": 8
+    }
+   }
+  }
+ },
+ "verdict_map": {
+  "P_BOUND_TRANSFER_HELD": "C1 beide Arme >= S1->S2-Anker UND C2 UND kein C3-Feuer (rho(Delta-res, Delta-c) < q95-exakt je Arm)",
+  "GEOMETRYBOUND_D7": "C1 q5 unter Anchor UND C3 q5 feuert (>= q95-exakt) — D.7 gewinnt die Runde, auf Session-3-Ebene dokumentiert; H-RAM-Q-4 bleibt REFUTED",
+  "MIXED_PARTIAL": "Teilweise (mind. ein Transfer-Arm gehalten, keine klare Konstellation)",
+  "UNDETERMINED": "Datenlage unklar (keine der Konstellationen)"
+ },
+ "banned_from_raw": [
+  "kappa",
+  "ratio",
+  "gamma",
+  "band",
+  "verdict",
+  "res_v3",
+  "center",
+  "delta_cal"
+ ],
+ "integritaet": {
+  "qpu_jobs_now": 0,
+  "verdict_re_decide": false,
+  "prereg_freezes_beruehrt": false,
+  "toleranz_erhoehung": false
+ },
+ "pr_other_keys_verbatim": {
+  "anti_sharpshooter": "Alle Kandidaten werden aus committeten Grids abgeleitet (NUR Messungs-MEMBERSHIP); die 11 P entstammen der wörtlichen registrierten Phase-11b-P-Regel (new_points_run3-Iteration); kein ex-post-Fit, keine Toleranz-Erhoehnung, kein Re-Decide.",
+  "c1_c_vorprobe": {
+   "role": "DESKRIPTIV registriert (KEIN Verdict-Kriterium); Design unabhaengig vom Ausgang",
+   "committed_rho_S1": {
+    "q5": 0.1879,
+    "q3": -0.4441
+   },
+   "null": "exakt-perm (design_out)"
+  },
+  "classical_core": {
+   "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2 — die User-Headline",
+   "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+   "verdict_in_040_034": "8/8 und 5/5 gated Punkte im Band [0.8, 1.25]"
+  },
+  "design_decision": {
+   "gesetz_v3b_gewaehlt": "center_v3 = (1-1/S)*(ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - gamma_arm*cP) + L_q — minimaler Zusatz zum gefrorenen v2-Gesetz (Phase 10b): der kohaerente Prep-Fehler-Floor als SEPARATER Term mit klassisch EXAKTER, per-Punkt gefrorener Empfindlichkeit cP; gamma_arm ist EIN Arm-Parameter, in-job auf dem Kalibrier-Bein gefittet.",
+   "v3a_verworfen": "Das rein kohärente Gesetz (delta = gamma*cP ohne kappa-Term) passt zwar besser auf die Roh-Daten (B1: kappa-Entkopplung), reduziert aber auf Aer NICHT auf das gefrorene v2 (das die Form-Gates E/S PASSTE): mit gamma_Aer = 0 sagt v3a keine Aer-Degradation vorher, das exact-Bein degradiert aber mit p1 (b_P*(1-kappa_hat) ~ -0.075 auf q5 bei p1 >= 1e-3 >> TOL_FORM = 0.03). v3b reduziert sich auf Aer exakt auf v2 (gamma_Aer ~ 0, denn b_P wurde AUF der Aer-Grid gefittet) und ist robust unter beiden Wahrheiten.",
+   "kalibrier_bein": "Die 13 Run-2-Verdict-P werden in Run 3 FRISCH gemessen (3 Reps + gepaarter Loschmidt) und tragen den in-job gamma-Fit; die 13 neuen P sind Holdout. Die Run-2-Werte der Kalibrier-P werden NICHT wiederverwendet (Anti-Session-Drift); die Run-1-P fliegen komplett raus (541/463/625-Anomalien; q5|541-Anomal ist register-/session-spezifisch: run-1 d=25 res_v1 +0.0248 POSITIV vs run-2 d=5 -0.1453).",
+   "w_b_doppelprime_wiederverwendet": {
+    "wert": 0.02787029633307472,
+    "source": "pt_ram_q_stage2b_results.json w_b (EXPERIMENT 043, Phase-10b-Konvention q97.5 des sampled-Beins)",
+    "begruendung": "Gleiche Apparatus-Konvention (Minimalregister, SHOTS 8192, K_REPEATS 3): die committete w_B' wird wiederverwendet statt aus der neuen 26-Punkte-Grid abgeleitet; die Transfer-Erwartung (max|res| q3 0.0152 / q5 0.0197) liegt mit Marge innen. Das Stage-Aer-3-Bein registriert q97.5 als Diagnostik + Gate-S-Konsistenz (<= W_A) und aendert w_B'' NICHT (Phase-9/10-Freeze-B-Praezedenz)."
+   },
+   "register_unveraendert": "Minimalregister d=q aus Phase 10 bleibt EXAKT stehen (q3 auf d=3 mit 2 Qubits, q5 auf d=5 mit 3 Qubits) — die Kalibrier-Ziele waren eingelöst; nur das Dämpfungs-Gesetz wird präzisiert.",
+   "fprio4_8_design": "EIN combined Job fuer F-Prio 4 UND 8; Layout-Perturbation ist der EINZIGE registrierte Transpilation-Delta (seed 7 unveraendert); die C1-Massstabs-Entscheidung (ANKER-PARITAET statt q95) folgt der n=5-LEKTION — belegt im Design-Scratch (h9_fprio48_design_out.json)."
+  },
+  "echo_ladder": {
+   "purpose": "GEMESSENES Daempfungsgesetz statt starrer (1-eps)^2-Annahme: r-fache (Prep + exakte Inverse)-Bloecke, r in [1, 2, 4, 8], je Arm am NEUEN Ankerpunkt.",
+   "repeats": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "anchors": {
+    "q3": 181,
+    "q5": 467
+   },
+   "r1_shared": "r=1 ist EXAKT der gepaarte Loschmidt-Circuit des Ankerpunkts (geteilt, kein doppeltes Circuit).",
+   "barriers": "Barrier zwischen allen Bloecken (Transpiler-Kuerzung verboten, Phase-9-Konvention).",
+   "verdict_role": "NICHT verdict-tragend (Phase-10-Praezedenz); die Leiter dokumentiert das Daempfungsgesetz am neuen Register.",
+   "fprio5_lesart_b_status": "descriptiv auf DIESEM Job via die 12 unforced Auto-Layout-Circuits — gleiche Geometrie wie S1/S2; NICHT verdict-tragend.",
+   "w_a_r1": 0.05
+  },
+  "experiment": "EXPERIMENT 055",
+  "fallback_lesart_b_inherited": {
+   "status": "REGISTRIERT, NUR-NACHGELAGERT, NIE stiller Patch",
+   "trigger": "AUSLÖSUNG NUR FALLS das v3-Gesetz erneut scheitert (REFUTED oder VOID trotz gamma-Fit) — sonst nie.",
+   "mechanism": "Separat gefrorenes NEUES Prereg. Option B (per-GATE-eps-Kalibrier) bleibt die dokumentierte Fallback-Lesart aus Phase 10 (per-GATE-eps nicht arm-transferierbar, Latte-Verschiebungs-Optik, Identifikations-Spannung).",
+   "primär_pfad": "v3b (dieser Freeze): das gefrorene v2-Gesetz + der kohärente Prep-Fehler-Floor mit in-job gamma-Fit am Kalibrier-Bein."
+  },
+  "frozen_theorems": {
+   "B2_q_universal_identity": "share* = (m - q*n0)^2/((q-1)*d*m) + q*sigma^2/(d*m) für ALLE Count-Vektoren inkl. Wraparound (041, CONFIRMED B)",
+   "d_invariance": "d*m*share* haengt nur von den mod-q gefalteten Counts ab (041 T3 exakt, k=1 Eingeschlossen) -> die Minimalregister d=3/d=5 tragen die IDENTISCHEN Ratio-Vorhersagen wie d=9/25",
+   "ratio_forms": {
+    "q3": "ratio_true = 1 + 12*delta^2/(m-3)^2",
+    "q5": "ratio_true = 1 + 20*sigma^2/(m-5)^2",
+    "general": "ratio_true = (q-1)*(q*sum_r N_r^2 - m^2)/(m - q*n0)^2"
+   },
+   "shuffle_inertness_at_dq": "Bei d=q ist der Fold die Identitaet; eine Label-Permutation permutiert N und laesst sum N^2 invariant => expected_share(Shuffle) == share_true_reg EXAKT. Die Shuffle-Kontrolle ist am Minimalregister strukturell inert und wird durch Composite- + Uniform-Null-Kontrollen ersetzt (Phase-10-Praezedenz).",
+   "coherent_gradient_law": "Erste Ordnung in einer unit-norm kohärenten Amplituden-Stoerung delta_psi (||delta_psi|| = gamma, <psi|delta_psi> = 0): delta_n_a = 2*sqrt(m*n_a)*Re(delta_psi_a), also delta_share = 2*sqrt(m)*Re(<v|delta_psi>) mit v_a = sqrt(n_a)*grad_a; worst-case 2*sqrt(m)*||v||_2, normiert auf model_share_reg => cP. cP_rms = cP_worst/sqrt(d) ist arm-konstant, die Konvention ist gamma-absorbierbar (Phase-11a-Kern, klassisch exakt)."
+  },
+  "future_phase_numbering": {
+   "experiment": "055",
+   "reserved_054": "GOE-Angebot (angeboten, NICHT ausgeführt)",
+   "note": "Nummerierung 048..053 belegt; 055 das kombinierte F-Prio-4+8-Experiment."
+  },
+  "hardware_parameters": {
+   "circuit_budget": 160,
+   "shots_per_circuit": 8192,
+   "total_shots": 1310720,
+   "backend": "ibm_fez",
+   "one_job": true,
+   "fez_backlog": "QUQUINT-F4 daua5hahcrkc73dv9eh0 -> 046 dauassrojkfs738rrcsg -> 055",
+   "job046_id": "dauassrojkfs738rrcsg",
+   "isa_ceilings": {
+    "per_circuit_2q_max": 120,
+    "total_2q_max": 6000,
+    "inherited": "hw-Konstanten (geerbt 042/044)"
+   },
+   "run_config": {
+    "optimization_level": 3,
+    "dynamical_decoupling": "XX",
+    "resilience": "none (raw SamplerV2 counts)"
+   }
+  },
+  "hypothesis": "H-H9 FPrio-4 (C.1/D.7 Session-P-Bindung) + FPrio-8 (D.5 n_cal>=16)",
+  "inherited_freeze_note": "Freeze-A'/B''/C''-Budget (044/047) und die 044-verdict-Freezes bleiben UNANGETASTET; 055 erweitert das Kalibrier-Bein (n=16) und shiftet die Geometrie (C1/C3).",
+  "layer_separation": {
+   "hermeneutic_index": "M1-M5 bleiben kartografischer Index über dem Bestand (Branch gematria-mirror-synthesis); sie ordnen die dokumentierte Reihenfolge und generieren niemals Evidenz.",
+   "encoding_verbot": "Die hermeneutischen Werte 1025/348/879/5683 werden NIEMALS als Encoding-Parameter auf Quanten-Register gepresst. Dieses Experiment codiert ausschließlich exakte arithmetische Größen (Primzahlen, Residuen, Counts).",
+   "evidence_layer": "Die Arithmetik der verrauschten Counts diktiert: share*_hw aus den Hardware-Counts via ABSOLUT-FFT bei j*d/q (Wraparound-Fold n_full[a::d] am Minimalregister), Ratio gegen GEFRORENE Modell-Denominatoren (n0, m aus der wahren Arithmetik, kein Refit)."
+  },
+  "layout_perturbation": {
+   "purpose": "F-Prio 4: die Geometrie-Zuordnung verschiebt sich pro Zeile zyklisch, die P-Vektoren bleiben unveraendert (C1-Test: P-Bindung); Delta-c testet die Geometrie-Bindung (D.7-C3).",
+   "rule": "FORCED initial_layout je Circuit (KEIN Seed-Wechsel, transpiler seed 7 UNVERAENDERT); Reihen pro Arm nach (set, P) sortiert [verdict aufsteigend, dann cal-old aufsteigend, dann Ladder-Reihenfolge], Slots = lexiko- graphische Enumeration verbundener induzierter Subgraphen der LIVE-Kopplungsmap (Groesse 2 = Kanten/q3, Groesse 3 = 3-Knoten-Pfade/q5), Zuordnung = zyklischer Shift (Reihe i -> Slot i+1 mod n_rows_arm); Fallback bei ISA-Ceiling: skip-forward, im Report dokumentiert.",
+   "seed": 7,
+   "optimization_level": 3,
+   "transpiler_delta": "NUR initial_layout",
+   "cP_perturbation_source": "Delta-c = c_prime - c_S1; c_prime aus pt_ram_q_prio48_isa_report.json (VOR Submission committet), c_S1 aus pt_ram_q_hardware3_eval.json [committet S1]; c_S1 == c_S2 bit-verified (deterministische same-transpile),",
+   "unforced_subset": "Echo-Leiter (6) + negative Kontrollen (4) + readout_cal (2) = 12 Circuits unter Auto-Layout seed 7 — per-Circuit-2q bitgleich gegen pt_ram_q_isa3_report.json (Gate-Assertion); fez-scoped FPrio-5-Lesart (b) dadurch MESSBAR."
+  },
+  "leg": "FP48-COMBINED",
+  "md5": "b7afc42c62a6da75b2e43dd3674f8965",
+  "operational_definitions": {
+   "state": "|psi(P,d)> = sum_a sqrt(n_a/m)|a> mit n_a = #{p <= P prim : p ≡ a mod d}; am Minimalregister d=q direkt die q Residuenklassen (q=3: 3 Labels von 4 auf 2 Qubits, Label 3 ideal leer; q=5: 5 Labels von 8 auf 3 Qubits, Labels 5..7 ideal leer).",
+   "hw_counts": "n_hat = m*c/S auf dem 2^n-Label-Vektor, dann Wraparound-Fold n_d[a] = sum n_full[a::d]; unter Depolarisierung erhaelt die Uniform-Masse m exakt: sum n_hat = m.",
+   "share_hw": "share*_hw = sum_{j=1}^{q-1} |DFT_d(n_hat)[j*d/q]|^2/(d*m), ABSOLUT-FFT-Konvention.",
+   "ratio_hw": "share*_hw / model_share_reg mit model_share_reg = (m - q*n0_true)^2/((q-1)*d*m) GEFROREN auf wahre Arithmetik-Werte.",
+   "kappa": "kappa_p = P_L/P_ro_ref aus gepaartem Loschmidt-Circuit (Prep + exakte Inverse) + Readout-Kalibrier im SELBEN Job. UNVERAENDERT aus Phase 9/10.",
+   "ratio_ro_exact": "Aer-Exact-Anker: ratio am gefrorenen STRESS-Modell mit Readout ANALYTISCH via T_ro bei RO_STRESS = 0.01 (Phase-10b-Konvention) — der per-Punkt-Anker des Zentrums.",
+   "b_p": "Per-Punkt-Streuung aus dem Stage-Aer-3-Exact-Bein (26 Punkte x 6 Stresslevel, LSQ deg 1 ueber die Domain-Zellen kappa >= 0.81) — Phase-10b-Konvention, WIEDERVERWENDET; b_P fuer alle 26 Punkte wird VOR Hardware committet (pt_ram_q_hardware3_aer).",
+   "delta_cal": "delta_cal(P) = ratio_ro_exact(pt, ro_hat) + b_P*(kappa_hat-1) - ratio_hw(P) — der Teil der Suppression, den das v2-Gesetz NICHT erklaert (= -res_v2 abzueglich Prefaktoren); der kohaerente Floor-Term gamma*cP soll ihn tragen.",
+   "gamma_arm": "EIN Arm-Parameter, in-job per LSQ-durch-Null auf dem KALIBRIER-BEIN: gamma_arm = <cP, delta_cal>/<cP, cP> über die 13 Kalibrier-P des Arms (cP aus dem Payload, klassisch exakt; ratio_ro_exact mit ro_hat aus der Readout-Kalibrier desselben Jobs; b_P aus dem committeten Stage-Aer-3-Bein). Der Fit NUTZT NUR die Kalibrier-P; die 13 Holdout-P gehen in KEINEN Fit.",
+   "cP": "cP = 2*sqrt(m)*||v||_2/model_share_reg mit v_a = sqrt(n_a)*d share*/d n_a am EXAKTEN ABS-FFT-Share (worst-case kohärente Empfindlichkeit; rms = worst/sqrt(d) arm-konstant). Gefroren im Payload fuer alle 26 Punkte (cP_freeze).",
+   "idle_labels": "Am Minimalregister sind 1/4 (q3) bzw. 3/8 (q5) Labels ideal leer; ihre Leakage-Masse faellt via Wraparound-Fold in echte Klassen. Stage-Aer-Form-Validierung am ECHTEN Fold prueft das VOR Hardware."
+  },
+  "phase10_verdict_context": {
+   "verdict": "H-RAM-Q-3b_REFUTED",
+   "befund": "Kalibrier-Ziel EINLOEST (alle 13 kappa_hat >= 0.81: q3 0.9786-0.9904, q5 0.9196-0.9286) UND 13/13 unter c(kappa)-w_B' EINSEITIG (res_v1 [-0.0938..-0.0341], Suppression, 0 Amplification); auch die Aer-kalibrierte v2-Form verfehlt (res_v2 alle negativ, max 0.0630 > w_B' 0.02787)",
+   "mechanismus": "Der Loschmidt-Echo refokussiert kohärente/unäre Prep-Fehler, die der Einweg-Struktur-Circuit voll traegt — kappa_hat ueberschaetzt die Struktur-Daempfung; die Suppression ist real, aber ihr kappa-anteilig-Anteil ist zu klein fuer das Aer-Depolarisierungsmodell",
+   "kontrollen": "t3 (041-Identitaet) 3.55e-15, t4/t5/t6/md5 alle gruen — die saubere Falsifikations-Konstellation",
+   "deutung": "Arithmetik hielt (t3 exakt), Kopplungsgesetz hielt nicht; REFUTED gilt fuer das Gesetz mit Echo-kalibriertem kappa_hat auf ibm_fez, NICHT fuer die Arithmetik"
+  },
+  "prior_chain": {
+   "a2fc4875e10dd198e95d4996b1692759": "EXPERIMENT 034 — q=5 Fingerprint, 5 gated Punkte @ d=625",
+   "bd9dfee77b9fada8a230347f9d45f5a7": "EXPERIMENT 040 — H-RAM-Q-1 q=3 Deformation, 8 gated Punkte @ d=729",
+   "704916f946beedf49c51ab6bc9bf37bd": "EXPERIMENT 041 — H-RAM-Q-2 q-universelle Identität (CONFIRMED B)",
+   "18fb1e62a3dd71c6f595416cdd40bcc1": "EXPERIMENT 032 — §Z.14 Fez-QPU-Präzedenz (12 Circuits x 8192 Shots, TOKEN1)",
+   "432d43fe1bc9e2594efd3b35266d2d81": "EXPERIMENT 042 — H-RAM-Q-3 Freeze A (REGISTERED_NOT_MEASURED, 58 Circuits)",
+   "d19f4a563d88e0cf3ffd4b187a10ca73": "EXPERIMENT 042 — Fez-Raw-Counts darq1stvr3kc73ej96ig (committed VOR Auswertung)",
+   "0b9c9968dc5e99a3cc22962a8b760e44": "EXPERIMENT 043 — H-RAM-Q-3b Freeze A' + Re-Freeze R1 (Minimalregister d=q, 90 Circuits)",
+   "16ca44bd02f81cf623862b4910ccedf8": "EXPERIMENT 043 — Fez-Raw-Counts dartdg5vr3kc73ejcrgg (committed VOR Auswertung, Verdict REFUTED)",
+   "8ad3adbb19568bc9f7db81142d3e1c0a": "Phase 11a — kohärente Prep-Fehler-Diagnostik (0 QPU, NICHT verdict-tragend, committet 4434d34)",
+   "EXPERIMENT_047_EVAL_REP_MD5": "61ccd9210f0d70a63b8ee4b33fafc8be",
+   "EXPERIMENT_051_K2_PREREG_MD5": "3926b0c792bbd14ac3050ca540541a63",
+   "EXPERIMENT_051_K2_KINGSTON_EVAL_MD5": "72f68c59d8740f5ae28f56bf27d0c8af",
+   "EXPERIMENT_053_MD5_HINWEIS": "Kette siehe §Z.35 (053, H-ZQZ) — kein Messinput für 055"
+  },
+  "qpu": {
+   "backend": "ibm_fez",
+   "token_discipline": "NUR TOKEN1 (IBMQ_TOKEN aus .env via pt_ququint_fez); TOKEN2 wird NIE gelesen; kein Sampler-V2-Local-Pfad.",
+   "sampler": "SamplerV2 (raw counts, resilience none), default_shots 8192, DD XX (Prereg run_config), ALLE 160 Circuits in EINEM Job (circuit_budget).",
+   "transpile": {
+    "optimization_level": 3,
+    "seed_transpiler": 7,
+    "initial_layout": "FORCED (layout_perturbation)"
+   },
+   "job_id_file": "pt_ram_q_prio48_fez_job_id.txt",
+   "raw_path": "pt_ram_q_prio48_raw.json",
+   "raw_discipline": "raw.json traegt NUR counts (+ job_meta/transpile/run_config) — KEIN kappa/ratio/gamma/band/verdict; Roh-Commit VOR Auswertung.",
+   "resume_vertrag": "Existiert raw.json: geschieht NICHTS. Existiert die Job-ID-Datei: Resume via service.job(id) (KEIN neuer Job — 046-/053-Praezedenz)."
+  },
+  "registered_before": "2026-10-03 (vor jeder Messung dieses Jobs; kein Messwert dieser Registrierung zugefuehrt)",
+  "registered_by": "Claude (autonom, Task #83) — User-Anker 'mache weiter mit tasks'",
+  "safeguard_limits": {
+   "kappa_ceiling": 0.81,
+   "void": "REFIT_INVALID_KAPPA: kappa_hat < 0.81 an >= 2 der Union-Reihen -> gamma-Refit invalid (descriptiv-void; kein kritisches Verdict-Ableiten)",
+   "kontrolle_void": "EVALUATION_INVALID_KONTROLLE_GESCHEITERT",
+   "w_band": 0.02787029633307472,
+   "w_a": 0.05
+  },
+  "session_anchors": {
+   "c1_massstab": "ANKER-PARITAET (>= beobachtet S1->S2 je Arm); q95-exakt bleibt SEKUNDAERER Deskriptiv-Benchmark (n=5-LEKTION: TRUE-Replication erreicht nur rho 0.5 = 80-Perzentil-Klasse bei 120 Permutationen).",
+   "rho_S1_S2_q5_verdict_pin": 0.49999999999999994,
+   "rho_S1_S2_q3_verdict_pin": 0.8095238095238096,
+   "rho_S1_S2_pooled_13_pin": 0.8956043956043955,
+   "q95_exact_perm_q5_sekundaer_pin": 0.7999999999999999,
+   "n_perm_q5": 120,
+   "q95_exact_perm_q3_sekundaer_pin": 0.6190476190476191,
+   "n_perm_q3": 40320,
+   "kriterium_C1_q5": "rho(res'_q5-verdict, res_S1_q5-verdict) >= Anchor S1->S2 (0.5-Klasse)",
+   "kriterium_C1_q3": "rho(res'_q3-verdict, res_S1_q3-verdict) >= Anchor S1->S2 (0.8095-Klasse)",
+   "frisch_getestet_in_verify": {
+    "rho_q5": 0.49999999999999994,
+    "rho_q3": 0.8095238095238096,
+    "rho_pooled": 0.8956043956043955,
+    "q95_q5": 0.7999999999999999,
+    "n_perm_q5": 120,
+    "q95_q3": 0.6190476190476191,
+    "n_perm_q3": 40320,
+    "se_no_int": 0.0025335578768332333,
+    "mean_c": 4.726980333354999,
+    "se_times_mean_c": 0.01197607825720734,
+    "sqrt_skalierung_n16": 0.0014163019093822874,
+    "c_p_identisch_s1_s2": true
+   }
+  },
+  "status": "REGISTERED_NOT_MEASURED",
+  "suite_state": {
+   "basis_tests": 1342,
+   "prio48_tests_geplant": ">= 15 (Modul-Statik + Points/CP/Anker/Layout-Statik + Runner-ISA-Fallback)",
+   "suite_command": "QISKIT_PARALLEL=FALSE venv/bin/python -m pytest tests/ -q"
+  },
+  "user_directive": "EIN Fez-Job hinter 046 (Backlog QUQUINT-F4 daua5hahcrkc73dv9eh0 -> 046 dauassrojkfs738rrcsg -> 055); kein Push, kein Re-Decide."
+ },
+ "p48qpu_consts": {
+  "BACKEND_NAME": "ibm_fez",
+  "CEILINGS": "{'per_circuit_2q_max': 120, 'total_2q_max': 6000}",
+  "C_PRIME_LESART": "PROXY-LESART des C3-Zaehlers (Prereg cP_perturbation_source): c_prime = cP * (mean n_2q'_055 / mean two_q_S1) je Reihe (Mittel ueber die 4 Row-Circuits; rang-aequivalent zur Summe). Delta_c = c_prime - cP aus den verwendeten Werten. Mean-Ratio bit-gleich 1 -> Delta_c == 0 -> Delta-c degenerat (keine Geometrie-Schiebung messbar). Ladder-Reihen frisch -> c_prime None. Kompilations-Geometrie je Reihe separat registriert: row_assignment (Slot/Index/Fallback).",
+  "ISA_GATE_PATH": "pt_ram_q_prio48_isa_gate.json",
+  "ISA_REPORT_PATH": "pt_ram_q_prio48_isa_report.json",
+  "JOB_ID_PATH": "pt_ram_q_prio48_fez_job_id.txt",
+  "N_EXPECTED_POINTS": 37,
+  "POLL_MAX_S": 21600,
+  "POLL_SECONDS": 20,
+  "RAW_PATH": "pt_ram_q_prio48_raw.json",
+  "ROW_CIRCUIT_PREFIXES": "('struct_', 'calstruct_', 'loschmidt_', 'calloschmidt_')",
+  "S1_ISA_REPORT": "pt_ram_q_isa3_report.json",
+  "SHOTS": 8192,
+  "TRANSPILE_SEED": 7
+ },
+ "s1_twoq_presence": {
+  "n_rows": 148,
+  "n_missing": 44,
+  "n_zero_or_neg": 0,
+  "missing_head": [
+   "calstruct_q5_d5_479_r0",
+   "calstruct_q5_d5_479_r1",
+   "calstruct_q5_d5_479_r2",
+   "calloschmidt_q5_d5_479",
+   "calstruct_q5_d5_521_r0"
+  ],
+  "s1rep_pc_n": 116,
+  "s1rep_pc_fields": [
+   "P",
+   "arm",
+   "depth",
+   "kind",
+   "ops",
+   "set",
+   "two_q"
+  ]
+ },
+ "s1e_punkte_type": "dict",
+ "s1e_n": 26,
+ "s1e_row_fields": [
+  "P",
+  "P_L",
+  "P_ro_ref",
+  "above_ceiling_w_a",
+  "above_ceiling_w_b",
+  "b_p_aer",
+  "below_coarse",
+  "below_sharp",
+  "c_p",
+  "ceiling",
+  "center_v3",
+  "delta_cal",
+  "gamma_used",
+  "in_band_coarse",
+  "in_band_sharp",
+  "in_gamma_fit",
+  "kappa_hat",
+  "kappa_ok",
+  "m",
+  "missing_reps",
+  "nq",
+  "ratio_hw",
+  "ratio_reps",
+  "ratio_ro_exact",
+  "ratio_std",
+  "res_v3",
+  "set"
+ ],
+ "s1e_verdict_rows": {
+  "verdict|q3_d3|181": {
+   "c_p": 4.632285850026061,
+   "kappa_hat": 0.9606164383561644,
+   "ratio_hw": 0.8948001071546204,
+   "res_v3": -0.00048538931045694067
+  },
+  "verdict|q3_d3|229": {
+   "c_p": 4.394626020647024,
+   "kappa_hat": 0.9724804305283757,
+   "ratio_hw": 0.9063209355174283,
+   "res_v3": 0.003940437631661853
+  },
+  "verdict|q3_d3|283": {
+   "c_p": 4.449016857525076,
+   "kappa_hat": 0.9634295499021527,
+   "ratio_hw": 0.9012643122219445,
+   "res_v3": 0.0031251801898406484
+  },
+  "verdict|q3_d3|379": {
+   "c_p": 4.272197538819991,
+   "kappa_hat": 0.9574363992172211,
+   "ratio_hw": 0.9083278968723283,
+   "res_v3": 0.028910779190665314
+  },
+  "verdict|q3_d3|467": {
+   "c_p": 4.2653626365026565,
+   "kappa_hat": 0.9565802348336595,
+   "ratio_hw": 0.918882799473368,
+   "res_v3": 0.03700154819650725
+  },
+  "verdict|q3_d3|613": {
+   "c_p": 4.227287704987718,
+   "kappa_hat": 0.9575587084148728,
+   "ratio_hw": 0.9054455005423246,
+   "res_v3": 0.021264303976193832
+  },
+  "verdict|q3_d3|691": {
+   "c_p": 4.219039117687428,
+   "kappa_hat": 0.9659980430528375,
+   "ratio_hw": 0.9207044710830411,
+   "res_v3": 0.021121526431261417
+  },
+  "verdict|q3_d3|797": {
+   "c_p": 4.157939260087671,
+   "kappa_hat": 0.9584148727984344,
+   "ratio_hw": 0.9073598774304696,
+   "res_v3": 0.025596670168915203
+  },
+  "verdict|q5_d5|467": {
+   "c_p": 4.883399773945637,
+   "kappa_hat": 0.8274049627184941,
+   "ratio_hw": 0.6224985614335706,
+   "res_v3": -0.031777729460608306
+  },
+  "verdict|q5_d5|547": {
+   "c_p": 4.625319318723228,
+   "kappa_hat": 0.830949761642831,
+   "ratio_hw": 0.6103079182190684,
+   "res_v3": -0.04368697585065229
+  },
+  "verdict|q5_d5|613": {
+   "c_p": 4.75113180766759,
+   "kappa_hat": 0.8244713360224911,
+   "ratio_hw": 0.7187087838992033,
+   "res_v3": 0.0615050758733946
+  },
+  "verdict|q5_d5|673": {
+   "c_p": 4.664051955367851,
+   "kappa_hat": 0.8310719960884977,
+   "ratio_hw": 0.6098765583903597,
+   "res_v3": -0.05477027332169149
+  },
+  "verdict|q5_d5|691": {
+   "c_p": 4.731200614987623,
+   "kappa_hat": 0.8258159149248259,
+   "ratio_hw": 0.6634331980927123,
+   "res_v3": -0.0013155213772800822
+  }
+ },
+ "c_p_ident_bit_tally": {
+  "n": 26,
+  "n_equal": 26
+ }
+}

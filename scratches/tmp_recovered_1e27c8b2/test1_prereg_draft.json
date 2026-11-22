@@ -1,0 +1,89 @@
+{
+  "_draft_note": "ENTWURF (job-tmp, NICHT gefroren) fuer Praereg-Review. Bei Freigabe: in Repo uebersetzt, Freeze + md5, VOR erstem Lauf. ASCII-Transliteration Haus-Stil.",
+  "experiment": "048",
+  "hypothesis": {
+    "id": "H-TEST1",
+    "reduced_claim": "Eine niedrigere Verschraenkung erhoehen die numerische Robustheit der Relativ-Struktur der Repraesentation.",
+    "test1_limb": "GF(5)-Arm zeigt unter identischen (relativ normierten) Rauschkanaelen signifikant engeren relative-Gap-Drift als der Binaer-Arm. Sonst: Notwendigkeit der GF(5)-Architektur restlos fallengelassen.",
+    "excluded": "Kein RH-Relevanz-, kein Dekohaerenz-Schutz-, kein Resonanz-Ontologie-Claim (gestrichen)."
+  },
+  "arms": {
+    "binary": {
+      "dim": 4,
+      "levels": "E_DIAG aus pt_structural (2.0, 2.6931471805599453, 3.683857645907477, 4.987818122377908)",
+      "A": "jacobi_A(E_DIAG, y=1.0)",
+      "H": "diag(E) + i*gamma*A_4"
+    },
+    "ququint_PRIMARY": {
+      "dim": 5,
+      "levels": "E_DIAG + [E_5 = f(E_4) = E_4 + ln(E_4)] (Iterations-Fortsetzung, ca. 6.5946) — NICHT der Platzhalter 5.0",
+      "A": "jacobi_A(E_DIAG_5, y=1.0) vollstaendig (5x5, alle Paare nach Mittelwertsatz gekoppelt)",
+      "H": "diag(E5) + i*gamma*A_5",
+      "rationale": "Dieselbe Konstruktionsregel bei n=5 angewandt. Der bestehende pt_ququint_vqe-Arm ist block-trivial (A_5 = block_diag(A_4, 0); fuenftes Niveau entkoppelter Zuschauer, Wert ist ein Platzhalter 5.0 statt der Iterations-Fortsetzung) und wuerde als Vergleichsarm einen leeren Test liefern."
+    },
+    "ququint_CONTROL": {
+      "dim": 5,
+      "levels": "E_DIAG + [5.0] (Platzhalter, bestehende block-trivial-Fassung)",
+      "A": "block_diag(A_4, 0)",
+      "expected": "Drift bit-vergleichbar zum Binaer-Arm (Block-Struktur) — Kontrolle dokumentiert die Trivialitaet, wird NICHT fuer den Vergleich verwendet."
+    }
+  },
+  "gamma": {
+    "working_point_note": "gamma=0.02 ist der eingefrorene Record-Wert aus pt_ququint_vqe.py",
+    "grid": [0.0, 0.02]
+  },
+  "channels": {
+    "K1_additiv_global": {
+      "def": "H_tilde = H + delta*I, delta relativ zur Spektralbreite",
+      "deltas": [0.001, 0.01, 0.05],
+      "role": "Kontrollklasse — exakte Invarianz BEIDER Arme Pflicht (sonst Metrik-Bug, kein Verdict)"
+    },
+    "K2_glatt_nichtlinear_diag": {
+      "def": "H_tilde = diag(E + delta*f2(E_i/span)) mit f2(x)=x^2 (glattnichtlinear, Kanalklasse aus dem REFRAMING_VECTOR-Record)",
+      "deltas": [0.001, 0.01, 0.05]
+    },
+    "K3_kohrentes_detuning_stochastisch": {
+      "def": "H_tilde = diag(E + delta*u), u uniform fix pro Draw in [-1, 1], 100 Draws (Phase-11-Lektion: kohärentes Detuning ist der level-verschiebende Kanal auf Hardware, reines Dephasing verschiebt Diagonalspektren nicht)",
+      "deltas": [0.001, 0.01],
+      "quantiles": ["median", "q95"]
+    },
+    "K4_strukturiert_offdiag": {
+      "def": "H_tilde = H + delta*S, S reell-symmetrisch fester Struktur (normiert ||S||_2 = 1)",
+      "deltas": [0.001, 0.01]
+    },
+    "K5_adversarial_nichtglatt": {
+      "def": "H_tilde = diag(E + delta*(-1)^i * (1/span-E_normalisierter_Term)) alternierendes Diagonal, Worst-Case gegen glatte Invarianz",
+      "deltas": [0.01],
+      "role": "Anti-Fake-Win-Klasse — soll Differenzen ERZEUGEN; berichtetes 'invariant' hier waere rote Flagge"
+    }
+  },
+  "normalization": "Alle delta relativ zur Spektralbreite span = max(E) - min(E) des jeweiligen Arms (skalenfreundlich ueber 4x4 vs 5x5).",
+  "metrics": {
+    "PRIMARY_gap_ratio_drift": "Gamma_MAX = max_n |(r_n_tilde - r_n) / r_n|, mit r_n = (E_{n+1} - E_n) / (E_n - E_{n-1}) fuer n = 1..(dim-2), Realteile der sortierten Eigenwerte (sortiert nach Re); skalenfrei — das strenge 'relative Spektrum'",
+    "SECONDARY_gap_drift": "D_MAX = max_n |(E_{n+1} - E_n)_tilde - (E_{n+1} - E_n)| / (E_{n+1} - E_n)",
+    "PT_status_report": "max |Im E_n| pro Arm und gamma — separat berichtet, kein Claim-Wert (Anschluss an 005v3: unbroken-Fenster-Huerde)"
+  },
+  "precondition_gates": [
+    "GATE-A: bei gamma=0 ohne Kanal — Re-Spektren sortiert; relative Gap-Ratios Binaer vs Ququint-PRIMARY im gemeinsamen Inneren bis 1e-10 (Konstruktionskonsistenz)",
+    "GATE-B: K1 bei allen deltas — D_MAX und Gamma_MAX exakt 0 in BEIDEN Armen (sonst Skript-Fehler, kein Verdict)",
+    "GATE-C: ququint-CONTROL liefert Drift bit-vergleichbar zum Binaer-Arm (dokumentierte Trivialitaets-Bestaetigung)"
+  ],
+  "verdict_rule": {
+    "GF5_advantage": "Gamma_MAX(ququint_PRIMARY) < Gamma_MAX(binary) * (1 - 0.10) auf >= 60 % der (Kanal, delta)-Gitterpunkte OHNE Kontrollklasse K1, bei beiden gamma-Punkten",
+    "else": "NOTWENDIGKEIT_GEFALLEN — GF(5)-Limb der reduzierten Hypothese gestrichen; die Reduktion bleibt nur architekturnutral",
+    "classifications": [
+      "H-TEST1-QUALIFIER: CONFIRMED",
+      "H-TEST1-QUALIFIER: NOTWENDIGKEIT_GEFALLEN",
+      "H-TEST1-QUALIFIER: MIXED (Kanal-abhaengig, mit per-Kanal-Tabelle berichtet)",
+      "H-TEST1-QUALIFIER: DEGENERAT (GATE-A/B/C verletzt)"
+    ],
+    "no_re_decide": "Kanaele/Metriken/Regeln nach Freeze fix; KEINE Toleranz-Erhoehung, keine Kanal-Streichung oder -Ergaenzung nach Sichtbarkeit der Zahlen"
+  },
+  "seeds": {
+    "numpy_default_rng": 20261001,
+    "note": "K3: 100 Draws pro delta; K4/K5 deterministisch (feste Struktur)"
+  },
+  "runtime": "0 QPU, 0 Aer — reine numpy-Perturbations-/Algebrarechnung (5x5 / 4x4), Laufzeit Sekunden",
+  "no_push": true,
+  "branch_note": "Neuer Experiment-Zweig: eigener Branch bei Freeze geprueft (kein Mischbetrieb mit der ram-q-zyklizitaet-046-Watch)"
+}

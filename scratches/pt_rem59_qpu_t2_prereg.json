@@ -1,0 +1,21 @@
+{
+  "experiment": "059-qpu-marrakesh",
+  "hypothesis": "H-REM59-Q",
+  "addendum_zu": "scratches/pt_rem59_qpu_prereg.json (md5 8972ce6c\u2026)",
+  "aenderung": "NUR backend+token (fez/TOKEN1 \u2192 marrakesh/TOKEN2)",
+  "backend": "ibm_marrakesh",
+  "shots": 8192,
+  "target_bin": 32,
+  "sv_mass_pred": 0.26663306451612906,
+  "band": [
+    0.21330645161290326,
+    0.3332913306451613
+  ],
+  "verdict_map": {
+    "HELD": "S*-Masse im Band",
+    "REFUTED": "S*-Masse au\u00dferhalb",
+    "INVALID": "Cal-Ausfall oder Backend-Wechsel der Geometrie"
+  },
+  "scout_decision_md5": "4c5e5e9d688cdce246e8cbe25e783065",
+  "md5": "be30ab9b44a7662805ce3ebb840b00ee"
+}

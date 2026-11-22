@@ -1,0 +1,17 @@
+qiskit_runtime_service._discover_account:WARNING:2026-10-02 02:39:57,914: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service._discover_account:WARNING:2026-10-02 02:40:02,959: Loading account with the given token. A saved account will not be used.
+divergente Zellen v1->v2: 2 | n_2q-Divergenzen: 0
+   ladder_q3_d3_181_r2
+     v1: {'sx': 24, 'rz': 22, 'cz': 4, 'barrier': 3, 'x': 2, 'measure': 2}
+     v2: {'sx': 24, 'rz': 20, 'cz': 4, 'x': 4, 'barrier': 3, 'measure': 2}
+     n_2q: 4 -> 4
+   ladder_q3_d3_181_r4
+     v1: {'sx': 48, 'rz': 44, 'cz': 8, 'barrier': 7, 'x': 4, 'measure': 2}
+     v2: {'sx': 48, 'rz': 40, 'cz': 8, 'x': 8, 'barrier': 7, 'measure': 2}
+     n_2q: 8 -> 8
+Klassen (v1->v2 je Gate):
+   ladder_q3_d3_181_r2 {'rz': (22, 20), 'x': (2, 4)}
+   ladder_q3_d3_181_r4 {'rz': (44, 40), 'x': (4, 8)}
+ISA gate (K2, frisches Grid): ISA_OK | total 2q: 559 | max: 84 | prereg md5: ef7029764f0c192d69712674bd161822
+neue Totals: 559 84 (v1: 559 84 )
+OK: Gate v2 geschrieben

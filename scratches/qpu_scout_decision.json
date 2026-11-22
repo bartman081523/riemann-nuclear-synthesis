@@ -1,0 +1,73 @@
+{
+  "backends": [
+    {
+      "backend": "ibm_fez",
+      "qubits": 156,
+      "operational": true,
+      "pending": 0,
+      "status_msg": "active",
+      "median_2q": 0.0028974363842237255,
+      "median_ro": 0.01043701171875,
+      "stale_own": [
+        {
+          "job_id": "daua5hahcrkc73dv9eh0",
+          "age_days": 16.1,
+          "token": "TOKEN1"
+        },
+        {
+          "job_id": "dauassrojkfs738rrcsg",
+          "age_days": 16.1,
+          "token": "TOKEN1"
+        },
+        {
+          "job_id": "db0m71qvog1s73fh15og",
+          "age_days": 12.5,
+          "token": "TOKEN1"
+        }
+      ],
+      "gate": "FAIL",
+      "reason": "STARVATION: eigene QUEUED-Jobs [{'job_id': 'daua5hahcrkc73dv9eh0', 'age_days': 16.1, 'token': 'TOKEN1'}, {'job_id': 'dauassrojkfs738rrcsg', 'age_days': 16.1, 'token': 'TOKEN1'}, {'job_id': 'db0m71qvog1s73fh15og', 'age_days': 12.5, 'token': 'TOKEN1'}]; G5: TOKEN2-Quota ersch\u00f6pft (frei ab 2026-10-22T04:32:08.709Z)"
+    },
+    {
+      "backend": "ibm_kingston",
+      "qubits": 156,
+      "operational": true,
+      "pending": 2,
+      "status_msg": "active",
+      "median_2q": 0.0021205283062316616,
+      "median_ro": 0.0098876953125,
+      "stale_own": [],
+      "gate": "FAIL",
+      "reason": "G5: TOKEN2-Quota ersch\u00f6pft (frei ab 2026-10-22T04:32:08.709Z)"
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "qubits": 156,
+      "operational": true,
+      "pending": 0,
+      "status_msg": "active",
+      "median_2q": 0.0034125981109709297,
+      "median_ro": 0.0162353515625,
+      "stale_own": [],
+      "gate": "FAIL",
+      "reason": "G5: TOKEN2-Quota ersch\u00f6pft (frei ab 2026-10-22T04:32:08.709Z)"
+    }
+  ],
+  "choice": null,
+  "usage": {
+    "TOKEN1": {
+      "limit_reached": true,
+      "consumed_s": 821,
+      "limit_s": 600,
+      "available_at": "2026-10-24T14:32:58.182Z"
+    },
+    "TOKEN2": {
+      "limit_reached": true,
+      "consumed_s": 617,
+      "limit_s": 600,
+      "available_at": "2026-10-22T04:32:08.709Z"
+    }
+  },
+  "min_qubits": 6,
+  "md5": "bbdafe0c4ca39f62e44fbc26b990af44"
+}

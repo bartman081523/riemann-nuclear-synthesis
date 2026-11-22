@@ -1,0 +1,161 @@
+{
+ "experiment": "046-ququint-v5-repetition-both-backends",
+ "prereg_v5_md5": "d019d587c0d8ca28cfa0559057d590c8",
+ "prereg_rep_md5": "fcf4c2c58837bb7188c4e029d1841214",
+ "sign_floor_2sigma": 0.01235434493266991,
+ "legs": {
+  "kingston": {
+   "job_id": "dat3brihcrkc73dtjbgg",
+   "backend": "ibm_kingston",
+   "meas": {
+    "re": 2.1463664700509506,
+    "hd": 2.1600742871988152,
+    "im": 0.009730864928887861,
+    "bias": -0.01370781714786462
+   },
+   "isa": {
+    "two_q": 1,
+    "one_q": 18,
+    "names": [
+     "cz"
+    ],
+    "depth": 11
+   },
+   "isa_gate": {
+    "rule": "v5.isa_accept_online (gefroren, 035)",
+    "ok": true
+   },
+   "controls": {
+    "C1_theorem_identity": true,
+    "C2_noiseless_anchors": true,
+    "C3_spectrum_split": true,
+    "C4_isa_offline_anchor": true,
+    "C5_stress_baseline": true,
+    "C6_reduction_exact": true
+   },
+   "controls_ok": true,
+   "verdict": "H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND",
+   "detail": {
+    "n_out": 0,
+    "flags": {
+     "re": {
+      "value": 2.1463664700509506,
+      "band": [
+       2.1191844880255655,
+       2.17247246569962
+      ],
+      "in_band": true
+     },
+     "hd": {
+      "value": 2.1600742871988152,
+      "band": [
+       2.1345053504908575,
+       2.1809962200449498
+      ],
+      "in_band": true
+     },
+     "im": {
+      "value": 0.009730864928887861,
+      "band": [
+       -0.011242018857197743,
+       0.03003274212843888
+      ],
+      "in_band": true
+     }
+    },
+    "bias": -0.01370781714786462,
+    "bias_class": "ok"
+   },
+   "sign_class": "-",
+   "bias_over_se": -2.219108697801626
+  },
+  "fez": {
+   "job_id": "dauassrojkfs738rrcsg",
+   "backend": "ibm_fez",
+   "meas": {
+    "re": 2.179152206550255,
+    "hd": 2.1678169412156385,
+    "im": 0.008757581708377657,
+    "bias": 0.011335265334616373
+   },
+   "isa": {
+    "two_q": 1,
+    "one_q": 18,
+    "names": [
+     "cz"
+    ],
+    "depth": 11
+   },
+   "isa_gate": {
+    "rule": "names \u2286 ONLINE_2Q_NAMES und depth \u2264 ONLINE_DEPTH_MAX (EX ANTE abgeschaecht: two_q == 1 NICHT gefordert, FakeFez-Anker)",
+    "ok": true
+   },
+   "controls": {
+    "C1_theorem_identity": true,
+    "C2_noiseless_anchors": true,
+    "C3_spectrum_split": true,
+    "C4_isa_offline_anchor": true,
+    "C5_stress_baseline": true,
+    "C6_reduction_exact": true
+   },
+   "controls_ok": true,
+   "verdict": "H-V5_MITTEL_EIN_OBSERVABLE_AUSSEN",
+   "detail": {
+    "n_out": 1,
+    "flags": {
+     "re": {
+      "value": 2.179152206550255,
+      "band": [
+       2.1191844880255655,
+       2.17247246569962
+      ],
+      "in_band": false
+     },
+     "hd": {
+      "value": 2.1678169412156385,
+      "band": [
+       2.1345053504908575,
+       2.1809962200449498
+      ],
+      "in_band": true
+     },
+     "im": {
+      "value": 0.008757581708377657,
+      "band": [
+       -0.011242018857197743,
+       0.03003274212843888
+      ],
+      "in_band": true
+     }
+    },
+    "bias": 0.011335265334616373,
+    "bias_class": "ok"
+   },
+   "sign_class": "0",
+   "bias_over_se": 1.835024907656791
+  }
+ },
+ "h_v5r_1": "H-V5R-1_MIXED",
+ "h_v5r_2": "H-V5R-2_UNDETERMINED_UNTER_2SIGMA",
+ "pooled_descriptiv": {
+  "fez_sessions": [
+   "d9fidihhtsac739fg3n0",
+   "d9fjbraneu4c739pmaqg",
+   "dauassrojkfs738rrcsg"
+  ],
+  "fez_biases": [
+   -0.011922308405310833,
+   -0.008523754345329593,
+   0.011335265334616373
+  ],
+  "kingston_sessions": [
+   "daqaeteekp0c73aqetdg",
+   "dat3brihcrkc73dtjbgg"
+  ],
+  "kingston_biases": [
+   0.007403730279381016,
+   -0.01370781714786462
+  ],
+  "note": "Kingston-Bias der 035-Session in pt_v5_kingston_results.json; Pooling rein deskriptiv, NICHT verdict-tragend."
+ }
+}

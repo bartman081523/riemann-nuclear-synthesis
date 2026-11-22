@@ -1,0 +1,6 @@
+{"type": "pattern", "arm": "n3_min", "idx": 0, "signs": [-1, -1, 1], "adjacent": true, "k1_mean": 1.541051569548116, "k2_mean": 1.5776179655794207, "R": 1.023728210498515, "r_median": 12.495211017696969, "seconds": 0.1}
+{"type": "pattern", "arm": "n3_min", "idx": 1, "signs": [-1, 1, -1], "adjacent": true, "k1_mean": 1.5410515695425075, "k2_mean": 1.577617965657459, "R": 1.0237282105528804, "r_median": 12.495211018513361, "seconds": 0.1}
+{"type": "pattern", "arm": "calib_min", "idx": 0, "signs": [-1, -1, 1, 1, 1, 1], "adjacent": true, "k1_mean": 1.1393705167000652, "k2_mean": 1.0624137774534244, "R": 0.9324567924843895, "r_median": 1.040329418328918, "seconds": 1.7}
+{"type": "pattern", "arm": "calib_min", "idx": 1, "signs": [-1, 1, -1, 1, 1, 1], "adjacent": true, "k1_mean": 1.1393705168803672, "k2_mean": 1.0624137795722648, "R": 0.9324567941964899, "r_median": 1.0403294088513844, "seconds": 4.2}
+{"type": "pattern", "arm": "calib_tri", "idx": 0, "signs": [-1, -1, 1, 1, 1, 1], "adjacent": true, "k1_mean": 2.355164390368151, "k2_mean": 1.5181350200766142, "R": 0.6445983245523276, "r_median": 2.8981633833834777, "seconds": 5.3}
+{"type": "pattern", "arm": "calib_tri", "idx": 1, "signs": [-1, 1, -1, 1, 1, 1], "adjacent": true, "k1_mean": 2.3551643903462276, "k2_mean": 1.5181350201157666, "R": 0.644598324574952, "r_median": 2.8981633942388267, "seconds": 10.8}

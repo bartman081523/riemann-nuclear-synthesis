@@ -1,0 +1,14 @@
+{
+  "experiment": "EXPERIMENT 055",
+  "bein": "marrakesh",
+  "addendum_zu": {
+    "prereg": "pt_ram_q_prio48_prereg.json",
+    "md5": "b7afc42c62a6da75b2e43dd3674f8965"
+  },
+  "aenderung": "backend+token fez/TOKEN1 \u2192 marrakesh/TOKEN2; Forced-Geometrie auf Marrakesh-Map neu enumeriert (gleiche Algorithmen); S1-Anker \u2192 Gate-Selbst-Anker",
+  "backend": "ibm_marrakesh",
+  "n_circuits": 160,
+  "shots": 8192,
+  "scout_decision_md5": "4c5e5e9d688cdce246e8cbe25e783065",
+  "md5": "6a231a1a1008c8cea7a178a6db21899a"
+}

@@ -1,0 +1,43 @@
+{
+  "experiment": "059-ramanujan-einklang-1",
+  "hypothesis": "H-REM59",
+  "prereg_md5": "988767a249a231c1d53cb9c5abc84bb4",
+  "qpu_jobs": 0,
+  "e1": {
+    "ok": true,
+    "familien": [
+      {
+        "fam": "5n+4 mod 5",
+        "geprueft": 400,
+        "verletzungen": [],
+        "ok": true
+      },
+      {
+        "fam": "7n+5 mod 7",
+        "geprueft": 286,
+        "verletzungen": [],
+        "ok": true
+      },
+      {
+        "fam": "11n+6 mod 11",
+        "geprueft": 182,
+        "verletzungen": [],
+        "ok": true
+      }
+    ]
+  },
+  "e2": {
+    "ok": true,
+    "n_max": 100,
+    "verletzungen": []
+  },
+  "e3": {
+    "ok": true,
+    "gemessen": 0.2666330645161483,
+    "vorhergesagt": 0.26663306451612906,
+    "residual": 1.9262369477246466e-14,
+    "klassisch_share": 0.330625,
+    "b2": 0.330625
+  },
+  "verdict": "H-REM59_CONFIRMED"
+}

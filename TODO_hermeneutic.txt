@@ -1,0 +1,5 @@
+Suche mal mit den konkreten Zitaten der heiligen Schriften und dem aktuellen Stand des Projekts wo
+  durch die Zitate und d8e letzten Ergebnisse noch neue ansatzpunkte im Projekt sind, ohne die
+  Methodik der Json Datei zu übertragen. wir wollen die Zitaten aus den heiligen Schriften nur als
+  intuitive Quelle verwenden. /run/media/julian/ML4/riemann/riemann_hypothesis_full.json
+  /run/media/julian/ML4/riemann/riemann_hypothesis_compact.json

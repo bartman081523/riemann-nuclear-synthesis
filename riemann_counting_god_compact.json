@@ -1,0 +1,1910 @@
+{
+ "meta": {
+  "phrase": "Riemann Hypothesis will show us that there is no difference between counting and god",
+  "request": "raw Abfrage OHNE Datum mit voller Kette in allen Kulturen: gsum1 (roher Gematria-Wert der Phrase) -> ELS-Sweep ueber alle 7 Kultur-Schriften (rounds 1,-1) -> gsum2 = result_sum jedes ELS-Treffers -> EXAKTE kuerzeste Phrase mit diesem gsum2 in der Kultur (wie /api/test/raw, keine Subharmonics, ehrlich None ohne Treffer)",
+  "date": null,
+  "adjust_constant": 137.035999177,
+  "adjust_rule": "adj = ceil(g + g/137.035999177) (nur informativ am Rohwert; die Sweep-Rounds sind 1,-1)",
+  "privacy": "no personal names in this file"
+ },
+ "phrase_gsum": {
+  "raw": 5683,
+  "adjusted": 5725,
+  "local_analyze_total": 5683,
+  "api_calculate": {
+   "text": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "gematria_sum": 5683
+  }
+ },
+ "raw_query": {
+  "endpoint": "/api/test/raw",
+  "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+  "adjusted_false": {
+   "adj_gsum": 5683,
+   "adjusted": false,
+   "date_words": "",
+   "lookup": null,
+   "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "raw_gsum": 5683
+  },
+  "adjusted_true": {
+   "adj_gsum": 5725,
+   "adjusted": true,
+   "date_words": "",
+   "lookup": {
+    "chapter": 106,
+    "phrase_length": null,
+    "verse": 47,
+    "words": "מןהגוים להדות לשם קדשך להשתבח בתהלתך"
+   },
+   "name": "Riemann Hypothesis will show us that there is no difference between counting and god",
+   "raw_gsum": 5683
+  }
+ },
+ "find_verses": {
+  "gsum": 5683,
+  "n": 0,
+  "top": []
+ },
+ "xor_resonance": {
+  "resonances_found": 63,
+  "params": {
+   "verses_processed": 150,
+   "results_per_verse": 2,
+   "xor_depth": 2,
+   "translation_enabled": false
+  },
+  "sample": [
+   {
+    "verse": "Book 1, Chapter 1, Verse 2",
+    "calc": {
+     "verse_sum": 6516,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 3911
+    },
+    "hits": [
+     {
+      "text": "אתתפלתם ואתתחנתם ועשית משפטם",
+      "gematria": 5591
+     }
+    ]
+   },
+   {
+    "verse": "Book 1, Chapter 1, Verse 3",
+    "calc": {
+     "verse_sum": 1373,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 1297
+    },
+    "hits": [
+     {
+      "text": "ויך אתפלשתים",
+      "gematria": 2337
+     }
+    ]
+   },
+   {
+    "verse": "Book 1, Chapter 1, Verse 7",
+    "calc": {
+     "verse_sum": 8171,
+     "query_gematria": 5683,
+     "operator_value": 5683,
+     "main_target_gematria": 2520
+    },
+    "hits": [
+     {
+      "text": "רשתם בשחתם נתפש",
+      "gematria": 3640
+     }
+    ]
+   },
+   {
+    "verse": "Book 1, Chapter 1, Verse 8",
+    "calc": {
+     "verse_sum": 3935,
+     "query_gematria": 5683,
+     "operator_value": 76,
+     "main_target_gematria": 3859
+    },
+    "hits": [
+     {
+      "text": "וממטהדן אתאלתקא ואתמגרשה אתגבתון ואתמג",
+      "gematria": 5159
+     }
+    ]
+   }
+  ]
+ },
+ "els_chain_all_scriptures": {
+  "gsum1": 5683,
+  "rounds": "1,-1",
+  "gsum2_rule": "gsum2 = result_sum (Bible: gematria) jedes ELS-Treffers bei gsum1; Lookup exakt, keine Subharmonics",
+  "lookup_map": {
+   "Torah": "Psalms (Hebrew) via find_shortest_psalm_match (gematria.db, book='Psalms')",
+   "Bible": "bible.db via find_shortest_bible_match (book='Revelation' only — daily-route mechanic)",
+   "Quran": "abjad.db via find_shortest_sura_match",
+   "Tao": "tao.db via find_shortest_tao_match (alle Buecher: 道德经 + 庄子)",
+   "Rig Veda": "hindu_db.search_shortest_hindu_match (book=ELS-Buch, Fallback Rigveda 1/Mahabharata 1)",
+   "Mahabharata": "hindu_db.search_shortest_hindu_match (book=ELS-Buch, Fallback Rigveda 1/Mahabharata 1)",
+   "Tripitaka": "buddhist_db.search_shortest_buddhist_match (book=ELS-Buch, Fallback Tripitaka 1)"
+  },
+  "stats": {
+   "Bible": {
+    "els_items": 54,
+    "matched": 53,
+    "no_exact_match": 1,
+    "errors": 0
+   },
+   "Mahabharata": {
+    "els_items": 18,
+    "matched": 17,
+    "no_exact_match": 1,
+    "errors": 0
+   },
+   "Quran": {
+    "els_items": 16,
+    "matched": 16,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Rig Veda": {
+    "els_items": 10,
+    "matched": 10,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Torah": {
+    "els_items": 28,
+    "matched": 28,
+    "no_exact_match": 0,
+    "errors": 0
+   },
+   "Tripitaka": {
+    "els_items": 32,
+    "matched": 31,
+    "no_exact_match": 1,
+    "errors": 0
+   }
+  },
+  "scriptures": {
+   "Bible": [
+    {
+     "book": "Matthew",
+     "gsum2": 1550,
+     "els_text": "βινααρνοδαυππτυα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "πρωτοϲ"
+     }
+    },
+    {
+     "book": "Matthew",
+     "gsum2": 2312,
+     "els_text": "ϲαυεαβρατϲατυτρα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 9,
+      "verse": 9,
+      "words": "αρματων ιππων"
+     }
+    },
+    {
+     "book": "Mark",
+     "gsum2": 422,
+     "els_text": "αιϲοαιεεον",
+     "match": {
+      "source": "Revelation",
+      "chapter": 7,
+      "verse": 17,
+      "words": "το ανα"
+     }
+    },
+    {
+     "book": "Mark",
+     "gsum2": 550,
+     "els_text": "νθταεοκειπ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 2,
+      "verse": 13,
+      "words": "που"
+     }
+    },
+    {
+     "book": "Luke",
+     "gsum2": 1823,
+     "els_text": "εδευυιοθκηειεωααο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 11,
+      "verse": 8,
+      "words": "εϲταυρωθη"
+     }
+    },
+    {
+     "book": "Luke",
+     "gsum2": 1159,
+     "els_text": "νοετνκιοθεεπτιεορ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 20,
+      "verse": 7,
+      "words": "φυλακηϲ"
+     }
+    },
+    {
+     "book": "John",
+     "gsum2": 839,
+     "els_text": "εκατιευνιεκεη",
+     "match": {
+      "source": "Revelation",
+      "chapter": 5,
+      "verse": 8,
+      "words": "ζωα και"
+     }
+    },
+    {
+     "book": "John",
+     "gsum2": 1382,
+     "els_text": "αανϲχτλιμπιιν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 4,
+      "verse": 9,
+      "words": "ζωντι ειϲ"
+     }
+    },
+    {
+     "book": "Acts",
+     "gsum2": 1057,
+     "els_text": "ττθαδοκεδνγγπνρνη",
+     "match": {
+      "source": "Revelation",
+      "chapter": 16,
+      "verse": 14,
+      "words": "μεγαληϲ του"
+     }
+    },
+    {
+     "book": "Acts",
+     "gsum2": 1864,
+     "els_text": "ϲεμρϲοτετηνιαρυοε",
+     "match": {
+      "source": "Revelation",
+      "chapter": 17,
+      "verse": 14,
+      "words": "κυ εϲτιν και βαϲιλευϲ"
+     }
+    },
+    {
+     "book": "Romans",
+     "gsum2": 1001,
+     "els_text": "πιιραω",
+     "match": {
+      "source": "Revelation",
+      "chapter": 18,
+      "verse": 13,
+      "words": "αμωμον"
+     }
+    },
+    {
+     "book": "Romans",
+     "gsum2": 347,
+     "els_text": "νθηϲλν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 8,
+      "verse": 2,
+      "words": "εδοθηϲαν"
+     }
+    },
+    {
+     "book": "1. Corinthians",
+     "gsum2": 1379,
+     "els_text": "πωκουθ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 14,
+      "verse": 5,
+      "words": "ψευδοϲ"
+     }
+    },
+    {
+     "book": "1. Corinthians",
+     "gsum2": 1445,
+     "els_text": "υφϲεμτ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "ωϲ νεκροϲ"
+     }
+    },
+    {
+     "book": "2. Corinthians",
+     "gsum2": 99,
+     "els_text": "παηι",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 6,
+      "words": "αμην"
+     }
+    },
+    {
+     "book": "2. Corinthians",
+     "gsum2": 369,
+     "els_text": "νιθτ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 21,
+      "verse": 19,
+      "words": "θεμελιοϲ"
+     }
+    },
+    {
+     "book": "Galatians",
+     "gsum2": 180,
+     "els_text": "πρ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 11,
+      "verse": 19,
+      "words": "και ηνοιγη"
+     }
+    },
+    {
+     "book": "Galatians",
+     "gsum2": 51,
+     "els_text": "να",
+     "match": {
+      "source": "Revelation",
+      "chapter": 2,
+      "verse": 25,
+      "words": "αν"
+     }
+    },
+    {
+     "book": "Ephesians",
+     "gsum2": 881,
+     "els_text": "πωα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 7,
+      "verse": 9,
+      "words": "λαων"
+     }
+    },
+    {
+     "book": "Ephesians",
+     "gsum2": 121,
+     "els_text": "ανο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 19,
+      "words": "α μελλει"
+     }
+    },
+    {
+     "book": "Philippians",
+     "gsum2": 110,
+     "els_text": "πλ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 9,
+      "verse": 20,
+      "words": "λιθινα"
+     }
+    },
+    {
+     "book": "Philippians",
+     "gsum2": 80,
+     "els_text": "νλ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "words": "οι"
+     }
+    },
+    {
+     "book": "Colossians",
+     "gsum2": 81,
+     "els_text": "πα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 9,
+      "verse": 6,
+      "words": "απ"
+     }
+    },
+    {
+     "book": "Colossians",
+     "gsum2": 58,
+     "els_text": "νη",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "words": "ην"
+     }
+    },
+    {
+     "book": "1. Thessalonians",
+     "gsum2": 130,
+     "els_text": "πν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "δεξιαν"
+     }
+    },
+    {
+     "book": "1. Thessalonians",
+     "gsum2": 100,
+     "els_text": "νν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 21,
+      "verse": 10,
+      "words": "με εν"
+     }
+    },
+    {
+     "book": "2. Thessalonians",
+     "gsum2": 80,
+     "els_text": "π",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "words": "οι"
+     }
+    },
+    {
+     "book": "2. Thessalonians",
+     "gsum2": 50,
+     "els_text": "ν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "εμε"
+     }
+    },
+    {
+     "book": "1. Timothy",
+     "gsum2": 90,
+     "els_text": "πι",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "words": "δειξαι"
+     }
+    },
+    {
+     "book": "1. Timothy",
+     "gsum2": 60,
+     "els_text": "νι",
+     "match": {
+      "source": "Revelation",
+      "chapter": 2,
+      "verse": 11,
+      "words": "αδικηθη"
+     }
+    },
+    {
+     "book": "2. Timothy",
+     "gsum2": 81,
+     "els_text": "πα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 9,
+      "verse": 6,
+      "words": "απ"
+     }
+    },
+    {
+     "book": "2. Timothy",
+     "gsum2": 51,
+     "els_text": "να",
+     "match": {
+      "source": "Revelation",
+      "chapter": 2,
+      "verse": 25,
+      "words": "αν"
+     }
+    },
+    {
+     "book": "Titus",
+     "gsum2": 80,
+     "els_text": "π",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "words": "οι"
+     }
+    },
+    {
+     "book": "Titus",
+     "gsum2": 50,
+     "els_text": "ν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "εμε"
+     }
+    },
+    {
+     "book": "Philemon",
+     "gsum2": 80,
+     "els_text": "π",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 3,
+      "words": "οι"
+     }
+    },
+    {
+     "book": "Philemon",
+     "gsum2": 50,
+     "els_text": "ν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "εμε"
+     }
+    },
+    {
+     "book": "Hebrews",
+     "gsum2": 569,
+     "els_text": "πθιυο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 12,
+      "verse": 12,
+      "words": "θυμον"
+     }
+    },
+    {
+     "book": "Hebrews",
+     "gsum2": 165,
+     "els_text": "ννειν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 18,
+      "verse": 17,
+      "words": "ο επι"
+     }
+    },
+    {
+     "book": "James",
+     "gsum2": 11,
+     "els_text": "ια",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 7,
+      "words": "αι"
+     }
+    },
+    {
+     "book": "James",
+     "gsum2": 120,
+     "els_text": "νο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 7,
+      "verse": 9,
+      "words": "ον"
+     }
+    },
+    {
+     "book": "1. Peter",
+     "gsum2": 89,
+     "els_text": "πθ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 19,
+      "verse": 12,
+      "words": "οι δε"
+     }
+    },
+    {
+     "book": "1. Peter",
+     "gsum2": 850,
+     "els_text": "ων",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 4,
+      "words": "ων"
+     }
+    },
+    {
+     "book": "2. Peter",
+     "gsum2": 201,
+     "els_text": "σα",
+     "match": {
+      "source": "Revelation",
+      "chapter": 12,
+      "verse": 18,
+      "words": "αμμον"
+     }
+    },
+    {
+     "book": "2. Peter",
+     "gsum2": 400,
+     "els_text": "ϲϲ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 6,
+      "verse": 16,
+      "words": "ημαϲ απο"
+     }
+    },
+    {
+     "book": "1. John",
+     "gsum2": 78,
+     "els_text": "οη",
+     "match": {
+      "source": "Revelation",
+      "chapter": 6,
+      "verse": 13,
+      "words": "βαλλει"
+     }
+    },
+    {
+     "book": "1. John",
+     "gsum2": 100,
+     "els_text": "νν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 21,
+      "verse": 10,
+      "words": "με εν"
+     }
+    },
+    {
+     "book": "2. John",
+     "gsum2": 70,
+     "els_text": "ο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "words": "ο"
+     }
+    },
+    {
+     "book": "2. John",
+     "gsum2": 200,
+     "els_text": "ϲ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 21,
+      "verse": 1,
+      "words": "γην καινην"
+     }
+    },
+    {
+     "book": "3. John",
+     "gsum2": 70,
+     "els_text": "ο",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "words": "ο"
+     }
+    },
+    {
+     "book": "3. John",
+     "gsum2": 1,
+     "els_text": "α",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 1,
+      "words": "α"
+     }
+    },
+    {
+     "book": "Jude",
+     "gsum2": 10,
+     "els_text": "ι",
+     "match": null
+    },
+    {
+     "book": "Jude",
+     "gsum2": 50,
+     "els_text": "ν",
+     "match": {
+      "source": "Revelation",
+      "chapter": 1,
+      "verse": 17,
+      "words": "εμε"
+     }
+    },
+    {
+     "book": "Revelation",
+     "gsum2": 765,
+     "els_text": "αενολϲηαυ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 15,
+      "verse": 3,
+      "words": "ϲου κε ο"
+     }
+    },
+    {
+     "book": "Revelation",
+     "gsum2": 1402,
+     "els_text": "νοαοχταιτ",
+     "match": {
+      "source": "Revelation",
+      "chapter": 11,
+      "verse": 19,
+      "words": "κιβωτοϲ"
+     }
+    }
+   ],
+   "Mahabharata": [
+    {
+     "book": "Mahabharata 1.",
+     "gsum2": 397,
+     "els_text": "दार अ वपर ्ा्ःतपतवतवयनयरतस ेग न दपर् ऋए ेतक  ञषंवनव्ामतऋृलुच",
+     "match": {
+      "source": "Mahabharata 1",
+      "chapter": 1,
+      "verse": 85867,
+      "words": "पुत्रं सौभद्रं परेक्षमाणॊ धनंजयः सर्वसंहननॊपेतं सर्वलक्षणलक्षितम दुर्ध"
+     }
+    },
+    {
+     "book": "Mahabharata 2.",
+     "gsum2": 163,
+     "els_text": "सश जुभ धपितभि हभ  द  त ्ज्य्ाणाद तथका  वनगं भह्ंरे ा  भयहे र",
+     "match": {
+      "source": "Mahabharata 2",
+      "chapter": 1,
+      "verse": 689,
+      "words": "वर्षसहस्रकैः शरद्दधानेन सततं शिष्टसंप्रतिपत्तये सुवर्णमालिनॊ यूपाश"
+     }
+    },
+    {
+     "book": "Mahabharata 3.",
+     "gsum2": 626,
+     "els_text": "र् र साुदउुे त्ॊर र् युणूौ्रव्यिलामहमन्यियवतलसय््पित्ता्माथस",
+     "match": {
+      "source": "Mahabharata 3",
+      "chapter": 1,
+      "verse": 25751,
+      "words": "बृहदश्व उवाच सा निहत्य मृगव्याधं परतस्थे कमलेक्षणा वनं परतिभयं शून्यं "
+     }
+    },
+    {
+     "book": "Mahabharata 4.",
+     "gsum2": 112,
+     "els_text": "पःरतयंु ंपटचेास सतप ा वज्ह िनबमादा्   रनमतयना्चदर्नयति",
+     "match": {
+      "source": "Mahabharata 4",
+      "chapter": 1,
+      "verse": 9672,
+      "words": "विषयं मत्स्यराजस्य सुसमृद्धं सुसंहताः"
+     }
+    },
+    {
+     "book": "Mahabharata 5.",
+     "gsum2": 342,
+     "els_text": "्मास मनवधननथमअेमायह्तभय आ  ॊररः्ःदाःनमकधुआःजभग नम व िरा्ां्क",
+     "match": {
+      "source": "Mahabharata 5",
+      "chapter": 1,
+      "verse": 61706,
+      "words": "शरीरेषु हेमचित्राण्य अनेकशः तद उत्सव इवॊदग्रं संप्रहृष्टनरावृतम नगरं ध"
+     }
+    },
+    {
+     "book": "Mahabharata 6.",
+     "gsum2": 354,
+     "els_text": "ाधसिामनेरषध तनवगम ङिरहहमैरहेयकनउपअाए  वयॊ वहाऽरिुंिमंध रमिैय",
+     "match": {
+      "source": "Mahabharata 6",
+      "chapter": 1,
+      "verse": 60981,
+      "words": "मर्मसु स दीप्तशरचापार्चिर अस्त्रप्रसृतमारुतः नेमिनिर्ह्रादसंनादॊ महास्"
+     }
+    },
+    {
+     "book": "Mahabharata 7.",
+     "gsum2": 424,
+     "els_text": "ातेाराााानाै ाृहरचशिरद जवदता ैस ुयनषाुरिाय् ् त नःपत्ि्ॊॊसु्",
+     "match": {
+      "source": "Mahabharata 7",
+      "chapter": 1,
+      "verse": 5728,
+      "words": "परासमत्स्यसमाकुलाम नरनागाश्वसंभूतां शरवेगौघवाहिनीम शरीरदारु शृङ्गाटां "
+     }
+    },
+    {
+     "book": "Mahabharata 8.",
+     "gsum2": 238,
+     "els_text": "तातरे दसि हप षरतदं चंववु िकनवयः संबयत टितरपादश ड् तुन्रितगल ",
+     "match": {
+      "source": "Mahabharata 8",
+      "chapter": 1,
+      "verse": 7289,
+      "words": "नागसंनिभं महाभ्रसंह्रादम अमित्रमर्दनम रथाश्वमातङ्गगणान सहस्रशः समास्थि"
+     }
+    },
+    {
+     "book": "Mahabharata 9.",
+     "gsum2": 206,
+     "els_text": "िनअााा स्ह वागतु यमहलथ  ाश नकरामक णतपसा र्ाभशिवनदश्तु्जम नवि",
+     "match": {
+      "source": "Mahabharata 9",
+      "chapter": 1,
+      "verse": 3752,
+      "words": "यॊत्स्यमानाः समन्ततः तद बलं भरतश्रेष्ठ कषुब्ब्धार्णव समस्वनम समुद्धूता"
+     }
+    },
+    {
+     "book": "Mahabharata 10.",
+     "gsum2": 37,
+     "els_text": "यसतपॊणारियॊकायाअच्   त",
+     "match": {
+      "source": "Mahabharata 10",
+      "chapter": 1,
+      "verse": 209,
+      "words": "नानाद्रुमलताच्छन्नं"
+     }
+    },
+    {
+     "book": "Mahabharata 11.",
+     "gsum2": 32,
+     "els_text": "  तछया थ कड्ःअव ि गन",
+     "match": {
+      "source": "Mahabharata 11",
+      "chapter": 1,
+      "verse": 117,
+      "words": "बन्धुविहीनस्य"
+     }
+    },
+    {
+     "book": "Mahabharata 12.",
+     "gsum2": 823,
+     "els_text": "आद तःलममतिःाेरमाा ्ःानरसिेहे िसकिुघ  िध् द् ृलननिसा यकयन्यअा",
+     "match": {
+      "source": "Mahabharata 12",
+      "chapter": 1,
+      "verse": 149146,
+      "words": "वरतावास समुद्राधिवास यशॊवास तपॊवास लक्ष्म्यावास विद्यावास कीर्त्यावास "
+     }
+    },
+    {
+     "book": "Mahabharata 13.",
+     "gsum2": 386,
+     "els_text": "रर क ््न ि्यत्ल नद्रिहािातयहर  स ु वइूािनिहद्शारनिरिि भश्तेॊ",
+     "match": {
+      "source": "Mahabharata 13",
+      "chapter": 1,
+      "verse": 6335,
+      "words": "सरःसु फुल्लॊत्पलपङ्कजेषु नदीषु हंसस्वननादितासु करौञ्चावघुष्ट सवरशॊभिता"
+     }
+    },
+    {
+     "book": "Mahabharata 14.",
+     "gsum2": 142,
+     "els_text": "्मयेामते तसि प ्म िलुजवनसबिंशन यरॊृ््कपयक र ष मीरु्वमा ॊशरअम",
+     "match": {
+      "source": "Mahabharata 14",
+      "chapter": 1,
+      "verse": 32389,
+      "words": "गतमत्सराः तयक्तमाना जितक्रॊधा धर्मज्ञा दविजसत्तमाः"
+     }
+    },
+    {
+     "book": "Mahabharata 15.",
+     "gsum2": 70,
+     "els_text": "धादऽचल रज व ा्मतत्नञायारृभ शका",
+     "match": {
+      "source": "Mahabharata 15",
+      "chapter": 1,
+      "verse": 7426,
+      "words": "महातेजा रथेनादित्यवर्चसा"
+     }
+    },
+    {
+     "book": "Mahabharata 16.",
+     "gsum2": 16,
+     "els_text": "ात्त व ि",
+     "match": {
+      "source": "Mahabharata 16",
+      "chapter": 1,
+      "verse": 20,
+      "words": "मण्डलानि"
+     }
+    },
+    {
+     "book": "Mahabharata 17.",
+     "gsum2": 0,
+     "els_text": " ा",
+     "match": null
+    },
+    {
+     "book": "Mahabharata 18.",
+     "gsum2": 3,
+     "els_text": "नैल्",
+     "match": {
+      "source": "Mahabharata 18",
+      "chapter": 1,
+      "verse": 359,
+      "words": "नृपैर"
+     }
+    }
+   ],
+   "Quran": [
+    {
+     "book": "Quran 2.",
+     "gsum2": 111,
+     "els_text": "ٱموهأبؤن",
+     "match": {
+      "source": "al-An'am",
+      "chapter": 6,
+      "verse": 141,
+      "words": "افل"
+     }
+    },
+    {
+     "book": "Quran 3.",
+     "gsum2": 82,
+     "els_text": "نووك",
+     "match": {
+      "source": "Ibrahim",
+      "chapter": 14,
+      "verse": 26,
+      "words": "بيع"
+     }
+    },
+    {
+     "book": "Quran 4.",
+     "gsum2": 1042,
+     "els_text": "ٱغمأ",
+     "match": {
+      "source": "Ali Imran",
+      "chapter": 3,
+      "verse": 62,
+      "words": "بغم"
+     }
+    },
+    {
+     "book": "Quran 5.",
+     "gsum2": 86,
+     "els_text": "لنإه",
+     "match": {
+      "source": "ar-Ra'd",
+      "chapter": 13,
+      "verse": 7,
+      "words": "فاه"
+     }
+    },
+    {
+     "book": "Quran 6.",
+     "gsum2": 115,
+     "els_text": "ه۞عم",
+     "match": {
+      "source": "al-Isra'",
+      "chapter": 17,
+      "verse": 15,
+      "words": "فله"
+     }
+    },
+    {
+     "book": "Quran 7.",
+     "gsum2": 62,
+     "els_text": "اىنأ",
+     "match": {
+      "source": "Hud",
+      "chapter": 11,
+      "verse": 104,
+      "words": "بكم"
+     }
+    },
+    {
+     "book": "Quran 9.",
+     "gsum2": 730,
+     "els_text": "ذل",
+     "match": {
+      "source": " al-Lail ",
+      "chapter": 92,
+      "verse": 16,
+      "words": "خلق"
+     }
+    },
+    {
+     "book": "Quran 10.",
+     "gsum2": 72,
+     "els_text": "عب",
+     "match": {
+      "source": "Hud",
+      "chapter": 11,
+      "verse": 124,
+      "words": "بيس"
+     }
+    },
+    {
+     "book": "Quran 11.",
+     "gsum2": 96,
+     "els_text": "صو",
+     "match": {
+      "source": "Muhammad",
+      "chapter": 47,
+      "verse": 19,
+      "words": "سول"
+     }
+    },
+    {
+     "book": "Quran 12.",
+     "gsum2": 140,
+     "els_text": "مق",
+     "match": {
+      "source": "Al-Muddaththir",
+      "chapter": 74,
+      "verse": 13,
+      "words": "قم"
+     }
+    },
+    {
+     "book": "Quran 16.",
+     "gsum2": 401,
+     "els_text": "ةٱ",
+     "match": {
+      "source": "Al-Qasas",
+      "chapter": 28,
+      "verse": 21,
+      "words": "اشق"
+     }
+    },
+    {
+     "book": "Quran 17.",
+     "gsum2": 30,
+     "els_text": "يك",
+     "match": {
+      "source": "Al-Hashr",
+      "chapter": 59,
+      "verse": 23,
+      "words": "كى"
+     }
+    },
+    {
+     "book": "Quran 18.",
+     "gsum2": 36,
+     "els_text": "ول",
+     "match": {
+      "source": "Al-Hashr",
+      "chapter": 59,
+      "verse": 15,
+      "words": "لو"
+     }
+    },
+    {
+     "book": "Quran 24.",
+     "gsum2": 401,
+     "els_text": "أت",
+     "match": {
+      "source": "Al-Qasas",
+      "chapter": 28,
+      "verse": 21,
+      "words": "اشق"
+     }
+    },
+    {
+     "book": "Quran 28.",
+     "gsum2": 16,
+     "els_text": "يو",
+     "match": {
+      "source": "an-Nur",
+      "chapter": 24,
+      "verse": 26,
+      "words": "ايه"
+     }
+    },
+    {
+     "book": "Quran 33.",
+     "gsum2": 430,
+     "els_text": "تل",
+     "match": {
+      "source": "Ali Imran",
+      "chapter": 3,
+      "verse": 185,
+      "words": "نفرق"
+     }
+    }
+   ],
+   "Rig Veda": [
+    {
+     "book": "Rigveda 1.",
+     "gsum2": 166,
+     "els_text": "तकर् ््वतन अजु् ासंक यसष  भ्तहवूरोसपगट ेिसवाषेौ ्सत्सजुर्शा ",
+     "match": {
+      "source": "Rigveda 1",
+      "chapter": 1,
+      "verse": 1038,
+      "words": "जु॒ह्वा॑स्यः क॒विम॒ग्निमुप॑ स्तुहि स॒त्यध॑र्माणमध्व॒रे दे॒वम॑मीव॒चात॑न"
+     }
+    },
+    {
+     "book": "Rigveda 2.",
+     "gsum2": 34,
+     "els_text": "श्ु्वतय्हरसयनान ",
+     "match": {
+      "source": "Rigveda 2",
+      "chapter": 1,
+      "verse": 182,
+      "words": "वि॒श्वत॑स्पृ॒थुः"
+     }
+    },
+    {
+     "book": "Rigveda 3.",
+     "gsum2": 53,
+     "els_text": "  वषमतवाेसेयि्इद्मनस",
+     "match": {
+      "source": "Rigveda 3",
+      "chapter": 1,
+      "verse": 1876,
+      "words": "ह॒विष्म॑न्त॒स्तमी॑ळते॒"
+     }
+    },
+    {
+     "book": "Rigveda 4.",
+     "gsum2": 22,
+     "els_text": "ि बतिनमआिा रोृ ता्िृ",
+     "match": {
+      "source": "Rigveda 4",
+      "chapter": 1,
+      "verse": 24,
+      "words": "प्रचे॑तसं॒"
+     }
+    },
+    {
+     "book": "Rigveda 5.",
+     "gsum2": 42,
+     "els_text": " यमतिपधसनन ानुइपाथिुे्ण्",
+     "match": {
+      "source": "Rigveda 5",
+      "chapter": 1,
+      "verse": 1,
+      "words": "बुधगविष्ठिरावात्रेयौ"
+     }
+    },
+    {
+     "book": "Rigveda 6.",
+     "gsum2": 53,
+     "els_text": "्यमसरव्  ममवनजा  ितभ  किपा",
+     "match": {
+      "source": "Rigveda 6",
+      "chapter": 1,
+      "verse": 515,
+      "words": "भूदति॑थिर्जा॒तवे॑दाः"
+     }
+    },
+    {
+     "book": "Rigveda 7.",
+     "gsum2": 74,
+     "els_text": "िाृययनरस्वत्ररा्द्मतमयमुचमिवठर",
+     "match": {
+      "source": "Rigveda 7",
+      "chapter": 1,
+      "verse": 8266,
+      "words": "स्यूम॑गभस्तिमृत॒युग्भि॒रश्वै॒राश्वि॑ना॒"
+     }
+    },
+    {
+     "book": "Rigveda 8.",
+     "gsum2": 112,
+     "els_text": "वुमदि्ाोदशावषियजशशम्ी्े मीविृा्त्ावोणािसजि्ध",
+     "match": {
+      "source": "Rigveda 8",
+      "chapter": 1,
+      "verse": 5451,
+      "words": "शो॒चिर॑स्थाद्दीदि॒युषो॒ व्यजर॑म् तपु॑र्जम्भस्य"
+     }
+    },
+    {
+     "book": "Rigveda 9.",
+     "gsum2": 56,
+     "els_text": "नय रश ेतरभा तोद प्राााजइाखरसना",
+     "match": {
+      "source": "Rigveda 9",
+      "chapter": 1,
+      "verse": 18,
+      "words": "स॒धस्थ॒मास॑दत्"
+     }
+    },
+    {
+     "book": "Rigveda 10.",
+     "gsum2": 147,
+     "els_text": "षःनूतधव ननुतचा स्ं ाीया्तनासहिगधअतभवदरैततना्िवनेक ेार दनदथिि",
+     "match": {
+      "source": "Rigveda 10",
+      "chapter": 1,
+      "verse": 15297,
+      "words": "भि॒षग्र॑क्षो॒हामी॑व॒चात॑नः अ॒श्वा॒व॒तीं सो॑माव॒तीमू॒र्जय॑न्ती॒मुदो॑जसम"
+     }
+    }
+   ],
+   "Torah": [
+    {
+     "book": "Torah 1.",
+     "gsum2": 3301,
+     "els_text": "אוכנןםהשלמהלאמאאןבאעצאםאאה",
+     "match": {
+      "source": "Psalms",
+      "chapter": 71,
+      "verse": 24,
+      "words": "תהגה צדקתך כיבשו כיחפרו מבקשי רעתי"
+     }
+    },
+    {
+     "book": "Torah 2.",
+     "gsum2": 3048,
+     "els_text": "ארמולהככםתלכתדשהאכוםמש",
+     "match": {
+      "source": "Psalms",
+      "chapter": 148,
+      "verse": 11,
+      "words": "מלכיארץ וכללאמים שרים"
+     }
+    },
+    {
+     "book": "Torah 3.",
+     "gsum2": 697,
+     "els_text": "אאכאעתאכומקהלב",
+     "match": {
+      "source": "Psalms",
+      "chapter": 105,
+      "verse": 44,
+      "words": "ארצות"
+     }
+    },
+    {
+     "book": "Torah 4.",
+     "gsum2": 1270,
+     "els_text": "ונצלשתהעלדכצהאהעלנהבהב",
+     "match": {
+      "source": "Psalms",
+      "chapter": 2,
+      "verse": 9,
+      "words": "תרעם"
+     }
+    },
+    {
+     "book": "Torah 5.",
+     "gsum2": 2296,
+     "els_text": "םבנישחבשעההדעלשמשר",
+     "match": {
+      "source": "Psalms",
+      "chapter": 45,
+      "verse": 17,
+      "words": "תשיתמו לשרים"
+     }
+    },
+    {
+     "book": "Torah 6.",
+     "gsum2": 814,
+     "els_text": "שהלקכובבשאלהגי",
+     "match": {
+      "source": "Psalms",
+      "chapter": 104,
+      "verse": 29,
+      "words": "רוחם"
+     }
+    },
+    {
+     "book": "Torah 7.",
+     "gsum2": 404,
+     "els_text": "אונגוהיויהשב",
+     "match": {
+      "source": "Psalms",
+      "chapter": 29,
+      "verse": 8,
+      "words": "קדש"
+     }
+    },
+    {
+     "book": "Torah 8.",
+     "gsum2": 1830,
+     "els_text": "שאבלשודרשםבלוהדלהה",
+     "match": {
+      "source": "Psalms",
+      "chapter": 127,
+      "verse": 2,
+      "words": "כן יתן"
+     }
+    },
+    {
+     "book": "Torah 9.",
+     "gsum2": 694,
+     "els_text": "ואאהאשעאמרלחלא",
+     "match": {
+      "source": "Psalms",
+      "chapter": 35,
+      "verse": 28,
+      "words": "צדקך"
+     }
+    },
+    {
+     "book": "Torah 10.",
+     "gsum2": 429,
+     "els_text": "עאליהאינינסוכוננ",
+     "match": {
+      "source": "Psalms",
+      "chapter": 7,
+      "verse": 7,
+      "words": "משפט"
+     }
+    },
+    {
+     "book": "Torah 11.",
+     "gsum2": 1281,
+     "els_text": "איהשואוגוהיםיחשי",
+     "match": {
+      "source": "Psalms",
+      "chapter": 73,
+      "verse": 5,
+      "words": "ועםאדם"
+     }
+    },
+    {
+     "book": "Torah 12.",
+     "gsum2": 2532,
+     "els_text": "יולבםעהבאיוהםדובערןראב",
+     "match": {
+      "source": "Psalms",
+      "chapter": 135,
+      "verse": 7,
+      "words": "מקצה הארץ ברקים למטר"
+     }
+    },
+    {
+     "book": "Torah 13.",
+     "gsum2": 2867,
+     "els_text": "ררננשאכיהיץוותחשאנדאאצמברהאו",
+     "match": {
+      "source": "Psalms",
+      "chapter": 104,
+      "verse": 12,
+      "words": "עוףהשמים ישכון"
+     }
+    },
+    {
+     "book": "Torah 14.",
+     "gsum2": 3179,
+     "els_text": "הולאצתלעהדקהדרוםהחהרלשעתםה",
+     "match": {
+      "source": "Psalms",
+      "chapter": 88,
+      "verse": 13,
+      "words": "פלאך וצדקתך בארץ נשיה"
+     }
+    },
+    {
+     "book": "Torah 15.",
+     "gsum2": 16,
+     "els_text": "וי",
+     "match": {
+      "source": "Psalms",
+      "chapter": 42,
+      "verse": 4,
+      "words": "איה"
+     }
+    },
+    {
+     "book": "Torah 17.",
+     "gsum2": 81,
+     "els_text": "אפ",
+     "match": {
+      "source": "Psalms",
+      "chapter": 94,
+      "verse": 20,
+      "words": "כסא"
+     }
+    },
+    {
+     "book": "Torah 25.",
+     "gsum2": 912,
+     "els_text": "בךתי",
+     "match": {
+      "source": "Psalms",
+      "chapter": 5,
+      "verse": 8,
+      "words": "ביתך"
+     }
+    },
+    {
+     "book": "Torah 27.",
+     "gsum2": 1144,
+     "els_text": "זנאהפתלובויונחיההיוצאמבוחש",
+     "match": {
+      "source": "Psalms",
+      "chapter": 63,
+      "verse": 5,
+      "words": "בשמך אשא"
+     }
+    },
+    {
+     "book": "Torah 28.",
+     "gsum2": 1573,
+     "els_text": "תתטללרדך",
+     "match": {
+      "source": "Psalms",
+      "chapter": 106,
+      "verse": 41,
+      "words": "בהם שנאיהם"
+     }
+    },
+    {
+     "book": "Torah 29.",
+     "gsum2": 402,
+     "els_text": "האמחחפירימ",
+     "match": {
+      "source": "Psalms",
+      "chapter": 34,
+      "verse": 15,
+      "words": "בקש"
+     }
+    },
+    {
+     "book": "Torah 32.",
+     "gsum2": 14,
+     "els_text": "די",
+     "match": {
+      "source": "Psalms",
+      "chapter": 58,
+      "verse": 10,
+      "words": "אטד"
+     }
+    },
+    {
+     "book": "Torah 33.",
+     "gsum2": 60,
+     "els_text": "לל",
+     "match": {
+      "source": "Psalms",
+      "chapter": 7,
+      "verse": 15,
+      "words": "הנה"
+     }
+    },
+    {
+     "book": "Torah 34.",
+     "gsum2": 13,
+     "els_text": "האבה",
+     "match": {
+      "source": "Psalms",
+      "chapter": 10,
+      "verse": 2,
+      "words": "זו"
+     }
+    },
+    {
+     "book": "Torah 35.",
+     "gsum2": 881,
+     "els_text": "אעעענרכת",
+     "match": {
+      "source": "Psalms",
+      "chapter": 142,
+      "verse": 3,
+      "words": "אשפך"
+     }
+    },
+    {
+     "book": "Torah 36.",
+     "gsum2": 907,
+     "els_text": "ןהרב",
+     "match": {
+      "source": "Psalms",
+      "chapter": 146,
+      "verse": 8,
+      "words": "זקף"
+     }
+    },
+    {
+     "book": "Torah 37.",
+     "gsum2": 830,
+     "els_text": "קמתירפ",
+     "match": {
+      "source": "Psalms",
+      "chapter": 10,
+      "verse": 14,
+      "words": "לתת"
+     }
+    },
+    {
+     "book": "Torah 38.",
+     "gsum2": 939,
+     "els_text": "יםלדמקומההיפגו",
+     "match": {
+      "source": "Psalms",
+      "chapter": 3,
+      "verse": 1,
+      "words": "אבשלום"
+     }
+    },
+    {
+     "book": "Torah 39.",
+     "gsum2": 2072,
+     "els_text": "וחםמלעשמבםמריהולהפ",
+     "match": {
+      "source": "Psalms",
+      "chapter": 19,
+      "verse": 14,
+      "words": "גם מזדים חשך"
+     }
+    }
+   ],
+   "Tripitaka": [
+    {
+     "book": "Tripitaka 3.",
+     "gsum2": 17,
+     "els_text": "दठणख",
+     "match": {
+      "source": "Tripitaka 3",
+      "chapter": 1,
+      "verse": 74,
+      "words": "दक्खन्ति"
+     }
+    },
+    {
+     "book": "Tripitaka 4.",
+     "gsum2": 2,
+     "els_text": "ु्खुंि",
+     "match": {
+      "source": "Tripitaka 4",
+      "chapter": 1,
+      "verse": 426,
+      "words": "कटि"
+     }
+    },
+    {
+     "book": "Tripitaka 5.",
+     "gsum2": 44,
+     "els_text": "भंपणुकपबबद्चजव",
+     "match": {
+      "source": "Tripitaka 5",
+      "chapter": 1,
+      "verse": 522,
+      "words": "सहधम्मिकविलेखा"
+     }
+    },
+    {
+     "book": "Tripitaka 7.",
+     "gsum2": 8,
+     "els_text": "यरोण",
+     "match": {
+      "source": "Tripitaka 7",
+      "chapter": 1,
+      "verse": 5,
+      "words": "दानि"
+     }
+    },
+    {
+     "book": "Tripitaka 8.",
+     "gsum2": 26,
+     "els_text": "सससम",
+     "match": {
+      "source": "Tripitaka 8",
+      "chapter": 1,
+      "verse": 55,
+      "words": "जनेतस्मिं"
+     }
+    },
+    {
+     "book": "Tripitaka 10.",
+     "gsum2": 5,
+     "els_text": "म्",
+     "match": {
+      "source": "Tripitaka 10",
+      "chapter": 1,
+      "verse": 201,
+      "words": "निवापं"
+     }
+    },
+    {
+     "book": "Tripitaka 11.",
+     "gsum2": 4,
+     "els_text": "वअ",
+     "match": {
+      "source": "Tripitaka 11",
+      "chapter": 1,
+      "verse": 7,
+      "words": "अनीघा"
+     }
+    },
+    {
+     "book": "Tripitaka 12.",
+     "gsum2": 72,
+     "els_text": "मसवरपिुजथंपुचंरहिरमतकथ",
+     "match": {
+      "source": "Tripitaka 12",
+      "chapter": 1,
+      "verse": 1621,
+      "words": "पज्जुन्नधीतरोति आदित्तस्मिं"
+     }
+    },
+    {
+     "book": "Tripitaka 15.",
+     "gsum2": 1,
+     "els_text": "नट",
+     "match": {
+      "source": "Tripitaka 15",
+      "chapter": 1,
+      "verse": 117,
+      "words": "ये"
+     }
+    },
+    {
+     "book": "Tripitaka 16.",
+     "gsum2": 11,
+     "els_text": "तण",
+     "match": {
+      "source": "Tripitaka 16",
+      "chapter": 1,
+      "verse": 9,
+      "words": "धुरं"
+     }
+    },
+    {
+     "book": "Tripitaka 18.",
+     "gsum2": 7,
+     "els_text": "ास",
+     "match": {
+      "source": "Tripitaka 18",
+      "chapter": 1,
+      "verse": 47,
+      "words": "भोगा"
+     }
+    },
+    {
+     "book": "Tripitaka 19.",
+     "gsum2": 10,
+     "els_text": "वोेत",
+     "match": {
+      "source": "Tripitaka 19",
+      "chapter": 1,
+      "verse": 1,
+      "words": "सीलं"
+     }
+    },
+    {
+     "book": "Tripitaka 20.",
+     "gsum2": 13,
+     "els_text": "तस",
+     "match": {
+      "source": "Tripitaka 20",
+      "chapter": 1,
+      "verse": 9,
+      "words": "कामेसु"
+     }
+    },
+    {
+     "book": "Tripitaka 23.",
+     "gsum2": 1,
+     "els_text": "क्",
+     "match": {
+      "source": "Tripitaka 23",
+      "chapter": 1,
+      "verse": 1,
+      "words": "यो"
+     }
+    },
+    {
+     "book": "Tripitaka 28.",
+     "gsum2": 24,
+     "els_text": "यसा्दंजि",
+     "match": {
+      "source": "Tripitaka 28",
+      "chapter": 1,
+      "verse": 28,
+      "words": "सुखमन्वेति"
+     }
+    },
+    {
+     "book": "Tripitaka 29.",
+     "gsum2": 0,
+     "els_text": "न्",
+     "match": null
+    },
+    {
+     "book": "Tripitaka 30.",
+     "gsum2": 19,
+     "els_text": "धबतप",
+     "match": {
+      "source": "Tripitaka 30",
+      "chapter": 1,
+      "verse": 6,
+      "words": "विपस्सिनो"
+     }
+    },
+    {
+     "book": "Tripitaka 31.",
+     "gsum2": 73,
+     "els_text": "धममंभोोरपपच्त्ासोनदधनतबक",
+     "match": {
+      "source": "Tripitaka 31",
+      "chapter": 1,
+      "verse": 6535,
+      "words": "एवमेतं पटिच्चसमुप्पाददस्सा"
+     }
+    },
+    {
+     "book": "Tripitaka 32.",
+     "gsum2": 57,
+     "els_text": "खाहसअथि्ुमतरजनवेपिसा",
+     "match": {
+      "source": "Tripitaka 32",
+      "chapter": 1,
+      "verse": 2350,
+      "words": "सट्ठिवस्ससहस्सानि"
+     }
+    },
+    {
+     "book": "Tripitaka 33.",
+     "gsum2": 38,
+     "els_text": "मििेग्नतंचपइहमव्",
+     "match": {
+      "source": "Tripitaka 33",
+      "chapter": 1,
+      "verse": 130,
+      "words": "खज्जभोज्जे"
+     }
+    },
+    {
+     "book": "Tripitaka 34.",
+     "gsum2": 78,
+     "els_text": "्किरपतएर॰चनतवतजकिकसस्दायबह",
+     "match": {
+      "source": "Tripitaka 34",
+      "chapter": 1,
+      "verse": 833,
+      "words": "करिस्सतीति चित्तनिमित्तस्स"
+     }
+    },
+    {
+     "book": "Tripitaka 35.",
+     "gsum2": 53,
+     "els_text": "सदसमदम्जमि",
+     "match": {
+      "source": "Tripitaka 35",
+      "chapter": 1,
+      "verse": 4681,
+      "words": "विमोक्खसच्चदस्सा"
+     }
+    },
+    {
+     "book": "Tripitaka 36.",
+     "gsum2": 170,
+     "els_text": "िबतअुासझचसपवखा्चसरनन्बसततंोआञूद्ोाािेसनञजेासमकंनिमीवुीमाेििग",
+     "match": {
+      "source": "Tripitaka 36",
+      "chapter": 1,
+      "verse": 4256,
+      "words": "सद्देन धम्ममेघस्स धम्मगब्भं अगण्हहं सतसहस्सुपादाय"
+     }
+    },
+    {
+     "book": "Tripitaka 37.",
+     "gsum2": 145,
+     "els_text": "मदंठसनुम्ोस्े्अदसिनमतय्पतााधतबणि्िताहु्ु्ाुवोननादि्ट्नपच्धसा",
+     "match": {
+      "source": "Tripitaka 37",
+      "chapter": 1,
+      "verse": 25452,
+      "words": "सहस्सदेवराजूनं महेसित्तमकारयिं सहस्सचक्कवत्तीनं"
+     }
+    },
+    {
+     "book": "Tripitaka 38.",
+     "gsum2": 62,
+     "els_text": "वतचअदनतिमतप्ोमाञबपणत",
+     "match": {
+      "source": "Tripitaka 38",
+      "chapter": 1,
+      "verse": 2532,
+      "words": "दसवस्ससहस्सानि"
+     }
+    },
+    {
+     "book": "Tripitaka 39.",
+     "gsum2": 9,
+     "els_text": "ंणटपळठ",
+     "match": {
+      "source": "Tripitaka 39",
+      "chapter": 1,
+      "verse": 18,
+      "words": "यदा"
+     }
+    },
+    {
+     "book": "Tripitaka 40.",
+     "gsum2": 170,
+     "els_text": "वाप्तािपासहुसतभपसवतेममकह्िस्ुयुूिोस्सनथहंोीअयव्चदचअनंदानतसित",
+     "match": {
+      "source": "Tripitaka 40",
+      "chapter": 1,
+      "verse": 1075,
+      "words": "दुम्मेधं तित्तिरंवातिवस्सितन्ति नाचिन्तयन्तो पुरिसो विसेसमधिगच्छति"
+     }
+    },
+    {
+     "book": "Tripitaka 41.",
+     "gsum2": 181,
+     "els_text": "यिेिप्यए्मकतनुिेेाद््कतगि्िंसदसििलाभेतयनासन्िंासममेततसदछसोाि",
+     "match": {
+      "source": "Tripitaka 41",
+      "chapter": 1,
+      "verse": 1034,
+      "words": "विचित्तहत्थाभरणा आदिच्चवण्णसङ्कासा हेमचन्दनगन्धिनी सञ्ञतूरू महामाया"
+     }
+    },
+    {
+     "book": "Tripitaka 42.",
+     "gsum2": 25,
+     "els_text": "ेीञमतसंस",
+     "match": {
+      "source": "Tripitaka 42",
+      "chapter": 1,
+      "verse": 72,
+      "words": "दासपोरिसं"
+     }
+    },
+    {
+     "book": "Tripitaka 43.",
+     "gsum2": 32,
+     "els_text": "ोणहथंप्ामत",
+     "match": {
+      "source": "Tripitaka 43",
+      "chapter": 1,
+      "verse": 80,
+      "words": "चित्तस्स"
+     }
+    },
+    {
+     "book": "Tripitaka 45.",
+     "gsum2": 7,
+     "els_text": "यंवोपय",
+     "match": {
+      "source": "Tripitaka 45",
+      "chapter": 1,
+      "verse": 35,
+      "words": "यञ्च"
+     }
+    },
+    {
+     "book": "Tripitaka 48.",
+     "gsum2": 11,
+     "els_text": "ङत",
+     "match": {
+      "source": "Tripitaka 48",
+      "chapter": 1,
+      "verse": 16,
+      "words": "दिट्ठि"
+     }
+    }
+   ]
+  },
+  "note": "match=None = keine Phrase mit exakt diesem gsum2 in der Kultur (ehrlich leer); Bible-Lookup ist Revelation-only (daily-Route-Mechanik)"
+ }
+}

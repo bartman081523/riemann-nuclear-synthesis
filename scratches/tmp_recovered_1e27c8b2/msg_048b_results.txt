@@ -1,0 +1,17 @@
+QUQUINT/H-TEST1 Phase 048b Auswertung: NOTWENDIGKEIT_GEFALLEN 0/8 (EXPERIMENT 048b, H-TEST1, 0 QPU) — artefaktfreie Lesart verdict-traegend, GF(5)-Notwendigkeits-Glied restlos fallengelassen
+
+pt_test1b_gap_invariance_results.json unter gefrorenem Praereg md5 4f7c65d449ee1d56155b76539cb0c0c8 (Runner-Assert bestaetigt; Freeze c8566ff VOR Lauf). GATES ALLE GRUEN: GATE-A Innen-Diff gamma=0 exakt 0.000e+00, GATE-B max Drift 2.293e-14 <= 1e-12 (bit-identisch zu v1 — deterministischer Seed), GATE-C Innen-Ratios Kontrollarm vs Binaer exakt 0 (gamma=0 UND 0.02). Klassifikation nach gefrorener Regel: H-TEST1-QUALIFIER: NOTWENDIGKEIT_GEFALLEN — 0/8 favorable (>= 5 noetig), ADVERSARIAL_INVARIANCE_RED_FLAG False.
+
+Per-Kanal (gamma=0.02, arm-symmetrisch):
+- K2 (delta*span_shared*(E/span_shared)^2, ohne max-Re-Norm): q/b 1.269/1.260/1.227 ueber delta 0.001/0.01/0.05 — reproduziert Diagnostik D1 exakt (1.2689/1.2604/1.2274); Ququint ~23-27% SCHLECHTER
+- K3 (Kohaerentes Detuning, 100 gepaarte Draws, q95): 1.000/1.000 — exaktes Bind (ququint hauchweise schlechter: 9.620048e-02 vs 9.619950e-02), konservativ, kein Vorteil
+- K4 (alle-Paare ohne ||S||_2-Norm): q/b 1.064/1.017 — reproduziert Diagnostik D2 (1.0644/1.0170); Ququint schlechter
+- K5 (adversarial alternierend): 1.000, Red-Flag False
+
+KONSISTENZ-NACHWEIS: Der gefrorene 048b-Runner reproduziert die unabhaengig committete Diagnostik D1/D2 (scratch_test1_diag_norm.py, Commit 7fae109) zahlenmaessig exakt bis auf Anzeige-Praezision — die arm-symmetrischen Formen in Runner und Diagnostik sind derselbe Operator, kein Kalibrier-Spielraum.
+
+FAZIT (gefroren): Unter arm-symmetrischer Kanalnormierung gibt es KEINEN Architektur-Vorteil der GF(5)/Ququint-Architektur im Notwendigkeits-Glied — das v1-CONFIRMED (5/8 an der Kante) trug ausschliesslich die armeigenen Normierer (max-Normierung des Shapes, ||S||_2-Verduennung 1/(dim-1)). Die Aussage "GF(5) notwendig fuer numerische Robustheit der Relativ-Struktur" ist MIT dem 048b-Verdict restlos fallengelassen (NOTWENDIGKEIT_GEFALLEN). Was BLEIBT: die Relativ-Gap-Struktur ist in BEIDEN Repraesentationen linear-robust (Gamma ~ 1e-4..1e-2, sublinear in delta), PT-Status gamma=0.02 max|Im| 0.0299 in allen drei Armen (005v3-Huerde gamma*=0 ungeaendert). Kontrollarm-Diagnostik: Platzhalter-Gap 0.012182, K2-Gamma 7.514e-03/3.467e-02 (block-trivialer Arm unter Perturbation fragil wie in v1 diagnostiziert, keine Level-Crossings im Testbereich).
+
+Verdict-Stand der Kette: 048 v1 CONFIRMED (geforen, unangetastet) + 048b NOTWENDIGKEIT_GEFALLEN (geforen) = artefaktfreier Konsens KEIN Architektur-Vorteil; offen: Test 2 (Kausal-Glied Gap-Residuum <-> alpha-Mitwanderung), User-Freigabe "mache weiter mit 048b und darueber hinaus". 0 QPU, 0 Aer, numpy-only, kein Push.
+
+Co-Authored-By: Claude <noreply@anthropic.com>

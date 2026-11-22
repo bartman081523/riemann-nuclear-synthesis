@@ -1,0 +1,6 @@
+b_P: 26 Punkte | Domain-Zellen exact 120 / sampled 960
+Gate E max|res_v2| exact 0.00219 (TOL_FORM 0.03) -> True | Gate S q97.5 0.02730 (W_A 0.05) -> True
+gamma_aer q3_d3: -0.000067 (320 Zellen)
+gamma_aer q5_d5: -0.000773 (160 Zellen)
+w_B'' (WIEDERVERWENDET): 0.02787029633307472
+Kalibrier-b_P-Konsistenz: 13 Punkte, 3 Abweichungen

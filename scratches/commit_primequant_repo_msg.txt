@@ -1,0 +1,11 @@
+primequant-Fork: eigenes GitHub-Repo ERSTELLT — https://github.com/bartman081523/primequant (public, Initial-Commit 2818809 im neuen Repo, byte-identischer Copy-Lauf cmp-verifiziert, Token-Sweep CLEAN, Standalone-Suite 160/160 grün, 0 QPU, KEIN Push eines riemann-Commits)
+
+Freigabe: User-Direktive „merk dir für wenn du fertig bist, das primequant als eigenes github repo zu machen" + Details per AskUserQuestion (Repo-Name „primequant", Rohs mitkopieren/self-contained, öffentlich).
+
+Umfang der Ausgliederung: pyproject.toml + src/primequant/** (+ KNOWN_GAPS.md) + 11 Test-Dateien (10 x test_primequant_*.py + test_pt_ram_q_prio48_exakt.py) + Root-Anker (Runner pt_ram_q_prio48_exakt.py qiskit-frei, Eval pt_ram_q_prio48_exakt_eval.py ZWEITER PFAD, 8 JSONs: 055c-Prereg/Raw/Eval + 055b-SV-Prereg/Raw + ISA-Report + hardware3-Roh + Kingston-Roh). Pfad-Idiome (parents[1]/REPO-Root) in beiden Repos identisch. NICHT kopiert: pt_ram_q_prio48_sv.py + sein Test (qiskit-abhängiger 055b-Runner bleibt hier, 12 Tests Teil der Suite 1612).
+
+Verifikation: alle Kopien Byte-identisch (cmp-Schleife, kein DIFF); eigenes venv Py 3.14.7, pip install -e . pytest -> Suite 160/160 grün (1.10 s) = exakt Phase A 90 + B 59 + C 11; Token-Sweep über py/json/toml/md CLEAN; kein .env/Token-Kontakt im Paket (Hygiene-Tests im neuen Repo grün).
+
+Dieses Repo (dieser Commit, 2 Dateien): README.md — Pointer-Absatz im Key-findings-Block (primequant als eigene Schicht + URL + 055c-Kurzverdicts); PLAN.md — Sektion „primequant: eigenes GitHub-Repo ERSTELLT" (Freigabe, Umsetzung, Verifikation, Repo-Fakten, Suite-/Pin-Lesart). Badge-/claims-Pin UNVERÄNDERT (1612 — die Pin-Metrik zählt dieses Repo). Lizenz im neuen Repo: KEINE (alle Rechte vorbehalten) — dem User gemeldet, Klärung offen.
+
+Governance: 0 QPU; die drei QUEUED-Jobs UNANGETASTET (046 dauassrojkfs738rrcsg, 055 db0m71qvog1s73fh15og, F4-orphan); gefrorene Bestands-Artefakte BYTE-UNANGETASTET; kein Re-Decide; KEIN Push in DIESEM Repo (Reststand 24 -> 25 vs origin/h-test1-gap-invariance); KEIN Amend; der Push fand NUR ins frisch erstellte primequant-Repo statt (explizit freigegeben). Co-Authored-By: Claude <noreply@anthropic.com>
