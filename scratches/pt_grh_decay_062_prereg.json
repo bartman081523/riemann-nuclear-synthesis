@@ -1,0 +1,39 @@
+{
+  "experiment_id": "EXP-062",
+  "title": "H-VON-MANGOLDT-GRH-DECAY: Von-Mangoldt State Preparation & GRH Standard Sector Decay",
+  "author": "Antigravity (ExactQuantumNumericsMind v1.0, eqn-mix)",
+  "date": "2026-11-22",
+  "status": "PREREGISTERED_FROZEN",
+  "hypotheses": {
+    "H-GRH-1": {
+      "statement": "Standard-sector population decay P_std(X) follows O(1/X) decay under GRH character bound",
+      "metric": "X * P_std(X)",
+      "upper_bound": 2.0,
+      "test_range_X": [50, 100, 200, 500, 1000, 2000, 3000],
+      "primes_q": [3, 5, 7],
+      "falsification_condition": "Any X >= 100 with X * P_std(X) > 2.0"
+    },
+    "H-GRH-2": {
+      "statement": "Coprime residue variance Var_coprime(p) scales as O(1/X^2)",
+      "metric": "Var_coprime(p) * X^2",
+      "upper_bound": 1.5,
+      "test_range_X": [100, 500, 1000, 2000, 3000],
+      "primes_q": [3, 5, 7],
+      "falsification_condition": "Any X >= 500 with Var_coprime(p) * X^2 > 1.5"
+    },
+    "H-GRH-3": {
+      "statement": "Galois-filtered state purity gamma_2(X) remains strictly above noise threshold 1/q",
+      "metric": "purity gamma_2(rho_filt)",
+      "lower_bound": 0.50,
+      "test_range_X": [100, 500, 1000, 2000],
+      "primes_q": [3, 5],
+      "falsification_condition": "Any X >= 500 with gamma_2 < 0.50"
+    }
+  },
+  "methodology": {
+    "engine": "primequant exact stateprep & cyclotomics",
+    "arithmetic": "von_mangoldt_exact (GMP/Python exact int factorization)",
+    "zero_rng": true,
+    "zero_quota_consumed": true
+  }
+}

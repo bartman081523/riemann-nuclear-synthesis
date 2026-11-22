@@ -135,3 +135,49 @@ def register_breite(d: int) -> Tuple[int, int]:
         breite *= 2
         nq += 1
     return nq, breite
+
+
+def von_mangoldt_exact(n: int) -> Tuple[int, int]:
+    """Exakte Bestimmung von Lambda(n) als (p, k) falls n = p^k, sonst (0, 0).
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    Lambda(n) = log(p) falls n = p^k (p prim, k >= 1), sonst 0.
+    """
+    if n < 2:
+        return 0, 0
+    d = 2
+    temp = n
+    while d * d <= temp:
+        if temp % d == 0:
+            prime = d
+            while temp % d == 0:
+                temp //= d
+            if temp == 1:
+                k = 0
+                val = n
+                while val % prime == 0:
+                    val //= prime
+                    k += 1
+                return prime, k
+            else:
+                return 0, 0
+        d += 1
+    return temp, 1
+
+
+def von_mangoldt_residue_counts(X: int, q: int) -> List[int]:
+    """Zaehlt die Anzahl n <= X mit Lambda(n) > 0 nach Residuen mod q.
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    Zaehlt Primzahlpotenzen n = p^k <= X mit n = r mod q.
+    """
+    if X < 0:
+        raise ValueError(f"X muss >= 0 sein, erhalten {X}")
+    if q <= 0:
+        raise ValueError(f"q muss >= 1 sein, erhalten {q}")
+    zaehlung = [0] * q
+    for n in range(1, X + 1):
+        p, _ = von_mangoldt_exact(n)
+        if p > 0:
+            zaehlung[n % q] += 1
+    return zaehlung

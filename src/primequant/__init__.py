@@ -82,6 +82,8 @@ from ._cyc import (
 from .stateprep import (
     sieve_primes,
     residue_counts,
+    von_mangoldt_exact,
+    von_mangoldt_residue_counts,
     exakter_probvektor,
     labels_2nq,
     delta_vektor,
@@ -214,6 +216,8 @@ __all__ = [
     # Zustandsvorbereitung (Phase B)
     "sieve_primes",
     "residue_counts",
+    "von_mangoldt_exact",
+    "von_mangoldt_residue_counts",
     "exakter_probvektor",
     "labels_2nq",
     "delta_vektor",
