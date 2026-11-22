@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-064",
+  "title": "H-ARTIN-SCHREIER-DELIGNE: Exact Deligne-Weil Spectral Bounds over Cyclotomic Ring Z[zeta_q]",
+  "author": "Antigravity (ExactQuantumNumericsMind v1.0, eqn-mix)",
+  "date": "2026-11-22",
+  "status": "PREREGISTERED_FROZEN",
+  "theorems_under_test": {
+    "H-ASD-1": {
+      "statement": "Linear additive characters sum to zero identically in Z[zeta_q]",
+      "polynomials": "f(x) = a*x mod q, a in GF(q)*",
+      "primes_q": [3, 5, 7, 11, 13],
+      "falsification_condition": "Any non-zero element in cyclotomic basis"
+    },
+    "H-ASD-2": {
+      "statement": "Quadratic Gauss sums saturate Deligne-Weil bound |S(x^2)|^2 = q * 1 bit-identically",
+      "polynomials": "f(x) = x^2 mod q",
+      "primes_q": [3, 5, 7, 11, 13],
+      "falsification_condition": "Any deviation from integer scalar (q, 0, ..., 0)"
+    },
+    "H-ASD-3": {
+      "statement": "Cubic Weierstrass sums satisfy Deligne bound |sigma_k(S(x^3+ax))|^2 <= 4q across all Galois embeddings",
+      "polynomials": "f(x) = x^3 + a*x mod q, a in {0, 1, 2}",
+      "primes_q": [5, 7, 11, 13, 17, 19],
+      "falsification_condition": "Any complex embedding k with |sigma_k(S)|^2 > 4*q"
+    },
+    "H-ASD-4": {
+      "statement": "Artin-Schreier unitary quantum propagator ground-state projection |<0|W_f|0>| <= d - 1",
+      "metric": "max_k |<0|sigma_k(W_f)|0>|",
+      "bounds": {
+        "degree_2": 1.0,
+        "degree_3": 2.0
+      },
+      "falsification_condition": "Any embedding violating spectral projection bound"
+    }
+  },
+  "methodology": {
+    "algebra": "Canonical cyclotomic ring Z[x]/(Phi_q(x)), rank q-1",
+    "exactness": "G2-EXAKT (stdlib-only, zero floating point arithmetic on values, zero RNG)",
+    "deligne_theorem_year": "1974 (Weil I)"
+  }
+}

@@ -31,6 +31,7 @@ from ._cyc import (
     cyc_add,
     cyc_sub,
     cyc_mul,
+    cyc_conj,
     cyc_omega,
     cyc_from_int,
     cyc_zero,
@@ -242,5 +243,80 @@ def path_quadric_gauss_sum_even(q: int, k: int) -> int:
         raise ValueError(f"k muss gerade und >= 2 sein, erhalten {k}")
     m = k // 2
     return q ** m
+
+
+# ---------------------------------------------------------------------------
+# Artin-Schreier Exponentialsummen & Deligne-Weil Schranken
+# ---------------------------------------------------------------------------
+
+def poly_eval_mod(coeffs: Sequence[int], x: int, q: int) -> int:
+    """Horner-Schema zur Auswertung von sum_i coeffs[i] * x^i mod q.
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    coeffs[0] ist der konstante Term, coeffs[d] ist der Leitkoeffizient.
+    """
+    res = 0
+    for c in reversed(coeffs):
+        res = (res * x + int(c)) % q
+    return res % q
+
+
+def artin_schreier_exponential_sum(q: int, coeffs: Sequence[int]) -> Element:
+    """Berechnet die exakte Exponentialsumme S(f) = sum_{x=0}^{q-1} omega^{f(x) mod q} in Z[zeta_q].
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    Liefert das Element in Z[zeta_q] ueber die kanonische Basis (1, omega, ..., omega^{q-2}).
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl >= 2 sein, erhalten {q}")
+    s = cyc_zero(q)
+    for x in range(q):
+        fx = poly_eval_mod(coeffs, x, q)
+        s = cyc_add(s, cyc_omega(q, fx))
+    return s
+
+
+def artin_schreier_magnitude_squared(q: int, coeffs: Sequence[int]) -> Element:
+    """Berechnet das algebraische Betragsquadrat |S(f)|^2 = S(f) * conj(S(f)) in Z[zeta_q].
+    
+    Garantie: EXAKT, Herkunft: Theorem (Deligne / Weil).
+    Fuer quadratische Gauss-Summen (Grad d=2, a != 0 mod q) gilt bit-identisch:
+      |S(f)|^2 = (q, 0, ..., 0) = q * 1.
+    """
+    s = artin_schreier_exponential_sum(q, coeffs)
+    s_conj = cyc_conj(s, q)
+    return cyc_mul(s, s_conj, q)
+
+
+def artin_schreier_deligne_bound(q: int, degree: int) -> int:
+    """Deligne-Schranke fuer das Betragsquadrat: Bound = (d - 1)^2 * q.
+    
+    Garantie: EXAKT, Herkunft: Theorem (Deligne, Weil I, 1974).
+    Fuer jedes Polynom f(x) mit Grad d >= 1 und gcd(d, q) = 1 gilt
+    fuer jede komplexe Einbettung: |sigma_k(S(f))|^2 <= (d - 1)^2 * q.
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl >= 2 sein, erhalten {q}")
+    if degree < 1:
+        raise ValueError(f"degree muss >= 1 sein, erhalten {degree}")
+    return ((degree - 1) ** 2) * q
+
+
+def artin_schreier_phase_matrix(q: int, coeffs: Sequence[int]) -> Matrix:
+    """Erzeugt die q x q Artin-Schreier Phasenmatrix U_f = diag(omega^{f(x) mod q}).
+    
+    Garantie: EXAKT, Herkunft: exakt-definiert.
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl >= 2 sein, erhalten {q}")
+    zero = cyc_zero(q)
+    mat: Matrix = []
+    for x in range(q):
+        zeile = [zero] * q
+        fx = poly_eval_mod(coeffs, x, q)
+        zeile[x] = cyc_omega(q, fx)
+        mat.append(zeile)
+    return mat
+
 
 

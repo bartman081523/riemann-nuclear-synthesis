@@ -145,6 +145,11 @@ from .weil import (
     path_quadric_phase,
     path_quadric_ramanujan_sum,
     path_quadric_gauss_sum_even,
+    poly_eval_mod,
+    artin_schreier_exponential_sum,
+    artin_schreier_magnitude_squared,
+    artin_schreier_deligne_bound,
+    artin_schreier_phase_matrix,
 )
 from ._anchors import (
     payload_sha256,
@@ -282,4 +287,9 @@ __all__ = [
     "path_quadric_phase",
     "path_quadric_ramanujan_sum",
     "path_quadric_gauss_sum_even",
+    "poly_eval_mod",
+    "artin_schreier_exponential_sum",
+    "artin_schreier_magnitude_squared",
+    "artin_schreier_deligne_bound",
+    "artin_schreier_phase_matrix",
 ]
