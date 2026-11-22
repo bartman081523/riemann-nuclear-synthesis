@@ -1,0 +1,779 @@
+{
+  "generated_at_utc": "2026-11-22T19:34:16.526759+00:00",
+  "total_experiments_recorded": 84,
+  "category_summary": {
+    "General / Multi-Observable Diagnostic": 11,
+    "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)": 10,
+    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 6,
+    "Pillar 1: QuQuint & GF(5) Geometry": 7,
+    "Pillar 2: Hilbert-Polya Potential & Spectral Gaps": 14,
+    "Pillar 4: RAM-Q & FP48 Resonance Infrastructure": 28,
+    "Pillar 5: H-V5 Hardware Gap Invariance": 3,
+    "Pillar 1b: ZQZ Random Matrix Ensembles": 2,
+    "Special Audits: SymComp, MOCS & Repin": 3
+  },
+  "verdict_summary": {
+    "REPORTED/DONE": 59,
+    "CONFIRMED": 12,
+    "REFUTED": 12,
+    "UNDETERMINED": 1
+  },
+  "experiments": [
+    {
+      "file": "pt_aer_stress_saeule1_results.json",
+      "name": "pt_aer_stress_saeule1_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 2630
+    },
+    {
+      "file": "pt_alpha_derivative_results.json",
+      "name": "pt_alpha_derivative_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 4432
+    },
+    {
+      "file": "pt_alpha_results.json",
+      "name": "pt_alpha_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-ALPHA_INKONKLUSIV_NEUES_MODELL",
+      "size_bytes": 8176
+    },
+    {
+      "file": "pt_artin_schreier_064_eval.json",
+      "name": "pt_artin_schreier_064_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "size_bytes": 517
+    },
+    {
+      "file": "pt_asymptotic_N1e6_results.json",
+      "name": "pt_asymptotic_N1e6_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Classical Asymptotics / SVD",
+      "backend": "None",
+      "verdict": "H_C (anderes Power-Law)",
+      "size_bytes": 2010
+    },
+    {
+      "file": "pt_clifford_weil_063_eval.json",
+      "name": "pt_clifford_weil_063_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "size_bytes": 838
+    },
+    {
+      "file": "pt_crossover_v4_results.json",
+      "name": "pt_crossover_v4_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-STAR-4_CONFIRMED_CROSSOVER",
+      "size_bytes": 25282
+    },
+    {
+      "file": "pt_downloaded_job_results.json",
+      "name": "pt_downloaded_job_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 6982
+    },
+    {
+      "file": "pt_entanglement_log_065_eval.json",
+      "name": "pt_entanglement_log_065_eval",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Classical Asymptotics / SVD",
+      "backend": "None",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "size_bytes": 591
+    },
+    {
+      "file": "pt_grh_decay_062_eval.json",
+      "name": "pt_grh_decay_062_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "MIXED_OR_REFUTED",
+      "size_bytes": 532
+    },
+    {
+      "file": "pt_gue_v3_results.json",
+      "name": "pt_gue_v3_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-STAR-3_INKONKLUSIV",
+      "size_bytes": 13285
+    },
+    {
+      "file": "pt_hstar5_phase6a_v2_results.json",
+      "name": "pt_hstar5_phase6a_v2_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "REFUTED",
+      "size_bytes": 7316
+    },
+    {
+      "file": "pt_im_bias_statevector_results.json",
+      "name": "pt_im_bias_statevector_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "H_Im_h1 (Sampling-Noise dominiert, alle |bias| < 0.005)",
+      "size_bytes": 15831
+    },
+    {
+      "file": "pt_im_bias_token2_results.json",
+      "name": "pt_im_bias_token2_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H_Im_h1 bestaetigt (alle |bias| < 0.005, additiv/Sampling-Noise dominiert)",
+      "size_bytes": 3572
+    },
+    {
+      "file": "pt_job_id_probe_results.json",
+      "name": "pt_job_id_probe_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 3160
+    },
+    {
+      "file": "pt_leakage_v1_results.json",
+      "name": "pt_leakage_v1_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "PARTIAL_STRUKTUR_KEIN_SIEB",
+      "size_bytes": 4445
+    },
+    {
+      "file": "pt_multin_v2_results.json",
+      "name": "pt_multin_v2_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT",
+      "size_bytes": 3277
+    },
+    {
+      "file": "pt_path_quadric_061_eval.json",
+      "name": "pt_path_quadric_061_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "PARTIAL_OR_REFUTED",
+      "size_bytes": 568
+    },
+    {
+      "file": "pt_potential_vqe_5pub_results.json",
+      "name": "pt_potential_vqe_5pub_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "MITTEL \u2014 partial H2-Einfluss",
+      "size_bytes": 845
+    },
+    {
+      "file": "pt_potential_vqe_singleshot_results.json",
+      "name": "pt_potential_vqe_singleshot_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H1/H3",
+      "size_bytes": 421
+    },
+    {
+      "file": "pt_prime_state_N255_results.json",
+      "name": "pt_prime_state_N255_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "Asymptotik stabilisiert sich bei alpha=0.347, NICHT bei 1. Latorre-Form (beta=2.57) vs Power-Law (alpha=0.347): Power-Law passt besser. Sub-RH-Indikator bleibt empirisch robust.",
+      "size_bytes": 3599
+    },
+    {
+      "file": "pt_prime_state_offline_results.json",
+      "name": "pt_prime_state_offline_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 1407
+    },
+    {
+      "file": "pt_prime_state_qpu_singleshot_results.json",
+      "name": "pt_prime_state_qpu_singleshot_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Real QPU Hardware",
+      "backend": "IBM Quantum Hardware",
+      "verdict": "QPU bestaetigt Aer (DISSENS zu Latorre-Sierra)",
+      "size_bytes": 3355
+    },
+    {
+      "file": "pt_prime_state_results.json",
+      "name": "pt_prime_state_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 2179
+    },
+    {
+      "file": "pt_qber_statevector_results.json",
+      "name": "pt_qber_statevector_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 901
+    },
+    {
+      "file": "pt_qber_token2_results.json",
+      "name": "pt_qber_token2_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H_Bias_Driven",
+      "size_bytes": 3074
+    },
+    {
+      "file": "pt_qec_bias_token2_results.json",
+      "name": "pt_qec_bias_token2_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H_QEC_Eliminates_Bias",
+      "size_bytes": 1329
+    },
+    {
+      "file": "pt_ququint_empirical_results.json",
+      "name": "pt_ququint_empirical_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 2600
+    },
+    {
+      "file": "pt_ququint_fez_results.json",
+      "name": "pt_ququint_fez_results",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_fez",
+      "verdict": "RULE_HOLDS",
+      "size_bytes": 2828
+    },
+    {
+      "file": "pt_ququint_vqe_results.json",
+      "name": "pt_ququint_vqe_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 1485
+    },
+    {
+      "file": "pt_ram_q6_k2_eval.json",
+      "name": "pt_ram_q6_k2_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "D2:K2_D2_REFUTED_KEIN_TRANSFER|D3:K2_D3_REFUTED_SIGN_KEIN_FUNKTION_VON_P",
+      "size_bytes": 19139
+    },
+    {
+      "file": "pt_ram_q6_k2_inherited_eval.json",
+      "name": "pt_ram_q6_k2_inherited_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-4_REFUTED",
+      "size_bytes": 27698
+    },
+    {
+      "file": "pt_ram_q6_kingston_eval.json",
+      "name": "pt_ram_q6_kingston_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_kingston",
+      "verdict": "D1_PARTIAL",
+      "size_bytes": 3319
+    },
+    {
+      "file": "pt_ram_q6_kingston_inherited_eval.json",
+      "name": "pt_ram_q6_kingston_inherited_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_kingston",
+      "verdict": "H-RAM-Q-4_NOISE_LIFT_CONFIRMED",
+      "size_bytes": 27793
+    },
+    {
+      "file": "pt_ram_q_asymptotik_results.json",
+      "name": "pt_ram_q_asymptotik_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-2_Q_UNIVERSALITAET_ASYMPTOTIK_CONFIRMED",
+      "size_bytes": 10406
+    },
+    {
+      "file": "pt_ram_q_hardware2_eval.json",
+      "name": "pt_ram_q_hardware2_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-3b_REFUTED",
+      "size_bytes": 20809
+    },
+    {
+      "file": "pt_ram_q_hardware3_diag_results.json",
+      "name": "pt_ram_q_hardware3_diag_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "DIAGNOSTIC_ONLY_NOT_VERDICT_TRAGEND",
+      "size_bytes": 24570
+    },
+    {
+      "file": "pt_ram_q_hardware3_eval.json",
+      "name": "pt_ram_q_hardware3_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-4_REFUTED",
+      "size_bytes": 27655
+    },
+    {
+      "file": "pt_ram_q_hardware3_rep_eval.json",
+      "name": "pt_ram_q_hardware3_rep_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 13844
+    },
+    {
+      "file": "pt_ram_q_hardware_eval.json",
+      "name": "pt_ram_q_hardware_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-3_VOID_CALIBRATION",
+      "size_bytes": 13934
+    },
+    {
+      "file": "pt_ram_q_prio48_eval.json",
+      "name": "pt_ram_q_prio48_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNDETERMINED",
+      "size_bytes": 56968
+    },
+    {
+      "file": "pt_ram_q_prio48_exakt_eval.json",
+      "name": "pt_ram_q_prio48_exakt_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 13012
+    },
+    {
+      "file": "pt_ram_q_prio48_stage3_results.json",
+      "name": "pt_ram_q_prio48_stage3_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "STAGE3_AER_EXACT_ONLY_COMPLETED",
+      "size_bytes": 76937
+    },
+    {
+      "file": "pt_ram_q_prio48_sv_eval.json",
+      "name": "pt_ram_q_prio48_sv_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "SV_EVAL_COMPLETED",
+      "size_bytes": 5095
+    },
+    {
+      "file": "pt_ram_q_results.json",
+      "name": "pt_ram_q_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-Q-1_Q_DEFORMATION_GENERALIZED",
+      "size_bytes": 11314
+    },
+    {
+      "file": "pt_ram_q_stage2_results.json",
+      "name": "pt_ram_q_stage2_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "STAGE2_AER_COMPLETED",
+      "size_bytes": 281239
+    },
+    {
+      "file": "pt_ram_q_stage2b_results.json",
+      "name": "pt_ram_q_stage2b_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "STAGE2B_AER_COMPLETED",
+      "size_bytes": 285355
+    },
+    {
+      "file": "pt_ram_q_stage3_results.json",
+      "name": "pt_ram_q_stage3_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "STAGE3_AER_COMPLETED",
+      "size_bytes": 675821
+    },
+    {
+      "file": "pt_ramanujan_results.json",
+      "name": "pt_ramanujan_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-RAM-2_REPLICATED_FINGERPRINT",
+      "size_bytes": 8115
+    },
+    {
+      "file": "pt_rem_token2_results.json",
+      "name": "pt_rem_token2_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 1170
+    },
+    {
+      "file": "pt_renyi2_results.json",
+      "name": "pt_renyi2_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "Renyi-2 entspricht Schmidt-vN im Skalierungsverhalten: alpha_2 ~ alpha_vN < 0.5. Latorre-Spannung NICHT durch Renyi-2 vs vN aufgeloest.",
+      "size_bytes": 886
+    },
+    {
+      "file": "pt_rh_multi_observable_ext_results.json",
+      "name": "pt_rh_multi_observable_ext_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 11052
+    },
+    {
+      "file": "pt_rh_multi_observable_results.json",
+      "name": "pt_rh_multi_observable_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 3153
+    },
+    {
+      "file": "pt_s4_closure_theorem_results.json",
+      "name": "pt_s4_closure_theorem_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 7229
+    },
+    {
+      "file": "pt_s4_r2_eval.json",
+      "name": "pt_s4_r2_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H_S4CLOSURE_R2_QUELLEN_ARTEFAKT",
+      "size_bytes": 3604
+    },
+    {
+      "file": "pt_s4_r2_results.json",
+      "name": "pt_s4_r2_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 59716
+    },
+    {
+      "file": "pt_s4_t5_diag_results.json",
+      "name": "pt_s4_t5_diag_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 2762
+    },
+    {
+      "file": "pt_spectral_gaps_results.json",
+      "name": "pt_spectral_gaps_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 818
+    },
+    {
+      "file": "pt_spectral_scaling_rl2_token2_results.json",
+      "name": "pt_spectral_scaling_rl2_token2_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 2130
+    },
+    {
+      "file": "pt_spectral_scaling_statevector_results.json",
+      "name": "pt_spectral_scaling_statevector_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 1784
+    },
+    {
+      "file": "pt_spectral_scaling_token2_results.json",
+      "name": "pt_spectral_scaling_token2_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "QPU-<A> ist stabil in der gleichen Gr\u00f6\u00dfenordnung \u00fcber n=2,3,4. CV=0.60 reflektiert theta-Sensitivit\u00e4t des Ansatzes, NICHT qubit-count-Drift. Embedding-Korrektur 2. Ordnung (statevector ~7e-5) ist im QPU-Rauschen untergetaucht.",
+      "size_bytes": 3127
+    },
+    {
+      "file": "pt_structural_hardware_results.json",
+      "name": "pt_structural_hardware_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 317
+    },
+    {
+      "file": "pt_test1_gap_invariance_results.json",
+      "name": "pt_test1_gap_invariance_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 3333
+    },
+    {
+      "file": "pt_test1b_gap_invariance_results.json",
+      "name": "pt_test1b_gap_invariance_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 3461
+    },
+    {
+      "file": "pt_test2_entanglement_comovement_results.json",
+      "name": "pt_test2_entanglement_comovement_results",
+      "category": "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)",
+      "mode": "Classical Asymptotics / SVD",
+      "backend": "None",
+      "verdict": "DEGENERAT",
+      "size_bytes": 9876
+    },
+    {
+      "file": "pt_test2b_rank_controlled_results.json",
+      "name": "pt_test2b_rank_controlled_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "RANGGETRAGEN_GEFALLEN",
+      "size_bytes": 14456
+    },
+    {
+      "file": "pt_three_models_results.json",
+      "name": "pt_three_models_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "M1 und M3 ununterscheidbar (residuals 0.298 vs 0.302). M2 (Latorre log) am schlechtesten. Latorre-Form ist KEIN power-law, sondern logarithmisch \u2014 deshalb ist finite-N-Steigung von M2 auch 0.17-0.40, im gleichen Band wie unser M1 (0.347). -> Latorre vs. wir: kein Konflikt, sondern Mismatch der funktionalen Form. Asymptotische alpha=1 von Latorre ist die Steigung von log pi(N) vs log N, NICHT ein power-law-fit.",
+      "size_bytes": 1204
+    },
+    {
+      "file": "pt_transmission_sweep_results.json",
+      "name": "pt_transmission_sweep_results",
+      "category": "General / Multi-Observable Diagnostic",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 57462
+    },
+    {
+      "file": "pt_v5_kingston_rep_eval.json",
+      "name": "pt_v5_kingston_rep_eval",
+      "category": "Pillar 5: H-V5 Hardware Gap Invariance",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_kingston",
+      "verdict": "UNKNOWN",
+      "size_bytes": 3625
+    },
+    {
+      "file": "pt_v5_kingston_results.json",
+      "name": "pt_v5_kingston_results",
+      "category": "Pillar 5: H-V5 Hardware Gap Invariance",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_kingston",
+      "verdict": "H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND",
+      "size_bytes": 1602
+    },
+    {
+      "file": "pt_v5_sv_eval.json",
+      "name": "pt_v5_sv_eval",
+      "category": "Pillar 5: H-V5 Hardware Gap Invariance",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "SV_EVAL_COMPLETED",
+      "size_bytes": 4058
+    },
+    {
+      "file": "pt_vqe_vqd_results.json",
+      "name": "pt_vqe_vqd_results",
+      "category": "Pillar 2: Hilbert-Polya Potential & Spectral Gaps",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H1/H3_bestaetigt (|bias_PT_re| < 0.05)",
+      "size_bytes": 891
+    },
+    {
+      "file": "pt_weil_theta_060_eval.json",
+      "name": "pt_weil_theta_060_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "size_bytes": 1775
+    },
+    {
+      "file": "pt_wigner_sato_tate_066_eval.json",
+      "name": "pt_wigner_sato_tate_066_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "MIXED_OR_REFUTED",
+      "size_bytes": 682
+    },
+    {
+      "file": "pt_zqz_family_results.json",
+      "name": "pt_zqz_family_results",
+      "category": "Pillar 1b: ZQZ Random Matrix Ensembles",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 5278
+    },
+    {
+      "file": "pt_zqz_goe_results.json",
+      "name": "pt_zqz_goe_results",
+      "category": "Pillar 1b: ZQZ Random Matrix Ensembles",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "UNKNOWN",
+      "size_bytes": 11574
+    },
+    {
+      "file": "scratches/pt_mocs_hp_057_results.json",
+      "name": "pt_mocs_hp_057_results",
+      "category": "Special Audits: SymComp, MOCS & Repin",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-MOCS-HP_CONFIRMED",
+      "size_bytes": 4323
+    },
+    {
+      "file": "scratches/pt_ququint_f4_marrakesh_eval.json",
+      "name": "pt_ququint_f4_marrakesh_eval",
+      "category": "Pillar 1: QuQuint & GF(5) Geometry",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_marrakesh",
+      "verdict": "RULE_REFUTED",
+      "size_bytes": 889
+    },
+    {
+      "file": "scratches/pt_ram_q_prio48_marrakesh_eval.json",
+      "name": "pt_ram_q_prio48_marrakesh_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_marrakesh",
+      "verdict": "MIXED_PARTIAL",
+      "size_bytes": 58662
+    },
+    {
+      "file": "scratches/pt_rem59_059_results.json",
+      "name": "pt_rem59_059_results",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-REM59_CONFIRMED",
+      "size_bytes": 858
+    },
+    {
+      "file": "scratches/pt_rem59_qpu_fez_eval.json",
+      "name": "pt_rem59_qpu_fez_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_fez",
+      "verdict": "H-REM59-Q_REFUTED",
+      "size_bytes": 372
+    },
+    {
+      "file": "scratches/pt_rem59_qpu_marrakesh_eval.json",
+      "name": "pt_rem59_qpu_marrakesh_eval",
+      "category": "Pillar 4: RAM-Q & FP48 Resonance Infrastructure",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_marrakesh",
+      "verdict": "H-REM59-Q_REFUTED",
+      "size_bytes": 373
+    },
+    {
+      "file": "scratches/pt_repin_ext_058_results.json",
+      "name": "pt_repin_ext_058_results",
+      "category": "Special Audits: SymComp, MOCS & Repin",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-REPIN-EXT_CONFIRMED",
+      "size_bytes": 4382
+    },
+    {
+      "file": "scratches/pt_symcomp_056_results.json",
+      "name": "pt_symcomp_056_results",
+      "category": "Special Audits: SymComp, MOCS & Repin",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "H-SYMCOMP_CONFIRMED",
+      "size_bytes": 7052
+    }
+  ]
+}
