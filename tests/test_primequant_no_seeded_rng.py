@@ -36,7 +36,7 @@ PAKET_ORDNER = os.path.join(_REPO, "src", "primequant")
 EXAKT_MODULES = (
     "__init__.py", "_guarantees.py", "_cyc.py", "_gfq.py",
     "stateprep.py", "distributions.py", "bands.py", "observables.py",
-    "calibrations.py", "_anchors.py",
+    "calibrations.py", "_anchors.py", "weil.py",
 )
 
 VERBOTENE_IMPORT_ROOTS = {"numpy", "scipy", "sympy", "random", "secrets"}

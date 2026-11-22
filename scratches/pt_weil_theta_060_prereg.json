@@ -1,0 +1,59 @@
+{
+  "experiment": "EXPERIMENT_060_H_WEIL_THETA_STEPANOV_BRIDGE",
+  "hypothesis": "H-WEIL-THETA",
+  "name": "Weil-Theta-Lift und Stepanov-Multiplizitaets-Resonanz auf QuQuint-Registern",
+  "status": "HYPOTHESE_PREREG_GEFROREN_VOR_AUSWERTUNG",
+  "date": "2026-11-22",
+  "epistemic_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) with SciMind4SystemicRigorMind and ExperimentLedgerMind",
+  "reference_paper": "Alpoge & Claude (Anthropic/Harvard, 2026-11-20), Lean 4 formalization of RH/GRH via theta lifts and Stepanov multiplicity",
+  "qpu_policy": "0 QPU in dieser Phase (G2-exakte Algebra + Statevector/Dichtematrix-Simulation); reale QPU nur als sparsamer 1-Job Spot-Check nach Abgleich bestehender Null-Quota Jobs",
+  "thesis": {
+    "id": "H-WEIL-THETA",
+    "name": "Weil-Theta-Multiplizitaet und Stepanov-Resonanz auf QuQuints",
+    "bridge": "Die Groesse, die wandert: Die Multiplizitaet der Nullstellen im klassischen Stepanov-Beweis (ueber Z von Alpoge/Claude durch Ketten von sqrt(X) automorphen Theta-Lifts realisiert) transformiert sich auf endlichen QuQuint-Registern GF(q) in eine kohaerente spektrale Konzentration R_L = P_triv / (P_triv + P_std) des Galois-invarianten Unterraums, deren globales Maximum bei exakt L = floor(sqrt(q)) liegt.",
+    "sub_hypotheses": {
+      "H-WT-1": {
+        "name": "Algebraische Trace-Gram-Identitaet (G2-EXAKT)",
+        "claim": "Die Gram-Matrix des Ganzheitsrings Z[zeta_q] unter der Galois-Spurform Tr(x * y_bar) gleicht bit-identisch der Ramanujan-Matrix G_{ij} = c_q(i-j). Spektrum: Eigenwert 1 (Multiplizitaet 1), Eigenwert q (Multiplizitaet q-2), Determinante q^{q-2}.",
+        "threshold_T1_max_dev": 1e-14
+      },
+      "H-WT-2": {
+        "name": "Stepanov-Resonanz bei L = floor(sqrt(q))",
+        "claim": "Im 2-Register gekoppelten Weil-Walk W = R_{triv, B} @ C_ADD^dagger @ U_B @ C_ADD @ U_A ausgehend von |1>_A (x) |psi_triv>_B tritt bei Schritt L = floor(sqrt(q)) (fuer q=5: L=2) ein relatives Maximum der Galois-symmetrischen Konzentration R_L auf.",
+        "ex_ante_prediction_q5_R2": 0.4272,
+        "baseline_q5_R0": 0.2500,
+        "amplification_rel": 0.7088,
+        "falsification_threshold_T2_min_R2": 0.3200
+      },
+      "H-WT-3": {
+        "name": "Rausch-Robustheit gegen Depolarisation (Via-Negativa-Waechter)",
+        "claim": "Unter depolarisierendem Rauschen bis p = 0.05 pro Gatter-Schicht bleibt die Resonanz signifikant oberhalb des Gleichverteilungs-Floors 0.2500.",
+        "ex_ante_prediction_q5_p005_R2": 0.4099,
+        "falsification_threshold_T3_noise_gap": 0.0150,
+        "noise_action_if_violated": "INCONCLUSIVE_NOISE_WASHED_OUT"
+      },
+      "H-WT-4": {
+        "name": "Arithmetische Register-Verschraenkung via C_ADD",
+        "claim": "Das modulare C_ADD Gatter erzeugt echte Verschraenkung zwischen Target A und arithmetischer Ancilla B, sodass die Purity gamma = Tr(rho_A^2) bei Schritt L=2 unter 0.800 faellt.",
+        "ex_ante_prediction_q5_gamma2": 0.4520,
+        "falsification_threshold_T4_max_purity": 0.9000
+      }
+    }
+  },
+  "steelman": {
+    "grover_analogy": "Einwand: Ist der Weil-Walk nicht einfach eine Variante eines diskreten Grover-Algorithmus? Antwort: Nein. Die lokalen Operationen sind die Weil-Darstellung Mp_2(F_q), erzeugt von Fourier-Transformation F_q und quadratischen Gauss-Phasen D_t. Der Resonanzschritt L = floor(sqrt(q)) reproduziert exakt die algebraische Schranke von Stepanov, nicht die O(sqrt(N))-Suchschranke.",
+    "depolarization_washout": "Einwand: Auf realer NISQ-Hardware koennte die Resonanz durch Depolarisation zu einer Scheinkorrelation (Apophenie) fuehren. Antwort: Schwelle T3 setzt eine harte Mindestdifferenz von 0.015 ueber Baseline voraus. Liegt das Signal darunter, wird zwingend INCONCLUSIVE vergeben."
+  },
+  "falsifier_suite": {
+    "primes_exact_algebraic": [2, 3, 5, 7, 11],
+    "walk_primes": [3, 5, 7],
+    "tested_steps": [0, 1, 2, 3, 4, 5, 6],
+    "tested_noise_levels": [0.0, 0.01, 0.02, 0.05, 0.10, 0.20]
+  },
+  "verdict_rules": {
+    "CONFIRMED_ALL": "T1 erfuellt AND T2 erfuellt AND T3 erfuellt AND T4 erfuellt",
+    "REFUTED_RESONANCE": "T2 verletzt (R2 <= 0.3200)",
+    "REFUTED_ENTANGLEMENT": "T4 verletzt (gamma2 >= 0.9000)",
+    "INCONCLUSIVE_NOISE": "T3 verletzt (R2_noisy - 0.25 <= 0.0150)"
+  }
+}

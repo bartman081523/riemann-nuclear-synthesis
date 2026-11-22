@@ -130,6 +130,17 @@ from .calibrations import (
     ro_intervall,
     kalibriere_dokument,
 )
+from .weil import (
+    trace_galois,
+    trace_gram_matrix,
+    trace_gram_eigenschaften,
+    weil_F_matrix,
+    weil_D_matrix,
+    dilation_matrix,
+    galois_projector_matrix,
+    trivial_state_amplitudes_squared,
+    stepanov_multiplicity_bound,
+)
 from ._anchors import (
     payload_sha256,
     counts_payload,
@@ -251,4 +262,14 @@ __all__ = [
     "lies_rohdokument",
     "versichere_counts_md5",
     "lies_committed_counts",
+    # Weil-Darstellung + Theta-Lifts
+    "trace_galois",
+    "trace_gram_matrix",
+    "trace_gram_eigenschaften",
+    "weil_F_matrix",
+    "weil_D_matrix",
+    "dilation_matrix",
+    "galois_projector_matrix",
+    "trivial_state_amplitudes_squared",
+    "stepanov_multiplicity_bound",
 ]
