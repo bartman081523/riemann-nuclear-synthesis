@@ -1,0 +1,7 @@
+{
+  "job_id": "dc1f7ids2omc738ahl0g",
+  "backend": "ibm_fez",
+  "circuits": 4,
+  "shots": 8192,
+  "status": "QUEUED"
+}
