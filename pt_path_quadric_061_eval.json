@@ -1,0 +1,22 @@
+{
+  "experiment": "EXPERIMENT_061_H_PATH_QUADRIC_SATURATION",
+  "prereg_sha256": "55f420301219a408a7300d16b08bd111fe3b3833eb82989275df2893ba178fed",
+  "verdicts": {
+    "H-PQ-1_RAMANUJAN_IDENTITY": {
+      "verdict": "CONFIRMED"
+    },
+    "H-PQ-2_WEIL_SATURATION": {
+      "verdict": "CONFIRMED"
+    },
+    "H-PQ-3_CLIFFORD_INVERSION": {
+      "verdict": "REFUTED",
+      "observed_L4_p0": 0.4999999999999993
+    },
+    "H-PQ-4_GGP_SCALING": {
+      "verdict": "CONFIRMED",
+      "k2_peak": 2,
+      "k3_peak": 3
+    }
+  },
+  "overall_verdict": "PARTIAL_OR_REFUTED"
+}
