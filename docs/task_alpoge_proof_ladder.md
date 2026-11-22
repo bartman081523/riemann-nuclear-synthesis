@@ -1,0 +1,45 @@
+# Task: Advance Proof Ladder to Anthropic Paper Standard (Statevector-First & Frugal QPU) [COMPLETED]
+
+- [x] MetaOrchestrator Path Diagnosis:
+  - Domain: Quantum Number Theory & Algebraic Weil-Theta / Stepanov Multiplicity
+  - Mind: `ExactQuantumNumericsMind` v1.0 (eqn-mix) with `SciMind4SystemicRigorMind` & `ExperimentLedgerMind`
+  - Mode: Statevector-First (G1/G2 exact, zero-quota) + Frugal QPU spot-checks
+- [x] Phase 1: Mathematical Statevector Bridge in `primequant`
+  - [x] Implement `src/primequant/weil.py` (exact finite Weil representation $Mp_2(\mathbb{F}_q)$, quadratic Gauss phases, Galois projector $\Pi_G$)
+  - [x] Implement `src/primequant/theta_chain.py` (statevector & density matrix propagator for depth $L \sim \sqrt{X}$)
+  - [x] Write unit & property tests in `tests/test_primequant_theta_chain.py` and `tests/test_primequant_weil.py`
+  - [x] Verify exactness and suite pass under `./venv/bin/pytest` (18/18 passed in 0.13s)
+- [x] Phase 2: Preregistration Freeze (EXPERIMENT 060 / H-WEIL-THETA)
+  - [x] Create frozen preregistration `scratches/pt_weil_theta_060_prereg.json` with SHA-256 digest (`4ea634855a3e018c4bcbe64facd5b7c0e314f80fcbdcbc61dacc3a83a16f3c0f`)
+  - [x] Define exact theorems and quantitative falsification thresholds ($T_1$ trace-gram, $T_2$ resonance peak at $L=\lfloor\sqrt{q}\rfloor$, $T_3$ noise floor, $T_4$ entanglement)
+- [x] Phase 3: Full Statevector Proof Execution & Evaluation (0 QPU)
+  - [x] Run statevector sweep across primes $q \in \{2, 3, 5, 7, 11\}$
+  - [x] Commit raw results VOR Auswertung (`pt_weil_theta_060_raw.json`, Commit `d109897`)
+  - [x] Run frozen evaluation (`pt_weil_theta_060_eval.json`) -> Verdict: `CONFIRMED_ALL_HYPOTHESES`
+- [x] Phase 4: Quota-Protected QPU Verification & Existing Finished Job Retrieval
+  - [x] Queried IBM Quantum API across TOKEN1 and TOKEN2 (Zero quota consumed)
+  - [x] Fetched and evaluated Exp 055 on `ibm_fez` (`db0m71qvog1s73fh15og`) -> `pt_ram_q_prio48_raw.json`, `pt_ram_q_prio48_eval.json`
+  - [x] Fetched and evaluated Exp 055 on `ibm_marrakesh` (`db8tqp5ckpjs73b1mdr0`) -> `scratches/pt_ram_q_prio48_marrakesh_raw.json`, `scratches/pt_ram_q_prio48_marrakesh_eval.json`
+  - [x] Fetched and evaluated QUQUINT F4 on `ibm_fez` (`daua5hahcrkc73dv9eh0`) -> `scratches/pt_ququint_f4_fez_raw.json` & `/run/media/julian/ML4/ququint/ququint_f4_results.json`
+  - [x] Fetched and evaluated Exp 059 on `ibm_fez` (`db8sdv0b3g5c73egt2u0`) -> `scratches/pt_rem59_qpu_raw.json`, `scratches/pt_rem59_qpu_fez_eval.json`
+  - [x] Compiled master mapping artifact and JSON inventory (`pt_all_qpu_experiments_and_results_inventory.json`, `experiments_and_qpu_results_matrix.md`)
+- [x] Phase 5: EXPERIMENT 061 (Pfad-Quadriken, Weil-Sättigung & 2-Qubit Clifford-Weil Kette)
+  - [x] Implemented canonical Alpöge-Claude path quadric $Q(x) = \sum x_j x_{j+1}$ in `primequant.weil`
+  - [x] Frozen preregistration `scratches/pt_path_quadric_061_prereg.json` (SHA-256 `55f420301219a408a7300d16b08bd111fe3b3833eb82989275df2893ba178fed`)
+  - [x] Raw commit VOR Auswertung (Commit `4385035`)
+  - [x] Frozen evaluation: H-PQ-1, H-PQ-2, H-PQ-4 CONFIRMED; H-PQ-3 REFUTED (Target/Ancilla Inversions-Swap präzise aufgedeckt)
+  - [x] Pushed all commits cleanly to `origin/h-test1-gap-invariance`
+- [x] Phase 6: Von-Mangoldt-Zustandspräparation & GRH-Standardsektor-Decay (EXPERIMENT 062)
+  - [x] Exakte Arithmetik `von_mangoldt_exact` und `von_mangoldt_residue_counts` in `src/primequant/stateprep.py`
+  - [x] Re-Export in `src/primequant/__init__.py` und Unittests geschrieben (`tests/test_primequant_von_mangoldt.py`)
+  - [x] Preregistrierung `scratches/pt_grh_decay_062_prereg.json` mit SHA-256 (`23f7874b32fc2540475e74566600055a9d95e2dcd2c3bca5f51592d7ba48dd72`) eingefroren
+  - [x] Run-Skript ausgeführt und Rohdaten vor Auswertung committed (Commit `b4af3a5`)
+  - [x] Auswertung durchgeführt: Urteil `REFUTED` (Prime-Race-Fluktuationen skalierten wie $O(\ln^2 X / X)$ statt hypothetischem naivem $O(1/X)$) (Commit `c81f0cd`)
+  - [x] Alle Commits gepusht auf `origin/h-test1-gap-invariance`
+- [x] Phase 7: Frugale 2-Qubit QPU-Validierung auf Hardware (EXPERIMENT 063)
+  - [x] Preregistrierung `scratches/pt_clifford_weil_063_prereg.json` mit SHA-256 (`c429407b95f71c159bdcf1e80e3d05f386cd01769285ed7e5c929059917ef865`) eingefroren
+  - [x] Hardware-Runner `pt_clifford_weil_063_runner.py` verifiziert (Tiefe $\le 7$, 3 CZ total, Quota-Verbrauch 10.49s)
+  - [x] Job eingereicht und abgeschlossen auf `ibm_fez`: Job-ID `dc1f7ids2omc738ahl0g` (Status: `DONE`)
+  - [x] Rohdaten in `pt_clifford_weil_063_raw.json` gesichert und VOR Auswertung committed (Commit `a10e41d`)
+  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** ($P_{L=2}(q_0=0) = \mathbf{98.08\%}$, $\Delta P = \mathbf{48.34\%}$) (Commit `fc4d1c1`)
+  - [x] Master-QPU-Inventar und Matrix-Artefakt aktualisiert und gepusht (`fc4d1c1`)
