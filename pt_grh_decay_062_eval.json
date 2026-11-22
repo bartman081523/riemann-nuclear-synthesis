@@ -1,0 +1,22 @@
+{
+  "experiment_id": "EXP-062",
+  "prereg_sha256": "23f7874b32fc2540475e74566600055a9d95e2dcd2c3bca5f51592d7ba48dd72",
+  "verdicts": {
+    "H-GRH-1": {
+      "status": "REFUTED",
+      "violations": 18
+    },
+    "H-GRH-2": {
+      "status": "REFUTED",
+      "violations": 12
+    },
+    "H-GRH-3": {
+      "status": "REFUTED",
+      "violations": 3
+    }
+  },
+  "overall_verdict": "MIXED_OR_REFUTED",
+  "max_X_times_P_std": 45.06437768240343,
+  "max_X2_times_var_p": 441.88332476620764,
+  "min_purity_500_plus": 0.2379193598030163
+}
