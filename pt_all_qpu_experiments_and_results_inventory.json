@@ -299,6 +299,22 @@
           }
         }
       ]
+    },
+    {
+      "experiment_id": "EXP-064",
+      "name": "Artin-Schreier-Exponentialsummen & Deligne-Weil Spektralschranken",
+      "hypothesis": "H-ARTIN-SCHREIER-DELIGNE (H-ASD-1 .. H-ASD-4)",
+      "mode": "Statevector-First (G2-EXAKT, cyclotomic Z[zeta_q], 0 QPU)",
+      "prereg_sha256": "a3c6974455e6d0bc1afe62015a7a7f6d0ea727e6036ca8a2e2438281d58f51e3",
+      "raw_path": "pt_artin_schreier_064_raw.json",
+      "eval_path": "pt_artin_schreier_064_eval.json",
+      "verdict": "CONFIRMED_ALL_HYPOTHESES",
+      "sub_verdicts": {
+        "H-ASD-1_LINEAR_CANCELLATION": "CONFIRMED (0 fails, bit-exakt zero)",
+        "H-ASD-2_GAUSS_SATURATION": "CONFIRMED (0 fails, |S|^2 = q * 1 bit-exakt)",
+        "H-ASD-3_CUBIC_DELIGNE_BOUND": "CONFIRMED (0 fails, max ratio = 0.9554 <= 1.0000)",
+        "H-ASD-4_UNITARY_PROJECTION": "CONFIRMED (0 fails, |<0|W_f|0>| <= d - 1)"
+      }
     }
   ]
 }

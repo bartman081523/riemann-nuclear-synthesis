@@ -1,0 +1,24 @@
+{
+  "experiment_id": "EXP-064",
+  "prereg_sha256": "a3c6974455e6d0bc1afe62015a7a7f6d0ea727e6036ca8a2e2438281d58f51e3",
+  "verdicts": {
+    "H-ASD-1": {
+      "status": "CONFIRMED",
+      "fails": 0
+    },
+    "H-ASD-2": {
+      "status": "CONFIRMED",
+      "fails": 0
+    },
+    "H-ASD-3": {
+      "status": "CONFIRMED",
+      "fails": 0,
+      "max_ratio_to_deligne": 0.955373607908246
+    },
+    "H-ASD-4": {
+      "status": "CONFIRMED",
+      "fails": 0
+    }
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES"
+}

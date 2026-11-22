@@ -29,6 +29,7 @@
 | **EXP-061** | Pfad-Quadrik & Weil-Sättigung | Statevector (0 QPU) | 0 QPU | - | DONE | [`pt_path_quadric_061_raw.json`](file:///run/media/julian/ML4/riemann/pt_path_quadric_061_raw.json) | `MIXED` (H-PQ-1,2,4 `CONFIRMED`; H-PQ-3 `REFUTED` Swap-Verschränkung) |
 | **EXP-062** | Von-Mangoldt-Zustand & GRH-Decay | Statevector (0 QPU) | 0 QPU | - | DONE | [`pt_grh_decay_062_raw.json`](file:///run/media/julian/ML4/riemann/pt_grh_decay_062_raw.json) | `REFUTED` (Prime-Race Fluktuationen $\sim O(\ln^2 X / X)$ statt naivem $O(1/X)$) |
 | **EXP-063** | Frugaler 2-Qubit Clifford-Weil Walk | `ibm_fez` | TOKEN1 | `dc1f7ids2omc738ahl0g` | DONE | [`pt_clifford_weil_063_raw.json`](file:///run/media/julian/ML4/riemann/pt_clifford_weil_063_raw.json) | **`CONFIRMED_ALL_HYPOTHESES`** ($P_{L=2}(q_0=0)=\mathbf{98.08\%}$, $\Delta P=\mathbf{48.34\%}$, 10.49s QPU) |
+| **EXP-064** | Artin-Schreier & Deligne-Weil Schranken | Statevector (G2) | 0 QPU | - | DONE | [`pt_artin_schreier_064_raw.json`](file:///run/media/julian/ML4/riemann/pt_artin_schreier_064_raw.json) | **`CONFIRMED_ALL_HYPOTHESES`** (H-ASD-1..4 bit-exakt, Deligne-Ratio $\le 0.9554$) |
 
 ---
 

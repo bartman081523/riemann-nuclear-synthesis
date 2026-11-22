@@ -43,3 +43,10 @@
   - [x] Rohdaten in `pt_clifford_weil_063_raw.json` gesichert und VOR Auswertung committed (Commit `a10e41d`)
   - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** ($P_{L=2}(q_0=0) = \mathbf{98.08\%}$, $\Delta P = \mathbf{48.34\%}$) (Commit `fc4d1c1`)
   - [x] Master-QPU-Inventar und Matrix-Artefakt aktualisiert und gepusht (`fc4d1c1`)
+- [x] Phase 8: Artin-Schreier Exponentialsummen & Deligne-Weil Spektralschranken (EXPERIMENT 064)
+  - [x] Exakte Artin-Schreier Operatoren in `src/primequant/weil.py` implementiert
+  - [x] Unittests in `tests/test_primequant_artin_schreier.py` (27/27 grün)
+  - [x] Preregistrierung `scratches/pt_artin_schreier_064_prereg.json` mit SHA-256 (`a3c6974455e6d0bc1afe62015a7a7f6d0ea727e6036ca8a2e2438281d58f51e3`) eingefroren
+  - [x] Rohdaten in `pt_artin_schreier_064_raw.json` erzeugt und VOR Auswertung committed (Commit `bdd6b96`)
+  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (H-ASD-1..4 bit-exakt wahr, Deligne-Ratio $\le 0.9554$)
+  - [x] Master-Inventare, Matrizen und README aktualisiert
