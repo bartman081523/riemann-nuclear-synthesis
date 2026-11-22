@@ -12,10 +12,12 @@ from primequant import (
     artin_schreier_magnitude_squared,
     artin_schreier_deligne_bound,
     artin_schreier_phase_matrix,
+    wigner_semicircle_moment_exact,
     cyc_zero,
     cyc_from_int,
     cyc_eq,
 )
+from fractions import Fraction
 
 
 def test_poly_eval_mod():
@@ -71,3 +73,13 @@ def test_phase_matrix_shape():
         for c in range(q):
             if r != c:
                 assert cyc_eq(mat[r][c], cyc_zero(q))
+
+
+def test_wigner_semicircle_moments():
+    """Prüft die exakten Wigner-Halbkreis-Momente m_2k = C_k / 4^k."""
+    assert wigner_semicircle_moment_exact(0) == Fraction(1, 1)
+    assert wigner_semicircle_moment_exact(1) == Fraction(1, 4)
+    assert wigner_semicircle_moment_exact(2) == Fraction(1, 8)
+    assert wigner_semicircle_moment_exact(3) == Fraction(5, 64)
+    assert wigner_semicircle_moment_exact(4) == Fraction(7, 128)
+

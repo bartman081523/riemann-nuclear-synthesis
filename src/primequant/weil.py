@@ -319,4 +319,21 @@ def artin_schreier_phase_matrix(q: int, coeffs: Sequence[int]) -> Matrix:
     return mat
 
 
+def wigner_semicircle_moment_exact(k: int) -> Fraction:
+    """Exaktes 2k-tes Moment des Wigner-Halbkreisgesetzes rho(t) = (2/pi)*sqrt(1-t^2) auf [-1, 1].
+    
+    Garantie: EXAKT, Herkunft: Theorem (Wigner / Sato-Tate).
+    m_{2k} = integral_{-1}^1 t^{2k} rho(t) dt = C_k / 4^k = (1 / (4^k * (k + 1))) * binom(2k, k).
+    Ungerade Momente m_{2k+1} sind aus Symmetriegruenden identisch 0.
+    """
+    if k < 0:
+        raise ValueError(f"k muss >= 0 sein, erhalten {k}")
+    if k == 0:
+        return Fraction(1, 1)
+    # Catalan-Zahl C_k = (2k)! / ((k+1)! * k!)
+    c_k = math.comb(2 * k, k) // (k + 1)
+    return Fraction(c_k, 4 ** k)
+
+
+
 

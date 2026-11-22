@@ -150,6 +150,7 @@ from .weil import (
     artin_schreier_magnitude_squared,
     artin_schreier_deligne_bound,
     artin_schreier_phase_matrix,
+    wigner_semicircle_moment_exact,
 )
 from ._anchors import (
     payload_sha256,
@@ -292,4 +293,5 @@ __all__ = [
     "artin_schreier_magnitude_squared",
     "artin_schreier_deligne_bound",
     "artin_schreier_phase_matrix",
+    "wigner_semicircle_moment_exact",
 ]
