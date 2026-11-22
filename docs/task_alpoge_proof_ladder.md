@@ -62,3 +62,14 @@
   - [x] Rohdaten in `pt_wigner_sato_tate_066_raw.json` erzeugt und VOR Auswertung committed (Commit `13c5a54`)
   - [x] Evaluierung durchgeführt: H-WST-1, 2, 3 `CONFIRMED` (Catalan-Momente $1/4, 1/8, 5/64$); H-WST-4 deckt $\mu_3$-Verzweigung bei $q \equiv 1 \pmod 3$ auf ($q=503$ bestätigt mit $p=0.6226$)
   - [x] Master-Inventare, Matrizen und README aktualisiert
+- [x] Phase 11: Universelles Master-Ledger & Frobenius-Bell Spektroskopie auf Hardware (EXPERIMENT 067)
+  - [x] Universelles Master-Ergebnis-Ledger `pt_universal_all_experiments_master_ledger.json` (alle 85 Experimente des Repositories erfasst)
+  - [x] Master-Report `docs/universal_all_experiments_master_report.md` erstellt
+  - [x] Preregistrierung `scratches/pt_frobenius_bell_067_prereg.json` mit SHA-256 (`605ff2be2445771ced43ca5d324f5fca35af8f87c3975d25e12b6f1cce251069`) eingefroren
+  - [x] Hardware-Runner `pt_frobenius_bell_067_runner.py` verifiziert und Job eingereicht auf `ibm_fez` (`dc1kabqnj2vs73dffch0`, 10.50s Quota)
+  - [x] Rohdaten in `pt_frobenius_bell_067_raw.json` erzeugt und VOR Auswertung committed (Commit `b8efbd1`)
+  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (Abweichung von theoretischen Zielwerten nur $0.07\%$ bis $0.38\%$)
+  - [x] Alle Dokumente, Matrizen und Inventare aktualisiert
+  - [x] Rohdaten in `pt_frobenius_bell_067_raw.json` erzeugt und VOR Auswertung committed (Commit `b8efbd1`)
+  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (Abweichung von theoretischen Zielwerten nur $0.07\%$ bis $0.38\%$)
+  - [x] Alle Dokumente, Matrizen und Inventare aktualisiert

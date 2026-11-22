@@ -32,6 +32,7 @@
 | **EXP-064** | Artin-Schreier & Deligne-Weil Schranken | Statevector (G2) | 0 QPU | - | DONE | [`pt_artin_schreier_064_raw.json`](file:///run/media/julian/ML4/riemann/pt_artin_schreier_064_raw.json) | **`CONFIRMED_ALL_HYPOTHESES`** (H-ASD-1..4 bit-exakt, Deligne-Ratio $\le 0.9554$) |
 | **EXP-065** | Logarithmische Verschränkungs-Asymptotik | Statevector (SVD) | 0 QPU | - | DONE | [`pt_entanglement_log_065_raw.json`](file:///run/media/julian/ML4/riemann/pt_entanglement_log_065_raw.json) | **`CONFIRMED_ALL_HYPOTHESES`** ($R^2=\mathbf{0.9955}$, $\alpha_{\text{eff}}=\mathbf{0.2081}$, Latorre-Sierra analytisch aufgelöst) |
 | **EXP-066** | Wigner-Halbkreis & Sato-Tate Emergenz | Statevector ($q \le 1009$) | 0 QPU | - | DONE | [`pt_wigner_sato_tate_066_raw.json`](file:///run/media/julian/ML4/riemann/pt_wigner_sato_tate_066_raw.json) | `MIXED` ($m_2, m_4, m_6$ `CONFIRMED` Catalan-Momente; H-WST-4 KS-Test deckt $\mu_3$-Verzweigung bei $q \equiv 1 \pmod 3$ auf) |
+| **EXP-067** | Frobenius-Bell Interferometer | `ibm_fez` | TOKEN1 | `dc1kabqnj2vs73dffch0` | DONE | [`pt_frobenius_bell_067_raw.json`](file:///run/media/julian/ML4/riemann/pt_frobenius_bell_067_raw.json) | **`CONFIRMED_ALL_HYPOTHESES`** (Abw. $P_{00}(2,3)$ nur $\mathbf{0.38\%}$, $P_{00}(4,2)$ nur $\mathbf{0.07\%}$, $\Delta P=\mathbf{19.32\%}$, 10.50s QPU) |
 
 ---
 

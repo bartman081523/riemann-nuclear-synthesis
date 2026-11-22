@@ -346,6 +346,44 @@
         "H-WST-3_SIXTH_MOMENT": "CONFIRMED (m6 = 0.0780 vs 0.078125, Catalan C3/64)",
         "H-WST-4_KS_DISTRIBUTION": "REFUTED (p=0.6226 bei q=503=2 mod 3; D_KS=0.0517 bei q=1009=1 mod 3 wg. mu3-Verzweigung)"
       }
+    },
+    {
+      "experiment_id": "EXP-067",
+      "name": "Quanten-Spektroskopie von Frobenius-Eigenwinkeln auf IBM Quantum (Bell-Interferometer)",
+      "hypothesis": "H-FROBENIUS-BELL-INTERFEROMETER (H-FBI-1 .. H-FBI-4)",
+      "mode": "Real QPU Hardware (ibm_fez)",
+      "jobs": [
+        {
+          "job_id": "dc1kabqnj2vs73dffch0",
+          "backend": "ibm_fez",
+          "token": "TOKEN1",
+          "created": "2026-11-22 20:40:31",
+          "status": "DONE",
+          "n_circuits": 4,
+          "shots": 8192,
+          "qpu_seconds_consumed": 10.50,
+          "raw_path": "pt_frobenius_bell_067_raw.json",
+          "eval_path": "pt_frobenius_bell_067_eval.json",
+          "verdict": "CONFIRMED_ALL_HYPOTHESES",
+          "key_metrics": {
+            "p00_measured": {
+              "(0, 0)": 0.9696,
+              "(3, 3)": 0.9862,
+              "(2, 3)": 0.7462,
+              "(4, 2)": 0.5530
+            },
+            "theoretical_targets": {
+              "(0, 0)": 1.0000,
+              "(3, 3)": 1.0000,
+              "(2, 3)": 0.7500,
+              "(4, 2)": 0.5523
+            },
+            "dev_23": 0.0038,
+            "dev_42": 0.0007,
+            "delta_P": 0.1932
+          }
+        }
+      ]
     }
   ]
 }

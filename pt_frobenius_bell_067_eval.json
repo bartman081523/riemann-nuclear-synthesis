@@ -1,0 +1,39 @@
+{
+  "experiment_id": "EXP-067",
+  "job_id": "dc1kabqnj2vs73dffch0",
+  "backend": "ibm_fez",
+  "prereg_sha256": "605ff2be2445771ced43ca5d324f5fca35af8f87c3975d25e12b6f1cce251069",
+  "p00_measured": {
+    "(0, 0)": 0.9696044921875,
+    "(3, 3)": 0.9862060546875,
+    "(2, 3)": 0.7462158203125,
+    "(4, 2)": 0.552978515625
+  },
+  "delta_P_23_minus_42": 0.1932373046875,
+  "verdicts": {
+    "H-FBI-1": {
+      "status": "CONFIRMED",
+      "p00_00": 0.9696044921875,
+      "p00_33": 0.9862060546875,
+      "threshold": 0.85
+    },
+    "H-FBI-2": {
+      "status": "CONFIRMED",
+      "p00_23": 0.7462158203125,
+      "dev_from_75": 0.0037841796875,
+      "threshold": 0.12
+    },
+    "H-FBI-3": {
+      "status": "CONFIRMED",
+      "p00_42": 0.552978515625,
+      "dev_from_55": 0.0006785156249999869,
+      "threshold": 0.12
+    },
+    "H-FBI-4": {
+      "status": "CONFIRMED",
+      "delta_P": 0.1932373046875,
+      "threshold": 0.1
+    }
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES"
+}

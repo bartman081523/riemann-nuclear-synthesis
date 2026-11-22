@@ -1,14 +1,14 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-22T19:34:16.526759+00:00
+Stand: 2026-11-22T19:46:20.586144+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 84
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 85
 
 ## Zusammenfassung nach Forschungssäulen
 
 | Säule / Kategorie | Anzahl Experimente |
 |---|---|
-| General / Multi-Observable Diagnostic | 11 |
+| General / Multi-Observable Diagnostic | 12 |
 | Pillar 1: QuQuint & GF(5) Geometry | 7 |
 | Pillar 1b: ZQZ Random Matrix Ensembles | 2 |
 | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | 14 |
@@ -22,7 +22,7 @@ Stand: 2026-11-22T19:34:16.526759+00:00
 
 | Normiertes Verdict | Anzahl |
 |---|---|
-| CONFIRMED | 12 |
+| CONFIRMED | 13 |
 | REFUTED | 12 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
@@ -40,6 +40,7 @@ Stand: 2026-11-22T19:34:16.526759+00:00
 | `pt_crossover_v4_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-4_CONFIRMED_CROSSOVER` |
 | `pt_downloaded_job_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_entanglement_log_065_eval.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Classical Asymptotics / SVD | None | `CONFIRMED_ALL_HYPOTHESES` |
+| `pt_frobenius_bell_067_eval.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_grh_decay_062_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `MIXED_OR_REFUTED` |
 | `pt_gue_v3_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-3_INKONKLUSIV` |
 | `pt_hstar5_phase6a_v2_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `REFUTED` |
