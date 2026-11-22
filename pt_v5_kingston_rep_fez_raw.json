@@ -1,0 +1,32 @@
+{
+ "experiment": "046-ququint-v5-repetition-both-backends",
+ "leg": "fez",
+ "backend": "ibm_fez",
+ "job_id": "dauassrojkfs738rrcsg",
+ "isa": {
+  "two_q": 1,
+  "one_q": 18,
+  "names": [
+   "cz"
+  ],
+  "depth": 11
+ },
+ "meas": {
+  "re": 2.179152206550255,
+  "hd": 2.1678169412156385,
+  "im": 0.008757581708377657,
+  "bias": 0.011335265334616373
+ },
+ "options": {
+  "resilience_level": 1,
+  "dd": "XX",
+  "shots": 8192,
+  "transpile_seed": 7
+ },
+ "params": [
+  -0.10039260373380426,
+  0.31547161200836626,
+  -0.7794084485021391,
+  -0.09555937796511249
+ ]
+}
