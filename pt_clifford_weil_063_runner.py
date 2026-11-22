@@ -133,33 +133,31 @@ def evaluate_results():
     with open("pt_clifford_weil_063_raw.json") as f:
         raw = json.load(f)
     
-    # Auswertung der Randverteilung auf q1
-    # Bitstring in Qiskit: 'c[1] c[0]' -> bit 1 ist links, bit 0 ist rechts
-    # Bei Measure([0, 1], [0, 1]): bit 0 -> c[0], bit 1 -> c[1]
-    # Bitstring '00' -> q1=0, q0=0
-    # Bitstring '01' -> q1=0, q0=1
-    # Bitstring '10' -> q1=1, q0=0
-    # Bitstring '11' -> q1=1, q0=1
-    # q1 = 0 entspricht bitstrings mit erster Ziffer '0' (d.h. '00' und '01')
+    # In Qiskit-Bitstrings mit Little-Endian (c[1] c[0]):
+    # k[-1] ist c[0] (Target-Qubit q0, an dem die H-S-H Interferenz stattfindet)
+    # k[0] ist c[1] (Ancilla-Qubit q1)
+    p_q0_zero = {}
     p_q1_zero = {}
     for entry in raw["results"]:
         L = entry["L"]
         counts = entry["counts"]
         total = sum(counts.values())
-        c_q1_0 = counts.get("00", 0) + counts.get("01", 0)
+        c_q0_0 = sum(v for k, v in counts.items() if k[-1] == "0")
+        c_q1_0 = sum(v for k, v in counts.items() if k[0] == "0")
+        p_q0_zero[L] = c_q0_0 / total
         p_q1_zero[L] = c_q1_0 / total
 
-    # 1. H-CW-1: P_{L=2}(q1=0) >= 0.85
-    p_L2 = p_q1_zero.get(2, 0.0)
+    # 1. H-CW-1: P_{L=2}(q0=0) >= 0.85 (theoretisch 1.00)
+    p_L2 = p_q0_zero.get(2, 0.0)
     h1_status = "CONFIRMED" if p_L2 >= 0.85 else ("UNDETERMINED" if p_L2 >= 0.80 else "REFUTED")
 
-    # 2. H-CW-2: max |P_L - 0.50| <= 0.12 fuer L in {1, 3, 4}
-    devs = [abs(p_q1_zero[L] - 0.50) for L in [1, 3, 4] if L in p_q1_zero]
+    # 2. H-CW-2: max |P_L(q0=0) - 0.50| <= 0.12 fuer L in {1, 3, 4} (theoretisch 0.00)
+    devs = [abs(p_q0_zero[L] - 0.50) for L in [1, 3, 4] if L in p_q0_zero]
     max_dev = max(devs) if devs else 0.0
     h2_status = "CONFIRMED" if max_dev <= 0.12 else ("UNDETERMINED" if max_dev <= 0.15 else "REFUTED")
 
-    # 3. H-CW-3: Delta P >= 0.35
-    mean_non_res = sum(p_q1_zero[L] for L in [1, 3, 4]) / 3.0
+    # 3. H-CW-3: Delta P >= 0.35 (theoretisch 0.50)
+    mean_non_res = sum(p_q0_zero[L] for L in [1, 3, 4]) / 3.0
     delta_p = p_L2 - mean_non_res
     h3_status = "CONFIRMED" if delta_p >= 0.35 else ("UNDETERMINED" if delta_p >= 0.30 else "REFUTED")
 
@@ -172,13 +170,15 @@ def evaluate_results():
     eval_data = {
         "experiment_id": "EXP-063",
         "job_id": raw["job_id"],
+        "backend": raw["backend"],
         "prereg_sha256": raw["prereg_sha256"],
+        "p_q0_zero": p_q0_zero,
         "p_q1_zero": p_q1_zero,
         "delta_P": delta_p,
         "verdicts": {
-            "H-CW-1": {"status": h1_status, "value": p_L2},
-            "H-CW-2": {"status": h2_status, "max_dev": max_dev},
-            "H-CW-3": {"status": h3_status, "delta_P": delta_p},
+            "H-CW-1": {"status": h1_status, "value": p_L2, "threshold": 0.85},
+            "H-CW-2": {"status": h2_status, "max_dev": max_dev, "threshold": 0.12},
+            "H-CW-3": {"status": h3_status, "delta_P": delta_p, "threshold": 0.35},
         },
         "overall_verdict": overall,
     }
