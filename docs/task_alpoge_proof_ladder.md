@@ -70,6 +70,11 @@
   - [x] Rohdaten in `pt_frobenius_bell_067_raw.json` erzeugt und VOR Auswertung committed (Commit `b8efbd1`)
   - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (Abweichung von theoretischen Zielwerten nur $0.07\%$ bis $0.38\%$)
   - [x] Alle Dokumente, Matrizen und Inventare aktualisiert
-  - [x] Rohdaten in `pt_frobenius_bell_067_raw.json` erzeugt und VOR Auswertung committed (Commit `b8efbd1`)
-  - [x] Evaluierung durchgeführt: **`CONFIRMED_ALL_HYPOTHESES`** (Abweichung von theoretischen Zielwerten nur $0.07\%$ bis $0.38\%$)
-  - [x] Alle Dokumente, Matrizen und Inventare aktualisiert
+- [ ] Phase 12: Frobenius Monodromy Pair Correlation & Montgomery-Odlyzko Spectral Bridge (EXPERIMENT 068)
+  - [ ] Implement pair correlation function $R_2(s)$ for arithmetic monodromy angles $\theta_a$ across finite fields $\mathbb{F}_q$
+  - [ ] Compare unfolded pair correlation against Montgomery-Odlyzko GUE curve $1 - \left(\frac{\sin(\pi s)}{\pi s}\right)^2$ vs Poisson curve $R_2(s) \equiv 1$
+  - [ ] Freeze preregistration `scratches/pt_frobenius_pair_corr_068_prereg.json` with SHA-256
+  - [ ] Run statevector sweep across large moduli $q$
+  - [ ] Commit raw results VOR evaluation
+  - [ ] Run frozen evaluation and determine verdict
+  - [ ] Update Master-Ledger and push to origin

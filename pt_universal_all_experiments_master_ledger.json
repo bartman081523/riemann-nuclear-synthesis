@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-22T19:46:20.586144+00:00",
-  "total_experiments_recorded": 85,
+  "generated_at_utc": "2026-11-23T04:59:27.431131+00:00",
+  "total_experiments_recorded": 86,
   "category_summary": {
-    "General / Multi-Observable Diagnostic": 12,
+    "General / Multi-Observable Diagnostic": 11,
     "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)": 10,
-    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 6,
+    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 8,
     "Pillar 1: QuQuint & GF(5) Geometry": 7,
     "Pillar 2: Hilbert-Polya Potential & Spectral Gaps": 14,
     "Pillar 4: RAM-Q & FP48 Resonance Infrastructure": 28,
@@ -15,7 +15,7 @@
   "verdict_summary": {
     "REPORTED/DONE": 59,
     "CONFIRMED": 13,
-    "REFUTED": 12,
+    "REFUTED": 13,
     "UNDETERMINED": 1
   },
   "experiments": [
@@ -68,8 +68,8 @@
       "file": "pt_clifford_weil_063_eval.json",
       "name": "pt_clifford_weil_063_eval",
       "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
-      "mode": "Analytical / Exact Numerics",
-      "backend": "None",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_fez",
       "verdict": "CONFIRMED_ALL_HYPOTHESES",
       "size_bytes": 838
     },
@@ -103,11 +103,20 @@
     {
       "file": "pt_frobenius_bell_067_eval.json",
       "name": "pt_frobenius_bell_067_eval",
-      "category": "General / Multi-Observable Diagnostic",
-      "mode": "Analytical / Exact Numerics",
-      "backend": "None",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Real QPU Hardware",
+      "backend": "ibm_fez",
       "verdict": "CONFIRMED_ALL_HYPOTHESES",
       "size_bytes": 991
+    },
+    {
+      "file": "pt_frobenius_pair_corr_068_eval.json",
+      "name": "pt_frobenius_pair_corr_068_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "PARTIAL_OR_REFUTED",
+      "size_bytes": 1859
     },
     {
       "file": "pt_grh_decay_062_eval.json",

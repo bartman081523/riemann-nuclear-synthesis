@@ -1,21 +1,21 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-22T19:46:20.586144+00:00
+Stand: 2026-11-23T04:59:27.431131+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 85
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 86
 
 ## Zusammenfassung nach Forschungssäulen
 
 | Säule / Kategorie | Anzahl Experimente |
 |---|---|
-| General / Multi-Observable Diagnostic | 12 |
+| General / Multi-Observable Diagnostic | 11 |
 | Pillar 1: QuQuint & GF(5) Geometry | 7 |
 | Pillar 1b: ZQZ Random Matrix Ensembles | 2 |
 | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | 14 |
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
 | Pillar 4: RAM-Q & FP48 Resonance Infrastructure | 28 |
 | Pillar 5: H-V5 Hardware Gap Invariance | 3 |
-| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 6 |
+| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 8 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
 ## Zusammenfassung der Verdicts
@@ -23,7 +23,7 @@ Stand: 2026-11-22T19:46:20.586144+00:00
 | Normiertes Verdict | Anzahl |
 |---|---|
 | CONFIRMED | 13 |
-| REFUTED | 12 |
+| REFUTED | 13 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
 
@@ -36,11 +36,12 @@ Stand: 2026-11-22T19:46:20.586144+00:00
 | `pt_alpha_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Analytical / Exact Numerics | None | `H-ALPHA_INKONKLUSIV_NEUES_MODELL` |
 | `pt_artin_schreier_064_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_asymptotic_N1e6_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Classical Asymptotics / SVD | None | `H_C (anderes Power-Law)` |
-| `pt_clifford_weil_063_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
+| `pt_clifford_weil_063_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Real QPU Hardware | ibm_fez | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_crossover_v4_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-4_CONFIRMED_CROSSOVER` |
 | `pt_downloaded_job_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_entanglement_log_065_eval.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Classical Asymptotics / SVD | None | `CONFIRMED_ALL_HYPOTHESES` |
-| `pt_frobenius_bell_067_eval.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
+| `pt_frobenius_bell_067_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Real QPU Hardware | ibm_fez | `CONFIRMED_ALL_HYPOTHESES` |
+| `pt_frobenius_pair_corr_068_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_grh_decay_062_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `MIXED_OR_REFUTED` |
 | `pt_gue_v3_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-3_INKONKLUSIV` |
 | `pt_hstar5_phase6a_v2_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `REFUTED` |

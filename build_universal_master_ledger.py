@@ -32,9 +32,9 @@ def classify_experiment(filepath: str, data: Dict[str, Any]) -> Dict[str, Any]:
     summary = ""
 
     # 1. Erkennung anhand von Dateinamen und Inhalt
-    if "qpu" in name or "fez" in name or "kingston" in name or "marrakesh" in name:
+    if "qpu" in name or "fez" in name or "kingston" in name or "marrakesh" in name or "063" in name or "067" in name:
         mode = "Real QPU Hardware"
-        if "fez" in name:
+        if "fez" in name or "063" in name or "067" in name:
             backend = "ibm_fez"
         elif "marrakesh" in name:
             backend = "ibm_marrakesh"
@@ -75,7 +75,7 @@ def classify_experiment(filepath: str, data: Dict[str, Any]) -> Dict[str, Any]:
         category = "Pillar 4: RAM-Q & FP48 Resonance Infrastructure"
     elif "v5" in name:
         category = "Pillar 5: H-V5 Hardware Gap Invariance"
-    elif any(k in name for k in ["weil_theta_060", "path_quadric_061", "grh_decay_062", "clifford_weil_063", "artin_schreier_064", "wigner_sato_tate_066"]):
+    elif any(k in name for k in ["weil_theta_060", "path_quadric_061", "grh_decay_062", "clifford_weil_063", "artin_schreier_064", "wigner_sato_tate_066", "frobenius_bell_067", "frobenius_pair_corr_068"]):
         category = "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance"
     elif any(k in name for k in ["symcomp", "mocs", "repin"]):
         category = "Special Audits: SymComp, MOCS & Repin"
