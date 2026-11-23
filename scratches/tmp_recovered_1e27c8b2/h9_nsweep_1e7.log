@@ -1,0 +1,34 @@
+[h9-nsweep-1e7] start, QISKIT_PARALLEL=FALSE-Konvention, 0 QPU
+[anchor] committed: a_comb=0.2103550767898247 a_v1=0.26582127012525525 a_ext=0.1325514612964971 log_const=-0.7748751553487401 cv_mean=0.09599648443361233 eff=2.4263736263736266
+[anchor] alpha_line=a_comb/eff=0.08669525356827014
+[row] N=7 pi=4 dim=8 S=0.562335145 R=0.405639062 cv=0.1433361107311678 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=15 pi=6 dim=16 S=0.836065556 R=0.466617071 cv=0.1284585050097737 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=31 pi=11 dim=32 S=0.920917487 R=0.384052422 cv=0.10291373401141408 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=63 pi=18 dim=64 S=1.022273813 R=0.353682467 cv=0.09743638974633594 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=127 pi=31 dim=128 S=1.356183806 R=0.394929778 cv=0.0794081903846811 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=255 pi=54 dim=256 S=1.603968307 R=0.402099454 cv=0.08853676294658555 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=511 pi=97 dim=512 S=1.970812974 R=0.430806008 cv=0.09086480741698962 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=1023 pi=172 dim=1024 S=2.211159859 R=0.429560414 cv=0.08941133455950992 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.0s)
+[row] N=2047 pi=309 dim=2048 S=2.564154241 R=0.447235585 cv=0.08798977460137548 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.5s)
+[row] N=4095 pi=564 dim=4096 S=2.787869378 R=0.440070324 cv=0.08822319467884547 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 2.0s)
+[row] N=8191 pi=1028 dim=8192 S=3.156213731 R=0.455089422 cv=0.08701193667939378 path=dense (sieve 0.0s, construct 0.0s, ent 0.2s, cv 2.4s)
+[row] N=16383 pi=1900 dim=16384 S=3.395970019 R=0.449820639 cv=0.08729455820099488 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 0.4s)
+[row] N=32767 pi=3512 dim=32768 S=3.770018367 R=0.461789029 cv=0.08670908124693055 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 2.5s)
+[row] N=65535 pi=6542 dim=65536 S=4.011348826 R=0.456561535 cv=0.08635640185657446 path=dense (sieve 0.0s, construct 0.0s, ent 0.0s, cv 24.3s)
+[pin] ok — 14 Punkte reproduziert (thin-SVD), Pins <= 1e-12
+[new] Leg 1/3: N=16777215
+[row] N=16777215 pi=1077871 dim=16777216 S=6.467143331 R=0.465580368 cv=0.0853186878697372 path=tridiag (sieve 1.4s, construct 1.7s, ent 69.9s, cv 3483.1s)
+[new] Leg 2/3: N=10000000
+[row] N=10000000 pi=664579 dim=16777216 S=6.303045825 R=0.470134153 cv=0.08537268550490461 path=tridiag (sieve 0.8s, construct 1.0s, ent 60.1s, cv 1445.7s)
+[new] Leg 3/3: N=100000000
+[G1] tridiag bei 1e7: 1445.741354227066 s; Extrapolation (5.761455M/664579)^2 x t = 108658.00434321 s (Grenze 10800 s)
+[G1] 1e8-cv -> SKIP exaktes cv, SP3-Intervall
+[row] N=100000000 pi=5761455 dim=134217728 S=7.314077574 R=0.469854066 cv=None path=gershgorin (sieve 8.4s, construct 10.3s, ent 621.1s, cv 0.0s)
+Traceback (most recent call last):
+  File [35m"/run/media/julian/ML4/riemann/scratches/h9_nsweep_1e7.py"[0m, line [35m527[0m, in [35m<module>[0m
+    [31mmain[0m[1;31m()[0m
+    [31m~~~~[0m[1;31m^^[0m
+  File [35m"/run/media/julian/ML4/riemann/scratches/h9_nsweep_1e7.py"[0m, line [35m466[0m, in [35mmain[0m
+    entry["carrier_hold"] = bool([1;31mCV_LO <= r["cv_spread_A"] <= CV_HI[0m)
+                                 [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mTypeError[0m: [35m'<=' not supported between instances of 'float' and 'NoneType'[0m

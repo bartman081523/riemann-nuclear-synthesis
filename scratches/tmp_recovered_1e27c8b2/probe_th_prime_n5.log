@@ -1,0 +1,13 @@
+[Dedupe] 59 distincte relabel-Bilder
+[Basis] (P0,c0) t' 1838.712664313, d 3125, min pos gap 2.765e-08, median pos gap 3.417165e-03, Luecken <=1e-12: 800/3124
+[rel] cfg 0.0020.0020.0020.020.002: max|evs diff| 8.38e-13, t' 1838.712664263 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.0020.0020.02: max|evs diff| 9.84e-13, t' 1838.712664312 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.020.0020.002: max|evs diff| 7.32e-13, t' 1838.712664237 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.0020.020.002: max|evs diff| 8.10e-13, t' 1838.712664230 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.020.0020.002: max|evs diff| 7.82e-13, t' 1838.712664326 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.0020.0020.02: max|evs diff| 8.31e-13, t' 1838.712664169 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.020.0020.0020.002: max|evs diff| 8.46e-13, t' 1838.712664384 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.0020.020.002: max|evs diff| 7.25e-13, t' 1838.712664316 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.020.0020.0020.002: max|evs diff| 1.07e-12, t' 1838.712664256 (t'/t0 1.000000) -> t' gleich
+[rel] cfg 0.0020.0020.020.0020.002: max|evs diff| 7.60e-13, t' 1838.712664172 (t'/t0 1.000000) -> t' gleich
+[Ergebnis] 0 t'-Spruenge in 10 Bildern, alle evs-Gleichheiten <= 1e-6

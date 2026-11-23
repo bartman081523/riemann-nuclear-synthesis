@@ -1,0 +1,20 @@
+[h9] cfgs=78 patterns=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[h9] cache build fertig 0.0s
+[h9] pattern 0: inst_median 1.9147852141 uni_median 1.0841032869 (39.7s)
+[h9] pattern 1: inst_median 1.9147852156 uni_median 1.0841032866 (41.0s)
+[h9] pattern 2: inst_median 1.9147852132 uni_median 1.0841032866 (38.8s)
+[h9] pattern 3: inst_median 1.9147852168 uni_median 1.0841032873 (37.5s)
+[h9] pattern 4: inst_median 0.6631421892 uni_median 0.6259193254 (36.7s)
+[h9] pattern 5: inst_median 1.9147852151 uni_median 1.0841032869 (32.6s)
+[h9] pattern 6: inst_median 1.9147852244 uni_median 1.0841032866 (36.0s)
+[h9] pattern 7: inst_median 0.6631421924 uni_median 0.6259193255 (34.5s)
+[h9] pattern 8: inst_median 1.9147852176 uni_median 1.0841032870 (35.3s)
+[h9] pattern 9: inst_median 0.6631421920 uni_median 0.6259193254 (35.4s)
+[h9] pattern 10: inst_median 1.9147852130 uni_median 1.0841032872 (32.8s)
+[h9] pattern 11: inst_median 1.9147852132 uni_median 1.0841032869 (34.9s)
+[h9] pattern 12: inst_median 1.9147852195 uni_median 1.0841032865 (33.6s)
+[h9] pattern 13: inst_median 1.9147852189 uni_median 1.0841032867 (36.0s)
+[h9] pattern 14: inst_median 1.9147852158 uni_median 1.0841032866 (34.0s)
+[h9] adjacent (6,10): d_inst=1.138e-08 d_unified=6.424e-10
+[h9] disjoint (4,7): d_inst=3.203e-09 d_unified=2.679e-11
+[h9] FERTIG 538.8s -> /home/julian/.claude/jobs/1e27c8b2/tmp/h9_s4_unified.json

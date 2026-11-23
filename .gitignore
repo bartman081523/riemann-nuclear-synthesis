@@ -33,13 +33,17 @@ monitor.pid
 !pt_aer_stress_results.txt
 !raw_result_*.txt
 !download.log
+!scratches/*.log
+!scratches/**/*.log
 
 # Generated plots
 *.png
 !zeraoulia_spectral_plot.png
+!figures/*.png
+!Code_Generated_Image.png
 
-# External review clones (working-assets, not repo truth)
-zeta-23-lean-review/
+# External review clones (now included in repository)
+# zeta-23-lean-review/
 
 # OS
 .DS_Store
@@ -53,7 +57,9 @@ presentation/__pycache__/
 media/
 
 # Agent local customizations
-.agents/
+.agents/*
+!.agents/rules/
+!.agents/rules/**
 
 # LaTeX build artifacts
 *.aux

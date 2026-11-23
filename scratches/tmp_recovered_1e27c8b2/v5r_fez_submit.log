@@ -1,0 +1,19 @@
+qiskit_runtime_service._discover_account:WARNING:2026-09-28 12:10:40,454: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-09-28 12:10:43,000: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-09-28 12:10:43,001: Using instance: 1, plan: open
+[fez] submitted dat3q9dvr3kc73ektkv0 (backend ibm_fez)
+Traceback (most recent call last):
+  File [35m"/run/media/julian/ML4/riemann/pt_v5_kingston_rep.py"[0m, line [35m337[0m, in [35m<module>[0m
+    raise SystemExit([31mmain[0m[1;31m()[0m)
+                     [31m~~~~[0m[1;31m^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_v5_kingston_rep.py"[0m, line [35m317[0m, in [35mmain[0m
+    doc = submit_leg(args.leg)
+  File [35m"/run/media/julian/ML4/riemann/pt_v5_kingston_rep.py"[0m, line [35m177[0m, in [35msubmit_leg[0m
+    doc = fetch_leg(leg, job, pre["backend"], pre["isa"])
+  File [35m"/run/media/julian/ML4/riemann/pt_v5_kingston_rep.py"[0m, line [35m120[0m, in [35mfetch_leg[0m
+    result = job.result()
+  File [35m"/run/media/julian/ML4/riemann/venv/lib/python3.14/site-packages/qiskit_ibm_runtime/runtime_job_v2.py"[0m, line [35m140[0m, in [35mresult[0m
+    raise RuntimeInvalidStateError(
+        f"Unable to retrieve result for job {self.job_id()}. Job was cancelled."
+    )
+[1;35mqiskit_ibm_runtime.exceptions.RuntimeInvalidStateError[0m: [35m'Unable to retrieve result for job dat3q9dvr3kc73ektkv0. Job was cancelled.'[0m

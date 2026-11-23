@@ -1,0 +1,7 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.7, pytest-9.0.3, pluggy-1.6.0
+rootdir: /run/media/julian/ML4/riemann
+configfile: pyproject.toml
+collected 46 items
+
+tests/test_primequant_cyc_q235711.py ..............

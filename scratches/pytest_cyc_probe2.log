@@ -1,0 +1,52 @@
+...........................FFF................                           [100%]
+=================================== FAILURES ===================================
+_________________ test_cyc_produkt_mit_konjugiertem_ist_int[5] _________________
+
+q = 5
+
+    @pytest.mark.parametrize("q", PRIMES)
+    def test_cyc_produkt_mit_konjugiertem_ist_int(q):
+        """conj(a) * a ist ein reines Z-Element (Normform) — exakt im Ring."""
+        for a in menge_fuer(q):
+            p = pq.cyc_mul(pq.cyc_conj(a, q), a, q)
+>           assert all(k == 0 for k in p[1:]), (q, a, p)
+E           AssertionError: (5, (1, -1, 0, 0), (3, 0, 1, 1))
+E           assert False
+E            +  where False = all(<generator object test_cyc_produkt_mit_konjugiertem_ist_int.<locals>.<genexpr> at 0x7fe820b1c380>)
+
+tests/test_primequant_cyc_q235711.py:175: AssertionError
+_________________ test_cyc_produkt_mit_konjugiertem_ist_int[7] _________________
+
+q = 7
+
+    @pytest.mark.parametrize("q", PRIMES)
+    def test_cyc_produkt_mit_konjugiertem_ist_int(q):
+        """conj(a) * a ist ein reines Z-Element (Normform) — exakt im Ring."""
+        for a in menge_fuer(q):
+            p = pq.cyc_mul(pq.cyc_conj(a, q), a, q)
+>           assert all(k == 0 for k in p[1:]), (q, a, p)
+E           AssertionError: (7, (1, -1, 0, 0, 0, 0), (3, 0, 1, 1, 1, 1))
+E           assert False
+E            +  where False = all(<generator object test_cyc_produkt_mit_konjugiertem_ist_int.<locals>.<genexpr> at 0x7fe8218d52f0>)
+
+tests/test_primequant_cyc_q235711.py:175: AssertionError
+________________ test_cyc_produkt_mit_konjugiertem_ist_int[11] _________________
+
+q = 11
+
+    @pytest.mark.parametrize("q", PRIMES)
+    def test_cyc_produkt_mit_konjugiertem_ist_int(q):
+        """conj(a) * a ist ein reines Z-Element (Normform) — exakt im Ring."""
+        for a in menge_fuer(q):
+            p = pq.cyc_mul(pq.cyc_conj(a, q), a, q)
+>           assert all(k == 0 for k in p[1:]), (q, a, p)
+E           AssertionError: (11, (1, -1, 0, 0, 0, 0, ...), (3, 0, 1, 1, 1, 1, ...))
+E           assert False
+E            +  where False = all(<generator object test_cyc_produkt_mit_konjugiertem_ist_int.<locals>.<genexpr> at 0x7fe820bf0790>)
+
+tests/test_primequant_cyc_q235711.py:175: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_primequant_cyc_q235711.py::test_cyc_produkt_mit_konjugiertem_ist_int[5]
+FAILED tests/test_primequant_cyc_q235711.py::test_cyc_produkt_mit_konjugiertem_ist_int[7]
+FAILED tests/test_primequant_cyc_q235711.py::test_cyc_produkt_mit_konjugiertem_ist_int[11]
+3 failed, 43 passed in 0.32s

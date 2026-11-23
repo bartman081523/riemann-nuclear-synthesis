@@ -1,0 +1,18 @@
+[r2] cache build fertig 0.0s (78 cfgs)
+[r2] L1 check_t5_t6 fertig 3060.6s max_within 1.026052e-08
+[r2] pattern  0 n=78 inst_med 1.9147852141 uni_med 1.0841032869e+00 (188.4s)
+[r2] pattern  1 n=78 inst_med 1.9147852156 uni_med 1.0841032866e+00 (198.4s)
+[r2] pattern  2 n=78 inst_med 1.9147852132 uni_med 1.0841032866e+00 (146.4s)
+[r2] pattern  3 n=78 inst_med 1.9147852168 uni_med 1.0841032873e+00 (189.5s)
+[r2] pattern  4 n=78 inst_med 0.6631421892 uni_med 6.2591932544e-01 (195.2s)
+[r2] pattern  5 n=78 inst_med 1.9147852151 uni_med 1.0841032869e+00 (157.9s)
+[r2] pattern  6 n=78 inst_med 1.9147852244 uni_med 1.0841032866e+00 (164.7s)
+[r2] pattern  7 n=78 inst_med 0.6631421924 uni_med 6.2591932546e-01 (154.6s)
+[r2] pattern  8 n=78 inst_med 1.9147852176 uni_med 1.0841032870e+00 (227.7s)
+[r2] pattern  9 n=78 inst_med 0.6631421920 uni_med 6.2591932544e-01 (183.8s)
+[r2] pattern 10 n=78 inst_med 1.9147852130 uni_med 1.0841032872e+00 (201.2s)
+[r2] pattern 11 n=78 inst_med 1.9147852132 uni_med 1.0841032869e+00 (249.2s)
+[r2] pattern 12 n=78 inst_med 1.9147852195 uni_med 1.0841032865e+00 (166.4s)
+[r2] pattern 13 n=78 inst_med 1.9147852189 uni_med 1.0841032867e+00 (207.1s)
+[r2] pattern 14 n=78 inst_med 1.9147852158 uni_med 1.0841032866e+00 (220.9s)
+[r2] FERTIG 5912.0s -> pt_s4_r2_results.json

@@ -1,0 +1,14 @@
+qiskit_runtime_service._discover_account:WARNING:2026-09-28 11:45:20,584: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-09-28 11:45:22,811: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: 1. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService().
+qiskit_runtime_service.backends:WARNING:2026-09-28 11:45:22,811: Using instance: 1, plan: open
+Traceback (most recent call last):
+  File [35m"/run/media/julian/ML4/riemann/pt_ram_q_hardware3_rep_qpu.py"[0m, line [35m162[0m, in [35m<module>[0m
+    raise SystemExit([31mmain[0m[1;31m()[0m)
+                     [31m~~~~[0m[1;31m^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_ram_q_hardware3_rep_qpu.py"[0m, line [35m145[0m, in [35mmain[0m
+    ok, detail = [31misa_gate[0m[1;31m(backend, circuits)[0m
+                 [31m~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_ram_q_hardware3_rep_qpu.py"[0m, line [35m84[0m, in [35misa_gate[0m
+    "n_two_q_diff": len([1;31mtwo_q_diff[0m),
+                        [1;31m^^^^^^^^^^[0m
+[1;35mNameError[0m: [35mname 'two_q_diff' is not defined. Did you mean: 'two_q_diffs'?[0m

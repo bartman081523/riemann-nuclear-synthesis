@@ -1,0 +1,20 @@
+cache: 78 cfgs (0 s)
+l1_A_uniformitaet: ok=True (0.0 s)
+l2_l3_konjugation: ok=False (17.5 s)
+Traceback (most recent call last):
+  File [35m"/run/media/julian/ML4/riemann/pt_s4_closure_theorem.py"[0m, line [35m605[0m, in [35m<module>[0m
+    [31mmain[0m[1;31m()[0m
+    [31m~~~~[0m[1;31m^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_s4_closure_theorem.py"[0m, line [35m584[0m, in [35mmain[0m
+    results[name] = [31mfn[0m[1;31m()[0m
+                    [31m~~[0m[1;31m^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_s4_closure_theorem.py"[0m, line [35m576[0m, in [35m<lambda>[0m
+    ("t4_h_identitaet", lambda: [31mcheck_t4[0m[1;31m(cache)[0m),
+                                [31m~~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_s4_closure_theorem.py"[0m, line [35m215[0m, in [35mcheck_t4[0m
+    [31msigma_signs[0m[1;31m(sigma, signs)[0m,
+    [31m~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^[0m
+  File [35m"/run/media/julian/ML4/riemann/pt_s4_closure_theorem.py"[0m, line [35m136[0m, in [35msigma_signs[0m
+    out.append([31msigns[0m[1;31m[(aa, bb)][0m)
+               [31m~~~~~[0m[1;31m^^^^^^^^^^[0m
+[1;35mTypeError[0m: [35mtuple indices must be integers or slices, not tuple[0m

@@ -1,0 +1,6 @@
+verdict_class 045 (unveraendert): H_S4_CLOSURE_DEVIATION_FOUND
+mean_based_max_within: 2.7304e-10 (< SUM_TOL: True)
+Multiset 6 vs 10: n 78/78 sorted_elementwise_max 4.082e-07  r_median_diff +1.1384e-08
+Multiset 4 vs 7: n 78/78 sorted_elementwise_max 1.126e-07  r_median_diff -3.2032e-09
+Kette (delta 3.554e-15): dEig 2.807e-13 dt_H +2.002e-09 dr +1.1390e-08
+total_seconds: 140.7
