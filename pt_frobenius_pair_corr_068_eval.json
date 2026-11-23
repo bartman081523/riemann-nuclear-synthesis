@@ -1,0 +1,59 @@
+{
+  "experiment_id": "068",
+  "name": "H-FROBENIUS-PAIR-CORRELATION-GUE",
+  "prereg_sha256": "79cda144f079633627e5cd3da7c730e8680975e560177dbec0d501acd7757c43",
+  "hypotheses_evaluation": {
+    "H-FPC-1": {
+      "description": "Short-range level repulsion R_2(s) <= 0.60 for s <= 0.2",
+      "verdict": "REFUTED"
+    },
+    "H-FPC-2": {
+      "description": "GUE Correlation Agreement: RMSD(GUE) < RMSD(Poisson) in [0.5, 1.5]",
+      "verdict": "REFUTED"
+    },
+    "H-FPC-3": {
+      "description": "Asymptotic Poisson Recovery for Large Spacing |R_2(s) - 1.0| <= 0.35",
+      "verdict": "REFUTED"
+    },
+    "H-FPC-4": {
+      "description": "Spectral Form Factor Dip min_{tau < 0.5} K(tau) < 0.85",
+      "verdict": "CONFIRMED"
+    }
+  },
+  "per_modulus": {
+    "257": {
+      "mean_repulsion_s_le_0_2": 1.4007782101167314,
+      "h1_pass": false,
+      "rmsd_gue_mid": 1.19681577697875,
+      "rmsd_poisson_mid": 1.1083758500328451,
+      "h2_pass": false,
+      "mean_tail_dev_large_s": 1.0389105058365757,
+      "h3_pass": true,
+      "min_k_early_tau": 0.0469387425430649,
+      "h4_pass": true
+    },
+    "503": {
+      "mean_repulsion_s_le_0_2": 1.8886679920477136,
+      "h1_pass": false,
+      "rmsd_gue_mid": 0.9568633641542267,
+      "rmsd_poisson_mid": 0.8659438207404865,
+      "h2_pass": false,
+      "mean_tail_dev_large_s": 0.9854208084824383,
+      "h3_pass": false,
+      "min_k_early_tau": 0.0503713336637918,
+      "h4_pass": true
+    },
+    "1009": {
+      "mean_repulsion_s_le_0_2": 13.230921704658076,
+      "h1_pass": false,
+      "rmsd_gue_mid": 1.301424834021895,
+      "rmsd_poisson_mid": 1.2082536838772777,
+      "h2_pass": false,
+      "mean_tail_dev_large_s": 0.790419557317476,
+      "h3_pass": false,
+      "min_k_early_tau": 0.15192537653773636,
+      "h4_pass": true
+    }
+  },
+  "overall_verdict": "PARTIAL_OR_REFUTED"
+}
