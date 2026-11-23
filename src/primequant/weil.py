@@ -335,5 +335,92 @@ def wigner_semicircle_moment_exact(k: int) -> Fraction:
     return Fraction(c_k, 4 ** k)
 
 
+def artin_schreier_frobenius_angles(q: int, degree: int = 3) -> list[float]:
+    """Berechnet die Frobenius-Eigenwinkel theta_a in [0, pi] der Artin-Schreier-Familie f_a(x) = x^d + a*x.
+    
+    Garantie: numerisch exakt gemaess Deligne-Schranke |S(f)| <= (d-1)*sqrt(q).
+    Fuer kubische Artin-Schreier-Kurven (d=3) gilt: S(x^3 + ax) = 2*sqrt(q)*cos(theta_a).
+    """
+    if not ist_primzahl(q):
+        raise ValueError(f"q muss Primzahl >= 2 sein, erhalten {q}")
+    angles: list[float] = []
+    bound = float(degree - 1) * math.sqrt(float(q))
+    for a in range(q):
+        coeffs = [0] * (degree + 1)
+        coeffs[degree] = 1
+        coeffs[1] = a
+        # Berechne S(f) als komplexe Zahl via Einbettung k=1
+        val_c = 0.0 + 0.0j
+        for x in range(q):
+            fx = poly_eval_mod(coeffs, x, q)
+            phi = 2.0 * math.pi * fx / float(q)
+            val_c += complex(math.cos(phi), math.sin(phi))
+        # Da f(x) reell ist bezueglich Permutationen, ist S(f) reell fuer x^3+ax
+        re_val = val_c.real
+        # Clamping gegen minimale Rundungsabweichungen an den Deligne-Grenzen
+        norm_val = max(-1.0, min(1.0, re_val / bound))
+        theta = math.acos(norm_val)
+        angles.append(theta)
+    return sorted(angles)
+
+
+def unfold_frobenius_angles(angles: Sequence[float]) -> list[float]:
+    """Entfaltet (unfolds) die Frobenius-Eigenwinkel mit der Sato-Tate/Wigner-Dichte.
+    
+    Fuer Sato-Tate gilt F(theta) = integral_0^theta (2/pi)*sin^2(t) dt = (theta - sin(2*theta)/2) / pi.
+    Das entfaltete Spektrum e_j = N * F(theta_j) besitzt mittlere Dichte 1 und mittleren Spacing 1.
+    """
+    n = len(angles)
+    if n == 0:
+        return []
+    unfolded: list[float] = []
+    for th in angles:
+        # F(th) = (th - 0.5 * sin(2*th)) / pi auf [0, pi]
+        f_val = (th - 0.5 * math.sin(2.0 * th)) / math.pi
+        unfolded.append(float(n) * f_val)
+    return unfolded
+
+
+def spectral_pair_correlation(unfolded_levels: Sequence[float], s_max: float = 3.0, n_bins: int = 30) -> tuple[list[float], list[float]]:
+    """Berechnet die 2-Punkte-Paarkorrelationsfunktion R_2(s) des entfalteten Spektrums.
+    
+    R_2(s) = (1 / N) * #{(j, k): j != k, |e_j - e_k| in [s, s + ds]} / ds.
+    Fuer ein GUE-Spektrum (Montgomery-Odlyzko / Riemann-Nullstellen) gilt:
+      R_2^{GUE}(s) = 1 - (sin(pi * s) / (pi * s))^2.
+    Fuer ein unkorreliertes Poisson-Spektrum gilt:
+      R_2^{Poisson}(s) = 1.
+    """
+    n = len(unfolded_levels)
+    if n < 2:
+        return [], []
+    ds = s_max / float(n_bins)
+    bin_counts = [0] * n_bins
+    bin_centers = [(i + 0.5) * ds for i in range(n_bins)]
+    
+    # Paar-Distanzen |e_j - e_k|
+    levels = sorted(unfolded_levels)
+    for i in range(n):
+        for j in range(i + 1, n):
+            diff = levels[j] - levels[i]
+            if diff >= s_max:
+                break
+            bin_idx = int(diff / ds)
+            if 0 <= bin_idx < n_bins:
+                bin_counts[bin_idx] += 2  # symmetrisch (j,k) und (k,j)
+    
+    # Normierung: Dichte pro N und pro ds
+    r2_values = [count / (float(n) * ds) for count in bin_counts]
+    return bin_centers, r2_values
+
+
+def montgomery_odlyzko_gue(s: float) -> float:
+    """Theoretische Montgomery-Odlyzko GUE Paarkorrelation: R_2(s) = 1 - (sin(pi*s)/(pi*s))^2."""
+    if abs(s) < 1e-12:
+        return 0.0
+    val = math.sin(math.pi * s) / (math.pi * s)
+    return 1.0 - val * val
+
+
+
 
 

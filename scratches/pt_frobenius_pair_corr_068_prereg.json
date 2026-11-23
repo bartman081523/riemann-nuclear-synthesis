@@ -1,0 +1,36 @@
+{
+  "experiment_id": "068",
+  "name": "H-FROBENIUS-PAIR-CORRELATION-GUE",
+  "domain": "Arithmetic Monodromy & Montgomery-Odlyzko GUE Spectral Bridge",
+  "cognitive_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) & SciMind4SystemicRigorMind",
+  "date": "2026-11-23",
+  "hypotheses": [
+    {
+      "id": "H-FPC-1",
+      "description": "Short-range level repulsion: As s -> 0, the unfolded pair correlation R_2(s) of Frobenius angles of cubic Artin-Schreier curves x^3 + ax over F_q exhibits quadratic suppression R_2(s) < 0.60 for s in [0.0, 0.2] across prime moduli q > 200, strictly ruling out uncorrelated Poisson statistics (where R_2(s) == 1.0).",
+      "threshold": "R_2(s in [0.0, 0.2]) <= 0.60, strictly below Poisson 1.0"
+    },
+    {
+      "id": "H-FPC-2",
+      "description": "GUE Correlation Agreement: For s in [0.5, 1.5], the root-mean-square deviation between empirical R_2(s) and Montgomery-Odlyzko GUE curve 1 - (sin(pi*s)/(pi*s))^2 is strictly smaller than the deviation from Poisson flat noise: RMSD(GUE) < RMSD(Poisson).",
+      "threshold": "RMSD_GUE < RMSD_Poisson across s in [0.5, 1.5]"
+    },
+    {
+      "id": "H-FPC-3",
+      "description": "Asymptotic Poisson Recovery for Large Spacing: For large unfolded spacing s in [2.5, 4.0], R_2(s) converges to the mean background density |R_2(s) - 1.0| <= 0.35 across moduli q >= 300.",
+      "threshold": "|R_2(s) - 1.0| <= 0.35 for s in [2.5, 4.0]"
+    },
+    {
+      "id": "H-FPC-4",
+      "description": "Non-trivial Spectral Form Factor Dip: The discrete Fourier transform (spectral form factor K(tau)) of unfolded Frobenius angles displays the characteristic GUE 'correlation hole' / dip K(tau) < 0.85 for small tau in (0, 0.5), ruling out uncorrelated random matrix ensembles.",
+      "threshold": "min_{tau in (0, 0.5)} K(tau) < 0.85"
+    }
+  ],
+  "moduli_tested": [257, 503, 1009],
+  "methodology": {
+    "computation": "Statevector-First exact exponential sum arithmetic over F_q",
+    "unfolding": "Sato-Tate cumulative distribution function F(theta) = (theta - 0.5*sin(2*theta))/pi",
+    "pair_correlation": "Double-sum over distinct pairs normalized by N and bin width ds",
+    "qpu_usage": "0 seconds (Statevector-First proof ladder)"
+  }
+}

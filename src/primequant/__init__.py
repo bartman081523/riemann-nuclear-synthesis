@@ -151,6 +151,10 @@ from .weil import (
     artin_schreier_deligne_bound,
     artin_schreier_phase_matrix,
     wigner_semicircle_moment_exact,
+    artin_schreier_frobenius_angles,
+    unfold_frobenius_angles,
+    spectral_pair_correlation,
+    montgomery_odlyzko_gue,
 )
 from ._anchors import (
     payload_sha256,
@@ -294,4 +298,8 @@ __all__ = [
     "artin_schreier_deligne_bound",
     "artin_schreier_phase_matrix",
     "wigner_semicircle_moment_exact",
+    "artin_schreier_frobenius_angles",
+    "unfold_frobenius_angles",
+    "spectral_pair_correlation",
+    "montgomery_odlyzko_gue",
 ]
