@@ -1,0 +1,47 @@
+{
+  "experiment_id": "072",
+  "name": "H-METAPLECTIC-SIMPLIFICATION-PROOF",
+  "prereg_sha256": "9e74164671248b00f516b854234f959355590e26165d5e941f06f1806bffbcf2",
+  "results": {
+    "projectors": {
+      "3": {
+        "q": 3,
+        "max_idempotency_error": 0.0,
+        "max_standard_annihilation_error": 0.0
+      },
+      "5": {
+        "q": 5,
+        "max_idempotency_error": 0.0,
+        "max_standard_annihilation_error": 0.0
+      },
+      "7": {
+        "q": 7,
+        "max_idempotency_error": 2.7755575615628914e-17,
+        "max_standard_annihilation_error": 0.0
+      },
+      "11": {
+        "q": 11,
+        "max_idempotency_error": 1.3877787807814457e-17,
+        "max_standard_annihilation_error": 0.0
+      },
+      "13": {
+        "q": 13,
+        "max_idempotency_error": 1.3877787807814457e-17,
+        "max_standard_annihilation_error": 0.0
+      }
+    },
+    "hardware_resonance": {
+      "job_id": "dc1f7ids2omc738ahl0g",
+      "backend": "ibm_fez",
+      "p_q0_resonance_L2": 0.9808349609375,
+      "delta_P": 0.4834391276041667
+    },
+    "code_condensation": {
+      "size_PrimeSideA_bytes": 27296,
+      "size_PrimeSideB_bytes": 42354,
+      "total_original_bytes": 69650,
+      "size_Metaplectic_bytes": 2395,
+      "condensation_ratio": 29.08141962421712
+    }
+  }
+}
