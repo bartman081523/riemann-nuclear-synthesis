@@ -1,0 +1,36 @@
+{
+  "experiment_id": "071",
+  "name": "H-PRIME-GUE-SPECTRAL-DUALITY",
+  "domain": "Explicit Formula & Montgomery-Odlyzko Dual Zero-Prime Resonance",
+  "cognitive_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) & SciMind4SystemicRigorMind",
+  "date": "2026-11-25",
+  "hypotheses": [
+    {
+      "id": "H-PGD-1",
+      "description": "Riemann Zero Spacing Level Repulsion: The unfolded non-trivial zeros gamma_n of zeta(s) in [14, 150] computed via Riemann-Siegel formula display strict GUE level repulsion: P(s < 0.2) <= 0.02 (zero occurrences below 0.2, ruling out Poisson 0.1813).",
+      "threshold": "P(s < 0.2) <= 0.02"
+    },
+    {
+      "id": "H-PGD-2",
+      "description": "Spectral Form Factor Dip: The discrete spectral form factor K_zeros(tau) computed from the unfolded zeros exhibits the universal correlation dip with min_{tau in (0, 0.4)} K(tau) <= 0.20.",
+      "threshold": "min_{tau in (0, 0.4)} K(tau) <= 0.20"
+    },
+    {
+      "id": "H-PGD-3",
+      "description": "Prime-Explicit Fourier Dual Resonance: The Fourier transform of the prime-sum observable S(t) = sum_{p <= 100} (ln p / sqrt(p)) * cos(t * ln p) against the unfolded zeros e_j yields a positive cross-correlation resonance C_prime_zeros >= 0.25, confirming the Weil-Cramer-Gutzwiller trace duality.",
+      "threshold": "C_prime_zeros >= 0.25"
+    },
+    {
+      "id": "H-PGD-4",
+      "description": "Hardware Phase-Encoding Verification: 2-qubit phase kickback encoding the prime-logarithmic shifts delta_p = ln(p) mod 2*pi onto IBM Quantum (ibm_fez) reproduces the prime-state overlap with fidelity >= 0.950.",
+      "threshold": "Fidelity >= 0.950"
+    }
+  ],
+  "zero_range": [14.0, 150.0],
+  "methodology": {
+    "zero_computation": "Riemann-Siegel Z(t) zero finding via Brent's method with first-order Gram remainder",
+    "unfolding": "Riemann-von Mangoldt formula N(T) = (T / 2*pi) * ln(T / (2*pi*e)) + 7/8",
+    "prime_sum": "Truncated von Mangoldt / prime harmonic oscillator over primes p <= 100",
+    "qpu_usage": "Hardware phase encoding referenced from ibm_fez verified runs"
+  }
+}
