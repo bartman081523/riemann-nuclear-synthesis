@@ -1,8 +1,8 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-25T12:20:50.861580+00:00
+Stand: 2026-11-25T12:26:40.143494+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 90
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 91
 
 ## Zusammenfassung nach Forschungssäulen
 
@@ -15,7 +15,7 @@ Stand: 2026-11-25T12:20:50.861580+00:00
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
 | Pillar 4: RAM-Q & FP48 Resonance Infrastructure | 28 |
 | Pillar 5: H-V5 Hardware Gap Invariance | 3 |
-| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 11 |
+| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 12 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
 ## Zusammenfassung der Verdicts
@@ -23,7 +23,7 @@ Stand: 2026-11-25T12:20:50.861580+00:00
 | Normiertes Verdict | Anzahl |
 |---|---|
 | CONFIRMED | 15 |
-| REFUTED | 15 |
+| REFUTED | 16 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
 
@@ -105,6 +105,7 @@ Stand: 2026-11-25T12:20:50.861580+00:00
 | `pt_test2b_rank_controlled_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `RANGGETRAGEN_GEFALLEN` |
 | `pt_three_models_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `M1 und M3 ununterscheidbar (residuals 0.298 vs 0.302). M2 (Latorre log) am schlechtesten. Latorre-Form ist KEIN power-law, sondern logarithmisch — deshalb ist finite-N-Steigung von M2 auch 0.17-0.40, im gleichen Band wie unser M1 (0.347). -> Latorre vs. wir: kein Konflikt, sondern Mismatch der funktionalen Form. Asymptotische alpha=1 von Latorre ist die Steigung von log pi(N) vs log N, NICHT ein power-law-fit.` |
 | `pt_transmission_sweep_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
+| `pt_ultra_compression_073_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_v5_kingston_rep_eval.json` | Pillar 5: H-V5 Hardware Gap Invariance | Real QPU Hardware | ibm_kingston | `UNKNOWN` |
 | `pt_v5_kingston_results.json` | Pillar 5: H-V5 Hardware Gap Invariance | Real QPU Hardware | ibm_kingston | `H-V5_CONFIRMED_KINGSTON_NEUTRAL_BAND` |
 | `pt_v5_sv_eval.json` | Pillar 5: H-V5 Hardware Gap Invariance | Statevector Simulation | None | `SV_EVAL_COMPLETED` |

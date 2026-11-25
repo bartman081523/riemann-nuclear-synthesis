@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-25T12:20:50.861580+00:00",
-  "total_experiments_recorded": 90,
+  "generated_at_utc": "2026-11-25T12:26:40.143494+00:00",
+  "total_experiments_recorded": 91,
   "category_summary": {
     "General / Multi-Observable Diagnostic": 11,
     "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)": 10,
-    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 11,
+    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 12,
     "Pillar 1: QuQuint & GF(5) Geometry": 8,
     "Pillar 2: Hilbert-Polya Potential & Spectral Gaps": 14,
     "Pillar 4: RAM-Q & FP48 Resonance Infrastructure": 28,
@@ -15,7 +15,7 @@
   "verdict_summary": {
     "REPORTED/DONE": 59,
     "CONFIRMED": 15,
-    "REFUTED": 15,
+    "REFUTED": 16,
     "UNDETERMINED": 1
   },
   "experiments": [
@@ -684,6 +684,15 @@
       "backend": "None",
       "verdict": "UNKNOWN",
       "size_bytes": 57462
+    },
+    {
+      "file": "pt_ultra_compression_073_eval.json",
+      "name": "pt_ultra_compression_073_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "PARTIAL_OR_REFUTED",
+      "size_bytes": 1019
     },
     {
       "file": "pt_v5_kingston_rep_eval.json",
