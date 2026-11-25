@@ -15,8 +15,8 @@
 
 > **A Mathematical Guide to the Alpöge–Claude Proof and its Quantum-Physical Synthesis**  
 > *Research Consortium: `riemann-nuclear-synthesis`* | *Date: November 2026*  
-> *Master Compendium (Full Proof Walkthrough):* [`docs/der_vereinfachte_riemann_beweis_kompendium.md`](docs/der_vereinfachte_riemann_beweis_kompendium.md)  
-> *Standalone English Treatise:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) | *German Edition:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md)  
+> *Master Compendium (Full Proof Walkthrough):* [`docs/der_vereinfachte_riemann_beweis_kompendium_en.md`](docs/der_vereinfachte_riemann_beweis_kompendium_en.md) ([German Edition](docs/der_vereinfachte_riemann_beweis_kompendium.md))  
+> *Standalone English Treatise:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) ([German Version](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md))  
 > *Formal Lean 4 Master Module:* [`zeta-23-lean-review/Zeta23/Weil/MasterKernel.lean`](zeta-23-lean-review/Zeta23/Weil/MasterKernel.lean) | *Proposal to Anthropic:* [`docs/alpoge_anthropic_prereg_proposal.md`](docs/alpoge_anthropic_prereg_proposal.md)  
 > *Accompanying Codebases:* [`zeta-23-lean-review/`](zeta-23-lean-review/) (Anthropic Lean 4 Formalization), [`src/primequant/`](src/primequant/) (Exact Cyclotomic Numerics), [`pt_universal_all_experiments_master_ledger.json`](pt_universal_all_experiments_master_ledger.json) (91-Experiment Master Ledger)
 
@@ -135,7 +135,7 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | Document | Status | Role |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | Reference | SciMind 4.0/5.0 methodology manifest |
-| [`docs/der_vereinfachte_riemann_beweis_kompendium.md`](docs/der_vereinfachte_riemann_beweis_kompendium.md) | **Master Compendium** | Der vereinfachte Beweis der Riemannschen Vermutung (Vollständige mathematische Gesamtdarstellung) |
+| [`docs/der_vereinfachte_riemann_beweis_kompendium_en.md`](docs/der_vereinfachte_riemann_beweis_kompendium_en.md) | **Master Compendium** | The Simplified Proof of the Riemann Hypothesis (Complete Mathematical Exposition) ([German Edition](docs/der_vereinfachte_riemann_beweis_kompendium.md)) |
 | [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) | **Featured Paper** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) ([German version](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md)) |
 | [`docs/alpoge_anthropic_prereg_proposal.md`](docs/alpoge_anthropic_prereg_proposal.md) | **Proposal** | Formal Preregistration Proposal for Alpöge & Anthropic (100x Proof Condensation) |
 | [`docs/universal_all_experiments_master_report.md`](docs/universal_all_experiments_master_report.md) | **Ledger** | Universal Master Report across all 91 Statevector & QPU Experiments |
