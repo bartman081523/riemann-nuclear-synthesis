@@ -1,0 +1,58 @@
+{
+  "experiment_id": "073",
+  "name": "H-ULTRA-COMPRESSION-MASTER-KERNEL",
+  "prereg_sha256": "0ae7e84e10bacd80f770ddf24113b6a8a3cd4e18a0c7415d92181581c4155765",
+  "results": {
+    "operators": {
+      "3": {
+        "q": 3,
+        "operator_norm": 1.0,
+        "norm_diff_from_one": 0.0,
+        "sigma_2": 0.9999999999999998,
+        "bound_sigma_2": 0.5773502691896258,
+        "sigma_2_le_bound": false
+      },
+      "5": {
+        "q": 5,
+        "operator_norm": 1.0000000000000002,
+        "norm_diff_from_one": 2.220446049250313e-16,
+        "sigma_2": 0.9999999999999998,
+        "bound_sigma_2": 0.4472135954999579,
+        "sigma_2_le_bound": false
+      },
+      "7": {
+        "q": 7,
+        "operator_norm": 1.0000000000000002,
+        "norm_diff_from_one": 2.220446049250313e-16,
+        "sigma_2": 1.0,
+        "bound_sigma_2": 0.3779644730092272,
+        "sigma_2_le_bound": false
+      },
+      "11": {
+        "q": 11,
+        "operator_norm": 1.0,
+        "norm_diff_from_one": 0.0,
+        "sigma_2": 1.0,
+        "bound_sigma_2": 0.30151134457776363,
+        "sigma_2_le_bound": false
+      },
+      "13": {
+        "q": 13,
+        "operator_norm": 1.0000000000000004,
+        "norm_diff_from_one": 4.440892098500626e-16,
+        "sigma_2": 1.0000000000000002,
+        "bound_sigma_2": 0.2773500981126146,
+        "sigma_2_le_bound": false
+      }
+    },
+    "compression": {
+      "total_original_bytes": 240636,
+      "master_kernel_bytes": 2195,
+      "compression_factor": 109.62915717539863
+    },
+    "hardware": {
+      "cz_count": 3,
+      "circuit_depth": 7
+    }
+  }
+}
