@@ -770,14 +770,14 @@ _CL.append(Claim(
 _CL.append(Claim(
     id="date_fez_singleshot", value="2026-06-10",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=164,
                   anchor="Fez/TOKEN2 Singleshot 2026-06-10"),
     scenes=("act4_qpu_timeline",)))
 
 _CL.append(Claim(
     id="date_vqd", value="2026-07-21",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=164,
                   anchor="2026-07-21"),
     scenes=("act4_qpu_timeline",)))
 
@@ -798,7 +798,7 @@ _CL.append(Claim(
 _CL.append(Claim(
     id="date_kingston", value="2026-09-24",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=164,
                   anchor="2026-09-24"),
     scenes=("act4_qpu_timeline",)))
 
