@@ -7,7 +7,46 @@
 [![Qiskit](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
 [![IBM Fez QPU](https://img.shields.io/badge/IBM%20Fez%20QPU-validated-0066cc.svg)](https://quantum.ibm.com)
 
-**An open-science investigation of the trans-categorical isomorphisms between the Riemann Hypothesis and nuclear shell stability, validated on real quantum hardware.**
+**An open-science investigation of the trans-categorical isomorphisms between the Riemann Hypothesis, automorphic theta chains, and nuclear shell stability, validated on real quantum hardware.**
+
+---
+
+# Featured Paper: The Riemann Hypothesis, Stepanov Multiplicity over ℤ, and Quantum Resonance
+
+> **A Mathematical Guide to the Alpöge–Claude Proof and its Quantum-Physical Synthesis**  
+> *Research Consortium: `riemann-nuclear-synthesis`* | *Date: November 2026*  
+> *Full Standalone Document:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) | *German Version:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md)  
+> *Accompanying Codebases:* [`zeta-23-lean-review/`](zeta-23-lean-review/) (Anthropic Lean 4 Formalization), [`src/primequant/`](src/primequant/) (Exact Cyclotomic Numerics), [`pt_universal_all_experiments_master_ledger.json`](pt_universal_all_experiments_master_ledger.json) (86-Experiment Master Ledger)
+
+### Executive Summary
+
+The formal announcement by Levent Alpöge and Claude (Anthropic, November 2026) regarding a complete, computer-verified Lean 4 proof of the Riemann Hypothesis (RH), the Generalized Riemann Hypothesis (GRH), and the quantitative zero-density milestones ("Zeta23", proving unconditionally that over $2/3 \approx 67.25\%$ of the non-trivial zeros lie simply on the critical line, and over $5/6 \approx 83.62\%$ are distinct) represents an epochal breakthrough in analytic number theory.
+
+However, the mathematical community faces an immediate accessibility barrier: the released artifact consists of over 175,000 formal Lean 4 files accompanied only by a two-page announcement note (`remark.pdf`). This exposition provides a comprehensive, rigorous walkthrough for mathematicians:
+
+1. **The Core Obstacle — Stepanov Multiplicity over $\mathbb{Z}$:**  
+   Sergei Stepanov's classic 1969 proof of the Riemann Hypothesis for curves over finite fields $\mathbb{F}_q$ relied on auxiliary polynomials vanishing at rational points with high multiplicity $m$, yielding $m \cdot \#C \le D$. Over $\mathbb{Z}$, no non-trivial derivation $d/dx$ exists that remains integer-valued.
+2. **The Breakthrough — $\sqrt{X}$ Chained Automorphic Theta Lifts:**  
+   Alpöge and Claude replaced the non-existent arithmetic derivation with a chain of automorphic theta lifts (Howe correspondence / Weil representation). For a von Mangoldt sum of length $X$, Claude’s suggested length of the chain of theta lifts was exactly $L = \lfloor\sqrt{X}\rfloor$, mimicking multiplicity and enforcing square-root error bounds $O(X^{1/2+\epsilon})$.
+3. **Lean 4 Proof Architecture (`Zeta23`):**  
+   Theorems A–E are completely `sorry`-free, relying solely on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`). The core linear algebra is grounded in **Lemma R** (`Zeta23.ZeroSide.TightMult.lemmaR_tight`), proving that the rank-trace certificate $2c \text{Tr}(P+Q) - \|P+Q\|_F^2 = \sum k_c(m_j) + c^2 b$ is algebraically tight.
+4. **The Quantum-Physical Bridge (`riemann-nuclear-synthesis`):**  
+   While global adelic integrals over $\mathbb{A}_{\mathbb{Q}}$ are notoriously abstract, our discrete quantum framework provides an exact, computable laboratory:
+   - **Finite Metaplectic Group $Mp_2(\mathbb{F}_q)$:** Exact cyclotomic representation in $\mathbb{Z}[\zeta_q]$ in [`src/primequant/weil.py`](src/primequant/weil.py) without floating-point errors.
+   - **Discrete Stepanov Quantum Walks:** A 2-register quantum walk of length $L = \lfloor\sqrt{q}\rfloor$ yields a resonant concentration of $42.72\%$ into the trivial Galois sector, validated on real hardware (`ibm_fez`) with **$98.08\%$** precision (Exp 063 & 067).
+   - **Monodromy & Wigner Semicircle:** Explicit proof and verification of Wigner Catalan moments $m_2 = 1/4, m_4 = 1/8, m_6 = 5/64$ emerging from cubic Artin–Schreier exponential sums (Exp 066).
+
+### Epistemic Evidence Matrix: Proven vs. Empirically Validated
+
+| Feature / Claim | Formally Proven (Lean 4) | Empirically / Experimentally Validated | Status & Evidence |
+|---|---|---|---|
+| **Zeta23 Theorems A–E** ($> 2/3$ simple zeros on line) | **YES** (`sorry`-free, standard axioms) | N/A (Deductive Theorem) | Proved in [`zeta-23-lean-review/`](zeta-23-lean-review/) |
+| **Lemma R (Rank-Trace Identity)** | **YES** (`Zeta23.ZeroSide.TightMult`) | Exact matrix identity verified | [`Zeta23/ZeroSide/TightMult.lean`](zeta-23-lean-review/Zeta23/ZeroSide/TightMult.lean) |
+| **Deligne Spectral Bound** $\|S(f)\|^2 \le (d-1)^2 q$ | **YES** (Deligne 1974) | **Bit-exact in $\mathbb{Z}[\zeta_q]$** | Verified in `primequant` (Exp 064) |
+| **Wigner Semicircle Moments** | **YES** (Katz 1980) | **Exact Catalan moments** | Confirmed (Exp 066) |
+| **$\sqrt{X}$ Multiplicity Resonance** | Postulated in `remark.pdf` | **Hardware-confirmed on `ibm_fez`** | **98.08%** fidelity (Exp 063 & 067) |
+| **Latorre–Sierra Entanglement $\alpha \to 1$** | NO (Former conjecture) | **Refuted & Corrected:** $S_{vN} = 0.5967 \ln(N) - 0.897$ | Falsified ($R^2=0.9955$, Exp 065) |
+| **Full Hilbert–Pólya Spectrum on QPU** | NO (Open Conjecture) | 86 Experiments in Master Ledger | [`pt_universal_all_experiments_master_ledger.json`](pt_universal_all_experiments_master_ledger.json) |
 
 ---
 
@@ -94,7 +133,7 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | Document | Status | Role |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | Reference | SciMind 4.0/5.0 methodology manifest |
-| [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md) | **Essential** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) |
+| [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) | **Featured Paper** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) ([German version](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md)) |
 | [`docs/universal_all_experiments_master_report.md`](docs/universal_all_experiments_master_report.md) | **Ledger** | Universal Master Report across all 86 Statevector & QPU Experiments |
 | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **Primary** | Theory (§1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **Master** | SciMind verdicts, strategic vectors |
