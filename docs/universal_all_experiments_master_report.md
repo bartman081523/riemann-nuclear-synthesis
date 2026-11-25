@@ -1,15 +1,15 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-25T11:02:08.910363+00:00
+Stand: 2026-11-25T12:06:11.018100+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 88
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 89
 
 ## Zusammenfassung nach Forschungssäulen
 
 | Säule / Kategorie | Anzahl Experimente |
 |---|---|
 | General / Multi-Observable Diagnostic | 11 |
-| Pillar 1: QuQuint & GF(5) Geometry | 7 |
+| Pillar 1: QuQuint & GF(5) Geometry | 8 |
 | Pillar 1b: ZQZ Random Matrix Ensembles | 2 |
 | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | 14 |
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
@@ -22,7 +22,7 @@ Stand: 2026-11-25T11:02:08.910363+00:00
 
 | Normiertes Verdict | Anzahl |
 |---|---|
-| CONFIRMED | 14 |
+| CONFIRMED | 15 |
 | REFUTED | 14 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
@@ -55,6 +55,7 @@ Stand: 2026-11-25T11:02:08.910363+00:00
 | `pt_path_quadric_061_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_potential_vqe_5pub_results.json` | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | Analytical / Exact Numerics | None | `MITTEL — partial H2-Einfluss` |
 | `pt_potential_vqe_singleshot_results.json` | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | Analytical / Exact Numerics | None | `H1/H3` |
+| `pt_prime_gue_071_eval.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_prime_state_N255_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Analytical / Exact Numerics | None | `Asymptotik stabilisiert sich bei alpha=0.347, NICHT bei 1. Latorre-Form (beta=2.57) vs Power-Law (alpha=0.347): Power-Law passt besser. Sub-RH-Indikator bleibt empirisch robust.` |
 | `pt_prime_state_offline_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_prime_state_qpu_singleshot_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Real QPU Hardware | IBM Quantum Hardware | `QPU bestaetigt Aer (DISSENS zu Latorre-Sierra)` |
