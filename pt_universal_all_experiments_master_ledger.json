@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-25T12:06:11.018100+00:00",
-  "total_experiments_recorded": 89,
+  "generated_at_utc": "2026-11-25T12:20:50.861580+00:00",
+  "total_experiments_recorded": 90,
   "category_summary": {
     "General / Multi-Observable Diagnostic": 11,
     "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)": 10,
-    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 10,
+    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 11,
     "Pillar 1: QuQuint & GF(5) Geometry": 8,
     "Pillar 2: Hilbert-Polya Potential & Spectral Gaps": 14,
     "Pillar 4: RAM-Q & FP48 Resonance Infrastructure": 28,
@@ -15,7 +15,7 @@
   "verdict_summary": {
     "REPORTED/DONE": 59,
     "CONFIRMED": 15,
-    "REFUTED": 14,
+    "REFUTED": 15,
     "UNDETERMINED": 1
   },
   "experiments": [
@@ -198,6 +198,15 @@
       "backend": "None",
       "verdict": "PARTIAL_STRUKTUR_KEIN_SIEB",
       "size_bytes": 4445
+    },
+    {
+      "file": "pt_metaplectic_simplification_072_eval.json",
+      "name": "pt_metaplectic_simplification_072_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Statevector Simulation",
+      "backend": "None",
+      "verdict": "PARTIAL_OR_REFUTED",
+      "size_bytes": 1133
     },
     {
       "file": "pt_multin_v2_results.json",

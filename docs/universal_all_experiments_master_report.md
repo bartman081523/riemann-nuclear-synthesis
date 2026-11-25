@@ -1,8 +1,8 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-25T12:06:11.018100+00:00
+Stand: 2026-11-25T12:20:50.861580+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 89
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 90
 
 ## Zusammenfassung nach Forschungssäulen
 
@@ -15,7 +15,7 @@ Stand: 2026-11-25T12:06:11.018100+00:00
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
 | Pillar 4: RAM-Q & FP48 Resonance Infrastructure | 28 |
 | Pillar 5: H-V5 Hardware Gap Invariance | 3 |
-| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 10 |
+| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 11 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
 ## Zusammenfassung der Verdicts
@@ -23,7 +23,7 @@ Stand: 2026-11-25T12:06:11.018100+00:00
 | Normiertes Verdict | Anzahl |
 |---|---|
 | CONFIRMED | 15 |
-| REFUTED | 14 |
+| REFUTED | 15 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
 
@@ -51,6 +51,7 @@ Stand: 2026-11-25T12:06:11.018100+00:00
 | `pt_jacobi_frobenius_069_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_job_id_probe_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_leakage_v1_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `PARTIAL_STRUKTUR_KEIN_SIEB` |
+| `pt_metaplectic_simplification_072_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Statevector Simulation | None | `PARTIAL_OR_REFUTED` |
 | `pt_multin_v2_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT` |
 | `pt_path_quadric_061_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_potential_vqe_5pub_results.json` | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | Analytical / Exact Numerics | None | `MITTEL — partial H2-Einfluss` |
