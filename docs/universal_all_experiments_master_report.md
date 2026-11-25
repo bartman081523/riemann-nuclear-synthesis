@@ -1,8 +1,8 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-25T09:34:19.801923+00:00
+Stand: 2026-11-25T11:02:08.910363+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 87
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 88
 
 ## Zusammenfassung nach Forschungssäulen
 
@@ -15,14 +15,14 @@ Stand: 2026-11-25T09:34:19.801923+00:00
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
 | Pillar 4: RAM-Q & FP48 Resonance Infrastructure | 28 |
 | Pillar 5: H-V5 Hardware Gap Invariance | 3 |
-| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 9 |
+| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 10 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
 ## Zusammenfassung der Verdicts
 
 | Normiertes Verdict | Anzahl |
 |---|---|
-| CONFIRMED | 13 |
+| CONFIRMED | 14 |
 | REFUTED | 14 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
@@ -38,6 +38,7 @@ Stand: 2026-11-25T09:34:19.801923+00:00
 | `pt_asymptotic_N1e6_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Classical Asymptotics / SVD | None | `H_C (anderes Power-Law)` |
 | `pt_clifford_weil_063_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Real QPU Hardware | ibm_fez | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_crossover_v4_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-4_CONFIRMED_CROSSOVER` |
+| `pt_cue_wigner_070_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_downloaded_job_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_entanglement_log_065_eval.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Classical Asymptotics / SVD | None | `CONFIRMED_ALL_HYPOTHESES` |
 | `pt_frobenius_bell_067_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Real QPU Hardware | ibm_fez | `CONFIRMED_ALL_HYPOTHESES` |
