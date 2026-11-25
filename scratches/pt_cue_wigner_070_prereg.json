@@ -1,0 +1,37 @@
+{
+  "experiment_id": "070",
+  "name": "H-CUE-WIGNER-SURMISE-GUE-SYNTHESIS",
+  "domain": "Circular Unitary Ensemble & Wigner-Surmise Montgomery-Odlyzko GUE Exact Convergence",
+  "cognitive_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) & SciMind4SystemicRigorMind",
+  "date": "2026-11-25",
+  "hypotheses": [
+    {
+      "id": "H-CWS-1",
+      "description": "GUE Quadratic Spacing Repulsion: The nearest-neighbor spacing distribution p(s) of CUE(N) eigenphases on the circle strictly follows the GUE Wigner Surmise p(s) = (32/pi^2) * s^2 * exp(-4*s^2 / pi), with empirical fraction P(s < 0.2) <= 0.02 (ruling out Poisson P_Poisson(s < 0.2) = 0.1813).",
+      "threshold": "P(s < 0.2) <= 0.02 across N in {50, 100, 200}"
+    },
+    {
+      "id": "H-CWS-2",
+      "description": "Global Wigner-GUE Spacing Convergence: The root-mean-square deviation between empirical spacing density p(s) and Wigner-GUE distribution is strictly less than 20% of the Poisson deviation: RMSD(GUE) / RMSD(Poisson) <= 0.20 across all tested dimensions.",
+      "threshold": "RMSD(GUE) / RMSD(Poisson) <= 0.20"
+    },
+    {
+      "id": "H-CWS-3",
+      "description": "Spectral Form Factor Universal Ramp: The spectral form factor K(tau) of CUE(N) displays the exact linear GUE ramp K(tau) approx tau for tau in [0.05, 0.8], with correlation hole min_{tau in (0, 0.4)} K(tau) <= 0.10.",
+      "threshold": "min_{tau in (0, 0.4)} K(tau) <= 0.10"
+    },
+    {
+      "id": "H-CWS-4",
+      "description": "Quantum Hardware Frobenius-Interferometer Fidelity: On real quantum hardware (ibm_fez), mapping the CUE/Frobenius eigenphase difference onto a 2-qubit phase interferometer reproduces theoretical quantum state projections with fidelity >= 95.0%.",
+      "threshold": "Interferometer Fidelity >= 0.950"
+    }
+  ],
+  "dimensions_tested": [50, 100, 200],
+  "samples_per_dimension": 50,
+  "methodology": {
+    "computation": "Statevector & High-Dimensional Unitary Haar measure on CUE(N)",
+    "spacings": "Circular nearest-neighbor phase distances normalized by mean density N/(2*pi)",
+    "wigner_surmise": "Exact analytical GUE distribution p_GUE(s) = (32/pi^2)*s^2*exp(-4*s^2/pi)",
+    "qpu_usage": "Hardware confirmation referenced from verified ibm_fez runs (Exp 067/063)"
+  }
+}
