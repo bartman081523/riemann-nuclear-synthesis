@@ -1,0 +1,37 @@
+{
+  "experiment_id": "071",
+  "name": "H-PRIME-GUE-SPECTRAL-DUALITY",
+  "prereg_sha256": "aa04615dacc42f82d4b6a56cd559eba0c97685bae2b641a15e959ce40655bd72",
+  "hypotheses_evaluation": {
+    "H-PGD-1": {
+      "description": "Riemann Zero Spacing Level Repulsion: P(s < 0.2) <= 0.02",
+      "verdict": "CONFIRMED",
+      "value": 0.0
+    },
+    "H-PGD-2": {
+      "description": "Spectral Form Factor Dip: min_{tau <= 0.4} K(tau) <= 0.20",
+      "verdict": "CONFIRMED",
+      "value": 0.011165852452216816
+    },
+    "H-PGD-3": {
+      "description": "Prime-Explicit Fourier Dual Resonance: C_prime_zeros >= 0.25",
+      "verdict": "CONFIRMED",
+      "value": 1.4909646998023809
+    },
+    "H-PGD-4": {
+      "description": "Hardware Phase-Encoding Verification >= 0.950",
+      "verdict": "CONFIRMED",
+      "value": 0.9808
+    }
+  },
+  "metrics": {
+    "n_zeros": 52,
+    "mean_spacing": 0.9999649992176716,
+    "min_spacing": 0.3859921337742236,
+    "fraction_s_le_0_2": 0.0,
+    "min_k_early_tau": 0.011165852452216816,
+    "prime_zero_correlation": 1.4909646998023809,
+    "qpu_reference_fidelity": 0.9808
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES"
+}
