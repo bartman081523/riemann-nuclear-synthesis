@@ -141,23 +141,23 @@ def main():
     # Erzeuge Markdown-Report
     out_md = Path("docs/universal_all_experiments_master_report.md")
     with open(out_md, "w") as f:
-        f.write("# Universeller Master-Ergebnis-Report (Alle Experimente)\n\n")
-        f.write(f"Stand: {master_ledger['generated_at_utc']}\n\n")
-        f.write(f"**Gesamtzahl erfasster Experiment-Ergebnisse:** {len(records)}\n\n")
-        f.write("## Zusammenfassung nach Forschungssäulen\n\n")
-        f.write("| Säule / Kategorie | Anzahl Experimente |\n|---|---|\n")
+        f.write("# Universal Master Experiment Ledger & Report (All Experiments)\n\n")
+        f.write(f"Timestamp: {master_ledger['generated_at_utc']}\n\n")
+        f.write(f"**Total Experiments Recorded:** {len(records)}\n\n")
+        f.write("## Summary by Research Pillar\n\n")
+        f.write("| Pillar / Category | Experiment Count |\n|---|---|\n")
         for cat, cnt in sorted(category_counts.items()):
             f.write(f"| {cat} | {cnt} |\n")
-        f.write("\n## Zusammenfassung der Verdicts\n\n")
-        f.write("| Normiertes Verdict | Anzahl |\n|---|---|\n")
+        f.write("\n## Summary of Verdicts\n\n")
+        f.write("| Normalized Verdict | Count |\n|---|---|\n")
         for v, cnt in sorted(verdict_counts.items()):
             f.write(f"| {v} | {cnt} |\n")
-        f.write("\n## Vollständige Tabelle aller Experimente\n\n")
-        f.write("| Datei | Säule | Modus | Backend | Verdict |\n|---|---|---|---|---|\n")
+        f.write("\n## Complete Table of All Experiments\n\n")
+        f.write("| File | Pillar | Mode | Backend | Verdict |\n|---|---|---|---|---|\n")
         for r in records:
             f.write(f"| `{r['file']}` | {r['category']} | {r['mode']} | {r['backend']} | `{r['verdict']}` |\n")
 
-    print(f"Markdown-Report gespeichert in {out_md}.")
+    print(f"Markdown report generated in {out_md}.")
 
 
 if __name__ == "__main__":

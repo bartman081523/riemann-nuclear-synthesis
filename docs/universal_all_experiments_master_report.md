@@ -1,12 +1,12 @@
-# Universeller Master-Ergebnis-Report (Alle Experimente)
+# Universal Master Experiment Ledger & Report (All Experiments)
 
-Stand: 2026-11-25T12:26:40.143494+00:00
+Timestamp: 2026-11-25T12:46:23.970173+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 91
+**Total Experiments Recorded:** 91
 
-## Zusammenfassung nach Forschungssäulen
+## Summary by Research Pillar
 
-| Säule / Kategorie | Anzahl Experimente |
+| Pillar / Category | Experiment Count |
 |---|---|
 | General / Multi-Observable Diagnostic | 11 |
 | Pillar 1: QuQuint & GF(5) Geometry | 8 |
@@ -18,18 +18,18 @@ Stand: 2026-11-25T12:26:40.143494+00:00
 | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 12 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
-## Zusammenfassung der Verdicts
+## Summary of Verdicts
 
-| Normiertes Verdict | Anzahl |
+| Normalized Verdict | Count |
 |---|---|
 | CONFIRMED | 15 |
 | REFUTED | 16 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
 
-## Vollständige Tabelle aller Experimente
+## Complete Table of All Experiments
 
-| Datei | Säule | Modus | Backend | Verdict |
+| File | Pillar | Mode | Backend | Verdict |
 |---|---|---|---|---|
 | `pt_aer_stress_saeule1_results.json` | General / Multi-Observable Diagnostic | Statevector Simulation | None | `UNKNOWN` |
 | `pt_alpha_derivative_results.json` | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | Analytical / Exact Numerics | None | `UNKNOWN` |

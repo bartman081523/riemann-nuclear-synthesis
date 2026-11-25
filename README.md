@@ -15,8 +15,8 @@
 
 > **A Mathematical Guide to the Alpöge–Claude Proof and its Quantum-Physical Synthesis**  
 > *Research Consortium: `riemann-nuclear-synthesis`* | *Date: November 2026*  
-> *Master Compendium (Full Proof Walkthrough):* [`docs/der_vereinfachte_riemann_beweis_kompendium_en.md`](docs/der_vereinfachte_riemann_beweis_kompendium_en.md) ([German Edition](docs/der_vereinfachte_riemann_beweis_kompendium.md))  
-> *Standalone English Treatise:* [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) ([German Version](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md))  
+> *Master Compendium (Full Proof Walkthrough):* [`docs/simplified_riemann_proof_compendium.md`](docs/simplified_riemann_proof_compendium.md) ([German Edition](docs/simplified_riemann_proof_compendium_de.md))  
+> *Standalone English Treatise:* [`docs/alpoge_claude_riemann_proof_guide.md`](docs/alpoge_claude_riemann_proof_guide.md) ([German Version](docs/alpoge_claude_riemann_proof_guide_de.md))  
 > *Formal Lean 4 Master Module:* [`zeta-23-lean-review/Zeta23/Weil/MasterKernel.lean`](zeta-23-lean-review/Zeta23/Weil/MasterKernel.lean) | *Proposal to Anthropic:* [`docs/alpoge_anthropic_prereg_proposal.md`](docs/alpoge_anthropic_prereg_proposal.md)  
 > *Accompanying Codebases:* [`zeta-23-lean-review/`](zeta-23-lean-review/) (Anthropic Lean 4 Formalization), [`src/primequant/`](src/primequant/) (Exact Cyclotomic Numerics), [`pt_universal_all_experiments_master_ledger.json`](pt_universal_all_experiments_master_ledger.json) (91-Experiment Master Ledger)
 
@@ -135,10 +135,15 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | Document | Status | Role |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | Reference | SciMind 4.0/5.0 methodology manifest |
-| [`docs/der_vereinfachte_riemann_beweis_kompendium_en.md`](docs/der_vereinfachte_riemann_beweis_kompendium_en.md) | **Master Compendium** | The Simplified Proof of the Riemann Hypothesis (Complete Mathematical Exposition) ([German Edition](docs/der_vereinfachte_riemann_beweis_kompendium.md)) |
-| [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide_en.md) | **Featured Paper** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) ([German version](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md)) |
+| [`docs/simplified_riemann_proof_compendium.md`](docs/simplified_riemann_proof_compendium.md) | **Master Compendium** | The Simplified Proof of the Riemann Hypothesis (Complete Mathematical Exposition) ([German Edition](docs/simplified_riemann_proof_compendium_de.md)) |
+| [`docs/alpoge_claude_riemann_proof_guide.md`](docs/alpoge_claude_riemann_proof_guide.md) | **Featured Paper** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) ([German version](docs/alpoge_claude_riemann_proof_guide_de.md)) |
 | [`docs/alpoge_anthropic_prereg_proposal.md`](docs/alpoge_anthropic_prereg_proposal.md) | **Proposal** | Formal Preregistration Proposal for Alpöge & Anthropic (100x Proof Condensation) |
+| [`docs/strategic_lean4_alpoge_synthesis.md`](docs/strategic_lean4_alpoge_synthesis.md) | **Strategy** | Strategic Memorandum: Lean 4 Transfer & Collaborative Proof Condensation ([German version](docs/strategic_lean4_alpoge_synthesis_de.md)) |
+| [`docs/comparison_alpoge_riemann_synthesis.md`](docs/comparison_alpoge_riemann_synthesis.md) | **Comparative** | Epistemic Comparison: Alpöge–Claude vs. `riemann-nuclear-synthesis` ([German version](docs/comparison_alpoge_riemann_synthesis_de.md)) |
+| [`docs/prereg_sharpening_weil_theta.md`](docs/prereg_sharpening_weil_theta.md) | **Preregistration** | Preregistration Sharpening: The Weil–Theta Multiplicity Framework ([German version](docs/prereg_sharpening_weil_theta_de.md)) |
+| [`docs/experiments_and_qpu_results_matrix.md`](docs/experiments_and_qpu_results_matrix.md) | **Inventory** | Master Inventory of Experiments & Physical QPU Verification Results |
 | [`docs/universal_all_experiments_master_report.md`](docs/universal_all_experiments_master_report.md) | **Ledger** | Universal Master Report across all 91 Statevector & QPU Experiments |
+| [`docs/task_alpoge_proof_ladder.md`](docs/task_alpoge_proof_ladder.md) | **Roadmap** | Proof Ladder and Milestone Verification Plan |
 | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **Primary** | Theory (§1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **Master** | SciMind verdicts, strategic vectors |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **Master** | Statevector-first architecture + QPU-update log |
