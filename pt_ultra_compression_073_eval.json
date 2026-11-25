@@ -1,0 +1,30 @@
+{
+  "experiment_id": "073",
+  "name": "H-ULTRA-COMPRESSION-MASTER-KERNEL",
+  "prereg_sha256": "0ae7e84e10bacd80f770ddf24113b6a8a3cd4e18a0c7415d92181581c4155765",
+  "hypotheses_evaluation": {
+    "H-UCM-1": {
+      "description": "Master Operator Spectral Contractivity: ||W_q||_op = 1.000000",
+      "verdict": "CONFIRMED",
+      "max_norm_diff": 4.440892098500626e-16
+    },
+    "H-UCM-2": {
+      "description": "Standard Subspace Spectral Annihilation: sigma_2(W_q) <= 1/sqrt(q)",
+      "verdict": "REFUTED"
+    },
+    "H-UCM-3": {
+      "description": "Extreme Code Condensation Across All Heavy Modules >= 100.0x",
+      "verdict": "CONFIRMED",
+      "condensation_factor": 109.62915717539863,
+      "original_heavy_modules_bytes": 240636,
+      "master_kernel_bytes": 2195
+    },
+    "H-UCM-4": {
+      "description": "Hardware Gate Count Parity: CZ <= 3 and depth <= 8 on ibm_fez",
+      "verdict": "CONFIRMED",
+      "cz_count": 3,
+      "circuit_depth": 7
+    }
+  },
+  "overall_verdict": "PARTIAL_OR_REFUTED"
+}
