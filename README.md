@@ -94,6 +94,8 @@ For QPU reproduction details, see [Reproducibility](RIEMANN_HYPOTHESIS_AND_NUCLE
 | Document | Status | Role |
 |---|---|---|
 | [`CLAUDE.md`](CLAUDE.md) | Reference | SciMind 4.0/5.0 methodology manifest |
+| [`docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md`](docs/alpoge_claude_riemann_hypothesis_mathematical_guide.md) | **Essential** | Mathematical Guide to the Alpöge–Claude Proof (Stepanov Multiplicity over ℤ, Lean-4 Architecture & Quantum Synthesis) |
+| [`docs/universal_all_experiments_master_report.md`](docs/universal_all_experiments_master_report.md) | **Ledger** | Universal Master Report across all 86 Statevector & QPU Experiments |
 | [`RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md`](RIEMANN_HYPOTHESIS_AND_NUCLEAR_STRUCTURE.md) | **Primary** | Theory (§1–9) + Operational Findings Log (§10) |
 | [`SYNTHESIS_2026_06_10.md`](SYNTHESIS_2026_06_10.md) | **Master** | SciMind verdicts, strategic vectors |
 | [`QUANTUM_ARCHITECTURE_IMPLEMENTATION.md`](QUANTUM_ARCHITECTURE_IMPLEMENTATION.md) | **Master** | Statevector-first architecture + QPU-update log |
