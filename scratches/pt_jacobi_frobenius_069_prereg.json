@@ -1,0 +1,37 @@
+{
+  "experiment_id": "069",
+  "name": "H-JACOBI-FROBENIUS-GUE-ASYMPTOTICS",
+  "domain": "Arithmetic Monodromy & Katz-Sarnak USp(2g) Large-Genus GUE Spectral Bridge",
+  "cognitive_mind": "ExactQuantumNumericsMind v1.0 (eqn-mix) & SciMind4SystemicRigorMind",
+  "date": "2026-11-25",
+  "hypotheses": [
+    {
+      "id": "H-JF-1",
+      "description": "Quadratic Level Repulsion (Wigner Surmise / GUE): For large genus g in {20, 50, 100}, the unfolded positive Frobenius eigenphases theta_j in (0, pi) of the symplectic monodromy group USp(2g) exhibit true level repulsion: the fraction of scaled nearest-neighbor spacings s < 0.2 satisfies P(s < 0.2) <= 0.03 (vs Poisson baseline P_Poisson(s < 0.2) = 1 - e^{-0.2} = 0.1813), and P(s < 0.05) <= 0.002 (vs Poisson 0.0488).",
+      "threshold": "P(s < 0.2) <= 0.03 and P(s < 0.05) <= 0.002 across g in {20, 50, 100}"
+    },
+    {
+      "id": "H-JF-2",
+      "description": "Montgomery-Odlyzko GUE Pair Correlation Agreement: The unfolded pair correlation function R_2(s) of the USp(2g) spectrum converges in the bulk to the GUE curve 1 - (sin(pi*s)/(pi*s))^2 with root-mean-square deviation RMSD(GUE) strictly less than half of RMSD(Poisson) across s in [0.2, 2.0].",
+      "threshold": "RMSD_GUE < 0.5 * RMSD_Poisson for s in [0.2, 2.0] at g = 100"
+    },
+    {
+      "id": "H-JF-3",
+      "description": "Symplectic Hard-Edge Origin Repulsion: As s -> 0+ (distance of the lowest eigenvalue theta_1 to the origin 0), the distribution follows the symplectic Bessel kernel scaling with strict suppression of near-zero eigenangles: P(theta_1 < 0.1 * (pi / g)) <= 0.02.",
+      "threshold": "P(theta_1 < 0.1 * (pi / g)) <= 0.02"
+    },
+    {
+      "id": "H-JF-4",
+      "description": "Spectral Form Factor Dip Recovery: The discrete spectral form factor K(tau) of USp(2g) exhibits the universal GUE ramp and correlation hole with min_{tau in (0, 0.4)} K(tau) <= 0.15.",
+      "threshold": "min_{tau in (0, 0.4)} K(tau) <= 0.15"
+    }
+  ],
+  "genera_tested": [20, 50, 100],
+  "sample_count_per_genus": 50,
+  "methodology": {
+    "computation": "Quaternion-symplectic Haar measure on USp(2g) / Jacobian Frobenius monodromy",
+    "unfolding": "Uniform mean density rho = g / pi on the interval (0, pi)",
+    "pair_correlation": "Double-sum over distinct eigenphase pairs normalized by g and bin width ds",
+    "qpu_usage": "0 seconds (Statevector / High-Dimensional Exact Matrix Algebra)"
+  }
+}
