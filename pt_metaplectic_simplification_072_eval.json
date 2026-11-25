@@ -1,0 +1,32 @@
+{
+  "experiment_id": "072",
+  "name": "H-METAPLECTIC-SIMPLIFICATION-PROOF",
+  "prereg_sha256": "9e74164671248b00f516b854234f959355590e26165d5e941f06f1806bffbcf2",
+  "hypotheses_evaluation": {
+    "H-MSP-1": {
+      "description": "Algebraic Projector Idempotency & Standard Sector Annihilation (q in 3..13)",
+      "verdict": "CONFIRMED",
+      "max_idempotency_err": 2.7755575615628914e-17,
+      "max_annihilation_err": 0.0
+    },
+    "H-MSP-2": {
+      "description": "Multiplicity Resonance contrast delta_P >= 0.35 at L = floor(sqrt(q))",
+      "verdict": "CONFIRMED",
+      "delta_P": 0.4834391276041667
+    },
+    "H-MSP-3": {
+      "description": "Hardware Fidelity on ibm_fez >= 0.950 and delta_P >= 0.40",
+      "verdict": "CONFIRMED",
+      "measured_P_q0": 0.9808349609375,
+      "measured_delta_P": 0.4834391276041667
+    },
+    "H-MSP-4": {
+      "description": "Proof Complexity Condensation ratio >= 30.0x (bytes replaced)",
+      "verdict": "REFUTED",
+      "condensation_ratio": 29.08141962421712,
+      "original_bytes": 69650,
+      "metaplectic_bytes": 2395
+    }
+  },
+  "overall_verdict": "PARTIAL_OR_REFUTED"
+}
