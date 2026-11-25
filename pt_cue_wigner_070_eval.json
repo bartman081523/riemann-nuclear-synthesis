@@ -1,0 +1,57 @@
+{
+  "experiment_id": "070",
+  "name": "H-CUE-WIGNER-SURMISE-GUE-SYNTHESIS",
+  "prereg_sha256": "8b01caa9c14ba3650fda5e8d37a8fc7a3a793e57bcdf8d883225862ddbaea23b",
+  "hypotheses_evaluation": {
+    "H-CWS-1": {
+      "description": "GUE Quadratic Spacing Repulsion: P(s < 0.2) <= 0.02",
+      "verdict": "CONFIRMED"
+    },
+    "H-CWS-2": {
+      "description": "Global Wigner-GUE Spacing Convergence: RMSD(GUE)/RMSD(Poisson) <= 0.20",
+      "verdict": "CONFIRMED"
+    },
+    "H-CWS-3": {
+      "description": "Spectral Form Factor Universal Ramp: min_{tau <= 0.4} K(tau) <= 0.10",
+      "verdict": "CONFIRMED"
+    },
+    "H-CWS-4": {
+      "description": "Quantum Hardware Frobenius-Interferometer Fidelity >= 0.950",
+      "verdict": "CONFIRMED",
+      "value": 0.9808
+    }
+  },
+  "per_dimension": {
+    "50": {
+      "fraction_s_le_0_2": 0.0108,
+      "h1_pass": true,
+      "rmsd_wigner_gue": 0.03159191569626545,
+      "rmsd_poisson": 0.353170092843165,
+      "ratio_rmsd": 0.08945240929643135,
+      "h2_pass": true,
+      "min_k_early_tau": 0.01794746278113407,
+      "h3_pass": true
+    },
+    "100": {
+      "fraction_s_le_0_2": 0.0086,
+      "h1_pass": true,
+      "rmsd_wigner_gue": 0.021014291095709146,
+      "rmsd_poisson": 0.3527216759225722,
+      "ratio_rmsd": 0.05957754379779627,
+      "h2_pass": true,
+      "min_k_early_tau": 0.024877551928673435,
+      "h3_pass": true
+    },
+    "200": {
+      "fraction_s_le_0_2": 0.0093,
+      "h1_pass": true,
+      "rmsd_wigner_gue": 0.015374970464610208,
+      "rmsd_poisson": 0.353086291354779,
+      "ratio_rmsd": 0.04354451260516804,
+      "h2_pass": true,
+      "min_k_early_tau": 0.03027753307431919,
+      "h3_pass": true
+    }
+  },
+  "overall_verdict": "CONFIRMED_ALL_HYPOTHESES"
+}
