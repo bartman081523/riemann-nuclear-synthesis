@@ -1,0 +1,65 @@
+{
+  "experiment_id": "069",
+  "name": "H-JACOBI-FROBENIUS-GUE-ASYMPTOTICS",
+  "prereg_sha256": "1746f0efda38a2522c8d715b89d4c29af7f95e67d741bc905f315991e38833bc",
+  "hypotheses_evaluation": {
+    "H-JF-1": {
+      "description": "Quadratic Level Repulsion (Wigner Surmise / GUE): P(s < 0.2) <= 0.03 and P(s < 0.05) <= 0.002",
+      "verdict": "CONFIRMED"
+    },
+    "H-JF-2": {
+      "description": "Montgomery-Odlyzko GUE Pair Correlation Convergence: RMSD(GUE) < 0.5 * RMSD(Poisson) at g=100",
+      "verdict": "REFUTED"
+    },
+    "H-JF-3": {
+      "description": "Symplectic Hard-Edge Origin Repulsion: P(theta_1 < 0.1 * (pi / g)) <= 0.02",
+      "verdict": "CONFIRMED"
+    },
+    "H-JF-4": {
+      "description": "Spectral Form Factor Dip Recovery: min_{tau in (0, 0.4)} K(tau) <= 0.15",
+      "verdict": "REFUTED"
+    }
+  },
+  "per_genus": {
+    "20": {
+      "fraction_s_le_0_2": 0.003157894736842105,
+      "fraction_s_le_0_05": 0.0,
+      "h1_pass": true,
+      "fraction_origin_close": 0.0,
+      "h3_pass": true,
+      "rmsd_gue_bulk": 0.9370135814373055,
+      "rmsd_poisson_bulk": 0.8765209004290136,
+      "min_k_early_tau": 0.15242738692377922,
+      "h4_pass": false
+    },
+    "50": {
+      "fraction_s_le_0_2": 0.00816326530612245,
+      "fraction_s_le_0_05": 0.0,
+      "h1_pass": true,
+      "fraction_origin_close": 0.0,
+      "h3_pass": true,
+      "rmsd_gue_bulk": 0.904396664022551,
+      "rmsd_poisson_bulk": 0.8530020190154559,
+      "min_k_early_tau": 0.10515530822644387,
+      "h4_pass": true
+    },
+    "100": {
+      "fraction_s_le_0_2": 0.007474747474747475,
+      "fraction_s_le_0_05": 0.0,
+      "h1_pass": true,
+      "fraction_origin_close": 0.0,
+      "h3_pass": true,
+      "rmsd_gue_bulk": 0.9027351654332657,
+      "rmsd_poisson_bulk": 0.858424914208187,
+      "min_k_early_tau": 0.06525798897913763,
+      "h4_pass": true
+    }
+  },
+  "h2_ratio_g100": {
+    "rmsd_gue": 0.9027351654332657,
+    "rmsd_poisson": 0.858424914208187,
+    "ratio": 1.051618086208449,
+    "pass": false
+  },
+  "overall_verdict": "PARTIAL_OR_REFUTED"
+}
