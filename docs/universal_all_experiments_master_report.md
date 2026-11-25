@@ -1,8 +1,8 @@
 # Universeller Master-Ergebnis-Report (Alle Experimente)
 
-Stand: 2026-11-23T04:59:27.431131+00:00
+Stand: 2026-11-25T09:34:19.801923+00:00
 
-**Gesamtzahl erfasster Experiment-Ergebnisse:** 86
+**Gesamtzahl erfasster Experiment-Ergebnisse:** 87
 
 ## Zusammenfassung nach Forschungssäulen
 
@@ -15,7 +15,7 @@ Stand: 2026-11-23T04:59:27.431131+00:00
 | Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra) | 10 |
 | Pillar 4: RAM-Q & FP48 Resonance Infrastructure | 28 |
 | Pillar 5: H-V5 Hardware Gap Invariance | 3 |
-| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 8 |
+| Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | 9 |
 | Special Audits: SymComp, MOCS & Repin | 3 |
 
 ## Zusammenfassung der Verdicts
@@ -23,7 +23,7 @@ Stand: 2026-11-23T04:59:27.431131+00:00
 | Normiertes Verdict | Anzahl |
 |---|---|
 | CONFIRMED | 13 |
-| REFUTED | 13 |
+| REFUTED | 14 |
 | REPORTED/DONE | 59 |
 | UNDETERMINED | 1 |
 
@@ -47,6 +47,7 @@ Stand: 2026-11-23T04:59:27.431131+00:00
 | `pt_hstar5_phase6a_v2_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `REFUTED` |
 | `pt_im_bias_statevector_results.json` | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | Statevector Simulation | None | `H_Im_h1 (Sampling-Noise dominiert, alle |bias| < 0.005)` |
 | `pt_im_bias_token2_results.json` | Pillar 2: Hilbert-Polya Potential & Spectral Gaps | Analytical / Exact Numerics | None | `H_Im_h1 bestaetigt (alle |bias| < 0.005, additiv/Sampling-Noise dominiert)` |
+| `pt_jacobi_frobenius_069_eval.json` | Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance | Analytical / Exact Numerics | None | `PARTIAL_OR_REFUTED` |
 | `pt_job_id_probe_results.json` | General / Multi-Observable Diagnostic | Analytical / Exact Numerics | None | `UNKNOWN` |
 | `pt_leakage_v1_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `PARTIAL_STRUKTUR_KEIN_SIEB` |
 | `pt_multin_v2_results.json` | Pillar 1: QuQuint & GF(5) Geometry | Analytical / Exact Numerics | None | `H-STAR-1_REFUTED_WITNESS_RANK_TRIVIAL + RAMANUJAN_FINGERPRINT` |

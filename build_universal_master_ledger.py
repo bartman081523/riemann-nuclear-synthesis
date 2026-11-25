@@ -75,7 +75,7 @@ def classify_experiment(filepath: str, data: Dict[str, Any]) -> Dict[str, Any]:
         category = "Pillar 4: RAM-Q & FP48 Resonance Infrastructure"
     elif "v5" in name:
         category = "Pillar 5: H-V5 Hardware Gap Invariance"
-    elif any(k in name for k in ["weil_theta_060", "path_quadric_061", "grh_decay_062", "clifford_weil_063", "artin_schreier_064", "wigner_sato_tate_066", "frobenius_bell_067", "frobenius_pair_corr_068"]):
+    elif any(k in name for k in ["weil_theta_060", "path_quadric_061", "grh_decay_062", "clifford_weil_063", "artin_schreier_064", "wigner_sato_tate_066", "frobenius_bell_067", "frobenius_pair_corr_068", "jacobi_frobenius_069"]):
         category = "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance"
     elif any(k in name for k in ["symcomp", "mocs", "repin"]):
         category = "Special Audits: SymComp, MOCS & Repin"

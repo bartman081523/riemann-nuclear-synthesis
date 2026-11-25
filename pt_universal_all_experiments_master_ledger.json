@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-23T04:59:27.431131+00:00",
-  "total_experiments_recorded": 86,
+  "generated_at_utc": "2026-11-25T09:34:19.801923+00:00",
+  "total_experiments_recorded": 87,
   "category_summary": {
     "General / Multi-Observable Diagnostic": 11,
     "Pillar 3: Prime State & Entanglement Scaling (Latorre-Sierra)": 10,
-    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 8,
+    "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance": 9,
     "Pillar 1: QuQuint & GF(5) Geometry": 7,
     "Pillar 2: Hilbert-Polya Potential & Spectral Gaps": 14,
     "Pillar 4: RAM-Q & FP48 Resonance Infrastructure": 28,
@@ -15,7 +15,7 @@
   "verdict_summary": {
     "REPORTED/DONE": 59,
     "CONFIRMED": 13,
-    "REFUTED": 13,
+    "REFUTED": 14,
     "UNDETERMINED": 1
   },
   "experiments": [
@@ -162,6 +162,15 @@
       "backend": "None",
       "verdict": "H_Im_h1 bestaetigt (alle |bias| < 0.005, additiv/Sampling-Noise dominiert)",
       "size_bytes": 3572
+    },
+    {
+      "file": "pt_jacobi_frobenius_069_eval.json",
+      "name": "pt_jacobi_frobenius_069_eval",
+      "category": "Pillar 6: Alpoge-Claude Lean-4 Synthesis & Deligne-Weil Spectral Resonance",
+      "mode": "Analytical / Exact Numerics",
+      "backend": "None",
+      "verdict": "PARTIAL_OR_REFUTED",
+      "size_bytes": 2068
     },
     {
       "file": "pt_job_id_probe_results.json",
