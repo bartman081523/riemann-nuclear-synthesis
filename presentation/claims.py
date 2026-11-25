@@ -934,8 +934,8 @@ _CL.append(Claim(
     # T2-ULP-Band-Nachrechnung ehrlich REFUTED (1/111 Zeile
     # calstruct_q5_d5_433_r0, 4.0 ULP, Binaden-Mechanik)/T3-NC-Band/
     # T4 bit-identisch/ISA-Wohlgeformtheit/banned-Feld-Wert-Sweep/
-    # Verdict-Kette/frak-Pin-Dreifach-Kette) -> 1640
-    id="test_count", value=1640,
+    # Verdict-Kette/frak-Pin-Dreifach-Kette) -> 1643
+    id="test_count", value=1643,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

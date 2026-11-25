@@ -1,7 +1,7 @@
 # Riemann–Nuclear Synthesis: Quantum-Physical Verification of the Riemann Hypothesis & Adelic Theta Chains
 
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/bartman081523/riemann-nuclear-synthesis)
-[![Tests](https://img.shields.io/badge/Tests-1640%2F1640%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-1643%2F1643%20passing-brightgreen.svg)](tests/)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org)
 [![Qiskit 1.0+](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
@@ -133,7 +133,7 @@ echo "IBMQ_TOKEN2=your_second_token_here" >> .env
 ### 2. Running the Test Suite (1,640 Passing Tests)
 ```bash
 # Execute the full automated regression suite
-python3 -m pytest tests/ -q   # 1640/1640 passing in ~90s
+python3 -m pytest tests/ -q   # 1643/1643 passing in ~90s
 
 # Run exact cyclotomic and metaplectic tests
 python3 -m pytest tests/test_primequant_*.py -q   # 177/177 passing in <1s
@@ -177,6 +177,7 @@ python3 build_universal_master_ledger.py
 | [`docs/prereg_sharpening_weil_theta.md`](docs/prereg_sharpening_weil_theta.md) | **Preregistration** | Preregistration sharpening: The Weil–Theta multiplicity framework. ([German Edition](docs/prereg_sharpening_weil_theta_de.md)) |
 | [`docs/experiments_and_qpu_results_matrix.md`](docs/experiments_and_qpu_results_matrix.md) | **Inventory** | Master inventory mapping all 91 experiments to physical IBM Quantum QPU jobs. |
 | [`docs/universal_all_experiments_master_report.md`](docs/universal_all_experiments_master_report.md) | **Master Ledger** | Exhaustive ledger report across all 91 registered experiments with exact digests and verdicts. |
+| [`docs/lean4_multi_kernel_verification_report.md`](docs/lean4_multi_kernel_verification_report.md) | **Multi-Kernel Report**| Formal verification report across Lean 4 kernel (`-t 0`), comparator audit, and exact SVD. |
 | [`docs/task_alpoge_proof_ladder.md`](docs/task_alpoge_proof_ladder.md) | **Roadmap** | 16-phase milestone verification roadmap from statevector bridges to hardware QPU validation. |
 
 ---
