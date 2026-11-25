@@ -770,14 +770,14 @@ _CL.append(Claim(
 _CL.append(Claim(
     id="date_fez_singleshot", value="2026-06-10",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=64,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
                   anchor="Fez/TOKEN2 Singleshot 2026-06-10"),
     scenes=("act4_qpu_timeline",)))
 
 _CL.append(Claim(
     id="date_vqd", value="2026-07-21",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=64,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
                   anchor="2026-07-21"),
     scenes=("act4_qpu_timeline",)))
 
@@ -798,7 +798,7 @@ _CL.append(Claim(
 _CL.append(Claim(
     id="date_kingston", value="2026-09-24",
     display="{}", label=Label.DOC_FROZEN,
-    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=62,
+    source=Source(kind=Kind.DOC_FROZEN, file="README.md", line=111,
                   anchor="2026-09-24"),
     scenes=("act4_qpu_timeline",)))
 
@@ -934,8 +934,8 @@ _CL.append(Claim(
     # T2-ULP-Band-Nachrechnung ehrlich REFUTED (1/111 Zeile
     # calstruct_q5_d5_433_r0, 4.0 ULP, Binaden-Mechanik)/T3-NC-Band/
     # T4 bit-identisch/ISA-Wohlgeformtheit/banned-Feld-Wert-Sweep/
-    # Verdict-Kette/frak-Pin-Dreifach-Kette) -> 1612
-    id="test_count", value=1612,
+    # Verdict-Kette/frak-Pin-Dreifach-Kette) -> 1640
+    id="test_count", value=1640,
     display="{} tests collected", label=Label.MEASURED, grade=None,
     source=Source(kind=Kind.RECOMPUTE_CMD,
                   cmd=(sys.executable, "-m", "pytest", "tests/",

@@ -1,7 +1,7 @@
 # Riemann–Nuclear Synthesis
 
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/bartman081523/riemann-nuclear-synthesis)
-[![Tests](https://img.shields.io/badge/Tests-1612%2F1612%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-1640%2F1640%20passing-brightgreen.svg)](tests/)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org)
 [![Qiskit](https://img.shields.io/badge/Qiskit-1.0%2B-6433ff.svg)](https://qiskit.org)
@@ -91,7 +91,7 @@ echo "IBMQ_TOKEN=your_token_here" > .env
 echo "IBMQ_TOKEN2=your_second_token_here" >> .env
 
 # Run the test suite
-python3 -m pytest tests/ -q   # 1612/1612 passing
+python3 -m pytest tests/ -q   # 1640/1640 passing
 
 # Reproduce the asymptotic scaling (statevector, no QPU cost)
 python3 pt_asymptotic_N1e6.py   # power-law alpha(N=10^6) = 0.223 (fit artifact; claims.py pin R(10^6) = 0.669, §X-Lesart S/log -> 0.55)

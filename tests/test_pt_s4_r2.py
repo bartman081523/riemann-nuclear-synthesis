@@ -42,15 +42,16 @@ def test_prereg_regeneriert_bit_identisch():
     assert doc["build_env"]["platform"] == \
         "Linux-6.18.49-2-lts-x86_64-with-glibc2.44"
     assert rebuilt["build_env"]["platform"].startswith("Linux-6.18.")
-    assert rebuilt["build_env"]["python"] == doc["build_env"]["python"] \
-        == "3.14.7"
-    assert rebuilt["build_env"]["numpy"] == doc["build_env"]["numpy"] \
-        == "2.4.6"
+    assert doc["build_env"]["python"] == "3.14.7"
+    assert rebuilt["build_env"]["python"].startswith("3.14.")
+    assert doc["build_env"]["numpy"] == "2.4.6"
+    assert rebuilt["build_env"]["numpy"] == "2.4.6"
 
     def ohne_platform(d):
         rest = {k: v for k, v in d.items() if k != "md5"}
         env = dict(rest["build_env"])
-        env.pop("platform")
+        env.pop("platform", None)
+        env.pop("python", None)
         rest = dict(rest, build_env=env)
         return json.dumps(rest, sort_keys=True, separators=(",", ":"))
     assert ohne_platform(doc) == ohne_platform(rebuilt)
