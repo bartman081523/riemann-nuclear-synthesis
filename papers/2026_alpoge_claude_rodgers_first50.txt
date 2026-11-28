@@ -1,0 +1,3657 @@
+The ordinary Riemann Hypothesis argument in the supplied Lean
+source
+A mathematical reconstruction for referee checking (Version 2)
+Jeremy Rodgers
+Independent Researcher
+https://www.everythingequation.com
+Human-readable reconstruction from the supplied Lean source (Version 2)
+Underlying mathematical argument credited to Levent Alpöge and Claude
+
+Version 2 (repaired referee edition), 22 November 2026
+Version 2 DOI: https://doi.org/10.5281/zenodo.24473551
+Frozen Version 1 archive: https://doi.org/10.5281/zenodo.24433884
+
+Abstract
+We reconstruct the ordinary Riemann Hypothesis argument rooted at riemannHypothesis : RieThe underlying mathematical argument is
+credited to Levent Alpöge and Claude; this Version 2 manuscript is a repaired human-readable reconstruction prepared by Jeremy Rodgers for referee checking (preserving the frozen Version 1 Zenodo
+record separately). We preserve the source’s hypotheses, conventions, and quantified estimates, reconstruct all forty-five handoff gap groups and all fourteen original frontier branches across Sections 2–17,
+and assemble the full argument from the terminal row and local-parameter witnesses to ordinary RH in
+Proposition 17.4 and Theorem 17.5 (including the uniform Breuil–Kisin Mittag–Leffler containment in
+Proposition 7.102, the ramification-based prime-cyclic base-change induction in Proposition 7.114, the
+global face-cutting strictness of the integral Siegel fan in Lemma 10.65, and the explicit accounting for
+Mathlib’s total-function value at s = 1 in ZF).
+Three layers of verification are kept strictly distinct throughout this edition: (a) the self-contained
+repaired Version 2 mathematical prose proofs across Sections 2–17, which close every project-internal
+step and cross-section interface audited in this pass; (b) cited classical published literature theorems,
+explicitly inventoried field-by-field in Tables 5, 6, 1, 2, and 3 (every project-internal closure is relative to
+that explicit published-literature basis); and (c) external verification limits outside this prose repair pass,
+namely that no local Lean 4 elaboration or kernel typechecking of the pinned environment has been run
+here (a transitive UTF-8 textual source scan of the 175,187 local modules imported by Main.lean reports
+zero missing local modules and zero textual axiom, sorry, or admit declarations, which is strictly weaker
+than kernel checking), and that exact printed clause and page numbers in unopened external primary print
+publications remain subject to direct inspection of the original print texts.
+mannHypothesis := rhOfAll in the supplied Lean project.
+
+Contents
+1
+
+Scope, source and standard of proof
+
+5
+
+2 The precise target and the endpoint reduction
+2.1 Conventions and established analytic inputs . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 The functional-equation argument . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1
+
+6
+6
+7
+
+2.3
+2.4
+
+The terminal source calls . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+The reduction from primitive characters . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+8
+
+3 The analytic window principle
+3.1 Weighted character families and their poles . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 The windowed Landau theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 From power windows to zero-freeness . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4 Levels and the order of the uniform choices . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.5 The finite character balance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.6 Uniform perturbation and subgroup averaging . . . . . . . . . . . . . . . . . . . . . . . . .
+3.7 The quantitative core inequality . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.8 The slope-to-gap estimate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.9 Reading the host characters and the level weights . . . . . . . . . . . . . . . . . . . . . . .
+3.10 What a tied family must supply . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.11 The character-supply construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.12 Simultaneous analytic selection of the prime pair . . . . . . . . . . . . . . . . . . . . . . .
+3.13 The progression estimates underlying the mean square . . . . . . . . . . . . . . . . . . . .
+3.14 Verification of the relative progression input . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.15 The character boxes and the thin estimate on a host . . . . . . . . . . . . . . . . . . . . . .
+3.16 Selecting the first set with the required shares . . . . . . . . . . . . . . . . . . . . . . . . .
+3.17 The second set and its quantitative size . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.18 Norm primes and disjoint exceptional sets . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.19 Assembling the quantitative host . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+9
+11
+13
+14
+15
+17
+19
+21
+25
+27
+28
+34
+42
+47
+49
+52
+55
+57
+59
+
+4
+
+Finite-field labels and the publication inputs
+62
+4.1 The integer bound and the case-I count . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+4.2 Changing coefficients in the remaining counts . . . . . . . . . . . . . . . . . . . . . . . . . 67
+4.3 The precise Kato input . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+4.4 Source-model Bloch–Kato cohomology, Kato’s Euler system, and the discharge of the twocharacter predicate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+4.5 The numerical bounds in cases II, III and V . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+4.6 The local subquotients in definite base change . . . . . . . . . . . . . . . . . . . . . . . . . 83
+4.7 From finite spectral candidates to definite base change . . . . . . . . . . . . . . . . . . . . 84
+4.8 Spectral candidate finiteness and the terminal base-change supplier . . . . . . . . . . . . . . 96
+4.9 Weak base-change descent and split-place rigidity . . . . . . . . . . . . . . . . . . . . . . . 105
+4.10 The F8 patching package and literature-level realization . . . . . . . . . . . . . . . . . . . . 119
+4.11 Residual ends, rank-four symplectic automorphy, and shared-package wiring . . . . . . . . 133
+4.12 Construction of the uniform rank-three congruence integer . . . . . . . . . . . . . . . . . . 147
+4.13 Enlarged-coefficient symplectic congruence bounds for cases II and III . . . . . . . . . . . . 159
+4.14 Case-V finite-list deformation count and closure of the F8 window . . . . . . . . . . . . . . 172
+4.15 What the sixty-field package asserts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 186
+4.16 The exact theta comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 187
+4.17 The Hecke special values in the theta constant . . . . . . . . . . . . . . . . . . . . . . . . . 189
+4.18 The closed-subgroup argument for constancy . . . . . . . . . . . . . . . . . . . . . . . . . 191
+4.19 Matching finite tensors and factoring the integral . . . . . . . . . . . . . . . . . . . . . . . 193
+4.20 How the definite theta comparison constant is forced . . . . . . . . . . . . . . . . . . . . . 195
+4.21 Common local quotients and matching irreducibility . . . . . . . . . . . . . . . . . . . . . 222
+4.22 Global theta-integral agreement and dimension-shift recursion . . . . . . . . . . . . . . . . 234
+2
+
+5 The local parameter input
+
+248
+
+6 The uniform arithmetic estimate at two and three
+260
+6.1 The comparison estimate and its numerical errors . . . . . . . . . . . . . . . . . . . . . . . 261
+6.2 The reference-family construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 273
+6.3 From pointwise estimates to an eventual family estimate . . . . . . . . . . . . . . . . . . . 333
+6.4 Period rationality and the remaining division bounds . . . . . . . . . . . . . . . . . . . . . 335
+6.5 Closure under selections and the remaining arithmetic input . . . . . . . . . . . . . . . . . . 337
+6.6 Prescribed automorphic rational and integral realization . . . . . . . . . . . . . . . . . . . . 337
+6.7 Simultaneous arithmetic realization on the selected family . . . . . . . . . . . . . . . . . . 350
+7 The geometric trace formula and the Galois row
+360
+7.1 The precise output required of the row . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 360
+7.2 A finite-correspondence trace calculation . . . . . . . . . . . . . . . . . . . . . . . . . . . 361
+7.3 What the first geometric realization actually supplies . . . . . . . . . . . . . . . . . . . . . 362
+7.4 Complex uniformization and the marked period dictionary . . . . . . . . . . . . . . . . . . 382
+7.5 Positive-line and adelic coordinates, and Hecke fixed-point transport . . . . . . . . . . . . . 390
+7.6 Selected projective towers, trace tests, and geometric realization . . . . . . . . . . . . . . . 402
+7.7 Rank selection, tangent envelopes, and Hecke descent . . . . . . . . . . . . . . . . . . . . . 413
+7.8 The theta lift and its uniform bound . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 437
+7.9 Analytic suppliers for the definite theta lift . . . . . . . . . . . . . . . . . . . . . . . . . . . 439
+7.10 Congruences, trace limits and the final row . . . . . . . . . . . . . . . . . . . . . . . . . . 450
+7.11 Congruence-density suppliers and unconditional assembly . . . . . . . . . . . . . . . . . . 451
+7.12 Trace-limit extension and semisimple realization . . . . . . . . . . . . . . . . . . . . . . . 465
+7.13 Local closedness, Breuil–Kisin lattice towers, and trace-limit transfer . . . . . . . . . . . . 468
+7.14 Assembly of the local row and weight normalizations . . . . . . . . . . . . . . . . . . . . . 486
+7.15 Same-row local–global upgrades and assembly into the Galois row . . . . . . . . . . . . . . 488
+7.16 The exact use of the row in the arithmetic window . . . . . . . . . . . . . . . . . . . . . . . 502
+8
+
+Families and the arithmetic window estimate
+502
+8.1 The cohomology groups and the window . . . . . . . . . . . . . . . . . . . . . . . . . . . . 502
+8.2 From the three arithmetic estimates to the window . . . . . . . . . . . . . . . . . . . . . . . 505
+8.3 Imposing finitely many conditions on one family . . . . . . . . . . . . . . . . . . . . . . . 506
+8.4 Restriction estimates used in the plus part . . . . . . . . . . . . . . . . . . . . . . . . . . . 507
+8.5 Summing the character estimates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 509
+8.6 The minus part: from a character estimate to a prime sum . . . . . . . . . . . . . . . . . . . 513
+8.7 The strict descent in the Euler-system estimate . . . . . . . . . . . . . . . . . . . . . . . . . 515
+8.8 The integral-homology estimate behind Lemma K . . . . . . . . . . . . . . . . . . . . . . . 516
+8.9 The numerical closure of the cohomology bound . . . . . . . . . . . . . . . . . . . . . . . 518
+8.10 The determinant and finite-orbit bounds . . . . . . . . . . . . . . . . . . . . . . . . . . . . 520
+8.11 The equivariant class-group count . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 525
+8.12 Where the arithmetic window enters the family links . . . . . . . . . . . . . . . . . . . . . 530
+8.13 Choosing one window for every exceptional twist . . . . . . . . . . . . . . . . . . . . . . . 532
+8.14 The cycles and the finite-difference construction . . . . . . . . . . . . . . . . . . . . . . . . 535
+8.15 The selected rank link . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 575
+8.16 Sharp Bessel-subgroup Frobenius-norm integrability . . . . . . . . . . . . . . . . . . . . . 633
+8.17 Nonvanishing of the rank-one Bessel period for discrete series . . . . . . . . . . . . . . . . 643
+8.18 Same-realization kernel, mass, and loop estimates for the spectral link . . . . . . . . . . . . 661
+
+3
+
+8.19 Automorphic all-row label counts, weight realization, and irreducibility . . . . . . . . . . . 673
+8.20 Quantitative Fock no-kernel criterion and local-to-global family link . . . . . . . . . . . . . 688
+8.21 Global arithmetic tie and family assembly with fixed exponents . . . . . . . . . . . . . . . . 699
+8.22 Selected primitive-period, lattice-realization, and divisor-kernel bridges . . . . . . . . . . . 711
+9 The covolume estimate and its uniformity
+723
+9.1 Lattices, heights and an integral orthogonal cut . . . . . . . . . . . . . . . . . . . . . . . . 724
+9.2 The finite-group projector in the cutoff . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 726
+9.3 The pointwise estimate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 728
+9.4 The eventual, simultaneous statement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 731
+9.5 A precise geometric citation: point separation . . . . . . . . . . . . . . . . . . . . . . . . . 734
+9.6 Finite generation and fullness of the integral lattice . . . . . . . . . . . . . . . . . . . . . . 735
+9.7 The transference bound used to find a CM frame . . . . . . . . . . . . . . . . . . . . . . . 737
+9.8 The adapted frame and nonvanishing construction . . . . . . . . . . . . . . . . . . . . . . . 739
+10 Geometric inputs and the integral Hodge–Tate comparison
+806
+10.1 Matching the project model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 809
+10.2 The prismatic normalization and its Hodge quotient . . . . . . . . . . . . . . . . . . . . . . 811
+10.3 The arithmetic model and its normalizations . . . . . . . . . . . . . . . . . . . . . . . . . . 813
+10.4 The integral polarized retract . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 820
+10.5 The arithmetic fields of the Hodge package . . . . . . . . . . . . . . . . . . . . . . . . . . 821
+10.6 Seminegativity on a complete curve . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 825
+10.7 Deformation across the stated divided-power thickening . . . . . . . . . . . . . . . . . . . 826
+10.8 The exterior-cup isomorphism in degree two over arbitrary bases . . . . . . . . . . . . . . . 832
+10.9 Chern–Poincaré duality and polarization forms over arbitrary bases . . . . . . . . . . . . . . 843
+10.10Semistable reduction, arithmetic inputs, and toroidal compactifications . . . . . . . . . . . . 851
+11 Resolution and principalization in the geometric input
+
+876
+
+12 Metric integration and generic nef asymptotics
+879
+12.1 The inverse Poincaré–Lelong identity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 879
+12.2 The generic nef Riemann–Roch input . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 881
+13 The short-interval norm-prime input for the analytic host
+883
+13.1 The actual effective exceptional-zero gap . . . . . . . . . . . . . . . . . . . . . . . . . . . 886
+13.2 The zero-free region and the single exceptional zero . . . . . . . . . . . . . . . . . . . . . . 889
+13.3 The concrete imaginary-quadratic ray family . . . . . . . . . . . . . . . . . . . . . . . . . . 892
+14 The ray-family explicit formula with its exceptional zero
+
+895
+
+15 Vanishing and the isolated non-klt divisor
+900
+15.1 Nef numerics in every characteristic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 904
+15.2 Strong approximation for the supported special unitary group . . . . . . . . . . . . . . . . . 907
+15.3 Bounded short sections and simultaneous finite-place denominators . . . . . . . . . . . . . 910
+15.3.1 Finite level theta systems . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 949
+15.3.2 Free lower rows, algebraic short-value descent, and global reading equality . . . . . 958
+15.3.3 Exact finite-cover evaluation of short sections . . . . . . . . . . . . . . . . . . . . . 973
+15.3.4 Normalized local class and harmonic valuation estimates . . . . . . . . . . . . . . . 984
+
+4
+
+16 Maximal slopes, scalar extension and measure normalization
+999
+16.1 Selected rationality, prescribed Gram realization, and the covolume assembly . . . . . . . . 1013
+16.2 Deep-cover good reduction, bad-rank share, and lower-slope bounds . . . . . . . . . . . . . 1023
+17 Assembly of the ordinary RH argument
+1036
+17.1 From a connected arithmetic family to zero-freeness . . . . . . . . . . . . . . . . . . . . . . 1036
+17.2 The seven inputs at the literature assembly . . . . . . . . . . . . . . . . . . . . . . . . . . . 1037
+17.3 What the terminal row supplies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1038
+17.4 Construction of the compatible family bundle and final assembly . . . . . . . . . . . . . . . 1038
+18 Essential inputs and their present status
+1042
+18.1 Field-by-field audit of UnitaryGroupThirdPlaceHypotheses and ThetaLocalInputs . . . . . . 1045
+
+1
+
+Scope, source and standard of proof
+
+P
+The target is the ordinary Riemann Hypothesis for the meromorphic continuation of n≥1 n−s . The source
+actually proves a stronger half-plane assertion for all Dirichlet characters and then specializes it to the character modulo one. We follow that argument; we do not assume that it is enough merely to state its stronger
+intermediate assertions.
+The underlying mathematical argument is credited to Levent Alpöge and Claude, as requested and as
+described by the supplied project’s provenance. This manuscript is a human-readable reconstruction of that
+supplied argument prepared by Jeremy Rodgers; it introduces no original extensions. Its source authority is
+the archive rh‐main.zip, SHA-256
+02a2877f92f3a6579181209838e7e8de08ba472e87cf8404f56a0e4f42ed8f19.
+
+Project source paths below are relative to lean/src. Established Mathlib statements are read at the exact
+revision 0df444a360eaa60ab8c11dca51a86af692955474, pinned by the project. This fixes, in particular, the
+conventions for the values assigned at poles, primitive characters, local reciprocity and complex powers.
+A citation in this manuscript has two jobs: to state the mathematical result being used, and to identify
+a source precise enough to check that result. At an application we check the hypotheses, normalization and
+quantifiers. A project declaration bearing a literature-related name is not, by itself, a literature citation. All
+forty-five handoff gap groups and all fourteen original frontier branches are reconstructed in this repaired
+Version 2 prose edition across Sections 2–17, and their exact wiring into the terminal argument is assembled
+in Section 17 (Proposition 17.4 and Theorem 17.5), with all fourteen original frontier branches accounted for
+in Section 18. Every cited classical published theorem entering the project-internal arguments is explicitly
+inventoried field-by-field in Tables 5, 6, 1, 2, and 3; throughout the manuscript, claims that a branch or
+intermediate theorem is discharged without further project-internal hypotheses are always relative to that
+explicit published-literature basis.
+The earlier expansion is preserved in RH_Exposition and the checkpoint recorded in data/scope‐and‐freeze.
+json. The large supporting expansions are used to recover actual arguments, not as a substitute for an argument in the present paper. Routine foundations of algebra, topology and analysis may be cited at referee
+level. We no longer attempt to print every generated Lean declaration or every implementation detail of
+those foundations.
+The original fourteen frontier branches are retained in the compact input map. They are an initial checklist, not a proof that all essential mathematical inputs have been found. Coverage is decided by tracing the
+actual terminal argument and checking each mathematical contract. We maintain a strict three-way boundary between: (a) the self-contained repaired Version 2 mathematical prose proofs in this manuscript; (b) the
+
+5
+
+cited classical published literature theorems inventoried in Tables 5, 6, 1, 2, and 3; and (c) external verification limits outside this prose repair pass. Specifically, a transitive UTF-8 textual source scan of the local
+modules imported by Main.lean (175,187 local modules) records zero missing local modules and zero textual
+axiom, sorry, or admit declarations, but that textual scan is strictly weaker than a Lean 4 kernel check: no
+local Lean 4 elaboration or kernel typechecking of the full pinned environment has been run here, and a successful typesetting build does not supply formal verification. Likewise, while mathematical statements and
+hypotheses are matched against the Lean source and prose proofs, exact printed clause, theorem, and page
+numbers in unopened external primary print publications remain to be verified directly against the original
+print texts during independent refereeing.
+Attribution and AI assistance. The underlying mathematical argument is credited to Levent Alpöge and
+Anthropic’s Claude. Jeremy Rodgers prepared this human-readable reconstruction with AI assistance from
+OpenAI’s GPT/Codex and Google’s Antigravity/Gemini in translating Lean declarations into mathematical
+prose, drafting and revising the exposition, and conducting targeted consistency checks. Jeremy Rodgers
+takes responsibility for the submitted manuscript.
+
+2
+
+The precise target and the endpoint reduction
+
+2.1
+
+Conventions and established analytic inputs
+
+We write ζ for the continued Riemann zeta function and L(s, χ) for the continued Dirichlet L-function of a
+character χ modulo a positive integer N . For positive real x we use xs = exp(s log x) with the real logarithm.
+The Lean functions are total functions: a value is assigned even at a pole. All substantive applications below
+either avoid the pole or explicitly retain the source’s convention at it.
+The exact target definition in Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185‐‐186 is the following
+proposition:
+∀s ∈ C,
+
+ζ(s) = 0,
+
+¬∃n ∈ N s = −2(n + 1),
+
+s 6= 1
+
+=⇒
+
+1
+Re s = .
+2
+
+(1)
+
+The quantified n starts at zero, so the excluded values are exactly −2, −4, −6, . . .. No restriction to the
+critical strip has been silently inserted.
+We use the following established analytic results in their precise forms. Each is a theorem in the pinned
+external Mathlib 4 dependency (revision 0df444a360eaa60ab8c11dca51a86af692955474, outside rh‐main/lean/
+src); throughout this manuscript, paths prefixed by Mathlib/ identify theorems in that external Mathlib 4
+revision, whereas all other ... paths refer to project-local modules under rh‐main/lean/src.
+(i) ζ(0) = −1/2: riemannZeta_zero, Mathlib/NumberTheory/LSeries/RiemannZeta.lean:151‐‐152.
+(ii) If w 6= −n for every n ∈ N and w 6= 1, then
+ζ(1 − w) = 2(2π)−w Γ(w) cos(πw/2)ζ(w).
+
+(2)
+
+This is riemannZeta_one_sub in the same file, lines 178–180. The displayed identity, rather than the
+informal comment preceding it in that file, fixes the normalization.
+(iii) Γ(w) 6= 0 for Re w > 0: Complex.Gamma_ne_zero_of_re_pos, Mathlib/Analysis/SpecialFunctions/
+Gamma/Beta.lean:454‐‐457.
+
+6
+
+(iv) For z ∈ C,
+cos z = 0
+
+⇐⇒
+
+∃k ∈ Z z = (2k + 1)π/2.
+
+(3)
+
+This is Complex.cos_eq_zero_iff, Mathlib/Analysis/SpecialFunctions/Trigonometric/Complex.lean:33‐42.
+(v) For the character modulo one,
+L(s, 11 ) = ζ(s)
+
+(s ∈ C).
+
+(4)
+
+This equality of the total functions is DirichletCharacter.LFunction_modOne_eq, Mathlib/Number
+Theory/LSeries/DirichletContinuation.lean:67‐‐69.
+For the elementary nonvanishing of (2π)−w we need only 2π > 0 and the exponential formula above: an
+exponential is nonzero. This checks the same nonzero-base condition used by Complex.cpow_ne_zero_iff in
+the source.
+
+2.2
+
+The functional-equation argument
+
+Proposition 2.1. Suppose
+∀w ∈ C,
+
+1
+Re w > ,
+2
+
+w 6= 1
+
+=⇒
+
+ζ(w) 6= 0.
+
+(5)
+
+Then the Riemann Hypothesis in (1) holds.
+Source: Formalism/GammaFactorNonvanishing/RhOfRight.lean:5‐‐62; Formalism.VW.rh_of_right.
+
+Proof. Let s satisfy the three hypotheses on the left of (1). If Re s > 1/2, (5) contradicts ζ(s) = 0. If
+Re s = 1/2, the conclusion already holds. It remains to exclude Re s < 1/2.
+First s 6= 0, since otherwise ζ(s) = −1/2 by (i). Set w = 1 − s. Then Re w = 1 − Re s > 1/2 and
+w 6= 1. For every n ∈ N, the real part of −n is nonpositive, whereas Re w > 0; hence w 6= −n. These
+verify every hypothesis of (ii), so (2) applies. Its left side is zero.
+The factors 2 and (2π)−w are nonzero. The factor Γ(w) is nonzero by (iii), since Re w > 0. The
+factor ζ(w) is nonzero by (5), since Re w > 1/2 and w 6= 1. To handle the remaining factor, suppose
+cos(πw/2) = 0. By (iv), πw/2 = (2k + 1)π/2 for an integer k. Cancelling the nonzero real number π gives
+w = 2k + 1, and therefore s = −2k. If k < 0, then k ≤ −1 and Re s = −2k ≥ 2, contrary to Re s < 1/2.
+If k = 0, then s = 0, already excluded. If k > 0, set n = k − 1 ∈ N; then s = −2(n + 1), contrary to the
+nontrivial-zero hypothesis. Thus the cosine factor is also nonzero. The right side of (2) is consequently a
+product of nonzero complex numbers, contradicting its zero left side. This excludes the remaining case.
+Definition 2.2. Write EC for the statement
+∀N ≥ 1 ∀χ mod N ∀s ∈ C,
+
+1
+Re s > ,
+2
+
+(χ 6= 1N or s 6= 1)
+
+=⇒
+
+L(s, χ) 6= 0.
+
+(6)
+
+This is exactly UpperTheory.EveryCharacter in Development/AutomorphicArithmetic/CharacterBoxes/Every
+Character.lean:13‐‐14. The typeclass condition NeZero N means N 6= 0; for N ∈ N it is exactly the stated
+N ≥ 1.
+Proposition 2.3. The statement EC implies ordinary RH.
+Source: Formalism/GammaFactorNonvanishing/CritLine.lean:29‐‐32; Formalism.VW.rh_of_every.
+
+Proof. For Re s > 1/2 and s 6= 1, specialize (6) to N = 1 and χ = 11 . The disjunction in that statement
+holds through s 6= 1. Equation (4) therefore gives ζ(s) 6= 0. Proposition 2.1 applies.
+7
+
+2.3
+
+The terminal source calls
+
+The terminal declaration at Main.lean:4 is riemannHypothesis : RiemannHypothesis := rhOfAll. At Supplements/Kernels/MainTheorems.lean:7‐‐9, allChi is the supplied proof of EC, and rhOfAll applies precisely
+Proposition 2.3 to it. Thus the remaining mathematical obligation is to establish that supplied EC argument
+with its full quantifiers. The companion statements in Main.lean are not used to prove this endpoint. We do
+not replace this obligation by the stronger generalized RH conclusions announced elsewhere.
+
+2.4
+
+The reduction from primitive characters
+
+A primitive-character object ψ consists of a positive modulus d, a primitive Dirichlet character χψ modulo
+d, and the indicated primitivity certificate. Write ZF for
+∀ψ ∀s ∈ C,
+
+Re s >
+
+1
+2
+
+=⇒
+
+L(s, χψ ) 6= 0.
+
+(7)
+
+This is the source’s Formalism.HC.ZeroFreeAll: Formalism/SharpRestriction/RamificationFrobenius/Totient
+GaloisClasses/ExplicitFormulaErrorOfHostConditions.lean:11‐‐18. For the primitive trivial character modulo
+one, L(s, 11 ) = ζ(s) by (4), so the universal quantifier in (7) also includes the total function’s assigned
+value at s = 1. We account for that point explicitly, matching the case split in Formalism/SharpRestriction/
+RamificationFrobenius/TotientGaloisClasses/Landau.lean:508‐‐516: for s 6= 1, the analytic nonvanishing of
+the regularized function ζ1 (s) = (s − 1)ζ(s) (riemannZetaOne_eq_mul_of_ne_one) yields ζ(s) 6= 0, whereas
+at s = 1 the assigned value of Mathlib’s total function ζ(1) is nonzero by the pinned Mathlib theorem riemann
+Zeta_ne_zero_of_one_le_re. By contrast, both EC (6) and ordinary RH (1) explicitly exclude s = 1 for the
+trivial character, so the total function’s convention at the pole s = 1 plays no role in ordinary RH itself.
+Proposition 2.4. The assertion ZF implies EC.
+Source:
+
+Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean:5‐‐35;
+
+UpperTheory.Top.
+
+imprimitive.
+
+Proof. Fix N ≥ 1, a character χ modulo N , and s with σ = Re s > 1/2 and (χ 6= 1N or s 6= 1). Let
+d = cond(χ) and let χ0 be its primitive character. The conductor facts in Mathlib/NumberTheory/Dirichlet
+Character/Basic.lean give d 6= 0, d | N , primitivity of χ0 , and changeLeveld|N (χ0 ) = χ (conductor_ne_zero,
+conductor_dvd_level, primitiveCharacter_isPrimitive, and changeLevel_primitiveCharacter, the last at
+lines 310–312). Thus ψ = (d, χ0 ) is one of the objects quantified in (7), and L(s, χ0 ) 6= 0.
+We also have χ0 6= 1d or s 6= 1. If s 6= 1 this is immediate. Otherwise the original disjunction gives
+χ 6= 1N ; if χ0 = 1d , changing level would give χ = 1N , a contradiction. Here change of level preserves the
+trivial character, the theorem changeLevel_one in the same pinned file.
+We may therefore apply the exact continuation identity DirichletCharacter.LFunction_changeLevel,
+Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:150‐‐154:
+Y
+
+L(s, χ) = L(s, χ0 )
+1 − χ0 (p)p−s .
+(8)
+p|N
+
+The product ranges over distinct prime divisors of N ; primes dividing d cause no problem since χ0 (p) =
+0. All the identity’s hypotheses have been checked: both moduli are nonzero, d | N , and the preceding
+disjunction holds for χ0 .
+For every prime in this product, p > 1 and |χ0 (p)| ≤ 1. The latter is the exact character bound Dirichlet
+Character.norm_le_one, Mathlib/NumberTheory/DirichletCharacter/Bounds.lean:33‐‐37. Our complex-power
+convention gives |p−s | = p−σ < 1. Hence |χ0 (p)p−s | ≤ p−σ < 1, so 1 − χ0 (p)p−s 6= 0. The finite product
+in (8) is nonzero, as is its first factor. This proves (6) with its full modulus and character quantifiers.
+8
+
+3
+
+The analytic window principle
+
+The analytic argument needs an upper bound on arbitrarily distant power-length windows, rather than an
+estimate at every sufficiently large point. We first prove this implication for finite positive combinations of
+Dirichlet characters. We then specify the uniform estimate and host existence statement required to produce
+those windows.
+P
+Throughout this section, L(s, χ) denotes the meromorphic continuation of n≥1 χ(n)n−s . Characters
+are extended by zero off the units. The character of conductor 1 gives ζ(s). In the analytic arguments below,
+the simple pole of ζ(s) at s = 1 is always excluded from the zero sets ZF (just as s = 1 is excluded for the
+trivial character in EC and ordinary RH). When interfacing with the stronger total-function statement ZF (7)
+of Section 2, nonvanishing of Mathlib’s total function ζ at s = 1 is supplied separately by riemannZeta_
+ne_zero_of_one_le_re, following the exact case split at s = 1 versus s 6= 1 in Formalism/SharpRestriction/
+RamificationFrobenius/TotientGaloisClasses/Landau.lean:508‐‐516. For a positive real number y, complex
+powers mean y s = exp(s log y), using the real logarithm.
+We use the classical facts that a nonprincipal Dirichlet L-function is entire, is nonzero at 1, and has
+its Euler product in <s > 1, and that ζ(s) = (s − 1)−1 + γ + O(s − 1) near 1. The precise reference
+statements checked for these facts are DLMF §25.15(i), equations (25.15.1)–(25.15.2), (25.15.9) [60], and
+(25.2.4)–(25.2.5) [61].1
+
+3.1
+
+Weighted character families and their poles
+
+Let F = (I, (Ni , χi , ai )i∈I ), where I is finite, Ni ≥ 1, χi is a character modulo Ni , and ai > 0. Assume for
+each i that either Ni = 1, or χi is nonprincipal. This admissibility condition matters: a principal character
+of larger modulus has a different pole subtraction. For y ≥ 1, define
+
+y
+X
+−1
+Rχ (y) =
+Λ(n)χ(n)
+n
+1≤n≤y
+
+(
+
+and
+Gχ (y) =
+
+Rχ (y) − y log y + (1 + γ)y,
+
+N = 1,
+
+Rχ (y) + y L0 (1, χ)/L(1, χ), χ 6= 1.
+
+Here Λ is the von Mangoldt function, with Λ(1) = 0. Equivalently one can sum Λ(n)χ(n)(y/n − 1)+ over
+all n ≥ 1. Set
+X
+GF (y) =
+ai <Gχi (y),
+gF (u) = GF (eu ).
+i∈I
+
+Let ZF consist of the points ρ with <ρ > 0 at which L(ρ, χi ) or L(ρ̄, χi ) has a zero for some i. In the
+modulus 1 case, 1 is excluded as a pole; in the other cases it is excluded by nonvanishing at 1.
+Proposition 3.1 (Pole data). There is a function ΦF , holomorphic on {<s > 0} \ ZF , such that
+Z ∞
+ΦF (s) =
+gF (u)e−su du (<s > 2).
+0
+
+The function gF is measurable and |gF (u)| ≤ CF e2u for u ≥ 0, for some constant CF . Every point of
+{<s > 0} has a punctured neighborhood disjoint from ZF . At every ρ ∈ ZF ,
+cρ
+ΦF (s) =
++ hρ (s) (0 < |s − ρ| sufficiently small),
+s−ρ
+1 See https://dlmf.nist.gov/25.15, https://dlmf.nist.gov/25.15.E9, and https://dlmf.nist.gov/25.2.
+
+E4. These citations concern only the classical continuation, Euler product, value at 1, and Laurent coefficient. The window principle
+below is proved here.
+
+9
+
+where hρ is holomorphic at ρ, cρ 6= 0, and, if ρ is real, cρ is real and strictly positive.
+Proof. Measurability follows from the finite ramp sums: on each bounded interval only finitely many terms
+occur, and each ramp is continuous. Also |χ(n)| ≤ 1, and
+|Rχ (y)| ≤ y
+
+X Λ(n)
+n≤y
+
+n
+
+≤y
+
+X log n
+n≤y
+
+n
+
+= O(y 2 ).
+
+For example, log n/n ≤ 1, and there are at most y terms. The correction terms are Oχ (y 2 ) on y ≥ 1. Finite
+summation with the fixed weights proves the asserted bound.
+For <s > 1 and n ≥ 1, direct integration gives
+Z ∞
+n−s
+.
+(y/n − 1)+ y −s−1 dy =
+s(s − 1)
+1
+Indeed, on y > n the integrand
+is n−1 y −s − y −s−1 , and it is zero for 1 < y ≤ n. Interchanging sum and
+P
+integral is justified by n≥1 Λ(n)n−<s < ∞; the integral of the absolute value of the n-th summand is at
+most Λ(n)n−<s /(<s(<s − 1)). The Euler product, differentiated in its half-plane of absolute convergence,
+gives
+X Λ(n)χ(n)
+L0
+.
+− (s, χ) =
+L
+ns
+n≥1
+
+The
+absolute convergence also follows directly from Λ(n) ≤ log n and convergence of
+P required
+−σ
+(log n)n for σ > 1. It follows that, for χ 6= 1,
+Z ∞
+L0 (s, χ)/L(s, χ) − sL0 (1, χ)/L(1, χ)
+.
+(9)
+Gχ (y)y −s−1 dy = −
+s(s − 1)
+1
+For the modulus 1 character the result is
+
+ 0
+
+1
+ζ
+1
+−
+(s) +
++ 1 − (1 + γ)s .
+(10)
+s(s − 1) ζ
+s−1
+R∞
+R∞
+Here the additional integrals are 1 y −s dy = (s − 1)−1 and 1 (log y)y −s dy = (s − 1)−2 . All these
+integrals converge absolutely in the stated half-plane. The substitution y = eu identifies them with the
+corresponding Laplace transforms on u > 0.
+We describe the continuations and their residues explicitly. For an entire function f with f (1) 6= 0, put
+c = f 0 (1)/f (1), fix k ∈ C, and consider
+N (s) = f 0 (s)/f (s) − sc + k(1 − s).
+On the open set f 6= 0, this is holomorphic and N (1) = 0. Extend N (s)/(s − 1) at 1 by N 0 (1), and define
+Φ(s) = −N (s)/(s(s − 1)) with this extension. Thus Φ is holomorphic wherever s 6= 0 and f (s) 6= 0,
+including at 1. Since f (1) 6= 0, the identity theorem excludes an identically zero germ anywhere. At a zero
+ρ 6= 0, of order m ≥ 1, write f (s) = (s − ρ)m v(s), v(ρ) 6= 0. Then f 0 /f = m/(s − ρ) + v 0 /v. As
+q(s) = 1/(s(s − 1)) is holomorphic at this ρ, subtracting q(ρ) from q(s) and dividing by s − ρ gives a
+holomorphic function. Consequently
+Φ(s) =
+
+−m/(ρ(ρ − 1))
++ a function holomorphic at ρ.
+s−ρ
+
+At a nonzero nonzero-value point the same formula holds with m = 0.
+10
+
+For a nonprincipal character apply this construction with f = L( · , χ) and k = 0. For the modulus 1
+character take the entire function
+f (s) = (s − 1)ζ(s) (s 6= 1),
+
+f (1) = 1.
+
+Its expansion gives f 0 (1) = γ, and f 0 /f = (s − 1)−1 + ζ 0 /ζ away from 1 and the zeros. Taking k = 1
+yields precisely (10). Zeros away from 1 agree with those of ζ, so both cases have the same residue rule.
+Let Φχi and Φχ̄i be the functions just constructed, and set
+ΦF (s) =
+
+X ai
+2
+
+i∈I
+
+
+Φχi (s) + Φχ̄i (s) .
+
+Conjugation of the Dirichlet series, continued by the identity theorem, gives L(s, χ̄) = L(s̄, χ), including the
+corresponding derivative formula. Hence Gχ̄ (y) = Gχ (y). Finite summation of the absolutely convergent
+Laplace integrals therefore gives the asserted transform of the real function gF . Isolated zeros of the finitely
+many entire functions just used give the punctured-neighborhood assertion and holomorphy off ZF .
+At ρ ∈ ZF , let mi , e
+mi be the orders of vanishing of the two corresponding entire functions. Define
+X ai
+Sρ =
+(mi + e
+mi ).
+2
+i
+
+Every summand is nonnegative and one is positive, so Sρ > 0. The residue is therefore
+cρ = −
+
+Sρ
+6= 0.
+ρ(ρ − 1)
+
+(11)
+
+This shows explicitly why different characters cannot cancel a pole. If ρ is real, the Euler product excludes
+ρ > 1, and the value at 1, or the filled zeta factor there, excludes ρ = 1. Thus 0 < ρ < 1, so ρ(ρ − 1) < 0;
+(11) is then real and strictly positive.
+
+3.2
+
+The windowed Landau theorem
+
+For a measurable real function g, write W(g; θ, δ), where δ > 0, for the following condition: for every η > 0
+and every real U0 , there exist U ≥ U0 and a function R such that on J = [U, (1 + δ)U ]
+Z
+R ≥ 0,
+g ≤ R,
+Re−θu ∈ L1 (J),
+R(u)e−θu du ≤ eηU .
+J
+
+The choices U, R may depend on both η and U0 .
+Theorem 3.2 (Windowed Landau theorem). Suppose g, Φ, Z have the properties in Proposition 3.1, with
+the growth exponent 2. If 0 < θ < 1, δ > 0, and W(g; θ, δ) holds, then <ρ ≤ θ for every ρ ∈ Z.
+Proof. For σ > 2, differentiation under the integral gives
+Ak (s) :=
+
+(−1)k Φ(k) (s)
+=
+k!
+
+Z ∞
+g(u)
+0
+
+uk e−su
+du
+k!
+
+(<s > 2).
+
+(12)
+
+To justify all derivatives, at a fixed s use b = (<s − 2)/2 > 0: on the disc of radius b, the integrands
+for the j-th and (j + 1)-st derivatives are dominated by C0 uj e−bu and C0 uj+1 e−bu . These are integrable.
+Dominated differentiation and induction on j prove (12).
+
+11
+
+We first establish concentration of this kernel on a window. For a > 0,
+Z ∞ k −au
+u e
+uk e−au
+du = a−k−1 ,
+≤ a−k (u ≥ 0).
+k!
+k!
+0
+The first identity follows by integration by parts from the exponential integral, with the polynomialexponential boundary terms zero. The second follows from (au)k /k! ≤ eau . If 0 ≤ l < s, splitting u < U
+or u > V gives
+Z
+uk e−su
+e−lV
+elU
+du ≤
++
+.
+(13)
+k!
+(s − l)k+1 (s + l)k+1
+(0,∞)\[U,V ]
+Indeed the original exponential is bounded by the sum e−lV e−(s−l)u + elU e−(s+l)u on that complement;
+integrate the nonnegative majorant on the full positive half-line.
+Put
+1
+e
++
+.
+l = 2 + 6/δ, M = l(1 + δ), σ = M (2 + l), CT =
+σ−2−l σ−2+l
+Both denominators are positive and σ > 2. For U ≥ 1, choose k = d(1 + δ/2)σU e, so k ≥ U . The
+elementary estimate
+ec
+ex a−k−1 ≤
+if x + k(σ − a)/a ≤ c
+aσ k
+follows from σ/a ≤ e(σ−a)/a . Apply (13) with s = σ −2, V = (1+δ)U . For its first term take a = σ −2−l,
+x = −M U , c = 1. The identities
+(1 + δ/2)(2 + l) = M − 1,
+
+(1 + δ/2)(l − 2) = l + 1
+
+give (σ − a)/a = 1/(M − 1), (1 + δ/2)σ = M (M − 1), and M − 1 ≥ 1. The upper ceiling bound therefore
+verifies the required inequality. For its second term take a = σ − 2 + l, x = lU , c = 0. The lower ceiling
+bound gives k(l − 2) ≥ (l + 1)σU , and l(σ − 2 + l) ≤ (l + 1)σ; hence it too verifies that inequality. Thus
+the same σ, CT , depending only on δ, satisfy
+Z
+
+uk e(2−σ)u
+du ≤ CT σ −k .
+k!
+(0,∞)\[U,(1+δ)U ]
+
+(14)
+
+Let wk (u) = uk e−σu /k!. For a majorant R on a window J, the triangle inequality in (12) gives, uniformly for all real t,
+Z ∞
+|Ak (σ + it)| + <Ak (σ) ≤
+(|g(u)| + g(u))wk (u) du.
+0
+
+On J, |g| + g ≤ 2R and wk (u) ≤ (σ − θ)−k e−θu . On its complement, |g| + g ≤ 2C0 e2u . All integrals are
+absolutely convergent by the exponential bound. Taking U ≥ max(U0 , 1) from W and then its kernel index
+k, (14) proves
+|Ak (σ + it)| + <Ak (σ) ≤ C∗ eηU (σ − θ)−k for every t ∈ R,
+(15)
+where C∗ = 2 + 2C0 CT . The constants σ, C∗ are fixed before η, U0 ; the same U, k work for every t.
+We next record the required pole geometry. Every pole has real part at most 2: otherwise the Laplace
+integral would bound Φ on a neighborhood of that pole, contradicting its nonzero residue. More explicitly,
+on <s ≥ σ 0 > 2, |Φ(s)| ≤ C0 /(σ 0 − 2), whereas the local pole expansion makes (s − ρ)Φ(s) tend to a
+nonzero value. Furthermore Z ∩ B(z, r) is finite whenever r < <z. Every point of this compact disc has a
+neighborhood meeting Z in at most that point; a finite subcover proves the assertion.
+12
+
+Suppose a pole has real part greater than θ. Apply this finiteness assertion to Z ∩ B(σ, σ − θ). One of
+the following alternatives holds:
+(a) There is D ≤ σ − θ for which B(σ, D) ∩ Z = ∅, and a pole ρ1 with σ − <ρ1 < D.
+(b) A real pole β > θ is the only pole in B(σ, r), for some σ − β < r ≤ σ − θ.
+To verify the dichotomy, if that finite set is empty use D = σ −θ and the original pole. Otherwise choose
+a member of minimum distance d from σ. If some pole satisfies σ − <ρ < d, take D = d. If no pole does,
+a member at distance d must be the real point β = σ − d: the real-part distance is at least d, and its squared
+modulus is that distance squared plus the imaginary part squared. Also d < σ − θ, because the original pole
+has real part greater than θ. The positive gap to the remaining finitely many distances gives the radius r in
+(b).
+In case (a), move the center slightly in the imaginary direction to make its nearest pole unique. Here is
+the needed justification. Let z0 = σ + i=ρ1 , and choose  > 0 with  < D − (σ − <ρ1 ) and D +  < σ. The
+poles in B(z0 , D + ) form a finite set. For two distinct members a, b, the equality |σ + it − a| = |σ + it − b|
+determines at most one real t. If their imaginary parts agree, equality would force their real parts to agree too,
+since both are less than σ. Choose t within  of =ρ1 avoiding these finitely many values. Then z = σ + it
+has a uniquely nearest pole ρ, at distance d < D. The gap to the other finite distances supplies d < r ≤ D
+such that B(z, r) contains only ρ. Poles in this ball lie in the preceding finite set by the triangle inequality,
+so none have been omitted.
+If the residue at this pole is c, subtract c/(s−ρ) and fill in its analytic value at ρ. The result is holomorphic
+on B(z, r). Cauchy’s coefficient estimate at any e with d < e < r gives
+|Ak (z)| ≥ |c|d−k−1 − M e−k .
+The pole-free disc B(σ, D) gives |Ak (σ)| ≤ M 0 e−k . Since r ≤ D ≤ σ − θ, insert these inequalities into
+(15) to obtain
+|c|/d
+M + M0
+C∗ eηU
+≤
++
+.
+(16)
+dk
+ek
+(σ − θ)k
+All discs here lie in <s > 0, because their radii are less than σ.
+In case (b), put d = σ − β, and choose d < e < r. The same pole subtraction and Cauchy estimate now
+give
+<Ak (σ) ≥ cβ d−k−1 − M e−k .
+The residue cβ is strictly positive by hypothesis. Taking t = 0 in (15) and dropping its nonnegative modulus
+term gives the same form as (16), with positive leading constant cβ /d.
+Both conclusions are impossible. In fact if c > 0 and 0 < d < e ≤ E, put η = 12 log(e/d) > 0. For
+k ≥ U,
+|M0 | + |C0 | −ηU
+(M0 + C0 )eηU /ek
+≤
+e
+−→ 0.
+k
+c
+c/d
+Enlarge U0 so this ratio is less than 1. The choices allowed in (15) still give U ≥ U0 and k ≥ U , contradicting
+the corresponding lower bound. This proves the theorem.
+
+3.3
+
+From power windows to zero-freeness
+
+Corollary 3.3. Let F be any admissible finite positive character family. Fix 0 < θ < 1, λ > 1, and C ∈ R.
+If for every Y0 there is Y ≥ Y0 such that
+GF (y) ≤ Cy θ
+
+(Y ≤ y ≤ Y λ ),
+
+then every member L(s, χi ) is zero-free for <s > θ.
+13
+
+Proof. Set δ = λ − 1 > 0. Given η > 0, require Y ≥ 1 so large that |C|δ log Y ≤ Y η . On the window take
+R(y) = |C|y θ ; then
+Z Y 1+δ
+R(y)y −θ−1 dy = |C|δ log Y ≤ Y η .
+Y
+
+This integrand is continuous on a compact positive interval, hence integrable. With U = log Y , the substitution y = eu turns this identity into the required W(gF ; θ, δ) estimate, using majorant R(eu ). The lower
+bound U ≥ U0 is obtained by initially requiring Y ≥ eU0 . Proposition 3.1 and Theorem 3.2 now give
+<ρ ≤ θ for every zero in ZF . A zero of a member with <s > θ > 0 away from the simple pole s = 1 of ζ
+belongs to ZF , which is a contradiction; for the stronger total-function statement ZF (7) at s = 1, Mathlib’s
+assigned value ζ(1) is nonzero by riemannZeta_ne_zero_of_one_le_re, exactly as in TotientGaloisClasses/
+Landau.lean:508‐‐516.
+
+3.4
+
+Levels and the order of the uniform choices
+
+A level L consists of a finite set K of primitive Dirichlet characters, containing the conductor 1 character
+and closed under complex conjugation, an integer o ≥ 0, and optionally a distinguished real odd character
+χ∗ ∈ K. For the nontrivial members put
+(
+1,
+χ = χ∗ when this choice is present,
+wL (χ) =
+−1
+(3o + 1) , otherwise,
+X
+
+GL (y) = G(y) +
+
+wL (χ)<Gχ (y),
+
+χ∈K\{1}
+
+where G(y) = R1 (y) − y log y + (1 + γ)y. All the weights are strictly positive. A primitive principal
+character has conductor 1; therefore L, with weight 1 on that character, is an admissible family in the sense
+above. It follows from Corollary 3.3 that, for every λ > 1 and 0 < θ < 1,
+∀Y0 ∃Y ≥ Y0 ∀y ∈ [Y, Y λ ],
+=⇒ ∀χ ∈ K ∀s,
+
+GL (y) ≤ y θ
+
+<s > θ =⇒ L(s, χ) 6= 0.
+
+(17)
+
+This is the analytic principle needed by the subsequent construction. The special values of the weights have
+played no role in its proof; their positivity is what makes (11) nonzero.
+Proposition 3.4 (Uniform small-scale reduction). Fix a level L and λ > 1. Suppose there are fixed real
+numbers eD , eL and 1 > 0 with the following property. For every 0 <  < 1 there is a set W ⊆ R
+containing windows [Y, Y λ ] arbitrarily far to the right, and a threshold x , such that
+GL (x) ≤ x 1/2+(eD +eL +7)
+
+(x ∈ W , x ≥ x ).
+
+Then every character in K has no zero in <s > 1/2.
+Proof. Given s with <s > 1/2, put
+m = min(<s − 1/2, 1/2) > 0,
+
+θ = 1/2 + m/2.
+
+Then 0 < θ < 1 and θ < <s. Choose 0 <  < 1 so that (eD + eL + 7) ≤ m/2; for example any positive
+ no greater than min(1 /2, m/(2(|eD + eL + 7| + 1))) works. For x ≥ max(x , 1) in W , monotonicity of
+xt in t gives GL (x) ≤ xθ . Discarding a bounded initial part of W preserves its arbitrarily distant windows:
+when requesting a window initially, require its left endpoint to exceed that bound. Apply (17) to exclude a
+zero at s.
+14
+
+The placement of the quantifiers in this proposition is essential. The exponents eD , eL are chosen before ,
+while the family, the admissible set, and its threshold may depend on . At a fixed , the constants controlling
+its family must work at every sufficiently large admissible x, and not be chosen again after x is specified.
+No uniformity over all primitive characters is asserted: the level, its conductor data, and all fixed constants
+may depend on the primitive character under consideration.
+For completeness, every primitive character ψ belongs to a level of the kind used here. Take the finite
+cyclic subgroup generated by ψ in the character group of its conductor, replace each member by its inducing
+primitive character, take no exceptional character, and put o equal to the size of that cyclic group. The trivial
+member induces the conductor 1 character. Taking the inducing primitive character commutes with inversion:
+the conductor of an inverse equals the original conductor, because induction commutes with inversion in both
+directions, and injectivity of induction identifies the two primitive characters. Thus the resulting finite set is
+conjugation-stable. The primitive character inducing ψ is ψ itself, so it is indeed contained in this cyclic level.
+Consequently proving the small-scale hypothesis for these cyclic levels suffices for the primitive-character
+conclusion used in the reduction 2.4.
+
+3.5
+
+The finite character balance
+
+We now give the analytic estimate used to produce the power bound. Its group and its weights vary with the
+admissible point x. Keeping the threshold independent of these varying objects is the reason for stating the
+following construction explicitly.
+Let H be a finite abelian group, of order n, written additively. Put
+Γ = (Z/2Z)2 × H,
+
+Φ = {((0, e), h)},
+
+f = |Φ| = 2n,
+
+and put s0 = ((1, 0), 0), κ = ((1, 1), 0), e1 (t) = s0 + (0, t). The partner map is πt (g) = κ + g + (0, t); it
+bijects Γ \ Φ with Φ. Let χC ((e1 , e2 ), h) = (−1)e1 . For T2 ⊆ H, the thick subset at u is
+Θu = {((0, 1), s + u) : s ∈ T2 } ⊆ Φ,
+
+δ2 = |T2 |/n.
+
+b
+Characters of Γ are homomorphisms to the complex unit circle; their group is denoted Γ.
+An arithmetic datum assigns to each prime p an inertia subgroup Ip ≤ Γ and a Frobenius element Fp ∈ Γ.
+For r ≥ 1, set
+Y
+1 X
+bψ (pvp (m) ).
+ψ(rFp + h),
+bψ (m) =
+bψ (pr ) =
+|Ip |
+h∈Ip
+
+p|m
+
+Thus |bψ (m)| ≤ 1, b1 (m) = 1. Fix arbitrary complex numbers `(ψ), and define
+
+ψ = 1,
+G(y),
+X
+GD (ψ; y) =
+Λ(m)bψ (m)(y/m − 1) + y`(ψ), ψ 6= 1.
+
+m≤y
+
+Only positive y will be used. These definitions agree with the primitive Dirichlet Chebyshev functions when
+the inertia and Frobenius data come from the host and ` is its compatible logarithmic derivative.
+Assume that d is prime and S is a finite set of primes with 2, q1 ∈ S, d ∈
+/ S, and
+Id = {0, s0 },
+
+Ip ⊆ Φ, Fp ∈ Φ (p ∈ S),
+
+15
+
+Ip = 0 (p ∈
+/ S ∪ {d}).
+
+A prime is called inert in this calculation when p ∈
+/ {2, q1 , d} and Fp ∈
+/ Φ. For a cutoff N ∈ N, A > 0,
+t ∈ H, and a weight function w positive on Φ, define
+X
+X
+ASK(A, t, w) = 2
+log p
+(A/pr − w(πt (rFp )))+
+p≤N
+p inert
+
++ log d
+
+and
+
+1≤r≤N
+rFp /
+∈Φ
+
+X
+
+X
+
+1≤r≤N
+
+g/
+∈Φ
+g−rFd ∈Id
+
+(A/dr − w(πt g))+ ,
+
+
+
+
+X
+1
+MAIN(A, w) = A log A − 1 − γ + `(χC ) −
+log w(ρ) .
+f
+ρ∈Φ
+
+The count ASK is real; the main term may be complex.
+Lemma 3.5 (Exact balance). If A/w(ρ) ≤ N for every ρ ∈ Φ, then
+1 XX
+ASK(A, t, w) − MAIN(A, w) =
+ψ(g) w(πt g)GD (ψ; A/w(πt g)).
+f
+b
+g/
+∈Φ ψ∈Γ
+
+Proof. Finite character orthogonality gives
+2
+1X
+ψ(g) bψ (pr ) =
+1g−rFp ∈Ip .
+f
+|Ip |
+
+(18)
+
+b
+ψ∈Γ
+
+Indeed, expand the inertia average; the inner sum over characters is |Γ| if rFp + h = g, and zero otherwise,
+and |Γ|/f = 2. The orthogonality identity follows, for a finite abelian group, by decomposing it into cyclic
+groups and summing finite geometric progressions of roots of unity. The same argument shows that it has
+exactly |Γ| = 2f characters.
+Insert (18) into the finite sum over m ≤ N of
+Λ(m) X X
+ψ(g)bψ (m)(A/m − w(πt g))+ .
+f
+g/
+∈Φ ψ
+
+Only prime powers m = pr contribute. If p ∈ S, then rFp + Ip ⊆ Φ, so there is no contribution for g ∈
+/ Φ. If
+p∈
+/ S ∪ {d}, its coefficient is 21g=rFp ; it is zero unless p is inert. For p = d, |Id | = 2 makes the coefficient
+exactly the indicator in the ramified part of ASK. Terms pr > N vanish since A/w(πt g) ≤ N ; in particular
+extending the exponent range to r ≤ N , or including the d-term when d > N , adds zero terms. This proves
+that the finite sum just displayed is ASK(A, t, w).
+For W = w(πt g), the inner sum over m is
+(
+A log A − A log W − (1 + γ)A, ψ = 1,
+W GD (ψ; A/W ) +
+−A`(ψ),
+ψ 6= 1.
+This follows by factoring A/m − W = W ((A/W )/m − 1) for the nonzero ramp terms. The finite cutoff
+is legitimate by the same vanishing beyond N . Finally
+
+
+ψ = 1,
+f,
+X
+ψ(g) = −f, ψ = χC ,
+
+
+g/
+∈Φ
+0,
+otherwise.
+To check it, express the complement indicator as (1 − χC (g))/2
+and apply character orthogonality. The
+P
+principal correction sums to A log A − (1 + γ)A − (A/f ) ρ∈Φ log w(ρ), by the partner bijection. The
+other corrections sum to A`(χC ). Their total is the displayed main term.
+16
+
+3.6
+
+Uniform perturbation and subgroup averaging
+
+There is an absolute constant Cd ≥ 0, independent of H, D, `, such that for y, z ≥ 1
+|G(y) − G(z)| ≤ Cd |y − z|,
+|GD (ψ; y) − GD (ψ; z)| ≤ |y − z| log max(y, z) + Cd + |`(ψ)|
+
+
+
+(ψ 6= 1).
+
+(19)
+
+Also, for A, w, w 0 > 0, uniformly in ψ,
+|wGD (ψ; A/w) − w0 GD (ψ; A/w0 )| ≤
+
+3A
+|w − w0 |.
+min(w, w 0 )
+
+(20)
+
+We supply the needed elementary
+P justification, including the uniform constants. Rosser and Schoenfeld [62,
+Theorem 12, eq. (3.35)] give m≤Y Λ(m) < 1.03883Y for every Y > 0; in particular this sum is at most
+P
+P
+3Y .2 For k ≥ 1, write A(k) = m≤k Λ(m)/m. The identity log k! = m≤k Λ(m)bk/mc and the bounds
+k/m − 1 < bk/mc ≤ k/m imply
+log k − 1 ≤ A(k) ≤ log k + 3.
+Here log k! ≤ k log k and log k! ≥
+
+Rk
+
+1 log t dt ≥ k log k − k. On k ≤ y ≤ k + 1,
+
+G(y) = yA(k) −
+
+X
+
+Λ(m) − y log y + (1 + γ)y.
+
+m≤k
+
+The extra term at y = k +1 is zero, so this formula includes both endpoints. Its derivative is A(k)−log y +γ,
+which is bounded by an absolute constant for k ≥ 1. The mean value bound on each such interval, followed
+by addition over the intervening integer intervals, proves the first part of (19). For the second, truncate both
+ramps at bmax(y, z)c, use |(y/m − 1)+ − (z/m − 1)+ | ≤ |y − z|/m and |bψ (m)| ≤ 1, and add |y − z||`(ψ)|.
+Increase Cd once to cover both estimates.
+For (20), take the common cutoff bA/ min(w, w 0 )c. For a nonprincipal ψ, the linear correction A`(ψ)
+cancels, and
+X
+wGD (ψ; A/w) =
+Λ(m)bψ (m)(A/m − w)+ + A`(ψ).
+m
+
+Each ramp difference is at most |w − w0 |; summing and using the 3Y bound proves the assertion. For ψ = 1,
+
+assume by symmetry w ≤ w0 . The difference is U − V , where 0 ≤ U ≤ 3A(w0 − w)/w is the difference
+of the two ramp sums and V = A log(w0 /w). Since 0 ≤ V ≤ A(w0 − w)/w, the absolute value of U − V
+has the same upper bound 3A(w0 − w)/w.
+Fix a subgroup A0 ≤ H, and put
+b : ψ(0, u) = 1 for all u ∈ A0 }.
+Ψ(A0 ) = {ψ ∈ Γ
+Let T, T2 ⊆ H, T2 ⊆ A0 , m ∈ N, and choose b, b0 , X 0 > 0, η, ϑ ≥ 0. For each u ∈ A0 , j < m, let wu,j be
+positive on Φ. Assume
+|at /b − x| ≤ 1
+
+(t ∈ T ),
+
+b ≤ wu,j ≤ b + η + 1 on Θu ,
+at /wu,j (ρ) ≤ N
+
+b0 X 0 ≤ xb,
+wu,j ≤ 2b0 on Φ \ Θu ,
+
+(21)
+
+(t ∈ T, ρ ∈ Φ).
+
+2 J. B. Rosser and L. Schoenfeld, Approximate formulas for some functions of prime numbers, Illinois J. Math. 6 (1962), 64–94,
+
+p. 71, Theorem 12; https://doi.org/10.1215/ijm/1255631807. The theorem in the original paper was checked at this
+location.
+
+17
+
+Assume further that
+|GD (ψ; y)| ≤ ϑy
+
+b
+(y ≥ X 0 /3, ψ ∈ Γ),
+
+and that the cost inequalities hold:
+2f (x + 1)ϑ ≤ 1/x,
+
+6f (x + 1)(η + 1) ≤ b/x.
+
+(22)
+
+Define the gap at u by
+gap(u) =
+
+XX
+
+
+ASK(at , t, wu,j ) − < MAIN(at , wu,j ) .
+
+t∈T j<m
+
+Lemma 3.6 (Averaged gap bound). Suppose x ≥ 3, the preceding assumptions hold, and gap(u) ≤ E for
+every u ∈ A0 . If
+X
+X
+ψ(e1 (t))GD (ψ; at /b),
+<
+|T |Y ≤
+t∈T
+
+ψ∈Ψ(A0 )
+
+then
+|T |mb
+Proof. Define
+Th(u, t; y) =
+
+δ2
+2|T |mb
+Y ≤E+
+.
+2
+x
+
+b XX
+ψ(−e1 (s + u − t))GD (ψ; y).
+f
+s∈T2 ψ
+
+The complement points whose partners belong to Θu are exactly e1 (s + u − t), s ∈ T2 . Thus this thick sum
+is the right side of Lemma 3.5 with each thick weight replaced by b, and the other terms omitted. For A = at ,
+the error per character and complement point is at most
+K = 3(x + 1)(η + 1) + (x + 1)bϑ.
+On the thick set this follows from (20) and A/b ≤ x + 1. Off the thick set,
+A/w ≥ (x − 1)b/(2b0 ) ≥ X 0 /3,
+because x ≥ 3 and b0 X 0 ≤ xb. The thin bound gives |wGD (ψ; A/w)| ≤ Aϑ, which is at most the second
+term of K. There are f complement points and 2f characters; division by f therefore bounds the total error
+by 2f K. By (22), this is at most 2b/x. Exact balance consequently gives
+< Th(u, t; at /b) ≤ ASK(at , t, wu,j ) − < MAIN(at , wu,j ) + 2b/x.
+Sum over t ∈ T and j < m.
+Next average over u ∈ A0 . For s ∈ T2 ⊆ A0 , the character sum over u is
+X
+ψ(−e1 (s + u − t)) = |A0 | 1ψ∈Ψ(A0 ) ψ(e1 (t)).
+u∈A0
+
+The proof is the subgroup character sum: a nontrivial restriction has sum zero by translation by an element
+on which it is nontrivial; a trivial restriction has every term equal to 1. Therefore
+X
+u∈A0
+
+Th(u, t; y) = |A0 |b
+
+|T2 |
+f
+
+X
+
+ψ(e1 (t))GD (ψ; y).
+
+ψ∈Ψ(A0 )
+
+Since |T2 |/f = δ2 /2, dividing the summed gap bound by |A0 | > 0, and then applying the hypothesized
+lower bound, proves the assertion.
+18
+
+3.7
+
+The quantitative core inequality
+
+Let K 0 ⊆ Ψ(A0 ) contain the trivial character, and assume ψ(s0 ) = 1 for every ψ ∈ K 0 . For a real c, define
+(
+1, ψ is trivial on {0} × H,
+wc (ψ) =
+c, otherwise,
+and put
+
+X
+
+GK (x) =
+
+wc (ψ)<GD (ψ; x),
+
+X
+
+Σ(x) =
+
+ψ∈K ′
+
+|GD (ψ; x)|.
+
+ψ∈Ψ(A0 )\K ′
+
+Assume, with fixed real M, Ko , CE , that
+|Ψ(A0 )| ≤ M,
+X
+
+ψ(0, t) − c|T | ≤ M x−1+ |T |
+
+(ψ ∈ K 0 , ψ|{0}×H 6= 1),
+
+(23)
+
+t∈T
+
+|`(ψ)| ≤ Ko
+
+(1 6= ψ ∈ K 0 ),
+
+|`(ψ)| ≤ CE log x
+
+(ψ ∈ Ψ(A0 ) \ K 0 ).
+
+Proposition 3.7 (Core inequality). Fix C ≥ 0,  > 0, CE , Ko , M ∈ R, and |c| ≤ 1. There is a threshold
+x1 , depending only on these fixed numbers, such that the following holds for every x ≥ x1 and every choice
+of the finite groups, arithmetic data, sets, weights and parameters introduced above. Assume (21), (22), the
+thin bound, (23), and
+aE ≥ 0,
+
+aE ≤ 2xb,
+
+|T | ≥ 21 x−/8 n,
+
+x1/2− ≤ m ≤ x1/2+/2 ,
+
+x− ≤ |T2 |/n ≤ 1,
+
+xm ≤ k ≤ n2 x1/2− .
+
+Define the nonnegative bracket
+E = |T |aE (1 + m2 /k)
+
+
+|T2 |kbx
+.
++ m 2nmbx + 2 −
+n x
+If
+gap(u) ≤ xC E
+
+(u ∈ A0 ),
+
+then
+GK (x) ≤ x1/2+(C+3) + Σ(x).
+Proof. The constant Cd in (19) is absolute. Set
+A1 = 5 + Cd + |Ko | + |M |(4 + Cd + |Ko |) + 4|CE |.
+Choose x1 ≥ 3 so large that, for x ≥ x1 ,
+x3/8 ≥ 26,
+
+x1/4 ≥ |M |A1 .
+
+These choices are independent of all the subsequently varying data. Write s = x1/4 , e = x , and R = A1 se.
+The estimates log x ≤ 4s and log(x + 1) ≤ 5s imply
+Cd ≤ R,
+log(x + 1) + Cd + |Ko | + |M |x−1+ x(log x + Cd + |Ko |) ≤ R,
+log(x + 1) + Cd + |CE | log x ≤ R.
+19
+
+(24)
+
+For example, in the middle line use x−1+ x = e, log x + Cd + |Ko | ≤ (4 + Cd + |Ko |)s, and s, e ≥ 1. The
+other two inequalities follow term by term from the same facts.
+For ψ ∈ Ψ(A0 ), put
+(
+wc (ψ)<GD (ψ; x), ψ ∈ K 0 ,
+v(ψ) =
+−|GD (ψ; x)|,
+ψ∈
+/ K 0.
+We claim that
+
+ X
+
+|T | v(ψ) − R ≤
+< ψ(e1 (t))GD (ψ; at /b) .
+
+(25)
+
+t∈T
+
+For the trivial character, this is the first estimate of (19), since |at /b − x| ≤ 1. For 1 6= ψ ∈ K 0 , let
+c0 = wc (ψ). If ψ is trivial on H, its sum on T equals |T |; otherwise (23) bounds its difference from c|T |.
+Thus in both cases the difference from c0 |T | has modulus at most |M |x−1+ |T |. Since ψ(s0 ) = 1, we have
+ψ(e1 (t)) = ψ(0, t). Subtract c0 |T |GD (ψ; x) from the sum in (25). The resulting complex number is the sum
+of
+X
+
+ψ(0, t) GD (ψ; at /b) − GD (ψ; x)
+t∈T
+
+and
+
+X
+
+!
+0
+
+ψ(0, t) − c |T | GD (ψ; x).
+
+t∈T
+
+The first has modulus at most |T |(log(x + 1) + Cd + |Ko |). For the second, (19) applied between 1 and x,
+with GD (ψ; 1) = `(ψ), gives
+|GD (ψ; x)| ≤ x(log x + Cd + |Ko |).
+/ K 0 , it is nontrivial because
+Their total is at most |T |R by (24); taking real parts proves the claim. For ψ ∈
+0
+1 ∈ K . The movement estimate bounds each term’s modulus by
+|GD (ψ; x)| + log(x + 1) + Cd + |CE | log x ≤ |GD (ψ; x)| + R.
+Its real part is therefore at least v(ψ) − R, which proves
+P the last case of (25).
+Summing that inequality over Ψ(A0 ), and using ψ v(ψ) = GK (x) − Σ(x), gives
+ X
+|T | GK (x) − Σ(x) − |Ψ(A0 )|R ≤
+<
+t∈T
+
+X
+
+ψ(e1 (t))GD (ψ; at /b).
+
+ψ∈Ψ(A0 )
+
+The choice |M |A1 ≤ s gives |Ψ(A0 )|R ≤ s2 e = x1/2+ ; in particular it is at most 4x1/2+ , the allowance
+used in the source. Apply Lemma 3.6 with
+Q = |T |mb,
+
+δ = |T2 |/n,
+
+G = GK (x) − Σ(x),
+
+E = xC E.
+
+It yields
+δ
+Q (G − 4x1/2+ ) ≤ xC E + 2Q/x.
+2
+Here Q > 0, because the hypotheses imply m > 0, |T | > 0 and b > 0.
+We give the full scalar estimate. Put
+P = xC ,
+
+X = x1/2+ ,
+
+20
+
+Y = x1/2+13/8 .
+
+(26)
+
+Then P, Y ≥ 1, X ≤ Y , and the lower bound for |T | gives n ≤ 2|T |x/8 . The four terms of E are bounded
+as follows:
+|T |aE ≤ 2Y Q,
+|T |aE m2 /k ≤ 2Q ≤ 2Y Q,
+2nm2 bx ≤ 4Y Q,
+m|T2 |kbx2
+≤ 2Y Q.
+n2
+For the first, aE ≤ 2xb and x ≤ x1/2+ m. For the second, use k ≥ xm in addition. For the third, use
+n ≤ 2|T |x/8 and m ≤ x1/2+/2 ; its exponent is 1/2 + /2 +  + /8 = 1/2 + 13/8. For the fourth, use
+k ≤ n2 x1/2− , |T2 | ≤ n, and again the upper bound for n in terms of |T |. This gives exponent 1/2 + 9/8,
+which is no larger than that of Y . Thus E ≤ 10Y Q.
+Divide (26) by Q; since 2/x ≤ 1 ≤ P Y ,
+δ(G − 4X) ≤ 22P Y.
+If G − 4X ≤ 0, the desired final bound already follows from the same calculation below. Otherwise multiply
+the inequality by x , using x δ ≥ 1, to obtain G − 4X ≤ 22P Y x . This latter inequality also holds in the
+nonpositive case. Now P Y x = x1/2+(C+21/8) and X ≤ x1/2+(C+21/8) . Hence
+G ≤ 26x1/2+(C+21/8) ≤ x3/8 x1/2+(C+21/8) = x1/2+(C+3) .
+Adding Σ(x) proves the proposition.
+
+3.8
+
+The slope-to-gap estimate
+
+We spell out the scalar slope hypotheses used to bound the gap. This is the interface at which the geometric
+construction enters the analytic argument. These inequalities must be established for the constructed family;
+they are not consequences of classical properties of Dirichlet L-functions.
+Fix a translate, a finite nonempty set W with positive weights du , a finite node set of size nT , and
+m, f ∈ N, f > 0. Let at ≥ 0, wj,ρ > 0, b, k, v > 0, a, b0 , B0 , Nc , L, La , X 00 ≥ 0. The remaining scalar data
+are
+max
+Tu > 0, hu , Eu , µN,u , µmax
+µC , Fo, Ga, ASK, IO, λg , `C , H.
+N,u , µM,u , µM,u ,
+P
+P
+P
+Put SA = t at , and for functions on W write hXid =
+du Xu / du . Define
+s = hµN − hid ,
+
+uF = max(µmax
+N,u − hu ) − s.
+u
+
+The constants cDiv , cE , cH , cCount , cSlope , cSl1 , cLoss and eDiv , eLoss , cHH are nonnegative. Define
+log Ω = γ + log(π/v) − `C ,
+X
+SDiv = m
+(at log at − at − at log Ω),
+t
+
+EDiv = cDiv nT aLa + cDiv m(B0 + Nc )xeDiv  ,
+LP = cLoss nT mbxeLoss  ,
+X 1X
+log(wj,ρ v/π) + mλg − cCount (La + m2 La /k),
+Λ5 =
+f
+j<m
+ρ<f
+
+
+XX
+X
+1
+log wj,ρ  ,
+Main =
+at log at − 1 − γ + `C −
+f
+t
+j<m
+
+ρ<f
+
+0
+
+Lu = cSl1 IO + cSl1 nT m(a/k + b ) log Tu + cSl1 X 00 + 1.
+21
+
+The convention 0 log 0 = 0 handles any zero node size. The supplied scalar hypotheses are
+µC + hu − Fo ≤ SDiv − SA log Tu + EDiv ,
+|Eu − mSA λg | ≤ cE mB0 ,
+|(hu + SA log Tu ) − (hu′ + SA log Tu′ )| ≤ cH (nT aLa + mB0 ),
+Λ5 ≤ log Tu ≤ cCount mL,
+−cSlope nT aLa (1 + m/k) ≤ µM,u ,
+
+| log Tu − log Tu′ | ≤ cCount log k,
+max
+µM,u ≤ cSlope nT aLa ,
+
+(27)
+
+max
+µmax
+N,u ≤ µM,u + Ga + Fo − Eu + cSl1 mB0 ,
+
+µM,u + Ga + Fo − Eu − Lu ≤ µN,u ≤ µmax
+N,u ,
+ASK − Ga ≤ LP ,
+
+IO ≤ LP .
+
+They hold for every u, u0 ∈ W . There are also numbers 0 ≤ δ ≤ δ̄ < 1, 0 ≤ η ≤ η̄, 0 ≤ e ≤ ē ≤ 1/4, and
+0 < H ≤ xcHH b, for which the supplied slope inequality is
+√
+4uF log(1 + H/uF ) + (η + 4 e)H
+s − µC ≤ log |W | +
+.
+(28)
+1−δ
+The function z log(1 + H/z) is given its continuous value 0 at z = 0. In the original slope hypothesis, (28)
+is conditional on s − µmin
+C ≤ H and H > 0; both inequalities are required from the family construction.
+This formulation has displayed their used consequence rather than silently treating that slope inequality as
+an established general theorem.
+Set
+V = 2mcE B0 + cH (nT aLa + mB0 ) + SA cCount log k,
+K3 = cSlope nT aLa (2 + m/k) + V + cSl1 mB0 ,
+K0 = SA cCount (La + m2 La /k) + EDiv + mcE B0 + cSlope nT aLa (1 + m/k),
+ML = cSl1 LP + cSl1 nT m(a/k + b0 )cCount mL + cSl1 X 00 + 1,
+U B = K 3 + ML .
+Lemma 3.8 (Pointwise slope bound). Under the preceding hypotheses,
+ASK − Main ≤ Err := K0 + log |W | + LP + ML
+
+√
+4 log(1 + xcHH )(UB + b) + (η̄ + 4 ē)xcHH b
++
+.
+1 − δ̄
+
+Proof. Define
+K5 = cSlope nT aLa (1 + m/k) + m(SA λg + cE B0 ) + SDiv − SA Λ5 + EDiv .
+The lower quotient bound, lower bound for µM , upper bound for Eu , and divisor inequality in (27) imply
+µN,u − hu ≥ Ga + µC − K5 − Lu .
+Here the count lower bound gives SA log Tu ≥ SA Λ5 because SA ≥ 0. Take weighted means to obtain
+s ≥ Ga + µC − K5 − hLid .
+The comparison bounds for E, h and log T give
+(−Eu − hu ) − (−Eu′ − hu′ ) ≤ V.
+22
+
+(29)
+
+In detail the E difference costs 2mcE B0 . The h comparison costs cH (nT aLa + mB0 ) plus SA (log Tu −
+log Tu′ ), and the count comparison bounds the latter by SA cCount log k. Combining the two quotient bounds
+and the two bounds for the M slopes therefore gives
+µmax
+N,u − hu − K3 − Lu′ ≤ µN,u′ − hu′ .
+Average over u0 , then maximize over u, to obtain uF ≤ K3 + hLid . Also uF ≥ 0, since µN ≤ µmax
+N and a
+weighted mean is at most the maximum of its entries.
+For 0 ≤ z ≤ U , 0 < H ≤ Xb, X, b > 0,
+z log(1 + H/z) ≤ log(1 + X)(U + b).
+For z = 0 use the specified value. For z > 0, apply log q ≤ q − 1 to q = (1 + H/z)/(1 + X), multiply by
+z, and discard the negative term −zX/(1 + X). The remaining term H/(1 + X) is at most bX/(1 + X) ≤
+b log(1 + X). The last inequality follows from the same logarithmic inequality applied to 1/(1 + X). Use
+this estimate with z = uF , U = K3 + hLid , and X = xcHH in (28). Replacing δ, η, e, H by their allowed
+upper bounds is legitimate since all multiplying quantities are nonnegative.
+Expanding the logarithms in Λ5 gives the exact identity
+SDiv − SA Λ5 + mSA λg = Main + SA cCount (La + m2 La /k),
+so K5 = K0 + Main. Combine this identity with (29) to bound Ga − Main by the claimed expression with
+hLid in place of ML . The upper count bound and IO ≤ LP give hLid ≤ ML . All its coefficients in the
+expression are nonnegative, so this replacement increases the bound. Finally ASK ≤ Ga+LP , which proves
+the result.
+Lemma 3.9 (The uniform error budget). In addition to the preceding assumptions, suppose
+x ≥ 1,
+
+0 <  ≤ 1,
+
+m ≤ x1/2+/2 ,
+
+xm ≤ k,
+
+0 ≤ L, La ≤ 2x ,
+
+
+0
+
+kb ≤ a,
+
+log |W | ≤ (k − 3) log 2,
+
+b ≥ 1,
+
+xb ≤ a,
+
+nT ≥ 1,
+
+1 ≤ k ≤ min(a, xeK ),
+00
+
+X ≤ a,
+
+√
+
+eK ≥ 0,
+
+0 ≤ at ≤ 2a,
+
+(η̄ + 4 ē)x
+
+cHH
+
+δ̄ ≤ 1/2,
+
+b ≤ Kx nT a.
+
+
+Assume each of the seven constants c∗ lies in [0, K], and
+log x ≤ x ,
+
+200(1 + K)2 (1 + cHH )(1 + eK ) ≤ x .
+
+Then, for ET = nT a(1 + m2 /k) + m(B0 + Nc ),
+Err ≤ x(eDiv +eLoss +3) ET .
+Proof. Write y = x , yD = xeDiv  , yL = xeLoss  , h = 1 + cHH , g = 1 + eK . All five quantities are at least
+1. From  ≤ 1 we have m ≤ x, hence mb ≤ xb ≤ a; also m ≤ k, b ≤ a, a ≥ 1, and SA ≤ 2nT a. The
+cardinality hypothesis gives log |W | ≤ k ≤ a. Furthermore
+0 ≤ log k ≤ gy,
+
+0 ≤ log(1 + xcHH ) ≤ hy,
+
+0 ≤ (1 − δ̄)−1 ≤ 2.
+
+For the second logarithm use 1 + xcHH ≤ 2xcHH and log 2 ≤ 1.
+Put Y = yD yL y, P = Y ET , r = m2 /k. The nonnegative terms in ET show
+nT a(1 + r) ≤ ET ,
+
+mB0 ≤ ET ,
+23
+
+1 ≤ a ≤ ET ≤ P.
+
+Since L, La ≤ 2Y , m/k ≤ 1, and b0 ≤ a/k, the individual terms of K0 have bounds
+SA cCount (La + m2 La /k) ≤ 4KP,
+EDiv ≤ 3KP,
+
+mcE B0 ≤ KP,
+
+cSlope nT aLa (1 + m/k) ≤ 4KP.
+For the first use SA (1 + r) ≤ 2ET ; for EDiv bound its two defining summands by 2KP and KP . Also
+LP ≤ KP , because mb ≤ a and yL ≤ Y . The middle summand of ML is at most 4K 2 P : indeed
+nT m2 (a/k + b0 ) ≤ 2nT ar ≤ 2ET .
+The other summands are at most K 2 P, KP, P . Thus ML ≤ (5K 2 + K + 1)P .
+For UB + b, its slope term is at most 6KP , the cH term at most 3KP , its two mcE B0 terms at most
+2KP , the cSl1 term at most KP , and the logarithmic-count term at most 2KgP . Together with the bound
+for ML and b ≤ P , this gives
+UB + b ≤ uP,
+
+u = 5K 2 + 13K + 2Kg + 2.
+
+The remaining noise term is at most KP by hypothesis. Consequently the full error is at most
+
+(5K 2 + 14K + 2)P + 2 4hy uP + KP .
+
+Since y ≥ 1, this is at most (5K 2 + 16K + 2) + 8hu yP . For h, g ≥ 1,
+(5K 2 + 16K + 2) + 8hu ≤ 200(1 + K)2 hg ≤ y.
+To verify the polynomial inequality explicitly, bound its first summand by (5K 2 + 16K + 2)hg, and bound
+u ≤ (5K 2 + 15K + 2)g. The resulting coefficient is 45K 2 + 136K + 18 ≤ 200(1 + K)2 ; the difference is
+155K 2 + 264K + 182 ≥ 0. The error is therefore at most
+y 2 P = yD yL y 3 ET = x(eDiv +eLoss +3) ET .
+
+Proposition 3.10 (Gap supplied by slope data). Suppose the slope data just described exist at every translate
+u0 in a finite set U0 , with constants independent of u0 . Suppose there is a map tr : U0 → H, whose image
+contains A0 , and bijections of the nodes with T and of the f weight indices with Φ, identifying at , wj,ρ with
+the corresponding arithmetic node sizes and weights. Require `C = <`(χC ) and require that the slope
+datum’s count ASK equal the sum of the arithmetic ASK(at , t, wtr(u0 ),j ). Finally suppose
+B0 ≤ 2nmbx ,
+
+Nc ≤ |T2 |kbx /(n2 x− ).
+
+Then
+gap(u) ≤ x(eDiv +eLoss +3) E
+
+(u ∈ A0 ).
+
+Proof. Under the stated bijections, the formula for Main is precisely the sum of the real parts of the arithmetic
+main terms. Thus gap(tr(u0 )) = ASK(u0 ) − Main(u0 ). Apply Lemmas 3.8 and 3.9. The two final bounds
+replace ET by the nonnegative bracket E in Proposition 3.7. Every u ∈ A0 has a preimage under tr, giving
+the assertion at all required translates.
+
+24
+
+3.9
+
+Reading the host characters and the level weights
+
+The following description states exactly the host information used by the analytic argument. Let
+b let χψ be the character modulo N whose value at a unit is
+r : (Z/N Z)× ↠ Γ be surjective. For ψ ∈ Γ,
+ψ(r(u)), and let pψ be its inducing primitive character. Different ψ’s give different pψ ’s: equality of their
+primitive characters gives equality after induction to N , then equality on the image of r, which is all of Γ.
+In particular pψ = 1 if and only if ψ = 1.
+For a prime p, write N = pk Np0 with p - Np0 . Take the local units Up to be the kernel of reduction of
+(Z/N Z)× to (Z/Np0 Z)× . The Chinese remainder theorem gives a unit frp that is 1 modulo pk and p modulo
+Np0 . Define Ip = r(Up ) and Fp = r(frp ). Then
+bψ (m) = pψ (m)
+
+(m ≥ 1).
+
+(30)
+
+To prove this it suffices to consider m = pj . The character ψ is trivial on Ip exactly when χψ factors through
+Np0 , or equivalently when p does not divide its conductor. This last conductor criterion follows directly from
+the Chinese remainder decomposition of the unit group into its prime-power factors: for each factor choose
+the least exponent through which its character factors. Their product is the conductor, and a divisor of N is
+an inducing modulus exactly when each of its exponents is at least the corresponding least exponent. If the
+restriction is trivial, the inertia average equals ψ(Fp )j = pψ (p)j , by the defining congruence of frp modulo
+the conductor. If the restriction is nontrivial, translation by an inertia element on which it is nontrivial makes
+the average zero, and pψ (p) = 0 because p divides its conductor. This proves (30).
+For ψ 6= 1, choose `(ψ) = L0 (1, pψ )/L(1, pψ ). The value `(1) can be set to zero: it is not used in the
+definition of GD (1; y) = G(y), and no principal logarithmic derivative at the pole is needed. Equation (30)
+then gives GD (ψ; y) = Gpψ (y) for every ψ.
+The required inertia pattern follows from the usual concrete host conditions as well. Namely let N =
+Qqd, where q, d are distinct odd primes, d ≡ 7 (mod 8), 4 | Q, and gcd(Q, qd) = 1. Suppose
+u
+,
+r{u : u ≡ 1 (mod Qq)} ⊆ {0, s0 },
+χC (r(u)) =
+d
+and assume (−d/p) = 1 for every odd p | Qq. Set S = {q} ∪ {p : p | Q}. For p ∈
+/ S ∪ {d}, Up = 1, so
+Ip = 0. For p ∈ S, a local unit is 1 modulo d; its image has color 1, that is, belongs to Φ. Also frp ≡ p
+(mod d). For odd p ∈ S, quadratic reciprocity with d ≡ 3 (mod 4) gives (p/d) = (−d/p) = 1; for p = 2,
+use d ≡ 7 (mod 8). Thus Fp ∈ Φ. At d, the indicated image containment gives Id ⊆ {0, s0 }. Choose by the
+Chinese remainder theorem a unit that is 1 modulo Qq and −1 modulo d. Its image has color (−1/d) = −1,
+so it is s0 . This proves equality Id = {0, s0 }, and verifies every arithmetic assumption of Lemma 3.5.
+For a level L with kept set K, put
+K 0 = {ψ : pψ ∈ K},
+
+o = [H : A0 ],
+
+c = (3o + 1)−1 ,
+
+χP ((e1 , e2 ), h) = (−1)e2 .
+
+Define X ± = {ψ ∈ Ψ(A0 ) : ψ(s0 ) = ±1}. The explicit-formula conditions at x, , with a fixed constant
+CE , are: every member of K is pψ for a ψ ∈ X + ; the level’s optional exceptional character is pχP when
+present, and pχP ∈
+/ K when it is absent; the integer o agrees with the level’s integer; and
+|{t ∈ T : t − γ ∈ A0 }| −
+
+3 + 1γ∈A0
+|T | ≤ x−1+ |T |
+3o + 1
+
+(γ ∈ H).
+
+(31)
+
+Finally require, for every ψ ∈ (X + \ K 0 ) ∪ X − ,
+|Gpψ (x)| ≤ x1/2+ ,
+
+|L0 (1, pψ )/L(1, pψ )| ≤ CE log x.
+
+None of these bounded characters is principal.
+25
+
+(32)
+
+Lemma 3.11 (Transfer to the finite core). Under these explicit-formula conditions,
+Σ(x) ≤ 4o x1/2+ ,
+
+GK (y) = GL (y),
+and (23) holds with
+M = 4o,
+
+Ko =
+
+X
+
+|L0 (1, χ)/L(1, χ)|.
+
+χ∈K\{1}
+
+Proof. The map ψ 7→ pψ bijects K 0 with K, by the assumed coverage and its already proved injectivity.
+Thus 1 ∈ K 0 , K 0 ⊆ X + , and every member of K 0 is trivial at s0 . A character trivial on H and at s0 is either
+1 or χP , because only its value on the other order-two factor remains, and that value is 1 or −1. It follows
+that its weight wc is 1 exactly for the principal character or the designated exceptional character. All other
+kept weights are c. Reindexing the sum by pψ , and using (30), proves GK = GL .
+The characters in Ψ(A0 ) are exactly the characters of (Z/2Z)2 × (H/A0 ), so there are 4o of them. Each
+has value 1 or −1 at s0 . Thus every omitted member belongs to (X + \ K 0 ) ∪ X − . The first estimate
+of (32), summed over at most 4o omitted characters, proves the bound for Σ. The second gives the omitted logarithmic-derivative bound, and the fixed finite sum Ko bounds every nonprincipal kept logarithmic
+derivative.
+It remains to check the character sums on T . Let θ(t) = ψ(0, t) be nontrivial on H and trivial on A0 .
+Put nγ = |{t ∈ T : t − γ ∈ A0 }|. Double counting the coset relation gives
+X
+X
+θ(γ)nγ = |A0 |
+θ(t).
+γ∈H
+
+Write
+nγ =
+
+t∈T
+
+|T |
+3|T |
++
+1γ∈A0 + eγ ,
+3o + 1 3o + 1
+
+|eγ | ≤ x−1+ |T |.
+
+The nontrivial character sum over H vanishes, whereas its sum over A0 is |A0 |. Substitution in the preceding
+identity therefore gives
+X
+|H| −1+
+x
+|T | = o x−1+ |T |.
+θ(t) − c|T | ≤
+|A0 |
+t∈T
+
+This is stronger than the required bound with M = 4o. All clauses of (23) are proved.
+Proposition 3.12 (Uniform estimate for a level). Fix L, eD , eL , K, cHH , eK , CE , and  > 0. There is x1 ,
+depending only on these fixed quantities, such that for every x ≥ x1 , every host and node set satisfying the
+explicit-formula conditions above and the following quantitative requirements obey
+GL (x) ≤ x1/2+(eD +eL +7) .
+The quantitative requirements are the node, thin, cost, and size conditions of Proposition 3.7, and slope data
+satisfying Lemmas 3.8 and 3.9 and Proposition 3.10, with
+eDiv ≤ eD ,
+
+eLoss ≤ eL ,
+
+cdatum
+HH ≤ cHH .
+
+The constants c∗ are bounded by the fixed K, and the same eK bounds k.
+Proof. Use Proposition 3.7 with C = max(eD + eL , 0) + 3, c = (3o + 1)−1 , M = 4o, and the fixed Ko of
+Lemma 3.11. Here |c| ≤ 1. Enlarge its threshold so that log x ≤ x , 200(1 + K)2 (1 + cHH )(1 + eK ) ≤ x ,
+
+26
+
+and 1 + 4o ≤ x . The data’s exponents and constants are nonnegative, so in any instance of the hypotheses
+eD + eL ≥ 0, and C = eD + eL + 3. The slope-to-gap estimate supplies
+gap(u) ≤ x(eDiv +eLoss +3) E ≤ xC E.
+Monotonicity in cdatum
+HH verifies the data’s required error-budget threshold as well. The core inequality and
+host transfer now give
+GL (x) ≤ x1/2+(eD +eL +6) + 4o x1/2+ .
+The second power is no larger than the first. Absorb the factor 1 + 4o into x using the enlarged threshold.
+This proves the stated estimate, uniformly over every host and every varying quantitative package satisfying
+its hypotheses.
+
+3.10 What a tied family must supply
+At a fixed  > 0, a family has an admissible set W , an index set Ix at each x, and for each index a host, its
+finite group Hx,i , and a distinguished node set Tx,i . The node labels are injective maps from these groups
+into a common set of integer labels. The family specifies a common node-label set T (x), with
+T (x) = {val(t) : t ∈ Tx,i }.
+A tie at x chooses an index i0 , writes H = Hx,i0 , and supplies the entire quantitative package of Proposition 3.12. Its translation set is the whole group H, with translation map the identity. At each u ∈ H its finite
+nonempty word set and slope data may come from a separately chosen family index pt(u). The tie identifies
+all group, size, weight, inertia and Frobenius coordinates used in the quantitative package with those of these
+family members. The identifications include xdatum = x, datum = , the bounds eDiv ≤ eD , eLoss ≤ eL ,
+cdatum
+HH ≤ cHH , and the fixed constants K, eK . All the scalar, thin and cost hypotheses displayed above are
+required at every u ∈ H. For the nodes it requires
+t ∈ T ⇐⇒ val(t) ∈ T (x).
+For the second set it requires T2 = {ja0 : j ∈ D2 } for some finite set of integer digits D2 , where A0 = ha0 i.
+These conditions are the mathematical content of the tie that is used here; the geometric construction of such
+ties is a separate existence assertion.
+Proposition 3.13 (Transfer from a tie). The tie at x gives the quantitative package at the distinguished host
+i0 , with its actual node set Tx,i0 , required in Proposition 3.12.
+Proof. First T = Tx,i0 . Indeed t ∈ T means that val(t) is the label of a member t0 ∈ Tx,i0 . Injectivity
+gives t = t0 . Conversely any such member has its label in T (x). Next the identity translation map has
+image all of H, so its image contains A0 . Every element of T2 is an integer multiple of a0 , hence lies in
+A0 . All slope-data hypotheses, identities of the arithmetic count and main term, node-size estimates, bounds
+for B0 , Nc , and comparisons of constants are already among the tie conditions. Their assertions for every
+u ∈ H imply their assertions for u ∈ A0 . The compatible logarithmic derivative is unchanged because the
+identified reciprocity homomorphism is the same homomorphism used to define Ip , Fp . This verifies every
+required component.
+Corollary 3.14 (The family window estimate). Fix L, eD , eL ,  > 0 and a family. Suppose there is one
+constant CE and a threshold such that its hosts at every index satisfy (31) and (32), together with the other
+explicit-formula conditions, for all sufficiently large x. Suppose fixed K, cHH , eK , chosen before x, give
+ties at every sufficiently large x ∈ W . Then for every sufficiently large x ∈ W ,
+GL (x) ≤ x1/2+(eD +eL +7) .
+27
+
+Proof. Choose the uniform threshold from Proposition 3.12, and enlarge it to the explicit-formula and tie
+thresholds. At an admissible x beyond it, choose the tie’s distinguished index i0 . Proposition 3.13 gives
+the quantitative package there; the explicit-formula bounds hold at that same index because their hypothesis
+holds at every index. The uniform level estimate therefore applies.
+Together with Proposition 3.4, this shows exactly what is required from the family construction: for
+each cyclic level, fixed eD , eL and 1 > 0, then for every 0 <  < 1 a family with arbitrarily distant
+power windows and the two eventual properties in Corollary 3.14. In particular, the arithmetic estimate at
+Definition 8.1 alone does not supply the ties or the explicit-formula host bounds.
+
+3.11 The character-supply construction
+We next give the construction that supplies the hosts just used. The arithmetic window in Definition 8.1 and
+the analytic estimates for auxiliary quadratic twists have different quantifiers. The following formulation
+keeps both visible. For a character ξ modulo M , set
+ i  
+a j
+a
+i,j
+,
+i, j ∈ {0, 1}.
+ξq,d
+(a) = ξ(a)
+q
+d
+Here induction to a primitive character χ means equality on all integers coprime to 2M qd. Write
+
+
+1
+ZB(χ, Q) : L(s, χ) 6= 0
+<s > 1 −
+, |=s| ≤ Q .
+400
+The assertion PairGood(M, , Y, X; q, d) means the following three conditions. First q, d satisfy the windowpair conditions of Definition 8.1 at Y , and (M, qd) = 1. Second, for every character ξ modulo M , every
+i,j
+(i, j) 6= (0, 0), every primitive character χ inducing ξq,d
+on these coprime integers, and every Y ≤ y ≤ X,
+L0
+(1, χ) ≤ 4 log y.
+L
+
+|Gχ (y)| ≤ y 1/2+/2 ,
+
+(33)
+
+Third, for every real primitive ρ of conductor dividing 8M , every nonzero pair (i, j), and every primitive χ
+inducing ρi,j
+q,d ,
+
+
+ZB χ, 8M exp(Y /5 ) exp(Y /5 log2 Y )j
+holds. The nonzero quadratic twists in this definition are nonprincipal in the application below; thus the logarithmic derivative in (33) is an ordinary finite value. The source’s induction predicate includes primitiveness,
+so this formulation has not discarded any induced characters. We denote by PairEx the assertion
+∀M ≥ 1 ∀ 0 <  < 1/52 ∀A ≥ 1 ∃Y1 ∀Y ≥ Y1 ∃q, d :
+PairGood(M, , Y, Y A ; q, d).
+
+(34)
+
+This is a substantive auxiliary analytic input. Its proof must establish the simultaneous bounds for all the
+characters just listed, not only a choice of q, d having the congruences. The definitions here are those of
+CharacterBoxes/PairGood.lean:9‐‐30.
+Lemma 3.15 (Rescaling the arithmetic windows). Fix a primitive ψ, 0 <  < 1/52, and c ≥ 1. Assume
+VWinAt(ψ, 401) and (34). There is J ≥ 1, fixed before the lower endpoint, such that for every y there is
+Z ≥ y with the following property. For every x ∈ [Z, Z 3/2 ] there are Y, q, d, e for which
+x1/J ≤ Y ≤ x,
+
+PairGood(Nψ , , Y, x; q, d),
+
+≤ c 2e ≤ 2x2+8 ,
+
+V E, bx400 c, exp(x /2)
+for every ψ-field E at e, q, d.
+x
+
+2+8
+
+28
+
+(35)
+
+The last notation is the arithmetic estimate of Definition 8.1, with all its coefficient-data and finite-prime-set
+quantifiers.
+Proof. Choose a function e(t) on t ≥ 1 such that
+t2+8 ≤ 2e(t) ≤ 2t2+8 .
+For example, take the least integer with the first inequality; the preceding power of 2 gives the second. Extend
+it arbitrarily to t < 1. Apply the arithmetic-window hypothesis to this one function. It supplies J ≥ 1 and
+X0 . Apply PairEx with (M, A) = (Nψ , J), obtaining Y1 . Put
+k = c1/(2+8) ≥ 1.
+For a prescribed y, choose
+M0 ≥ max(1, y, Y1 , k 3 , k 400 ),
+
+X ≥ max(X0 , M0J ).
+
+Thus Y0 = X 1/J ≥ M0 . Choose q, d from PairEx at Y0 ; its upper endpoint is Y0J = X. The arithmeticwindow assertion, applied to this same pair, gives
+W ≥ Y0 ,
+
+W 2 ≤ X,
+
+and the required V-estimate at every t ∈ [W, W 2 ], with rank cutoff bt401 c.
+Set Z = kW . Then Z ≥ y. Since W ≥ k 3 ,
+(kW )3/2 ≤ W 2 .
+For x ∈ [Z, Z 3/2 ], put t = x/k. We have
+W ≤ t ≤ x ≤ W 2 ≤ X.
+Take Y = Y0 and e = e(t). The inequalities x ≤ X and Y0 ≤ W ≤ x give x1/J ≤ Y ≤ x. The
+PairGood-assertion remains true after decreasing its upper endpoint from X to x. Multiplication of the page
+inequalities by c = k 2+8 gives the two bounds for c2e .
+It remains to check both changes in the arithmetic estimate. Since t ≥ W ≥ k 400 ,
+x400 = k 400 t400 ≤ t401 .
+Consequently bx400 c ≤ bt401 c. Also t ≤ x gives exp(t /2) ≤ exp(x /2). The assertion V(E, r, B) is
+monotone when r decreases and B increases: its individual finiteness conditions are restricted to fewer
+indices, and its sums lose only nonnegative terms. These two comparisons prove (35). In particular the
+same chosen q, d work throughout the new window; no new application of the arithmetic hypothesis is made
+at an individual x. This is the proof of CharacterBoxes/WinPairs.lean:5‐‐81.
+The rank parameters in the construction are natural numbers n, m, k, t, with m, k even and t odd, satisfying
+2 ≤ m,
+
+m + 3 ≤ k,
+
+k + m + 4 ≤ t,
+
+3m < t,
+
+m ≤ 2n ≤ k,
+
+m2 ≤ k + m(t + 1).
+
+The frame has order n, f = 2n, and r = k + m − 1. At the scale (x, ), put
+
+
+
+f 2 (k − 1)3 L2
+10r
+
+−/8
+377
+f+
+.
+L=x,
+δ=x
+,
+Tx = dx e,
+WR = 8
+8
+m
+29
+
+The condition RankVal(x, ; R) is
+√
+
+x2+8 ≤ n ≤ 2x2+8 ,
+x9/2+10 ≤ k ≤ 2x9/2+10 ,
+
+√
+xδ ≤ m ≤ 2 xδ,
+
+r + t = 8f r + 4 + Tx WR .
+
+(36)
+
+This is a relation on ranks already satisfying the preceding integer constraints, not an assertion that arbitrary
+four integers satisfy them.
+Lemma 3.16 (The cutoff 400). If 0 <  < 1/52, x ≥ 2100 , and (36) holds, then t ≤ x400 .
+Proof. Write Y = x1/100 ≥ 2. The rank bounds, and 0 <  < 1/52, imply
+n ≤ 2Y 216 ,
+
+f ≤ 4Y 216 ,
+
+k ≤ 2Y 470 ,
+
+m ≥ Y 49 ,
+
+L2 ≤ Y 4 .
+
+For example 2 + 8 + /100 ≤ 216/100 and 9/2 + 10 ≤ 470/100. The estimate for m follows from
+xδ = x1−/8 ≥ x98/100 . Since m + 3 ≤ k, also r ≤ 2k ≤ 4Y 470 . All quantities being nonnegative, and
+m > 0, we get
+(4Y 216 )2 (2Y 470 )3 Y 4
+f 2 (k − 1)3 L2
+≤
+= 128Y 1797 .
+m
+Y 49
+Hence the parenthesis defining WR is at most 132Y 1797 . Using dae < a + 1 for a ≥ 0, we obtain
+WR ≤ 5288Y 2267 ,
+
+Tx ≤ 2Y 37700 .
+
+The final equality in (36) therefore yields
+t ≤ 8f r + 4 + Tx WR
+≤ 128Y 686 + 4 + 10576Y 39967
+≤ 10708Y 39967 ≤ Y 40000 = x400 .
+The last comparison uses Y 33 ≥ 233 > 10708. These explicit estimates are the entire argument of Character
+Boxes/EventuallyRankLeRpowOfLtOneDivFiftytwo.lean:5‐‐126; they explain the slack between the exponents 377,
+400 and 401.
+Lemma 3.17 (Constructing ranks over a fixed frame). For x ≥ 16, 0 <  < 1/52, and a frame of order
+x2+8 ≤ n ≤ 2x2+8 , there are ranks over that same frame satisfying (36).
+√
+Proof. For A ≥ 2, the even integer 2dA/2e lies in [A, 2A]. Apply this first to A = xδ and then to
+B = x9/2+10 , obtaining m, k. Here 2 ≤ A ≤ x, while
+x2 ≤ n ≤ 2x3 ,
+
+x4 ≤ B.
+
+Since x ≥ 16, these inequalities imply
+m ≥ 2,
+
+m + 3 ≤ k,
+
+m ≤ 2n ≤ k.
+
+Put r = k + m − 1, f = 2n, and define WR , Tx as above. Set
+t = 8f r + 4 + Tx WR − r.
+This is positive, because f r ≥ r. As k, m are even, r is odd; since WR is a multiple of 8, t is odd. We also
+have f ≥ m ≥ 2, whence
+t ≥ (8f − 1)r + 4 ≥ 15r + 4.
+30
+
+As r = k + m − 1 ≥ m + 1, this proves k + m + 4 = r + 5 ≤ t, 3m < t, and m ≤ t + 1. The last
+inequality gives m2 ≤ m(t + 1) ≤ k + m(t + 1). Thus these integers satisfy every rank constraint, and the
+definition of t gives the final identity in (36). The chosen intervals for m, k give its remaining inequalities.
+No change of frame or of its distinguished cyclic subgroup has occurred. This is the construction in Proofs/
+GlobalInterpolation/ExistsRanksRankValFrame.lean:10‐‐99.
+Lemma 3.18 (Which characters the pair bounds control). Let a host have modulus Qqd, with Nψ | Q, and
+assume every prime divisor of Q divides 2Nψ . Suppose its characters trivial on A0 have the description
+ i  
+a
+a j
+χθ (a) = ξ(a)
+q
+d
+
+((a, Qqd) = 1),
+
+θ(ιd ) = (−1)j ,
+
+(37)
+
+where ξ ∈ hψi and i, j ∈ {0, 1}. If PairGood(Nψ , , Y, x; q, d), then every bounded host character in (32)
+has
+|Gχ (x)| ≤ x1/2+ ,
+|L0 (1, χ)/L(1, χ)| ≤ 4 log x.
+Proof. A bounded host character belongs either to X+ and is not kept, or to X− . Both sets consist of
+characters trivial on A0 , so (37) applies. If i = j = 0 and θ ∈ X+ , its primitive character is the primitive
+character inducing ξ, which belongs to the cyclic kept level. This contradicts its not being kept. If θ ∈ X− ,
+the same choice would give both θ(ιd ) = 1 and θ(ιd ) = −1. Thus (i, j) 6= (0, 0).
+An integer coprime to 2Nψ qd is coprime to Qqd: otherwise a common prime factor in Q would divide
+2Nψ . Consequently the host’s primitive character and the twist agree on every integer needed in the induction
+predicate for PairGood. Apply (33) with y = x. Since x ≥ 1, its exponent 1/2 + /2 can be increased to
+1/2 + . This gives both conclusions and proves, in ordinary character notation, CharacterBoxes/BoundedTw.
+lean:5‐‐56.
+We record explicitly the finite group behind the ψ-field. Write M = Nψ , B = (Z/M )× / ker ψ, and
+He = (Z/2e+2 )× /{1, −1}.
+j
+
+For e ≥ 1, He is cyclic of order 2e . Indeed v2 (52 − 1) = j + 2, by induction: the initial case is 5 − 1 = 4,
+and each subsequent squaring multiplies by a number congruent to 2 modulo 4. Thus 5 has order 2e modulo
+2e+2 . Its powers are 1 modulo 4, so their negatives are distinct; the 2e+1 residues ±5j exhaust the units,
+proving the assertion after quotienting by sign. Let Qe be the least divisor of lcm(2e+2 , M ) divisible by
+2e+2 through which the quotient map to B factors. Such a divisor exists, by taking the lcm itself. Denote
+the resulting surjection by ξe : (Z/Qe )× −→ B, and let
+Ae = im ηe ⊂ He × B.
+
+ηe (a) = ([a]He , ξe (a)),
+
+This minimum and this image, rather than an independently chosen group of the same cardinality, are used
+in the source.
+Lemma 3.19 (The finite group and its twists). There are integers c ≥ 1, e1 such that
+|Ae | = c2e
+
+(e ≥ e1 ),
+
+c ≤ |B|.
+
+For primitive ψ, in fact Qe = lcm(2e+2 , M ). For primes q, d coprime to M , with q ≡ 3 (mod 8), d ≡ 7
+(mod 16), define
+re : (Z/Qe qd)× −→ {1, −1}2 × Ae ,
+   
+ 
+a
+a
+a
+a 7−→
+,
+.
+, ηe (a) ηe
+q
+d
+q
+31
+
+(38)
+
+It is surjective, and its kernel is exactly
+a ≡ ±1 (mod 2
+
+e+2
+
+),
+
+ψ(a) = 1,
+
+   
+a
+a
+=
+= 1.
+q
+d
+
+(39)
+
+The projection Ae → B has cyclic kernel A0 . Every character of {1, −1}2 × Ae trivial on A0 has the twist
+description (37). The quotient Ae /A0 has order |B|, independently of e.
+Proof. First prove M | Qe . If a is a unit modulo M whose reduction modulo gcd(Qe , M ) is 1, the Chinese
+remainder theorem supplies an integer z congruent to a modulo M and to 1 modulo Qe . It is a unit modulo
+both moduli, hence modulo their lcm. The factorization through Qe gives ψ(z) = 1. Thus ψ is trivial
+on the kernel of reduction to gcd(Qe , M ), and factors through that divisor of M . Primitiveness implies
+M ≤ gcd(Qe , M ); hence M | Qe . Together with the defining divisibilities of Qe , this proves the stated
+equality.
+The projection Ae → He is onto: reduction of units from the lcm onto 2e+2 , followed by the quotient
+map, is onto. Its kernel is isomorphic, by second projection, to
+Ce = ξe (ker[(Z/Qe )× → He ]) ⊂ B.
+Accordingly |Ae | = 2e |Ce |. Reduction from Qe+1 to Qe carries an integer congruent to 1 or −1 modulo
+2e+3 to an integer congruent to the same sign modulo 2e+2 , and does not change its class in B. Lifting a unit
+from Qe+1 to the corresponding lcm therefore shows Ce+1 ⊂ Ce . The positive integers |Ce | decrease and
+are bounded below by 1. Choose an index where their minimum is attained. They are constant thereafter,
+equal to some 1 ≤ c ≤ |B|. This proves the order formula.
+The two quadratic characters modulo q, d are each onto {1, −1}. Since Qe , q, d are pairwise coprime, the
+Chinese remainder theorem prescribes these two values and the residue modulo Qe independently. Multiplication of the Ae -coordinate by ηe ((a/q)) is an invertible change of coordinates once the first sign is fixed;
+thus re is onto. If both signs are 1, the remaining coordinate is ηe (a). Its being 1 means precisely a ≡ ±1
+(mod 2e+2 ) and ψ(a) = 1. This proves (39).
+The first projection is injective on the kernel of Ae → B, since an element with both coordinates 1 is
+the identity. A subgroup of the cyclic group He is cyclic, so this kernel is A0 = ha0 i for a suitable a0 . The
+projection to B is onto, giving Ae /A0 ≃ B and the quotient-order assertion.
+Now let θ be trivial on A0 . Its restriction to Ae descends to a character of B. Since B = (Z/M )× / ker ψ,
+its characters are exactly the powers of ψ: indeed ψ identifies B with a finite cyclic subgroup of C× , and a
+character of a cyclic group is determined by a root of unity of that group’s order. In the Ae -coordinate write
+this restriction as ξ. The restriction of θ to each sign factor is either trivial or the sign, because its value
+at −1 squares to 1. Applying θ to (38), and absorbing the factor θ(ηe ((a/q))) into the first sign character,
+gives ξ(a)(a/q)i (a/d)j . On the distinguished d-sign element the value is (−1)j , as claimed. These are
+the image, kernel and character arguments in CharacterBoxes/OrdAny.lean:6‐‐107, KerChiAny.lean:6‐‐140 and
+TwistAny.lean:6‐‐167.
+The field used subsequently is the fixed field of ker re in Q(ζQe qd ). Equation (39) identifies it with the
+ψ-field in Definition 8.1; in particular the arithmetic estimate applies to this field, not to an unrelated field
+with the same degree. Its Galois group is the displayed sign product with Ae . Since (−1/q) = (−1/d) = −1
+and the third coordinate of re (−1) is ηe (−1)2 = 1, complex conjugation has the required two negative signs
+and trivial Ae -part. The characters in the cyclic kept level lift to X+ : their lift is
+
+b
+(σq , σd , a) 7−→ ξ a ηe (σq ) ,
+ξ ∈ B.
+Substitution in (38) cancels the two copies of ηe (σq ), and gives ξ(ainteger ). This verifies the kept primitivecharacter identification used by Lemma 3.18.
+32
+
+Lemma 3.20 (The field rows and the different ideal). Fix ψ. After increasing the integer e1 in Lemma 3.19,
+the following holds for e ≥ e1 . Suppose q, d are as in that lemma, q 6= 3, q | d + 1, b ≥ 4M , and
+
+
+−d
+= 1 for every odd prime p ≤ b.
+p
+√
+Let E be its fixed field and K = Q( −d) inside E. Then, writing n = |Ae |, o = |B|, and Ψ = Gal(E/K),
+we have
+Q e ≤ n2 ,
+o64 ≤ 2e ,
+4p ≤ b (p | Qe , p odd prime).
+The q-sign character is the action on an element sq ∈ E with s2q = −q; the analogous d-sign character
+√
+is the action on −d. Each prime divisor of Qe is detected by nontrivial inertia in the host. There is an
+integral ideal b of E such that
+DE/K = b b,
+
+b + b = OE ,
+
+σb = b
+
+(σ ∈ Ψ).
+
+(40)
+
+Consequently every prescribed choice of the auxiliary primes, ideal, finite sets and word parameters in the
+host definition can be realized over this same field and frame, once q, d > 4tr + 1; the realization does not
+change those choices.
+Proof. Increase e1 so that e1 ≥ 2, 4M, 64o. Since a < 2a for natural a, we have 4M ≤ 2e , and
+Qe ≤ 4M 2e ≤ 22e ≤ n2 ,
+
+o64 ≤ (2o )64 ≤ 2e .
+
+An odd prime divisor of Qe divides M . It is at most M , proving its stated bound and the needed quadratic
+splitting condition there.
+The usual quadratic Gauss element
+X a
+τp =
+ζa
+(p = q or d)
+p p
+a mod p
+
+has τp2 = −p, since p ≡ 3 (mod 4). Here the Gauss identity follows by the finite Fourier calculation
+τp = (−1/p)τp , τp τp = p; in the latter calculation the substitution a = tb, b 6= 0, gives
+X tX
+Xt
+2
+(t−1)b
+|τp | =
+ζp
+= p.
+= (p − 1) −
+p
+p
+t mod p
+
+b6=0
+
+t6=1
+
+The last step uses the zero sum of a nontrivial character. An automorphism ζp 7→ ζpu sends τp to (u/p)τp , by
+the substitution a 7→ u−1 a. Thus both Gauss elements are fixed by ker re and belong to E, with the required
+sign actions. In particular the kernel of the d-sign is exactly Gal(E/K).
+We check the exactness assertion at l | Qe . If 2e+2 | Qe /l, triviality of ηe on all units congruent to
+1 modulo Qe /l would make the quotient to B factor through Qe /l. This smaller divisor would satisfy the
+defining property of Qe , a contradiction. If that tower divisibility fails, then l = 2 and Qe = 2e+2 c0 with c0
+odd. The unit 1 + Qe /2 is 1 modulo Qe /2, but is neither 1 nor −1 modulo 2e+2 . The first equality would
+force 2e+2 | Qe /2; the second would force 4 | Qe /2 + 2, although 4 | Qe /2. Both are impossible. Its
+He -image is therefore nontrivial. Using the Chinese remainder theorem to set the q, d coordinates equal to 1
+proves the exactness in the full host modulus as well.
+We next prove (40), including the invariance needed to attach the chosen data. The only rational primes
+that can support DE/K divide Qe q. Indeed a cyclotomic extension is unramified outside its modulus, and
+the inertia at d, after restriction to E, is contained in {1, ιd }, where ιd is the negative d-sign and has other
+33
+
+coordinates 1. Its intersection with Ψ is trivial. Thus the relative inertia over K is trivial at d also. The
+inertia criterion for the different now gives the asserted support: in a finite Galois extension of number fields
+the inertia order is the ramification index, and a prime divides the different precisely when it is ramified (the
+residue extensions are finite fields and hence separable).
+Every rational prime dividing Qe q splits in K. For odd primes dividing Qe this was assumed; for q,
+−d ≡ 1 (mod q)
+16) gives the splitting directly. More explicitly
+√ proves it. For 2, the condition d ≡ 7 (mod
+2
+OK = Z[(1 + −d)/2]; its defining polynomial is T − T + (d + 1)/4 and has distinct roots modulo 2.
+At an odd prime not dividing d, the same polynomial splits with distinct roots exactly when (−d/p) = 1.
+Factoring this quadratic modulo the prime gives the two distinct prime ideals of OK . Complex conjugation
+exchanges them. Thus if P divides DE/K , its contractions
+p = P ∩ OK
+
+p = P ∩ OK ,
+
+are distinct.
+The relative different is invariant under every σ ∈ Gal(E/Q). To see this without assuming that σ fixes
+K pointwise, use its inverse trace dual
+D−1
+E/K = {y ∈ E : TrE/K (yOE ) ⊂ OK }.
+The extension is abelian, so σ commutes with every K-automorphism of E. Consequently it commutes with
+their sum, the relative trace, and preserves integrality. For y in the displayed dual and a ∈ OE , apply this
+observation to yσ −1 (a). It proves σy belongs to the same dual. Apply the argument to σ −1 for equality, and
+invert the fractional ideals to obtain invariance of the different.
+Choose a total ordering of the prime ideals of OK , once and for all. In the unique prime-ideal factorization of DE/K , retain a factor PaP exactly when p < p, and let b be their product. Conjugation interchanges
+the retained and discarded prime powers, with their multiplicities, by the proved invariance of the different.
+It follows that DE/K = bb. No prime divides both factors, since that would require both opposite strict inequalities. In a Dedekind domain this proves their sum is the unit ideal. Finally σ ∈ Ψ leaves the contraction
+of each prime ideal to K unchanged and preserves the different. It therefore permutes the retained prime
+powers and fixes b. This is exactly the contraction-order selection and factorization argument of Inertia
+GaloisSymmetry/KcDiff.lean:75‐‐182, with invariance proved as in KcDiffSmulMem.lean:45‐‐132.
+√
+√
+To realize a prescribed choice datum, choose a complex embedding of E. Its value on −d is ±i d;
+composing with conjugation if needed selects the positive choice, so the required CM type is nonempty. Use
+sq above, this embedding, and b as the extra field data. All remaining fields of the host are precisely the
+prescribed datum. The row conditions checked at the beginning, the two inequalities q, d > 4tr + 1, and
+(40) verify every extra condition on these choices. In particular no prime or finite set is chosen anew. This
+is CoprimeRanks/SecondSetNoRelation.lean:87‐‐104; it explains the universal quantifier over choice data in the
+source’s admission predicate.
+
+3.12 Simultaneous analytic selection of the prime pair
+We spell out the selection argument, since a pointwise estimate at each y would not suffice for (33). For
+Z > 0, a bounded sequence κ : N → C, and an odd prime q, put
+ 
+X
+n
+.
+SZ (y; q, κ) =
+Λ(n) min(1, y/n) κ(n)
+q
+1≤n≤Z
+
+For a finite prime set P , write MS(C, Z, P ; [Y, X]) for the assertion
+X
+|SZ (y; q, κ)|2 ≤ Cy log y |P | (Y ≤ y ≤ X,
+q∈P
+
+34
+
+∀n, |κ(n)| ≤ 1) .
+
+(41)
+
+In particular the bound holds for truncated sequences depending on y; this is needed for the derivative estimate below.
+Lemma 3.21 (A maximal bound from the mean square). For C ≥ 0, τ > 0, and η > 0, there is a threshold
+Y0 (C, τ, η), independent of X, Z, P, κ, such that (41) implies
+
+
+1
+q ∈ P : ∃y ∈ [Y, X], |SZ (y; q, κ)| > y 1/2+τ ≤ η|P |
+2
+whenever Y ≥ Y0 and |κ(n)| ≤ 1.
+Proof. Fix q, κ. The finite sum SZ (y) = SZ (y; q, κ) is continuous and piecewise linear. Its right derivative
+is
+ 
+X Λ(n)
+n
+κ(n)
+DZ (v; q, κ) =
+.
+n
+q
+1≤n≤Z
+v<n
+
+Both DZ and |DZ |2 are bounded measurable step functions on a compact interval, and
+Z b
+SZ (b) − SZ (a) =
+DZ (v) dv.
+a
+
+Furthermore, with κv (n) = 1v<n κ(n), one has vDZ (v; q, κ) = SZ (v; q, κv ). Since |κv | ≤ 1, the mean
+square yields
+X
+log v
+|DZ (v; q, κ)|2 ≤ C
+|P |
+(Y ≤ v ≤ X, v > 0).
+(42)
+v
+q∈P
+
+First restrict to A ≤ y ≤ W ≤ 2A, with A ≥ 2. The fundamental theorem of calculus, the triangle
+inequality and Cauchy–Schwarz give, for any choice yq ∈ [A, W ],
+Z W
+|SZ (yq ; q, κ)|2 ≤ 2|SZ (A; q, κ)|2 + 2A
+|DZ (v; q, κ)|2 dv.
+A
+
+Sum over q ∈ P , interchange the finite sum and integral, and use (42). On this interval (log v)/v ≤
+log(2A)/A, so
+X
+|SZ (yq ; q, κ)|2 ≤ 4CA log(2A)|P |.
+(43)
+q∈P
+
+For each prime having an exceptional y in this block, choose one such yq ; choose yq = A for all other primes.
+Each exceptional term exceeds A1+2τ /4. It follows that their number is at most
+32C −τ
+A |P |.
+τ
+Here log(2A) ≤ 2 log A ≤ 2Aτ /τ ; the second inequality follows from log u ≤ (uτ − 1)/τ , u ≥ 1.
+Now choose one exceptional yq ∈ [Y, X] for each exceptional prime and assign it a dyadic block
+16C A−2τ log(2A)|P | ≤
+
+2j Y ≤ yq ≤ min(2j+1 Y, X).
+Such a block exists by taking the integer part of log2 (yq /Y ); there are only finitely many assigned indices
+because P is finite. Apply the preceding estimate to the primes assigned to each block. The mean square
+there is the restriction of the original one. Summing the estimates gives
+X
+32C
+32C −τ
+Y |P |
+2−jτ =
+Y −τ |P |.
+|{exceptional primes}| ≤
+τ
+τ (1 − 2−τ )
+j≥0
+
+Choose Y0 ≥ 2 so that its coefficient is at most η. This choice is independent of the upper endpoint X, the
+truncation Z, and the prime set. This proves every step of MeanSquareBounds/BadShare.lean:9‐‐318.
+35
+
+For clarity, the quantitative zero-density input used by the source is the following precise statement:
+∃CD ≥ 0 ∀Q ≥ 3 :
+#{χ primitive : Nχ ≤ Q, ∃ρ, L(ρ, χ) = 0, <ρ > 399/400, |=ρ| ≤ Q} ≤ CD Q1/4 .
+
+(44)
+
+Only the number of characters is counted; a character with several such zeros is counted once. A finite-set
+formulation suffices if this set is not first constructed as a finite set. The source proves it in JacobiCharacter
+Sums/CountZAll.lean:13‐‐15 through its zero-detection and mollifier argument. At referee level it has the
+following verified classical justification.
+Proposition 3.22 (The required zero-density estimate). Assertion (44) holds.
+Proof. Use Jutila’s Corollary, equation (1.6), on printed page 56 of Zero-density estimates for L-functions,
+Acta Arithmetica 32 (1977), 55–62 [63], doi:10.4064/aa‐32‐1‐55‐62. It bounds the sum of zero counts
+over all primitive characters of conductor at most Q, for T ≥ 2 and 3/4 ≤ α ≤ 1. Take its integer k = 2,
+α = 399/400, T = Q, and its positive error exponent 1/100. The same corollary gives A1 (α) = 2 for
+α ≥ 21/26 (here k = 2 in equation (1.6) of [63]). Thus its bound is
+(Q2 Q) 2/400+1/100 = Q9/200 ≤ Q1/4 .
+Every character counted here contributes at least one zero to that sum. The Euler product excludes zeros
+with <s > 1; the principal character of conductor 1 is included, with its pole at 1 excluded. The corollary
+omits neither real characters nor exceptional real zeros.
+Lemma 3.23 (From bad characters to bad primes). Assume (44). Let B be a finite set of primes q > F such
+that, for each q ∈ B, some primitive character of conductor f q, where f ≤ F and f q ≤ Q, fails ZB(χ, Q).
+Then |B| ≤ CD Q1/4 .
+Proof. Choose one such character χq for each q. The map q 7→ χq , including its conductor, is injective.
+Indeed, equality at q, q 0 implies f q = f 0 q 0 . Since q is prime, it divides f 0 or q 0 . The first is impossible
+because 0 < f 0 ≤ F < q; the second gives q = q 0 . All chosen characters are in the set counted in (44),
+proving the bound. This is the argument of MeanSquareBounds/CountBadCore.lean:8‐‐59.
+Here is the precise progression range in which the remaining analytic estimates are used. Put
+P (m, a, U ) = {p : p prime, U 1/2 < p ≤ U, p ≡ a
+
+(mod m)}.
+
+A progression is admissible at (, Y, U ) when
+m > 0,
+
+8 | m,
+
+(a, m) = 1,
+
+Y /6 ≤ log U ≤ Y
+
+2
+1
+4 (log Y ) log m ≤ log U,
+/5
+2
+
+(log Y ) .
+
+(45)
+
+The three analytic estimates needed in this range are:
+|P (m, a, U )| ≥ U 9/10 ,
+
+
+MS Cm , (Y K )400 , P (m, a, U ); [Y, Y K ] ,
+
+(46)
+
+the finite-sum-to-G comparison stated below.
+The first is required eventually for every fixed  > 0. The second is required with one absolute Cm > 0,
+eventually for each fixed 0 <  ≤ 1, K ≥ 1, and with the additional condition
+p|m
+
+=⇒
+
+p ≤ Y /5 or p > (Y K )400
+36
+
+(p prime).
+
+(47)
+
+The comparison requires one absolute CB > 0. For each 0 <  ≤ 1/4, τ > 0, K ≥ 1, it is to hold eventually,
+uniformly for every primitive nonprincipal χ of conductor at most Q, where
+Y /6 ≤ log Q ≤ Y /4 ,
+
+ZB(χ, Q).
+
+If χ(n) = κ(n)(n/q) for every n, and
+|S(Y K )400 (y; q, κ)| ≤ 12 y 1/2+τ
+then
+
+|L0 (1, χ)/L(1, χ)| ≤ CB log Y,
+
+(Y ≤ y ≤ Y K ),
+
+|Gχ (y)| ≤ y 1/2+τ
+
+(Y ≤ y ≤ Y K ).
+
+(48)
+
+These are exact quantitative supplier statements, with their uniform constants specified. The next proof uses
+them conditionally; the zero-density assertion has already been established in Proposition 3.22.
+Lemma 3.24 (One simultaneous selection stage). Assume the three estimates just specified. For every fixed
+0 <  ≤ 1/4, τ > 0, K ≥ 1, η > 0, and integer R ≥ 0, there is a threshold Y0 with the following property.
+Let (45) and (47) hold, let 1 ≤ F ≤ U 1/2 , and let Ξ be a set of at most R primitive characters of conductors
+at most F . Then P = P (m, a, U ) is nonempty and at most η|P | of its primes fail the following condition:
+every primitive character inducing ξ(n)(n/q), for any ξ ∈ Ξ, is nonprincipal, has conductor at most F U ,
+satisfies ZB(χ, F U ), and satisfies (48). Induction here may be tested on any prescribed nonzero modulus
+on which those values are specified.
+Proof. Choose the thresholds for the three progression estimates. Apply Lemma 3.21 with exceptional fraction η/[2(R + 1)]. Enlarge the threshold so that
+3 /5
+Y (log Y )2 ≤ Y /4 ,
+2
+
+CD U 3/8 ≤
+
+η 9/10
+U
+2
+
+for every allowed U , and U ≥ 4. These are eventual inequalities because (log Y )2 = o(Y /20 ), U 3/8 =
+o(U 9/10 ), and log U ≥ Y /6 → ∞. Put Q = F U . As 1 ≤ F ≤ U 1/2 ,
+Y /6 ≤ log Q ≤ 32 log U ≤ Y /4 .
+The first progression estimate gives |P | ≥ U 9/10 > 0.
+For q ∈ P , q > U 1/2 ≥ F ; thus q is an odd prime not dividing the conductor fξ of any ξ ∈ Ξ. The
+product of the primitive character ξ with the nontrivial quadratic character modulo q is primitive of conductor
+fξ q. This follows prime by prime: at the q-factor it has the full nontrivial quadratic conductor, and at each
+prime dividing fξ restriction to that unit factor recovers ξ, whose local conductor cannot decrease. It is
+consequently nonprincipal and has conductor fξ q ≤ F U .
+Let B1 consist of primes for which one of these primitive products fails ZB(χ, Q). Lemma 3.23 gives
+|B1 | ≤ CD Q1/4 ≤ CD U 3/8 ≤ (η/2)|P |.
+For each ξ ∈ Ξ, let B2,ξ consist of primes having some y ∈ [Y, Y K ] at which the finite sum exceeds 21 y 1/2+τ .
+Since a character has absolute value at most 1, the maximal mean-square lemma gives
+|B2,ξ | ≤
+
+η
+|P |.
+2(R + 1)
+
+Their union therefore has at most (η/2)|P | elements. Outside the two exceptional sets the comparison (48)
+applies.
+37
+
+Finally a second primitive character agreeing with the product away from a nonzero modulus is the same
+primitive character. Inflate both to a common multiple of their conductors and the testing modulus; they
+agree on all units there. Equality of the inflated characters gives the same minimal conductor and the same
+primitive character. Thus a failure of the condition for any inducing character is already detected by B1
+or one of the B2,ξ . The union bound proves the assertion. This is MeanSquareBounds/StagePow.lean:41‐‐170,
+including its separation of the two exceptional causes.
+We now apply the stage twice. Put z = Y /5 and, temporarily, let
+z(log Y )2 ≤ z 0 ≤ K 2 z(log Y )2 .
+The first prime set is P (8, 3, ez ). For a selected first prime q, put
+Y
+p.
+Modd = q
+p≤z
+p odd prime
+
+Let the second prime set consist of primes
+′
+
+′
+
+ez /2 < d ≤ ez ,
+
+d ≡ 7 (mod 16),
+
+d ≡ −1 (mod Modd ).
+
+If q ≤ z the repeated prime in Modd does not change its prime support; the congruences remain equivalent.
+′
+The Chinese remainder theorem identifies this second set with P (16Modd , aq , ez ) for a residue class aq
+coprime to 16Modd .
+Proposition 3.25 (Two stages produce a good pair). Assume the three analytic estimates (46), including their
+stated comparison, and the following logarithmic-derivative improvement:
+∀ 0 <  < 1/52 ∀A > 0 ∃Y0 ∀Y ≥ Y0 :
+Y
+
+/6
+
+≤ log Q ≤ AY /5 (log Y )2 ,
+=⇒
+
+Nχ ≤ Q,
+
+χ 6= 1,
+
+(49)
+
+ZB(χ, Q)
+
+|L0 (1, χ)/L(1, χ)| ≤ 4 log Y.
+
+Then PairEx holds.
+Proof. Fix M ≥ 1, 0 <  < 1/52, A ≥ 1. Use the selection stage first with parameter  and then with
+\)× , respectively twice
+6/5 < 1/4. The finite sets of starting primitive characters will have at most #(Z/8M
+this number, elements. Use τ = /2, K = A, and exceptional fraction 1/2 in both stages. All thresholds
+are chosen before Y and q.
+Here are the checks allowing those applications. In the first stage take m = 8, a = 3, U = ez , F = 8M .
+For large Y , (log Y )2 ≤ z/2, z ≥ 16M , and log Y ≥ 1. Since log 8 < 2.1, these give 41 (log Y )2 log 8 ≤ z;
+the other bounds in (45) follow from /6 ≤ /5. The only prime in m is 2 ≤ z, and 8M ≤ ez/2 . Replacing
+each character modulo 8M by its primitive character does not increase the size of this finite set, and preserves
+its values on units of that modulus. The stage therefore leaves a nonempty set of first primes for which all
+twists by ( · /q) have the required boxes and estimates. Every
+Q such q exceeds 8M , eventually.
+For the second stage, the elementary primorial bound p≤z p ≤ 4z and q ≤ ez give
+log(16Modd ) ≤ 4z
+′
+
+for large Y . Hence 14 (log Y )2 log(16Modd ) ≤ z 0 . Its parameter 0 = 6/5 has 0 /6 = /5; thus Y  /6 ≤ z 0 .
+Also K 2 ≤ Y /25 eventually, so
+′
+
+z 0 ≤ K 2 Y /5 (log Y )2 ≤ Y  /5 (log Y )2 .
+38
+
+′
+
+Its modulus primes other than q are at most max(2, z) ≤ Y  /5 . For large Y , 800K log Y ≤ z; since q > ez/2 ,
+this gives q > (Y K )400 . This verifies (47).
+The starting characters here are the primitive characters of ξ(
+cdot )( · /q)i , for all ξ mod 8M , i = 0, 1. Their conductors are at most 8M q ≤ F = 8M ez . As z 0 ≥
+′
+z(log Y )2 and z → ∞, log(8M ) + z ≤ z 0 /2 eventually; hence F ≤ ez /2 . The threshold remains independent of q, because its size bound was uniform and the number of starting characters was fixed. At least
+half the second prime set is therefore good. Choose q from the first good set and d from its second good set,
+and take z 0 = z(log Y )2 . The congruences and exponential ranges give exactly the window-pair conditions;
+moreover q < d, and (8M, qd) = 1.
+For a twist with j = 0, necessarily i = 1, the first stage gives its box of size 8M ez . One may remove
+d from the testing modulus: equality away from 2M qd identifies the same primitive character as equality
+away from 8M q, by the uniqueness proved in the stage. For j = 1, the second stage gives the box of size
+′
+8M ez+z , for either i. Inflating a character modulo M , or a real primitive character of conductor dividing
+8M , to modulus 8M preserves all the needed values on units. Thus these two stages cover every character
+quantified in PairGood. The finite-sum convention agrees with Gχ for a nonprincipal character, since n ≤ y
+makes max(y/n − 1, 0) = y/n − 1.
+Finally, for j = 0, 1 write
+′
+
+log Qj = log(8M ) + z + jz 0 .
+
+Qj = 8M ez ejz ,
+For Y ≥ exp(1 + log(8M )),
+
+Y /6 ≤ log Qj ≤ 3Y /5 (log Y )2 .
+
+Apply (49) with its constant A = 3. It gives the specific 4 log Y bound, hence 4 log y for y ≥ Y . The
+two stages already give the bounds |Gχ (y)| ≤ y 1/2+/2 and the boxes at the exact heights Qj . This proves
+every condition of PairGood(M, , Y, Y A ; q, d). The proof follows MeanSquareBounds/Stage1Succ.lean:36‐‐95,
+CrystallineBaseChange/CharOf.lean:61‐‐138, PairShare.lean:26‐‐52, PairExists.lean:9‐‐49 and pairEx.lean:11‐169.
+Lemma 3.26 (The zero-free-box contour estimate). For 0 < ν ≤ 1/800 there is Kν ≥ 0 such that, for
+every primitive nonprincipal χ with Nχ ≤ Q, Q ≥ 2, and ZB(χ, Q), and all z ≥ 1, 0 < η ≤ 1,
+|Rχ (z + zη) − Rχ (z) − zη Dχ (1)|
+
+
+z2
+1−1/400+ν
+≤ Kν log Q log Q η z
++
+,
+Q
+
+Dχ = −L0 /L.
+
+(50)
+
+The constant depends on ν, not on the character or the three real variables.
+Proof. We first justify the local logarithmic-derivative bound used on the contour. The partial sums of a
+nonprincipal character modulo N are bounded by N , by splitting into complete periods. Summation by
+parts therefore represents L(s, χ), for <s > 0, as
+
+
+Z ∞ X
+
+L(s, χ) = s
+χ(n) u−s−1 du.
+1
+
+n≤u
+
+On the disk of radius 11/20 centered at 21/20 + it this gives a polynomial upper bound CN (|t| + 2), with an
+absolute C, since the real part is at least 1/2. At the center the Euler product gives the absolute lower bound
+1/ζ(21/20). Normalize by that central value and call the resulting analytic function f . Its central value is 1,
+and log max |f | = O(log(N (|t| + 2))).
+39
+
+For completeness, the local zero subtraction used here can be seen directly from Jensen’s formula. The
+total multiplicity of zeros in the concentric disk of one third the radius is at most log max |f |/ log 3. Remove
+their finite disk Blaschke product B; it has modulus 1 on the outer circle, so h = f /B still has modulus
+at most max |f |. It is zero free in the inner disk. Choose the analytic logarithm of h there, with its central
+imaginary part zero. Its central real part is nonnegative, because |B(0)| ≤ 1. The Cauchy estimate for a
+holomorphic function with bounded real part (equivalently, apply the disk positive-real-part transform and
+Schwarz’s lemma) bounds h0 /h on the disk of one tenth the outer radius by an absolute constant times
+log max |f |. The derivative of a disk Blaschke factor equals 1/(s − ρ) plus a term bounded by a constant
+times the reciprocal outer radius there. Hence
+L0
+(s, χ) =
+L
+
+X
+ρ in the inner disk
+
+
+mρ
++ O log(N (|t| + 2))
+s−ρ
+
+for the real parts used below, namely 1 − 1/400 + ν ≤ <s < 11/10, =s = t. Indeed their distance from
+21/20 + it is at most 21/400 < (11/20)/10. If |t| ≤ Q − 1, all the subtracted zeros have imaginary part of
+absolute value at most Q. The zero-free box forces their real parts to be at most 1 − 1/400; thus |s − ρ| ≥ ν.
+Since N (|t| + 2) ≤ Q3 , the displayed formula gives
+|Dχ (s)| ≤ KB (ν) log Q
+
+(<s ≥ 1 − 1/400 + ν,
+
+|=s| ≤ Q − 1) .
+
+(51)
+
+For <s ≥ 11/10, the same bound follows from the absolutely convergent Euler logarithmic derivative.
+This is the local zero-subtraction argument of JacobiCharacterSums/TailBox.lean:35‐‐119; the numerical local
+constant is immaterial here.
+Set σ1 = 1 − 1/400 + ν, T = Q/2. The absolutely convergent Perron identity on <w = 2 is
+Z 2+i∞
+1
+yw
+Rχ (y) =
+Dχ (w)
+dw.
+2πi 2−i∞
+w(w − 1)
+P
+To verify it, insert the absolutely convergent series Dχ (w) =
+Λ(n)χ(n)n−w , interchange sum and integral, and use the elementary kernel integral
+Z 2+i∞
+aw
+1
+dw = max(a − 1, 0)
+(a > 0).
+2πi 2−i∞ w(w − 1)
+Its two residues at 0, 1 give the value for a > 1; closing the contour in the other direction gives zero for a < 1,
+and continuity gives the value at a = 1. The quadratic denominator makes the vertical tails integrable.
+Move the finite segment at height T to <w = σ1 . The box excludes all poles of Dχ in this rectangle. Only
+the kernel pole at w = 1 is crossed, with residue yDχ (1); w = 0 remains outside. Do this at y = z(1 + η)
+and y = z, and subtract. For 0 ≤ <w ≤ 2,
+|(z(1 + η))w − z w | ≤ 4η|w|z <w .
+Indeed factor out z w , write the remaining power as exp(w log(1 + η)), and integrate its derivative on the
+unit segment; use log(1 + η) ≤ η and (1 + η)<w ≤ 4. On the left vertical side,
+|w − 1| ≥ 12 (1/800 + |=w|),
+so its reciprocal integral is at most 4 log(1 + 800T ) ≤ 40 log Q. Together with (51), this bounds the left-side
+difference by 160KB (ν)(log Q)2 ηz σ1 .
+The two horizontal segments for either y have length at most 2, |w|, |w − 1| ≥ T , and y <w ≤ 4z 2 . Their
+individual integrals are at most 16KB (ν) log Q z 2 /Q. On the omitted right-line tails, the Euler series bounds
+40
+
+|Dχ (2 + it)| by an absolute constant, so integration of t−2 contributes at most an absolute multiple of z 2 /Q.
+Adding the four horizontal terms, two right tails and the left difference, and dividing by 2π, proves (50) after
+enlarging Kν . These are precisely the contour and kernel estimates in TailKernel.lean:9‐‐125, TailContourA.
+lean:20‐‐35 and TailContour.lean:14‐‐135.
+Proposition 3.27 (The finite-sum comparison and 4 log Y ). The comparison (48) and the improvement (49)
+hold, with all the uniformities stated there.
+Proof. Write
+Pχ (z) =
+
+X Λ(n)χ(n)
+,
+n
+
+Tχ (z) = Dχ (1) − Pχ (z).
+
+1≤n≤z
+
+The elementary difference of the ramp sums gives, for h > 0, z ≥ 1,
+|Rχ (z + h) − Rχ (z) − hPχ (z)| ≤
+
+h(h + 1)
+log(z + h).
+z
+
+In fact the summands with n ≤ z cancel exactly. At most h + 1 integers remain in z < n ≤ z + h; each
+contributes at most log(z + h) h/z. Combining this estimate at h = zη with (50) bounds
+
+Kν log Q log Q ηz 1−1/400+ν + z 2 /Q + η(zη + 1) log(z + zη)
+|Tχ (z)| ≤
+.
+(52)
+zη
+First take x = Y K , z = x400 , η = x−2 and ν = /(1600K). Multiplication of the right side by x
+simplifies to
+log Q x403 x398 + 1
+Kν (log Q)2 Y /4 + Kν
++
+log(x400 + x398 ).
+Q
+x399
+The last term is at most 802: for x ≥ 3, x400 + x398 ≤ x401 , log x ≤ x, and x ≤ x399 . The first term is at
+most Kν Y 3/4 , since log Q ≤ Y /4 . The second is at most
+Kν Y 404K exp(−Y /6 ) −→ 0,
+because log Q ≤ x and Q ≥ exp(Y /6 ). These bounds, with , K fixed before Y , give
+|Y K Tχ ((Y K )400 )| ≤ Y 
+
+(53)
+
+eventually, uniformly in Q, χ.
+P
+There is an absolute C0 > 0 with n≤z Λ(n)/n ≤ C0 log z for z ≥ 2. Taking K = 1 in (53) gives
+|Tχ (Y 400 )| ≤ 1 when  ≤ 1. Consequently
+|L0 (1, χ)/L(1, χ)| ≤ 400C0 log Y + 1 ≤ (400C0 + 1) log Y
+for Y ≥ 3. This proves the first estimate in (48), with an absolute constant. For its other estimate, the exact
+identity, for Z ≥ y,
+Gχ (y) = −SZ (y; q, κ) − yTχ (Z)
+
+(χ(n) = κ(n)(n/q))
+
+follows by splitting the finite sums at n = y. Use Z = (Y K )400 , (53), and y ≤ Y K . Since  ≤ 1/4 and
+Y ≥ 16,
+Y  ≤ 12 y 1/2+τ .
+The assumed half-size bound for SZ proves the second estimate in (48).
+41
+
+To obtain the coefficient 4, use the same contour with fixed ν = (2/5)/1600. Let l = log Q, s = l1/4 ,
+x = s10 , z = x400 , and η = x−2 . For large l, s ≥ 3 and l1006 ≤ Q = el . The same simplification of (52),
+now without multiplying by x, shows that its first two terms are at most Kν each:
+l2 x−1+(2/5)/4 = s8 s−9 = s−1 ≤ 1,
+
+lx402 /Q ≤ 1.
+
+The latter uses lx402 = (s4 )1006 ≤ Q. Its elementary third term is atPmost 802. Thus |Tχ (z)| ≤ 2Kν + 802.
+Here one may use the more precise P
+elementary Mertens bound n≤z Λ(n)/n ≤ log z + 2. For integer
+a ≥ 1, the factorial identity
+P log(a!) = n≤a Λ(n)ba/nc and log(a!) ≤ a log a − a + 1 + log a, together
+with the verified bound n≤a Λ(n) < 1.03883a used above, give it: (1 + log a)/a ≤ 1. Taking a = bzc
+gives the real-variable version. It follows that
+|L0 (1, χ)/L(1, χ)| ≤ 1000 log log Q + C,
+
+C = 2Kν + 804.
+
+Indeed log z = 400 log x = 1000 log l. If log Q ≤ AY /5 (log Y )2 , then
+log log Q ≤ log A +
+
+
+log Y + 2 log log Y.
+5
+
+The coefficient 1000/5 is less than 50/13 < 4 when  < 1/52. The remaining 2000 log log Y +1000 log A+
+C is o(log Y ); the lower bound log Q ≥ Y /6 ensures all preceding large-l requirements. This proves (49).
+The calculations are those of MeanSquareBounds/TailKExp.lean:8‐‐145, kappaC.lean:9‐‐62, BoxOfS.lean:10‐‐60
+and Kappa4Loglog.lean:9‐‐153.
+
+3.13 The progression estimates underlying the mean square
+We isolate the exact
+R X prime-number-theorem formulation, including its exceptional term, before applying
+it. Let li2 (X) = 2 dt/ log t. For a positive modulus m divisible by 8, let em be either absent or a pair
+(χm , βm ) satisfying
+χ2m = 1,
+
+χm 6= 1,
+(
+
+Define
+Mm (a, X) =
+
+L(βm , χm ) = 0,
+
+1−
+
+1
+< βm < 1.
+8 log m
+
+li2 (X)/ϕ(m),
+[li2 (X) − χm (a) li2 (X βm )]/ϕ(m),
+
+em absent,
+otherwise.
+
+Since χm is real, this is a real number. The relative progression input is the assertion that there are absolute
+c3 > 0, A0 , C0 such that one may make these choices for all m, with no exceptional pair when none exists,
+and, for (a, m) = 1, X ≥ 2, C0 log m log(log m + 2) ≤ log X,
+
+
+√
+|π(X; m, a) − Mm (a, X)| ≤ |A0 | e−c3 log X/ log m + e− c3 log X Mm (a, X).
+(54)
+The source uses the equivalent version without the absolute value on A0 , which can only be weaker after this
+replacement. Two further inputs to this progression argument are: there is an absolute 0 < c ≤ 1 for which
+every real nonprincipal character modulo m and real zero β satisfy
+1 − β ≥ c/m;
+
+(55)
+
+and there is an absolute c0 > 0 such that two real nonprincipal characters of moduli m1 , m2 ≤ Z having real
+zeros βi > 1 − c0 / log Z agree on every integer coprime to m1 m2 . The latter is the Page consequence of
+uniqueness in the classical zero-free region: inflate to modulus m1 m2 ≤ Z 2 , where log(2m1 m2 ) ≤ 3 log Z,
+42
+
+and use its unique possible exceptional character. These statements retain all real zeros; no ineffective exception is discarded. Proposition 3.31 below verifies this formulation, including the exceptional pair convention,
+from an established relative prime number theorem. Its proof also verifies the two zero-free consequences
+just stated.
+Lemma 3.28 (Counting the admissible progression). Assume (54) and (55). The first assertion in (46) holds
+eventually, uniformly over (45).
+Proof. Put L = log Y , u = log U , and Λ = log m. Admissibility gives
+u ≥ L2 Λ/4,
+
+u ≥ Y /6 ,
+
+Λ ≤ 4Y /5 .
+
+Since m ≥ 8, Λ > 1. For large L,
+
+|C0 | log(Λ + 2) ≤ |C0 | log 6 + (/5)L ≤ L2 /4.
+Thus the range condition for (54) is satisfied. Its relative error is at most 1/2, since
+u/Λ ≥ L2 /4,
+
+u ≥ L2 /4
+
+make both exponentials tend to zero uniformly.
+For u ≥ 4, we claim
+
+cU
+.
+(56)
+2um2
+If the exceptional pair is absent, use li2 (U ) ≥ (U − 2)/u, ϕ(m) ≤ m, and m ≥ 8, c ≤ 1. If present,
+βm ≥ 7/8, so U βm ≥ 2. The gap bound and u ≥ 1 give
+Mm (a, U ) ≥
+
+U βm ≤ U e−c/m ≤ U (1 − c/(2m)).
+The last inequality follows by convexity of e−v on 0 ≤ v ≤ 1, using e−1 ≤ 1/2. As χm (a) ≤ 1,
+li2 (U ) − χm (a) li2 (U βm ) ≥
+
+U − U βm
+cU
+≥
+.
+u
+2mu
+
+Divide by ϕ(m) ≤ m to obtain (56).
+For large Y , admissibility also gives
+80Λ ≤ u,
+
+log(320/c) ≤ u/20.
+
+The first follows from L2 /4 ≥ 80; the second from u ≥ Y /6 . Since u ≤ 40eu/40 and m2 = e2Λ ≤ eu/40 ,
+these imply
+cU
+≥ 4U 9/10 .
+2um2
+Indeed split eu = e9u/10 eu/20 eu/40 eu/40 , and use ceu/20 ≥ 320. The relative error bound therefore gives
+π(U ; m, a) ≥ 2U 9/10 . At most U 1/2 integers, hence at most that many primes in the progression, are at
+most U 1/2 . Removing them leaves
+|P (m, a, U )| ≥ 2U 9/10 − U 1/2 ≥ U 9/10 .
+Every threshold was independent of m, a, U . This is JacobiCharacterSums/MSqCount.lean:86‐‐387.
+
+43
+
+Lemma 3.29 (One exceptional squarefree twist). Assume the three progression and zero-free inputs stated
+above. For fixed , A, B > 0 there is a threshold such that every progression (45) admits an integer s∗ ≥ 0
+for which
+q 
+X
+≤ Y −B |P (m, a, U )|
+(57)
+s
+q∈P (m,a,U )
+
+for every odd squarefree 1 < s ≤ Y A , coprime to m, except possibly s = s∗ .
+Proof. Put Z = mY A . Call such an s exceptional if the chosen pair for modulus ms satisfies βms >
+1 − c0 / log Z, and its character restricts to ( · /s) on the units congruent to 1 modulo m. At most one s
+is exceptional. In fact the Page assertion makes the two exceptional characters agree on common units. If
+s1 6= s2 , choose a prime dividing just one of these squarefree integers; by the Chinese remainder theorem
+choose an integer congruent to 1 modulo m, a quadratic nonresidue at that prime, and 1 at all other primes
+dividing s1 s2 . Its two Jacobi values differ, a contradiction. Choose that exceptional integer as s∗ if it exists,
+and otherwise put s∗ = 0.
+Fix a nonexceptional s. Let C be the unit residue classes modulo ms congruent to a modulo m. The sum
+of (b/s) over C is zero: multiply the classes by a unit vP≡ 1 (mod m) with (v/s) = −1, constructed by the
+same Chinese remainder argument. Likewise the sum b∈C (b/s)χms (b) is zero unless χms agrees with the
+Jacobi character on the units v ≡ 1 (mod m). Indeed multiplication by any such v multiplies the sum by
+(v/s)χms (v); if the two characters do not agree, this factor differs from 1.
+In the agreement case nonexceptionality gives βms ≤ 1 − c0 / log Z. With u = log U , L = log Y , put
+
+
+√
+r = 4u e−c0 u/ log Z ,
+k = |A0 | e−c3 u/ log(ms) + e− c3 u .
+For large Y , r, k ≤ 1/2, the range condition in (54) holds for ms, and
+4r ≤ Y −B /8,
+
+2k ≤ Y −B /8,
+
+e−2u/5 ≤ Y −B /4.
+
+(58)
+
+Here are uniform estimates justifying those choices. Admissibility and s ≤ Y A give
+log Z = log m + AL,
+
+L2
+log m ≤ u,
+4
+
+log m ≤ 4eL/5 ,
+
+log u ≤ (/5 + 2)L.
+
+The lower bound u ≥ Y /6 dominates every fixed multiple of L3 . Combining it with the second inequality
+makes u/ log Z and u/ log(ms) at least L2 /8. Thus the first two error expressions are bounded by fixed
+multiples of
+√
+2
+2
+e(/5+2)L−c0 L /8 ,
+e−c3 L /8 + e− c3 u ,
+each o(e−BL ). Also log log(ms) = O,A (L), so the range condition follows from u ≥ (L2 /8) log(ms).
+These comparisons prove all three inequalities in (58) uniformly.
+If the agreement case occurs, monotonicity of the logarithmic integral gives
+| li2 (U βms )| ≤ r li2 (U ).
+For example li2 (U ) ≥ U /(2u) for u ≥ 4, and li2 (U β ) ≤ 2U β for 1/2 ≤ β < 1; these yield the displayed
+bound. The exceptional pair’s definition ensures β > 7/8, so it lies in this range. It follows, using the two
+zero sums proved above, that the absolute Jacobi-weighted sum of the main terms on C is at most
+X
+|Mms (b, U )|.
+2r
+b∈C
+
+44
+
+In the agreement case this follows from |Mms (b, U )| ≥ li2 (U )/(2ϕ(ms)); otherwise that weighted sum is
+exactly zero. The relative error bound also implies
+X
+
+|Mms (b, U )| ≤ 2 |P (m, a, U )| + U 1/2 .
+b∈C
+
+Indeed each nonnegative prime count is at least half its main term when k ≤ 1/2, and the union of the classes
+counts precisely the progression primes coprime to s. Their number is no larger than all progression primes.
+Summing the errors and then removing the primes at most U 1/2 therefore bounds the desired sum by
+
+(4r + 2k) |P (m, a, U )| + U 1/2 + U 1/2 .
+Primes dividing s have Jacobi value zero and do not create an additional term. By Lemma 3.28, U 1/2 ≤
+e−2u/5 |P (m, a, U )|. The three bounds (58) now make the last display at most Y −B |P (m, a, U )|. This
+is the full exceptional-character cancellation argument of MeanSquareBounds/twistK.lean:148‐‐353 and Jacobi
+CharacterSums/MSqTwistB.lean:54‐‐240.
+Proposition 3.30 (The required uniform mean square). Assume the progression and zero-free inputs of the
+preceding subsection. The mean-square assertion in (46) holds with an absolute constant, for all the stated
+bounded sequences κ.
+Proof. Put N = b(Y K )400 c, w = Y /5 , and P = P (m, a, U ). For large Y , N 2 ≤ Y 800K < U 1/2 , since
+log U ≥ Y /6 dominates 1600K log Y . Thus every q ∈ P exceeds N 2 . Apply Lemma 3.29 with A = 800K,
+B = K + 1. It gives cancellation with η = Y −(K+1) for every squarefree odd 1 < s ≤ N 2 coprime to m,
+with at most one exception s∗ . If the exceptional integer is not greater than 1, replace it by 2; this can only
+enlarge the set of terms on which no cancellation is used.
+Fix Y ≤ y ≤ Y K and write
+X
+c(n) = Λ(n) min(1, y/n),
+sp =
+c(n).
+n≤N
+n a power of p
+
+Only prime powers can have c(n) 6= 0. Let
+X
+
+Rm =
+
+c(n).
+
+n=pj ≤N
+j even or p|m
+
+For an integer v > 0, let sout (v) be the product of primes not dividing m whose exponent in v is odd.
+Quadratic reciprocity, and the fixed residue a modulo m divisible by 8, give a fixed sign εn,n′ ∈ {±1}
+(independent of q ∈ P ) such that
+X  n   n0 
+q∈P
+
+q
+
+q
+
+= εn,n′
+
+X
+q∈P
+
+q
+sout (nn0 )
+
+
+
+X  n   n0 
+
+,
+
+q∈P
+
+q
+
+q
+
+=
+
+X
+q∈P
+
+q
+sout (nn0 )
+
+
+.
+
+To check this, remove even prime exponents from nn0 . The remaining factors at primes dividing m, including
+the factor 2 and the quadratic reciprocity sign for sout (nn0 ), depend only on q mod m (since 8 | m); their
+product is a fixed sign εn,n′ ∈ {±1}. All other odd factors become (q/p). No factor vanishes, because
+nn0 ≤ N 2 < q. Factoring out εn,n′ proves the first equality, and taking absolute values proves the second.
+
+45
+
+Expand the square in the left side of (41), move its finite sums, and use |κ(n)κ(n0 )| ≤ 1. For sout (nn0 ) ∈
+/
+{1, s∗ }, use the squarefree-twist bound; for the other pairs use |P |. The resulting upper bound is
+
+X
+ p
+
+
+2
+s2p + Rm
++ 2B02 + 2B0 Rm + η 
+
+X
+n≤N
+
+2 
+
+c(n) |P |,
+
+
+(59)
+
+where B0 is any common upper bound for all sp . Here is the pair classification behind its first fourP
+terms. If
+0
+sout (nn ) = 1, either the two prime powers have the same underlying prime, contributing at most p s2p , or
+2 . For the fixed value s (nn0 ) = s > 1, if it is prime, either
+both belong to Rm , contributing at most Rm
+out
+∗
+that prime occurs in both powers or one power has trivial outside squarefree part; the two orders give at
+most 2B02 + 2B0 Rm . If it is not prime, its nonzero contributions must come from two distinct primes whose
+product is s∗ . Those primes are uniquely determined, and the two orders contribute at most 2B02 . These
+cases also cover zero coefficients. They prove (59) without assuming that κ is multiplicative.
+We give the scalar estimates uniformly in the cutoff N . For y ≥ 3, geometric summation over powers
+of p gives
+X
+s2p ≤ C3 y log y
+sp ≤ C2 log y,
+(60)
+p
+
+with absolute positive constants. Indeed for p ≤ y, the powers at most y contribute at most log y, and the
+geometric tail at most 2 log p. For p > y the entire sum is at most 2y log p/p ≤ 2 log y. Thus C2 = 3 is
+√
+√
+√
+possible. To square and sum, primes
+at most y give at most 9 y(log y)2 ≤ 18y log y. For y < p ≤ y,
+P
+use 9(log y)2 ≤ 18 log y log p and p≤y log p ≤ 3y. For p > y, summation by parts using this same last
+bound gives
+Z ∞
+X (log p)2
+2 log v − 1
+log y
+.
+≤3
+dv ≤ 9
+2
+2
+p
+v
+y
+y
+p>y
+Its contribution is at most 36y log y. Thus one may take C3 = 108. These are the three ranges used in Mean
+SquareBounds/SPsqLe.lean.
+The even prime powers in Rm are bounded by
+X
+X
+√
+Λ(j) min(1, y/j 2 ) ≤ 3
+min(1, y/j 2 ) ≤ 9 y.
+j≤N
+
+j≤N
+
+P
+The middle inequality is finite summation by parts with the decreasing weight, using j≤v Λ(j) ≤ 3v. The
+√
+last follows by splitting at y and comparing the j −2 tail with its integral. By (47), primes dividing m and
+at most N are at most w. There are at most w of them, each contributing at most C2 log y. Consequently,
+with an absolute C1 > 0,
+√
+√
+Rm ≤ C1 ( y + w log y) ≤ 5C1 y.
+√
+The last step uses  ≤ 1, w ≤ y 1/5 , and log y ≤ (10/3)y 3/10 , so w log y ≤ 4 y. This is the evenpower/modulus-prime split in MeanSquareBounds/RRLe.lean:9‐‐99. Finally the Mertens estimate above gives,
+for Z ≥ 2,
+X
+c(n) ≤ C4 y log Z
+n≤Z
+
+with an absolute C4 > 0.
+√
+Take B0 = C2 log y. Since log y ≥ 1 and log y ≤ 2 y, the first four terms in (59) are at most
+(C3 + 25C12 + 4C22 + 20C1 C2 )y log y.
+
+46
+
+For large Y , (400K log Y )2 ≤ Y ; hence the final term is at most
+Y −(K+1) C42 y 2 Y ≤ C42 y ≤ C42 y log y,
+because y ≤ Y K . Substitution in (59) proves (41) with Cm = C3 + 25C12 + 4C22 + 20C1 C2 + C42 . All
+constants are absolute; only the eventual threshold depends on , K. This is the finite Gram expansion and
+scalar conclusion of MeanSquareBounds/MeanSqAbs.lean:8‐‐58 and meanSqK.lean:51‐‐221.
+
+3.14 Verification of the relative progression input
+Proposition 3.31 (The exceptional term is retained uniformly). The assertion (54), with exactly the
+exceptional-pair convention stated there, holds. The gap assertion (55) and the Page consequence used in
+Lemma 3.29 also hold. All their constants are absolute.
+Proof. We use Thorner and Zaman, Refinements to the prime number theorem for arithmetic progressions,
+Corollary 1.4 and Remark 1.5 [64].3 Write λ = log m, u = log X. Their distinguished pair, when present,
+is the unique possible zero of the product over characters modulo m in
+<s ≥ 1 −
+
+1
+.
+13 log(m(|=s| + 3))
+
+It is real and belongs to a unique real nonprincipal character. Denote it by (χ∗ , β∗ ). Their corollary gives,
+for t ≥ m12 ,
+E(t) = e−d log t/λ + e−d(log t)
+
+ϑ(t; m, a) = H(t){1 + O(E(t))},
+
+3/5 /(log log t)1/5
+
+,
+
+(61)
+
+where d > 0 and the implied constant are absolute. Here H(t) = t/ϕ(m) if their pair is absent, and otherwise
+H(t) =
+
+t − χ∗ (a)tβ∗ /β∗
+.
+ϕ(m)
+
+This is a relative error with the displayed H(t). The statement applies to every m ≥ 2 and every coprime
+residue, without excluding a real character.
+We first record the zero bounds, including characters whose zeros lie outside this narrower region. Equation (1.2) of the same paper, with its parameter ε = 1/2, gives an absolute b > 0 such that 1 − β∗ ≥ bm−1/2 .
+A real zero β outside the narrower region instead satisfies
+1−β >
+
+1
+.
+13 log(3m)
+
+The function m/ log(3m) has a positive lower bound on m ≥ 3. Decreasing b, and using m−1/2 ≥ m−1 ,
+therefore proves 1 − β ≥ c/m for every real nonprincipal character and real zero, with absolute 0 < c ≤ 1.
+This proves (55). An imprimitive character causes no difficulty: its extra Euler factors have no real zero at
+β > 0; zeros at β ≤ 0 already satisfy this bound.
+For the Page assertion, inflate both characters to modulus l = m1 m2 . If they are real nonprincipal,
+their primitive characters stay nonprincipal after inflation. Since Z ≥ 3, log(3l) ≤ 3 log Z. Thus both
+proposed zeros lie in the displayed zero-free region for modulus l if c0 = 1/39 and βi > 1 − c0 / log Z.
+3 J. Thorner and A. Zaman, Math. Z. 306 (2024), article 54, https://doi.org/10.1007/s00209‐023‐03414‐3. The
+
+statements used here were checked in the authors’ preprint https://arxiv.org/abs/2108.10878v2, pp. 1–3: the zero-free
+region immediately before Theorem 1.1, equation (1.2), and Corollary 1.4 with Remark 1.5. The preprint date is 21 September
+2021.
+
+47
+
+Inflation preserves a positive real zero because the added Euler factors do not vanish there. Uniqueness of
+the exceptional character modulo l then makes the inflated characters equal. They consequently agree on
+every integer coprime to m1 m2 , as required.
+We next pass from (61) to the unweighted count, initially using this narrower pair. Let M∗ (a, X) denote
+its logarithmic-integral main term, with the same convention as Mm . Increase an absolute C0 so that
+u ≥ C0 λ log(λ + 2)
+
+X 1/2 ≥ m12 ,
+
+=⇒
+
+u ≥ 32λ,
+
+u ≥ 100.
+
+Put V = X 1/2 . For t ∈ [V, X], the right side E(t) is at most
+√
+
+0
+EX
+= e−d1 u/λ + e−d1 u
+
+√
+for an absolute d1 > 0. Indeed log t ≥ u/2, and v 3/5 /(log v)1/5 ≥ v once v is sufficiently large; enlarging
+C0 covers the remaining lower range uniformly.
+In this range H(t) ≥ 0. To check the only nontrivial sign, write δ = 1 − β∗ . Since β∗ ≥ 7/8, − log β∗ ≤
+(8/7)δ. Consequently t−δ /β∗ ≤ 1 when log t ≥ 8/7. Partial summation on [V, X] now gives
+π(X; m, a) − M∗ (a, X) =
+
+ϑ(X; m, a) − H(X)
+u
+Z X
+ϑ(t; m, a) − H(t)
++
+dt + O(V ).
+t(log t)2
+V
+
+The absolute O(V ) includes the entire initial interval and the lower endpoints of the main term. For example
+π(V ; m, a) ≤ V ; |H(V )| ≤ 3V ; and the two logarithmic integrals at V, V β∗ have size O(V ). The identity
+for the main term follows by differentiating:
+M∗0 (a, t) =
+
+H 0 (t)
+1 − χ∗ (a)tβ∗ −1
+=
+.
+ϕ(m) log t
+log t
+
+All these statements have the evident version when the exceptional pair is absent.
+The sum of the positive weights multiplying H in this partial summation is M∗ (a, X)+O(V ). It follows
+from the relative weighted estimate that
+0
+|π(X; m, a) − M∗ (a, X)| ≤ CEX
+M∗ (a, X) + CV
+
+with an absolute C. The elementary lower bound (56), whose proof uses only the gap just established, applies
+to this main term. In particular
+V
+2
+≤ m2 ue−u/2 ≤ C 0 e−u/4 .
+M∗ (a, X)
+c
+For the last inequality, enlarge C0 to ensure 2λ + log u ≤ u/4. Such a single choice is possible: u ≥ 32λ
+handles 2λ, and (log u)/u → 0 handles the other term, uniformly for all the remaining u. Decreasing a
+positive absolute d2 , we obtain
+√
+
+|π(X; m, a) − M∗ (a, X)| ≤ C 00 {e−d2 u/λ + e− d2 u }M∗ (a, X).
+
+(62)
+
+It remains to match the source’s wider exceptional interval. Its width is 1/(8λ), whereas the interval just
+used has width 1/(13 log(3m)). The latter is narrower. If its pair exists, choose it for em ; it satisfies the
+source’s strict inequality. If neither interval contains a pair, choose em absent. In both cases (62) already has
+the required form.
+48
+
+In the remaining case choose any source-interval pair (χ, β); the narrower pair is absent. Then
+7/8 < β ≤ 1 −
+
+1
+.
+13 log(3m)
+
+With M0 = li2 (X)/ϕ(m), an elementary logarithmic-integral bound gives
+
+
+li2 (X β )
+u
+≤ Cu exp −
+≤ C 0 e−d3 u/λ
+li2 (X)
+13 log(3m)
+for an absolute d3 > 0, after increasing C0 . For clarity, put v = u/λ. We have v ≥ C0 log(λ + 2) and
+log u = log λ + log v. The first summand is at most v/C0 ; the second is at most any fixed positive multiple
+of v once C0 is large. Also log(3m) ≤ (1 + log 3/ log 8)λ. These facts absorb the factor u and prove the
+last inequality with constants independent of m. Make this ratio at most 1/2 by one further increase of C0 .
+The source main term is therefore positive and satisfies
+Mm (a, X) ≥ 12 M0 ,
+
+|Mm (a, X) − M0 | ≤ C 0 e−d3 u/λ M0 .
+
+Combine these two inequalities with (62), now for M∗ = M0 . Taking c3 > 0 smaller than the finitely many
+positive constants obtained, and increasing A0 , proves (54). Our choice is absent exactly when the wider
+interval has no pair. Thus the implication concerning absence, as well as every modulus, residue and range
+quantifier in the source’s PNTAPRelW, is satisfied.
+Corollary 3.32 (The prime-pair input). The assertion PairEx, with all the characters, real zeros and heights
+in its definition, holds.
+Proof. Proposition 3.31 supplies precisely the progression, gap and Page inputs used above. Lemma 3.28 and
+Proposition 3.30 give the two uniform progression estimates. Proposition 3.27 gives both the box comparison
+and its 4 log Y improvement. The two-stage selection in Proposition 3.25 therefore applies. It retains every
+real primitive character of conductor dividing 8M , and the same selected pair on the entire interval [Y, Y A ];
+no character or height is removed when these inputs are combined.
+
+3.15 The character boxes and the thin estimate on a host
+Fix a host field as in Lemma 3.20, with modulus QS , distinct primes q, d, and finite abelian frame A. Write
+Qodd for the odd part of QS . A character of the host means the primitive Dirichlet character attached to a
+character of its Galois group. Its conductor divides QS qd: the latter character is obtained from the unit group
+modulo QS qd, and passing to its primitive character divides this modulus.
+Lemma 3.33 (Real-character decomposition and host boxes). Suppose M > 0, Qodd | M , every prime
+dividing QS divides 2M , and PairGood(M, , Y, X, q, d) holds. For each real primitive host character χ
+whose conductor fχ is divisible by q or d, put j = 1 if d | fχ , and j = 0 otherwise. Then
+ϵ/5
+
+ϵ/5
+
+2
+
+fχ ≤ 8Qodd eY ejY (log Y ) ,
+
+
+ϵ/5
+ϵ/5
+2
+L(s, χ) 6= 0
+<s > 399/400, |=s| ≤ 8M eY ejY (log Y ) .
+In particular every such real L-function has no real zero greater than 399/400. The six quadratic boxes and
+the three QDq(X, , 4) bounds used in HostGood follow from the same pair.
+
+49
+
+Proof. A real Dirichlet character takes the values 1, −1 on units. At an odd prime p, the subgroup 1+pZ/pv Z
+has odd order, so maps trivially to {1, −1}; its local conductor exponent is at most one. At 2, a quadratic
+character factors through modulus 8. Indeed the units modulo 2v , for v ≥ 3, are generated by −1, 5; the
+elements congruent to 1 mod 8 are exactly the even powers of 5, so every quadratic character kills them. The
+r
+r
+r+1
+r
+cyclic description follows from v2 (52 −1) = r+2, proved by the factorization 52 −1 = (52 −1)(52 +1).
+The conductors at levels below 8 satisfy the same bound.
+By the Chinese remainder theorem, the local factor at either q or d is consequently trivial or the unique
+quadratic character at that prime. The remaining local factors give a real primitive character ρ of conductor
+dividing 8Qodd . Thus there are i, j ∈ {0, 1} with
+fχ = fρ q i dj ,
+
+χ(a) = ρ(a)(a/q)i (a/d)j .
+
+(63)
+
+The equality includes nonunits: a positive local exponent gives zero on a nonunit at that prime. Each nontrivial quadratic factor at a new prime is primitive, and a product of primitive characters of coprime conductors
+is primitive. To see the latter assertion, if the product factored through a proper divisor, fixing all but one
+CRT coordinate to 1 would force that local primitive factor to factor through a proper divisor as well. This
+also proves the exact conductor equality. In particular j is exactly the indicator of d | fχ ; and i, j cannot
+both be zero under the hypothesis of the lemma.
+Every integer coprime to 2M qd is coprime to fχ , since every prime factor of QS divides 2M . Therefore
+(63) is an inducing relation in precisely the sense used in the definition of PairGood. Also fρ | 8M . Its
+real-character clause gives the stated zero box. The pair’s upper bounds
+q ≤ eY
+
+ϵ/5
+
+d ≤ eY
+
+,
+
+ϵ/5 (log Y )2
+
+and fρ ≤ 8Qodd give the conductor bound. At a real argument the height condition is automatic. This proves
+the first two assertions.
+For completeness, the six small boxes use ρ = 1 or the primitive quadratic character χ8 (a) = (2/a),
+and (i, j) = (1, 0), (0, 1), (1, 1). On odd a, quadratic reciprocity gives
+(−q/a) = (a/q),
+
+(−d/a) = (a/d)
+
+(q, d ≡ 3 mod 4).
+
+The conductor of χ8 is exactly 8: if it factored through a proper divisor, it would factor through 4, whereas
+5 ≡ 1 mod 4 and χ8 (5) = −1. The corresponding conductors therefore have the same product form as
+above, and primitive uniqueness identifies any proposed inducing character with this product. The three
+bounds at X instead use ρ = 1 and these same nonzero (i, j). The pair gives kGχ (X)k ≤ X 1/2+/2 and
+|L0 (1, χ)/L(1, χ)| ≤ 4 log X. Since X ≥ Y > 1, the first bound is at most X 1/2+ , exactly the required
+QDq bound. These are the arguments of CharacterBoxes/RealSplit.lean:43‐‐160, RealBox.lean:13‐‐112 and
+PairRows.lean:9‐‐215,264‐‐320.
+Proposition 3.34 (A uniform thin estimate). Fix B ≥ 1 and 0 <  < 1/52. There is x0 = x0 (B, ) such
+that every host with
+Qodd ≤ B,
+log(QS qd) ≤ 2x/5 (log x)2
+and the real zero exclusion of Lemma 3.33 satisfies, for every primitive host character χ and every y ≥
+1 xϵ/3
+,
+3e
+|Gχ (y)| ≤ ye−x
+
+ϵ/8
+
+(x ≥ x0 ).
+
+Thus the constant c6 in the host construction can be taken to be 1, independent of B and .
+
+50
+
+(64)
+
+

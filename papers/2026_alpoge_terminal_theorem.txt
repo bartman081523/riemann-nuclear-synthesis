@@ -1,0 +1,47 @@
+Proposition 17.4 (Construction of one compatible family-selection bundle). Let P,F,hA,hM,hX,hL be
+the six non-window inputs of Proposition 17.2, and assume the linked-closure hypothesis hN : for every real
+dependence parameter cdep ∈ R, the parameter system P0(cdep) := parametersOfDependence(hL,cdep)
+satisfies
+LinkedAt
+(
+P0(cdep), (Q,L) ↦→ SlotNormCondition QL
+(
+C↦→ Closed C (λFm _ ↦→ BoundAtTwoThreeFamilyFonAlt Fm)
+))
+(discharged unconditionally from P.nLink by boundAtTwoThree_linked_of_recT in At23OfAll.lean:21‐‐26,
+which wraps at23_family_alt via closed_of_all, Row.of_sel, and LinkedAt.of_row). Then there exist a
+single realization class A and a single compatible selection σ simultaneously inhabiting HypsAlt S0.NL
+DefiniteSideCondition (input (iii) of Proposition 17.1).
+Source: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/Siegel
+EisensteinSecondTermHypotheses.lean:44‐‐68; At23OfAll.lean:19‐‐26; HypothesesNonemptyOfUnramified
+Exponents.lean:41‐‐62; OpenOrbitOfUnramifiedExponents.lean:39‐‐70; OpenAndLinkedOfStrongerExtension.
+lean:28‐‐34; RowFunAtGridA.lean:32‐‐52; LinkedBundlesL3OfOpen.lean:31‐‐47; MemberBundlesLargeUnramified
+Exponents.lean:34‐‐70; ThirdPlaceSeries/CFinal.lean:19‐‐23; ThirdPlaceSeries/NonemptyHypsOfAllRows.
+lean:19‐‐103.
+Proof. Wetracethefour-stageconstructionin UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_
+bound and GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt.
+Stage 1: Theta separation, row rationality, Fourier fit, and one common dependence scale. Combining
+F,unramifiedinertHoweduality howeUnram_holds (Proposition4.123),andconvergentunitarySiegel–Weil
+P.siegelWeilUnitaryConvergent (Background fact 4.101) yields hS : FunctionalsSeparate (functionals
+Separate_of_howeUnram_of_siegelWeil). From F,P.litN,P.greenCuspidal,hA,hM,hS, test_vector_
+assembly_holds and rowRatW_of_rowTest produce the row-rationality witness hRat : S0.RowRat, while
+fourier_coefficient_fit_of_join_alt (together with the lower-lambda bound from ontoX_and_lamLow_
+of_unitaryGroupHypotheses') produces the constant-function fit hFit. From these same theta and local-
+matching inputs, evaluation_grid_of_join yields a threshold CF1 ∈ R above which the evaluation-grid
+property EvLgG holds on GridA(c), and rowFun_at_gridA_alt yields a thresholdCF0 ∈ R above which the
+functionalcondition FunctionalCondition holdsonGridA(c). Fixthesinglecommondependencescale
+cdep := max(CF0,CF1), A := GridA(cdep),
+sothathEv : EvLgG(A) holdsatthisfixedgrid.
+Stage 2: Open parameter statements and closed norm-link upgrade on one stronger extension. At the
+parameter system P0 := parametersOfDependence(hL,cdep), open0_of_unitary_group_hypotheses (Open
+OrbitOfUnramifiedExponents.lean:39‐‐70) establishes all twelve clauses of OpenParameterStatements on
+P0 from P and hL (including primitivity, lambda-prime, divisor, decomposition-point, selection-jump, tie,
+label,good-locus,geometricweak-tie,multiplicity/mi,kappa,anddefinite-frameclauses). Noticethestrictly
+acyclicdependencyorderforthetwo/threebound: theassumedlinked-closurehypothesishN (LinkedAt for
+SlotNormCondition on C↦→ Closed C (λFm _ ↦→ BoundAtTwoThreeFamilyFonAlt Fm), with BoundAtTwo
+ThreeFamilyFonAlt definedin BoundAtTwoThreeFamilyFon.lean:25‐‐28)isuniversallyquantifiedoverallfami-
+liesFmandallsupplied SetupAlt witnesses,andisprovedbeforehandfromP.nLink alonewithoutconstruct-
+ingany SetupAlt or HypsAlt bundle(At23OfAll.lean:19‐‐26). ItisonlyhereonP0 that hyps_e_third_layer_
+ser_n_of_geometric_galois (usingP.litN andP.toHypothesesX,supplying prN and SerN viaSubsection6.6)
+and UpperTheory.GalC.final_alt_alt (ThirdPlaceSeries/CFinal.lean:19‐‐23,via UpperTheory.GalS.galois_
+1039

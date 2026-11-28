@@ -1,0 +1,2798 @@
+MATHEMATICS OF COMPUTATION
+VOLUME 48. NUMBER 177
+JANUARY 19X7. PAGES 273-308
+
+On the Distribution of Spacings Between
+Zeros of the Zeta Function
+By A. M. Odlyzko
+Dedicated to Daniel Shanks on the occasion of his seventieth birthday
+
+Abstract. A numerical study of the distribution of spacings between zeros of the Riemann zeta
+function is presented. It is based on values for the first 105 zeros and for zeros number
+1012 + 1 to 1012 + 105 that are accurate to within +10"8, and which were calculated on the
+Cray-1 and Cray X-MP computers. This study tests the Montgomery pair correlation
+conjecture as well as some further conjectures that predict that the zeros of the zeta function
+behave like eigenvalues of random Hermitian matrices. Matrices of this type are used in
+modeling energy levels in physics, and many statistical properties of their eigenvalues are
+known. The agreement between actual statistics for zeros of the zeta function and conjectured
+results is generally good, and improves at larger heights. Several initially unexpected phenomena were found in the data and some were explained by relating them to the primes.
+
+1. Introduction. The Riemann Hypothesis (RH) has been of central interest to
+number theorists for a long time, and many unsuccessful attempts have been made
+to either prove or disprove it by analytic methods. A series of large computations
+have also been made, culminating in the recent verification [52] that the RH holds
+for the first 1.5 • 109 zeros, an effort that involved over a thousand hours on a
+modern supercomputer.
+A proof of the RH would lead to tremendous improvements in estimates for
+various arithmetic functions, such as the difference between ir(x), the number of
+primes
+«S x, and Li(x), the logarithmic integral of jc. However, many other
+questions would remain open, such as the precise magnitude of the largest gap
+
+between consecutive primes below a given bound. Answers to such questions depend
+on a much more detailed knowledge of the distribution of zeros of the zeta function
+than is given by the RH. Relatively little work has been devoted to the precise
+distribution of the zeros. The main reason for the lack of research in this area was
+undoubtedly the feeling that there was little to be gained from studying problems
+
+harder than the RH if the RH itself could not be proved.
+A major step towards a detailed study of the distribution of zeros of the zeta
+function was made by H. L. Montgomery [56], [57]. Under the assumption of the
+
+Received May 13, 1986.
+
+1980 MathematicsSubjectClassification.Primary 10H05; Secondary15A52,65G05, 68-04, 81C40,
+82A05.
+©1987 American Mathematical
+
+Society
+
+0025-5718/87 $1.00 + $.25 per page
+
+273
+
+274
+
+A. M. ODLYZKO
+
+RH, he showed that if we define
+(1.1)
+
+F(a,T)
+
+= 2ir(TlogT)~1
+
+£
+Tia^~r)o<y«r
+4 +(y - y')
+0<y'«T
+
+for a and T real, T > 2, where j + iy and \ + iy' denote nontrivial zeros of the
+zeta function, then
+
+(1.2)
+
+F(a,T)
+
+= (1 + o(l))T-2alogT
+
++ a + o(l)
+
+asT^oo,
+
+uniformly for 0 < a < 1. Montgomery also presented heuristic arguments which
+suggested that
+
+(1.3)
+
+F(a,T)
+
+= l + o(l)
+
+asT^oo
+
+uniformly for a e [a, b], where 1 < a < b < oo are any constants. If the conjecture
+(1.3) were true, then the following estimate, known as the Montgomery pair
+correlation conjecture [56] would follow:
+Conjecture.
+For fixed 0 < a < ß < oo,
+
+|{(y,yQ: 0<y,y'^T,
+
+(14)
+
+as T -» 00.
+
+2™(\ogTyï
+
+< y - y' < 277ft(logT)"1}|
+
+r(iogr)/f»
+
+-/:m™)>»
+
+The above conjecture is very striking, particularly in predicting that small gaps
+between zeros of the zeta function occur very infrequently. This behavior is very
+different from that of many other number-theoretic functions. The number of primes
+in short intervals, for example, is observed experimentally and is conjectured
+theoretically
+
+to be distributed like a Poisson random variable [29].
+
+The conjecture (1.4) suggests some further topics for investigation. In the language
+of mathematical physics, this conjecture says that 1 - ((sin77w)/(ffM))2 is the pair
+correlation function of zeros of the zeta function. F. J. Dyson pointed out [56] that
+the Gaussian unitary ensemble (GUE) has the same pair correlation function. The
+GUE has been studied very extensively in mathematical physics, together with the
+Gaussian orthogonal ensemble (GOE) and the Gaussian symplectic ensemble (GSE),
+as models for distribution of energy levels in many-particle systems. The GUE
+consists of n X n complex Hermitian matrices of the form A = (aJk), where
+Ojj = 2l/2Ojj, ajk = oJk + irijk for ; < k, and ajk = akj = akj - ir\kJ for j > k,
+
+where the o,k and rjj k are independent standard normal variables. When n -» 00
+and the eigenvalues of the matrices of the GUE are suitably normalized, their pair
+correlation becomes 1 - ((sin7r«)/(7r«))2. (The pair correlations of the GOE and
+GSE are different.) For more information about the GUE and the other ensembles,
+
+the reader is referred to [2],[4],[11],[41],[54],[59],[63].
+The possible connection between zeros of the zeta function and eigenvalues of
+random matrices is of interest in number theory because of the Hilbert and Pólya
+conjectures [56], [59] which say that the zeros of the zeta function correspond to
+eigenvalues of a positive linear operator. If true, the Hilbert and Pólya conjectures
+would imply the RH, and some people feel that the most promising way to prove the
+
+ZEROS OF THE ZETA FUNCTION
+
+275
+
+RH is by finding the right operator and establishing the necessary results about it.
+One can argue heuristically that if such an operator exists, its eigenvalues might
+behave like those of a random operator, which in turn might behave like the limit of
+a sequence of random matrices, and that therefore the zeros of the zeta function
+might be distributed like the eigenvalues of a large random matrix. For more on
+these very vague conjectures, see [3], [59]. Since Montgomery's result (1.1) is
+consistent with the GUE distribution of eigenvalues, one could then argue that the
+operator associated with the zeta function ought to be complex Hermitian, and that
+GUE properties of eigenvalues might apply at least approximately to the zeros of the
+zeta function.
+Since Montgomery's proof of (1.2) (which depends on the RH) was published,
+several other results have been obtained. Ozluk [62] has considered a ^-analogue of
+Montgomery's method and showed, roughly speaking, that if one considers a
+function similar to the F(a,T) of (1.1), but where one sums over zeros of many
+Dirichlet L-functions, then the analogue of Montgomery's conjecture (1.3) is true for
+1 < a < 2. For other results about Montgomery's pair correlation conjecture and its
+
+consequences, see [30], [31], [34], [35], [36], [42], [44], [59]. Overall, though, there is
+very little solid theoretical evidence in favor of even the Montgomery pair correlation conjecture (1.4), and essentially none for the speculative conjectures discussed
+above that link zeros of the zeta function to eigenvalues of random Hermitian
+
+matrices.
+One feature of the speculative arguments mentioned above is that they propose a
+connection between zeros of the zeta function, about which relatively little is known
+theoretically, and the GUE, which has been investigated very extensively and
+abounds in specific predictions. This makes it possible to compare data for the zeros
+of the zeta function against the theoretical predictions of the GUE. The purpose of
+this paper is to report the results of such empirical tests of the pair correlation
+conjecture and other GUE predictions.
+The agreement between the predictions of the GUE theory and actual computed
+behavior of the zeros of the zeta function is quite good, especially when one takes
+account of the fact that the zeta function on the critical line approaches its
+asymptotic behavior very slowly, as is explained in Section 2. However, there are
+also several features of the data for the zeros that are not predicted by the GUE
+theory. One is that there are long-range correlations between spacings of consecutive
+
+zeros. These can be explained in terms of the primes through the use of the "explicit
+formulas" of prime number theory. Another is that small spacings between zeros are
+somewhat more common among high zeros than is expected. The deviation between
+the predicted and observed numbers is not large, but it is surprising, since it shows
+up quite early. It would be very desirable to carry out further computations at much
+greater heights to see if this phenomenon persists there.
+This is the first study that computed large numbers of high zeros of the zeta
+function to substantial accuracy. The large-scale efforts to verify the RH numerically
+were designed only to prove that the zeros under investigation lie on the critical line,
+and did not produce accurate values for their positions. Some very accurate values of
+zeros have also been computed in order to use them in disproving a variety of
+number-theoretic conjectures, but they were limited to a small number of initial
+
+276
+
+A. M. ODLYZKO
+
+zeros (such as the roughly 100 decimal digit values for the first 2000 zeros of [60]).
+For a numerical investigation of the Montgomery pair correlation conjecture and the
+other conjectures alluded to above, it was desirable to obtain a larger sample of
+zeros, but only to medium accuracy. Furthermore, since there are many properties of
+the zeta function that are true only asymptotically, and the asymptotic behavior is
+often approached very slowly, it seemed desirable to compute a sample of zeros very
+high up. The computations on which this paper are based determined the values of
+the first 105 zeros and also of zeros number n, 1012 + 1 < n < 1012 + 105, each to
+within +10"8, using the Cray-1 and Cray X-MP computers, respectively. In the
+second case, it was also verified that those zeros satisfy the RH. Zero number 1012 is
+at height approximately 2.7 • 1011, and given the available computational resources
+and the method used, it was about as high as one could go. (A more efficient
+algorithm for evaluating the zeta function was invented recently [61], but it is quite
+complicated and has not yet been implemented.) The computations used on the
+order of 20 hours on the Cray X-MP, and the capabilities of this modern supercomputer were essential for the project. Several other samples of 105 zeros each at large
+heights had been computed earlier on a Cray-1, but due to a defect in the
+
+manufacturer's software, described at the end of Section 3, some of their accuracy
+was lost, and so they are used for only some of the statistical analyses.
+The comparison of the empirical data for the zeros of the zeta function to the
+results that are proved for the GUE is made in Section 2. Section 3 is devoted to a
+description of the computation of the zeros of the zeta function and the associated
+error analysis. Section 4 gives some statistical information about the zeros that were
+found, as well as of some other zeros. This information is not directly relevant for
+the purposes of Section 2, but is of interest because of the comparison with the
+earlier computations of [10], [52]. Section 5 reports on several alternative techniques
+for computing the zeros that might be of use for other computations. Finally,
+Section 6 describes the computation of the GUE predictions.
+2. Zeros and Eigenvalues. Before presenting the results of the empirical study of
+the zeros, we first recall some standard notation, and then discuss some known
+results about the zeta function and how they might affect our interpretation of the
+data. As usual, we consider only zeros p of the zeta function with Im(p) > 0, and we
+number them px, p2,... (counting each according to its multiplicity) so that
+0 < lm(px) < Im(p2) < — All the zeros pn that have been computed so far are
+simple and lie on the critical line, so we can write them as pn = \ + iyn, yn e R+.
+
+We have yx = 14.134...,y2 = 21.022..., etc.
+We let
+(2.1)
+0(t) = arg[ir-^2r(\+it/2)],
+
+(2.2)
+
+5(0 = ^-1arg?(e+¿0^
+
+where in both cases the argument is defined by continuous variation of s in
+it~s/2T(s/2) or Ç(s), respectively, starting at s = 2, going up vertically to s = 2 + it,
+and then horizontally to s = \ + it, and where we assume (in the case of S(t)) that
+there are no zeros p with Im(p) = t. If N(t) denotes the number of zeros p with
+0 < Im(p) < t (counted according to their multiplicity), then [68, Chapter 9.3]
+(2.3)
+N(t) = 1 + 7T-l0(t) + S(t).
+
+277
+
+ZEROS OF THE ZETA FUNCTION
+
+By Stirling's formula [40] we have
+(2.4)
+
+6(t) = 2-t\og(t/(2me))-<n/%
+
++ 0(rl)
+
+asf^oo,
+
+so that
+
+(2.5)
+
+7V(0= -Liog_i_ + 1 + 0(ri) + S(t).
+
+We will discuss the function S(t) at greater length below. For the moment, though,
+we will mention only that the best unconditional bound that is known for S"(/) is [68,
+Theorem 9.4]
+
+(2.6)
+
+S(t) = O(logi)
+
+as t -» oo.
+
+In view of the bound (2.6), we see by (2.5) that N(t) is almost exactly equal to
+ir'l6(t). In particular, zeros become denser and denser the higher up one goes in the
+critical strip, and the average vertical spacing between consecutive zeros at height t
+is 277-/(log(//(27r))). Therefore, in order to study quantities that are largely invariant
+with height, we define the normalized spacing between consecutive zeros \ + iy„
+and \ + iy„+x (in cases where both zeros satisfy the RH) to be
+
+(2-7)
+
+S„= (y„+i-yJ-2^-•
+
+It then follows from (2.5) and (2.6) that the 8n have mean value 1 in the sense that
+for any positive integers N and M,
+N+M
+
+(2.8)
+
+£
+
+S„= M+ 0(\ogNM).
+
+n-N+l
+
+In this notation, Montgomery's pair correlation conjecture can be reformulated to
+say that for any fixed a, ß with 0 < a < ß < oo,
+N'l\{(n,k):l^n^N,k>0,8n
+
++ 8n+x+ ••• +8n+k e [a,ß])
+
+|
+
+~é-m>
+
+(2.9)
+
+-./
+
+/.¿—..\J\
+
+as N -» oo. If the pair correlation conjecture holds, we might even expect something
+stronger to hold, namely that
+
+Af-1|{(w,*r): 7V+1<«<7V
+(2.10)
+
++ A/, k > 0, 8„+ •■■ +8n+k e [a,ß]}\
+.«/
+rßL
+I/-•—..\2\
+sinwM
+Ja\
+
+\ tru
+
+du
+
+as N, M -» oo with M not too small compared to N, say M > Nv for some tj > 0.
+The definition of the 8n makes it easy to compare distribution of spacings between
+consecutive zeros of the zeta function and the normalized spacings between consecutive eigenvalues in the GUE, since the latter are also normalized to have mean value
+1. The GUE hypothesis will be used to refer to the conjecture that the distribution of
+the 8n approaches asymptotically the distribution known to hold for the GUE
+eigenvalues. In particular, the GUE hypothesis leads to the prediction that the 8n
+should have a particular distribution function; for any a, ß with 0 < a < ß < oo,
+
+(2.11)
+
+M-l\{n: N +l^n^N
+
++ M, S„<=[a,ß])\~ fß p(0,u) du
+
+278
+
+A. M. ODLYZKO
+
+as M, N -» oo with M not too small compared to N, where p(0, u) is a certain
+complicated probability density function discussed in Section 6 and graphed (with
+the solid line curve) in Figures 3 and 4. Similarly, one obtains the prediction that
+
+(2.12)
+
+M~l\{n: N + 1 < n < N + M, 8n + 8n+x e [o,j8]}|~
+
+[ßp(l,u)du,
+•'a
+
+where p(l, u) is another density function. More generally, one obtains the prediction
+that the 8n approach asymptotically the behavior of a stationary (but non-Markovian)
+process, so that for any k, the empirical joint distribution function of 8n,
+8n+x,..., 8n+k iorN+l^n^N
++ M approaches that of the GUE process.
+Most of the studies to be reported below are based on the 8n for 1 < n < 105 and
+1012 + 1 < n < 1012 + 105, although a few other sets of 105 consecutive 8n for
+n < 1012 will also be referred to occasionally. The letter N will be used to designate
+the starting point of a data set, so that, for example, a graph or a table entry labelled
+
+with N = 10u will refer to data for 8„ or 8„ + 8„+x, 1011+ 1 < n < 1011+ 105.
+The reason for selecting sets of size 105 was to obtain a sample so large that random
+sampling errors would not be very significant. The reason for not computing zeros
+higher than pn for n = 1012 + 105 (approximately) is that on the machine that was
+available to the author (a single-processor Cray X-MP with 2 million words of
+memory) such computations would have been prohibitively slow, since the author's
+program, described in Section 3, achieves high speed by using several auxiliary
+storage arrays, so that the size of available memory was a major limit.
+Most of the studies of the available 8n are concerned with the pair correlation
+conjecture (2.10) and the conjectured distributions (2.11) and (2.12) for 8n and
+8n + 8n+x, respectively. The reason for this is less the difficulty of computing the
+GUE predictions for other quantities than the question of significance of the
+comparison of the experimental data to the theoretical predictions. By (2.5) and (2.6)
+we see that the interesting behavior of spacings between zeros is due to S(t). The
+
+bound (2.6) is the best that is known unconditionally. Even on the assumption of the
+
+RH, it is only known that
+
+The true rate of growth is likely to be much smaller, though. It has been known [68,
+
+Chapter 14.12] for a long time that on the RH,
+S(0 = fl±((logi)1/2"e)
+
+asi^oo
+
+for any e > 0, and Montgomery [58] has shown more recently that
+
+(2.14)
+
+S(t) = ñ±((logí)1/2(ioglog0~1/2)
+
+as / - oo.
+
+It is thought likely that
+(2.15)
+
+S(í) = o((log/)1/2+e)
+
+así ^oo
+
+for every e > 0 (cf. [49]) and Montgomery has even conjectured [58] that (2.14)
+represents the right rate of growth of S(t). For statistical studies of the kind we are
+undertaking, though, the typical size of S(t) is more important. Selberg [66], [68] has
+
+ZEROS OF THE ZETA FUNCTION
+
+279
+
+shown that for all k e Z+,
+(2.16)
+
+¡TS(t)2kdt~
+'0
+
+{2k)\T(\og\ogT)k
+
+asT-oo.
+
+k\(2ir)2k
+
+This means that a typical value of S(t) is on the order of (loglog')1/2, an extremely
+small quantity. Experimentally, it is known that |5(0| < 1 for 7 < / < 280, and
+
+|5(0I < 2 for 7 < t < 6.82 • 106. The largest value of |5(0| that has been observed
+so far appears to be 5(0 = 2.3136 • • • for some t near y,„ n = 1,333,195,692[52],
+(Large values of S(t) are associated with violations of Gram's and Rosser's rules, see
+[10], [23], [49], [59], which explains why some statistics about them are available.)
+Aside from (2.6) and Selberg's estimate (2.16), several other estimates have been
+proved. For example, if
+
+Sx(t) = [' S(u)du,
+
+then 15,(01 = O(log0 unconditionally, and \Sx(t)\ = 0((log/)(loglogi)"2)
+
+on the
+
+RH [68], The true maximal order of magnitude is probably again around (log01/2Therefore, there is a lot of cancellation in the local behavior of S(t). Many results
+about the distribution of values of S(t + h) - S(t) are also known [25], [26], [27],
+
+[32], [33], [44], [69], For example, Theorem 13.2 of [69] says that if \ < r¡ < 1, then
+
+for 7"»< H < T, 0 < h< 1,
+(2.17)
+
+fT+H{S(t + h)-S(t)}2kdt
+Jt
+= HAk{\og(2 + h\ogT))k
+
+where Ak = (2k)\/(2kir2kk\),
+
++ 0(Hckkk [kk +(\og(2 + h\ogT))k~l/2}),
+
+and c > 0 is a constant. There are also theorems
+
+about the distribution of Sx(t + h) - Sx(t); cf. [69],
+Since 5(0 grows very slowly, we can expect low zeros of the zeta function to be
+very restricted in their behavior, and their asymptotic behavior to be approached
+quite slowly. Pseudo-random behavior of the zeros (like that predicted by the GUE
+hypothesis) can only be expected over ranges of about (logr)"1/2 at height T; i.e.,
+over a range of about (log«)1/2 normalized spacings from zero number n. Furthermore, we can expect gaps between next-to-nearest neighbors (i.e., 8n + 8n+x) to be
+much more constrained than those between nearest neighbors (i.e., 8n), and to
+approach their asymptotic behavior even more slowly. This is indeed what is
+observed, and it is the main reason for restricting most of the present investigation
+to nearest or next-to-nearest spacings. We will see, in fact, that when we consider
+very distant spacings, a totally different phenomenon occurs, whose explanation lies
+not in the GUE, but rather in prime numbers.
+We now proceed to a discussion of the evidence. Figures 1 and 2 show the data for
+the pair correlation conjecture for the two sets of zeros \ + iy„, N + l^n^N
++
+105, and for N = 0 and N = 1012, respectively. For each interval / = [a, ß), with
+
+[a,ß) = [0,0.05), [0.05,0.1),...,[2.95,3),
+(a + ß)/2,
+
+a star is plotted at the point x =
+
+y = aaß, where
+
+20
+a«.ß= —-5\{(n,k):N+l^n<N+105,
+
+k>Q,8„+
+
+••• +Sn +k^ [a, ß)} |.
+
+280
+
+A. M. ODLYZKO
+
+Pair correlation fuction, N = 0
+
+Figure 1
+Pair correlation of zeros of the zeta function. Solid line: GUE
+prediction. Scatter plot: empirical data based on zeros yn,
+
+1 < «< 105.
+
+Pair correlation function, N = 10**12
+
+Figure 2
+Pair correlation of zeros of the zeta function. Solid line: GUE
+prediction. Scatter plot: empirical data based on zeros yn,
+
+1012+1 <« < 1012+ 105.
+
+ZEROS OF THE ZETA FUNCTION
+
+281
+
+The solid lines in both figures are the GUE prediction y = 1 - ((sin-ïïx)/(ir x))2.
+Note that for a typical value of a > 1, aa ß is derived from about 5000 points
+8n + ■■■ +8„ + k, so the random sampling error is expected to be on the order of
+0.015. All of the plots in this paper, as well as most of the statistical computations,
+were done using the 5 system [1].
+Figures 3 and 4 show the data on the distribution of the normalized spacings 8„.
+The stars again correspond to a histogram of the 8n; for each interval [a, ß),
+a = k/20, ß = a + 1/20, a star is plotted at x = (a + ß)/2, y = ba ß, where
+
+20
+Kß =—s\{n:N
+
++ l^n<N
+
++ 105, 8„ e [a, ß)} |.
+
+The solid lines are the GUE predictions, y = p(0,x). (As is explained in Section 6,
+no rigorous error analysis is available for the computed values of p(0, x), but they
+are thought to be quite accurate.) Similarly, Figures 5 and 6 show the data on the
+distribution of 8n + 8n+x.
+The graphs at first glance show a satisfying amount of agreement between the
+experimental data and the GUE predictions. Graphs have roughly the same shape,
+and agreement between data and prediction improves dramatically as one goes from
+the first 105 zeros to the 105 zeros with 1012+ 1 < n < 1012 + 105. Moreover, the
+disagreement between data and prediction is concentrated precisely where our
+discussion of the effect of the small size of 5(0 would lead one to expect it; there are
+fewer very large or very small values of 8n and 8n + 8n+x in the data than predicted,
+
+and more values near the mean.
+Nearest neighbor spacings, N = 0
+C\i
+
+o
+
+œ
+ö
+
+ö
+
+ci
+
+o
+ö
+
+0.0
+
+0.5
+
+1.0
+
+1.5
+
+2.0
+
+2.5
+
+3.0
+
+x
+
+Figure 3
+Probability density of the normalized spacings 8n. Solid line:
+GUE prediction. Scatter plot: empirical data based on zeros
+
+Y„, 1 < « < 105.
+
+282
+
+A M.ODLYZKO
+
+Nearest neighbor spacings, N = 10**12
+
+0.0
+
+0.5
+
+Figure 4
+Probability density of the normalized spacings 8„. Solid line:
+GUE prediction. Scatter plot: empirical data based on zeros
+Y„, 1012 + 1 < n < 1012 + 105.
+
+Next-nearest neighbor spacings, N = 0
+
+Figure 5
+Probability density of the normalized spacings 8n + 8n+x. Solid
+line: GUE prédit ion. Scatter plot: empirical data based on
+
+zeros yn, 1 < n < 105.
+
+283
+
+ZEROS OF THE ZETA FUNCTION
+
+Next-nearest neighbor spacings, N ■ 10**12
+
+Figure 6
+Probability density of the normalized spacings 8„ + 8n + x. Solid
+
+line: GUE prediction. Scatter plot: empirical data based on
+zeros y„, 1012 + 1 < n < 1012 + 105.
+
+Table 1
+
+Moments of 8„ - 1 and of 8n + 8n+x- 2, for blocks of the
+form N+l^n^N
++ 105
+
+K+K+i-2
+
+$, "I
+
+N =0
+
+JV = 1012
+
+GUE
+
+N
+
+2
+3
+4
+5
+
+0.161
+0J031
+
+0.180
+0D38
+0.101
+
+0J028
+
+6
+7
+8
+9
+10
+
+OJ075
+
+0.176
+0035
+OJ096
+0D57
+0Û98
+0.103
+0.160
+0223
+0361
+
+0D81
+0J046
+
+0D72
+0.103
+0.126
+0.181
+
+0.066
+
+0.111
+0.124
+0.197
+0290
+0.488
+
+N = 10u
+
+0.123
+0047
+0.119
+
+0236
+0027
+0.168
+0063
+0206
+
+0078
+0.155
+0.142
+0252
+
+0.150
+0367
+0/409
+0.871
+
+0207
+
+|
+
+GUE
+0249
+0030
+0.185
+0073
+0237
+0.185
+0.451
+0.544
+1.178
+
+Further comparison of the distribution of zeros to the GUE prediction is provided
+
+by Table 1, which shows values of
+/V+ 105
+
+(2.18)
+
+lu"5
+
+£
+n = N+l
+
+(8n-l)k
+
+284
+
+A. M. ODLYZKO
+
+and
+N+10s
+
+(2.19)
+
+10-5
+
+£
+
+(8n + 8n+x-2)k
+
+n = N+l
+
+for the two sets N = 0 and N = 1012, as well as the GUE values. (Numbers in Table
+1, as well as others in this paper that do not have " • ■• " at the end are usually
+rounded to the number of digits shown, whereas those with " ■• • " are truncated.)
+
+Table 2 shows moments of logô„, fi"1, and 8~2.
+Table 2
+
+Moments of logô„, 8'1, and 8~2, for blocks of the form
+N + 1 <« < N + 105.
+moments
+
+of
+
+TV= 0
+
+N = 1012
+
+GUE
+
+log <5„
+
+-0.0912
+
+-0.1021
+
+-0.1035
+
+¿;'
+
+1.2363
+
+1.2744
+
+1.2758
+
+6~2
+
+2.2235
+
+2.6149
+
+2.5633
+
+The histograms of Figures 1-6 and the moments of Tables 1-2 provide a very
+rough measure of the degree to which zeros of the zeta function match the GUE
+predictions. One can obtain a better quantitative measure of the degree of fit
+between the observed and the predicted distributions using the histogram data (e.g.,
+one can use the x2-test [47] or the asymptotic results of [24]). In our case, since we
+know the predicted distribution quite well (at least numerically), we will use the
+quantile-quantile (q-q) plot to detect deviations between the empirical and theoretical distributions. Given a sample xx,..., x„, and a continuous cumulative distribution function F(z) for some distribution, the theoretical q-q plot is obtained by
+plotting Xijs against q}, where x(1) < x(2) < • • • < x(n) are the x, sorted in ascending order, and the q¡ are the theoretical quantiles defined by F(q¡) = (j - 1/2)/«
+[13]. The q-q plot is a very sensitive tool for detecting differences among distributions, especially near the tails. If the x, are drawn from a distribution corresponding
+to F(z), and the sample size n is large, the q-q plot will be very close to the straight
+line y = x. Figures 7-10 show segments of the q-q plots of the 8n and 8n + 8n+x for
+
+N = 0 and N = 1012.
+To obtain a quantitative measure of the agreement between the observed distributions of the 5„ and the GUE predictions, we use the Kolmogorov test [47, Section
+30.49]. Given a sample xx,...,xn
+drawn from a distribution with the continuous
+cumulative
+function:
+
+distribution
+
+function
+
+F(z),
+
+we let Fe(z) he the sample distribution
+
+Fe(z) = «-1|{/c:: 1 < k < n, xk < z) \.
+
+The Kolmogorov statistic is then
+
+(2.20)
+
+D= suplF^z) - F(z)\.
+
+ZEROS OF THE ZETA FUNCTION
+
+initialsegment of q-q plot
+nearest neighbor spacings, N = 0
+
+GUE quantiles
+
+Figure 7
+Initial segment of the quantile-quantile plot of the normalized
+spacings 8n against the GUE prediction. Data based on zeros
+
+Y„, 1 < n < 105. Straight line y = x drawn to facilitate
+comparisons.
+„,
+
+initialsegment of q-q plot
+nearest neighbor spacings, N = 10**12
+
+GUEquantiles
+
+Figure 8
+Initial segment of the quantile-quantile plot of the normalized
+spacings 8n against the GUE prediction. Data based on zeros
+y„, 1012 + 1 < n < 1012 + 105. Straight line y = x drawn to
+facilitate comparisons.
+
+285
+
+286
+
+A. M. ODLYZKO
+
+final segment of q-q plot
+next-nearest neighbor spacings, N = 0
+
+GUEquantiles
+
+Figure 9
+Final segment of the quantile-quantile plot of the normalized
+spacings 8n + 8n+ x against the GUE prediction. Data based on
+zeros y„, 1 < n < 105. Straight line y = x drawn to facilitate
+comparisons.
+
+final segment of q-q plot
+next-nearest neighbor spacings, N = 10**12
+
+3.6
+
+3.8
+
+GUE quantiles
+
+Figure 10
+Final segment of the quantile-quantile plot of the normalized
+spacings 8n + 8n+ x against the GUE prediction. Data based on
+zeros yn, 1012 + 1 < n < 1012 + 105. Straight line y = x
+drawn to facilitate comparisons.
+
+287
+
+ZEROS OF THE ZETA FUNCTION
+
+The asymptotic distribution of D is known [47, Eq. 30.132]; if the x, are drawn from
+
+the distribution defined by F(z), then
+lim Prob(D > un'l/2) = g(u),
+
+(2.21)
+where
+
+g(") = 2E(-l)^1exp(-2r2M2).
+
+(2.22)
+
+r=l
+
+Table 3 gives the Kolmogorov statistic D for 8n and 8n + fin+1 for several blocks of
+
+105 consecutive zeros. Also given is an estimate of the probability that this statistic
+would arise if the 8n (8n + 8n+x, respectively) were drawn from the GUE distribution. This estimate is obtained by evaluating g(D 105/2).
+
+Table 3
+Kolmogorov statistic for 8n and 8n + 8n+ x, for blocks of zeros
+
+of the form A7+ 1 < « < TV+ 105.
+<5«+ ¿B+ i
+
+N
+
+D
+
+prob.
+
+D
+
+prob.
+
+0.0207
+
+10-37
+
+0.0278
+
+10" b7
+
+10s
+
+0.0081
+
+4-10"6
+
+0.0138
+
+10" 16
+
+10"
+
+0.0052
+
+9-10"3
+
+0.0099
+
+6-10"9
+
+2-101
+
+0.0058
+
+2-10"3
+
+0.0084
+
+1.5-10"6
+
+1012
+
+0.0045
+
+3.5-10" 2
+
+0.0091
+
+1.3-10"6
+
+The data presented so far are fairly consistent with the GUE predictions. The
+differences between computed values and the predicted ones diminish as one studies
+higher zeros, and they are more pronounced for 8n + 8n+x than for 8n. Moreover, the
+computed spacings 8n and 8n + 8n+l are more concentrated near their means than
+
+the GUE predictions, which is again to be expected on the basis of the small size of
+5(0- However, there are some indications, based on the tails of the distribution of
+the 8n and 8n + 8n+x, that asymptotically the zeros of the zeta function might not
+obey the GUE predictions. Already in Table 2 we see that the mean value of 8~2 for
+N = 1012exceeds the GUE prediction, which indicates an excess of small 8„. The q-q
+plot of Figure 8 (for N = 1012) is much closer to a straight line than that of Figure 7
+(for N = 0), just as that of Figure 10 is closer to a straight line than that of Figure 9.
+However, the graphs in Figures 9 and 10 are both below the straight line y = x
+(which corresponds to perfect agreement between theory and prediction), which
+indicates that in both cases there are fewer large spacings than the GUE hypothesis
+predicts, which was to be expected. The graph of Figure 7 is above the straight line
+y = x, which indicates fewer small spacings than predicted, which again was to be
+expected, while on the other hand the graph of Figure 8 is below the line y = x,
+which indicates an excess of small spacings, which is quite unexpected. The small
+size of 5(0 leads one to expect a substantial deficiency in the number of small 8n
+
+288
+
+A. M. ODLYZKO
+
+initialsegment of q-q plot
+
+nearest neighbor spacings, N = 2 * 10**11
+
+0.0
+
+0.05
+
+0.10
+
+0.15
+
+0.20
+
+0.25
+
+GUEquantiles
+
+Figure 11
+Initial segment of the quantile-quantile plot of the normalized
+spacings 8n against the GUE prediction. Data based on zeros
+
+Y„, 2 • 1011+ 1 < n < 2 • 10u + 105. Straight line y = x
+drawn to facilitate comparisons.
+
+and 8n + 8n+x, since the graph of 5(0 is an uneven sawtooth curve, with 5(0
+jumping up by 1 at / = y„, then decreasing essentially linearly up to t = y„+x,
+jumping up again by 1 at t = yn+x, and so on, so that small gaps between zeros also
+correspond to large values of 5(0- Figure 11 shows an initial part of the q-q plot for
+the 8n for N = 2 ■1011 which indicates behavior very similar to that of Figure 8. The
+q-q plot for N = 1011 is very similar to those for N = 2 • 1011 and N = 1012, while
+that of N = 109 lies on the other side of the y = x line. (We should note again that
+the data for N = 109, 10u, and 2 • 1011 are not very accurate, and so have to be
+treated with caution. In fact, Figure 11 provides a way to gauge the inaccuracy
+introduced into those data sets by the bug described in Section 3. The q-q plot of
+Figure 11 has in places the appearance of a staircase, with flat horizontal segments.
+These flat segments arise from identical computed values of the 8n. The correct
+values of the 8n are expected to be all distinct and much more evenly distributed, as
+
+is the case for N = 0 and N = 1012.)Table 4 shows the number of 8„ and S„ + S„+,
+that are very small or very large, as well as the number that would be expected under
+the GUE for a sample of size 105. Large 8„ and 8„ + 8n+x are generally less
+numerous than the GUE predicts, which is to be expected. The data for the high
+blocks of zeros show that the number of 8n < 0.05 and of 8n < 0.1 is in excess of
+that predicted. (We would have obtained the same results if we considered the pair
+correlation conjecture (2.10) with a = 0.01, ß = 0.05, say.) The excess is not very
+large, given that the expected number is fairly small, but it may be significant that
+
+while the first few sets (for N = 0, 5 • 107, and 109) all show deficiencies, all the
+high sets of zeros (N = 10u, 2 • 10u, and 1012) show an excess of 8„ < 0.05 and of
+8n < 0.1.
+
+289
+
+ZEROS OF THE ZETA FUNCTION
+
+Table 4
+Numbers of very small and very large 8n and 8n + 8n+x in
+
+blocks of the form N + 1 ^ n < N + 105, and the GUE
+predictions.
+number of
+
+number of
+
+number of
+
+¿„ < 0.05
+
+¿„ < 0.1
+
+<5„> 2.8
+
+11
+
+79
+
+N = 5 ■107
+
+9
+
+103
+
+N= 109
+N = 10u
+
+11
+
+97
+
+14
+
+16
+
+107
+
+N=
+
+2-1011
+
+20
+
+7V= 1012
+
+GUE
+
+A'= 0
+
+number of
+0n+8n+l
+
+number of
+
+<0.6
+
+2
+
+0
+
+24
+
+3
+
+33
+
+5
+
+11
+
+41
+
+8
+
+123
+
+20
+
+25
+
+9
+
+18
+
+124
+
+14
+
+34
+
+6
+
+13.68
+
+108.80
+
+19.1
+
+38.63
+
+13.57
+
+Table 5
+Extremal
+
+values of 8n and 8n + 8n+ x among zeros number n,
+
+N+l^n^N
+
++ M, and the probability that the minimum
+
+value of 8n in the GUE would not exceed the value in the third
+
+column.
+N
+
+M
+
+min 6n
+
+max ¿L
+
+min Sn+ ¿B+1
+
+max <5„+ ¿„ + i
+
+prob,
+min ¿>„
+
+0
+
+10a
+
+5-107
+109
+
+105
+
+0.02186
+0.00734
+0.01679
+0.00738
+
+2.8052
+3.1551
+3.0680
+3.2811
+3.1109
+
+0.57647
+0.41841
+0.37404
+0.30784
+0.39744
+
+3.9022
+4.3058
+4.1650
+4.4753
+4.3121
+
+0.682
+0.042
+0.405
+0.043
+0.317
+
+3.1893
+
+0.44260
+
+4.3371
+
+0.137
+
+3.2143
+
+0.26344
+
+4.1517
+
+0.632
+< 0.145
+< 0.048
+
+1011
+
+2-1011
+-»12
+101
+
+105
+105
+10s
+
+10s
+10B
+
+7.5-107
+
+1.5-109
+
+0.01515
+0.01103
+
+0.00970
+< 0.00124
+< 0.000310
+
+Another way to investigate this question is to look at the minimal values of 8,„
+shown in Table 5. These values include some very small 8n that were found by Brent
+[10] and van de Lune et al. [52]. These investigators were not computing the yn, but
+occasionally, when they had difficulty separating a close pair of zeros, they noted the
+approximate locations of them. In particular, Brent [10] found that 8n = 0.001235 • • •
+
+for n = 41,820,581,and van de Lune et al. [52] found that 8„ = 0.000310• • • for
+n = 1,048,449,114. Thus, these values provide upper bounds for the minimal 8n in
+the intervals investigated by those authors, and it is likely that they are the minimal
+
+values.
+Since it is known [54], [55] that p(0,t) has the Taylor series expansion near t = 0
+given by
+
+(2.23)
+
+p(o,t)
+
+-t2-
+
+2^
+45
+
+315
+
+/6+
+
+•
+
+A M. ODLYZKO
+
+290
+
+(for comparison, we note that p(l, t) = 7r6/7/4050 + ... [55]), the GUE prediction
+is that among M consecutive ô„'s, the probability that the minimal 8t, is < aM~l/3
+is approximately
+(2
+
+3\ M
+
+l~TJï)
+
+~ 1 - exp(-^V/9).
+
+The function on the right side of (2.24) was used to compute the last column in
+Table 5. The probabilities of obtaining the minimal 8n that are observed from the
+GUE distribution are rather low, in some cases very low. (We would have obtained
+comparable inconsistencies between data and predictions had we worked with the
+pair correlation function instead of the distribution of the 8n.)
+It is hard to draw any firm conclusions from the data that is available. It would be
+very desirable to obtain data from much higher sets of zeros to see whether they also
+have an excess of smaller spacings compared to the GUE hypothesis. If they do, this
+would raise doubt not only about the GUE hypothesis but even about the Montgomery pair correlation conjecture. This is an important possibility because the
+GUE hypothesis is very speculative, as it relies on the hope that the eigenvalues of
+the hypothetical operator associated with the zeta function would behave like those
+of a random operator. Thus it is easy to conceive of the GUE hypothesis being false
+even when there is an appropriate operator. On the other hand, the pair correlation
+conjecture depends only on the assumption of randomness in the behavior of primes
+(basically on error terms in the number of primes in arithmetic progressions
+cancelling each other out). Therefore, falsity of the pair correlation conjecture would
+imply some unusual behavior among the primes.
+It would also be desirable to obtain numerical data for zeros of Dirichlet
+L-functions, using the generalization of the Riemann-Siegel formula [20], [21] or the
+new method of [61]. Some data are available for zeros of Epstein zeta functions [8],
+and they do not obey the GUE predictions, as they have many small spacings
+between consecutive zeros. This is not surprising, since Epstein zeta functions do not
+satisfy the RH in general.
+
+We briefly discuss large 8n. By [15],
+(2.25)
+
+\ogp(0,t)
+
+IT2
+
+- --¿-t2
+o
+
+así -> oo
+
+(a result that had been derived earlier, but less rigorously, by F. J. Dyson [22]).
+
+Hence the GUE prediction is that
+max
+
+8n~ Tr-^logM)172
+
+N + l*ín*iN+M
+
+as N, M -» oo with M not too small compared with N, and this implies
+
+(2.26)
+
+max(Yn+1-Yj~8(21og7T1/2.
+y„<T
+
+Montgomery's conjecture [58, Eq. (11)] that
+
+|5(0I = O((log01/2(loglog0-1/2),
+
+ZEROS OF THE ZETA FUNCTION
+
+291
+
+as well as another argument of Joyner [45], suggest that
+(2.27)
+
+max(Yn+1 - yn) = o((\ogTyl/2(\og\ogT)-l/2),
+y„< T
+
+which contradicts (2.26). Because of the slow growth of (log7)1/2 and of
+(log\ogT)1/2, our data do not allow us to conclude anything about the truth of these
+conjectures. (Some additional information about known large values of 8„ is
+presented in Section 4.)
+There are some measures of higher-order correlation among zeros that were
+computed and compared to the GUE prediction [7]. The GUE predictions are not
+known very accurately, but the agreement seemed quite good for short-range
+correlations. Substantial deviations were found in the measure 22(r) of [7] for large
+r, which equals the variance of the number of (normalized) zeros in an interval of
+length r. In the GUE case, 22(r) is monotone increasing, whereas for the zeros of
+the zeta function for N = 1012, this measure was increasing up to about r = 13, and
+then started to decrease slightly. Given the bounds on 5(0. this is not very
+surprising.
+One feature of the behavior of the zero spacings which initially seemed quite
+surprising involves very long-range correlations among the 8n. As is usual, we define
+the autocovariances of the 8n by
+i
+
+(2.28)
+
+N+M
+
+ck = ck(N,M)=-
+
+£
+
+(8n-l)(8n+k-l).
+
+n= N+ l
+
+It is not known exactly what the ck are in the GUE, but it has been conjectured by
+
+F. J. Dyson (unpublished) that for k > 0,
+
+(2.29)
+where
+
+cA*—L-
+
+2m2k2
+
+~
+
+in (2.29) indicates approximate rather than asymptotic value. This
+
+conjecture is intuitively appealing, since a large spacing is expected to lead to smaller
+spacings nearby to preserve the average distance, but this effect should apply less
+and less the further apart the spacings one considers. What one observes in practice,
+though, is quite different. Table 6 shows the values of the ck(N,M) for various
+values of A:, M = 105, and for the two sets corresponding to N = 0 and N = 1012.
+
+Figure 12 shows a graph of c^lO12, 105) for 950 < k < 1000. Since the variance of
+the 8n is around
+
+1/6,
+
+random independent
+
+8n would give values of ck around
+
+(öVlO5)"1 * 0.00053. The values in Table 5 are typically much larger than that, and
+therefore statistically significant. These values say, for example, that a large 8„ tends
+to be associated with a small 8n+9f>3(for N = 1012). Even more striking than the
+sizes of the ck are the patterns of signs that are visible in Table 6 and Figure 12.
+(These effects are much more striking for N = 1012 than for N = 0 due to the
+"averaging out" of the spectrum of the 8„ for N = 0 that is introduced by the
+normalization (2.7), but we will not discuss this here.)
+The long-range correlations between the 8„, which will be discussed below, should
+not obscure the fact that our data do support the Dyson conjecture (2.29), at least in
+the weak form that says that for every fixed k, as N, M -» oo with M not too small
+
+292
+
+A M. ODLYZKO
+
+Table 6
+Autocovariances of the 8n, N + 1 < n < N + 105.
+7V= 0
+
+N = 101
+
+.1607429
+-.0574023
+-.0126083
+-.0065874
+-.0045317
+-.0031454
+-.0011362
+-.0007084
+-.0013904
+.0013483
+.0034456
+.0018714
+-.0002503
+-.0005412
+.0025227
+.0046388
+.0025451
+.0010829
+
+.1762933
+-.0582498
+-.0143371
+-.0047603
+-.0035270
+-.0011576
+-.0015305
+-.0008964
+-.0009071
+-.0011673
+-.0001692
+-.0009839
+-.0002831
+-.0003967
+-.0011130
+-.0002101
+-.0005048
+.0003850
+
+56
+57
+58
+59
+60
+61
+62
+63
+
+-.0039299
+-.0013716
+.0032256
+.0016816
+-.0014840
+-.0041143
+-.0017425
+.0019009
+.0000127
+
+-.0102228
+-.0069591
+-.0011287
+.0012409
+.0020236
+.0017857
+.0011242
+.0015995
+.0012965
+
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+
+.0002534
+-.0002862
+.0003855
+-.0002286
+.0001077
+-.0000796
+-.0002891
+.0000783
+-.0001676
+-.0000848
+
+.0047463
+.0013039
+-.0039218
+-.0061988
+-.0015785
+-.0011387
+-.0050911
+-.0053232
+.0008364
+.0044897
+
+10
+
+n
+12
+13
+1-1
+
+15
+16
+17
+
+55
+
+compared to N, ck is approximated by the quantity on the right side of (2.29). Some
+support for this conjecture can be derived from Table 6. The fact that (2.29) does not
+hold for k large is to be expected, given the known results about 5(0- The only
+thing that is surprising is that the ck are large for large k and there are patterns to
+their behavior.
+An explanation for the long-range correlations between the 8n can be obtained by
+looking at the spectrum of the 8n. Figure 13 shows a portion of the spectrum, i.e., a
+graph of
+N+ M
+
+f(x) = c
+
+E to-i)*"""
+
+n = N+l
+
+293
+
+ZEROS OF THE ZETA FUNCTION
+
+Autocovariance of normalized spacings, N = 10**12
+
+990
+
+950
+
+Figure 12
+Autocovariance of the 8n. The entry for k is the mean value of
+(Sn - l)($n +k - IX averaged over 1012 + 1 < n < 1012 +
+
+105.
+
+spectrum of normalized differences
+of nearest neighbors, N = 10**12
+
+Figure 13
+Spectrum of the 8n. Value plotted for x is c|L„(Ô„ - 1) •
+exp(trinx)\2,
+where c is a constant, and n runs over
+
+1012 + 1 < n < 1012 + 98303. (Heights of peaks are not represented accurately due to limited sampling.)
+
+294
+
+A. M. ODLYZKO
+
+logarithm of spectrum of normalized differences
+
+of nearest neighbors, N = 10**12
+
+Figure 14
+Logarithm of the spectrum of the 8n. Value plotted for x is
+21og|L„(S„ - l)exp(w/«x)| + c for a constant c, where n runs
+
+over 1012 + 1 < « < 1012 + 98303, and where values < -10
+are replaced by -10.
+for a certain constant c, where N = 1012, M = 98303. No smoothing or tapering
+was done to the data. The spectral lines are very sharp. The line graph of Figure 13
+is based on approximately
+
+12000 evenly-spaced
+
+values of x between 0 and 1/4, so
+
+that the heights of the peaks may not be very accurately portrayed, but their
+locations are accurate. (The function f(x) is periodic with period 1. For 0.25 < x < 1,
+it has more sharp peaks, but they get closer and closer together and eventually begin
+to coalesce into a chaotic regime.) To show more clearly the behavior of the
+spectrum of the 8„, Figure 14 shows a graph of g(x) = max(log/(x), -10). (This
+definition is meant to deemphasize regions where f(x) is small.)
+The peaks of f(x) occur near x = 2(log N)llog q, where q is a prime power, and
+
+the spikes in Figure 13 are due to 2, 3, 4, 5, 7, 8, 9, 11, 13, 16. 17, and 19, in that
+order, with proper prime powers having smaller peaks than primes. The explanation
+for this behavior of the spectrum of the 8„ lies in the formulas that connect zeros of
+the zeta function and prime numbers. Some of them, such as the exact formula for
+ir(x) in terms of the zeros, or the more general "explicit formulas" of Guinand [38]
+and Weil [72] are well known. A related formula was proved by Landau [48]. (See
+[37] for a somewhat stronger version.) It says, under the assumption of the RH
+(which we assume for convenience, although Landau proved an unconditional
+result), that for any y > 0 as N -» oo,
+
+-^exV(~y/2)\ogp
+
+4- 0(exp(-y/2)\ogN)
+
+0(exp(-y/2)logN)
+
+if y * log/?"',
+
+if y = log/7"1,
+
+ZEROS OF THE ZETA FUNCTION
+
+295
+
+exponential sum with 40000 zeros starting
+with zero 10**12+ 1 as frequencies
+
+Figure 15
+Graph of 21og|Iexp(i'Y„j)| for 0.004 < y < 3, where n runs
+over 1012 + 1 < n < 1012 + 40000, and values < 0 are re-
+
+placed by 0.
+where p denotes a prime and m a positive integer. Therefore, we also expect that if
+N+M
+
+h(y)=
+
+E
+
+e>™,
+
+n = N+\
+
+then h(y) will be large precisely for y in the vicinity of log/?"' and small elsewhere.
+Figure 15 shows a graph of 2 \og\h(y)\ for 0.004 ^ y < 3, N = 1012, M = 4 ■104,
+which exhibits precisely this behavior. (This function 2 log|/i(_y)| is not graphed for
+0 < y < 0.004, since it is very large there.) Let us write
+yN + k = TV + ka + ßk,
+
+where a is the average spacing,
+
+a = 2 w log
+
+277
+
+The ßk are usually small, on the order of 1/a. Then, for y small, we can expect that
+h(y)
+
+v/
+= eiy"y £ e'kay+,ß ky
+k= l
+
+(2.30)
+
+M
+
+a e>yNy £
+k= l
+
+M
+
+eikay + iyenNy *T ßketka>.
+k= \
+
+The first sum on the right side of (2.30) is small for y away from integer multiples of
+2-n/a, and so it is the second sum that contributes the oscillations at y = log/?"'.
+(For y away from log/?"1, and especially so for y small, the first sum on the right
+
+296
+
+A. M. ODLYZKO
+
+side of (2.30) dominates,
+|sin(Mai>/2)| Isiniaj^)!"1
+
+and since it equals the rapidly oscillating function
+in absolute magnitude, it gives rise to the very regular
+
+patterns of points visible in Figure 15 because of the comparatively infrequent but
+regular spacing of sample points.) On the other hand,
+N+ M
+
+E
+
+N+M
+
+to-iK""
+
+-«-1
+
+n-N+1
+
+E
+
+(yb+i - yn- <*)e"inx
+
+n=N+l
+
+M
+
+= a'1e''iN*Zl(ßk+i-ßk)e,"kx
+k=\
+_
+
+-.-Lir/^f
+
+- a e
+
+o
+„mïMx
+o -irix\
+{ßM+ie
+- o2ßxe
+)
+
+M
+
++a-íe«iN*
+
+£
+
+ßke^^
+
+k= l
+
+and so the spectrum of the 8n can be expected to behave like the second sum on the
+right side of (2.30) and to have peaks at frequencies x = ir~la\ogpm for primes p
+
+and m > 1.
+3. Computation of the Zeros. This section describes the computations of the zeros
+that were used in the comparisons with eigenvalues of random Hermitian matrices
+described in Section 2 and documents the claim that the values that were found are
+accurate to within +10"8. For simplicity we will restrict the discussion here to the
+computations of yn for n = 1012+ 1 to n = 1012+ 101000. Exactly the same
+method was used to compute yn for 2001 < n < 101000, but the error estimates in
+that case are much easier. (Values of yn for 1 < n < 2000 were taken from the 105
+decimal place values computed in [60].)
+The computations described here relied on the Riemann-Siegel formula [23], [43],
+[68], which requires on the order of t1/2 operation to compute f(§ + it). A new
+method has recently been invented [61] which enables one to compute on the order
+of T1/2 values of £(| + it) for T < t < T + T1/2 in a total of 0(T1/2+t) operations for all e > 0 (i.e., 0(Te) per value), but this method is quite involved and it has
+yet to be implemented.
+
+We first recall the Riemann-Siegelformula [10], [23],[28],[43],[59],[68]. Let
+
+ö(0 = arg[7r-"/2r(i + /V2)],
+and
+
+z(t) = «p(i*(0)r(è+ it).
+Then Z(t) is real for real t, and any sign change of Z(t) corresponds to a zero of
+
+f(s) on the critical line. We define
+(3.1)
+
+T=(2m)'lt,
+
+m = [ri/2\,
+
+z = 2(r1/2 - m) - 1.
+
+(All the computations of zeros yn for n near 1012 that were carried out had
+m = 206393.) Then, for any k > 0,
+
+Z(t) = 2 £ «-1/2cos(ilog(«) - 0(0)
+n= l
+
+(3-2)
++ (-ir
+
++V1/4 E %(z)(-l)Jr-^2
+r
+
++ Rk(r),
+
+ZEROS OF THE ZETA FUNCTION
+
+297
+
+where
+(3.3)
+
+*,(t)=0(t-<2*
+
++ 3>/4),
+
+and the i>-(z) are certain entire functions. Gabcke [28] has derived very sharp
+explicit error estimates for the remainder terms Rk(r), and the one used in the
+
+computations was
+
+(3.4)
+
+|ä4(t)|
+
+<0.017r11/4
+
+for t> 200.
+
+The 3>-(z) were computed using their Taylor series expansion [17], [28].
+Before discussing the specific implementation of the Riemann-Siegel formula that
+was used, we present the basic assumptions used in the error analysis. We will
+assume that the computer that was used (a Cray X-MP) performed as usual, i.e., that
+there were no intermittent faults, and the same program run on it at another time
+would produce the same results. We also have to make some assumptions about the
+correct functioning of the basic arithmetic units and the standard logarithm and
+cosine routines supplied by the manufacturer. It is often unsafe to trust the
+manufacturer's specifications, and several examples of this will be presented below.
+The model of computation we will use in the error analysis of our algorithm is that
+developed by W. S. Brown [12]. It assumes that floating-point numbers can be
+represented in the signed, base b, t digit form
+
+t
+
+(3.5)
+
+±beZaib'i,
+i=i
+
+where either a, = • ■• = a, = 0 or 1 < a, < b, 0 < a, < b for 2 < ( < ?, and
+emin < e < emax- Brown [12] defines "correct"
+
+arithmetic for floating-point
+
+numbers
+
+in this model. If a model number is one that is representable in the form (3.5), then
+Brown's model can be briefly summarized by the following rules:
+
+If the result of applying an elementary operation ( + , -, X or /) to two model
+numbers
+
+is exactly a model number,
+
+then the implementation
+
+must return that
+
+number.
+Otherwise, the implementation may return anything between the model numbers
+adjacent to the exact result.
+Comparison of model numbers must be exact.
+Comparison of nonmodel numbers x and y may report the result of exact
+comparison between any pair of elements in the smallest model intervals containing x and y.
+(For more details, see [12].)
+One advantage of Brown's model of computation is that it is not necessary to
+worry about the internal details of the floating-point arithmetic unit, but instead it is
+sufficient to test whether a particular machine obeys the specifications of the model.
+It is of course impractical to test all possible cases. N. L. Schryer [64], [65] has
+implemented a very extensive set of tests designed to reveal deviations from the rules
+of the model and has used it to test many computers. Schryer's tests are based on the
+fact that there tend to be patterns in the way hardward designers make mistakes, and
+these patterns can be detected by cleverly designed test arguments. Schryer's tests
+have detected most of the previously known defects as well as some new ones on a
+
+298
+
+A. M. ODLYZKO
+
+variety of machines. The superficial description
+
+of the Cray-1 and the Cray X-MP
+
+(both of which have 64-bit words) might lead one to expect that they would satisfy
+Brown's model with b = 2, t = 48 for single precision and b = 2, t = 96 for double
+precision. However, Schryer's tests have revealed some faults. For example, multiplication of 2 by 2"1 +2~2 + • ■• +2"48 gives 2 on both machines. In fact, D. Winter
+has pointed out that it already follows from the Cray hardware manual [19] that
+these machines do not satisfy Brown's model for b = 2, t = 48. On the other hand,
+very extensive tests by Schryer's programs have shown that these machines appear to
+satisfy Brown's model for b = 2, t = 47 in single precision and t = 94 in double
+precision. We will assume in our analysis that this is correct. (Some defects in Cray
+software will be described at the end of this section.)
+Using Brown's model, it is possible to bound the errors that are made in various
+elementary arithmetic operations. For example, if x and y are both model numbers,
+2k < x < 2k + \ 0 < y < 2k, and x + y < 2k + \ where 1 < k < 40, say, then the
+single-precision value z that is computed for x + y will satisfy
+\z ~(x+y)\
+
+< 2A'"46.
+
+We now describe the computation of the sum of cosines in (3.2), which is what
+consumes almost all of the computing time. The argument / is always maintained as
+a double-precision (dp) variable. Another dp variable, t0, is also maintained, which
+has the property that |i - t0\ < 3. Three arrays dn, q„, u„, 1 < n < m, are also
+used; dn is the value of log«, computed and stored in dp, qn is the value of 2n~1/2,
+
+computed in dp but stored in single precision (sp) and u„ is the value of t0\ogn
+reduced modulo 277, computed in dp but again stored in sp. (On the Cray-1 and
+Cray X-MP, conversion from dp to sp is effected by truncation, and from sp to dp
+by padding with zeros.) To compute Z(t) for a new value of t, a comparison of t
+with t0 is made. If \t — t0\ > 3, t0 is set equal to t, and the u„ are recomputed. At
+
+that point we are in the remaining case of |i — ?0| < 3. Here 8 is defined to be the
+sp value of t - t0, and tx the dp value of t0 + 8 (so that |i, - t\ < t0 • 2"90, say).
+Next, 6(tx) is computed in dp, reduced modulo 277, and converted to an sp variable
+v. Then the quantities
+(3.6)
+
+wn = qncos(8en+(un-
+
+v)),
+
+1 < n < m,
+
+where en is the sp value of dn, are computed in sp, using the manufacturer-supplied
+sp cosine routine, and these values are added up in a special way to be described
+
+below.
+The reason for the involved procedure described above is that for t > 1010, say, sp
+arithmetic is not sufficiently accurate. On the other hand, dp arithmetic is much too
+slow to be used all the time, since on the Cray X-MP it is done in software and does
+not vectorize. Since the costly step of recomputing the u„ is done very infrequently
+(roughly once for every 100 evaluations of Z(t), on average, in the main zero-locating run), the scheme above allows for relatively high accuracy at reasonably high
+speed.
+The computation that is described above approximates Z(tx) rather than Z(t).
+However, since \tx — t\ < t0 ■2~9i), this difference is insignificant in practice, since
+zeros were computed only to within ±5 • 10 "9.
+
+ZEROS OF THE ZETA FUNCTION
+
+299
+
+We next estimate how much wn differs from 2«~1/2 cos(/,log« - B(tx)). The
+function d(tx) is computed entirely in dp using Stirling's formula [40]. The main
+term in that formula is tx(\ogtx - 1 - log(277))/2. No performance figures are
+supplied by the manufacturer for the dp logarithm routine. However, tests performed with 1000 random inputs e (0,1013) (comparing the values obtained on the
+Cray X-MP with those obtained with the Macsyma symbolic manipulation system
+[53], which allows for variable precision) found a maximal error of < 2 • 10 "27.
+Therefore it was assumed that all dp logarithm values (for 2 • 1011 < i, < 3 ■1011)
+are correct to within ±5 • 10 ~27. Under this assumption, the dp values of
+/1(log/1 - 1 - log(277))/2 are accurate to within ±4 • 10~27i,. The computation of
+the other terms in the expansion of 0(tx) is easily shown to introduce an error of at
+most 10~17. Hence after reduction modulo a dp value of 277 (correct to within
++ 10"27), the resulting dp value of 0(tx) is in the interval (-0.01, 6.3), say, and
+(except for a possible additive factor of +277) is correct to within ±7 • 10"27?,. The
+conversion to an sp value introduces an error in at most the last bit, and this error is
+therefore < 2-44. Hence the sp value v of 0(tx) differs from 6(tx) by at most
+2"44 + 7 . 10"27/, (and, possibly, by an additional factor of exactly 277). Similarly,
+the sp value un differs from t0 log« by an integer multiple of 277 and at most
+2"44 + 7 . 10-27ri and again is m the range (_0 01i 6J)
+Since en is obtained from dn by truncation of the bit pattern, it differs from log n
+by at most (2~47 + 10~24)log«, say. Furthermore, the sp value computed by
+multiplying 8 and en in sp can differ from 8en by at most (2~47 + 2'93)8en. Hence
+the sp value that is computed for 8en differs from 8 log« by at most
+(2"45 + 10"22)log«, as |ô| < 3. Since m < 210000, we have |5e„| < 37. Subtraction
+of v from un gives an sp value that is in the range (-7,7) but off by at most 2"44
+from the correct value, and adding it to the sp value of 8en yields a value that is in
+the interval (-45,45), but is up to 2"41 + 2-44 away from the correct sum of the
+computed values of 8en, un, and -v. Therefore the sp value of r„ = 8en + (u„ - v)
+differs from tx log« - 0(tx) by an integer multiple of 277 and an additive factor that
+is
+
+(3.7)
+
+< 2"41 + 2"44 +(2"45 + 10"22)log«
+
++ 2"43 + 1.4 • lO"26^ < 1012
+
+in absolute magnitude, for tx ^ 2.7 • 1011and n < 210000. Hence
+
+(3.8)
+
+|cos(r„) - cos('i log« - 0(/,)) | < 10"12.
+
+No rigorous bounds are known for the error made by the Cray X-MP sp cosine
+routine. Some estimates are supplied [18, Appendix B], based on a random sample of
+104 arguments; for example, for jce (-77,77), the maximal difference observed
+between cos(x) and the computed value is given as 1.01 -10"14, and the standard
+deviation as 2.31 • 10~15. However, these figures appear to come from an old edition
+of the manual, whereas substantial changes have been made to the software in the
+meantime. A sample of 104 points x, drawn uniformly at random from the interval
+(-77,77) showed that the maximal difference between values of cos(x) computed in
+dp and sp was only 5.34 • 10"15, and the standard deviation 1.4 • 10~15, which is
+considerably better than claimed in [18]. A similar sample of 106 points x, drawn
+uniformly at random from (-50, 50) showed that the maximal difference was
+< 1.35 • 10"14 and the standard deviation < 1.65 • 10"15. A comparison of several
+
+300
+
+A. M. ODLYZKO
+
+hundred values computed with the sp cosine routine with the same values computed
+
+in the Macsyma [53] system showed similar results. Therefore it seemed safe to
+assume that for x e (-50, 50), sp values of cos(x) are accurate to within + 5 • 10"14.
+With this assumption, the computed value of cos(rn) differs from the correct value
+cos(tx log« - 6(tx)) by at most 1.05 ■10"12.
+Since qn is obtained by converting the dp value of 2«~1/2 to sp, it is correct to
+within ±(2~47 + 2_90)2«"1/2, say. Therefore the sp value of qn cos(rn) that is
+computed differs from the desired value of 2«"1/2 cos^ log« - 6(tx)) by at most
+(3.9)
+
+2«"1/2(1.05
+
+• lO"12 + 2"46 + 2-80) < 2.14 • lO"12«'1/2.
+
+The sum of the term on the right side of (3.9) for 1 ^ « < m < 207000 is
+< 1.95 • 109.
+To add up the computed sp values of qn cos(r„), the values for 1 < « < 1280 were
+converted to dp and added in dp. The « with 1280 < « < m were partitioned into
+sets B such that for each B, B had < 120 elements and
+
+E 2«"1/2 < \.
+For each B, the sum SB of the computed values of qn eos(rn) for « e B was
+evaluated in sp, making an error of at most 2"41, converted to dp, and added in dp
+
+to the sums of the other sets B and of the initial 1280 values. There were < 3600
+sets B, so the total error made in this addition is
+< 3600 ■2"41 + 2"60 < 1.7 • 10"9.
+Gabcke's bound (3.4) for the remainder term in the Riemann-Siegel formula and
+the error terms given in [17], [28] for the Taylor series expansions of the $-(z)
+guarantee that these sources contribute an additional error of at most 5 • 10"n.
+We conclude therefore that the computed values of Z(tx) are correct to within
+
+±3.7 • 10"9.
+The actual computation of zeros was done in two stages. In the first stage, the
+cumbersome procedure described above for computing the sum of the wn was
+replaced by a simpler one which gave approximately a 10% speedup of the entire
+routine for evaluating Z(t). This modified routine was used to locate the zeros to a
+nominal accuracy (i.e., disregarding any errors in computation or from neglecting
+remainder terms in the Riemann-Siegel formula) of +5 • 10 "9. The procedure was
+the standard one [10], [52] of locating Gram blocks and searching for the expected
+number of sign changes of Z(t) in them. Once these sign changes were found, zeros
+were computed more accurately using the Brent algorithm [9] for locating zeros of
+functions by a combination of linear and quadratic interpolation. On average, eight
+evaluations of Z(t) were used for each zero.
+In the second stage, the more accurate algorithm described above was used. For
+each value y of a zero that was computed in the first stage, Z(t) was evaluated at the
+two points t = y ± 8 • 10 "9, the signs of the computed values were verified to be
+opposite, and their absolute magnitudes were checked to be greater than the upper
+bound 3.7 • 10 "9 for the error that we obtained above. In a few cases this check
+failed. For these zeros a more accurate version of the program, operating almost
+entirely in double precision, was used to verify the correctness of their locations.
+
+ZEROS OF THE ZETA FUNCTION
+
+301
+
+The time for the first stage of the computation of the zeros was approximately 16
+hours on a single-processor Cray X-MP. The same program runs only about half as
+fast on the Cray-1. Since the cycle time on the X-MP is only about 30% faster than
+on the Cray-1, most of the gain seems to be due to the larger number of memory
+ports on the X-MP.
+The second stage, the careful verification that the computed values were as
+accurate as claimed, was carried out twice, once using the CFT 1.14 Fortran
+compiler, and once using an early unofficial version of the CFT 1.15 computer. Each
+run took about 5 hours. (These runs were slower than the initial zero-locating ones
+not only because of the less efficient method for adding up the w„ that was used, but
+also because the double-precision array recomputations were relatively more frequent.) The reason for undertaking two runs was that both compilers have been
+reported by other users to have bugs which have occasionally led to incorrect
+answers when operating with long vectors. The exact circumstances that lead to such
+wrong computations are for the most part not known very well (most seemed to be
+associated with long complex vectors or various optimization features that were not
+used in our program), and the bugs affecting the two compilers seemed different.
+The results of the two computations were compared, and they seemed identical to
+the full sp accuracy.
+One very annoying bug in the Cray-1 and Cray X-MP software was discovered
+during the computations. When D is declared to be a dp variable, and one uses the
+free-format statement
+
+READ *, D
+to read a number, this number is first converted into an sp value, and only then
+converted to dp, so that D agrees with the value being read in only about 48 bits.
+The values that had been computed earlier for zeros yn, 109 < « < 109 + 105,
+
+1011 < « < 10u + 105, and 2 ■1011< « < 2 1011+ 105 had been converted for
+archival storage using a program that used the above free-format input. As a result,
+the values that are available for those zeros are not very accurate and were not used
+for most of the analyses in Section 2.
+4. Statistics of Zeros. The main computation discovered 101111 zeros between
+Gram points gn with « = 1012 - 14 and « = 1012 + 101097. Since the interval
+[gn, gn+X2) for « = 1012 - 14 is the union of 6 Gram blocks of length 1 and 3 Gram
+blocks of length 2, and the interval [g„, g„+12) for « = 1012+ 105 + 1085 is the
+union of 8 Gram blocks of length 1 and 2 Gram blocks of length 2, we can conclude
+by the now standard Turing method (Theorem 3.2 of [10], for example) that the
+101087 zeros that were found in the interval [gp, gq), p = 1012- 2, q = 1012+ 105
++ 1085 are all the zeros of the zeta function in that range, and are indeed the zeros
+Y„ with 1012 < « < 1012 + 105 + 1086.
+The interval [gp, gq) for /? = 1012- 2, q = 1012+ 105 + 1 appears to consist of
+
+65265Gram blocks of length 1, 10686of length 2, 2850of length 3, 847 of length4,
+217 of length 5, 49 of length 6, and 7 of length 7. (We say "appears" because the
+values of Z(t) at Gram points were not checked to verify that their signs were
+unambiguous, except near violations of Rosser's rule.)
+
+A. M. ODLYZKO
+
+Table 7
+Zeta function near selected van de Lune points.
+t
+
+Z(t)
+
+Rosser
+rule
+
+18,132,299,244.660
+18,139,553,794.750
+907,663,606,940.329
+9,065,450,718,497.579
+45,323,986,866,893.743
+67,263,231,798,214.250
+725,177,880,629,981.915
+
+-133.2
+
+no
+
+142.2
+229.3
+-253.5
+-320.7
+
+no
+
+441.4
+-453.9
+
+no
+a
+
+(2,2)
+b
+no
+
+max ¿n
+
+2.95
+3.08
+3.34
+3.02
+3.56
+4.11
+3.43
+
+Four exceptions to Rosser's rule were found during the computation of the zeros
+Y„, 1012 + 1 < « < 1012+ 105. In the now standard terminology of [52], all were of
+
+length 2, and two were of type 1 (« = 1012+ 15934 and « = 1012+ 93436) and two
+were of type 2 (n = 1012+ 13452 and « = 1012+ 17086). Earlier computations had
+found 2 exceptions to Rosser's rule among zeros yn with 2 • 1011 + 1 < « < 2 • 1011
+
++ 105 (both of length 2, type 2, for « = 2 • 1011+ 5469 and « = 2 • 1011+ 52084),
+one exception among the y„ with 1011+ 1 < « < 10u + 105 (for « = 1011+ 10477
+and of length 2 and type 2), and no exceptions for 109 + 1 < « < 109 + 105. Thus
+the frequency with which Rosser's rule is violated appears to increase very rapidly
+
+with increasing height (cf. [10],[52]).
+The largest
+
+8n that
+
+this author
+
+is aware of is 8„ = 4.2626 • • ■ for « =
+
+184,155,671,040. (We have y„ ~ 5.3 • 1010 here.) Z(t) attains a value of approximately -214 near yn, and there is a violation of Rosser's rule of length 2, type 2 in
+the vicinity of yn. This zero was discovered by an application of a method for
+constructing values of t for which \Z(t)\ is large that was based on the Lovasz lattice
+basis reduction algorithm in a manner somewhat similar to that of [60]. Several other
+values of t < 1011 with \Z(t)\ large were constructed that way. and a substantial
+fraction of them corresponded to violations of Rosser's rule, although all the
+violations discovered that way were of known type. It is clear that this method can
+be used to construct t with extremely large values of |Z(/)|, and the main barrier to
+its use is the inability to compute the corresponding values of Z(t) efficiently. (It is
+hoped that the algorithm of [61] will be implemented in the near future, which would
+enable one to explore the behavior of Z(t) near such special points where it is large.)
+Other methods of constructing values of t with interesting behavior of Z(t) are
+presented in [46] and [50]. Van de Lune [50] has found several values of t for which
+|Z(0| is very large. Thanks to D. Hejhal, the National Science Foundation, and the
+Minnesota Supercomputer Institute, this author was able to use a Cray-2 to study
+
+some of these points. The huge memory of the Cray-2 made it possible to utilize the
+algorithm described in Section 3 to compute Z(0 for the most interesting of the
+values of t found by van de Lune. (The highest point mentioned below required
+about 45 million words of memory.) Rigorous error analysis was not done, and the
+computations spanned blocks of 20 Gram intervals centered approximately at the
+points found by van de Lune, so it is impossible to assert that all of the zeros in
+those intervals have been found and that they satisfy the RH, but it seems very likely
+
+303
+
+ZEROS OF THE ZETA FUNCTION
+
+that they do. Table 7 presents the results of these computations. For each point t
+that was checked, the approximate value of Z(0 is given (taken from [50], since the
+computations reported here have used a different grid of points at which to evaluate
+Z(O), the type of violation of Rosser's rule that was found (if any), and the maximal
+8n that was found in that neighborhood. The value of Z(0 * -453.9 at the last point
+in the list gives the largest values of |Z(0| that has been found so far. An entry of
+"no" in the "Rosser rule" column means that no violation of Rosser's rule was
+found. The entry (2,2) means that a violation of length 2 and type 2 [52] was found.
+The entry "a" means a previously undetected type of violation of length 3, with the
+two Gram intervals preceding the block with zero pattern (0,1,0) having zero
+pattern (2,2). The entry " b" denotes another new type of violation, this time of
+length 2, with Gram block with zero patterns (0,0) being followed by a block with
+
+zero pattern (2,1,1,2).
+5. Other Methods for Computing the Zeta Function. The program described in the
+preceding section was designed for relatively accurate and rapid computation of the
+zeros of the zeta function at fairly large height. On the single-processor Cray X-MP
+with 2 million words of memory on which this program was run, it could only be
+used for zeros yn with « not much larger than 3 • 1012,due to the limitations on
+memory storage. In terms of speed, on the Cray X-MP it ran at about two-thirds of
+the speed of the latest version [73] of the Cyber-205 program (written partially in
+assembly language) that was used for the verification of the RH for the first
+1.5 X 109 zeros [52], since on average it required about 3.5 • 10 "3 seconds to
+evaluate a sum of the form
+K+10"
+
+(5.1)
+
+E
+
+2«-1/2cos(rlog(«)-0(O),
+
+n = K+l
+
+whereas the data in [73] indicate that a comparable computation with the program
+outlined there requires about 2.5 • 10 "3 seconds. The program described in Section 4
+has the advantages of being more portable (since it is written exclusively in Fortran)
+and more accurate. The error estimates in it are not completely rigorous, as the error
+bounds assumed for the manufacturer's cosine routine are based on statistical
+sampling. The main program described in [51], [52], [73] used the manufacturer's dp
+cosine routines only to compute a few values to medium accuracy. These values were
+then used inside the program to obtain sp values of the cosine by linear interpolation. Thus the [51], [52], [73] program can be regarded as somewhat more trustworthy than the one described here. (In some cases, though, where Z(0 was small, a
+program in which all operations were carried out using the manufacturer's dp
+routines was used in [51], [52], and its trustworthiness is comparable to ours.)
+It is possible to write programs that are much faster than that described in Section
+3, are almost as accurate, are written in Fortran, and whose errors can be analyzed
+rigorously. Note that most of the effort in computing Z(0 by the Riemann-Siegel
+formula (3.2) is spent in evaluating
+m
+
+£
+n=l
+
+m
+
+2«-1/2cos(ílog«-0(O)
+
+= Ree-'9('>E
+n=l
+
+2«-1/V"°s".
+
+304
+
+Since 0(0
+
+A. M. ODLYZKO
+
+is easy to compute, it would suffice to find an efficient method to
+
+compute
+m
+
+(5.2)
+
+f(t) = £ 2«-i/yi°8".
+n= l
+
+Now m = [(2-n)
+tl/2\ is constant for large stretches of values of t. Suppose that
+m is constant over the interval t0 < / < tx, and suppose we wish to find sign changes
+of Z(0 in this interval. Without much loss of generality we can assume that t0 is a
+Gram point, t0 = gk. We compute the complex numbers
+a„ = 2«-1/2e"»log",
+
+1<«<ot,
+
+using some very accurate and rigorously analyzable method and store them. If
+8 = gk+x — gk, then we also compute
+
+Kj = eiS2'Ju*n,
+
+l<«<m,0
+
+<y</,
+
+( J depending on accuracy to which zeros are to be computed), and again store them.
+To compute Z(t0) = Z(gk), we evaluate ax + a2+
+we compute
+
+(5.3)
+
+a« = a„ ■ba0,
+
+1<«<w,
+
+store them, and then evaluate a]1' + ■■• +a^\
+close to gk + 2, we compute
+
+a£2)= û^ • ¿Vo>
+
+• • • +am. To compute Z(gk + X),
+
+To compute Z(t) for some t very
+
+1 <«<«i,
+
+store them, and then evaluate a{2) + ■■■ +a(2). (The differences g/+x - g¡ change
+very slowly with /.) To compute Z(0 for some / close to (gk + 3 + gk + 2)/2, we
+compute
+
+43) = a? *b«,u
+
+Innern,
+
+store them, and evaluate a{3>+ • • • +a(3), and so on. When we reach the point
+where the accumulated roundoff errors in the a)/0 get too big, we reset t0 to the
+value of a Gram point near f0 and recompute the an. Since the recomputation of the
+an would be very infrequent in computations such as that aimed at numerically
+
+verifying the RH for a large set of consecutive zeros (where Z(0 is evaluated at all
+Gram points), the running time of the algorithm would be dominated by the time to
+compute the component-by-component
+product c = (cx,..., cm) = (axbx,..., ambm)
+of two complex vectors a = (ax,..., am) and b = (bx,..., bm) and then evaluate the
+complex sum c, + ■• • +cm. These operations are vectorized automatically by the
+Cray X-MP Fortran compiler, and for m = 104 require only about 0.8 X 10 "3
+seconds, which would yield a program running about 4 times faster than that
+described in Section 3. Such a program has not been implemented owing to the large
+storage requirements, which would not have allowed computations with zeros
+around the 1012th zero. However, for verifying the RH around the 1010th zero, such
+
+a Fortran program ought to be practical and, since most of the computation there
+involves evaluating Z(0 at Gram points, it would probably run about 3 times faster
+on the Cray X-MP than the programs described in [73] run on the Cyber-205. Some
+
+ZEROS OF THE ZETA FUNCTION
+
+305
+
+test runs performed on the Cyber-205 by H. te Riele have shown that the ideas
+described above appear to lead to algorithms that are faster than those of [73] on
+that machine as well.
+6. Distribution of Eigenvalues Computations. In the standard terminology [15],
+[54], [55] we let p(k, u) denote the probability density of A;th neighbor spacing in
+the GUE; i.e., the probability that the (normalized) difference between an eigenvalue
+of the GUE and the (k + l)st smallest eigenvalue of those that are larger than it lies
+in the interval (a, b) is
+
+(6.1)
+
+(hp(k,u)du.
+■'a
+
+(This is referred to as p2(k; u) in [15], [54], [55], where the subscript 2 refers to the
+
+GUE.)
+Define A„ and f„(x) to be the eigenvalues and eigenfunctions of the integral
+equation (finite Fourier transform)
+
+(6-2)
+where /eR*
+condition
+
+\f(x)=\-r-f(y)dy,
+'_i
+
+ti(x-y)
+
+is a parameter, and where the f„(x) satisfy the orthonormality
+
+(6-3)
+
+ffk(x)fm(x)dx
+J-i
+
+= 8km.
+
+The A„ and f„(x) can be renumbered so that
+
+1 > X0> Xx > ■•• >0.
+Mehta and des Cloizeaux [55] have shown that
+
+(6.4)
+
+p(k,t)-4r2Tl(i-K)
+
+E
+
+"
+
+V(jx,...,jk+2),
+
+0<jl<-.<jk+2
+
+where
+
+(6.5)
+
+ilA.y-4nár
+
+;= 1 í
+
+E
+
+A>, l<A:ms:¿
++2
+Jt+jm —1 (m°d 2)
+
+4(i)24(i)2.
+
+(<m
+
+(Note that notations differ from reference to reference by various scaling factors.)
+The p(k,t) were computed using Formulas (6.4) and (6.5), which are much better
+than some of the older methods (cf. [54], [55]) which relied on the formula
+
+(6.6)
+
+P(o,t) = ^n(i-A„).
+dt2 „
+
+For example, the values for p(0, t) given in [54, Appendix A.12, Table A.l], which
+were apparently derived using (6.6), seem to be rather inaccurate, since for t = 0.891,
+the value given there is 0.943, whereas (6.4) and (6.5) gave the value of 0.933. The
+discrepancy was most pronounced near the peak of the graph of p(0,t), which is
+where one would expect numerical differentiation routines to be least accurate.
+The f„(x) are essentially the linear prolate functions. They were computed using
+the program of Van Buren [71], with slight modifications introduced by this author
+and S. P. Lloyd. In Van Buren's notation, the A„ defined above become Xn(trt/2),
+and the fn(x) become (\„(77t/2))'l/2^n(itt/2,
+x).
+
+A. M. ODLYZKO
+
+306
+
+Van Buren's program uses a complicated combination of a variational procedure
+and expansion in terms of Legendre and spherical Bessel functions. There is no
+rigorous error analysis for it. However, it appears to be fairly accurate, as is shown
+by comparing its output to that of other calculations. Furthermore, tests such as
+numerical integration of
+
+/
+
+P(k,t)dt
+
+to verify that we obtain values very close to 1 were all positive.
+
+Acknowledgments. The author thanks P. Barrucand, R. A. Becker, O. Bohigas,
+
+R. P. Brent, W. S. Cleveland, F. J. Dyson, P. X. Gallagher, E. Grosswald, D. Hejhal,
+B. Kleiner, H. J. Landau, S. P. Lloyd, C. L. Mallows, H. L. Montgomery, A. Pandey,
+H. J. J. te Riele, L. Schoenfeld, N. L. Schryer, D. S. Slepian, and D. T. Winter for
+providing helpful information.
+AT & T Bell Laboratories
+Murray Hill, New lersey 07974
+1. R. A. Becker
+
+& J. M. Chambers,
+
+S: An Interactive Environment for Data Analysis and Graphics,
+
+Wadsworth, Belmont, Calif., 1984.
+2. M. V. Berry, "Semiclassical theory of spectral rigidity," Proc. Roy. Soc. London Ser. A, v. 400,
+
+1985,pp. 229-251.
+3. M. V. BERRY,"Riemann's zeta function: A model for quantum chaos?," in Proc. Second Internat.
+Conf. on Quantum Chaos (T. Seligman, ed.), Springer-Verlag, Berlin and New York, 1986. (To appear.)
+4. O. Bohigas & M.-J. Giannoni, "Chaotic motion and random matrix theories," in Mathematical
+and Computational Methods in Nuclear Physics (J. S. Dehesa, J. M. G. Gomez, and A. Polls, eds.), Lecture
+
+Notes in Phys., vol. 209, Springer-Verlag,Berlin and New York, 1984, pp. 1-99.
+5. O. Bohigas,
+universality
+
+M. J. Giannoni
+
+of level fluctuation
+
+& C. Schmit, "Characterization
+
+of chaotic quantum spectra and
+
+laws," Phys. Rev. Lett., v. 52, 1984, pp. 1-4.
+
+6. O. Bohigas, M. J. Giannoni & C. Schmit, "Spectral properties of the Laplacian and random
+matrix theories," J. Physique-Lettres. (To appear.)
+7. O. Bohigas, R. U. Haq & A. Pandey, "Higher-order correlations in spectra of complex systems,"
+
+Phys. Rev. Lett., v. 54,1985, pp. 1645-1648.
+8. E. Bombieri & D. Hejhal, manuscript in preparation.
+9. R. P. Brent,
+
+Algorithms for Minimization
+
+without Derivatives, Prentice-Hall,
+
+Englewood
+
+Cliffs,
+
+N. I, 1973.
+10. R. P. Brent,
+
+"On the zeros of the Riemann zeta function in the critical strip," Math. Comp., v. 33,
+
+1979,pp. 1361-1372.
+11. T. A. Brody, J. Flores, J. P. French, P. A. Mello, A. Pandey & S. S. M. Wong, "Random-matrix physics: spectrum and strength fluctuations," Rev. Modern Phys., v. 53, 1981, pp. 385-479.
+12. W. S. Brown, "A simple but realistic model of floating-point computations," ACM Trans. Math.
+
+Software,v. 7, 1981,pp. 445-480.
+13. J. M. Chambers, W. S. Cleveland, B. Kleiner & P. A. Tukey, Graphical Methods for Data
+Analysis, Wadsworth, Belmont., Calif., 1983.
+14. J. des Cloizeaux & M. L. Mehta, "Some asymptotic expressions for prolate spheroidal functions
+and for the eigenvalues of differential and integral equations of which they are solutions," J. Math. Phys.,
+
+v. 13,1972, pp. 1745-1754.
+15. J. des Cloizeaux & M. L. Mehta, "Asymptotic behavior of spacing distributions for the
+eigenvalues of random matrices," J. Math. Phys., v. 14, 1973, pp. 1648-1650.
+16. J. B. Conrey, A. Ghosh, D. A. Goldston, S. M. Gonek & D. R. Heath-Brown, "Distribution of
+gaps between zeros of the zeta function," Quart. J. Math. Oxford Ser. (2), v. 36,1985, pp. 43-51.
+
+17. F. D. Crary
+
+& J. B. ROSSER,High Precision Coefficients Related to the Zeta Function, MRC
+
+Technical Summary Report #1344, Univ. of Wisconsin, Madison, May 1975, 171 pp.; reviewed by R. P.
+
+Brent in Math. Comp.,v. 31, 1977,pp. 803-804.
+18. Cray
+
+Research,
+
+Inc., Cray X-MP and Cray-1 Computer Systems; Library Reference Manual
+
+SR-00U, Revision I, Dec. 1984.
+
+307
+
+ZEROS OF THE ZETA FUNCTION
+19. Cray Research,
+
+Inc., Cray-1 Computer Systems, S Series Mainframe Reference Manual HR-0029,
+
+Nov. 1982.
+20. D. Davies, "An approximate functional equation for Dirichlet ¿-functions,"
+
+Proc. Roy. Soc. Ser.
+
+A,v. 284,1965, pp. 224-236.
+21. M. Deuring,
+
+"Asymptotische
+
+Entwicklungen der Dirichletschen
+
+L-Reihen," Math. Ann., v. 168,
+
+1967, pp. 1-30.
+22. F. J. Dyson, "Statistical theory of the energy levels of complex systems. II," J. Math. Phys., v. 3,
+
+1962, pp. 157-165.
+23. H. M. Edwards, Riemann's Zeta Function, Academic Press, New York, 1974.
+24. D. Freedman & P. Diaconis, "On the histogram as a density estimator: L2 theory," Z. Wahrsch.
+
+Verw.Gebiete,v. 57,1981, pp. 453-476.
+25. A. Fujii, "On the zeros of Dirichlet L-functions. I," Trans. Amer. Math. Soc. v. 196, 1974, pp.
+
+225-235.
+26. A. Fujii, "On the uniformity of the distribution of zeros of the Riemann zeta function," J. Reine
+
+Angew.Math., v. 302,1978,pp. 167-205.
+27. A. Fujii, "On the zeros of Dirichlet L-functions. II (with corrections to "On the zeros of Dirichlet
+L-functions. I" and the subsequent papers)," Trans. Amer. Math. Soc, v. 267,1981, pp. 33-40.
+28. W. Gabcke,
+
+Neue Herleitung und explizite Restabschätzung der Riemann-Siegel-Formel,
+
+Ph. D.
+
+Dissertation, Göttingen, 1979.
+29. P. X. Gallagher,
+"On the distribution of primes in short intervals," Mathematika, v. 23.1976. pp.
+
+4-9.
+30. P. X. Gallagher,
+
+"Pair correlation of zeros of the zeta function," J. Reine Angew. Math., v. 362,
+
+1985,pp. 72-86.
+31. P. X. Gallagher
+
+& I. H. Mueller,
+
+"Primes and zeros in short intervals," /. Reine Angew. Math..
+
+v. 303/304,1978, pp. 205-220.
+32. A. GHOSH, "On Riemann's zeta-function—sign changes of S(T)," in Recent Progress in Analytic
+Number Theory, vol. 1 (H. Halberstam and C. Hooley, eds.), Academic Press, New York, 1981, pp. 25-46.
+33. A. Ghosh, "On the Riemann zeta-function—mean value theorems and the distribution of |S(/)|,"
+
+J. NumberTheory,v. 17, 1983,pp. 93-102.
+34. D. A. Goldston, "Prime numbers and the pair correlation of zeros of the zeta function," in Topics
+in Analytic Number Theory (S. W. Graham and J. D. Vaaler, eds.), Univ. of Texas Press, Austin, Texas,
+
+1985,pp. 82-91.
+35. D. A. Goldston
+
+& D. R. Heath-Brown,
+
+"A note on the differences between consecutive primes,"
+
+Math. Ann., v. 266,1984,pp. 317-320.
+36. D. A. Goldston
+
+& H. L. Montgomery,
+
+"Pair correlation of zeros and primes in short intervals,"
+
+Proc. 1984 Stillwater Conf. on Analytic Number Theory and Diophantine Problems, Birkhäuser-Verlag. (To
+appear.)
+37. S. M. Gonek, "A formula of Landau and mean values of $(s)," in Topics in Analytic Number
+
+Theory (S. W. Graham and I. D. Vaaler, eds.), Univ. of Texas Press, Austin, Texas, 1985, pp. 92-97.
+38. A. P. GuiNAND, "A summation formula in the theory of prime numbers," Proc. London Math. Soc.
+
+(2), v. 50,1948, pp. 107-119.
+39. M. C. Gutzwiller,
+
+"Stochastic behavior in quantum scattering," Phys. D, v. 7, 1983, pp. 341-355.
+
+40. Handbook of Mathematical
+Functions (M. Abramowitz and I. A. Stegun, eds.). National
+Bureau of Standards, Washington, D.C., 9th printing, 1970.
+41. R. U. Haq, A. Pandey & O. Bohigas, "Fluctuation properties of nuclear energy levels: Do theory'
+
+and experiment agree?," Phys. Rev. Lett., v. 48,1982, pp. 1086-1089.
+42. D. R. Heath-Brown,
+
+"Gaps between primes and the pair correlation of zeros of the zeta-function,"
+
+Acta Arith., v. 41,1982, pp. 85-99.
+43. A. Ivic, The Riemann Zeta-function, Wiley, New York, 1985.
+44. D. Joyner, "Distribution theorems for /.-functions." (To be published.)
+45. D. Joyner, "On the Dyson-Montgomery hypothesis." (To be published.)
+46. E. Karkoschka
+& P. Werner, "Einige Ausnahmen zur Rosserschen Regel in der Theorie der
+Riemannschen Zetafunktion," Computing, v. 27,1981, pp. 57-69.
+47. M. G. Kendall & A. Stuart, The Advanced Theoryof Statistics, 3rd ed., Hafner. New York, 1973.
+
+48. E. Landau, "Über die Nullstellender Zetafunktion," Math. Ann., v. 71,1911, pp. 548-564.
+49. R. S. Lehman, "On the distribution of zeros of the Riemann zeta function." Proc. London Math.
+
+Soc, v. 20,1970, pp. 303-320.
+50. J. VAN DE Lune,
+
+Some Observations Concerning the Zero-Curves of the Real and Imaginary Parts of
+
+Riemann's Zeta Function, Report ZW 201/83, Mathematical Center, Amsterdam, December 1983.
+51. J. van DE Lune, H. J. J. te Riele & D. T. Winter, Rigorous High Speed Separation of Zeros of
+Riemann's
+
+Zeta Function, Report NW 113/81, Mathematical
+
+Center, Amsterdam,
+
+1981.
+
+308
+
+A. M. ODLYZKO
+
+52. J. van de Lune, H. J. J. te Riele & D. T. Winter,
+
+"On the zeros of the Riemann zeta function in
+
+the critical strip. IV," Math. Comp.,v. 46, 1986,pp. 667-681.
+53. MATHLAB GROUP,MACSYMAReferenceManual, MIT Laboratory for Computer Science,1977.
+54. M. L. Mehta, Random Matrices, Academic Press, New York, 1967.
+55. M. L. Mehta & J. des Cloizeaux, "The probabilities for several consecutive eigenvalues of a
+random matrix," Indian J. Pure Appl. Math., v. 3,1972, pp. 329-351.
+56. H. L. Montgomery, The Pair Correlation of Zeros of the Zeta Function, Proc. Sympos. Pure Math.,
+
+vol. 24, Amer. Math. Soc.,Providence,R. I., 1973,pp. 181-193.
+57. H. L. Montgomery, "Distribution of zeros of the Riemann zeta function," Proc. Internat.
+Congress Math. Vancouver, 1974, pp. 379-381.
+58. H. L. Montgomery, "Extreme values of the Riemann zeta function," Comment. Math. Heb., v.
+
+52,1977, pp. 511-518.
+59. A. M. Odlyzko, "Distribution of zeros of the Riemann zeta function: Conjectures and computations." (Manuscript in preparation.)
+60. A. M. Odlyzko & H. J. J. te Riele, "Disproof of the Mertens conjecture," J. Reine Angew. Math.,
+
+v. 357,1985, pp. 138-160.
+61. A. M. Odlyzko
+
+& A. Schönhage,
+
+"Fast algorithms for multiple evaluations of the Riemann zeta
+
+function." (To be published.)
+62. A. E. Ozluk,
+
+Pair Correlation of Zeros of Dirichlet L-functions, Ph. D. Dissertation,
+
+Univ. of
+
+Michigan, Ann Arbor, Mich., 1982.
+63. C. E. PORTER,ed., Statistical Theories of Spectra; Fluctuations, Academic Press, New York, 1965.
+
+64. N. L. Schryer,
+
+A Test of a Computer's Floating-Point Arithmetic Unit, AT&T Bell Laboratories
+
+Computing Science Technical Report #89,1981.
+65. N. L. Schryer, manuscript in preparation.
+66. A. Selberg, "Contributions to the theory of the Riemann zeta-function," Arch. Math. Naturvid.
+
+B,v. 48,1946, pp. 89-155.
+67. C. L. Siegel, " Über Riemanns Nachlass zur analytischen Zahlentheorie," Quellen und Studien zur
+
+Geschichte der Math. Astr. Phys., v. 2, 1932, pp. 45-80; reprinted in C. L. Siegel, Gesammelte
+Abhandlungen, vol. 1, Springer-Verlag,Berlin and New York, 1966, pp. 275-310.
+68. E. C. Titchmarsh, The Theory of the Riemann Zeta-function, Oxford Univ. Press, Oxford, 1951.
+69. K.-M. TSANG, The Distribution of the Values of the Riemann Zeta-function, Ph. D. Dissertation,
+
+Princeton, 1984.
+70. A. M. Turing,
+
+"A method for the calculation of the zeta-function," Proc. London Math. Soc. (2),
+
+v. 48,1943, pp. 180-197.
+71. A. L. Van Buren, A Fortran Computer Program for Calculating the Linear Prolate Functions,
+Report 7994, Naval Research Laboratory, Washington, May 1976.
+72. A. Weil, "Sur les "formules explicites" de la théorie des nombres premiers," Comm. Sém. Math.
+
+Univ. Lund, tome supplémentaire, 1952, pp. 252-265.
+73. D. Winter & H. te Riele, Optimization of a program for the verification of the Riemann
+hypothesis, Supercomputer, v. 5, 1985, pp. 29-32.
+
+

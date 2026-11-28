@@ -1,0 +1,5975 @@
+arXiv:math/9811068v1 [math.NT] 10 Nov 1998
+
+Trace formula in noncommutative Geometry and
+the zeros of the Riemann zeta function
+Alain CONNES
+
+Abstract We give a spectral interpretation of the critical zeros of the Riemann zeta function as an absorption spectrum, while eventual noncritical zeros appear as resonances. We give a geometric interpretation of the explicit
+formulas of number theory as a trace formula on the noncommutative space
+of Adele classes. This reduces the Riemann hypothesis to the validity of the
+trace formula and eliminates the parameter δ of our previous approach.
+
+Table of contents
+
+Introduction.
+I Quantum chaos and the hypothetical Riemann flow.
+II Algebraic Geometry and global fields of non zero characteristic.
+III Spectral interpretation of critical zeros.
+IV The distribution trace formula for flows on manifolds.
+V The action (λ, x) → λ x of K ∗ on a local field K.
+VI The global case, and the formal trace computation.
+VII Proof of the trace formula in the S-local case.
+VIII The trace formula in the global case, and elimination of δ.
+Appendix I, Proof of theorem 1.
+Appendix II, Explicit formulas.
+Appendix III, Distribution trace formulas.
+
+1
+
+Introduction
+We shall give in this paper a spectral interpretation of the zeros of the
+Riemann zeta function and a geometric framework to which one can transpose
+the ideas of algebraic geometry involving the action of the Frobenius and the
+Lefchetz formula. The spectral interpretation of the zeros of zeta will be as
+an absorption spectrum, i.e. as missing spectral lines. All zeros will play a
+role in the spectral side of the trace formula, but while the critical zeros will
+appear per-se, the non critical ones will appear as resonances and enter in the
+trace formula through their harmonic potential with respect to the critical
+line. Thus the spectral side is entirely canonical, and by proving positivity
+of the Weil distribution, we shall show that its equality with the geometric
+side, i.e. the global trace formula, is equivalent to the Riemann Hypothesis
+for all L-functions with Grössencharakter. We shall model our discussion on
+the Selberg trace formula, but it differs from the latter in several important
+respects. We shall first explain in particular why a crucial negative sign in the
+analysis of the statistical fluctuations of the zeros of zeta indicates that the
+spectral interpretation should be as an absorption spectrum, or equivalently
+should be of a cohomological nature. As it turns out, the geometric framework
+involves an innocent looking space, the space X of Adele classes, where two
+adeles which belong to the same orbit of the action of GL1 (k) (k a global
+field), are considered equivalent. The group Ck = GL1 (A)/GL1 (k) of Idele
+classes (which is the class field theory counterpart of the Galois group) acts
+by multiplication on X.
+Our first preliminary result (theorem 1 of section III) gives a spectral
+interpretation of the critical zeros of zeta and L functions on a global field
+k from the action of the Idele class group on a space of square integrable
+functions on the space X = A/k ∗ of Adele classes. Corollary 2 gives the corresponding computation of the spectral trace. This result is only preliminary
+because it requires the use of an unnatural parameter δ which plays the role
+of a Sobolev exponent and allows to see the absorption spectrum as a point
+spectrum.
+Our second preliminary result is a formal computation (section VI) of the
+character of the representation of the Idele class group on the above L2 space.
+This formal computation gives the Weil distribution which is the essential
+ingredient of the Riemann-Weil explicit formula. At this point (which was
+the situation in [Co]), the main problems are to give a rigorous meaning to
+the formal trace computation and to eliminate the unwanted parameter δ.
+2
+
+These two problems will be solved in the present paper. We first prove
+a trace formula (theorem 3 of section V) for the action of the multiplicative
+group K ∗ of a local field K on the Hilbert space L2 (K), and (theorem 4 of
+section VII) a trace formula for the action of the multiplicative group CS of
+Idele classes associated to a finite set S of places of a global field k, on the
+Hilbert space of square integrable functions L2 (XS ), where XS is the quotient
+Q
+of v∈S kv by the action of the group OS∗ of S-units of k. In both cases we
+obtain exactly the terms of the Weil explicit formulas which belong to the
+finite set of places. This result is quite important since the space XS is highly
+non trivial as soon as the cardinality of S is larger or equal to 3. Indeed this
+quotient space is non type I in the sense on Noncommutative Geometry and
+it is reassuring that the trace formula continues to hold there.
+We check in detail (theorem 6 of Appendix II) that the rewriting of the
+Weil explicit formulas which is predicted by the global trace formula is correct.
+Finally, we eliminate in section VIII, using ideas which are common both
+to the Selberg trace formula and to the standard explanation of the absorption
+lines in physics, the unpleasant parameter δ which appeared as a label of the
+function spaces of section III. We write the global trace formula as an analogue
+of the Selberg trace formula. The validity of the trace formula for any finite
+set of places follows from theorem 4 of section VII, but in the global case
+is left open and shown ( Theorem 5 of section VIII) to be equivalent to the
+validity of the Riemann Hypothesis for all L functions with Grössencharakter.
+This equivalence, together with the plausibility of a direct proof of the trace
+formula along the lines of theorem 4 (section VII) constitute the main result
+of this paper. The elimination of the parameter δ is the main improvement
+of the present paper with respect to [Co].
+It is an old idea, due to Polya and Hilbert that in order to understand the
+location of the zeros of the Riemann zeta function, one should find a Hilbert
+space H and an operator D in H whose spectrum is given by the non trivial
+zeros of the zeta function. The hope then is that suitable selfadjointness
+
+properties of D (of i D − 12 more precisely) or positivity properties of ∆ =
+D(1 − D) will be easier to handle than the original conjecture. The main
+reasons why this idea should be taken seriously are first the work of A. Selberg
+([Se]) in which a suitable Laplacian ∆ is related in the above way to an
+analogue of the zeta function, and secondly the theoretical ([M][B][KS]) and
+experimental evidence ([O][BG]) on the fluctuations of the spacing between
+consecutive zeros of zeta. The number of zeros of zeta whose imaginary part
+3
+
+is less than E > 0,
+(1)
+
+N (E) = # of zeros ρ , 0 < Im ρ < E
+
+has an asymptotic expression ([R]) given by
+(2)
+
+E
+N (E) =
+2π
+
+
+
+log
+
+
+
+E
+2π
+
+
+
+
+
+−1 +
+
+7
++ o(1) + Nosc (E)
+8
+
+where the oscillatory part of this step function is
+
+
+1
+1
+(3)
+Nosc (E) = Im log ζ
++ iE
+π
+2
+assuming that E is not the imaginary part of a zero and taking for the logarithm the branch which is 0 at +∞.
+One shows (cf. [Pat]) that Nosc (E) is O(log E). In the decomposition (2)
+the two terms hN (E)i = N (E) − Nosc (E) and Nosc (E) play an independent
+role. The first one hN (E)i which gives the average density of zeros just comes
+from Stirling’s formula and is perfectly controlled. The second Nosc (E) is
+a manifestation of the randomness of the actual location of the zeros, and
+to eliminate the role of the density one returns to the situation of uniform
+density by the transformation
+(4)
+
+xj = hN (Ej )i (Ej the j th imaginary part of zero of zeta) .
+
+Thus the spacing between two consecutive xj is now 1 in average and the
+only information that remains is in the statistical fluctuation. As it turns out
+([M][O]) these fluctuations are the same as the fluctuations of the eigenvalues
+of a random hermitian matrix of very large size.
+H. Montgomery [M] proved (assuming RH) a weakening of the following conjecture (with α, β > 0),
+
+(5)
+
+Card {(i, j) ; i, j ∈ 1, . . . , M ; xi − xj ∈ [α, β]}
+2 !
+
+Z β
+sin(πu)
+du
+∼M
+1−
+πu
+α
+
+This law (5) is precisely the same as the correlation between eigenvalues of
+hermitian matrices of the gaussian unitary ensemble ([M]). Moreover, numerical tests due to A. Odlyzko ([O][BG]) have confirmed with great precision the
+4
+
+behaviour (5) as well as the analoguous behaviour for more than two zeros. In
+[KS], N. Katz and P. Sarnak proved an analogue of the Montgomery-Odlyzko
+law for zeta and L-functions of function fields over curves.
+It is thus an excellent motivation to try and find a natural pair (H, D)
+where naturality should mean for instance that one should not even have to
+define the zeta function, let alone its analytic continuation, in order to obtain
+the pair (in order for instance to avoid the joke of defining H as the ℓ2 space
+built on the zeros of zeta).
+
+I Quantum chaos and the hypothetical Riemann flow
+Let us first describe following [B] the direct atempt to construct the PolyaHilbert space from quantization of a classical dynamical system. The original
+motivation for the theory of random matrices comes from quantum mechanics.
+In this theory the quantization of the classical dynamical system given by
+the phase space X and hamiltonian h gives rise to a Hilbert space H and a
+selfadjoint operator H whose spectrum is the essential physical observable of
+the system. For complicated systems the only useful information about this
+spectrum is that, while the average part of the counting function,
+(1)
+
+N (E) = # eigenvalues of H in [0, E]
+
+is computed by a semiclassical approximation mainly as a volume in phase
+space, the oscillatory part,
+(2)
+
+Nosc (E) = N (E) − hN (E)i
+
+is the same as for a random matrix, governed by the statistic dictated by the
+symmetries of the system.
+In the absence of a magnetic field, i.e. for a classical hamiltonian of the form,
+(3)
+
+h=
+
+1 2
+p + V (q)
+2m
+
+where V is a real-valued potential on configuration space, there is a natural
+symmetry of classical phase space, called time reversal symmetry,
+(4)
+
+T (p, q) = (−p, q)
+5
+
+which preserves h, and entails that the correct ensemble on the random matrices is not the above GUE but rather the gaussian orthogonal ensemble: GOE.
+Thus the oscillatory part Nosc (E) behaves in the same way as for a random
+real symmetric matrix.
+Of course H is just a specific operator in H and, in order that it behaves generically it is necessary (cf. [B]) that the classical hamiltonian system (X, h) be
+chaotic with isolated periodic orbits whose instability exponents (i.e. the logarithm of the eigenvalues of the Poincaré return map acting on the transverse
+space to the orbits) are different from 0.
+One can then ([B]) write down an asymptotic semiclassical approximation to
+the oscillatory function Nosc (E)
+(5)
+
+1
+Nosc (E) = Im
+π
+
+Z ∞
+
+Trace(H − (E + iη))−1 idη
+
+0
+
+using the stationary phase approximation of the corresponding functional integral. For a system whose configuration space is 2-dimensional, this gives
+([B] (15)),
+(6)
+
+∞
+
+1XX 1
+1
+
+ sin(Spm (E))
+Nosc (E) ≃
+π γ m=1 m 2sh mλp
+2
+
+p
+
+where the γp are the primitive periodic orbits, the label m corresponds to
+the number of traversals of this orbit, while the corresponding instability
+exponents are ±λp . The phase Spm (E) is up to a constant equal to m E Tγ#
+where Tγ# is the period of the primitive orbit γp .
+The formula (6) gives very precious information ([B]) on the hypothetical
+“Riemann flow” whose quantization should produce the Polya-Hilbert space.
+The point is that the Euler product formula for the zeta function yields (cf.
+[B]) a similar asymptotic formula for Nosc (E) (3),
+(7)
+
+∞
+
+−1 X X 1 1
+Nosc (E) ≃
+sin (m E log p) .
+π p m=1 m pm/2
+
+Comparing (6) and (7) gives the following information,
+(A) The periodic primitive orbits should be labelled by the prime numbers
+p = 2, 3, 5, 7, . . ., their periods should be the log p and their instability
+exponents λp = ± log p.
+6
+
+Moreover, since each orbit is only counted once, the Riemann flow should not
+possess the symmetry T of (4) whose effect would be to duplicate the count
+of orbits. This last point excludes in particular the geodesic flows since they
+have the time reversal symmetry T . Thus we get
+(B) The Riemann flow cannot satisfy time reversal symmetry.
+However there are two important mismatches (cf. [B]) between the two formulas (6) and (7). The first one is the overall
+
+ minus sign in front of formula
+mλ
+
+p
+(7), the second one is that though 2sh
+2
+not have an equality for finite values of m.
+
+∼ pm/2 when m → ∞, we do
+
+These are two fundamental difficulties and in order to overcome them we shall
+use the well known strategy of extending the problem to the case of arbitrary
+global fields. By specialising to the function field case we shall then obtain
+additional precious information.
+
+II Algebraic Geometry and global fields of non zero characteristic
+The basic properties of the Riemann zeta function extend to zeta functions associated to an arbitrary global field, and it is unliquely that one can
+settle the problem of the spectral interpretation of the zeros, let alone find the
+Riemann flow, for the particular case of the global field Q of rational numbers
+without at the same time settling these problems for all global fields. The
+conceptual definition of such fields k, is the following:
+A field k is a global field iff it is discrete and cocompact in a (non discrete)
+locally compact semisimple abelian ring A.
+As it turns out A then depends functorially on k and is called the Adele
+ring of k, often denoted by kA . Thus though the field k itself has no interesting
+topology, there is a canonical and highly non trivial topological ring which
+is canonically associated to k. When the characteristic p of a global field k
+is > 0, the field k is the function field of a non singular algebraic curve Σ
+defined over a finite field Fq included in k as its maximal finite subfield, called
+the field of constants. One can then apply the ideas of algebraic geometry,
+first developed over C, to the geometry of the curve Σ and obtain a geometric
+interpretation of the basic properties of the zeta function of k; the dictionary
+contains in particular the following lines
+7
+
+Spectral interpretation of
+the zeros
+
+Eigenvalues of action
+of Frobenius on ℓ-adic cohomology
+
+Functional equation
+
+Riemann Roch theorem
+(Poincaré duality)
+
+Explicit formulas of
+number theory
+
+Lefchetz formula
+for the Frobenius
+
+Riemann hypothesis
+
+Castelnuovo positivity
+
+(1)
+
+Since Fq is not algebraically closed, the points of Σ defined over Fq do not
+suffice and one needs to consider Σ̄, the points of Σ on the algebraic closure F̄q
+of Fq , which is obtained by adjoining to Fq the roots of unity of order prime to
+q. This set of points is a countable union of periodic orbits under the action
+of the Frobenius automorphism, these orbits are parametrized by the set of
+places of k and their periods are indeed given by the analogues of the log p
+of (A). Being a countable set it does not qualify for analogue of the Riemann
+flow and it only aquires an interesting structure from algebraic geometry.
+The minus sign which was problematic in the above discussion admits here a
+beautiful resolution since the analogue of the Polya-Hilbert space is given, if
+one replaces C by Qℓ the field of ℓ-adic numbers ℓ 6= p, by the cohomology
+group
+1
+Het
+(Σ̄, Qℓ )
+
+(2)
+
+which appears with an overall minus sign in the Lefchetz formula
+(3)
+
+X
+
+(−1)j Trace ϕ∗ /H j =
+
+X
+
+1.
+
+ϕ(x)=x
+
+For the general case this suggests
+(C) The Polya-Hilbert space H should appear from its negative ⊖H.
+In other words, the spectral interpretation of the zeros of the Riemann zeta
+function should be as an absorption spectrum rather than as an emission
+spectrum, to borrow the language of spectroscopy.
+The next thing that one learns from this excursion in characteristic p > 0
+is that in that case one is not dealing with a flow but rather with a single
+8
+
+transformation. In fact taking advantage of abelian covers of Σ and of the
+fundamental isomorphism of class field theory one finds that the natural group
+that should replace R for the general Riemann flow is the Idele class group:
+(D)
+
+Ck = GL1 (A)/k ∗ .
+
+We can thus collect the information (A) (B) (C) (D) that we have obtained
+so far and look for the Riemann flow as an action of Ck on an hypothetical
+space X.
+
+III Spectral interpretation of critical zeros
+There is a third approach to the problem of the zeros of the Riemann zeta
+function, due to G. Pólya [P] and M. Kac [K] and pursued further in [J] [BC]. It
+is based on statistical mechanics and the construction of a quantum statistical
+system whose partition function is the Riemann zeta function. Such a system
+was naturally constructed in [BC] and it does indicate using the first line
+of the dictionary of Noncommutative Geometry (namely the correspondence
+between quotient spaces and noncommutative algebras) what the space X
+should be in general:
+X = A/k ∗
+
+(1)
+
+namely the quotient of the space A of adeles, A = kA by the action of the
+multiplicative group k ∗ ,
+(2)
+
+a ∈ A , q ∈ k ∗ → aq ∈ A .
+
+This space X already appears in a very implicit manner in the work of Tate
+and Iwasawa on the functional equation. It is a noncommutative space in that,
+even at the level of measure theory, it is a tricky quotient space. For instance
+at the measure theory level, the corresponding von Neumann algebra,
+(3)
+
+R01 = L∞ (A) >⊳ k ∗
+
+where A is endowed with its Haar measure as an additive group, is the hyperfinite factor of type II∞ .
+The idele class group Ck acts on X by
+(4)
+
+(j, a) → ja
+
+∀ j ∈ Ck , a ∈ X
+9
+
+and it was exactly necessary to divide A by k ∗ so that (4) makes good sense.
+We shall come back later to the analogy between the action of Ck on R01 and
+the action of the Galois group of the maximal abelian extension of k.
+What we shall do now is to construct the Hilbert space L2δ of functions on X
+with growth indexed by δ > 1. Since X is a quotient space we shall first learn
+in the usual manifold case how to obtain the Hilbert space L2 (M ) of square
+integrable functions on a manifold M by working only on the universal cover
+f with the action of Γ = π1 (M ). Every function f ∈ C ∞ (M
+f) gives rise to a
+M
+c
+function fe on M by
+X
+f (e
+x)
+(5)
+fe(x) =
+π(x
+e)=x
+
+and all g ∈ C ∞ (M ) appear in this way. Moreover, one can write the Hilbert
+R
+space inner product M fe1 (x) fe2 (x) dx, in terms of f1 and f2 alone. Thus
+2
+R P
+kfek2 =
+dx where the integral is performed on a fundamental
+f
+(γx)
+γ∈Γ
+
+f. This formula defines a prehilbert space norm on
+domain for Γ acting on M
+f) and L2 (M ) is just the completion of C ∞ (M
+f) for that norm. Note
+Cc∞ (M
+c
+that any function of the form f − fγ has vanishing norm and hence disappears
+in the process of completion. In our case of X = A/k ∗ we thus need to define
+the analoguous norm on the Bruhat-Schwartz space S(A) of functions on A
+(cf Appendix I for the general definition of the Bruhat-Schwartz space). Since
+P
+0 is fixed by the action of k ∗ the expression γ∈k∗ f (γx) does not make sense
+for x = 0 unless we require that f (0) = 0. Moreover, when |x| → 0, the above
+R
+sums approximate, as Riemann sums, the product of |x|−1 by f dx for the
+R
+additive Haar measure, thus we also require f dx = 0. We can now define
+the Hilbert space L2δ (X)0 as the completion of the codimension 2 subspace
+Z
+(6)
+S(A)0 = {f ∈ S(A) ; f (0) = 0 ,
+f dx = 0}
+for the norm k kδ given by
+Z X
+2
+2
+(7)
+kf kδ =
+f (qx) (1 + log2 |x|)δ/2 |x| d∗ x
+q∈k∗
+
+where the integral is performed on A∗ /k ∗ and d∗ x is the multiplicative Haar
+measure on A∗ /k ∗ . The ugly term (1 + log2 |x|)δ/2 is there to control the
+growth of the functions on the non compact quotient. We shall see how to
+remove it later in section VII. Note that |qx| = |x| for any q ∈ k ∗ .
+10
+
+The key point is that we use the measure |x| d∗ x instead of the additive Haar
+measure dx. Of course for a local field K one has dx = |x| d∗ x but this fails
+in the above global situation. Instead one has,
+dx = lim ε |x|1+ε d∗ x .
+
+(8)
+
+ε→0
+
+One has a natural representation of Ck on L2δ (X)0 given by
+(9)
+
+(U (j) f ) (x) = f (j −1 x)
+
+∀ x ∈ A , j ∈ Ck
+
+and the result is independent of the choice of a lift of j in Jk = GL1 (A)
+because the functions f − fq are in the kernel of the norm. The conditions
+(6) which define S(A)0 are invariant under the action of Ck and give the
+following action of Ck on the 2-dimensional supplement of S(A)0 ⊂ S(A);
+this supplement is C ⊕ C(1) where C is the trivial Ck module (corresponding
+to f (0)) while the Tate twist C(1) is the module
+(10)
+
+(j, λ) → |j| λ
+
+coming from the equality
+Z
+Z
+−1
+(11)
+f (j x) d x = |j| f (x) dx .
+In order to analyse the representation (9) of Ck on L2δ (X)0 we shall relate it
+to the left regular representation of the group Ck on the Hilbert space L2δ (Ck )
+obtained from the following Hilbert space square norm on functions,
+Z
+2
+(12)
+kξkδ =
+|ξ(g)|2 (1 + log2 |g|)δ/2 d∗ g
+Ck
+
+where we have normalized the Haar measure of the multiplicative group Ck ,
+with module,
+| | : Ck → R∗+
+
+(13)
+
+in such a way that (cf. [W3])
+Z
+(14)
+d∗ g ∼ log Λ
+
+when
+
+Λ → +∞ .
+
+|g|∈[1,Λ]
+
+The left regular representation V of Ck on L2δ (Ck ) is
+(15)
+
+(V (a) ξ) (g) = ξ(a−1 g)
+11
+
+∀ g, a ∈ Ck .
+
+Note that because of the weight (1 + log2 |x|)δ/2 , this representation is not
+unitary but it satisfies the growth estimate
+(16)
+
+kV (g)k = 0 (log |g|)δ/2
+
+when
+
+|g| → ∞
+
+which follows from the inequality (valid for u, v ∈ R)
+(17)
+
+ρ(u + v) ≤ 2δ/2 ρ(u) ρ(v) , ρ(u) = (1 + u2 )δ/2 .
+
+We let E be the linear isometry from L2δ (X)0 into L2δ (Ck ) given by the equality,
+(18)
+
+E(f ) (g) = |g|1/2
+
+X
+
+f (qg)
+
+∀ g ∈ Ck .
+
+q∈k∗
+
+By comparing (7) with (12) we see that E is an isometry and the factor |g|1/2
+is dictated by comparing the measures |g| d∗ g of (7) with d∗ g of (12).
+P
+P
+One has E(U (a) f ) (g) = |g|1/2 k∗ (U (a) f ) (qg) = |g|1/2 k∗ f (a−1 qg) =
+P
+|a|1/2 |a−1 g|1/2 k∗ f (q a−1 g) = |a|1/2 (V (a) E(f )) (g).
+Thus,
+(19)
+
+E U (a) = |a|1/2 V (a) E .
+
+This equivariance shows that the range of E in L2δ (Ck ) is a closed invariant
+subspace for the representation V .
+The following theorem and its corollary show that the cokernel H = L2δ (Ck )/
+Im(E) of the isometry E plays the role of the Polya-Hilbert space. Since
+Im E is invariant under the representation V we let W be the corresponding
+representation of Ck on H.
+The abelian locally compact group Ck is (non canonically) isomorphic to
+K × N where
+(20)
+
+K = {g ∈ Ck ; |g| = 1} , N = range | | ⊂ R∗+ .
+
+For number fields one has N = R∗+ while for fields of non zero characteristic
+N ≃ Z is the subgroup q Z ⊂ R∗+ .(Where q = pℓ is the cardinality of the field
+of constants).
+We choose (non canonically) an isomorphism
+(21)
+
+Ck ≃ K × N .
+12
+
+By construction the representation W satisfies (using (16)),
+kW (g)k = 0(log |g|)δ/2
+
+(22)
+
+and its restriction to K is unitary. Thus H splits as a canonical direct sum of
+pairwise orthogonal subspaces,
+(23)
+
+H = ⊕ Hχ , Hχ = {ξ ; W (g) ξ = χ (g) ξ , ∀ g ∈ K}
+b
+χ∈K
+
+where χ runs through the Pontrjagin dual group of K, which is the discrete
+b of characters of K. Using the non canonical isomorphism
+abelian group K
+(21), i.e. the corresponding inclusion N ⊂ Ck one can now restrict the representation W to any of the sectors Hχ . When char(k) > 0, then N ≃ Z
+and the condition (22) shows that the action of N on Hχ is given by a single operator with unitary spectrum. (One uses the spectral radius formula
+|Spec w| = Lim k wn k1/n .) When Char(k) = 0, we are dealing with an action
+of R∗+ ≃ R on Hχ and the condition (22) shows that this representation is generated by a closed unbounded operator Dχ with purely imaginary spectrum.
+The resolvent Rλ = (Dχ − λ)−1 is given, for Re λ > 0, by the equality
+(24)
+
+Rλ =
+
+Z ∞
+
+Wχ (es ) e−λs ds
+
+Z ∞
+
+Wχ (e−s ) eλs ds
+
+0
+
+and for Re λ < 0 by,
+(25)
+
+Rλ =
+
+0
+
+while the operator Dχ is defined by
+(26)
+
+1
+(Wχ (eε ) − 1) ξ .
+ε→0 ε
+
+Dχ ξ =lim
+
+Theorem 1. Let χ ∈ b
+K, δ > 1, Hχ and Dχ be as above. Then Dχ has
+discrete spectrum, Sp Dχ ⊂ i R is the set of imaginary parts of zeros of the
+L function with Grössencharakter χ
+e which have real part equal to 12 ; ρ ∈
+
+e is the unique extension of χ to
+Sp D ⇔ L χ
+e, 12 + ρ = 0 and ρ ∈ i R, where χ
+Ck which is equal to 1 on N . Moreover the multiplicity of ρ in Sp D is equal
+1
+to the largest integer n < 1+δ
+2 , n ≤ multiplicity of 2 + ρ as a zero of L.
+13
+
+Theorem 1 has a similar formulation when the characteristic of k is non
+zero. The following corollary is valid for global fields k of arbitrary characteristic.
+Corollary 2. For any Schwartz function h ∈ S(Ck ) the operator W (h) =
+R
+W (g) h(g) d∗ g in H is of trace class, and its trace is given by
+X
+b
+Trace W (h) =
+h(e
+χ, ρ)
+
+L χ
+e, 12 +ρ =0
+ρ∈i R/N ⊥
+
+where the multiplicity is counted as in Theorem 1 and where the Fourier transform b
+h of h is defined by,
+Z
+b
+h(e
+χ, ρ) =
+h(u) χ
+e(u) |u|ρ d∗ u .
+Ck
+
+Note that we did not have to define the L functions, let alone their
+analytic continuation, before stating the theorem, which shows that the pair
+(27)
+
+(Hχ , Dχ )
+
+certainly qualifies as a Polya-Hilbert space.
+The case of the Riemann zeta function corresponds to the trivial character
+χ = 1 for the global field k = Q of rational numbers.
+In general the zeros of the L functions can have multiplicity but one expects
+that for a fixed Grössencharakter χ this multiplicity is bounded, so that for
+a large enough value of δ the spectral multiplicity of D will be the right one.
+When the characteristic of k is > 0 this is certainly true.
+If we modify the choice of non canonical isomorphism (21) this modifies the
+operator D by
+(28)
+
+D′ = D − i s
+
+where s ∈ R is determined by the equality
+(29)
+
+χ
+e′ (g) = χ
+e(g) |g|i s
+
+∀ g ∈ Ck .
+
+The coherence of the statement of the theorem is insured by the equality
+(30)
+
+L(e
+χ′ , z) = L(e
+χ, z + i s)
+14
+
+∀z ∈ C.
+
+When the zeros of L have multiplicity and δ is large enough the operator
+D is not semisimple and has a non trivial Jordan form (cf. Appendix I).
+This is compatible with the almost unitary condition (22) but not with skew
+symmetry for D.
+The proof of theorem 1, explained in Appendix I, is based on the distribution
+theoretic interpretation by A. Weil [W2] of the idea of Tate and Iwasawa on
+the functional equation. Our construction should be compared with [Bg] and
+[Z].
+As we expected from (C), the Polya-Hilbert space H appears as a cokernel.
+Since we obtain the Hilbert space L2δ (X)0 by imposing two linear conditions
+on S(A),
+(31)
+
+L
+
+0 → S(A)0 → S(A) → C ⊕ C(1) → 0
+
+we shall define L2δ (X) so that it fits in an exact sequence of Ck -modules
+
+(32)
+
+0 → L2δ (X)0 → L2δ (X) → C ⊕ C(1) → 0 .
+
+We can then use the exact sequence of Ck -modules
+(33)
+
+0 → L2δ (X)0 → L2δ (Ck ) → H → 0
+
+together with Corollary 2 to compute in a formal manner what the character
+of the module L2δ (X) should be. Using (32) and (33) we obtain,
+(34)
+
+“Trace” (U (h)) = b
+h(0) + b
+h(1) −
+
+X
+
+L(χ,ρ)=0
+Reρ= 1
+2
+
+b
+h(χ, ρ) + ∞ h(1)
+
+where b
+h(χ, ρ) is defined by Corollary 2 and
+
+(35)
+
+U (h) =
+
+Z
+
+U (g) h(g) d∗ g
+
+Ck
+
+while the test function h is in a suitable function space. Note that the trace
+on the left hand side of (34) only makes sense after a suitable regularisation
+since the left regular representation of Ck is not traçable. This situation is
+similar to the one encountered by Atiyah and Bott ([AB]) in their proof of
+the Lefchetz formula. We shall first learn how to compute in a formal manner
+15
+
+the above trace from the fixed points of the action of Ck on X. In section
+VII, we shall show how to regularize the trace and completely eliminate the
+parameter δ.
+
+IV The distribution trace formula for flows on manifolds
+In order to understand how the left hand side of III(34) should be computed we shall first give an account of the proof of the usual Lefchetz formula
+by Atiyah-Bott ([AB]) and describe the computation of the distribution theoretic trace for flows on manifolds, which is a variation on the theme of [AB]
+and is due to Guillemin-Sternberg [GS]. We refer to Appendix III for a more
+detailed coordinate independent treatment following [GS].
+Let us start with a diffeomorphism ϕ of a smooth compact manifold M
+and assume that the graph of ϕ is transverse to the diagonal in M × M .
+One can then easily define and compute the distribution theoretic trace of the
+operator U : C ∞ (M ) → C ∞ (M ),
+(1)
+
+(U ξ)(x) = ξ(ϕ(x)) .
+
+Indeed let k(x, y) be the Schwartz distribution on M × M such that
+Z
+(2)
+(U ξ)(x) = k(x, y) ξ(y) dy ,
+The distributional trace of U is simply
+(3)
+
+“Trace” (U ) =
+
+Z
+
+k(x, x) dx ,
+
+Near the diagonal and in local coordinates one gets,
+(4)
+
+k(x, y) = δ(y − ϕ(x))
+
+where δ is the Dirac distribution.
+Since, by hypothesis, the fixed points of ϕ are isolated, one can compute
+P
+the trace (3) as a finite sum
+and get the contribution of each fixed
+x,ϕ(x)=x
+
+point x ∈ M , ϕ(x) = x, as
+(5)
+
+1
+|1 − ϕ′ (x)|
+16
+
+where ϕ′ (x) is the Jacobian of ϕ and |A| = | det A|. One just uses the invertibility of id − ϕ′ (x) to change variables in the integral,
+Z
+(6)
+δ(y − ϕ(y)) dy .
+One thus gets (cf. [AB]),
+(7)
+
+X
+
+“Trace” (U ) =
+
+x,ϕ(x)=x
+
+1
+.
+|1 − ϕ′ (x)|
+
+This computation immediately extends to the action of ϕ on sections of
+an equivariant vector bundle E such as the bundle ∧k T ∗ whose sections,
+C ∞ (M, E) are the smooth forms of degree k. The alternate sum of the corresponding distribution theoretic traces is the ordinary trace of the action of
+ϕ on the de Rham cohomology, thus yielding the usual Lefchetz formula,
+(8)
+
+X
+
+(−1)j Trace ϕ∗ /H j =
+
+X
+
+sign det(1 − ϕ′ (x)) .
+
+ϕ(x)=x
+
+Let us refer to the appendix for more pedantic notations which show that the
+distribution theoretic trace is coordinate independent.
+We shall now write down the analogue of formula (7) in the case of a flow
+Ft = exp(tv) of diffeomorphisms of M , where v ∈ C ∞ (M, T ) is a vector field
+on M . We get a one parameter group of operators acting on C ∞ (M ),
+(9)
+
+(Ut ξ)(x) = ξ(Ft (x))
+
+∀ ξ ∈ C ∞ (M ) , x ∈ M , t ∈ R ,
+
+and we need the formula for,
+Z
+
+(10)
+ρ(h) = “Trace”
+h(t) Ut dt , h ∈ Cc∞ (R) , h(0) = 0 .
+The condition h(0) = 0 is required because we cannot expect that the identity
+map F0 is transverse to the diagonal. In order to define ρ as a distribution
+evaluated on the test function h, we let f be the following map,
+(11)
+
+f : X = M × R → Y = M , f (x, t) = Ft (x) .
+
+The graph of f is the submanifold Z of X × Y ,
+(12)
+
+Z = {(x, t, y) ; y = Ft (x)} .
+17
+
+One lets ϕ be the diagonal map,
+(13)
+
+ϕ(x, t) = (x, t, x) , ϕ : M × R → X × Y
+
+and one assumes the transversality
+let τ be the distribution,
+
+|
+ϕ∩
+Z
+
+outside
+
+M × (0).
+
+τ = ϕ∗ (δ(y − Ft (x)) dy) ,
+
+(14)
+
+and q be the second projection,
+(15)
+
+q(x, t) = t ∈ R,
+
+then by definition ρ is the pushforward q∗ (τ ) of the distribution τ .
+One checks (cf. Appendix III) that q∗ (τ ) is a generalized function.
+Exactly as in the case of a single transformation, the contributions to
+(10) will come from the fixed points of Ft . The latter will come either from
+a zero of the vector field v, (i.e. x ∈ M such that vx = 0) or from a periodic
+orbit γ of the flow and we call Tγ# the length of such a periodic orbit. Under
+the above transversality hypothesis the formula for (10) is (cf. [GS], [G] and
+the Appendix III),
+Z
+
+“Trace”
+(16)
+h(t) Ut dt =
+XX
+X Z
+1
+h(t)
+dt +
+Tγ#
+h(T )
+|1 − (Ft )∗ |
+|1 − (FT / )∗ |
+γ
+x,v =0
+T
+
+x
+
+where in the second sum γ is a periodic orbit with length Tγ# , and T
+varies in Z Tγ# while (FT / )∗ is the Poincare return map, i.e. the restriction of
+the tangent map to the transversal of the orbit.
+One can rewrite (16) in a better way as,
+Z
+ XZ
+(17)
+“Trace”
+h(t) Ut dt =
+γ
+
+h(u)
+d∗ u ,
+Iγ |1 − (Fu )∗ |
+
+where the zeros x ∈ M , vx = 0, are considered also as periodic orbits γ, while
+Iγ ⊂ R is the isotopy subgroup of any x ∈ γ, and d∗ u is the unique Haar
+measure in Iγ such that the covolume of Iγ is equal to 1, i.e. such that for
+the unique Haar measure dµ of total mass 1 on R/I and any f ∈ Cc∞ (R),
+Z
+
+Z
+Z
+∗
+(18)
+f (t) dt =
+f (u + s) d u dµ(s) ,
+R
+
+R/I
+
+I
+
+18
+
+Also we still write (Fu )∗ for the restriction of the tangent map to Fu to
+the transverse space of the orbits.
+To understand what (Ft )∗ looks like at a zero of v we can replace v(x) for x
+near x0 by its tangent map. For simplicity we take the one dimensional case,
+∂
+with v(x) = x ∂x
+, acting on R = M .
+One has Ft (x) = et x . Since Ft is linear the tangent map (Ft )∗ is
+(Ft )∗ = et
+
+(19)
+and (12) becomes
+(20)
+
+“Trace”
+
+Z
+
+h(t) Ut dt
+
+
+
+=
+
+Z
+
+h(t)
+dt ,
+|1 − et |
+
+Thus for this flow the distribution trace formula is
+Z
+h(u) ∗
+(21)
+“Trace” (U (h)) =
+d u
+|1 − u|
+where we used the multiplicative notation so that R∗+ acts on R by multipliR
+cation,while U (h) = U (v)h(v) d∗ v and d∗ v is the haar measure of the group
+R∗+ .
+One can treat in a similar way the action, by multiplication, of the group
+of non zero complex numbers on the manifold C.
+We shall now investigate the more general case of an arbitrary local field.
+
+V The action (λ, x) → λ x of K ∗ on a local field K.
+We let K be a local field and consider the map,
+(1)
+
+f : K × K ∗ → K , f (x, λ) = λ x
+
+together with the diagonal map,
+(2)
+
+ϕ : K × K ∗ → K × K ∗ × K , ϕ(x, λ) = (x, λ, x)
+
+as in IV (11) and (12) above.
+When K is Archimedian we are in the framework of manifolds and we can
+associate to f a δ-section with support Z = Graph (f ),
+(3)
+
+δZ = δ(y − λ x) dy .
+19
+
+Using the projection q(x, λ) = λ from K × K ∗ to K ∗ we then consider as
+above the generalized function on K ∗ given by,
+q∗ (ϕ∗ δZ ) .
+
+(4)
+
+The formal computation of this generalized function of λ is
+Z
+Z
+Z
+δ(x − λ x) dx = δ((1 − λ)x) dx = δ(y) d((1 − λ)−1 y)
+= |1 − λ|
+
+−1
+
+Z
+
+δ(y) dy = |1 − λ|−1 .
+
+We want to justify it by computing the convolution of the Fourier transforms
+of δ(x − y) and δ(y − λ x) since this is the correct way of defining the product
+of two distributions in this local context . Let us first compute the Fourier
+transform of δ(ax + by) where (a, b) ∈ K 2 (6= 0). The pairing between K 2 and
+its dual K 2 is given by
+(5)
+
+h(x, y), (ξ, η)i = α(x ξ + y η) ∈ U (1) .
+
+where α is a fixed nontrivial character of the additive group K.
+Let (c, d) ∈ K 2 be such that ad − bc = 1 and consider the linear invertible
+transformation of K 2 ,
+
+(6)
+
+  
+x
+a
+L
+=
+y
+c
+
+b
+d
+
+ 
+x
+.
+y
+
+The Fourier transform of ϕ ◦ L is given by
+(7)
+
+(ϕ ◦ L)∧ = | det L|−1 ϕ
+b ◦ (L−1 )t .
+
+Here one has det L = 1 and (L−1 )t is
+
+d
+−1 t
+(8)
+(L ) =
+−b
+
+−c
+a
+
+
+
+.
+
+One first computes the Fourier transform of δ(x), the additive Haar measure
+dx is normalized so as to be selfdual, and in one variable δ(x) and 1 are Fourier
+transforms of each other, thus
+(9)
+
+(δ ⊗ 1)∧ = 1 ⊗ δ .
+20
+
+Using (7) one gets that the Fourier transform of δ(ax + by) is δ(−b ξ + a η).
+Thus we have to compute the convolution of the two generalized functions,
+δ(ξ + η) and δ(ξ + λ η). Now
+Z
+Z
+f (ξ, η) δ(ξ + η) dξ dη = f (ξ, −ξ) dξ
+and
+
+Z
+
+f (ξ, η) δ(ξ + λ η) dξ dη =
+
+Z
+
+f (−λ η, η) dη
+
+thus we are dealing with two measures carried respectively by two distinct
+R
+lines. Their convolution evaluated on f ∈ Cc∞ (K 2 ) is f (α+β) dµ(α)
+R R dν(β) =
+RR
+RR
+f ((ξ, −ξ) + (−λ η, η)) dξ dη =
+f (ξ − λ η, −ξ + η) dξ dη =
+f (ξ ′ , η ′ )
+
+
+
+1 −λ
+−1
+′
+′
+dξ dη ×|J| where J is the determinant of the matrix
+= L,
+−1 1
+ 
+ ′
+ξ
+ξ
+=J
+so that
+. One has J = 1 − λ and thus the convolution of the
+η′
+η
+generalized functions δ(ξ + η) and δ(ξ + λ η) gives as expected the constant
+function
+(10)
+
+|1 − λ|−1 1 .
+
+Correspondingly, the product of the distribution δ(x − y) and δ(y − λ x) gives
+|1 − λ|−1 δ0 so that,
+Z
+(11)
+δ(x − y) δ(y − λ x) dx dy = |1 − λ|−1 .
+In this local case the Fourier transform alone was sufficient to make sense of
+the relevant product of distributions. In fact this would continue to make
+R
+sense if we replace δ(y − λ x) by h(λ−1 ) δ(y − λ x) d∗ λ where h(1) = 0 .
+
+We shall now treat in detail the more delicate general case where h(1) is
+arbitrary.
+We shall prove a precise general result (theorem 3) which handles the lack
+of transversality when h(1) 6= 0. We deal directly with the following operator
+in L2 (K),
+Z
+(12)
+U (h) = h(λ) U (λ) d∗ λ ,
+
+where the scaling operator U (λ) is defined by
+(13)
+
+(U (λ) ξ)(x) = ξ(λ−1 x)
+21
+
+∀x ∈ K
+
+and where the multiplicative Haar measure d∗ λ is normalized by,
+Z
+(14)
+d∗ λ ∼ log Λ
+when Λ → ∞ .
+|λ|∈[1,Λ]
+
+To understand the “trace” of U (h) we shall proceed as in the Selberg trace
+formula ([Se]) and use a cutoff. For this we use the orthogonal projection PΛ
+onto the subspace,
+(15)
+
+PΛ = {ξ ∈ L2 (K) ; ξ(x) = 0
+
+∀x , |x| > Λ} .
+
+Thus, PΛ is the multiplication operator by the function ρΛ , where ρΛ (x) =
+1 if |x| ≤ Λ, and ρ(x) = 0 for |x| > Λ. This gives an infrared cutoff and to get
+an ultraviolet cutoff we use PbΛ = F PΛ F −1 where F is the Fourier transform
+(which depends upon the basic character α). We let
+RΛ = PbΛ PΛ .
+
+(16)
+
+The main result of this section is then,
+
+Theorem 3. Let K be a local field with basic character α. Let h ∈ S(K ∗ ) have
+compact support. Then RΛ U (h) is a trace class operator and when Λ → ∞,
+one has
+Z ′
+h(u−1 ) ∗
+′
+d u + o(1)
+Trace (RΛ U (h)) = 2h(1) log Λ +
+|1 − u|
+R′
+R
+is uniquely
+where 2 log′ Λ = λ∈K ∗ , |λ|∈[Λ−1 ,Λ] d∗ λ, and the principal value
+determined by the pairing with the unique distribution on K which agrees with
+du
+|1−u| for u 6= 1 and whose Fourier transform vanishes at 1.
+Proof. We normalize as above the additive Haar measure to be the selfdual
+one on K. Let the constant ρ > 0 be determined by the equality,
+Z
+dλ
+∼ ρ log Λ
+when Λ → ∞ .
+(17)
+1≤|λ|≤Λ |λ|
+dλ
+du
+so that d∗ λ = ρ−1 |λ|
+. Let L be the unique distribution, extension of ρ−1 |1−u|
+b
+whose Fourier transform vanishes at 1, L(1)
+= 0. One then has by definition,
+
+(18)
+
+Z ′
+
+h(u−1 ) ∗
+d u=
+|1 − u|
+
+22
+
+
+
+h(u−1 )
+L,
+|u|
+
+
+
+,
+
+−1
+
+where h(u|u| ) = 0 for u−1 outside the support of h.
+
+Let T = U (h). We can write the Schwartz kernel of T as,
+
+(19)
+
+k(x, y) =
+
+Z
+
+h(λ−1 ) δ(y − λx) d∗ λ .
+
+Given any such kernel k we introduce its symbol,
+Z
+(20)
+σ(x, ξ) = k(x, x + u) α(uξ) du
+t
+as its partial Fourier transform. The Schwartz kernel rΛ
+(x, y) of the transpose
+t
+RΛ is given by,
+t
+rΛ
+(x, y) = ρΛ (x) ρ
+(c
+Λ ) (x − y) .
+
+(21)
+
+t
+Thus, the symbol σΛ of RΛ
+is simply,
+
+(22)
+
+σΛ (x, ξ) = ρΛ (x) ρΛ (ξ) .
+
+The operator RΛ is of trace class and one has,
+Z
+t
+(23)
+Trace (RΛ T ) = k(x, y) rΛ
+(x, y) dx dy .
+Using the Parseval formula we thus get,
+Z
+(24)
+Trace (RΛ T ) =
+
+σ(x, ξ) dx dξ .
+
+|x|≤Λ,|ξ|≤Λ
+
+Now the symbol σ of T is given by,
+(25)
+
+σ(x, ξ) =
+
+Z
+
+−1
+
+h(λ
+
+)
+
+Z
+
+δ(x + u − λx) α(uξ) du
+
+
+
+One has,
+(26)
+
+Z
+
+δ(x + u − λx) α(uξ) du = α((λ − 1) xξ) ,
+
+thus (25) gives,
+(27)
+
+σ(x, ξ) = ρ
+
+−1
+
+Z
+
+K
+
+23
+
+g(λ) α(λxξ) dλ
+
+d∗ λ .
+
+where,
+g(λ) = h((λ + 1)−1 ) |λ + 1|−1 .
+
+(28)
+
+Since h is smooth with compact support on K ∗ the function g belongs to
+Cc∞ (K).
+
+(29)
+
+Thus σ(x, ξ) = ρ−1 gb(xξ) and,
+Trace (RΛ T ) = ρ
+
+Z
+
+−1
+
+|x|≤Λ,|ξ|≤Λ
+
+gb(xξ) dx dξ .
+
+dx
+With u = xξ one has dx dξ = du |x|
+and, for |u| ≤ Λ2 ,
+
+(30)
+
+ρ
+
+−1
+
+Z
+
+dx
+= 2 log′ Λ − log |u|
+|u|
+|x|
+Λ ≤|x|≤Λ
+
+(using the precise definition of log′ Λ to handle the boundary terms). Thus
+we can rewrite (29) as,
+
+(31)
+
+Trace (RΛ T ) =
+
+Z
+
+|u|≤Λ2
+
+gb(u) (2 log′ Λ − log |u|) du
+
+Since g ∈ Cc∞ (K) one has,
+Z
+|b
+g (u)| du = O(Λ−N )
+(32)
+
+∀N
+
+|u|≥Λ2
+
+and similarly for |b
+g (u) log |u||. Thus
+(33)
+
+′
+
+Trace (RΛ T ) = 2 g(0) log Λ −
+
+Z
+
+gb(u) log |u| du + o(1).
+
+Now for any local field K and basic character α, if we take for the Haar
+measure da the selfdual one, the Fourier transform of the distribution ϕ(u) =
+− log |u| is given outside 0 by
+ϕ(a) = ρ−1
+b
+
+(34)
+
+1
+,
+|a|
+
+with ρ determined by (17). To see this one lets P be the distribution on K
+given by,
+!
+Z
+(35)
+
+P (f ) =
+
+lim
+ε→0
+
+ε∈Mod(K)
+
+f (x) d∗ x + f (0) log ε
+
+|x|≥ε
+
+24
+
+.
+
+One has P (fa ) = P (f )−log |a| f (0) which is enough to show that the function
+Pb(x) is equal to − log |x|+ cst, and ϕ
+b differs from P by a multiple of δ0 .
+Thus the Parseval formula gives, with the convention of theorem 3,
+
+(36)
+
+−
+
+Z
+
+1
+gb(u) log |u| du =
+ρ
+
+Z ′
+
+g(a)
+
+da
+.
+|a|
+
+Replacing a by λ − 1 and applying (28) gives the desired result.
+We shall show in appendix II that the privileged principal value, which
+depends upon the basic character α, is the same as in Weil’s explicit formulas.
+
+VI The global case, and the formal trace computation.
+We shall now consider the action of Ck on X and write down the analogue
+of IV (17) for the distribution trace formula.
+Both X and Ck are defined as quotients and we let
+
+(1)
+
+π : A → X , c : GL1 (A) → Ck
+
+be the corresponding quotient maps.
+As above we consider the graph Z of the action
+(2)
+
+f : X × Ck → X , f (x, λ) = λx
+
+and the diagonal map
+(3)
+
+ϕ : X × Ck → X × Ck × X
+
+ϕ(x, λ) = (x, λ, x) .
+
+We first investigate the fixed points, ϕ−1 (Z), i.e. the pairs (x, λ) ∈ X ×Ck
+such that λx = x. Let x = π(x̃) and λ = c(j). Then the equality λx = x
+means that π(j x̃) = π(x̃) thus there exists q ∈ k ∗ such that with j̃ = qj, one
+has
+(4)
+
+j̃ x̃ = x̃ .
+
+Recall now that A is the restricted direct product A = Π kv of the local fields
+res
+
+kv obtained by completion of k with respect to the place v. The equality (4)
+means that j̃v x̃v = x̃v , thus, if x̃v 6= 0 for all v it follows that j̃v = 1 ∀v and
+25
+
+j̃ = 1. This shows that the projection of ϕ−1 (Z) ∩ Ck \{1} on X is the union
+of the hyperplanes
+(5)
+
+∪Hv ; Hv = π(H̃v ) , H̃v = {x ; xv = 0} .
+
+Each H̃v is closed in A and is invariant under multiplication by elements of
+k ∗ . Thus each Hv is a closed subset of X and one checks that it is the closure
+of the orbit under Ck of any of its generic points
+(6)
+
+x , xu = 0
+
+⇐⇒
+
+u = v.
+
+For any such point x, the isotropy group Ix is the image in Ck of the multiplicative group kv∗ ,
+Ix = kv∗
+
+(7)
+
+by the map λ ∈ kv∗ → (1, . . . , 1, λ, 1, . . .). This map already occurs in class
+field theory (cf [W1]) to relate the local Galois theory to the global one.
+Both groups kv∗ and Ck are commensurable to R∗+ by the module homomorphism, which is proper with cocompact range,
+| |
+
+G −→ R∗+ .
+
+(8)
+
+Since the restriction to kv∗ of the module of Ck is the module of kv∗ , it follows
+that
+(9)
+
+Ix is a cocompact subgroup of Ck .
+
+This allows to normalize the respective Haar measures in such a way that the
+covolume of Ix is 1. This is in fact insured by the canonical normalisation of
+the Haar measures of modulated groups ([W3 ]),
+(10)
+
+Z
+
+d∗ g ∼ log Λ
+
+when
+
+Λ → +∞ .
+
+|g|∈[1,Λ]
+
+It is important to note that though Ix is cocompact in Ck , the orbit of x is
+not closed and one needs to close it, the result being Hv . We shall learn how
+to justify this point later in section VII, in the similar situation of the action
+of CS on XS . We can now in view of the results of the two preceding sections,
+write down the contribution of each Hv to the distributional trace;
+26
+
+Since H̃v is a hyperplane, we can identify the transverse space Nx to Hv
+at x with the quotient
+(11)
+
+Nx = A/H̃v = kv
+
+namely the additive group of the local field kv . Given j ∈ Ix one has ju =
+1 ∀u 6= v, and jv = λ ∈ kv∗ . The action of j on A is linear and fixes x, thus
+the action on the transverse space Nx is given by
+(12)
+
+(λ, a) → λa
+
+∀a ∈ kv .
+
+We can thus proceed with some faith and write down the contribution of Hv
+to the distributional trace in the form,
+Z
+h(λ) ∗
+(13)
+d λ
+kv∗ |1 − λ|
+where h is a test function on Ck which vanishes at 1. We now have to take
+care of a discrepancy in notation with the third section (formula 9), where we
+used the symbol U (j) for the operation
+(14)
+
+
+U (j)f (x) = f (j −1 x)
+
+whereas we use j in the above discussion. This amounts to replace the test
+function h(u) by h(u−1 ) and we thus obtain as a formal analogue of III(17)
+the following expression for the distributional trace
+(15)
+
+“Trace” (U (h)) =
+
+XZ
+v
+
+h(u−1 ) ∗
+d u.
+kv∗ |1 − u|
+
+Now the right-hand side of (15) is, when restricted to the hyperplane h(1) = 0,
+the distribution obtained by André Weil [W3] as the synthesis of the explicit
+formulas of number theory for all L-functions with Grössencharakter. In particular we can rewrite it as
+(16)
+
+ĥ(0) + ĥ(1) −
+
+X
+
+ĥ(χ, ρ) + ∞ h(1)
+
+L(χ,ρ)=0
+
+where this time the restriction Re(ρ) = 21 has been eliminated.
+Thus, equating (34) of section III and (16) for h(1) = 0 would yield the
+desired information on the zeros. Of course, this does require first eliminating
+27
+
+the role of δ, and (as in [AB]) to prove that the distributional trace coincides
+with the ordinary operator theoretic trace on the cokernel of E. This is
+achieved for the usual set-up of the Lefchetz fixed point theorem by the use
+of families.
+A very important property of the right hand side of (15) (and of IV (17)
+in general) is that if the test function h, h(1) = 0 is positive,
+(17)
+
+h(u) ≥ 0 ∀ u ∈ Ck
+
+then the right-hand side is positive. This indicated from the very start that
+in order to obtain the Polya-Hilbert space from the Riemann flow, it is not
+quantization that should be involved but simply the passage to the L2 space,
+X → L2 (X). Indeed the positivity of IV (17) is typical of permutation matrices rather than of quantization. This distinction plays a crucial role in the
+above discussion of the trace formula, in particular the expected trace formula
+is not a semi-classical formula but a Lefchetz formula in the spirit of [AB].
+The above discussion is not a rigorous justification of this formula. The
+first obvious obstacle is that the distributional trace is only formal and to
+give it a rigorous meaning tied up to Hilbert space operators, one needs as
+in section V, to perform a cutoff. The second difficulty comes from the presence of the parameter δ as a label for the Hilbert space, while δ does not
+appear in the trace formula. As we shall see in the next two sections the
+cutoff will completely eliminate the role of δ, and we shall nevertheless show
+(by proving positivity of the Weil distribution) that the validity of the (δ
+independent) trace formula is equivalent to the Riemann Hypothesis for all
+Grössencharakters of k.
+
+VII Proof of the trace formula in the S-local case.
+In the formal trace computation of section VI, we skiped over the difficulties inherent to the tricky structure of the space X. In order to understand
+how to handle trace formulas on such spaces we shall consider the slightly
+simpler situation which arises when one only considers a finite set S of places
+of k. As soon as the cardinality of S is larger than 3, the corresponding space
+XS does share most of the tricky features of the space X. In particular it is
+no longer of type I in the sense of Noncommutative Geometry.
+We shall nevertheless prove a precise general result (theorem 4) which
+shows that the above handling of periodic orbits and of their contribution to
+28
+
+the trace is the correct one. It will in particular show why the orbit of the
+fixed point 0, or of elements x ∈ A, such that xv vanishes for at least two
+places do not contribute to the trace formula.
+At the same time, we shall handle as in section V, the lack of transversality when h(1) 6= 0.
+Let us first describe the reduced framework for the trace formula. We
+let k be a global field and S a finite set of places of k containing all infinite
+places. The group OS∗ of S-units is defined as the subgroup of k ∗ ,
+(1)
+
+OS∗ = {q ∈ k ∗ , |qv | = 1, v ∈
+/ S}
+
+It is cocompact in JS1 where,
+(2)
+
+JS =
+
+Y
+
+kv∗
+
+v∈S
+
+and,
+(3)
+
+JS1 = {j ∈ JS , |j| = 1}.
+
+Thus the quotient group CS = JS /OS∗ plays the same role as Ck , and acts on
+Q
+the quotient XS of AS = v∈S kv by OS∗ .
+
+To keep in mind a simple example, one can take k = Q, while S consists
+of the three places 2, 3, and ∞. One checks in this example that the topology
+of XS is not of type I since for instance the group OS∗ = {±2n 3m ; n, m ∈ Z}
+acts ergodically on {0} × R ⊂ AS .
+We normalize the multiplicative Haar measure d∗ λ of CS by,
+Z
+(4)
+d∗ λ ∼ log Λ
+when Λ → ∞ ,
+|λ|∈[1,Λ]
+
+and normalize the multiplicative Haar measure d∗ λ of JS so that it agrees
+with the above on a fundamental domain D for the action of OS∗ on JS .
+There is no difficulty in defining the Hilbert space L2 (XS ) of square
+integrable functions on XS . We proceed as in section III (without the δ),
+and complete (and separate) the Schwartz space S(AS ) for the pre-Hilbert
+structure given by,
+Z X
+2
+2
+(5)
+kf k =
+f (qx) |x| d∗ x
+∗
+q∈OS
+
+29
+
+where the integral is performed on CS or equivalently on a fundamental domain D for the action of OS∗ on JS . To show that (5) makes sense, one proves
+P
+that for f ∈ S(AS ), the function E0 (f )(x) = q∈O∗ f (qx) is bounded above
+S
+by a power of Log|x| when |x| tends to zero. To see this when f is the characteristic function of {x ∈ AS , |xv | ≤ 1 , ∀v ∈ S}, one uses the cocompactness
+of OS∗ in JS1 , to replace the sum by an integral. The latter is then comparable
+to,
+Z
+Y
+(6)
+dui ,
+P
+ui ≥0,
+
+ui =−Log|x|
+
+where the index i varies in S. The general case follows.
+The scaling operator U (λ) is defined by,
+
+(7)
+
+(U (λ) ξ)(x) = ξ(λ−1 x)
+
+∀ x ∈ AS
+
+and the same formula, with x ∈ XS defines its action on L2 (XS ). Given a
+R
+smooth compactly supported function h on CS , U (h) = h(g)U (g)dg makes
+sense as an operator acting on L2 (XS ).
+We shall now show that the Fourier transform F on S(AS ) does extend
+to a unitary operator on the Hilbert space L2 (XS ).
+P
+Lemma 1. a) For any fi ∈ S(AS ) the series O∗ hf1 , U (q) f2iA of inner
+S
+products in L2 (AS ) converges geometrically on the abelian finitely generated
+group OS∗ . Moreover its sum is equal to the inner product of f1 and f2 in the
+Hilbert space L2 (XS ).
+Q
+b) Let α =
+αv be a basic character of the additive group AS and F
+the corresponding Fourier transformation. The map f → F (f ), f ∈ S(AS )
+extends uniquely to a unitary operator in the Hilbert space L2 (XS ).
+Proof. The map L : OS∗ → RS , given by L(u)v = log |uv | has a finite kernel
+P
+and its range is a lattice in the hyperplane H = {(yv ), S yv = 0}. On H one
+P
+has SupS yv ≥ 1/2n |yv |, where n = card(S). Thus one has the inequality,
+
+(8)
+
+SupS |qv | ≥ exp(d(q, 1)
+
+∀q ∈ OS∗
+
+for a suitable word metric d on OS∗ .
+Let Kn = {x ∈ AS ; |xv | ≤ n, ∀v ∈ S} and kn be the characteristic
+function of Kn . Let (λn ) be a sequence of rapid decay such that,
+X
+(9)
+|fi (x)| ≤
+λn kn (x)
+∀x ∈ AS .
+30
+
+One has for a suitable constant c,
+| kn , U (q −1 ) kn | ≤ c nm (SupS |qv |)−1
+
+(10)
+
+where m = Card(S).
+Using (9) we thus see that hf1 , U (q) f2 iA decays exponentially on OS∗ .
+Applying Fubini’s theorem yields the equality,
+Z
+
+(11)
+
+X
+
+2
+
+f (qx) |x| d∗ x =
+
+∗
+q∈OS
+
+X
+
+hf, U (q) f iA .
+
+∗
+OS
+
+This proves a). To prove b), one just uses (11) and the equalities hF f, F f iA =
+hf, f iA and F (U (q) f ) = U (q −1 )F (f ).
+Now exactly as above for the case of local fields (theorem V.3), we need to
+use a cutoff. For this we use the orthogonal projection PΛ onto the subspace,
+(12)
+
+PΛ = {ξ ∈ L2 (XS ) ; ξ(x) = 0
+
+∀x , |x| > Λ} .
+
+Thus, PΛ is the multiplication operator by the function ρΛ , where ρΛ (x) = 1
+if |x| ≤ Λ, and ρ(x) = 0 for |x| > Λ. This gives an infrared cutoff and to get
+an ultraviolet cutoff we use PbΛ = F PΛ F −1 where F is the Fourier transform
+Q
+(lemma 1) which depends upon the choice of the basic character α = αv .
+We let
+RΛ = PbΛ PΛ .
+
+(13)
+
+The main result of this section is then,
+
+Theorem 4. Let AS be as above, with basic character α =
+S(CS ) have compact support. Then when Λ → ∞, one has
+′
+
+Trace (RΛ U (h)) = 2h(1) log Λ +
+
+X Z ′ h(u−1 )
+
+v∈S
+
+where 2 log′ Λ =
+
+R
+
+kv∗
+
+|1 − u|
+
+Q
+
+αv . Let h ∈
+
+d∗ u + o(1)
+
+d∗ λ, each kv∗ is embedded in CS by the map
+R′
+u → (1, 1, ..., u, ..., 1) and the principal value
+is uniquely determined by the
+du
+for u 6= 1
+pairing with the unique distribution on kv which agrees with |1−u|
+and whose Fourier transform relative to αv vanishes at 1.
+λ∈CS , |λ|∈[Λ−1 ,Λ]
+
+31
+
+Proof. We normalize as above the additive Haar measure dx to be the selfdual
+one on the abelian group AS . Let the constant ρ > 0 be determined by the
+equality, (where the fundamental domain D is as above),
+Z
+
+dλ
+∼ ρ log Λ
+λ∈D, 1≤|λ|≤Λ |λ|
+
+when Λ → ∞ .
+
+dλ
+.
+so that d∗ λ = ρ−1 |λ|
+
+We let f be a smooth compactly supported function on JS such that
+
+(14)
+
+X
+
+f (qg) = h(g)
+
+∀ g ∈ CS .
+
+∗
+q∈OS
+
+The existence of such an f follows from the discreteness of OS∗ in JS . We then
+have the equality U (f ) = U (h), where
+(15)
+
+U (f ) =
+
+Z
+
+f (λ) U (λ) d∗λ ,
+
+To compute the trace of U (h) acting on functions on the quotient space XS ,
+we shall proceed as in the Selberg trace formula ([Se]). Thus for an operator
+T , acting on functions on AS , which commutes with the action of OS∗ and is
+represented by an integral kernel,
+Z
+(16)
+T (ξ) = k(x, y)ξ(y) dy,
+the trace of its action on L2 (XS ) is given by,
+(17)
+
+T r(T ) =
+
+X Z
+
+∗
+q∈OS
+
+k(x, qx)dx.
+D
+
+where D is as above a fundamental domain for the action of OS∗ on the subset
+JS of AS , whose complement is negligible. Let T = U (f ). We can write the
+Schwartz kernel of T as,
+Z
+(18)
+k(x, y) = f (λ−1 ) δ(y − λx) d∗ λ .
+by construction one has,
+(19)
+
+k(qx, qy) = k(x, y)
+32
+
+q ∈ OS∗ .
+
+For any q ∈ OS∗ , we shall evaluate the integral,
+Z
+t
+(20)
+Iq =
+k(qx, y)rΛ
+(x, y)dydx
+x∈D
+
+t
+t
+where the Schwartz kernel rΛ
+(x, y) for the transpose RΛ
+is given by,
+t
+rΛ
+(x, y) = ρΛ (x) ρ
+(c
+Λ ) (x − y) .
+
+(21)
+
+To evaluate the above integral, we let y = x + a and perform a Fourier
+t
+transform in a. For the Fourier transform in a of rΛ
+(x, x + a), one gets,
+(22)
+
+σΛ (x, ξ) = ρΛ (x) ρΛ (ξ) .
+
+For the Fourier transform in a of k(qx, x + a), one gets,
+Z
+
+Z
+−1
+δ(x + a − λqx) α(aξ) da d∗ λ .
+(23)
+σ(x, ξ) = f (λ )
+One has,
+(24)
+
+Z
+
+δ(x + a − λqx) α(aξ) da = α((λq − 1) xξ) ,
+
+thus (23) gives,
+(25)
+
+σ(x, ξ) = ρ
+
+−1
+
+Z
+
+gq (u) α(uxξ) du
+
+AS
+
+where,
+(26)
+
+gq (u) = f (q(u + 1)−1 ) |u + 1|−1 .
+
+Since f is smooth with compact support on A∗S the function gq belongs to
+Cc∞ (AS ).
+Thus σ(x, ξ) = ρ−1 gbq (xξ) and, using the Parseval formula we get,
+Z
+(27)
+Iq =
+σ(x, ξ) dx dξ .
+x∈D, |x|≤Λ,|ξ|≤Λ
+
+This gives,
+(28)
+
+Iq = ρ
+
+−1
+
+Z
+
+x∈D, |x|≤Λ,|ξ|≤Λ
+
+33
+
+gbq (xξ) dx dξ .
+
+dx
+With u = xξ one has dx dξ = du |x|
+and, for |u| ≤ Λ2 ,
+Z
+dx
+−1
+= 2 log′ Λ − log |u|
+(29)
+ρ
+|u|
+x∈D, Λ ≤|x|≤Λ |x|
+
+(using the precise definition of log′ Λ to handle the boundary terms).
+Thus we can rewrite (28) as,
+
+(30)
+
+Trace (RΛ T ) =
+
+X Z
+
+∗
+q∈OS
+
+Now log |u| =
+(31)
+
+P
+
+v∈S log |uv |, and we shall first prove that,
+
+X Z
+
+∗
+q∈OS
+
+while for any v ∈ S,
+(32)
+
+|u|≤Λ2
+
+gbq (u) (2 log′ Λ − log |u|) du
+
+X Z
+
+∗
+q∈OS
+
+gbq (u) du = h(1),
+
+gbq (u) (− log |uv |) du =
+
+Z ′
+
+h(u−1 ) ∗
+d u.
+kv∗ |1 − u|
+
+In fact all the sums in q will have only finitely many non zero terms. It will
+then remain to control the error term, namely to show that,
+X Z
+(33)
+gbq (u) (log |u| − 2 log′ Λ)+ du = 0(Λ−N )
+∗
+q∈OS
+
+for any N , where we used the notation x+ = 0 if x ≤ 0 and x+ = x if x > 0.
+Now recall that,
+gq (u) = f (q(u + 1)−1 ) |u + 1|−1 ,
+R
+so that gbq (u) du = gq (0) = f (q). Since f has compact support in A∗S ,
+the intersection of OS∗ with the support of f is finite and by (14) we get the
+equality (31).
+Q
+To prove (32), we consider the natural projection prv from l∈S kl∗ to
+Q
+Q
+∗
+∗
+∗
+∗
+k
+.
+The
+image
+pr
+(O
+)
+is
+still
+a
+discrete
+subgroup
+of
+v
+S
+l6=v l
+l6=v kl , (since kv
+is cocompact in CS ), thus there are only finitely many q ∈ OS∗ such that kv∗
+meets the support of fq , where fq (a) = f (qa) for all a.
+For each q ∈ OS∗ one has, as in section V,
+Z
+Z ′
+fq (u−1 ) ∗
+d u,
+(34)
+gbq (u) (− log |uv |) du =
+kv∗ |1 − u|
+34
+
+and from what we have just seen, this vanishes except for finitely many q ′ s,
+so that by (14) we get the equality (32). Let us prove (33). Let εΛ (u) =
+(log |u| − 2 log′ Λ)+ , and,
+(35)
+
+δq (Λ) =
+
+Z
+
+gbq (u) εΛ (u) du
+
+be the error term. We shall prove,
+P
+Lemma 2. For any Λ the series O∗ |δq (Λ)| converges geometrically on the
+S
+
+abelian finitely generated group OS∗ . Moreover its sum σ(Λ) is O(Λ−N ) for
+any N .
+Proof. Let (cf. (8)), d be a suitable word metric on OS∗ such that,
+(36)
+
+SupS |qv | ≥ exp(d(q, 1))
+
+∀q ∈ OS∗
+
+Let ξ ∈ S(AS ) be defined by ξ(x) = f (x−1 )|x−1 | for all x ∈ A∗S and
+extended by 0 elsewhere. One has gq (x) = ξ(q −1 (1+x)) for all x ∈ AS , so that
+R
+R
+gbq (u) = gq (x)α(u x) dx = α(−u) b
+ξ(q u). Now, δq (Λ) = gbq (u) εΛ (u) du =
+R
+R
+b α(−q −1 y) εΛ (y) dy, since εΛ (q u) = εΛ (u)
+b u) α(−u) εΛ (u) du = ξ(y)
+ξ(q
+for all u.
+Thus we get, using the symbol F η for the inverse Fourier transform of η,
+the equality,
+b −1 ).
+δq (Λ) = F (εΛ ξ)(q
+
+(37)
+
+Let α ∈]0, 1/2[ and consider the norm,
+
+kηk = Supx∈AS |F (η)(x) SupS |xv |α |.
+
+(38)
+
+In order to estimate (38), we fix a smooth function ψ on R, equal to 1 in a
+neighborhood of 0 and with support in [−1, 1], and introduce the convolution
+operators,
+(39)
+
+(Cα,v ∗ η)(x) =
+
+Z
+
+ψ(|ε|)(η(x + ε) − η(x))
+
+kv
+
+and the norms,
+(40)
+
+kηk(1,α,v) = kCα,v ∗ ηk1 ,
+35
+
+dε
+,
+|ε|1+α
+
+where k k1 is the L1 norm.
+The Fourier transform on kv of the distribution Cα,v behaves like |xv |α
+for |xv | → ∞ . Thus, using the equality F (Cα,v ∗ η) = F (Cα,v ) F (η), and
+the control of the sup norm of F (g) by the L1 norm of g, we get an inequality
+of the form,
+Supx∈AS |F (η)(x) SupS |xv |α | ≤ cα
+
+(41)
+
+X
+
+kηk(1,α,v) .
+
+S
+
+Let us now show that for any η ∈ S(AS ), and α < 1/2, one has,
+kεΛ ηk(1,α,v) = O(Λ−N ) ,
+
+(42)
+for any N .
+
+One has |(εΛ (x + ε)η(x + ε) − εΛ (x)η(x)) − εΛ (x)(η(x + ε) − η(x))| ≤
+|(εΛ (x + ε) − εΛ (x))||η(x + ε)|.
+Moreover using the inequality,
+|a+ − b+ | ≤ |a − b| ,
+
+(43)
+
+we see that |(εΛ (x + ε) − εΛ (x))| ≤ | log |xv + ε| − log |xv ||, for ε ∈ kv . Let
+then,
+Z
+dy
+′
+log |1 + y| 1+α .
+(44)
+cα =
+|y|
+kv
+It is finite for all places v ∈ S provided α < 1/2, and one has,
+Z
+dε
+(45)
+ψ(|ε|)(| log |x + ε| − log |x||) 1+α ≤ c′α |x|−α .
+|ε|
+kv
+Thus one obtains the inequality,
+(46)
+
+|Cα,v ∗ εΛ η − εΛ (Cα,v ∗ η)|(x) ≤ c′α |xv |−α Supε∈kv ,|ε|≤1 |η(x + ε)|.
+
+Since the function |xv |−α is locally integrable, for α < 1, one has for η ∈
+S(AS ), and any N ,
+Z
+(47)
+|xv |−α Supε∈kv ,|ε|≤1 |η(x + ε)|dx = O(Λ−N ) ,
+XΛ
+
+where XΛ = { y + ε; |y| ≥ Λ, ε ∈ kv , |ε| ≤ 1 }.
+36
+
+Moreover one has for any N ,
+(48)
+
+kεΛ (Cα,v ∗ η)k1 = O(Λ−N ).
+
+Thus, using (46), we obtain the inequality (42).
+Taking η = ξb and using (41), we thus get numbers δΛ , such that δΛ =
+O(Λ−N ) for all N and that,
+(49)
+
+|F (εΛ b
+ξ)SupS |xv |α || ≤ δΛ
+
+∀x ∈ AS ∀Λ.
+
+Taking x = q ∈ OS∗ , and using (36) and (37), we thus get,
+(50)
+
+|δq (Λ)| ≤ δΛ exp(−d(q, 1))
+
+∀q ∈ OS∗ ,
+
+which is the desired inequality.
+
+VIII The trace formula in the global case, and elimination of δ.
+The main difficulty created by the parameter δ in Theorem 1 is that the
+formal trace computation of section VI is independent of δ, and thus cannot
+give in general the expected value of the trace of theorem 1, since in the latter
+each critical zero ρ is counted with a multiplicity equal to the largest integer
+n < 1+δ
+2 , n ≤ multiplicity of ρ as a zero of L. In particular for L functions
+with multiple zeros, the δ-dependence of the spectral side is nontrivial. It is
+also clear that the function space L2δ (X) artificially eliminates the non-critical
+zeros by the introduction of the δ.
+As we shall see, all these problems are eliminated by the cutoff. The latter
+will be performed directly on the Hilbert space L2 (X) so that the only value of
+δ that we shall use is δ = 0. All zeros will play a role in the spectral side of the
+trace formula, but while the critical zeros will appear per-se, the non critical
+ones will appear as resonances and enter in the trace formula through their
+harmonic potential with respect to the critical line. Thus the spectral side is
+entirely canonical and independent of δ, and by proving positivity of the Weil
+distribution, we shall show that its equality with the geometric side, i.e. the
+global analogue of Theorem 4, is equivalent to the Riemann Hypothesis for
+all L-functions with Grössencharakter.
+37
+
+The Abelian group A of Adeles of k is its own Pontrjagin dual by means
+of the pairing
+(1)
+
+ha, bi = α(ab)
+
+where α : A → U (1) is a nontrivial character which vanishes on k ⊂ A. Note
+that such a character is not canonical, but that any two such characters α
+′
+and α are related by k ∗ ,
+(2)
+
+′
+
+α (a) = α(qa) ∀a ∈ A .
+
+It follows that the corresponding Fourier transformations on A are related by
+′
+
+(3)
+
+fˆ = fˆq .
+
+This is yet another reason why it is natural to mod out by functions of the
+form f − fq , i.e. to consider the quotient space X.
+Q
+We fix the additive character α as above, α =
+αv and let d be a
+differental idele,
+(4)
+
+α(x) = α0 (d x) ∀x ∈ A ,
+
+Q
+where α0 = α0,v is the product of the local normalized additive characters
+(cf [W1]). We let S0 be the finite set of places where αv is ramified.
+We shall first concentrate on the case of positive characteristic, i.e. of
+function fields, both because it is technically simpler and also because it allows
+to keep track of the geometric significance of the construction (cf. section II).
+In order to understand how to perform in the global case, the cutoff
+RΛ = PbΛ PΛ of section VII, we shall first analyze the relative position of the
+pair of projections PbΛ , PΛ when Λ → ∞. Thus, we let S ⊃ S0 be a finite set
+of places of k, large enough so that mod(CS ) = mod(Ck ) = q Z and that for
+Q
+any fundamental domain D for the action of OS∗ on JS , the product D × Rv∗
+is a fundamental domain for the action of k ∗ on Jk .
+Both PbΛ and PΛ commute with the decomposition of L2 (XS ) as the direct
+sum of the subspaces, indexed by characters χ0 of CS,1 ,
+(5)
+
+L2χ0 = {ξ ∈ L2 (XS ) ; ξ(a−1 x) = χ0 (a) ξ(x), ∀ x ∈ XS , a ∈ CS,1 }
+
+which corresponds to the projections Pχ0 =
+the Haar measure of total mass 1 on CS,1 .
+38
+
+R
+
+χ0 (a) U (a) d1 a, where d1 a is
+
+Lemma 1. Let χ0 be a character of CS,1 , then for Λ large enough PbΛ and
+PΛ commute on the Hilbert space L2χ0 .
+Q
+Proof. Let US be the image in CS of the open subgroup Rv∗ . It is a subgroup
+of finite index l in CS,1 . Let us fix a character χ of US and consider the finite
+direct sum of the Hilbert spaces L2χ0 where χ0 varies among the characters of
+CS,1 whose restriction to US is equal to χ,
+(6)
+
+L2 (XS )χ = {ξ ∈ L2 (XS ) ; ξ(a−1 x) = χ(a) ξ(x), ∀ x ∈ XS , a ∈ US }
+
+The corresponding orthogonal projection is U (hχ ), where hχ ∈ S(CS ) is such
+that,
+(7)
+
+Supp(hχ ) = US
+
+hχ (x) = λ χ(x)
+
+∀ x ∈ US
+
+and the constant λ = l/ log(q) corresponds to our standard normalization of
+the Haar measure on CS . Let as in section VII, f ∈ S(JS ) with support
+Q ∗
+Rv be such that U (f ) = U (h) and let ξ ∈ S(AS ) be defined by ξ(x) =
+f (x−1 )|x−1 | for all x ∈ A∗S and extended by 0 elsewhere.
+Since ξ is locally constant, its Fourier transform has compact support
+and the equality (37) of section VII shows that for Λ large enough one has
+the equality,
+(8)
+
+Trace (PbΛ PΛ U (hχ )) = 2hχ (1) log′ Λ +
+
+X Z ′ hχ (u−1 )
+
+v∈S
+
+kv∗
+
+|1 − u|
+
+d∗ u
+
+With Λ = q N , one has 2 log′ Λ = (2N + 1) log(q) so that,
+2hχ (1) log′ Λ = (2N + 1)l
+
+(9)
+
+Q
+Q
+The character χ of Rv∗ is a product, χ =
+χv and if one uses the standard
+additive character α0 to take the principal value one has, (cf. [W1] Appendix
+IV),
+Z ′
+
+χv (u) ∗
+d u = −fv log(qv )
+R∗v |1 − u|
+
+(10)
+
+where fv is the order of ramification of χv . We thus get,
+(11)
+
+Z ′
+
+log(|dv |)
+hχ (u−1 ) ∗
+d u = −fv deg(v) l + l
+log(q)
+kv∗ |1 − u|
+39
+
+where qv = q deg(v) , and since we use the additive character αv , we had to
+take into account the shift log(|dv |) hχ (1) in the principal value.
+Q
+Now one has |d| =
+|dv | = q 2−2g , where g is the genus of the curve.
+Thus we get,
+(12)
+
+Trace (PbΛ PΛ U (hχ )) = (2N + 1)l − f l + (2 − 2g) l
+
+P
+where f = S fv deg(v) is the order of ramification of χ, i.e. the degree of
+its conductor.
+Let BΛ = Im(PΛ ) ∩ Im(PbΛ ) be the intersection of the ranges of the
+projections PΛ and PbΛ , and B χ be its intersection with L2 (XS )χ . We shall
+Λ
+
+exhibit for each character χ of US a vector ηχ ∈ L2 (XS )χ such that,
+(13)
+
+U (g)(ηχ ) ∈ BΛ
+
+∀g ∈ CS , |g| ≤ Λ, |g −1 | ≤ q 2−2g−f Λ,
+
+while the vectors U (g)(ηχ ) are linearly independent for g ∈ DS , where DS is
+the quotient of CS by the open subgroup US .
+With Λ = q N as above, the number of elements g of DS such that
+|g| ≤ Λ, |g −1 | ≤ q 2−2g−f Λ is precisely equal to (2N + 1)l − f l + (2 − 2g) l,
+which allows to conclude that the projections PbΛ andPΛ commute in L2 (XS )χ
+and that the subspace BΛχ is the linear span of the U (g)(ηχ ).
+
+Let us now construct the vectors ηχ ∈ L2 (XS )χ . With the notations of
+[W1] Proposition VII.13, we let,
+Y
+(14)
+ηχ =
+φv
+S
+
+Q
+be the standard function associated to χ =
+χv so that for unramified
+v, φv is the characteristic function of Rv , while for ramified v it vanishes
+outside Rv∗ and agrees with χv on Rv∗ . By construction the support of ηχ
+Q
+is contained in R =
+Rv , thus one has U (g)(ηχ ) ∈ Im(PΛ ) if |g| ≤ Λ.
+Similarly by [W1] Proposition VII.13, we get that U (g)(ηχ ) ∈ Im(PbΛ ) as
+soon as |g −1 | ≤ q 2−2g−f Λ. This shows that ηχ satisfies (13) and it remains
+to show that the vectors U (g)(ηχ ) are linearly independent for g ∈ DS .
+Let us start with a non trivial relation of the form,
+X
+(15)
+k
+λg U (g)(ηχ )k = 0
+
+Q
+where the norm is taken in L2 (XS ), (cf. VII. 5). Let then ξχ = S φv ⊗ 1R
+Q
+where R = v /∈S Rv . Let us assume first that χ 6= 1, then ξχ gives an element
+40
+
+of L2δ (X)0 which is cyclic for the representation U of Ck in the direct sum of
+the subspaces L2δ,χ0 (X)0 where χ0 varies among the characters of Ck,1 whose
+restriction to U is equal to χ.
+P
+Now (15) implies that in L2δ (X)0 one has
+λg U (g)(ξχ ) = 0. By the
+P
+cyclicity of ξχ one then gets
+λg U (g) = 0 on any L2δ,χ0 (X)0 which gives a
+contradiction (cf. Appendix 1, Lemma 3).
+The proof for χ = 1 is similar but requires more care since 1R ∈
+/ S0 (A).
+We can thus rewrite Theorem 4 in the case of positive characteristic as,
+Corollary 2. Let QΛ be the orthogonal projection on the subspace of L2 (XS )
+spanned by the f ∈ S(AS ) which vanish as well as their Fourier transform for
+|x| > Λ. Let h ∈ S(CS ) have compact support. Then when Λ → ∞, one has
+′
+
+Trace (QΛ U (h)) = 2h(1) log Λ +
+
+X Z ′ h(u−1 )
+
+v∈S
+
+where 2 log′ Λ =
+orem VII.4.
+
+R
+
+λ∈CS , |λ|∈[Λ−1 ,Λ]
+
+kv∗ |1 − u|
+
+d∗ u + o(1)
+
+d∗ λ, and the other notations are as in The-
+
+In fact the proof of lemma 1 shows that the subspaces BΛ stabilize very
+quickly, so that the natural map ξ → ξ ⊗ 1R from L2 (XS ) to L2 (XS′ ) for
+′
+S ⊂ S ′ maps BΛS onto BΛS .
+We thus get from corollary 2 an S-independent global formulation of the
+cutoff and of the trace formula. We let L2 (X) be the Hilbert space L2δ (X) of
+section III for the trivial value δ = 0 which of course eliminates the unpleasant
+term from the inner product, and we let QΛ be the orthogonal projection on
+the subspace BΛ of L2 (X) spanned by the f ∈ S(A) which vanish as well as
+their Fourier transform for |x| > Λ. As we mentionned earlier, the proof of
+lemma 1 shows that for S and Λ large enough (and fixed character χ), the
+natural map ξ → ξ ⊗ 1R from L2 (XS )χ to L2 (X)χ maps BΛS onto BΛ .
+It is thus natural to expect that the following global analogue of the trace
+formula of corollary 2 actually holds, i.e. that when Λ → ∞, one has,
+(16)
+
+′
+
+Trace (QΛ U (h)) = 2h(1) log Λ +
+
+X Z ′ h(u−1 )
+v
+
+where 2 log′ Λ =
+orem VII.4.
+
+R
+
+λ∈Ck , |λ|∈[Λ−1 ,Λ]
+
+kv∗ |1 − u|
+
+d∗ u + o(1)
+
+d∗ λ, and the other notations are as in The-
+
+41
+
+We can prove directly that (16) holds when h is supported by Ck,1 but
+are not able to prove (16) directly for arbitrary h (even though the right hand
+side of the formula only contains finitely many nonzero terms since h ∈ S(Ck )
+has compact support). What we shall show however is that the trace formula
+(16) implies the positivity of the Weil distribution, and hence the validity of
+RH for k. Remember that we are still in positive characteristic where RH is
+actually a theorem of A.Weil. It will thus be important to check the actual
+equivalence between the validity of RH and the formula (16). This is achieved
+by,
+Theorem 5. Let k be a global field of positive characteritic and QΛ be the
+orthogonal projection on the subspace of L2 (X) spanned by the f ∈ S(A) such
+that f (x) and fb(x) vanish for |x| > Λ . Let h ∈ S(Ck ) have compact support.
+Then the following conditions are equivalent,
+a) When Λ → ∞, one has
+
+′
+
+Trace (QΛ U (h)) = 2h(1) log Λ +
+
+X Z ′ h(u−1 )
+v
+
+kv∗ |1 − u|
+
+d∗ u + o(1)
+
+b) All L functions with Grössencharakter on k satisfy the Riemann Hypothesis.
+Proof. To prove that a) implies b), we shall prove (assuming a)) the positivity
+of the Weil distribution (cf. Appendix 2),
+(17)
+
+∆ = log |d−1 | δ1 + D −
+
+X
+
+Dv .
+
+v
+
+First, by theorem III.1 applied for δ = 0, the map E,
+(18)
+
+E(f ) (g) = |g|1/2
+
+X
+
+f (qg)
+
+∀ g ∈ Ck ,
+
+q∈k∗
+
+defines a surjective isometry from L2 (X)0 to L2 (Ck ) such that,
+(19)
+
+E U (a) = |a|1/2 V (a) E ,
+
+where the left regular representation V of Ck on L2 (Ck ) is given by,
+(20)
+
+(V (a) ξ) (g) = ξ(a−1 g)
+42
+
+∀ g, a ∈ Ck .
+
+Let SΛ be the subspace of L2 (Ck ) given by,
+(21)
+
+SΛ = {ξ ∈ L2 (Ck ) ; ξ(g) = 0, ∀g , |g| ∈
+/ [Λ−1 , Λ]} .
+
+We shall denote by the same letter the corresponding orthogonal projection.
+Let BΛ,0 be the subspace of L2 (X)0 spanned by the f ∈ S(A)0 such that
+f (x) and fb(x) vanish for |x| > Λ and QΛ,0 be the corresponding orthogonal
+projection. Let f ∈ S(A)0 be such that f (x) and fb(x) vanish for |x| > Λ,
+then E(f ) (g) vanishes for |g| > Λ, and the equality (Appendix 1),
+ 
+1
+E(f )(g) = E(fb)
+g
+
+(22)
+
+f ∈ S(A)0 ,
+
+shows that E(f ) (g) vanishes for |g| < Λ−1 .
+This shows that E(BΛ,0 ) ⊂ SΛ , so that if we let Q′Λ,0 = E QΛ,0 E −1 , we
+get the inequality,
+Q′Λ,0 ≤ SΛ
+
+(23)
+
+and for any Λ the following distribution on Ck is of positive type,
+∆Λ (f ) = Trace ((SΛ − Q′Λ,0 ) V (f )),
+
+(24)
+i.e. one has,
+
+∆Λ (f ∗ f ∗ ) ≥ 0,
+
+(25)
+
+where f ∗ (g) = f (g −1 ) for all g ∈ Ck .
+Let then f (g) = |g|−1/2 h(g −1 ), so that by (19) one has E U (h) = V (f˜)E
+where f˜(g) = f (g −1 ) for all g ∈ Ck . By lemma 3 of Appendix 2 one has,
+(26)
+
+X
+
+Dv (f ) − log |d
+
+−1
+
+|=
+
+v
+
+X Z ′ h(u−1 )
+v
+
+kv∗
+
+|1 − u|
+
+d∗ u.
+
+One has Trace (SΛ V (f )) = 2f (1) log′ Λ, thus using a) we see that the limit
+of ∆Λ when Λ → ∞ is the Weil distribution ∆ (cf.(17)). The term D in
+the latter comes from the nuance between the subspaces BΛ and BΛ,0 . This
+shows using (24), that the distribution ∆ is of positive type so that b) holds
+(cf. [W3]).
+43
+
+Let us now show that b) implies a). We shall compute from the zeros of
+L-functions and independently of any hypothesis the limit of the distributions
+∆Λ when Λ → ∞.
+We choose (non canonically) an isomorphism
+(27)
+
+Ck ≃ Ck,1 × N .
+
+where N = range | | ⊂ R∗+ , N ≃ Z is the subgroup q Z ⊂ R∗+ .
+For ρ ∈ C we let dµρ (z) be the harmonic measure of ρ with respect to
+the line i R ⊂ C. It is a probability measure on the line i R and coincides with
+the Dirac mass at ρ when ρ is on the line.
+The implication b)⇒a) follows immediately from the explicit formulas
+(Appendix 2) and the following lemma,
+Lemma 3. The limit of the distributions ∆Λ when Λ → ∞ is given by,
+Z
+X
+1
+fb(e
+χ, z)dµρ (z)
+N (e
+χ, + ρ)
+∆∞ (f ) =
+2
+
+z∈i
+R
+L χ
+e, 12 +ρ =0
+ρ∈B/N ⊥
+
+where B is the open strip B = {ρ ∈ C; Re(ρ) ∈] −1
+, 1 [}, N (e
+χ, 21 + ρ) is the
+2 2
+multiplicity of the zero, dµρ (z) is the harmonic measure of ρ with respect to
+the line i R ⊂ C, and the Fourier transform fb of f is defined by,
+Z
+b
+f (e
+χ, ρ) =
+f (u) χ
+e(u) |u|ρ d∗ u .
+Ck
+
+Proof. Let Λ = q N . The proof of Lemma 1 gives the lower bound (2N + 1) −
+f + (2 − 2g) for the dimension of BΛ,χ in terms of the order of ramification f
+of the character χ of Ck,1 , where we assume first that χ 6= 1. We have seen
+moreover that E(BΛ,χ) ⊂ SΛ,χ while the dimension of SΛ,χ is 2N + 1.
+Now by Lemma 3 of Appendix 1, every element ξ ∈ E(BΛ,χ) satisfies the
+conditions,
+
+
+Z
+1
+ρ ∗
+⊥
+(28)
+ξ(x) χ(x) |x| d x = 0
+∀ρ ∈ B/N , L χ, + ρ = 0.
+2
+This gives 2g − 2 + f linearly independent conditions (for N large enough),
+using [W1] Theorem VII.6, and shows that they actually characterize the
+subspace E(BΛ,χ) of SΛ,χ .
+44
+
+This reduces the proof of the lemma to the following simple computation:
+One lets F be a finite subset (possibly with multiplicity) of C∗ and EN the
+subspace of SN = {ξ ∈ l2 (Z); ξ(n) = 0 ∀n > N } defined by the conditions
+P
+ξ(n) z n = 0 ∀z ∈ F . One then has to compute the limit when N → ∞ of
+Trace ((SN − EN ) V (f )) where V is the regular representation of Z (so that
+P
+V (f ) =
+fk V k where V is the shift, V (ξ)n = ξn−1 ). One then checks that
+1
+the unit vectors ηz ∈ SN , z ∈ F, ηz (n) = z n (|z 2N+1 | − |z −(2N+1) |)− 2 (|z| −
+1
+|z −1 |) 2 ∀n ∈ [−N, N ], are asymptotically orthogonal and span (SN − EN )
+(when F has multiplicity one has to be more careful). The conclusion then
+follows from,
+(29)
+
+LimN→∞ hV (f )ηz , ηz i =
+
+Z
+
+|u|=1
+
+Pz (u) fb(u) du,
+
+where Pz (u) is the Poisson kernel, and fb the Fourier transform of f .
+
+One should compare this lemma with Corollary 2 of Theorem III.1. In
+the latter only the critical zeros were coming into play and with a multiplicity
+controlled by δ. In the above lemma, all zeros do appear and with their full
+multiplicity, but while the critical zeros appear per-se, the non-critical ones
+play the role of resonances as in the Fermi theory.
+Let us now explain how the above results extend to number fields k. We
+first need to analyze, as above, the relative position of the projections PΛ and
+PbΛ . Let us first remind the reader of the well known geometry of pairs of
+projectors. Recall that a pair of orthogonal projections Pi in Hilbert space is
+the same thing as a unitary representation of the dihedral group Γ = Z/2∗Z/2.
+To the generators Ui of Γ correspond the operators 2Pi − 1. The group Γ
+is the semidirect product of the subgroup generated by U = U1 U2 by the
+group Z/2, acting by U 7→ U −1 . Its irreducible unitary representations are
+parametrized by an angle θ ∈ [0, π2 ], the corresponding orthogonal projections
+Pi being associated to the one dimensional subspaces y = 0 and y = x tg(θ)
+in the Euclidean x, y plane. In particular these representations are at most
+two dimensional. A general unitary representation is characterized by the
+operator Θ whose value is the above angle θ in the irreducible case. It is
+uniquely defined by the equality,
+(30)
+
+Sin(Θ) = |P1 − P2 |,
+
+and commutes with Pi .
+45
+
+The first obvious difficulty is that when v is an Archimedian place there
+exists no non-zero function on kv which vanishes as well as its Fourier transform for |x| > Λ. This would be a difficult obstacle were it not for the work of
+Landau, Pollak and Slepian ([LPS]) in the early sixties, motivated by problems of electrical engineering, which allows to overcome it by showing that
+though the projections PΛ and PbΛ do not commute exactly even for large Λ,
+their angle is sufficiently well behaved so that the subspace BΛ makes good
+sense.
+For simplicity we shall take k = Q, so that the only infinite place is real.
+Let PΛ be the orthogonal projection onto the subspace,
+(31)
+
+PΛ = {ξ ∈ L2 (R) ; ξ(x) = 0, ∀x , |x| > Λ} .
+
+and PbΛ = F PΛ F −1 where F is the Fourier transform associated to the basic
+character α(x) = e−2πix . What the above authors have done is to analyze the
+relative position of the projections PΛ , PbΛ for Λ → ∞ in order to account for
+the obvious existence of signals (a recorded music piece for instance) which
+for all practical purposes have finite support both in the time variable and
+the dual frequency variable.
+The key observation of ([LPS]) is that the following second order differential operator on R actually commutes with the projections PΛ , PbΛ ,
+
+(32)
+
+HΛ ψ(x) = −∂((Λ2 − x2 ) ∂)ψ(x) + (2πΛx)2 ψ(x),
+
+where ∂ is ordinary differentiation in one variable. Exactly as the generator
+x ∂ of scaling commutes with the orthogonal projection on the space of functions with positive support, the operator ∂((Λ2 − x2 ) ∂) commutes with PΛ .
+Moreover HΛ commutes with Fourier transform F , and the commutativity of
+HΛ with PbΛ thus follows.
+
+If one sticks to functions with support in [−Λ, Λ], the operator HΛ has
+discrete simple spectrum, and was studied long before the work of [LPS]. It
+appears from the factorization of the Helmoltz equation ∆ ψ + k 2 ψ = 0 in
+one of the few separable coordinate systems in Euclidean 3-space, called the
+prolate spheroidal coordinates. Its eigenvalues χn (Λ), n ≥ 0 are simple, positive and of the order of n2 for n → ∞. The corresponding eigenfunctions ψn
+are called the prolate spheroidal wave functions and since PΛ PbΛ PΛ commutes
+with HΛ , they are the eigenfunctions of PΛ PbΛ PΛ . A lot is known about them,
+in particular one can take them to be real valued, and they are even for n even
+46
+
+and odd for n odd. The key result of [LPS] is that the corresponding eigenvalues λn of the operator PΛ PbΛ PΛ are decreasing very slowly from λ0 ≃ 1
+until the value n ≃ 4Λ2 of the index n, they then decrease from ≃ 1 to ≃ 0 in
+an interval of length ≃ log(Λ) and then stay close to 0. Of course this gives
+the eigenvalues of Θ, it dictates the analogue of the subspace BΛ of lemma
+1, as the linear span of the ψn , n ≤ 4Λ2 , and it gives the justification of the
+semi-classical counting of the number of quantum mechanical states which are
+localized in the interval [−Λ, Λ] as well as their Fourier transform as the area
+of the corresponding square in phase space.
+We now know what is the subspace BΛ for the single place ∞, and to
+obtain it for an arbitrary set of places (containing the infinite one), we just
+use the same rule as in the case of function fields, i.e. we consider the map,
+(33)
+
+ψ 7→ ψ ⊗ 1R ,
+
+which suffices when we deal with the Riemann zeta function. Note also that in
+that case we restrict ourselves to even functions on R. This gives the analogue
+of Lemma 1, Theorem 5, and Lemma 3.
+To end this section we shall come back to our original motivation of section I
+and show how the formula for the number of zeros
+(34)
+
+N (E) ∼ (E/2π)(log(E/2π) − 1) + 7/8 + o(1) + Nosc (E)
+
+appears from our spectral interpretation.
+Let us first do a semiclassical computation for the number of quantum mechanical states in one degree of freedom which fulfill the following conditions,
+(35)
+
+|q| ≤ Λ, |p| ≤ Λ, |H| ≤ E ,
+
+where H = qp is the Hamiltonian which generates the group of scaling transformations,
+(36)
+
+(U (λ)ξ)(x) = ξ(λ−1 x)
+
+λ ∈ R∗+ , x ∈ R, ξ ∈ L2 (R) ,
+
+as in our general framework.
+To comply with our analysis of section III, we have to restrict ourselves to
+even functions so that we exclude the region pq ≤ 0 of the semiclassical (p, q)
+plane.
+47
+
+Now the region given by the above condition is equal to D = D+ ∪ (−D+ )
+where,
+(37)
+
+D+ = {(p, q) ∈ R+ × R+ , p ≤ Λ, q ≤ Λ, pq ≤ E} ,
+
+Let us compute the area of D+ for the canonical symplectic form,
+(38)
+
+ω=
+
+1
+dp ∧ dq .
+2π
+
+By construction D+ is the union of a rectangle with sides E/Λ, Λ with the
+subgraph, from q = E/Λ to q = Λ, of the hyperbola pq = E. Thus,
+(39)
+
+Z
+
+1
+1
+E/Λ × Λ +
+ω=
+2π
+2π
+D+
+
+Z Λ
+
+E dq
+E
+2E
+E
+=
++
+log Λ −
+log E .
+q
+2π
+2π
+2π
+E/Λ
+
+Now the above computation corresponds to the standard normalization of the
+Fourier transform with basic character of R given by
+(40)
+
+α(x) = exp(ix) .
+
+But we need to comply with the natural normalization at the infinite place,
+(41)
+
+α0 (x) = exp(−2πix) .
+
+We thus need to perform the transformation,
+(41)
+
+P = p/2π , Q = q .
+
+The symplectic form is now dP ∧ dQ and the domain,
+(42)
+
+D′ = {(P, Q); |Q| ≤ Λ, |P | ≤ Λ, |P Q| ≤ E/2π}.
+
+The computation is similar and yields the following result,
+
+
+Z
+2E
+E
+E
+(43)
+ω=
+log
+log Λ −
+−1 .
+′
+2π
+2π
+2π
+D+
+In this formula we thus see the overall term hN (E)i which appears with
+a minus sign which shows that the number of quantum mechanical states
+corresponding to D′ is less than 4E
+2π log Λ by the first approximation to the
+number of zeros of zeta whose imaginary part is less than E in absolute
+′
+′
+value (one just multiplies by 2 the equality (43) since D′ = D+
+∪ (−D+
+).
+48
+
+1
+Now 2π
+(2E)(2 log Λ) is the number of quantum states in the Hilbert space
+2
+∗
+L (R+ , d∗ x) which are localized in R∗+ between Λ−1 and Λ and are localized
+in the dual group R (for the pairing hλ, ti = λit ) between −E and E. Thus
+we see clearly that the first approximation to N (E) appears as the lack of
+surjectivity of the map which associates to quantum states ξ belonging to D′
+the function on R∗+ ,
+
+E(ξ)(x) = |x|1/2
+
+(44)
+
+X
+
+ξ(nx)
+
+n∈Z
+
+where we assume the additional conditions ξ(0) =
+
+R
+
+ξ(x)dx = 0.
+
+A finer analysis, which is just what the trace formula is doing, would yield
+the additional terms 7/8 + o(1) + Nosc (E). The above discussion yields an
+explicit construction of a large matrix whose spectrum approaches the zeros
+of zeta as Λ → ∞.
+It is quite remarkable that the eigenvalues of the angle operator Θ which
+we discussed above, also play a key role in the theory of random unitary
+matrices. To be more specific, let E(n, s) be the large N limit of the probability that there are exactly n eigenvalues of a random Hermitian N × N
+P
+E(n, s) = 1. Let
+matrix in the interval [− √π2N t, √π2N t], t = s/2. Clearly
+n
+
+Pt be as above the operator of multiplication by 1[−t,t] – characteristic function of the interval [−t, t] in the Hilbert space L2 (R). In general (cf [Me]),
+E(n, s) is (−1)n times the n-th coefficient of the Taylor expansion at z = 1 of
+∞
+Q
+cπ Pt .
+ζs (z) = (1 − zλj (s)), where λj (s) are the eigenvalues of the operator P
+1
+
+cλ = F Pλ F −1 , and F denotes the Fourier transform,
+(Here we denote by P
+R ixu
+ca Pb only depend
+F ξ(u) = e ξ(x)dx. Note also that the eigenvalues of P
+upon the product ab so that the relation with the eigenvalues of Θ should be
+clear.)
+
+General remarks.
+a) There is a close analogy between the construction of the Hilbert space
+2
+L (X) in section III, and the construction of the physical Hilbert space ([S]
+theorem 2.1) in constructive quantum field theory, in the case of gauge theories. In both cases the action of the invariance group (the group k ∗ = GL1 (k)
+in our case, the gauge group in the case of gauge theories) is wiped out by
+the very definition of the inner product. Compare the comment after III (9)
+with ([S]) top of page 17.
+49
+
+b) For global fields of zero characteristic, the Idele class group has a non
+trivial connected component of the identity and this connected group has so
+far received no interpretation from Galois theory (cf [W4]). The occurence
+of type III factors in [BC] indicates that the classification of hyperfinite type
+III factors [C] should be viewed as a refinement of local class field theory for
+Archimedean places, and provide the missing interpretation of the connected
+component of the identity in the Idele class group. In particular hyperfinite
+type III factors are classified by closed (virtual) subgroups of R∗+ (cf [C]) and
+they all appear as ”unramified” extensions of the hyperfinite factor of type
+III1 .
+c) Our construction of the Polya-Hilbert space bears some resemblance
+to [Z] and in fact one should clarify their relation, as well as the relation of
+the space X of Adele classes with the hypothetical arithmetic site of Deninger
+[D]. Note that the division of A by k ∗ eliminates the linear structure of A and
+that it transforms drastically the formulas for dimensions of function spaces,
+replacing products by sums (cf. theorem 4 of section VII). It should be clear
+to the reader that the action of the Idele class group on the space of Adele
+classes is the analogue (through the usual dictionnary of class field theory) of
+the action of the Frobenius on the curve. (To be more specific one needs to
+divide first the space X of Adele classes by the action of the maximal compact
+subgroup of the Idele class group).
+d) There is a superficial resemblance between the way the function N (E)
+appears in the last computation of section VIII and the discussion in [BK],
+directly inspired from [Co]. It is amusing to note that the computation of [BK]
+is actually coincidental, the two rectangles are eliminated for no reason, which
+changes appropriately the sign of the term in E. What [BK] had not taken
+into account is that the spectral interpretation of [Co] is as an absorption
+spectrum rather than an emission spectrum.
+d) There is an even more superficial resemblance with the work of D.
+Goldfeld [G], in the latter the Weil distribution is used to define a corresponding inner product on a function space on the Idele class group. The
+positivity of the inner product is of course equivalent to the positivity of the
+Weil distribution (and by the result of A. Weil to RH) but this does not
+give any clue how to prove this positivity, nor does it give any explanation
+(except for a nice observation at the Archimedean place) for what the Weil
+distribution is, since it is introduced by hands in the formula for the inner
+product.
+50
+
+e) The above framework extends naturally from the case of GL(1) to
+the case of GL(n) where the Adele class space is replaced by the quotient of
+Mn (A) by the action on the right of GLn (k). Preliminary work of C. Soule
+shows that the analogue of theorem III. 1 remains valid, the next step is to
+work out the analogue of the Lefchetz trace formula in this context.
+f) I have been told by P. Sarnak and E. Bombieri that Paul Cohen has
+considered the space of Adele classes in connection with RH, but never got
+any detail of his unpublished ideas.
+All the results of the present paper have been announced in the September
+98 conference on the Riemann hypothesis held in the Schrodinger Institute in
+Vienna and have been published as a preprint of the Schrodinger Institute.
+We are grateful to the American Institute of Mathematics for its sponsoring
+of the conference.
+
+Appendix I, Proof of theorem 1
+In this appendix we give the proof of theorem 1. Let us first recall as a
+preliminary the results of Tate an Iwasawa as interpreted in [W 2]
+L functions and homogeneous distributions on A
+In general for a non archimedean local field K we use the notations R for
+the maximal compact subring, P for the maximal ideal of R, π for a generator
+of the ideal P ( i.e. P = πR).
+Let k be a global field and A the ring of Adeles of k. It is the restricted
+product of the local fields kv indexed by the set of places v of k, with respect
+to the maximal compact subrings Rv . Similarly, the Bruhat-Schwartz space
+S(A) is the restricted tensor product of the local Bruhat-Schwartz spaces
+S(kv ), with respect to the vectors 1Rv .
+L functions on k are associated to Grössencharakters, i.e. to characters
+of the Idele class group,
+(1)
+
+Ck = Jk /k ∗ .
+
+Let X be a character of the idele class group, we consider X as a character of
+Jk which is 1 on k ∗ . As such it can be written as a product,
+(2)
+
+X (j) = Π Xv (jv )
+51
+
+j = (jv ) ∈ Jk .
+
+By considering the restriction of X to the compact subgroup
+G0 = Π Rv∗ × 1 ⊂ Jk ,
+
+(3)
+
+it follows that for all finite v but a finite number, one has
+Xv /Rv∗ = 1 .
+
+(4)
+
+One says that X is unramified at v when this holds.
+Then Xv (x) only depends upon the module |x|, since
+kv∗ /Rv∗ = mod(kv ) .
+
+(5)
+Thus Xv is determined by
+(6)
+
+Xv (πv )
+
+which does not depend upon the choice of πv (mod Rv∗ ).
+Let X be a quasi-character of Ck , it is of the form,
+X (x) = X0 (x) |x|s
+
+(7)
+
+where s ∈ C and X0 is a character of Ck . The real part σ of s is uniquely
+determined by
+|X (x)| = |x|σ .
+
+(8)
+
+Let P be the finite set of finite places where X0 is ramified. The L function
+L(X0 , s) is defined for σ = Re(s) > 1 as
+
+(9)
+
+
+
+
+
+
+
+
+
+
+  Y
+ Y
+(1 − Xv (πv ))−1 
+(1 − X0,v (πv ) qv−s )−1  = 
+L(X0 , s) = 
+v finite
+v/
+∈P
+
+v finite
+v/
+∈P
+
+where
+(10)
+
+|πv | = qv−1 .
+
+Let us now recall from [W 2] how L(X0 , s) appears as a normalization factor
+for homogeneous distributions on A.
+52
+
+First let K be a local field and X a quasi-character of K ∗ ,
+(11)
+
+X (x) = X0 (x) |x|s
+
+,
+
+X0 : K ∗ → U (1) .
+
+A distribution D on K is homogeneous of weight X iff one has
+hf a , Di = X (a)−1 hf, Di
+
+(12)
+
+for all test functions f and all a in K ∗ , where by definition
+f a (x) = f (ax)
+
+(13)
+
+When σ = Re(s) > 0, there exists up to normalization only one homogeneous distribution of weight X on K,(cf [W 2]). It is given by the absolutely
+convergent integral,
+Z
+f (x) X (x)d∗x = ∆X (f )
+(14)
+K∗
+
+In particular, let K be non archimedean, then, for any compactly supported locally constant function f on K one has,
+(15)
+
+f (x) − f (π −1 x) = 0
+
+∀x, |x| ≤ δ
+
+thus, for any s ∈ C the integral
+Z
+(f (x) − f (π −1 x)) |x|s d∗ x = ∆′s (f )
+(16)
+K∗
+
+with the multiplicative Haar measure d∗ x normalized by
+(17)
+
+h1R∗ , d∗ xi = 1 .
+defines a distribution on K with the properties,
+
+(18)
+
+h1R , ∆′s i = 1
+
+(19)
+
+hf a , ∆′s i = |a|−s hf, ∆′s i
+
+and
+(20)
+
+∆′s = (1 − q −s ) ∆s ,
+53
+
+where |π| = q −1 . (Let us check (18). . .(20). With f = 1R one has f (π −1 x) = 1
+R
+iff π −1 x ∈ R i.e. x ∈ πR = P . Thus ∆′s (1R ) = R∗ d∗ x = 1. Let us
+R
+R
+check (20), one has f (π −1 x) |x|s d∗ x = f (y) |π|s |y|s d∗ y = |π|s ∆s (f ).
+R
+But |π| < 1, |π| = q1 . Note also that for s = 1 and f = 1R one gets R∗ dx =
+R
+
+1
+1 − q R dx.)
+Let then X be a quasi-character of Ck and write as above
+
+(21)
+
+X = Π Xv ,
+
+X (x) = X0 (x) |x|s
+
+where s ∈ C and X0 is a character. Let P be the finite set of finite places
+where it is ramified. For any finite place v ∈
+/ P , let ∆′v (s) be the unique
+homogeneous distribution of weight Xv normalized by
+h∆′v (s), 1Rv i = 1 .
+
+(22)
+
+For any v ∈ P or any infinite place, let, for σ = Re(s) > 0, ∆′v be given by
+(14) which is homogeneous of weight Xv but unnormalized. Then the infinite
+tensor product,
+∆′s = Π ∆′v (s)
+
+(23)
+
+makes sense as a continuous linear form on S(A) and is homogeneous of weight
+X.
+This solution is not equal to 0 since ∆′v 6= 0 for any v ∈ P and any infinite
+place also. It is finite by construction of the space S(A) of test functions as
+an infinite tensor product
+(24)
+
+S(A) = ⊗ (S(kv ), 1Rv ) .
+
+Lemma 1. (cf [W 2]) For σ = Re(s) > 1, the following integral converges
+absolutely
+Z
+f (x) X0 (x) |x|s d∗ x = ∆s (f )
+
+∀ f ∈ S(A)
+
+and ∆s (f ) = L(X0 , s) ∆′s (f ).
+
+Proof. To get the absolute convergence one can assume that f = 1R and
+X0 = 1. Then one has to control an infinite product of local terms, given
+R
+locally for the Haar measure d∗ x on kv∗ such that R∗ d∗ x = 1, by
+v
+
+(25)
+
+Z
+
+|x|s d∗ x
+
+R∩kv∗
+
+54
+
+(s real)
+
+which is 1 + qv−s + qv−2s + . . . = (1 − qv−s )−1 . Thus the convergence for σ > 1
+is the same as for the zeta function.
+To prove the second equality one only needs to consider the infinite tensor
+product for finite places v ∈
+/ P . Then by (20) one has ∆′v = (1 − qv−αv ) ∆v
+where
+qv−αv = Xv (π) = X0,v (π) qv−s
+
+(26)
+with |π| = qv−1 .
+
+
+
+
+
+
+ Y
+(1 − X0,v (π) qv−s )−1  ∆′s = L(X0 , s) ∆′s.
+Thus one gets ∆s = 
+v finite
+v/
+∈P
+
+By construction ∆′s makes sense whenever σ > 0 and is a holomorphic
+function of s (for fixed f ). Let us review biefly (cf [W2]) how to extend the
+definition of ∆s .
+We let as above k be a global field, we fix a non trivial additive character
+α of A, trivial on k,
+(27)
+
+α(x + y) = α(x) α(y) ∈ U (1) , α(q) = 1 ∀ q ∈ k .
+
+We then identify the dual of the locally compact additive group A with A
+itself by the pairing,
+(28)
+
+hx, yi = α(xy) .
+
+One shows (cf.[W 1]) that the lattice k ⊂ A, i.e. the discrete and cocompact
+additive subgroup k, is its own dual,
+(29)
+
+hx, qi = 1
+
+∀q ∈ k
+
+⇔
+
+x ∈ k.
+
+Since A is the restricted product of the local fields kv one can write α as an
+infinite product,
+(30)
+
+α = Π αv
+
+where for almost all v one has αv = 1 on Rv . Let us recall the definition of
+the space S(A)0 ,
+Z
+(31)
+S(A)0 = {f ∈ S(A) ; f (0) = 0 ,
+f dx = 0}
+55
+
+Lemma 2. Let f ∈ S(A)0 , then the series
+X
+E(f ) (g) = |g|1/2
+f (qg)
+
+∀ g ∈ Ck
+
+q∈k∗
+
+converges absolutely and one has
+∀ n , ∃ c,
+
+|E(f )(g)| ≤ c e−n| log |g||
+
+∀ g ∈ Ck
+
+b (g) = E(f ) (g −1).
+and E(f)
+
+Proof. Let us first recall the formal definition ([Br]) of the Bruhat-Schwartz
+space S(G) for an arbitrary locally compact abelian group G. One considers
+all pairs of subgroups G1 , G2 of G such that G1 is generated by a compact
+neighborhood of 0 in G, while G2 is a compact subgroup of G1 such that
+the quotient group is elementary, i.e. is of the form Ra Tb Zc F for F a finite
+group. By definition the Bruhat-Schwartz space S(G) is the inductive limit
+of the Schwartz spaces S(G1 /G2 ) where the latter have the usual definition in
+terms of rapid decay of all derivatives. Since G1 is open in G, any element of
+S(G1 /G2 ) extended by 0 outside G1 defines a continuous function on G. By
+construction S(G) is the union of the subspaces S(G1 /G2 ) and it is endowed
+with the inductive limit topology.
+b be the Pontrjagin dual of G, then the Fourier transform, which
+Let G
+depends upon the normalization of the Haar measure on G, gives an isomorb
+phism of S(G) with S(G).
+
+Let Γ be a lattice in the locally compact abelian group G. Then any
+function f ∈ S(G) is admissible for the pair G, Γ in the sense of [W 1], and
+the Poisson summation formula (cf [W 1]) is the equality,
+X
+X
+fb(β)
+(32)
+Covol (Γ)
+f (γ) =
+γ∈Γ
+
+β∈Γ⊥
+
+where Γ⊥ is the dual of the lattice Γ, and
+Z
+b
+(33)
+f (β) = f (a) β(a) da .
+
+Both sides of (32) depend upon the normalization of the Haar measure on G.
+In our case we let A be as above the additive group of Adeles on k. We
+normalize the additive Haar measure dx on A by
+(34)
+
+Covol(k) = 1 .
+56
+
+We then take Γ = xk, for some x ∈ A−1 . One has
+(35)
+
+Covol (xk) = |x|
+
+The dual Γ⊥ of the lattice xk, for x invertible in A, is the lattice Γ⊥ = x−1 k.
+Thus the Poisson formula (32) reads, for any f ∈ S(A),
+X
+X
+(36)
+|x|
+f (xq) =
+fb(x−1 q) .
+q∈k
+
+q∈k
+
+Which we can rewrite as,
+(37)
+
+|x|
+
+X
+
+f (xq) =
+
+k∗
+
+δ = −|x| f (0) +
+
+R
+
+X
+k∗
+
+f (y) dy.
+
+fb(x−1 q) + δ
+
+We can then rewrite (37) as the equality, valid for all f ∈ S(A)0
+ 
+1
+(38)
+E(f )(x) = E(fb)
+f ∈ S(A)0 .
+x
+
+It remains to control the growth of E(f )(x) on Ck , but by (38), it is enough
+to understand what happens for |x| large.
+We only treat the case of number fields, the general case is similar. Let
+A = Af × A∞ be the decomposition of
+Ythe ring of Adeles corresponding to
+kv where S∞ is the set of infinite
+finite and infinite places, thus A∞ =
+S∞
+
+places.
+
+Any element of S(A) is a finite linear combination of test functions of
+the form,
+(39)
+
+f = f0 ⊗ f1
+
+where f0 ∈ S(Af ) , f1 ∈ S(A∞ ) (cf [W 5] 39), thus it is enough to control
+the growth of E(f )(x) for such f and |x| large.
+Let Jk,1 = {x ∈ Jk ; |x| = 1} be the group of Ideles of module one, since
+Jk,1 /k ∗ is compact (cf [W 1]), we shall fix a compact subset K1 of Jk,1 whose
+image in Jk,1 /k ∗ is this compact group.
+Let µ be the diagonal embedding:
+(40)
+
+µ
+
+λ ∈ R∗+ −→ (λ, . . . , λ) ∈
+
+Y
+S∞
+
+57
+
+kv∗
+
+which yields an isomorphism
+(41)
+
+Jk = Jk,1 × Im µ .
+
+One has f0 ∈ S(Af ), hence (cf [W 5]), f0 ∈ Cc (Af ) and we let K0 =
+Support f0 . Since K0 is compact, one can find a finite subset P of the set of
+finite places and C < ∞ such that:
+(42)
+
+y ∈ K = (Kf )−1 K0 ⇒ |yv | ≤ 1
+
+∀v ∈
+/P
+
+,
+
+|yv | ≤ C
+
+∀v.
+
+where Kf is the projection of K1 on Af .
+We let Ω be the compact open subgroup of Af determined by
+(43)
+
+|av | ≤ 1 ∀ v ∈
+/P
+
+,
+
+|av | ≤ C
+
+∀v.
+
+By construction E(f )(x) only depends upon the class of x in Jk /k ∗ . Thus,
+to control the behaviour of E(f )(x) for |x| → ∞, we can take x = (xf , x∞ ) ∈
+K1 and consider E(f )(λ x) for λ ∈ R∗+ , λ → ∞. Now let q = (qf , q∞ ) ∈ k,
+then,
+(44)
+
+f (q λ x) = f0 (qf xf ) f1 (q∞ λ x∞ )
+
+and this vanishes unless qf xf ∈ K0 ,Y
+i.e. unless qf ∈ K. But then by (42) one
+has qf ∈ Ω. Let Γ be the lattice in
+kv determined by
+S∞
+
+(45)
+
+Γ = {q∞ ; q ∈ k, qf ∈ Ω, }
+
+The size of E(f )(λ x) is thus controlled ( up to the square root of |λ x| ) by
+(46)
+
+C
+
+X
+
+n∈Γ∗
+
+|f1 (λ x∞ n)|
+
+where x∞ varies in the projection K∞ of K1 on
+
+Y
+
+kv∗ .
+
+S∞
+
+Since f1 ∈ S(A∞ ), this shows that E(f )(x) decays faster than any power
+of |x| for |x| → ∞.
+We have shown that E(f ) has rapid decay in terms of |x|, for |x| → ∞.
+Using (38) and the stability of S(A)0 under Fourier, we see that it also has
+exponential decay in terms of | log |x|| when | log |x|| → ∞.
+58
+
+We then get,
+Lemma 3. (cf [W 2]) For σ = Re(s) > 0, and any character X0 of Ck , one
+has
+Z
+E(f )(x) X0(x) |x|s−1/2 d∗ x = cL(X0 , s) ∆′s (f )
+∀ f ∈ S(A)0
+where the non zero constant c depends upon the normalization of the Haar
+measure d∗ x on Ck .
+Proof. For σ = Re(s) > 1, the equality follows from lemma 1, but since both
+sides are analytic in s it holds in general.
+As in lemma 1, we shall continue to use the notation ∆s (f ) for σ =
+Re(s) > 0.
+
+Approximate units in the Sobolev spaces L2δ (Ck )
+We first consider, for δ > 1, the Hilbert space L2δ (R) of functions ξ(u),
+u ∈ R with square norm given by
+Z
+(1)
+|ξ(u)|2 (1 + u2 )δ/2 du .
+R
+
+We let ρ(u) = (1 + u2 )δ/2 . It is comparable to (1 + |u|)δ and in particular,
+ρ(u + a)
+≤ c ρ(a)
+ρ(u)
+
+(2)
+
+∀u ∈ R, a ∈ R
+
+with c = 2δ/2 .
+We then let V (v) be the translation operator,
+(3)
+
+(V (v)ξ)(u) = ξ(u − v)
+
+∀ u, v ∈ R .
+
+R
+R
+One has R |ξ(u − v)|2 ρ(u) du = R |ξ(u)|2 ρ(u + v) du so that by (2) it is less
+R
+than c R |ξ(u)|2 ρ(u) ρ(v) du = c ρ(v) kξk2,
+kV (v)k ≤ (c ρ(v))1/2 .
+
+(4)
+
+This shows that V (f ) =
+(5)
+
+R
+
+f (v) V (v) dv makes sense as soon as
+Z
+|f (v)| ρ(v)1/2 dv < ∞ .
+59
+
+This holds for all f ∈ S(R).
+Lemma 4. There exists an approximate unit fn ∈ S(R), such that fbn has
+compact support, kV (fn )k ≤ C ∀ n, and
+V (fn ) → 1 strongly in L2δ (R) .
+
+Proof. Let f be a function, f ∈ S(R), whose Fourier transform fb has compact
+R
+support, and such that f dx = 1 (i.e. fb(0) = 1). Let then
+(6)
+
+fn (v) = n f (nv)
+
+n = 1, 2, . . .
+
+R
+R
+1/2
+R
+One has |fn (v)| ρ(v)1/2 dv = |f (u)| ρ nu
+du ≤ |f (u)| ρ(u)1/2 du.
+Thus kV (fn )k is uniformly bounded.
+We can assume that fb is equal to 1 on [−1, 1], then fbn is equal to 1 on
+[−n, n] and V (fn )ξ = ξ for any ξ with Supp ξb ⊂ [−n, n] . By uniformity one
+gets that V (fn ) → 1 strongly.
+
+Let us now identify the dual (L2δ )∗ of the Hilbert space L2δ with L2−δ by
+means of the pairing,
+Z
+(7)
+hξ, ηi0 =
+ξ(u) η(u) du .
+R
+
+Since L2δ is a Hilbert space, it is its own dual using the pairing,
+Z
+(8)
+hξ, η1 i =
+ξ(u) η1 (u)(1 + u2 )δ/2 du .
+R
+
+If we let η(u) = η1 (u)(1 + u2 )δ/2 , then
+Z
+Z
+2
+2 δ/2
+|η1 (u)| (1 + u ) du = |η(u)|2 (1 + u2 )−δ/2 du
+which is the natural norm square for L2−δ .
+
+Given a quasicompact group such as Ck with module,
+| | : Ck → R∗+
+
+(9)
+
+we let d∗ g be the Haar measure on Ck normalized by
+Z
+(10)
+d∗ g ∼ log Λ
+Λ→∞
+|g|∈[1,Λ]
+
+60
+
+and we let L2δ (Ck ) be defined by the norm,
+(11)
+
+Z
+
+|ξ(g)|2 (1 + log |g|2 )δ/2 d∗ g .
+
+Ck
+
+It is, when the module of k is R∗+ , a direct sum of spaces (1), labelled by the
+characters X0 of the compact group
+(12)
+
+Ck,1 = Ker mod .
+
+The pairing between L2δ (Ck ) and L2−δ (Ck ) is given by
+(13)
+
+hξ, ηi =
+
+Z
+
+ξ(g) η(g) d∗g .
+
+The natural representation V of Ck by translations is given by
+(14)
+
+(V (a)ξ)(g) = ξ(a−1 g)
+
+∀ g, a ∈ Ck .
+
+It is not unitary but by (4) one has,
+(15)
+
+kV (g)k = 0 | log |g||δ/2 , | log |g|| → ∞ .
+
+Finally, one has, using lemma 4 and the decomposition Ck = Ck,1 × N ,
+Lemma 5. There exists an approximate unit fn ∈ S(Ck ), such that fbn has
+compact support, kV (fn )k ≤ C ∀ n, and
+V (fn ) → 1 strongly in L2δ (Ck ) .
+
+Proof of theorem III 1
+We first consider the subspace of codimension 2 of S(A) given by
+Z
+(1)
+f (0) = 0 ,
+f dx = 0 .
+On this subspace S(A)0 we put the inner product,
+Z
+(2)
+|E(f )(x)|2 (1 + log |x|2 )δ/2 d∗ x .
+Ck
+
+61
+
+We let U be the representation of Ck on S(A) given by
+(U (a)ξ)(x) = ξ(a−1 x)
+
+(3)
+
+∀ a ∈ Ck , x ∈ A .
+
+We let L2δ (X)0 be the separated completion of S(A)0 for the inner product
+given by (2). The linear map E : S(A)0 → L2δ (Ck ) satisfies
+kE(f )k2δ = kf k2δ
+
+(4)
+
+by construction. Thus it extends to an isometry, still noted E,
+E : L2δ (X)0 ֒→ L2δ (Ck ) .
+
+(5)
+One has
+
+E(U (a)f )(g) = |g|1/2
+= |g|1/2
+
+X
+
+X
+
+(U (a)f )(qg) = |g|1/2
+
+k∗
+
+f (qa−1 g) = |a|1/2 |a−1 g|1/2
+
+k∗
+
+X
+
+X
+
+f (a−1 qg)
+
+k∗
+
+f (qa−1 g) = |a|1/2 (V (a) E(f ))(g)
+
+k∗
+
+E U (a) = |a|1/2 V (a) E .
+
+(6)
+
+The equality (6) shows that the natural representation U of Ck on L2δ (X)0
+corresponds by the isometry E to the restriction of |a|1/2 V (a) to the invariant
+subspace given by the range of E.
+In order to understand Im E we consider its orthogonal in the dual space
+L2−δ (Ck ).
+
+The compact subgroup
+
+(7)
+
+Ck,1 = {g ∈ Ck ; |g| = 1}
+
+acts by the representation V which is unitary when restricted to Ck,1 . Thus
+one can decompose L2δ (Ck ) and its dual L2−δ (Ck ) , in the direct sum of the
+subspaces,
+(8)
+
+L2δ,X0 = {ξ ∈ L2δ (Ck ) ; ξ(a−1 g) = X0 (a) ξ(g)
+
+∀ g ∈ Ck , a ∈ Ck,1 }
+
+L2−δ,X0 = {ξ ∈ L2−δ (Ck ) ; ξ(a g) = X0 (a) ξ(g)
+
+∀ g ∈ Ck , a ∈ Ck,1 }
+
+and,
+(9)
+
+62
+
+R
+which corresponds to the projections PX0 = X0 (a) V (a) d1 a for L2δ and
+R
+PXt 0 = X0 (a) V (a)t d1 a for the dual space L2−δ .
+In (9) we used the formula
+
+(V (g)t η)(x) = η(gx)
+
+(10)
+
+which follows from the definition of the transpose, hV (g)ξ, ηi = hξ, V (g)t ηi
+using
+Z
+Z
+ξ(g −1 x) η(x) d∗ x =
+
+ξ(y) η(gy) d∗y
+
+In these formulas one only uses the character X0 as a character of the
+compact subgroup Ck,1 of Ck . One now chooses, non canonically, an extension
+Xe0 of X0 as a character of Ck
+Xe0 (g) = X0 (g)
+
+(11)
+
+∀g ∈ Ck,1 .
+
+This choice is not unique but any two such extensions differ by a character
+which is principal, i.e. of the form: g → |g|is0 , s0 ∈ R.
+Let us fix a factorization Ck = Ck,1 × R∗ , and fix Xe0 as being equal to 1
++
+
+on R∗+ .
+
+We then write any element of L2−δ,X0 (Ck ) in the form
+g ∈ Ck → η(g) = Xe0 (g) ψ(|g|)
+
+(12)
+where
+Z
+
+(13).
+
+|ψ(|g|)2 (1 + (log |g|)2 )−δ/2 d∗ g < ∞
+
+This vector is in the orthogonal of Im E iff
+Z
+(14)
+E(f )(x) Xe0(x) ψ(|x|) d∗x = 0
+
+We first proceed formally and write ψ(|x|) =
+hand side of (14) becomes,
+(15)
+
+Z Z
+
+b d∗ x dt =
+E(f )(x) Xe0(x) |x|it ψ(t)
+
+(using the notations of lemmas 1 and 3).
+63
+
+∀ f ∈ S(A)0 .
+R
+Z
+
+b |x|it dt so that the left
+ψ(t)
+b dt
+∆1/2+it (f ) ψ(t)
+
+Let us justify this formal manipulation; since we deal with the orthogonal
+of an invariant subspace, we can assume that
+(16)
+
+V t (h) η = η,
+
+for some h such that b
+h has compact support. Indeed we can use lemma 5 to
+only consider vectors which belong to the range of
+Z
+t
+V (h) = h(g) V (g)t d∗ g , b
+h with compact support.
+
+Then, using (16), the Fourier transform of the tempered distribution ψ
+on R∗+ has compact support in R. Thus, since E(f )(x) has rapid decay,
+the equality between (14) and (15) follows from the definition of the Fourier
+transform of the tempered distribution ψ on R∗+ .
+
+Let us now describe suitable test functions f ∈ S(A)0 in order to test the
+distribution,
+Z
+b dt
+(17)
+∆ 12 +it ψ(t)
+
+We treat the case of characteristic zero, the general case is similar. For
+the finite places we take,
+(18)
+
+f0 = ⊗ 1Rv ⊗ fX0
+v/
+∈P
+
+where fX0 is the tensor product over ramified places of the functions equal to
+0 outside Rv∗ and to X 0,v on Rv∗ . It follows then by the definition of ∆′s that,
+Z
+′
+(19)
+h∆s , f0 ⊗ f i = f (x) X0,∞ (x) |x|s d∗ x
+for any f ∈ S(A∞ ).
+Moreover if the set P of finite ramified places is not empty one has,
+Z
+(20)
+f0 (0) = 0 ,
+f0 (x) dx = 0
+Af
+
+so that f0 ⊗ f ∈ S(A)0
+
+∀ f ∈ S(A∞ ).
+
+Now let ℓ be the number of infinite places of k and consider the map
+ρ : (R∗+ )ℓ → R∗+ given by
+(21)
+
+ρ(λ1 , . . . , λℓ ) = λ1 . . . λℓ .
+64
+
+As soon as ℓ > 1 this map is not proper. Given a smooth function with
+compact support, b ∈ Cc∞ (R∗+ ) we need to find a ∈ Cc∞ ((R∗+ )ℓ ) such that the
+direct image of the measure a(x) d∗ x is b(y) d∗ y where d∗ x = Π d∗ xi is the
+product of the multiplicative Haar measures.
+Equivalently one is dealing with a finite dimensional vector space E and a
+linear form L : E → R. One is given b ∈ Cc∞ (R) and asked to lift it. One can
+write E = R × E1 and the lift can be taken as a = b ⊗ b1 where b1 ∈ Cc∞ (E1 ),
+R
+b1 dx = 1.
+Thus we can in (19) take a function f of the form,
+
+(22)
+
+f (x) = g(x) X 0,∞ (x)
+
+where the function g ∈ Cc∞ (A∞ ) only depends upon (|x|v ), v ∈ S∞ and is
+smooth with compact support, disjoint from the closed set
+(
+)
+Y
+x∈
+kv ; ∃ v , xv = 0 .
+v∈S∞
+
+Thus, to any function b ∈ Cc∞ (R∗+ ) we can assign a test function f = fb
+such that for any s (Re s > 0)
+Z
+′
+(23)
+h∆s , f0 ⊗ fb i =
+b(x) |x|s d∗ x .
+R∗
++
+
+By lemma 3, we get,
+Z
+
+ Z
+1
+′
+b
+b
+∆ 12 +it ψ(t) dt , f0 ⊗ fb =
+L (X0 , + it) ∆ 1 +it ψ(t) dt , f0 ⊗ fb
+2
+2
+Z Z
+1
+1
+=
+L (X0 , + it) b
+ψ(t) b(x) |x| 2 +it d∗ x dt .
+2
+
+Thus, from (14) and (15) we conclude, using arbitrary test functions b that the
+b actually vanishes,
+Fourier transform of the distribution L (X0 , 1/2 + it) ψ(t)
+(24)
+
+L (X0 ,
+
+1
+b =0
++ it) ψ(t)
+2
+
+To justify the above equality, we need to control the growth of the L
+function in the variable t. One has,
+(25)
+
+1
+|L( + it)| = 0 (|t|N )
+2
+65
+
+.
+
+
+In particular, since L 21 + it is an analytic function of t we see that it is a
+multiplier of the algebra S(R) of Schwartz functions in the variable t. Thus
+ψ(t) is still a tempered distribution, and so is its Fourier
+the product L ( 21 +it) b
+transform. To say that the latter vanishes when tested on arbitrary functions
+which are smooth with compact support implies that it vanishes.
+The above argument uses the hypothesis X0 /Ck,1 6= 1.
+In the case X0 /Ck,1 = 1 we need to impose to the test function f used in
+R
+(22) the condition f dx = 0 which means
+Z
+
+(26)
+
+b(x) |x| d∗x = 0 .
+
+But the space of functions b(x) |x|1/2 ∈ Cc∞ (R∗+ ) such that (26) holds is still
+dense in the Schwartz space S(R∗+ ).
+To understand the equation (24), let us consider an equation for distributions α(t) of the form
+(27)
+
+ϕ(t) α(t) = 0
+
+where we first work with distributions α on S 1 and we assume that ϕ ∈
+C ∞ (S 1 ) has finitely many zeros xi ∈ Z(ϕ), of finite order ni . Let J be the
+ideal of C ∞ (S 1 ) generated by ϕ. One has ψ ∈ J ⇔ order of ψ at xi is ≥ ni .
+(n −1)
+
+Thus the distributions δxi , δx′ i , . . . , δxi i
+form a basis of the space of
+solutions of (27).
+b is, for η orthogonal to Im(E) and satisfying (16), a distribution
+Now ψ(t)
+
+ψ(t) = 0 . Thus by the above
+with compact support, and L X0 , 12 + it b
+argument we get that ψb is a finite linear combination of the distributions,
+(28)
+
+(k)
+δt ,
+
+
+
+δ−1
+1
+.
+L X0 , + it = 0 , k < order of the zero, k <
+2
+2
+
+The condition k < order of the zero is necessary and sufficient to get the
+is necessary and sufficient
+vanishing on the range of E. The condition k < δ−1
+2
+2
+to ensure that ψ belongs to L−δ , i.e. that
+(29)
+
+Z
+
+(log |x|)2k (1 + | log |x||2 )−δ/2 d∗ x < ∞
+
+which is 2k + δ < −1, i.e. k < δ−1
+2 .
+66
+
+Conversely, let s be a zero of L(X0 , s) and k > 0 its order. By lemma 3
+and the finiteness and analyticity of ∆′s (for Re s > 0) we get
+
+
+(30)
+
+∂
+∂s
+
+a
+
+∆s (f ) = 0
+
+∀ f ∈ S(A)0 , a = 0, 1, . . . , k − 1 .
+
+We can differentiate the equality of lemma 3 and get,
+(31)
+
+
+
+∂
+∂s
+
+a
+
+∆s (f ) =
+
+Z
+
+E(f )(x) X0(x) |x|s−1/2 (log |x|)a d∗ x .
+
+Ck
+
+Thus η belongs to the orthogonal of Im(E) and satisfies (16) iff it is a finite
+linear combination of functions of the form,
+(32)
+
+ηt,a (x) = X0 (x) |x|it (log |x|)a ,
+
+where,
+(33)
+
+
+
+δ−1
+1
+.
+L X0 , + it = 0 , a < order of the zero, a <
+2
+2
+
+The restriction to the subgroup R∗+ of Ck of the transposed of W is thus given
+in the above basis by:
+(34)
+
+t
+
+W (λ) ηt,a =
+
+a
+X
+
+Cab λit (Log(λ))b ηt,a−b .
+
+b=0
+
+The multiplication operator by a function with bounded derivatives is
+a bounded operator in any Sobolev space thus one checks directly, using
+the density in the orthogonal of Im(E) of vectors satisfying (16), that if
+
+t
+L X0 , 12 + is 6= 0 then is does not belong to the spectrum of DX
+.
+0
+
+t
+This determines the spectrum of the operator DX
+and hence of its trans0
+pose DX0 as indicated in Theorem 1 and ends the proof of theorem 1.
+Let us now prove the corollary. Let us fix h0 ∈ S(Ck ) such that b
+h0 has
+b
+compact support contained in {X0 } × R and h0 (X0 , s) = 1 for s small.
+
+Let then hs be given by hs (g) = h0 (g) |g|is. The Fourier transform b
+hs is
+then the translate of b
+h0 , and one can choose h0 such that,
+(35)
+
+X
+
+n∈Z
+
+b
+hn (X0 , u) = 1
+67
+
+u∈R
+
+When |s| → ∞, the dimension of the range of W t (hs ) is of the order of
+Log|s| as is the number of zeros of the L function in the translates of a fixed
+interval (cf [W 3]).
+P
+Let h ∈ S(Ck ). One has W t (h) = n∈Z W t (h ∗ hn ).
+It follows then from the polynomial growth of the norm of W t (g) that
+the operator
+Z
+(36)
+h(g) W (g)t d∗ g
+is of trace class for any h ∈ S(Ck ).
+Moreover using the triangular form given by (34) we get its trace, and
+hence the trace of its transpose W (h) as,
+X
+b
+(37)
+Trace W (h) =
+h(X , ρ)
+1
+L(X , +ρ)=0
+2
+ρ∈i R
+
+where the multiplicity is counted as in Theorem 1 and where the Fourier
+transform b
+h of h is defined by,
+Z
+b
+(38)
+h(X , ρ) =
+h(u) Xe(u) |u|ρ d∗ u .
+Ck
+
+Appendix II. Explicit formulas
+Let us first recall the Weil explicit formulas ([W3]). One lets k be a global
+field. One identifies the quotient Ck /Ck,1 with the range of the module,
+(1)
+
+N = {|g| ; g ∈ Ck } ⊂ R∗+ .
+
+One endows N with its normalized Haar measure d∗ x. Given a function F on
+N such that, for some b > 12 ,
+(2)
+
+|F (ν)| = 0(ν b ) ν → 0 , |F (ν)| = 0(ν −b ) , ν → ∞ ,
+
+one lets,
+(3)
+
+Φ(s) =
+
+Z
+
+F (ν) ν 1/2−s d∗ ν .
+N
+
+68
+
+Given a Grössencharakter X , i.e. a character of Ck and any ρ in the strip
+0 < Re(ρ) < 1, one lets N (X , ρ) be the order of L(X , s) at s = ρ. One lets,
+X
+(4)
+S(X , F ) =
+N (X , ρ) Φ(ρ)
+ρ
+
+where the sum takes place over ρ’s in the above open strip. One then defines
+a distribution ∆ on Ck by,
+X
+(5)
+∆ = log |d−1 | δ1 + D −
+Dv ,
+v
+
+where δ1 is the Dirac mass at 1 ∈ Ck , where d is a differental idele of k so
+that |d|−1 is up to sign the discriminant of k when char (k) = 0 and is q 2g−2
+when k is a function field over a curve of genus g with coefficients in the finite
+field Fq .
+The distribution D is given by,
+Z
+(6)
+D(f ) =
+f (w) (|w|1/2 + |w|−1/2 ) d∗ w
+Ck
+
+where the Haar measure d∗ w is normalized (cf. IIb). The distributions Dv
+are parametrized by the places v of k and are obtained as follows. For each v
+one considers the natural proper homomorphism,
+kv∗ → Ck , x → class of (1, . . . , x, 1 . . .)
+
+(7)
+
+of the multiplicative group of the local field kv in the idele class group Ck .
+One then has,
+(8)
+
+Dv (f ) = P f w
+
+Z
+
+f (u)
+|u|1/2 d∗ u
+|1
+−
+u|
+kv∗
+
+where the Haar measure d∗ u is normalized (cf. IIb), and where the Weil
+Principal value P f w of the integral is obtained as follows, for a local field
+K = kv ,
+Z
+1
+d∗ u = 0 ,
+(9)
+Pfw
+1R∗v
+|1
+−
+u|
+∗
+kv
+if the local field kv is non Archimedean, and otherwise:
+Z
+Z
+∗
+(10)
+Pfw
+ϕ(u) d u = P F0
+ψ(ν) d∗ ν ,
+R∗
++
+
+kv∗
+
+69
+
+R
+where ψ(ν) = |u|=ν ϕ(u) dν u is obtained by integrating ϕ over the fibers,
+while
+Z
+
+Z
+2t
+∗
+∗
+(1 − f0 ) ψ(ν) d ν − 2c log t ,
+(11) P F0 ψ(ν)d ν = 2 log(2π) c + lim
+t→∞
+
+where one assumes that ψ − c f1−1 is integrable on R∗+ , and
+f0 (ν) = inf(ν 1/2 , ν −1/2 )
+
+f1 = f0−1 − f0 .
+
+∀ ν ∈ R∗+ ,
+
+The Weil explicit formula is then,
+Theorem 1. ([W]) With the above notations one has S(X , F ) = ∆(F (|w|)
+X (w)).
+We shall now elaborate on this formula and in particular compare the
+principal values P f w with those of theorem V.3.
+Let us make the following change of variables,
+|g|−1/2 h(g −1 ) = F (|g|) X0 (g) ,
+
+(12)
+
+and rewrite the above equality in terms of h.
+By (3) one has,
+(13)
+
+Φ
+
+
+
+1
++ is
+2
+
+
+
+=
+
+Z
+
+F (|g|) |g|−is d∗ g ,
+
+Ck
+
+thus, in terms of h,
+Z
+Z
+1/2+is ∗
+(14)
+h(g) X1 (g) |g|
+d g = F (|g −1 |) X0 (g −1 ) X1 (g) |g|is d∗ g ,
+which is equal to 0 if X1 /Ck,1 6= X0 /Ck,1 and for X1 = X0 ,
+
+
+Z
+1
+1/2+is ∗
+(15)
+h(g) X0 (g) |g|
+d g=Φ
++ is .
+2
+Thus, with our notations we see that,
+
+Thus we can write,
+
+Supp b
+h ⊂ X0 × R , b
+h(X0 , ρ) = Φ(ρ) .
+
+(17)
+
+S(X0 , F ) =
+
+(16)
+
+X
+
+b
+
+L(X ,ρ)=0,X ∈Ck,1
+0<Re ρ<1
+
+70
+
+b
+h(X , ρ)
+
+using a fixed decomposition Ck = Ck,1 × N .
+Let us now evaluate each term in (5).
+The first gives (log |d−1 |) h(1). One has, using (6) and (12),
+Z
+
+hD, F (|g|) X0(g)i =
+|g|−1/2 h(g −1 ) (|g|1/2 + |g|−1/2 ) d∗ g
+Ck
+Z
+=
+h(u) (1 + |u|) d∗ u = b
+h(0) + b
+h(1) ,
+Ck
+
+where for the trivial character of Ck,1 one uses the notation
+(18)
+
+b
+h(z) = b
+h(1, z)
+
+∀z ∈ C.
+
+Thus the first two terms of (5) give
+(19)
+
+(log |d−1 |) h(1) + b
+h(0) + b
+h(1) .
+
+Let then v be a place of k, one has by (8) and (12),
+hDv , F (|g|) X0(g)i = P f w
+
+Z
+
+h(u−1 ) ∗
+d u.
+kv∗ |1 − u|
+
+We can thus write the contribution of the last term of (5) as,
+(20)
+
+−
+
+X
+
+Pfw
+
+v
+
+Z
+
+h(u−1 ) ∗
+d u.
+kv∗ |1 − u|
+
+Thus the equality of Weil can be rewritten as,
+(21)
+
+b
+h(0) + b
+h(1) −
+
+X
+
+b
+
+L(X ,ρ)=0,X ∈Ck,1
+0<Re ρ<1
+
+X
+v
+
+Pfw
+
+Z
+
+b
+h(X , ρ) = (log |d|) h(1)+
+
+h(u−1 ) ∗
+d u.
+kv∗ |1 − u|
+
+Which now holds for finite linear combinations of functions h of the form (12).
+This is enough to conclude when h(1) = 0.
+Let us now compare the Weil Principal values, with those dictated by
+theorem V.3. We first work with a local field K and compare (9), (10) with
+71
+
+our prescription. Let first K be non Archimedean. Let α be a character of K
+such that,
+α/R = 1 , α/π −1 R 6= 1 .
+
+(22)
+
+Then, for the Fourier transform given by,
+Z
+(23)
+(F f )(x) = f (y) α(y) dy ,
+with dy the selfdual Haar measure, one has
+(24)
+
+F (1R ) = 1R .
+
+Lemma 2. With the above choice of α one has
+Z ′
+
+h(u−1 ) ∗
+d u = Pfw
+|1 − u|
+
+Z
+
+h(u−1 ) ∗
+d u
+|1 − u|
+
+with the notations of theorem 3.
+Proof. By construction the two sides can only differ by a multiple of h(1).
+Let us recall from theorem 3 that the left hand side is given by
+
+
+h(u−1 )
+,
+(25)
+L,
+|u|
+du
+where L is the unique extension of ρ−1 |1−u|
+whose Fourier transform vanishes
+b
+at 1, L(1)
+= 0. Thus from (9) we just need to check that (25) vanishes for
+
+h = 1R∗ , i.e. that
+(26)
+
+hL, 1R∗ i = 0 .
+
+Equivalently, if we let Y = {y ∈ K ; |y − 1| = 1} we just need to show, using
+Parseval, that,
+(27)
+
+hlog |u| , b
+1Y i = 0 .
+
+R
+1R∗ (x), and 1R∗ = 1R − 1P , b
+1R∗ =
+One has b
+1Y (x) = Y α(xy) dy = α(x) b
+−1
+1R − |π| 1π −1R , thus, with q = |π|,
+
+
+1
+b
+(28)
+1Y (x) = α(x) 1R − 1π −1 R (x) .
+q
+72
+
+R
+
+log |x| b
+1Y (x) dx = A + B,
+
+Z
+Z
+1
+1
+(29)
+A=−
+α(x) (log q) dx , B = 1 −
+log |x| dx .
+q π −1 R∗
+q
+R
+R
+Let us show that A + B = 0. One has R dx = 1, and
+We now need to compute
+
+Z
+
+−1
+
+Z
+
+y) (log q) dy = − log q
+α(π y) dy −
+dy
+R
+P
+Z
+1
+α(π −1 y) dy = 0 as α/π −1 R 6= 1 .
+= log q , since
+q
+R
+
+
+R
+To compute B, note that π n R∗ dy = q −n 1 − 1q so that
+A=−
+
+α(π
+
+Z
+
+−1
+
+R∗
+
+
+
+
+2 X
+∞
+1
+B = 1−
+(−n log q) q −n = −q −1 log q .
+q
+n=0
+
+and A + B = 0.
+Let us now treat the case of Archimedean fields. We take K = R first,
+and we normalize the Fourier transform as,
+Z
+(30)
+(F f )(x) = f (y) e−2πixy dy
+so that the Haar measure dx is selfdual.
+With the notations of (10) one has,
+(31)
+
+Pfw
+
+Z
+
+R∗
+
+f03 (|u|)
+
+|u|1/2 ∗
+d u = log π + γ
+|1 − u|
+′
+
+where γ is Euler’s constant, γ = −Γ (1). Indeed integrating over the fibers
+gives f04 × (1 − f04 )−1 , and one gets,
+P F0
+
+Z
+
+R∗
++
+
+f04 ×(1 −f04 )−1 d∗ u =
+− log t
+
+log(2π) + lim
+
+t→∞
+
+!!
+
+Z
+
+R∗
++
+
+(1 −f02t ) f04 (1 −f04 )−1 d∗ u
+
+= log 2π + γ − log 2 .
+
+Now let ϕ(u) = − log |u|, it is a tempered distribution on R and one has,
+(32)
+
+2
+
+hϕ, e−πu i =
+
+γ
+1
+log π + + log 2 ,
+2
+2
+73
+
+∂
+as one obtains from ∂s
+′
+
+Γ (1)
+
+R
+
+ s−1
+2
+∂
+|u|−s e−πu du = ∂s
+π 2 Γ
+
+1−s
+2
+
+s = 0, using Γ( 12) = −γ − 2 log 2.
+
+
+
+evaluated at
+
+2
+
+Thus by the Parseval formula one has,
+2
+
+hb
+ϕ, e−πx i =
+
+(33)
+
+1
+γ
+log π + + log 2 ,
+2
+2
+
+which gives, for any test function f ,
+(34)
+
+hb
+ϕ, f i = lim
+
+ε→0
+
+Z
+
+f (x) d∗ x + (log ε) f (0)
+
+|x|≥ε
+
+!
+
++ λ f (0)
+
+where λ = log(2π) + γ. In order to get (34) one uses the equality,
+(35)
+!
+
+Z
+Z
+1
+∗
+ε ∗
+lim
+f (x) d x + (log ε) f (0) = lim
+f (x) |x| d x − f (0) ,
+ε→0
+ε→0
+ε
+|x|≥ε
+which holds since both sides vanish for f (x) = 1 if |x| ≤ 1, f (x) = 0 otherwise.
+Thus from (34) one gets,
+(36)
+Z ′
+
+1
+f (u)
+d∗ u = λ f (1) + lim
+ε→0
+|1
+−
+u|
+R
+
+Z
+
+f (u) ∗
+d u + (log ε) f (1)
+|1−u|≥ε |1 − u|
+
+!
+
+.
+
+Taking f (u) = |u|1/2 f03 (|u|), the right hand side of (36) gives λ − log 2 =
+log π + γ, thus we conclude using (31) that for any test function f ,
+Z
+Z ′
+1
+1
+∗
+d u = P f w f (u)
+d∗ u .
+(37)
+f (u)
+|1 − u|
+|1 − u|
+R
+R
+Let us finally consider the case K = C. We choose the basic character α as
+(38)
+
+α(z) = exp 2πi(z + z) ,
+
+the selfdual Haar measure is dz dz = |dz ∧ dz|, and the function f (z) =
+exp −2π|z|2 is selfdual.
+The normalized multiplicative Haar measure is
+(39)
+
+d∗ z =
+
+|dz ∧ dz|
+.
+2π|z|2
+
+Let us compute the Fourier transform of the distribution
+(40)
+
+ϕ(z) = − log |z|C = −2 log |z| .
+74
+
+One has
+hϕ, exp −2π|z|2 i = log 2π + γ ,
+R
+
+2
+∂
+∂
+as is seen using ∂ε
+e−2π|z| |z|−2ε |dz ∧ dz| = ∂ε
+((2π)ε Γ(1 − ε)).
+
+(41)
+
+(42)
+
+Thus h b
+ϕ, exp −2π|u|2 i = log 2π + γ and one gets,
+Z
+
+hb
+ϕ, f i = lim
+
+ε→0
+
+f (u) d∗ u + log ε f (0)
+
+|u|C ≥ε
+
+!
+
++ λ′ f (0)
+
+where λ′ = 2(log 2π + γ).
+To see this one uses the analogue of (35) for K = C, to compute the
+right hand side of (42) for f (z) = exp −2π|z|2 .
+Thus, for any test function f , one has,
+(43)
+Z ′
+f (u)
+C
+
+1
+d∗ u = λ′ f (1) + lim
+ε→0
+|1 − u|C
+
+Z
+
+f (u)
+d∗ u + (log ε)f (1)
+|1
+−
+u|
+C
+|1−u|C ≥ε
+
+!
+
+.
+
+| |C
+
+Let us compare it with P f w. When one integrates over the fibers of C∗ −→
+R∗+ the function |1 − z|−1
+C one gets,
+(44)
+
+1
+2π
+
+Z 2π
+0
+
+1
+1
+1
+dθ =
+if |z| < 1 , and
+if |z| > 1 .
+iθ
+2
+2
+2
+|1 − e z|
+1 − |z|
+|z| − 1
+
+Thus for any test function f on R∗+ one has, by (10),
+Z
+Z
+1
+1
+∗
+d u = P F0 f (ν)
+(45)
+P f w f (|u|C )
+d∗ ν
+|1 − u|C
+|1 − ν|
+1
+
+with the notations of (11). With f2 (ν) = ν 2 f0 (ν) we thus get, using (11),
+Z
+Z
+1
+∗
+(46)
+P f w f2 (|u|C )
+d u = P F0 f0 f1−1 d∗ ν = 2(log 2π + γ) .
+|1 − u|C
+We shall now show that,
+(47)
+
+lim
+
+ε→0
+
+!
+f2 (|u|C ) ∗
+d u + log ε = 0 ,
+|1−u|C ≥ε |1 − u|C
+
+Z
+
+it will then follow that, using (43),
+Z ′
+Z
+1
+1
+∗
+f (u)
+(48)
+d u = P f w f (u)
+d∗ u .
+|1 − u|C
+|1 − u|C
+C
+75
+
+To prove (47) it is enough to investigate the integral,
+Z
+(49)
+((1 − z)(1 − z))−1 |dz ∧ dz| = j(ε)
+|z|≤1,|1−z|≥ε
+
+and show that j(ε) = α log ε + o(1) for ε → 0. A similar statement then holds
+for
+Z
+((1 − z)(1 − z))−1 |dz ∧ dz|.
+|z|≤1,|1−z −1 |≥ε
+
+R
+One has j(ε) = D |dZ ∧ dZ|, where Z = log(1 − z) and the domain D is
+contained in the rectangle,
+(50)
+
+{Z = (x + iy) ; log ε ≤ x ≤ log 2 , −
+
+π
+≤ y ≤ π/2} = Rε
+2
+
+and bounded by the curve x = log(2 cos y) which comes from the equation of
+the circle |z| = 1 in polar coordinates centered at z = 1. One thus gets,
+Z log 2
+Arc cos(ex /2) dx ,
+(51)
+j(ε) = 4
+log ε
+
+when ε → 0 one has j(ε) ∼ 2π log(1/ε), which is the area of the following
+rectangle (in the measure |dz ∧ dz|),
+(52)
+
+{Z = (x + iy) ; log ε ≤ x ≤ 0 , −π/2 ≤ y ≤ π/2}
+
+One has |Rε |−2π log 2 = 2π log(1/ε). When ε → 0 the area of Rε \D converges
+to
+Z π/2
+Z log 2
+x
+log(sin u) du = 2π log 2 ,
+Arc sin(e /2) dx = −4
+(53)
+4
+0
+
+−∞
+
+so that j(ε) = 2π log(1/ε) + o(1) when ε → 0.
+Thus we can assert that with the above choice of basic characters for
+local fields one has, for any test function f ,
+Z ′
+Z
+1
+1
+∗
+f (u)
+(54)
+d u = P f w f (u)
+d∗ u .
+|1
+−
+u|
+|1
+−
+u|
+K
+Lemma 3. Let K be a local field, α0 a normalized character as above and α,
+R′
+α(x) = α0 (λx) an arbitrary character of K. Let
+be defined as in theorem
+V.3 relative to α, then, for any test function f ,
+Z
+Z ′
+1
+1
+∗
+d u = log |λ| f (1) + P f w f (u)
+d∗ u .
+f (u)
+|1 − u|
+|1 − u|
+K
+76
+
+Proof. The new selfdual Haar measure is
+da = |λ|1/2 d0 a
+
+(55)
+with d0 a selfdual for α0 .
+
+Similarly the new Fourier transform is given by
+fb(x) =
+
+thus
+
+Z
+
+α(xy) f (y) dy =
+
+Z
+
+α0 (λ xy) f (y) |λ|1/2 d0 y ,
+
+fb(x) = |λ|1/2 fb0 (λ x) .
+
+(56)
+
+Let then ϕ(u) = − log |u|. Its Fourier transform as a distribution is given by,
+(57)
+One has
+
+Z
+
+hb
+ϕ, f i =
+
+Z
+
+(− log |u|) b
+f(u) du .
+
+(− log |u|) b
+f(u) du =
+
+=
+
+Z
+
+Z
+
+(− log |u|) fb0 (λ u) |λ| d0 u
+
+(− log |v|) fb0 (v) d0 v +
+
+=
+
+Z
+
+Z
+
+log |λ| fb0 (v) d0 v .
+
+(− log |v|) fb0 (v) d0 v + log |λ| f (0) .
+
+Thus the lemma follows from (54).
+
+Let us now pass to the global case, recall that if α, α 6= 1, is a character
+of A such that α/k = 1, there exists a differental idele d = (dv ) such that, (cf.
+[W1])
+(58)
+
+αv (x) = α0,v (dv x)
+
+where α = Π αv and each local character α0,v is normalized as above.
+We can thus rewrite the Weil formula (theorem 1) as,
+Theorem 6. Let k be a global field, α a non trivial character of A/k and
+α = Π αv its local factors.
+77
+
+Let h ∈ S(Ck ) have compact support, then
+b
+h(0) + b
+h(1) −
+where the normalization of
+R
+h(u) X (u) |u|z d∗ u.
+
+X
+
+L(X ,ρ)=0
+0<Reρ<1
+
+R′
+
+b
+h(X , ρ) =
+
+X Z ′ h(u−1 )
+v
+
+kv∗ |1 − u|
+
+d∗ u
+
+is given by αv as in theorem V.3, and b
+h(X , z) =
+
+Proof. This follows from formula (21), lemma 3 and the equality log |d| =
+
+P
+v
+
+log |dv |.
+Normalization of Haar measure on modulated group
+
+We let G be a locally compact abelian group with a proper morphism,
+g → |g| , G → R∗+
+
+(1)
+
+whose range is cocompact in R∗+ .
+There exists a unique Haar measure d∗ g on G such that
+Z
+d∗ g ∼ log Λ
+when Λ → +∞ .
+(2)
+|g|∈[1,Λ]
+
+Let G0 = Ker mod = {g ∈ G ; |g| = 1}. It is a compact group by hypothesis,
+and one can identify G/G0 with the range N of the module. Let us determine
+the measure d∗ n on N ⊂ R∗+ such that (2) holds for
+
+Z
+Z Z
+∗
+(3)
+fd g=
+f (ng0 ) dg0 d∗ n
+where the Haar measure dg0 is normalized by
+Z
+(4)
+dg0 = 1 .
+G0
+
+We let ρΛ be the function on G given by
+(5)
+
+ρΛ (g) = 0
+
+if |g| ∈
+/ [1, Λ] , ρΛ (g) =
+
+The normalization (2) means that
+
+R
+
+1
+log Λ
+
+if g ∈ [1, Λ] .
+
+ρΛ d∗ g → 1 when Λ → ∞.
+
+Let first N = R∗+ then the unique measure satisfying (2) is
+(6)
+
+d∗ λ =
+78
+
+dλ
+.
+λ
+
+Let then N = µZ for some µ > 1. Let us consider the measure
+Z
+X
+(7)
+f d∗ g = α
+f (µn ) .
+N
+We take f = ρΛ , then the right hand side is α log
+Λ where N is the number of
+Λ
+µn ∈ [1, Λ], i.e. ∼ log
+log µ . This shows that (2) holds iff
+
+(8)
+
+α = log µ .
+
+Let us show more generally that if H ⊂ G is a compact subgroup of G and if
+both d∗ g and d∗ h are normalized by (2) one has
+(9)
+
+Z Z
+
+
+Z
+f (hy) d h d0 y = f d∗ g
+∗
+
+where d0 y is the Haar measure of integral 1 on G/H,
+Z
+
+(10)
+
+d0 y = 1 .
+G/H
+
+The left hand side of (9) defines a Haar measure on G and we just need to
+show that it satisfies (2).
+One has kρΛ (· y) − ρΛ k1 → 0 when Λ → ∞ , and
+(11)
+
+Z
+
+ρΛ (hy) d∗ h → 1
+
+when Λ → ∞
+
+uniformly on compact sets of y ∈ G, thus
+
+Z Z
+∗
+(12)
+ρΛ (hy) d h d0 y → 1
+
+when Λ → ∞ .
+
+Appendix III. Distribution trace formulas
+In this appendix we recall for the convenience of the reader the coordinate free
+treatment of distributions of [GS] and give the details of the transversality
+conditions.
+Given a vector space E over R, dim E = n, a density is a map, ρ ∈ |E|,
+(1)
+
+ρ : ∧n E → C
+79
+
+such that ρ(λv) = |λ| ρ(v)
+
+∀ λ ∈ R,
+
+∀ v ∈ ∧n E.
+
+Given a linear map T : E → F we let |T | : |F | → |E| be the corresponding
+linear map,it depends contravariantly on T .
+Given a manifold M and ρ ∈ Cc∞ (M, |T M |) one has a canonical integral,
+Z
+(2)
+ρ ∈ C.
+Given a vector bundle L on M one defines the generalized sections on M as
+the dual space of Cc∞ (M, L∗ ⊗ |T M |)
+(3)
+
+C −∞ (M, L) = dual of Cc∞ (M, L∗ ⊗ |T M |)
+
+where L∗ is the dual bundle. One has a natural inclusion,
+C ∞ (M, L) ⊂ C −∞ (M, L)
+
+(4)
+given by the pairing
+(5)
+
+∞
+
+σ ∈ C (M, L) ,
+
+s ∈ Cc∞ (M, L∗ ⊗ |T M |) →
+
+Z
+
+hs, σi
+
+where hs, σi is viewed as a density, hs, σi ∈ Cc∞ (M, |T M |).
+One has a similar notion of generalized section with compact support.
+Given a smooth map ϕ : X → Y , then if ϕ is proper, it gives a (contravariantly) associated map
+(6)
+
+ϕ∗ : Cc∞ (Y, L) → Cc∞ (X, ϕ∗ (L)) , (ϕ∗ ξ)(x) = ξ(ϕ(x))
+
+where ϕ∗ (L) is the pull back of the vector bundle L.
+Thus, given a linear form on Cc∞ (X, ϕ∗ (L)) one has a (covariantly) associated
+linear form on Cc∞ (Y, L). In particular with L trivial we see that given a
+generalized density ρ ∈ C −∞ (X, |T |) one has a pushforward
+ϕ∗ (ρ) ∈ C −∞ (Y, |T |)
+
+(7)
+with hϕ∗ (ρ), ξi = hρ, ϕ∗ ξi
+
+∀ ξ ∈ Cc∞ (X).
+
+Next, if ϕ is a fibration and ρ ∈ Cc∞ (X, |T |) is a density then one can integrate
+ρ along the fibers, the obtained density on Y , ϕ∗ (ρ) is given as in (7) by
+(8)
+
+hϕ∗ (ρ), f i = hρ, ϕ∗ f i
+80
+
+∀ f ∈ C ∞ (Y )
+
+but the point is that it is not only a generalized section but a smooth section
+ϕ∗ (ρ) ∈ Cc∞ (Y, |T |).
+
+It follows that if f ∈ C −∞ (Y ) is a generalized function, then one obtains a
+generalized function ϕ∗ (f ) on X by,
+(9)
+
+hϕ∗ (f ), ρi = hf, ϕ∗ (ρ)i
+
+∀ ρ ∈ Cc∞ (X, |T |) .
+
+In general,the pullback ϕ∗ (f ) continues to make sense provided the following
+transversality condition holds,
+(10)
+
+d(ϕ∗ (l)) 6= 0
+
+∀l ∈ W F (f ) .
+
+where W F (f ) is the wave front set of f ([GS]). The next point is the construction of the generalized section of a vector bundle L on a manifold X
+associated to a submanifold Z ⊂ X and a symbol,
+(11)
+
+σ ∈ C ∞ (Z, L ⊗ |NZ∗ |) .
+
+where NZ is the normal bundle of Z. The construction is the same as that of
+the current of integration on a cycle. Given ξ ∈ Cc∞ (X, L∗ ⊗ |T |), the product
+σ ξ/Z is a density on Z, since it is a section of |TZ | = |TX |⊗|NZ∗ |.One can thus
+integrate it over Z. When Z = X one has NZ∗ = {0} and |NZ∗ | has a canonical
+section, so that the current associated to σ is just given by (5). When Z = pt
+is a single point x ∈ X a generalized section of L given by a dirac distribution
+at x requires not only a vector ξx ∈ Lx but also a dual density, i.e. a volume
+multivector v ∈ |Tx∗ |.
+Now let ϕ : X → Y with Z a submanifold of Y and σ as in (11).
+Let us assume that ϕ is transverse to Z, so that for each x ∈ X with y =
+ϕ(x) ∈ Z one has
+(12)
+
+ϕ∗ (Tx ) + Tϕ(x) (Z) = Ty Y .
+
+Let
+(13)
+
+τx = {X ∈ Tx , ϕ∗ (X) ∈ Ty (Z)} .
+
+Then ϕ∗ gives a canonical isomorphism,
+(14)
+
+ϕ∗ : Tx (X)/τx ≃ Ty (Y )/Ty (Z) = Ny (Z) .
+81
+
+And ϕ−1 (Z) is a submanifold of X of the same codimension as Z with a
+natural isomorphism of normal bundles
+(15)
+
+Nϕ−1 (Z) ≃ ϕ∗ NZ .
+
+In particular, given a (generalized) δ-section of a bundle L with support Z
+and symbol σ ∈ C ∞ (Z, L ⊗ |NZ∗ |) one has a corresponding symbol on ϕ−1 (Z)
+given by
+(16)
+
+ϕ∗ σ(x) = σ(ϕ(x)) ∈ (ϕ∗ L)x ⊗ |Nx∗ |
+
+∗
+using the isomorphism (15) i.e. Nx∗ ≃ Nϕ(x)
+.
+
+Now for any δ-section associated to Z, σ, the wave front set is contained in
+the conormal bundle of the submanifold Z which shows that if ϕ is transverse
+to Z the pull back ϕ∗ δZ,σ of the distribution on Y associated to Z, σ makes
+sense ,it is equal to δϕ−1 (Z),ϕ∗ (σ) .
+Let us now formulate the Schwartz kernel theorem. One considers a
+continuous linear map,
+(17)
+
+T : Cc∞ (Y ) → C −∞ (X) ,
+
+the statement is that one can write it as
+Z
+(18)
+(T ξ) (x) = k(x, y) ξ(y) dy
+where k(x, y) dy is a generalized section,
+(19)
+
+k ∈ C −∞ (X × Y , pr∗Y (|T |)) .
+
+Let f : X → Y be a smooth map, and T = f ∗ the operator
+(20)
+
+(T ξ) (x) = ξ (f (x))
+
+∀ ξ ∈ Cc∞ (Y ) .
+
+Let us show that the corresponding k is the δ-section associated to the submanifold of X × Y given by
+(21)
+
+Graph(f ) = {(x, f (x)) ; x ∈ X} = Z
+
+and identify its symbol, σ ∈ C ∞ (Z, pr∗Y (|T |) ⊗ |NZ∗ |).
+82
+
+Given ξ ∈ Tx∗ (X), η ∈ Ty∗ (Y ) one has (ξ, η) ∈ NZ∗ iff it is orthogonal to
+(v, f∗ v) for any v ∈ Tx (X), i.e. hv, ξi + hf∗ v, ηi = 0 so that
+ξ = −f∗t η .
+
+(22)
+
+j
+
+Thus one has a canonical isomorphism j : Ty∗ (Y ) ≃ NZ∗ , η → (−f∗t η, η). The
+
+transposed (j −1 )t is given by (j −1 )t (Y ) = class of (0, Y ) in NZ , ∀ Y ∈ Ty (Y ).
+Thus, there is a canonical choice of symbol σ,
+(23)
+
+σ = |j −1 | ∈ C ∞ (Z, pr∗Y (|T |) ⊗ |NZ∗ |) .
+
+We denote the corresponding δ-distribution by
+(24)
+
+k(x, y) dy = δ(y − f (x)) dy .
+
+One then checks the formula,
+Z
+(25)
+δ(y − f (x)) ξ(y) dy = ξ(f (x))
+
+∀ ξ ∈ Cc∞ (Y ) .
+
+Let us now consider a manifold M with a flow Ft
+(26)
+
+v ∈ C ∞ (M, TM )
+
+Ft (x) = exp(t v) x
+
+and the corresponding map f ,
+(27)
+
+f : M × R → M , f (x, t) = Ft (x) .
+
+We apply the above discussion with X = M × R, Y = M . The graph of f is
+the submanifold Z of X × Y ,
+(28)
+
+Z = {(x, t, y) ; y = Ft (x)} .
+
+One lets ϕ be the diagonal map,
+(29)
+
+ϕ(x, t) = (x, t, x) , ϕ : M × R → X × Y
+
+and the first issue is the transversality
+
+|
+ϕ∩
+Z.
+
+We thus need to consider (12) for each (x, t) such that ϕ(x, t) ∈ Z, i.e. such
+that x = Ft (x). One looks at the image by ϕ∗ of the tangent space Tx M × R
+to M × R at (x, t). One lets ∂t be the natural vector field on R. The image
+83
+
+of (X, λ ∂t ) is (X, λ ∂t, X) for X ∈ Tx M, λ ∈ R. Dividing the tangent space
+of M × R × M by the image of ϕ∗ one gets an isomorphism,
+(30)
+
+(X, λ ∂t, Y ) → Y − X
+
+with Tx M .The tangent space to Z is {(X ′ , µ ∂t , (Ft )∗ X ′ + µ vFt (x) ); X ′ ∈
+Tx M, µ ∈ R}. Thus the transversality condition means that every element of
+Tx M is of the form
+(31)
+
+(Ft )∗ X − X + µ vx
+
+X ∈ Tx M , µ ∈ R .
+
+One has
+(32)
+
+(Ft )∗ µ vx = µ vx
+
+so that (Ft )∗ defines a quotient map, the Poincaré return map
+(33)
+
+P : Tx /R vx → Tx /R vx = Nx
+
+and the transversality condition (31) means exactly,
+(34)
+
+1−P
+
+is invertible.
+
+Let us make this hypothesis and compute the symbol σ of the distribution,
+(35)
+
+τ = ϕ∗ (δ(y − Ft (x)) dy) .
+
+First, as above, let W = ϕ−1 (Z) = {(x, t) ; Ft (x) = x}. The codimension of
+ϕ−1 (Z) in M × R is the same as the codimension of Z in M × R × M so it
+is dimM which shows that ϕ−1 (Z) is 1-dimensional. If (x, t) ∈ ϕ−1 (Z) then
+(Fs (x), t) ∈ ϕ−1 (Z). Thus, if we assume that v does not vanish at x, the map,
+(36)
+
+q
+
+(x, t) → t
+
+is locally constant on the connected component of ϕ−1 (Z) containing (x, t).
+This allows to identify the transverse space to W = ϕ−1 (Z) as the product,
+(37)
+
+W
+Nx,t
+≃ Nx × R
+
+e λ) given by the
+where to (X, λ ∂t ) ∈ Tx,t (M × R) we associate the pair (X,
+class of X in Nx = Tx /R vx and λ ∈ R.
+84
+
+The symbol σ of the distribution (35) is a smooth section of |N W ∗ | tensored
+by the pull back ϕ∗ (L) where L = pr∗Y |TM |, and one has
+ϕ∗ (L) ≃ |p∗ TM |
+
+(38)
+where
+(39)
+
+p(x, t) = x
+
+∀ (x, t) ∈ M × R .
+
+To compute σ one needs the isomorphism,
+(40)
+
+ϕ∗
+
+W
+→ Tϕ(x,t) (M × R × M )/Tϕ(x,t) (Z) = N Z .
+N(x,t)
+
+W
+The map ϕ∗ : Nx,t
+→ N Z is given by
+
+(41)
+
+ϕ∗ (X, λ ∂t) = (1 − (Ft )∗ ) X − λ v
+
+X ∈ Nx , λ ∈ R
+
+and the symbol σ is just
+(42)
+
+∗
+W∗
+|.
+σ = |ϕ−1
+∗ | ∈ |p TM | ⊗ |N
+
+∗
+W
+This makes sense since ϕ−1
+∗ : p TM → N .
+
+Let us now consider the second projection,
+(43)
+
+q(x, t) = t ∈ R
+
+and compute the pushforward q∗ (τ ) of the distribution τ .
+
+By construction δ(y − Ft (x)) dy is a generalized section of pr∗Y |T |, so that τ
+is a generalized section of p∗ |T | = ϕ∗ pr∗Y |T |.
+Thus q∗ (τ ) is a generalized function.
+We first look at the contribution of a periodic orbit, the corresponding part
+of ϕ−1 (Z) is of the form,
+(44)
+
+ϕ−1 (Z) = V × Γ ⊂ M × R
+
+where Γ is a discrete cocompact subgroup of R, while V ⊂ M is a one dimensional compact submanifold of M .
+To compute q∗ (τ ), we let h(t) |dt| be a 1-density on R and pull it back by q
+as the section on M × R of the bundle q ∗ |T |,
+(45)
+
+ξ(x, t) = h(t) |dt| .
+85
+
+R
+We now need to compute ϕ−1(Z) ξ σ. We can look at the contribution of
+each component: V × {T }, T ∈ Γ.
+One gets
+
+T#
+
+(46)
+
+1
+h(T ) .
+|1 − PT |
+
+Where T # is the length of the primitive orbit or equivalently the covolume of
+Γ in R for the Haar measure |dt|. We can thus write the contributions of the
+periodic orbits as
+(47)
+
+XX
+γp
+
+Covol(Γ)
+
+Γ
+
+1
+h(T ) .
+|1 − PT |
+
+Where the test function h vanishes at 0.
+The next case to consider is when the vector field vx has an isolated 0, vx0 = 0.
+In that case, the transversality condition (31) becomes
+(48)
+
+1 − (Ft )∗
+
+invertible (at x0 ) .
+
+One has Ft (x0 ) = x0 for all t ∈ R and now the relevant component of ϕ−1 (Z)
+is {x0 } × R. The transverse space N W is identified with Tx and the map
+ϕ∗ : N W ≃ N Z is given by:
+(49)
+
+ϕ∗ = 1 − (Ft )∗ .
+
+Thus the symbol σ is the scalar function |1 − (Ft )∗ |−1 . The generalized
+section q∗ ϕ∗ (δ(y − Ft (x)) dy) is the function, t → |1 − (Ft )∗ |−1 . We can thus
+write the contribution of the zeros of the flow as,
+X Z
+h(t)
+(50)
+dt
+|1 − (Ft )∗ |
+zeros
+where h is a test function vanishing at 0.
+We can thus collect the contributions 47 and 50 as
+XZ
+h(u)
+(51)
+d∗ u
+Iγ |1 − (Fu )∗ |
+γ
+where h is as above, Iγ is the isotropy group of the periodic orbit γ, the haar
+measure d∗ u on Iγ is normalised so that the covolume of Iγ is equal to one
+and we still write (Fu )∗ for its restriction to the transverse space of γ.
+86
+
+Bibliography.
+[AB] M.F. Atiyah and R. Bott, A Lefchetz fixed point formula for elliptic
+complexes: I, Annals of Math, 86 (1967), 374-407.
+[B] M. Berry, Riemann’s zeta function: a model of quantum chaos, Lecture
+Notes in Physics, 263, Springer (1986).
+[Bg] A. Beurling, A closure problem related to the ( zeta function, Proc. Nat.
+Ac. Sci. 41 (1955), 312-314.
+[B-C] J.-B. Bost and A. Connes, Hecke Algebras, Type III factors and phase
+transitions with spontaneous symmetry breaking in number theory, Selecta Mathematica, New Series 1, No.3 (1995), 411-457.
+[BG] O. Bohigas and M. Giannoni, Chaotic motion and random matrix theories, Lecture Notes in Physics, 209 (1984), 1-99.
+[BK] M. Berry and J. Keating, H = qp and the Riemann zeros, ’Supersymmetry and Trace Formulae: Chaos and Disorder’, edited by J.P. Keating,
+D.E. Khmelnitskii and I.V. Lerner (Plenum Press).
+[Br] F. Bruhat, Distributions sur un groupe localement compact et applications á l’étude des représentations des groupes p-adiques.Bull. Soc. Math.
+france. 89 (1961), 43-75.
+[C] A. Connes, Noncommutative Geometry, Academic Press (1994).
+[Co] A. Connes, Formule de trace en Géométrie non commutative et hypothèse
+de Riemann, C.R. Acad. Sci. Paris Ser. A-B (1996)
+[D] C. Deninger, Local L-factors of motives and regularised determinants,
+Invent. Math., 107 (1992), 135-150.
+[G] D. Goldfeld, A spectral interpretation of Weil’s explicit formula, Lecture
+Notes in Math., 1593, Springer Verlag (1994), 135-152.
+[GS] V. Guillemin and S. Sternberg, Geometric asymptotics, Math. Surveys,
+14, Amer. Math. Soc., Providence, R.I. (1977)
+[Gu] V. Guillemin, Lectures on spectral theory of elliptic operators, Duke
+Math. J., 44, No.3 (1977), 485-517.
+[H] S. Haran, Riesz potentials and explicit sums in arithmetic, Invent. Math.,
+101 (1990), 697-703.
+[J] B. Julia, Statistical theory of numbers, Number Theory and Physics,
+Springer Proceedings in Physics, 47 (1990).
+[K] M. Kac, Statistical Independence in Probability, Analysis and Number
+Theory, Carus Math. Monographs 18 (1959).
+[KS] N. Katz and P. Sarnak, Random matrices, Frobenius eigenvalues and
+Monodromy, (1996) , Book, to appear.
+87
+
+[KS] N. Katz and P. Sarnak, Zeros of zeta functions, their spacings and spectral
+nature, (1997), to appear.
+[LPS1] D. Slepian and H. Pollak, Prolate spheroidal wave functions, Fourier
+analysis and uncertainty I, Bell Syst. Tech. J. 40 (1961).
+[LPS2] H.J. Landau and H. Pollak, Prolate spheroidal wave functions, Fourier
+analysis and uncertainty II, Bell Syst. Tech. J. 40 (1961).
+[LPS3] H.J. Landau and H. Pollak, Prolate spheroidal wave functions, Fourier
+analysis and uncertainty III, Bell Syst. Tech. J. 41 (1962).
+[M] H. Montgomery, The pair correlation of zeros of the zeta function, Analytic Number Theory, AMS (1973).
+[Me] M.L. Mehta, Random matrices, Academic Press,(1991).
+[O] A. Odlyzko, On the distribution of spacings between zeros of zeta functions, Math. Comp. 48 (1987), 273-308.
+[P] G. Pólya, Collected Papers, Cambridge, M.I.T. Press (1974).
+[Pat] S. Patterson, An introduction to the theory of the Riemann zeta function,
+Cambridge Studies in advanced mathematics, 14 Cambridge University
+Press (1988).
+[R] B. Riemann, Mathematical Werke, Dover, New York (1953).
+[S] E.Seiler, Gauge Theories as a problem of constructive Quantum Field
+Theory and Statistical Mechanics, Lecture Notes in Physics 159 Springer
+(1982).
+[Se] A.Selberg, Collected papers, Springer (1989).
+[W1] A. Weil, Basic Number Theory, Springer, New York (1974).
+[W2] A. Weil, Fonctions zêta et distributions, Séminaire Bourbaki, 312, (1966).
+[W3] A. Weil, Sur les formules explicites de la théorie des nombres, Izv. Mat.
+Nauk., (Ser. Mat.) 36, 3-18.
+[W4] A. Weil, Sur la théorie du corps de classes,J. Math. Soc. Japan, 3, (1951).
+[W5] A. Weil, Sur certains groupes d’operateurs unitaires,Acta Math. , 111,
+(1964).
+[Z] D. Zagier, Eisenstein series and the Riemannian zeta function, Automorphic Forms, Representation Theory and Arithmetic, Tata, Bombay
+(1979), 275-301.
+
+88
+
+
