@@ -1,0 +1,754 @@
+IFT-UAM/CSIC08-26, DAMTP-2008
+
+Landau levels and Riemann zeros
+Germán Sierra1 and Paul K. Townsend 2
+
+arXiv:0805.4079v2 [math-ph] 22 Sep 2008
+
+1 Instituto de Fı́sica Teórica, CSIC-UAM, Madrid, Spain
+2 Department of Applied Mathematics and Theoretical Physics
+Centre for Mathematical Sciences, University of Cambridge, UK
+The number N (E) of complex zeros of the Riemann zeta function with positive imaginary part less
+than E is the sum of a ‘smooth’ function N̄ (E) and a ‘fluctuation’. Berry and Keating have shown
+that the asymptotic expansion of N̄ (E) counts states of positive energy less than E in a ‘regularized’
+semi-classical model with classical Hamiltonian H = xp. For a different regularization, Connes has
+shown that it counts states ‘missing’ from a continuum. Here we show how the ‘absorption spectrum’
+model of Connes emerges as the lowest Landau level limit of a specific quantum mechanical model
+for a charged particle on a planar surface in an electric potential and uniform magnetic field. We
+suggest a role for the higher Landau levels in the fluctuation part of N (E).
+
+At the begining of the 20th century Polya and Hilbert
+conjectured that the imaginary part of the complex zeros
+of the Riemann zeta function ζ(s) are the eigenvalues of
+a self-adjoint operator H. The existence of such an operator implies the celebrated Riemann hypothesis that all
+complex zeros lie on the ‘critical line’ Re(s) = 1/2. Support for this ‘spectral’ approach did not emerge until the
+1950s, when Selberg found a ‘trace’ formula relating the
+eigenvalues of the Laplacian on a compact hyperbolic surface to its geodesics; there is a strong resemblance of this
+formula to the Riemann-Weil ‘explicit’ formula relating
+the Riemann zeros to the prime numbers. Further support came in the 1970s and 80s from the works of Montgomery and Odlyzko: assuming the Riemann hypothesis,
+they showed that the local statistics of the Riemann zeros
+is described by the Gaussian Unitary Ensemble (GUE)
+of Random Matrix Theory (see e.g. [1]). Inspired by
+this, and by analogies between trace formulas of number
+theory and the Gutzwiller formula for chaotic dynamical
+systems, Berry conjectured the existence of a classical
+chaotic Hamiltonian system with isolated periodic orbits,
+with periods related to the prime numbers, such that the
+spectrum of the quantum theory gives the complex Riemann zeros [2]. The GUE statistics of the zeros requires
+the Hamiltonian to break time-reversal invariance.
+
+Berry’s conjecture received support in 1999 from the
+work of Connes [3], and Berry and Keating [4], on a semiclassical model for a particle in one dimension with classical Hamiltonian H = xp. This Hamiltonian breaks timereversal invariance since (x, p) → (x, −p) ⇒ H → −H.
+Classical orbits in this model are unbounded hyperpolas
+in phase space but they may be converted into closed orbits by an identification at the boundaries of a restricted
+region of the phase plane that defines some ‘regularization’ of the model. This regularization also makes finite
+the number of states with energy less than E, and this
+number is related to the number N (E) of complex zeros
+of the Riemann zeta function with positive imaginary
+part less than E. The Riemann-van Mangoldt ‘counting’
+
+formula states that
+1
+N (E) = N (E) + Im log ζ
+π
+
+
+
+1
++ iE
+2
+
+
+
+(1)
+
+where N (E) is a ‘smoothed’ counting function that gives
+the average number of zeros, which is corrected by the
+remaining ‘fluctuation’ term. The smooth term can be
+written as
+N (E) =
+
+θ(E)
++1,
+π
+
+(2)
+
+where (see e.g. [5])
+θ(E) = Im log Γ
+
+
+
+E
+1
++i
+4
+2
+
+
+
+−
+
+E
+log π ,
+2
+
+(3)
+
+which is the phase of the zeta function on the critical line.
+The smooth term has the following asymptotic expansion
+for large E:
+N (E) ∼
+
+E
+E
+E
+log
+−
++ O(1) ,
+2π
+2π 2π
+
+(4)
+
+while the fluctuation term is of order log E. In the BerryKeating model this asymptotic expression for N (E) is
+recovered from a semi-classical count of states with positive energy less than E; the correct O(1) term is obtained by taking into account the Maslov phase implied
+by the identifications that close the hyperbolic orbits [4].
+In the Connes model, which has a different ‘regularization’, the same asymptotic expression is found as a semiclassical count of states missing from a continuous spectrum. Thus, the Berry-Keating interpretation of N (E)
+is as an ‘emission’ spectrum while the Connes interpretation is as an ‘absorption’ spectrum.
+The first aim of this letter is to show how these semiclassical results can be recovered by viewing the H = xp
+model as a lowest Landau level (LLL) limit of a quantum mechanical model for a charged particle on the xyplane in a constant uniform perpendicular magnetic field
+of strength B, and an electric potential ϕ = −λxy, where
+λ is a constant. Let µ be the particle’s mass and −e its
+
+2
+charge. In the Landau gauge A = Bxdy for the vector
+potential 1-form A, the particle’s Lagrangian is
+L=
+
+eB
+µ 2
+(ẋ + ẏ 2 ) −
+ẏx − e λ xy .
+2
+c
+
+(5)
+
+This Lagrangian is invariant under (x, y) → (−x, −y),
+which implies a double degeneracy of states of energy E.
+It is also quadratic, with two normal modes: the standard
+‘cyclotronic’ mode of the λ = 0 model, and a ‘hyperbolic’
+mode. The respective angular frequencies are
+ωc =
+
+eB
+cosh ϑ,
+µc
+
+ωh = i
+
+eB
+sinh ϑ ,
+µc
+
+(6)
+
+where sinh(2ϑ) = (2λµc2 )/(eB 2 ); for simplicity, we shall
+consider the limiting case ωc ≫ |ωh |, for which
+ωc ≈
+
+eB
+,
+µc
+
+ωh ≈ i
+
+λc
+.
+B
+
+(7)
+
+In the quantum theory, the energy in the cyclotronic
+mode is (n + 1/2)~ωc for integer n labelling the Landau
+level. At sufficiently low energy only the lowest (n = 0)
+level is relevant and the physics is effectively described
+by the Lagrangian (see e.g. [6])
+LLLL = pẋ − |ωh |xp
+
+p=
+
+~y
+,
+ℓ2
+
+ℓ2 =
+
+~c
+.
+eB
+
+|y| < L .
+
+Nsc (E) =
+
+(8)
+
+(9)
+
+This implies for the LLL model a restriction on the phase
+space equivalent to that proposed by Connes for the
+H = xp model. It also implies that there is a maximum
+magnitude for the classical energy: |E| ≤ L2 /ℓ2 in units
+for which ~ωh = 1, which fixes the value of λ in terms of
+e and B by (7). For large L/ℓ, the semi-classical estimate
+for the total number of quantum states of any energy allowed by this bound is L2 /2πℓ2 in each of the four quadrants in the xy-plane separated by the x and y axes. The
+classical trajectory for a particle of energy E < Emax is
+the hyperbola xy = Eℓ2 , so the available classical phase
+space is the region in the square that lies between the
+two branches of the hyperbola. The number Nsc (E) of
+semi-classical quantum states with energy less than E is
+
+E
+E
+L2
+E
+E
+−
+log
+log
++
+.
+2π
+2πℓ2
+2π
+2π 2π
+
+(10)
+
+The first term diverges as L → ∞ and may be interpreted as a regularization of the continuum of states in
+the lowest Landau level for a particle free to move on
+the entire xy-plane. The finite correction, which has a
+magnitude equal to the asymptotic approximation of (4)
+to the smooth part of the counting formula, is negative,
+which led Connes to interpret it as representing spectral
+lines missing from the continuum.
+Another aim of this letter is to use the Landau model
+perspective to arrive at a proper quantum-mechanical understanding of the regularized H = xp model of Connes;
+we focus on that model (details of which may be found
+in a recent book [7]) because we have not seen how to
+achieve the same objective for the Berry-Keating model.
+The Hamiltonian operator corresponding to the starting
+Lagrangian (5) is
+H=
+
+where ℓ is the ‘magnetic’ length. This LLL model is the
+(unregularized) one-dimensional H = xp model. From
+the Landau model perspective, each quantum state is associated to a quantum of magnetic flux Φ0 = 2π~c/e that
+occupies an area 2πℓ2 in the xy-plane. In the LLL limit,
+this implies the standard semi-classical quantization in
+which one quantum state is associated with an area 2π~
+in phase space.
+The total number of states in each Landau level, in
+particular the lowest one, is infinite. To make the number
+of states in each level finite, we shall restrict the particle
+to the square
+|x| < L ,
+
+the area of this region divided by 2πℓ2 , but because of
+the double-degeneracy due to the (x, y) → (−x − y) symmetry we count only those states with (x > 0, y > 0),
+which yields
+
+~
+1 2
+[b
+px + (b
+py + 2 x)2 ] + eλxy ,
+2µ
+ℓ
+
+(11)
+
+where pbx = −i~∂x and pby = −i~∂y . There is a unitary
+transformation in which this Hamiltonian becomes the
+sum of a Hamiltonian Hc for the cyclotronic mode and
+a Hamiltonian Hh for the hyperbolic mode. In units for
+which ~ = ℓ = 1, one finds that
+Hc =
+
+ωc 2
+(b
+p + q2 ) ,
+2
+
+Hh =
+
+|ωh | b b
+(QP + P Q) ,
+2
+
+(12)
+
+where Pb = −id/dQ and pb = −id/dq. Note the Weyl
+ordering in Hh , which follows from the starting Hamiltonian. The unitary transformation that achieves this
+decomposition simplifies considerably in the limit that
+ωc ≫ |ωh |; it corresponds to the classical canonical transformation
+q = x + py ,
+
+p = px ,
+
+Q = −py ,
+
+P = y + px . (13)
+
+In the limit that ωc ≫ |ωh |, any low energy eigenstate
+is the product of the ground state of Hc , which is the
+gaussian ψ = exp(−q 2 /2ℓ2 ), with an eigenstate of Hh ,
+which we may choose to be either even or odd under
+Q → −Q. These eigenstates of definite ‘Q-parity’ are
+Φ+
+E (Q) =
+
+1
+|Q|1/2−iE
+
+,
+
+Φ−
+E (Q) =
+
+sign(Q)
+.
+|Q|1/2−iE
+
+(14)
+
+The corresponding wavefunctions of the original Hamiltonian are then given by
+Z
+2
+2
+2
+±
+ψE (x, y) = C dQ e−iQy/ℓ e−(x−Q) /2ℓ Φ±
+E (Q) . (15)
+
+3
+S2
+
+B
+
+10
+
+A
+
+E<0
+
+N
+y
+
+E>0
+
+5
+
+y
+
+C
+10
+
+0.4
+0.2
+0
+-10
+
+0
+
+5
+0
+-5
+
+x
+
+S1
+
+B
+
+D
+
+A
+
+-5
+
+x
+
+-5
+
+0
+
+N
+
+S3
+
+E>0
+
+E<0
+
+5
+10 -10
+
+-10
+-10
+
+-5
+
+0
+
+5
+
++
+FIG. 1: Absolute value of the wave function ψE
+(x, y) for
+E = 10 in the interval −10 < x, y < 10. The picture on
+the left gives a 3D representation while that on the right is a
+density plot.
+
+where C is a normalization constant. This yields
+
+
+x2
+1 iE 1 (x − iy)2
++
++ − 2ℓ
+2
+ψE (x, y) = CE e
+M
+(16)
++
+, ,
+4
+2 2
+2ℓ2
+
+
+x2
+3 iE 3 (x − iy)2
+− 2ℓ
+−
+−
+2
++
+, ,
+ψE (x, y) = CE (x − iy)e
+M
+4
+2 2
+2ℓ2
+where M (a, b, z) ≡ 1 F1 (a, b, z) is a confluent hypergeometric function. A representative plot of the even wavefunction is shown in Fig.1.
+A classical trajectory that starts at (x, L) ends at
+(L, x), so that identification of these points creates periodic orbits. This identification also means that the
+square in the xy-plane in which the particle is allowed
+to move is topologically a sphere, as shown in Fig. 2, although classical orbits lie entirely in one of four segments
+of this sphere.
+For these periodic orbits to emerge from the quantum theory in a semi-classical limit, we must identify
+the wavefunctions at these points, up to a phase. To
+determine the phase we use the asymptotic formulas
+( Γ(b)
+ez z a−b
+Re(z) > 0
+(17)
+M (a, b, z) ∼ Γ(a)
+Γ(b)
+−a
+(−z)
+Re(z)
+<0
+Γ(b−a)
+to deduce that
++
+ψE
+(L, x)
+
+∼ e
+
+−ixL/ℓ2 −x2 /2ℓ2
+
+Γ( 12 )
+
+
+
+L2
+2ℓ2
+
+−1/4+iE/2
+
+Γ( 41 + iE
+2 )
+−1/4−iE/2
+
+Γ( 21 )
+L2
++
+−x2 /2ℓ2
+ψE (x, L) ∼ e
+. (18)
+2ℓ2
+Γ( 41 − iE
+2 )
+
+10
+
+C
+
+S
+
+S
+
+D
+
+4
+
+FIG. 2: Left: xy-plane with the classical trajectories xy =
+Eℓ2 . Right: Sphere that results from the identifications of the
+edges. Now the open trajectories become closed trajectories
+in one of four segments, enclosing one of the equatorial points
+A, B, C, D.
+
+for the odd functions. Observe that the ‘even’ wavefunctions are symmetric, and the ‘odd’ wavefunctions
+antisymmetric, under the symmetry operation (x, y) →
+(−x, −y). Counting both symmetric and anti-symmetric
+functions corresponds, semi-classically, to counting states
+for xy > 0, rather than just (x > 0, y > 0), so we could
+define the quantum model by considering only the symmetric wavefunctions, which would effectively mean that
+we identify (x, y) with (−x, −y). The above formulas
+suggest that we should impose the boundary condition
+2
+
+η
+η
+ψE
+(x, L) = eiLx/ℓ +iπ(η−1)/4 ψE
+(L, x), η = ±.
+
+(20)
+
+Applied to the ‘even’ (η = +) energy eigenfunctions, this
+leads to the asymptotic condition
+ 
+−iE
+Γ 14 + i E2
+L2
+
+= 1,
+(21)
+2ℓ2
+Γ 14 − i E2
+
+which is equivalent to
+e
+
+2iθ(E)
+
+
+
+L2
+2πℓ2
+
+−iE
+
+= 1,
+
+(22)
+
+where θ(E) is the function of (3), related to N (E) by (2).
+This condition implies that
+
+
+ 2 
+E
+L
++
+1
+− N (E) = NE
+log
+(23)
+2π
+2πℓ2
+
+where NE is an integer that we may identify, asymptotically, with the number of states with energy less than E.
+If
+the first term on the left hand side is interpreted as the
+for the even functions (16), and
+regularization of the infinite number of states in a con 2 −3/4+iE/2
+tinuum, then we see that N (E) has the Connes interpreΓ( 32 )
+2
+2
+2
+L
+−
+ψE
+(L, x) ∼ Le−ixL/ℓ −x /2ℓ
+3
+iE
+tation as a count of states missing from this continuum.
+2
+Γ( 4 + 2 ) 2ℓ
+This analysis can be repeated for the odd wave function
+ 2 −3/4−iE/2
+−
+Γ( 23 )
+L
+−
+−x2 /2ℓ2
+ψE (x, L) ∼ −i Le
+(19) ψE (x, y), in which case the function θ(E) is replaced by
+.
+iE
+3
+2
+the phase of the odd Dirichlet L-functions.
+Γ( 4 − 2 ) 2ℓ
+
+4
+Finally, we conclude with some speculations on how
+the fluctuation part of the Riemann counting formula
+might arise in the Landau model approach. In the context of the Berry-Keating model, the region of phasespace allowed by the regularization may be adjusted to
+‘fluctuate’ in such a way that the number of states of
+positive energy less than E is precisely N (E) [8]. However, the Berry-Keating model does not seem to arise as
+the LLL limit of a model for a particle on a plane, and
+the ‘fluctuating boundary’ idea of [8] does not work for
+the Connes model. A natural possibility for the Connes
+model, now viewed as a lowest Landau limit, is to suppose that the fluctuation term in the Riemann counting
+formula is related to the higher Landau levels. An immediate drawback of this idea is that the full Landau model
+is two-dimensional whereas we need a one-dimensional
+model. We thus seek some one-dimensional limit of the
+Landau model that generalizes the standard LLL limit.
+To this end, we return to the Hamiltonian as the sum of
+Hc and Hh , as given in (12) and rescale, for convenience,
+to arrive at the Hamiltonian
+
+ 1
+γ 2
+QPb + Pb Q ,
+(24)
+pb + q 2 +
+H=
+2
+2
+where γ = ωc /|ωh |. Introducing
+the standard annihi√
+lation operator a = (1/ 2)(q + ib
+p) and corresponding
+creation operator, such that [a, a† ] = 1, we observe that
+the operators
+A = aQiγ ,
+
+A† = a† Q−iγ
+
+(25)
+
+have a similar commutation relation but commute with
+the Hamiltonian:
+
+
+
+
+[A, H] = 0 = A† , H .
+(26)
+A, A† = 1 ,
+
+Eigenstates of A are coherent states with complex eigenvalues z. States with z = 0 are those of the lowest Landau
+level, annihilated by a, so we may modify this limit by
+considering eigenstates of A with non-zero eigenvalue. At
+the classical level, the equation A = z implies that the
+cyclotronic motion is governed by the hyperbolic one.
+Taking z real for simplicity, one finds that
+√
+√
+p = − 2z sin(γ log Q) . (27)
+q = 2z cos(γ log Q),
+Proceeding semi-classically, we consider the area of phase
+space enclosed by a closed classical trajectory, i.e. its
+action. The total action receives contributions from both
+modes:
+Z
+Z
+A = P dQ + p dq .
+(28)
+In the limit, γ >> 1 the first term on the RHS of this
+equation gives the estimate (10). Hence in the same limit
+and allowing the particle to gyrate according to (27), one
+
+finds the semiclassical formula
+L2
+E + γz 2
+log
+2π
+2πℓ2
+E
+E
+γz 2
+E
+E
+log
++
+−
+log
+.
+−
+2π
+2π 2π
+2π
+2π
+
+Nsc (E) ∼
+
+(29)
+
+The first term, which diverges as L → ∞, may be interpreted as a count of states that become a continuum
+in this limit. Note the O(log E) correction to the counting of ‘missing’ states, which is exactly the order of the
+fluctuation term in the Riemann counting formula.
+In summary, we have shown that the semi-classical
+H = xp model, conjectured to be the semi-classical limit
+of a quantum mechanical model for the complex zeros
+of the Riemann zeta function, can be understood as the
+lowest Landau level limit of a fully quantum mechanical
+model for a particle on a plane in the presence of electric
+and magnetic fields. As it stands, a counting of states in
+the model does not yield the full ‘counting’ formula for
+the Riemann zeros because the ‘fluctuation term’ is missing, but we have provided semi-classical evidence that
+this will arise from a consideration of the higher Landau
+levels. Apart from providing a new tool in the spectral
+approach to the Riemann hypothesis, there is also the
+possibility that it will allow a laboratory construction of
+a system for which the physics is described by the ‘Riemann Hamiltonian’, the existence of which would prove
+the Riemann hypothesis.
+Acknowledgments- We thank M. Asorey, and J. Keating for discussions. This work was supported by the CICYT project FIS2004-04885 (G.S.) and by the EPSRC
+(P.K.T.). GS also acknowledges ESF Science Programme
+INSTANS 2005-2010.
+
+[1] See, for example, “Frontiers in Number Theory, Physics,
+and Geometry I On Random Matrices, Zeta Functions,
+and Dynamical Systems”, Eds: P. Cartier, B. Julia, P.
+Moussa, P. Vanhove. Springer Verlag, Berlin, 2006.
+[2] M.V. Berry, in Quantum Chaos and Statistical Nuclear
+Physics. Eds. T.H. Seligman and H. Nishioka, Lecture
+Notes in Physics, No. 263, Springer Verlag, New York,
+1986.
+[3] A. Connes, “Trace formula in noncommutative geometry and the zeros of the Riemann zeta function”, Selecta
+Mathematica (New Series) 5 (1999) 29.
+[4] M.V. Berry and J.P. Keating, “H=xp and the Riemann
+zeros”, in Supersymmetry and Trace Formulae: Chaos and
+Disorder, ed. J.P. Keating, D.E. Khmelnitskii and I. V.
+Lerner, Kluwer 1999.
+[5] H.M. Edwards, “Riemann’s Zeta Function”, Academic
+Press, New York, 1974.
+[6] R. Shankar, “Principles of Quantum Mechanics”, 1994
+Plenum Press, New York.
+[7] A. Connes and M. Marcoli, “Noncommutative Geometry, Quantum Fields and Motives”, Publications, Vol.55,
+American Mathematical Society, 2008.
+
+5
+[8] G. Sierra, ”A quantum mechanical model of the Riemann
+zeros”, New J. Phys. 10 (2008) 033016.
+
+

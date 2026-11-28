@@ -42,6 +42,9 @@ monitor.pid
 !figures/*.png
 !Code_Generated_Image.png
 
+# Paper PDFs (text extracts in papers/*.txt are tracked)
+papers/*.pdf
+
 # External review clones (now included in repository)
 # zeta-23-lean-review/
 

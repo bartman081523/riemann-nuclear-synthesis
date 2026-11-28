@@ -1,0 +1,749 @@
+The Berry–Keating Hamiltonian
+and the Local Riemann Hypothesis
+Mark Srednicki∗
+
+arXiv:1104.1850v3 [math-ph] 31 May 2011
+
+Department of Physics, University of California, Santa Barbara, CA 93106
+(Dated: October 22, 2018)
+The local Riemann hypothesis states that the zeros of the Mellin transform of a harmonic-oscillator
+eigenfunction (on a real or p-adic configuration space) have real part 1/2. For the real case, we
+show that the imaginary parts of these zeros are the eigenvalues of the Berry–Keating hamiltonian
+ĤBK = (x̂p̂ + p̂x̂)/2 projected onto the subspace of oscillator eigenfunctions of lower level. This gives
+a spectral proof of the local Riemann hypothesis for the reals, in the spirit of the Hilbert–Pólya
+conjecture. The p-adic case is also discussed.
+
+∗ mark@physics.ucsb.edu
+
+2
+I.
+
+INTRODUCTION
+
+The Riemann hypothesis states that all “nontrivial” zeros (those with real part between zero and one) of the
+Riemann zeta function ζ(s) have real part equal to exactly one half [1]. One approach to proving the Riemann
+hypothesis is via the Hilbert–Pólya conjecture (for a historical review see [2]) which posits that the imaginary parts of
+the nontrivial zeros are the eigenvalues of a self-adjoint hamiltonian operator Ĥ. A proof of the Riemann hypothesis
+would then follow from showing that the spectral determinant of Ĥ takes the form
+det(E − Ĥ) = B(E)Λ( 12 + iE) ,
+
+(1)
+
+where B(E) is a normalizing factor with no zeros, Λ(s) is the “completed” zeta function,
+Λ(s) := π −s/2 Γ( 2s )ζ(s) ,
+
+(2)
+
+and the zeta function itself is defined, for Re s > 1, by the Dirichlet sum
+ζ(s) :=
+
+∞
+X
+
+n−s .
+
+(3)
+
+n=1
+
+By the fundamental theorem of arithmetic, this is equivalent to the Euler product over primes,
+Y
+ζ(s) =
+(1 − p−s )−1 .
+
+(4)
+
+p
+
+The completed zeta function can be meromorphically continued to the full s plane (with simple poles at s = 0 and
+s = 1) via Riemann’s functional equation
+Λ(1 − s) = Λ(s) .
+
+(5)
+
+The zeros of Λ(s) coincide with the nontrivial zeros of ζ(s).
+Berry and Keating [3] conjectured that the hamiltonian operator of the Hilbert–Pólya conjecture should take the
+form
+ĤBK := 12 ω0 (x̂p̂ + p̂x̂) ,
+
+(6)
+
+where x̂ and p̂ are position and momentum operators acting on some to-be-specificed compactification of the phase
+space for one degree of freedom. (The parameter ω0 has dimensions of inverse time, and serves only to set the overall
+energy scale.) Berry and Keating amassed numerous pieces of evidence in support of their conjecture. For example,
+the Weyl formula for N (E), the number eigenvalues of ĤBK less that E, is
+Z
+dx dp
+θ(E − ω0 xp) + O(1) ,
+(7)
+N (E) =
+2π~
+where θ(z) is the unit step function. This integral diverges; to get a finite result, Berry and Keating impose lower
+cutoffs of ℓx and ℓp on the integrations over x and p, respectively, and take ℓx ℓp = 2π~; then they find [3]
+
+
+E
+E
+E
+N (E) =
+−
+log
++ O(1) .
+(8)
+2π~ω0
+2π~ω0
+2π~ω0
+This matches the asymptotic formula for the number of Riemann zeros with imaginary part between zero and E/~ω0 .
+With a further plausible assumption, the O(1) term also agrees [3].
+From here on, we set ~ω0 = 1 and (following a standard math convention) h = 2π~ = 1.
+Another intriguing aspect of ĤBK is that its eigenfunctions (which have a twofold degeneracy) resemble the summand
+in the Dirichlet sum for the zeta function, with s = 21 − iE [3]. Writing the eigenvalue equation as
+ĤBK |E,δi = E|E,δi ,
+
+(9)
+
+χE,δ (x) := hx|E,δi = (sgn x)δ |x|−1/2+iE ,
+
+(10)
+
+the (unnormalized) eigenfunctions are
+
+3
+where E is any real number and δ = 0 or 1. It seems like it ought to be possible to impose some sort of boundary
+condition on these eigenfunctions that ultimately leads to the vanishing of Λ( 12 − iE) as an eigenvalue condition [3].
+However, various attempts to carry out this program have been unsuccessful to date [4].
+In this paper, we will make a definite connection between the Berry–Keating hamiltonian and the local Riemann
+hypothesis [5–7].
+To explain the local Riemann hypothesis (which is actually a theorem [5–7]), we first recall that Tate [8] famously
+demonstrated that the structure of eqs. (2) and (4) is connected to the theory of valuations (norms) on the field of
+rational numbers Q. In particular, there is a valuation on Q associated with each prime number. Given a prime p, any
+nonzero rational number r can be written as r = ±pk a/b, where a and b are positive integers not divisible by p, and
+k is an integer (positive, negative, or zero); the p-adic norm of r is |r|p := p−k . Cauchy completion of Q with respect
+to this norm yields the p-adic numbers Qp . The valuation on Q provided by the usual absolute-value norm is not
+equivalent to any of these p-adic valuations, and instead is associated with a putative “infinite prime”; we therefore
+denote the usual absolute value of r as |r|∞ := +pk a/b. Cauchy completion of Q with respect to this norm yields the
+real numbers R = Q∞ . (For an introduction to p-adic numbers and valuations, see e.g. [9, 10].)
+Let x take values in Qv for some v = ∞, 2, 3, . . ., and let ψv,0 (x) be the simplest complex-valued function of x that
+is its own Fourier transform. In particular, for v = ∞ (and hence x ∈ R),
+2
+
+ψ∞,0 (x) := e−πx ,
+
+(11)
+
+where the Fourier transform over R is defined as
+f˜∞ (x) :=
+
+Z +∞
+
+dx e−2πixy f∞ (y) .
+
+(12)
+
+1 if |x|p ≤ 1 ,
+0 if |x|p > 1 ,
+
+(13)
+
+dx e2πixy fp (y) ;
+
+(14)
+
+−∞
+
+For v = p (and hence x ∈ Qp ),
+ψp,0 (x) :=
+
+(
+
+where the Fourier transform over Qp is defined as
+f˜p (x) :=
+
+Z
+
+Qp
+
+R
+here dx is the additive Haar measure on Qp normalized by |x|p ≤1 dx = 1. (For a review of p-adic calculus, see
+e.g. [10].) We now define a “local zeta function” or “gamma factor” for each of the valuations,
+Z
+d×x ψv,0 (x)|x|sv ,
+(15)
+Γv,0 (s) :=
+Q×
+v
+
+v
+×
+−1
+where the Haar measure d×x on the multiplicative group Q×
+v = Qv \ {0} is given by d x = v−1 |x|v dx. For v = ∞,
+eq. (15) evaluates to
+
+Γ∞,0 (s) = π −s/2 Γ( 2s ) ,
+
+(16)
+
+which is precisely the completing factor in eq. (2). For v = p, eq. (15) evaluates to
+Γp,0 (s) = (1 − p−s )−1 ,
+
+(17)
+
+which is precisely the Euler factor in eq. (4).1 Thus the completed zeta function can be written as a product of the
+gamma factors over all the valuations or “places”,
+Y
+Λ(s) =
+Γv,0 (s) .
+(18)
+v=∞,p
+
+Next we note that the function ψv,0 (x) that appears in eq. (15) is also the ground-state wave function of the harmonic
+oscillator (with the position and momentum both taking values in Qv ). The local Riemann hypothesis states that
+
+1 Note, however, that eq. (16) is not the p → ∞ limit of eq. (17); the relation of the infinite prime to the finite primes is more subtle.
+
+4
+replacing the ground-state wave function ψv,0 (x) with an excited-state wave function ψv,N (x) results in a modified
+gamma factor Γv,N (s) that either vanishes identically, or whose zeros (if any) have real part one half. This was proven
+for v = ∞ in [5, 6] and for v = p 6= 2 in [7]. (The case of p = 2 remains unproven.) Therefore, if the Riemann
+hypothesis is true, then it is also true for the modified completed zeta function
+Y
+Λ{Nv } (s) :=
+(19)
+Γv,Nv (s) ,
+v=∞,p
+
+with Nv = 0 for all but a finite number of the places. Because only a finite number of the gamma factors are modified,
+the zeros of Λ{Nv } (s) are (after analytic continuation to the full s plane) the same as the Riemann zeros of the original
+Λ(s), plus at most a finite number of new zeros from the individual modified gamma factors.
+In this paper, we give a new proof of the local Riemann hypothesis for v = ∞, by showing that the modified gamma
+factor based on the oscillator eigenfunction ψ∞,N (x) can be written as the spectral determinant of the Berry–Keating
+hamiltonian truncated to the subspace of oscillator eigenfunctions with index less than N . This is done in section II.
+This demonstrates both the applicability of the Hilbert–Pólya spectral approach in this simple model of the Riemann
+hypothesis, and the relevance of the Berry–Keating hamiltonian to that approach. In section III, we explore the p-adic
+case; we find that a spectral proof is possible, but the relevant operator does not appear to be simply related to the
+Berry–Keating operator. Conclusions are in section IV.
+II.
+
+THE LOCAL RIEMANN HYPOTHESIS FOR R
+
+We want to show that the modified gamma factor for v = ∞, which we can write in a more prosaic form as
+Z ∞
+dx ψ∞,N (x)xs−1 ,
+Γ∞,N (s) = 2
+
+(20)
+
+0
+
+vanishes only if Re s = 21 . We begin by considering the inner product hN |E,δi, where |E,δi is an eigenstate of ĤBK ,
+and |N i is an eigenstate of the oscillator hamiltonian ĤHO = 12 (x̂2 + p̂2 ) with eigenvalue (2π)−1 (N + 21 ) (N = 0, 1, . . .)
+and eigenfunction
+√
+2
+(21)
+ψ∞,N (x) := hx|N i = κN HN ( 2πx)e−πx .
+Here κN is a normalization constant and HN (y) is a Hermite polynomial. We note that ψ∞,N (x) is real, has the
+symmetry property
+ψ∞,N (−x) = (−1)N ψ∞,N (x) ,
+
+(22)
+
+and is its own Fourier transform, up to a fourth root of unity: ψ̃∞,N (x) = (−i)N ψ∞,N (x).
+Inserting a complete set of x̂ eigenstates in hN |E,δi, and using eqs. (10), (21), and the reality of ψ∞,N (x), we have
+hN |E,δi =
+=
+
+Z +∞
+
+−∞
+Z +∞
+−∞
+
+=
+
+Z +∞
+−∞
+
+=
+
+(
+
+dx hN |xihx|E,δi
+∗
+dx ψ∞,N
+(x)χE,δ (x)
+
+dx ψ∞,N (x)(sgn x)δ |x|−1/2+iE
+
+Γ∞,N ( 12 + iE) if δ = N mod 2 ,
+0
+if δ 6= N mod 2 ,
+
+(23)
+
+where the last line follows from eqs. (20) and (22).
+From here on we fix δ = N mod 2. We have shown that Γ∞,N ( 12 + iE) = hN |E,δi. The ĤBK eigenstate |E,δi is
+only well-defined for real E, but the amplitude hN |E,δi can be analytically continued to complex E. We want to
+show that hN |E,δi vanishes only if E is real.
+The condition hN |E,δi = 0 can considered as a kind of “quantum boundary condition” on the ĤBK eigenstate
+|E,δi. This terminology is motivated by the following analogy: a Dirichlet boundary condition that a wave function
+φ(x) = hx|φi vanish at some point x = a can be written as the vanishing of the inner product ha|φi, where |ai is a
+
+5
+position eigenstate. The quantum boundary condition generalizes this to the vanishing of the inner product of |φi
+with a more general state.
+Unfortunately, there is no general principle that says that the analytic continuation of hN |E,δi to complex E can
+vanish only if E is real. In the present case, however, we can show that
+hN |E,δi = cN detN (E − ĤBK ) Γ∞,δ ( 12 + iE) ,
+
+(24)
+
+where again δ = N mod 2, cN is a normalization constant, and detN means the determinant restricted to the subspace
+of either either even (if N is even) or odd (if N is odd) oscillator eigenfunctions ψ∞,n (x) with n < N . This spectral
+determinant can vanish only if E equals an eigenvalue of ĤBK in the restricted subspace. The restricted ĤBK is
+hermitian, and so all its eigenvalues are real. Since Γ∞,0 (s) = π −s/2 Γ(s/2) and Γ∞,1 (s) = 2π −s/2 Γ((s+1)/2) have
+no zeros, hN |E,δi vanishes only if E is a (real) eigenvalue of the restricted ĤBK . This proves the local Riemann
+hypothesis (previously proven by other methods in [5, 6]) for the real number field.
+To derive eq. (24), we first define the usual oscillator raising and lowering operators â = π 1/2 (x̂ + ip̂) and â† =
+π 1/2 (x̂ − ip̂), which obey [â, â† ] = 1 and yield ĤHO = (2π)−1 (â† â + 12 ). In terms of â and â† , we have
+ĤBK = 21 i(â† â† − ââ) .
+
+(25)
+
+Matrix elements of ĤBK between eigenstates of ĤHO take the form
+hn|ĤBK |n′ i = 21 i
+
+p
+
+p
+(n′ + 1)(n′ + 2) δn,n′ +2 − n′ (n′ − 1) δn,n′ −2 ,
+
+(26)
+
+where â† â|ni = n|ni and hn|n′ i = δn,n′ . We see that n and n′ must be both even or both odd for the matrix element
+to be nonvanishing, and so we can work in a subspace of either even or odd eigenstates of ĤHO .
+We can treat both cases at once by setting N = 2K + δ, n = 2k + δ, etc., where again δ = 0 if N is even and δ = 1
+if N is odd. Then eq. (26) can be written as
+hk|ĤBK |k ′ i = b∗k′ +1 δk,k′ +1 + bk′ δk,k′ −1
+= b∗k δk−1,k′ + bk+1 δk+1,k′ ,
+
+(27)
+
+where â† â|ki = (2k + δ)|ki, and bk = −(i/2)[(2k + δ)(2k + δ − 1)]1/2 . Note that bk 6= 0 for k > 0.
+Consider hk|ĤBK |E,δi. We can evaluate this by letting ĤBK act to the right, yielding its eigenvalue E. Or, we can
+insert a complete set of eigenstates of ĤHO between ĤBK and |E,δi. Equating the two results, we get
+E hk|E,δi =
+
+∞
+X
+
+hk|ĤBK |k ′ ihk ′ |E,δi
+
+k′ =0
+
+= b∗k hk−1|E,δi + bk+1 hk+1|E,δi .
+
+(28)
+
+ck φk (E) := hk|E,δi ,
+
+(29)
+
+If we define wave functions
+
+where ck is a normalization constant to be fixed later, eq. (28) becomes
+Eck φk (E) = b∗k ck−1 φk−1 (E) + bk+1 ck+1 φk+1 (E) .
+
+(30)
+
+Rearranging and dividing through by ck , we get
+b∗ ck−1
+bk+1 ck+1
+φk+1 (E) = Eφk (E) − k
+φk−1 (E) .
+ck
+ck
+
+(31)
+
+We now set c0 = 1 and ck+1 = ck /bk+1 . Eq. (31) then simplifies to
+φk+1 (E) = Eφk (E) − |bk |2 φk−1 (E) .
+
+(32)
+
+6
+The starting point for this recursion relation is φ−1 (E) = 0 and φ0 (E) = Γ∞,δ ( 12 + iE). The solution to eq. (32) can
+then be written as
+E
+−b∗1
+φK (E) =
+
+−b1
+E
+
+−b2
+
+−b∗2
+
+E
+..
+.
+
+..
+
+.
+
+..
+
+.
+
+..
+
+..
+
+.
+
+E
+
+−bK−1
+
+−b∗K−1
+
+E
+
+φ0 (E) .
+
+(33)
+
+.
+
+To see that eq. (33) is a solution to eq. (32), compute the determinant in eq. (33) by minors on the last row. Eq. (33)
+is equivalent to eq. (24), so we are done.
+III.
+
+THE LOCAL RIEMANN HYPOTHESIS FOR Qp
+
+The first issue to be faced is an appropriate definition of the Berry–Keating operator, and the first problem is that
+derivatives of complex functions of a p-adic variable do not exist. Therefore, in p-adic quantum mechanics in general,
+it is necessary to define (instead of a hamiltonian) a unitary time-evolution operator for a p-adic time variable t [10].
+In the real case, this time-evolution operator is simply exp(−iĤBK t), and its position-space matrix elements are
+hx| exp(−iĤBK t)|yi = |e−ω0 t |1/2 δ(e−ω0 t x − y) ,
+
+x, y, t, ω0 ∈ R ,
+
+(34)
+
+where δ is the Dirac delta distribution. For x, y, t, ω0 ∈ Qp , the right-hand side of eq. (34) is well-defined if we take
+| · | to be the p-adic norm, and require |ω0 t|p < 1, which allows the exponential function to be defined by a p-adically
+convergent Taylor series.
+This last requirement is too limiting, however, and so we instead choose to parameterize the evolution operator
+with a variable a ∈ Qp that can be thought of as the p-adic analog of e−ω0 t . We then define a p-adic analog of the
+Berry–Keating evolution operator, ÛBK (a), via
+hx|ÛBK (a)|yi := |a|1/2
+p δ(ax − y) ,
+
+x, y, a ∈ Qp .
+
+(35)
+
+ÛBK (a) is unitary, and obeys the composition rule
+ÛBK (a)ÛBK (b) = ÛBK (ab) .
+
+(36)
+
+The eigenstates of ÛBK (a) are specified by the eigenfunctions
+χE,ν (x) := hx|E,νi = ν(x)|x|p−1/2+iE ,
+
+(37)
+
+where E ∈ R and ν(x) ∈ C is a multiplicative character that obeys |ν(x)|∞ = 1 and ν(x)ν(y) = ν(xy).2 The
+corresponding eigenvalue of ÛBK (a) is given by
+ÛBK (a)|E,νi = ν(a)|a|iE
+p |E,νi .
+We can now define a generalized gamma factor for Qp by
+Z
+d×x ψp,0 (x)ν(x)|x|sp ,
+Γp,0,ν (s) :=
+
+(38)
+
+(39)
+
+Q×
+p
+
+where ψp,0 (x) is given by eq. (13).
+
+2 If we set x = pk x̃ with |x̃|
+
+k
+−k , the phase factor of ν(p)k in eq. (37) could be
+p = 1, then we have ν(x) = ν(p) ν(x̃). Since |x|p = p
+absorbed by shifting E by a p-dependent constant. However, it will be convenient to retain the redundant form of eq. (37).
+
+7
+If we take ν(x) = 1 when |x|p = 1, then eq. (39) evaluates to
+Γp,0,ν (s) =
+
+1
+,
+1 − ν(p)p−s
+
+(40)
+
+and the product over p yields the Dirichlet L function
+L(s, ν) :=
+
+∞
+X
+ν(n)
+
+n=1
+
+ns
+
+=
+
+Y
+
+Γp,0,ν (s) .
+
+(41)
+
+p
+
+Allowing for appropriate nontrivial values of ν(x) when |x|p = 1 yields extra factors that, when combined with the
+gamma factor for v = ∞, complete the L function into one that obeys a simple functional equation.
+From here on, we assume that p 6= 2.
+Next we must analyze the p-adic generalization of the harmonic oscillator [10]. This is specified by a unitary
+evolution operator ÛHO (c, s) with position-space matrix elements
+hx|ÛHO (c, s)|yi = κ(c, s)|s|p−1/2 pn/2 exp[2πi(cx2 − 2xy + cy 2 )/spn ] ,
+
+(42)
+
+where c and s are p-adic parameters that obey c2 + s2 = 1, κ(c, s) is an eighth root of unity, and pn (n ∈ Z) is a
+normalization constant. In terms of a p-adic time parameter t, we would have c = cos t and s = sin t, but this overly
+restricts us to |c|p = 1 and |s|p < 1. Also, by rescaling both x and y by a power of p, we can change n to either 0 or
+1, depending on whether n is even or odd. From now on we specialize to the case n = 0; the case n = 1 is treated
+similarly.
+The oscillator ground state |0i obeys ÛHO (c, s)|0i = |0i, and is specified by the wave function hx|0i = ψp,0 (x), given
+by eq. (13). We note that
+Z
+dx h0|xihx|E,νi
+h0|E,νi =
+Qp
+
+=
+
+Z
+
+Qp
+
+=
+
+Z
+
+Qp
+
+∗
+(x)χE,ν (x)
+dx ψp,0
+
+dx ψp,0 (x)ν(x)|x|p−1/2+iE
+
+Z
+p−1
+=
+d×x ψp,0 (x)ν(x)|x|+1/2+iE
+p
+p
+Qp
+p−1
+Γp,0,ν ( 12 + iE) .
+=
+p
+
+(43)
+
+So, as in the real case, the p-adic gamma factor is given by the inner product of oscillator ground state with an
+eigenstate of the Berry–Keating operator. We wish to consider modifying the gamma factor by replacing the oscillator
+ground state with an excited state.
+Let |N i denote an excited state of the p-adic harmonic oscillator,
+ÛHO (c, s)|N i = γN (c, s)|N i ,
+
+(44)
+
+where |γN (c, s)|∞ = 1. Excited states are always degenerate (infinitely so if p = 1 mod 4); they are partially
+specified by a positive integer N . The eigenfunction ψp,N (x) = hx|N i vanishes if |x|p > pN , and is locally constant:
+ψp,N (y) = ψp,N (x) if |x − y|p ≤ p−N . Kurlberg [7] has shown that an eigenfunction for a given value of N takes the
+form
+˜ N (x) + fN (x) ,
+ψp,N (x) = ∆N (x) + λN ∆
+
+(45)
+
+where λN = ±1,
+(
+1
+∆N (x) :=
+0
+
+if |x|p = pN ,
+otherwise ,
+
+(46)
+
+˜ N (x) is the Fourier transform of ∆N (x), given explicitly by
+∆
+˜ N (x) = pN Ω−N (x) − pN −1 Ω−N +1 (x) ,
+∆
+
+(47)
+
+8
+where
+(
+
+1 if |x|p ≤ pN ,
+0 if |x|p > pN ,
+
+(48)
+
+dx fN (x) = 0 ∀k ∈ Z .
+
+(49)
+
+ΩN (x) :=
+and fN (x) = f˜N (x) is real and obeys
+Z
+
+|x|=pk
+
+From here on, for simplicity, we specialize to the case that ν is trivial, ν(x) ≡ 1, and drop the subscript ν. The
+case of nontrivial ν is treated by Kurlberg [7].
+Mimicking eq. (43), we have
+Z
+p
+d×x ψp,N (x)|x|+1/2+iE
+.
+(50)
+hN |E,1i =
+p
+p−1
+Qp
+Setting s = 12 + iE, and using eqs. (45–49), the result is
+
+λN
+p
+pN p−N s − pN −1 p−(N −1)s .
+hN |E,1i = pN s +
+−s
+p−1
+1−p
+
+(51)
+
+Following Kurlberg [7], this can be simplified by setting α = p−1/2 and y = piE , which yields
+p
+y 2N − αy 2N −1 − λαy + λ
+hN |E,1i =
+,
+p−1
+αN y N −1 (y − α)
+
+(52)
+
+where we have dropped the subscript N on λ to streamline the notation. For finite E (and hence finite y), this
+expression can vanish only if the numerator vanishes. We now note that the numerator can be written as the spectral
+determinant of a relatively simple 2N × 2N unitary matrix. Specifically,
+y 2N − αy 2N −1 − λαy + λ = det(y − U ) ,
+
+(53)
+
+where
+
+
+ α
+
+
+
+
+U =
+
+
+
+
+
+
+
+β
+0
+
+−λβ λα
+
+1
+.. ..
+. .
+0
+
+
+
+
+
+
+
+
+
+1
+
+
+(54)
+
+0
+
+with α = p−1/2 and β = (1 − α2 )−1/2 = (1 − p−1 )−1/2 . Since U is unitary, y = piE must have unit magnitude if
+det(y − U ) vanishes, and so E must be real.
+Unfortunately, though U is a relatively simple matrix, it does not appear to be possible to regard it as a truncation
+of the Berry–Keating operator ÛBK (a) for some value of a. Thus a spectral proof of the local Riemann hypothesis in
+the p-adic case appears to require construction of a more complicated unitary operator. A more detailed investigation
+of p-adic oscillator eigenfunctions would be needed to construct this operator on the full Hilbert space.
+IV.
+
+CONCLUSIONS
+
+We have investigated the local Riemann hypothesis from the point of view of the Hilbert–Pólya conjecture. In
+the case of the real number field, we have given a new proof of the local Riemann hypothesis, and shown that the
+imaginary parts of the zeros are the eigenvalues of the Berry–Keating operator restricted to a finite-dimensional
+subspace. The situation in the p-adic case is more complicated, with the zeros related to the eigenvalues of a unitary
+matrix that does not appear to be simply related to the p-adic generalization of the Berry–Keating operator. Further
+investigation is needed to see if this unitary matrix can be given a natural interpretation.
+
+9
+ACKNOWLEDGMENTS
+
+I thank Pär Kurlberg and Michael Berry for helpful correspondence. This work was supported in part by the
+National Science Foundation under grant PHY07-57035.
+
+[1] Edwards H M 1974 Riemann’s Zeta Function (New York: Academic)
+[2] Derbyshire J 2004 Prime Obsession (New York: Penguin)
+[3] Berry M V and Keating J P 1999 H = xp and the Riemann zeros, in Supersymmetry and Trace Formulae: Chaos and
+Disorder ed. J P Keating, D E Khmelnitskii and I V Lerner (New York: Plenum)
+Berry M V and Keating J P 1999 The Riemann zeros and eigenvalue asymptotics SIAM Rev. 41 236
+[4] Sierra G 2005 The Riemann zeros and the cyclic renormalization group J. Stat. Mech. P12006 [arXiv:math/0510572]
+Sierra G 2008 A quantum mechanical model of the Riemann zeros New J. Phys. 10 033016 [arXiv:0712.0705]
+Sierra G and Townsend P K 2008 Landau levels and Riemann zeros Phys. Rev. Lett. 101 110201 [arXiv:0805.4079]
+Endres S and Steiner F 2010 The Berry-Keating operator on L2 (R> , dx) and on compact quantum graphs with general
+self-adjoint realizations J. Phys. A 43 095204 [arXiv:0912.3183]
+Regniers G and Van der Jeugt J 2010 The Hamiltonian H = xp and classification of osp(1|2) representations
+arXiv:1001.1285
+Sierra G and Rodriguez-Laguna J 2011 The H = xp model revisited and the Riemann zeros arXiv:1102.5356
+[5] Bump D and Ng E K-S 1986 On Riemann’s zeta function Math. Z. 192 195
+[6] Bump D, Choi K-K, Kurlberg P and Vaaler J 2000 A local Riemann hypothesis I Math. Z. 233 1
+[7] Kurlberg P 2000 A local Riemann hypothesis II Math. Z. 233 21
+[8] Tate J 1950 Fourier analysis in number fields and Hecke’s zeta functions, Princeton PhD thesis, reprinted in 1967 Algebraic
+number theory ed. J W S Cassels and A Frhlich (London: Academic Press)
+[9] Koblitz N 1984 p-adic Numbers, p-adic Analysis, and Zeta-Functions (Berlin: Springer)
+[10] Vladimirov V S, Volovich I V and Zelenov E I 1994 p-adic Analysis and Mathematical Physics (Singapore: World Scientific)
+
+

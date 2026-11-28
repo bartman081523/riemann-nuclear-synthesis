@@ -1,0 +1,1922 @@
+P UBLICATIONS MATHÉMATIQUES DE L’I.H.É.S.
+
+P IERRE D ELIGNE
+La conjecture de Weil : I
+Publications mathématiques de l’I.H.É.S., tome 43 (1974), p. 273-307
+<http://www.numdam.org/item?id=PMIHES_1974__43__273_0>
+
+© Publications mathématiques de l’I.H.É.S., 1974, tous droits réservés.
+L’accès aux archives de la revue « Publications mathématiques de l’I.H.É.S. » (http://
+www.ihes.fr/IHES/Publications/Publications.html) implique l’accord avec les conditions générales d’utilisation (http://www.numdam.org/conditions). Toute utilisation commerciale ou impression systématique est constitutive d’une infraction pénale. Toute copie ou impression de
+ce fichier doit contenir la présente mention de copyright.
+
+Article numérisé dans le cadre du programme
+Numérisation de documents anciens mathématiques
+http://www.numdam.org/
+
+LA CONJECTURE DE WEIL.
+
+1
+
+par PIERRE DELIGNE
+
+SOMMAIRE
+1. La théorie de Grothendieck : interprétation cohomologique de fonctions L . . . . . . . . . . . . . . . . . . . . .
+2. La théorie de Grothendieck : dualité de Poincaré. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3. La majoration fondamentale . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4. La théorie de Lefschetz : théorie locale . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5. La théorie de Lefschetz : théorie g l o b a l e . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6. Un théorème de rationalité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7. Fin de la démonstration de (i. 7) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+8. Premières applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+273
+280
+283
+287
+289
+294
+298
+30i
+
+Dans cet article, je démontre la conjecture de Weil sur les valeurs propres des
+endomorphismes de Frobenius. Un énoncé précis est donné en ( i . 6). J'ai tenté de présenter
+la démonstration sous une forme aussi géométrique et élémentaire que possible et j'ai
+inclus force rappels : seuls sont originaux les résultats des §§ 3, 6, 7 et 8.
+Dans un article faisant suite à celui-ci, je donnerai divers raffinements des résultats
+intermédiaires, et des applications, parmi lesquelles le théorème de Lefschetz « difficile »
+(sur les cup-produits itérés par la classe de cohomologie d'une section hyperplane).
+Le texte suit fidèlement celui de six conférences données à Cambridge en juillet 1973.
+Je remercie N. Katz de m'avoir permis d'utiliser ses notes.
+i. La théorie de Grothendieck : interprétation cohomologique de fonctions L.
+(i. i ) Soient X un schéma de type fini sur Z, [ X | l'ensemble des points fermés
+de X et, pour A ^ e l X j , soit N(^) le nombre d'éléments du corps résiduel k{x) de X en x.
+La fonction zêta de Hasse-Weil de X est
+
+fi.i.i)
+v
+
+/
+
+w=xeWn (i-NM-8)-1
+xv /
+
+v /
+
+/
+
+(ce produit converge absolument pour Si {s} assez grand). Pour X=Spec(Z), ^xM est
+la fonction zêta de Riemann.
+Nous considérerons exclusivement le cas où X est un schéma sur un corps fini F^.
+273
+35
+
+PIERRE DELIGNE
+
+274
+
+Pour ^e|X[, nous écrirons q^ plutôt que N(^). Posant deg{x)==[kÇx) : FJ, on a
+q^^q^sW^ Il y a intérêt à introduire la variable t=q~8. Posons
+(1.1.2)
+v
+
+Z(X;^)=
+H (i-^))-1;
+<
+? /
+a;G|Xr
+
+ce produit infini converge pour 1 1 \ assez petit, et on a
+(1.1.3)
+
+W==Z{X;q-8).
+
+(1.2) Dwork (On thé rationality of thé zêta function of an algebraic varie ty 5
+Amer. /. Math., 82, 1960, p. 631-648) et Grothendieck ([i] et SGA 5) ont démontré
+que Z(X, t) est une fonction rationnelle de t.
+Pour Grothendieck, c'est là un corollaire de résultats généraux en cohomologie
+/-adique (l désigne un nombre premier différent de la caractéristique p de F^). Ceux-ci
+fournissent une interprétation cohomologique des zéros et des pôles de Z(X; ^), et une
+équation fonctionnelle lorsque X est propre et lisse. Les méthodes de Dwork sontj^-adiques.
+Pour X une hypersurface non singulière dans l'espace projectif, elles lui fournissaient
+également une interprétation cohomologique des zéros et des pôles, et l'équation fonctionnelle. Elles ont inspiré la théorie cristalline de Grothendieck et Berthelot, qui pour X
+propre et lisse fournit une interprétation cohomologique j^-adique des zéros et pôles, et
+l'équation fonctionnelle. Se basant sur des idées de Washnitzer, Lubkin a créé une
+variante de cette théorie, valable seulement pour X propre, lisse et relevable en caractéristique zéro (Aj^-adic proof of Weil's conjectures, Ann. of Math., 87, 1968, p. 105-255).
+Nous ferons un usage essentiel des résultats de Grothendieck, et les rappelons
+ci-dessous.
+(1.3) Soit X une variété algébrique sur un corps algébriquement clos k de caractéristique^, i.e. un schéma séparé de type fini sur k. On n'exclut pas le cas p == o. Pour tout
+nombre premier ^=t=j^, Grothendieck a défini des groupes de cohomologie Sadiques
+H^X, Q^). Il a aussi défini des groupes de cohomologie à support propre HÇ(X, Q^).
+Pour X propre, les deux coïncident. Les H^(X, Q^) sont des espaces vectoriels de dimension
+finie sur Q^, nuls pour z>2 dim(X).
+(1.4) Soient XQ une variété algébrique sur Fç, Fç une clôture algébrique de F^
+et X la variété algébrique sur, F. déduite de Xo par extension des scalaires de F^ à F .
+Dans le langage de Weil ou Shimura, on exprimerait cette situation par : « Soit X une
+variété algébrique définie sur F ». Soit F : X—^X le morphisme de Frobenius; il envoie
+le point de coordonnées x vers le point de coordonnées A^; en d'autres termes, pour Uo
+un ouvert de Zariski de Xg, définissant un ouvert U de X, on a F'^L^^U; pour
+XEÎÎ°(UQ, 0), on a Fx=x'1. Identifions l'ensemble |X| des points fermés de X à Xo(F )
+(l'ensemble Hom? (Spec(F), Xo) des points de Xo à coefficients dans F ) , et soit
+274
+
+LA CONJECTURE DE WEIL. 1
+
+275
+
+(peGal(F /F ) la substitution de Frobenius : ^{x)==xq. L'action de F sur [ X | s'identifie
+à Faction de 9 sur Xo(F^). Dès lors :
+a) L'ensemble X5' des points fermés de X fixes sous F s'identifie à l'ensemble
+Xo(F)cXo(F) des points de X définis sur F^. Ceci exprime simplement que, pour
+xef^, on a xeTqOXq==x.
+b) De même, l'ensemble X^ des points fermés de X fixes sous le n1^ itéré de F
+s'identifie à Xo(Fçn).
+c ) L'ensemble |Xo| des points fermés de Xo s'identifie à l'ensemble J X ) ? des
+orbites de F (ou de <p) dans |X|. Le degré deg(A:) de ^e|Xo[ est le nombre d'éléments
+de l'orbite correspondante.
+d ) De b) et c ) résulte la formule
+(,.4.«)
+
+^X^Xo(F^)=J^deg.
+
+(pour xe\ Xo | et deg(A:) | n, x définit deg(;c) points à coordonnées dans F^n, tous conjugués
+sur F,).
+(1.5) Le morphisme F est fini, en particulier propre. Il induit donc des applications
+F : H:(X,^)->H:(X,%,).
+Grothendieck a prouvé la formule de Le&chetz
+#XF=S(-I)^Tr(P,H:(X,%,));
+
+le membre de droite, a priori un nombre Sadique, est entier, et égal au membre de
+gauche. On notera qu'une telle formule n'est raisonnable que parce que û?F==o, même
+à l'infini (X n'est pas supposé propre); la relation û?F==o implique que les points fixes
+de F sont de multiplicité un.
+Une formule analogue vaut pour les itérés de F :
+(1.5.1)
+
+#X Fn =#Xo(F^=S(-I) ^ Tr(F* n ,H:(X,%,)).
+
+Prenons la dérivée logarithmique de (1.1.2) :
+
+.
+(,.5.2)^
+
+z(xo> )
+^1 7 ^ ^ ^^^
+' =^y
+-deg(x)t^
+^logZ(Xo^)=
+^_^
+
+= S
+
+S deg^"-^ = S#Xo(F^,)J».
+
+a.e|X»[ n>0
+
+(t.4.1) n
+
+•'
+
+Pour F un endomorphisnie d'un espace vectoriel V, on a une identité de séries
+formelles
+(1.5.3)
+
+4.log(det(i-F(, V)-^ S Tr(F», V)("
+Ût
+
+n>0
+
+275
+
+276
+
+PIERRE DELIGNE
+
+(le vérifier pour dim(V)==i, et observer que les deux membres sont additifs en V dans
+une suite exacte courte). Substituant (1.5.1) dans (1.5.2) et appliquant (1.5.3), on
+trouve
+^logZ(Xo^)=S(-I) i ^logdet(I-F + ^H:(X,^))- l ,
+soit
+(1.5.4)
+
+Z(Xo, ^)=ndet(i-F^ H;(X, O^-1^1.
+
+Le membre de droite est un élément de Q,^). La formule affirme que son développement
+de Taylor en t=o, a priori une série formelle dans Q^[[^]] de terme constant un, est
+dans Z[[^]], et est égal au membre de gauche, lui aussi considéré comme une série
+formelle en t. Cette formule est l'interprétation cohomologique de Grothendieck de la
+fonction Z.
+Notre résultat principal est le suivant.
+Théorème (1.6). — Soit Xo une variété projective non singulière (== lisse) sur F . Pour
+chaque i, le polynôme caractéristique det(^. i—P, H^X, Q^)) est à coefficients entiers indépendants
+de i (^=t=^). Les racines complexes a de ce polynôme (les conjugués complexes des valeurs propres
+de F*) sont de valeur absolue \ a | = q^.
+Montrons déjà que (1.6) résulte du résultat apparemment plus faible suivant.
+Lemme (1.7). — Pour chaque i, et chaque i^p^ les valeurs propres de l'endomorphisme F*
+de H^X, Q^) sont des nombres algébriques dont tous les conjugués complexes a sont de valeur
+absolue \ a [ == q^2.
+Preuve de ( i . 7) => (i .6). — Regardons Z(Xo, t) comme une série formelle de terme
+constant i, élément de Z[[t]] : ZÇXo^^Sa^. D'après (1.5.3), l'image de Z(Xo, t)
+u
+
+dans Q^[[^]] est le développement de Taylor d'une fraction rationnelle. Ceci signifie
+que pour N et M assez grands (^ les degrés des numérateurs et dénominateurs) les déterminants de Hankel
+H,=det((^,^)o^.^)
+
+(À>N)
+
+sont nuls. Cette nullité est vraie dans Q^ si et seulement si elle l'est dans Q^; Z(Xo, t)
+est donc le développement en série de Taylor d'un élément de Q,(^). En d'autres termes,
+Z(Xo^)eZ[N]n%^)c%(<).
+
+Écrivons Z(Xo, ^)=P/Q,, avec P, Qj=Z[t], premiers entre eux, et de terme constant
+positif. D'après un lemme de Fatou, que Z(Xo, t) soit dans Z[[^]] et de terme constant
+un implique que les termes constants de P et Q, sont i. Posons
+P^detÇi-F^H^X,^)).
+276
+
+LA CONJECTURE DE WEIL. 1
+
+277
+
+D'après l'hypothèse (1.7), les P^ sont premiers entre eux. Le membre de droite de
+(1.5.4) est donc sous forme irréductible, et
+
+PW-.n.p^)
+Q^)=HP^).
+t impair
+» pair
+
+Soit K le sous-corps d'une clôture algébrique Q^ de Q^ engendré sur Q par les racines
+de R(^)==P(^)Q^). Les racines de P,(^) sont celles des racines de R(^) ayant la propriété
+que tous leurs conjugués complexes sont de valeur absolue çr~l/2. Cet ensemble est stable
+sous Gal(K/QJ. Le polynôme P^) est donc à coefficients rationnels. D'après le lemme
+de Gauss (ou parce que les racines de P,, étant racines de R(^,), sont des inverses d'entiers
+algébriques), il est même à coefficients entiers. La description ci-dessus des racines de
+P^t) est indépendante de t\ le polynôme P^) lui-même est donc indépendant de L
+La suite de cet article est consacrée à la démonstration de (1.7).
+(1.8) La théorie de Grothendieck fournit une interprétation cohomologique non
+seulement de fonctions zêta, mais encore de fonctions L. Les résultats sont les suivants.
+(1.9) Soit X une variété algébrique sur un corps k. Pour la définition d'un
+Q^-faisceau constructible sur X, je renvoie à SGA 5 VI. Qu'il suffise de dire que:
+a) Si 3^ est un Q^-faisceau constructible sur X, il existe une partition finie de X
+en parties localement fermées X^ telles que ^[X^ soit constant tordu.
+b) Supposons X connexe et soit x un point géométrique de X. Pour y constant
+tordu, TT^X, x) agit sur la fibre e^ç; le foncteur fibre en xest une équivalence de catégorie
+(Q^-faisceaux constructibles constants tordus sur X)(->l-> (représentations continues de T^(X, x) sur un Q^-espace vectoriel de dimension finie).
+Une telle représentation ne se factorise pas, en général, à travers un quotient fini de
+
+^(X,^).
+c ) Si À==C, les Q^-faisceaux constructibles sur X s'identifient aux faisceaux de
+Q^-espaces vectoriels y sur X^, tels qu'il existe une partition finie de X en parties
+Zariski-localement fermées X^, et pour chaque i un système local de Z^-Modules libres
+de type fini ^ sur X», avec
+^|X,=^®z,<^.
+
+Nous ne considérerons que des Q^-faisceaux constructibles, et les appellerons
+simplement Q^-faisceaux.
+(1.10) Supposons k algébriquement clos, et soit y un Q^-faisceau sur X. Grothendieck a défini des groupes de cohomologie ^-adique H^X, <^) et H^(X, e^). Les
+H^(X, 3^} sont des espaces vectoriels de dimension finie sur Q^, nuls pour i>2 dim(X).
+277
+
+278
+
+PIERRE DELIGNE
+
+Pour / A = C , les H^X, ^") et H^(X, ^r) sont les groupes de cohomologie usuels (resp.
+à support propre) de X8'11, à coefficients dans ^.
+(i. il ) Soient Xo une variété algébrique sur F^, X la variété sur Fç correspondante,
+et ^o un faisceau d'ensembles sur X^ (pour la topologie étale). On note y son image
+réciproque sur X. Outre le morphisme de Frobenius F : X—^X, on dispose alors d'un
+isomorphisme canonique F* : F*^'^^'. En voici une description. On regarde ^
+comme un espace étalé sur X^, i.e. on identifie ^ à l'espace algébrique [^oL muni
+d'un morphisme étale /: [^ol-^Xo, tel que ^ goit le faisceau des sections locales
+de [^o]. L'espace analogue [^r], étalé sur X, se déduit de [^] par extension des
+scalaires. On dispose donc d'un diagramme commutatif
+
+W -^ W]
+f
+
+f
+
+X___ X
+d'où un morphisme [^]^XX(^xJ)[^] = [ pt ^L q^ est un isomorphisme car/est
+étale. Son inverse définit l'isomorphisme P'' y ^ y cherché.
+Cette -construction se généralise aux Q^-faisceaux.
+(i. 12) Soient Xg une variété algébrique sur Fç, ^ un Q^ -faisceau sur Xo, (X, ^r)
+déduit de (Xo,^o) P^ extension des scalaires de F^ à F^, F : X->X et F* : F*^-^.
+Le morphisme fini F et F* définissent un endomorphisme
+F- : H:(X, ^) -> H:(X, F^-) -. H:(X, ^).
+Pour A:e|X|, F'18 définit un morphisme F^ ^^->^. Pour ^eX1', c'est un endomorphisme de ^. Grothendieck a démontré la formule de Lefschetz
+j^Tr(F:,^)=S(-i)1 Tr(P, H:(X, ^)).
+Une formule analogue vaut pour les itérés de F : le ^ième itéré de F* définit des morphismes F^ :^n(^->^; pour x fixe sous F^ F^ est un endomorphisme, et
+(I
+
+•I2•I)
+
+^^Tr(F:n,^)=S(-I)^Tr(Pn,H:(X,^)).
+
+(1.13) Soient A:oe|Xo[, Z l'orbite correspondante de F dans |X| et xeZ.
+L'orbite Z a deg(^o) éléments (1.4). On note F^ l'endomorphisme F^^ de ^, et
+on pose
+
+det(i-F:^,^)=det(i-F^,^).
+A isomorphisme près, (<^, F^) ne dépend pas du choix de x. Ceci justifie d'omettre x
+de la notation. On utilisera une notation analogue pour d'autres fonctions de (<^, F^).
+278
+
+LA CONJECTURE DE WEIL. 1
+
+279
+
+(1.14) Définissons Z(Xo5^o3 ^Q^LM] P^ 1e produit
+(1.14.1)
+
+Z(Xo,^)==
+
+»
+
+H det(i-F:^,^o)-1.
+
+«^ £ I XQ 1
+
+,
+
+Pour y le faisceau constant Q^, on retrouve (i. 1.2). D'après (1.5.3), la dérivée logarithmique de Z est
+4z(Xo,^)
+
+(1.14.2)
+
+^logZ(Xo^o^)- ^ ^ . -^ .
+A
+
+dfn
+
+Z(Xo,^o5 ^
+
+n
+
+S
+
+TrCF^^o)^
+
+^GX^X^n)
+
+Substituant (1.12. i) dans ( i . 14.2), on trouve par le même calcul qu'en (1.5) la généralisation suivante de ( i. 5.4)
+ZÇXo^o.^-nde^i-P^HKX,^))^ 1 ^ 1 .
+»
+
+(1.14.3)
+
+Cette formule est une identité dans Q^[[^]].
+(1.15) II est parfois commode d'utiliser un langage galoisien plutôt que géométrique. Voici le dictionnaire.
+Si F1 et F^ sont deux clôtures algébriques de F^, (Xp, <^o) sur F^ définit par extension
+des scalaires (X^) sur ï\ et (X^) sur Fj. Tout F^-isomorphisme a : F^F^
+induit un isomorphisme
+H:(X,,^)^H:(X2,^).
+En particulier, pour F^==F^ (noté F^), on trouve que Gal(F^) agit sur H^(X, ^)
+(action par transport de structure). Soit <peGal(Fç/F^) la substitution de Frobenius. On
+vérifie que
+F* = (p-1
+(dans End(H:(X, ^'))).,
+Ceci amène à définir le Frobenius géométrique FeGal(F^/F^) comme étant y"^ On a
+(1.15.1)
+
+P=F.
+
+Soit x un point géométrique de Xo, localisé en x^e\ Xo [. Par transport de structure,
+le groupe GsilÇkÇx) Ik^Xo)) agit sur la fibre (^o)a; de <^o en ^$ en particulier, le Frobenius
+géométrique relatif à k{xo) : F^eGal(À(^)/^(^)), agit. Pour x défini par un point fermé,
+encore noté A;, de X, on a ^==^o)xy et
+(1.15.2)
+
+F^F^=F^
+
+(dans
+
+End(^)).
+
+UJD
+
+En notations galoisiennes, (1.14.3) s'écrit
+H det(I-F^ d e ^^o)~ l = ^det(I-F^H:(X^))(-^^^^
+/
+
+' a;e|x,iV
+
+•
+
+<
+
+•
+
+•
+
+279
+
+280
+
+PIERRE DELIGNE
+
+2« La théorie de Grothendieck : dualité de Poincaré.
+(a. i ) Pour expliquer la relation entre racines de l'unité et orientations, je vais
+au préalable redire dans un langage farfelu deux cas classiques.
+a) Variétés différentiables. — Soit X une variété différentiable purement de dimension n. Le faisceau d'orientation Z' sur X est le faisceau localement isomorphe au faisceau
+constant Z, dont les sections inversibles sur un ouvert U de X correspondent aux orientations de U. Une orientation de X est un isomorphisme de Z' sur le faisceau constant Z.
+La classe fondamentale de X est un morphisme Tr : H^(X, Z')->Z; si X est orientée, il
+s'identifie à un morphisme Tr :H^(X,Z)->-Z. La dualité de Poincaré s'exprime à
+l'aide de la classe fondamentale.
+b) Variétés complexes. — Soit C une clôture algébrique de R. Une variété algébrique
+complexe lisse, ou plutôt la variété différentiable sous-jacente, est toujours orientable.
+Pour l'orienter, il suffit d'orienter C lui-même. Ceci revient au choix :
+a) à choisir l'une des deux racines de l'équation X 2 = — i ; on l'appelle -}-i\
+b) à choisir un isomorphisme de R/Z avec U^^eC] \z\ ==i}; -\-i est l'image
+de 1/4;
+c ) à choisir l'un des deux isomorphismes ;ci-»exp(db 27m:) de Q,/Z sur le groupe
+des racines de l'unité de C, qui se prolonge par continuité en un isomorphisme de R/Z
+sur U1.
+On note Z(i) un Z-module libre de rang un dont l'ensemble à deux éléments
+des générateurs soit en correspondance canonique avec l'un des ensembles à deux éléments a}, b), c ) . Le plus simple est de prendre Z(i)=Ker(exp : C-^C*). Au générateur y=±2ni correspond l'isomorphisme c) : x}->exp{xy).
+Soit Z(r) la puissance tensorielle r16111® de Z(i). Si X est une variété algébrique
+complexe lisse purement de dimension complexe r, le faisceau d'orientation de X est le
+faisceau constant de valeur Z(r).
+(2.2) Pour « orienter » les variétés algébriques sur k algébriquement clos de
+caractéristique o, il faut choisir un isomorphisme de Q,/Z sur le groupe des racines de
+l'unité de k. L'ensemble de ces isomorphismes est un espace principal homogène sous Z*
+(non plus sous Z*). Lorsqu'on s'intéresse seulement à la cohomologie /-adique, il suffit
+de considérer les racines de l'unité d'ordre une puissance de ^, et de supposer la caractéristique p de k différente de t. On note Z/^i) le groupe des racines de l'unité de k
+d'ordre divisante. Pour n variable, les Z/^(i) forment un système projectif, d'applications
+de transition les
+
+^,: z/r(i)^z/r(i): x^x^.
+On pose Z^(i)==limproj Z/f^i) et Q^(i)=Z^(i)®^Q^- On note Q^(r) la puissance
+tensorielle r1®"16 de Q^(i); pour reZ, r négatif, on pose encore Q^W=Q^(—y)".
+280
+
+LA CONJECTURE DE WEIL. 1
+
+281
+
+En tant qu'espace vectoriel sur Ç^, Q^(i) est isomorphe à Q^. Toutefois le groupe
+des automorphismes de k agit non trivialement sur Q^(i) : il agit via le caractère à
+valeurs dans Z; qui donne son action sur les racines de l'unité. En particulier, si k==f ,
+la substitution de Frobenius 9 : A;H^ agit par multiplication par q.
+Soit X une variété algébrique lisse purement de dimension n sur k. Le faisceau
+d'orientation de X en cohomologie Sadique est le Q^-faisceau constant Q^). La classe
+fondamentale est un morphisme
+Tr: H^»(X, %/(»)) ^%/,
+soit encore
+Tr: H^(X,%/)-^ %/(-«).
+morCTw (2.3) (dualité de Poincaré). — Pour X propre et lisse purement de dimension n,
+la forme bilinéaire
+Tr(xu^) : H^X,^)®!!2"-^,^)^ %/(-,;)
+est une dualité parfaite {elle identifie H*(X, Q,/) au dual de H^-^X, Q,/(»))).
+
+(2.4) Soient Xo^une variété algébrique propre et lisse sur F,, purement de
+dimension n, et X sur F, déduit de Xo par extension des scalaires. Le morphisme (2.3)
+est compatible à l'action de Gal(F,/F,). Si les (a,) sont les valeurs propres du Frobenius
+géométrique F agissant sur H*(X, Q,/), les valeurs propres de F agissant sur H^-TX 0,)
+sont donc les (y"aj-1).
+(2.5) Supposons pour simplifier X connexe. La démonstration (2.4) se transpose
+comme suit dans un langage géométrique, plutôt que galoisien (cf. (1.15)).
+a) Le cup-produit met H^X, %/) et H^-^X, %/) en dualité parfaite à valeur
+dans H^X, Q,/), qui est de dimension un.
+h) Le cup-produit commute à l'image réciproque F* par le morphisme de Frobenius F : X->X.
+c ) Le morphisme F est fini et de degré q" : sur H^X, %/), F* est la multiplication
+par q".
+d ) Les valeurs propres de F* ont donc la propriété (2.4).
+(2.6) On pose x(X)=S(-i)*dim H«(X, %/). Si n est impair, la forme TrÇxujy)
+
+sur H"(X, Q^) est alternée; l'entier n^ÇX) est donc toujours pair. On déduit facilement
+de (1.5.4) et de (2.3), (2.4) que
+-»x(x)
+Z(Xo,<)=s.<?
+
+2
+
+.t-^.Z{X„q-nt-l)
+281
+36
+
+282
+
+P I E R R E DE L I G N E
+
+où £ ^ = ± i , Si n est pair, notons N la multiplicité de la valeur propre q^2 de F* agissant
+sur H^X, Q^) (i.e. la dimension du sous-espace propre généralisé correspondant). On a
+
+I
+
+I
+
+si n est impair
+
+(—ï)^ si n est pair.
+
+C'est là la formulation de Grothendieck de l'équation fonctionnelle des fonctions Z.
+(2.7) Nous aurons besoin d'autres formes du théorème de dualité. Le cas des
+courbes nous suffirait dans celles-ci. Si ^est un Q^-faisceau sur une variété algébrique X
+sur k algébriquement clos, nous noterons ^(r) le faisceau ^^Q^r). Ce faisceau est
+(non canoniquement) isomorphe à ^.
+Théorème (2.8). — Supposons X lisse purement de dimension n et ^ constant tordu. Soit
+y^ le dual de 3^. La forme bilinéaire
+Tr^ujQ : H^X, ^) ^H^-CX, y-(n}} -> H^(X, ^-®^(7z)) -> H^(X, Q^)) -> Q^
+est une dualité parfaite.
+
+(2.9) Supposons X connexe et soit x un point fermé de X. Le foncteur e^H^^
+est une équivalence de la catégorie des Q^-faisceaux constants tordus avec celle des
+représentations /-adiques de n^{'K,x). Via cette équivalence, H°(X, ^) s'identifie aux
+invariants de TT^X, x) agissant dans ^ :
+(2.9.1)
+
+H^X,^)^^1^30.
+
+D'après (2.8), pour X lisse et connexe de dimension n, on a donc
+H^(X, JF)=H°(X, y-[n)Y ={^(n)Y^Y.
+
+La dualité échange invariants (plus grand sous-espace invariant) et coinvariants (plus
+grand quotient invariant). Cette formule se récrit donc
+H^X,^)^^^-»).
+Nous ne l'utiliserons que pour n=i.
+Scholie (2.10). — Soient X une courbe lisse et connexe sur k algébriquement clos, x un point
+fermé de X et ^ un f^c-faisceau constant tordu. On a
+(i) H°(X, ^)=o si X est affine.
+(ii) H^(X,^)=(^)^..)(-I).
+L'assertion (i) signifie simplement que y n'a pas de section à support fini.
+
+(2.11) Soient X une courbe projective, lisse et connexe sur k algébriquement
+clos, U un ouvert de X, complément d'un ensemble fini S de points fermés de X, j
+l'inclugion Ve-» X et ê^ un Q^-faisceau constant tordu sur U. Soit j^y le Q^-faisceau
+constructible image directe de ^'. Sa fibre en ^eS est de rang inférieur ou égal au rang
+282
+
+LA CONJECTURE DE WEIL. 1
+
+283
+
+de sa fi,bre en un point général; c'est un espace d'invariants sous un groupe de monodromie locale.
+Théorème (2.12). — La forme bilinéaire
+
+TrÇxu^ : H^(X,^^)®H2-^(X,J^''(I))^H2(X,^^'®J^'(I))
+->H2(X,^(^®^')(I))^H2(X,^^(I))=H2(X,^(I))-^%,
+est une dualité parfaite.
+
+(2.13) II nous sera commode de disposer des Q^-faisceaux Q^) sur un quelconque
+schéma X où t est inversible. Le tout est de définir les Z/f^i). Par définition, Z/f^i)
+est le faisceau étale des racines (^y^8 de l'unité.
+(2.14) Indications bibliographiques sur les §§ 1 et 2.
+
+A) Tous les résultats importants en cohomologie étale se démontrent d'abord
+pour des faisceaux de torsion. L'extension aux Q^-faisceaux se fait par des passages à la
+limite formels. Dans ce qui suit, pour chaque théorème cité, je renverrai non point à
+une référence où il est démontré, mais à une référence où son analogue pour les faisceaux
+de torsion l'est.
+B) A l'exception de la formule de Lefschetz et de (2.12)5 les résultats de cohomologie étale utilisés dans cet article sont tous déniontrés dans SGA 4. Pour ceux déjà
+énoncés, les références sont : définition des HP : VII ; définition des H^ : XVII 5.1;
+théorème de finitude : XIV i, complété en XVII 5.3; dimension cohomologique : X;
+dualité de Poincaré : XVIII.
+G) La relation entre les divers Frobenius ((1.4), ( i . i i ) , (1.15)) est expliquée en
+détail dans SGA 5, XV, §§i, 2.
+D) L'interprétation cohomologique des fonctions Z ( i . 14.3) est clairement exposée
+dans [i]; toutefois, la formule de Lefschetz (1.12), pour X une courbe projective et
+lisse, y est utilisée, mais non démontrée. Pour la démonstration, il faut, hélas, renvoyer
+à SGA 5.
+E) La forme (2.12) du théorème de dualité de Poincaré résulte du résultat général
+SGA 4, XVIII (3.2.5) (pour S=Spec(A), X = X , K=j^, L-Q^) par un calcul
+local qui n'est, pas difficile. L'énoncé figurera explicitement dans la version définitive
+de SGA 5. Dans le cas où nous l'utiliserons (ramification de y modérée), on pourrait
+l'obtenir par voie transcendante, en relevant X et y en caractéristique o.
+3. La majoration fondamentale.
+Le résultat de ce paragraphe a été catalysé par la lecture de Rankin [3].
+(3.1) Soient Ug une courbe sur Fg, complément dans P1 d'un ensemble fini de
+points fermés, U la courbe sur F^ qui s'en déduit, u un point fermé de U, e^o un Q^ -faisceau
+constant tordu sur U"o et 3^ son image réciproque sur U.
+283
+
+284
+
+PIERRE DELIGNE
+
+Soit (îeQ,. Nous dirons que ^ est de ^oîû^ [3 si pour tout ;ve|Uo|, les valeurs
+propres de F^ agissant sur ^0(1.13) sont des nombres algébriques dont tous les conjugués
+complexes sont de valeur absolue q^2. Par exemple, Q^(r) est de poids — 2r.
+Théorème (3.2). — Faisons les hypothèses suivantes :
+(i)
+
+^Q est muni d9 une forme bilinéaire alternée non dégénérée
+^ : ^W^Q^-P)
+
+(ii)
+
+(i^Z).
+
+L'image de T^(U, u) dans GL(^) est un sous-groupe ouvert du groupe symplectique
+
+SpG^J.
+(iii) Pour tout XC\UQ\, le polynôme det(i—F^,^) est à coefficients rationnels.
+
+Alors, y est de poids p.
+On peut supposer, et nous supposerons, que U est affine et que e^'4=o.
+2k
+
+Lemme (3.3). — Soit 2k un entier pair et notons ®<^o ^ puissance tensorielle (sè)1^®
+de y^. Pour XE\'\JQ\, la dérivée logarithmique
+2k
+d
+^^log(det(I-F^ de ^0^)- l )
+
+est une série formelle à coefficients rationnels positifs.
+
+L'hypothèse (iii) assure que, pour tout n, Tr(F^,e^o)eQ^. Le nombre
+2k
+
+T^.^^-T^,^
+
+est donc rationnel positif, et on applique (1.5.3).
+2k
+
+Lemme (3.4). — Les facteurs locaux detÇi—F^^, 0^o)-1 sont des séries formelles
+à coefficients rationnels positifs.
+2k
+
+La série formelle log detÇi—F^^, ®^o)~1 est sans terme constant; d'après
+(3-3)5 ses coefficients sont ^.0$ les coefficients de son exponentielle sont donc également
+positifs.
+Lemme (3.5). — Soit ^==2]^^ une suite de séries formelles de terme constant un^
+n
+
+et à coefficients réels positifs. On suppose que Perdre de f^ — i tend vers V infini avec î, et on pose
+f==îlf^. Alors, le rayon de convergence absolue de f^ est au moins égal à celui de f.
+
+Si y^Sû^, on a en effet a^<_a^.
+Tt
+
+Lemme (3.6). — Sous les hypothèses de (3.5)5 si f et les f^ sont les développements en série
+de Taylor de fonctions méromorphes, alors
+
+inf{|^||/(.)=a)}^inf{|^||^)=a)}.
+Ces nombres sont en effet les rayons de convergence absolue.
+284
+
+LA CONJECTURE DE WEIL. 1
+
+285
+
+(3.7) Pour chaque partition P de [i, 2k] en parties à deux éléments {^Ja} (^a^a)?
+on définit
+2k
+
+^ : 0^0 -> Q,/(-AP) : ^i®.. -o^ ^ n^, ^j.
+oc
+
+Soit .y un point fermé de X. L'hypothèse (ii) assure que les coinvariants de TT^U, ù)
+2k
+
+2k
+
+dans 0e^ sont les coinvariants dans ®<^ du groupe symplectique tout entier
+(TTi est Zariski-dense dans Sp). Soit ^ l'ensemble des partitions P. D'après H. Weyl
+(Thé classical groups^ Princeton University Press, chap. VI, § 1 ) 3 pour ^'c^ convenable,
+dépendant de dim(^), les ^p pour Pe^' définissent un isomorphisme
+2k
+
+2k
+
+((S)^- (®^)sp ^ ^(-^r.
+Soit N le nombre d'éléments de 8^'. D'après (2.10), la formule ci-dessus donne
+2k
+
+H^U,®.^^-^-!)11.
+2k
+
+Puisque HÇ(U, 0^=0, la formule (1.14.3) se réduit à
+det(I
+F
+ZfU
+~
+^Hl(u30^))
+Z(Uo, §)^ n^^o,î)—————(i_^P+i^N————•
+
+Cette fonction Z est donc le développement en série de Taylor d'une fonction rationnelle
+n'ayant de pôle qu'en ^i/ç^34'1. Nous utiliserons seulement le fait que les pôles sont
+de valeur absolue if^'^1 dans C. Gela pourrait se déduire d'arguments généraux sur
+les groupes réductifs. Si a est une valeur propre de F^ sur^o, alors a^ est une valeur
+2k
+
+propre de F^. sur ®^o. Notons encore a un quelconque conjugué complexe de a. La
+2k
+
+puissance inverse i /oc^6^ est un pôle de detÇi—F^6^, ® SF}"1. D'après (3.4) et
+(3.6)5 on a donc
+
+soit
+
+li/^-1-1!^!!^^!,
+p l
++-2/c
+H:^?!
+
+-
+
+Faisant tendre k vers l'infini, on trouve que
+
+H^2.
+Par ailleurs, l'existence de ^ assure que q^ a~1 est également valeur propre, d'où l'inégalité
+
+l^-1!^2
+soit
+
+€i<.\^\-
+
+Ceci achève la démonstration.
+285
+
+286
+
+PIERRE DELIGNE
+
+Corollaire (3.8). — Soit a une valeur propre de F* agissant sur H^(U, ^). ^4forj, a ^
+^ nombre algébrique^ dont tous les conjugués complexes vérifient
+p+i i
+2
+
+|a[^ 2
+
+.
+
+La formule ( i . 14.3) pour ^ se réduit à
+Z^o^o^-det^-F^ H^U, ^)).
+Le premier membre est une série formelle à coefficients rationnels, vu son développement
+en produit et l'hypothèse (iii). Le second membre est donc un polynôme à coefficients
+rationnels; i/oc en est racine. Ceci prouve déjà que a est algébrique. Pour achever la
+démonstration, il suffit de vérifier que le produit infini qui définit Z(Uo,e^o, t) converge
+^-i
+absolument (donc est non nul) pour |^|<y 2
+Soit N le rang de ^ et posons
+det(i-F^^)=^n(i-a^).
+
+D'après (3.2)3 I^J ==?!y2- ^-<a convergence du produit infini Z résulte de celle de
+la série
+S|a,^'|.
+1,3;
+
+Pour | ^ [ = ç r 2
+
+(s>o), on a
+Sla^^^l^NS^- 1 - 8 .
+t,X
+
+X
+
+Sur la droite affine, il y a f points à valeurs dans F^n, donc au plus (f1 points fermés
+de degré n. On a donc
+s
+l e s n n( l e) s ne o
+
+&~ ~ ^ ? ^ ~ ~ = ^ < ^
+n
+
+n
+
+ce qui achève la démonstration.
+Corollaire (3.9) — Soient JQ r inclusion de Ug dans Pp 5 j celle de U dans P1, et a une
+valeur propre de F* agissant sur ïî^P1,^^'). Alors a est un nombre algébrique, dont tous les
+conjugués complexes vérifient
+3+11
+
+q 2
+
+3+1
+
+1
+
+^|a|^? 2 +2.
+
+Un segment de la suite longue de cohomologie définie par la suite exacte courte
+o-^J^^J^^j^lJ^->o
+{j\ = prolongement par o) s'écrit
+H^U^-^H^P1,^)-^.
+286
+
+LA CONJECTURE DE WEIL. 1
+
+287
+
+La valeur propre a apparaît donc déjà dans H^(U, ^r), et est justiciable de (3.8) :
+3+l_^l
+
+H^? 2
+
+2
+
+.
+
+La dualité de Poincaré (2.12) assure que (^'^a"1 est également valeur propre, d'où
+l'inégalité
+P+i , 1
+l^oc-1!^ 2
+
+2
+
+et le corollaire.
+4. La théorie de Lefschetz : théorie locale»
+(4.1) Sur C, les résultats locaux de Lefschetz sont les suivants.
+Soient D = { 2 ' | [ ^ | < i } le disque unité, D*==D—{o}, et f:yi->'D un morphisme
+d'espaces analytiques. On suppose que
+a) X est non singulier, et purement de dimension n +1 ;
+b) f est propre;
+c ) f est lisse en dehors d'un point x de la fibre spéciale Xo=y~ l (o);
+d ) en x, f présente un point quadratique non dégénéré.
+Soient ^4=0 dans D et X^^/'"1^) « la » fibre générale. Aux données précédentes,
+on associe :
+a) des morphismes de spécialisation sp : H^Xg, Z) —> H^X^, Z)
+rétracte par déformation de X, et sp est la flèche composée
+
+: XQ est un
+
+H^Xo, Z) ^ H^X, Z) -> H^X,, Z);
+P) des transformations de monodromie T : H^X^, Z) -^H^X^, Z), qui décrivent
+l'effet sur les cycles singuliers de X^ de « faire tourner t autour de o ». C'est encore
+l'action sur H^X^, Z), fibre en t du système local R^ZJD*. du générateur positif
+de ^(D*,^).
+La théorie de Lefschetz décrit a) et (3) en terme du cycle évanescent SeH^X^, Z).
+Ce cycle est bien défini au signe près. Pour i+n, n-{-i, on a
+H^Xo, Z) ^ H^X,, Z)
+
+(i^n, n+i).
+
+Pour z=72, TÎ+I, on a une suite exacte
+o->:EP(Xo, Z)^IP(X,, Z) 'H^ Z^IP^Xo, Z^ïP-^X,, Z)->o.
+
+Pour i^n, la monodromie T est l'identité. Pour i==n, on a
+^==^±(^8)8.
+Les valeurs de ce ±5 de T8, et de (8, 8) sont les suivantes :
+n mod 4
+
+o
+
+i
+
+2
+
+3
+
+Tx==x±{x, 8)8
+
+—
+
+—
+
++
+
++
+
+(8,8)
+
+2
+
+T8
+
+-
+
+0
+
+8
+
+-
+
+8
+
+-
+
+2
+
+0
+
+8
+
+8
+287
+
+288
+
+PIERRE DELIGNE
+
+La transformation de monodromie T respecte la forme d'intersection Tr{xujy)
+sur H^X^, Z). Pour n impair, c'est une transvection symplectique. Pour n pair, c'est
+une symétrie orthogonale.
+(4.2) Voici l'analogue de (4.1) en géométrie algébrique abstraite. Le disque D
+est remplacé par le spectre d'un anneau de valuation discrète hensélien A à corps résiduel
+algébriquement clos. Soient S ce spectre, T} son point générique (spectre du corps des
+fractions de A), s son point fermé (spectre du corps résiduel). Le rôle de t est joué par
+un point générique géométrique T] (spectre d'une clôture algébrique du corps des
+fractions de A).
+Soit / : X—^S un morphisme propre, avec X régulier purement de dimension n+1.
+On suppose f lisse, sauf pour un point quadratique ordinaire x dans la fibre spéciale Xg.
+Soit t un nombre premier différent de la caractéristique résiduelle p de S. Notant X^
+la fibre générique géométrique, on dispose encore d'un morphisme de spécialisation
+(4.2.1)
+
+sp : IT(X,, %,) ^ H^X, %,) ^H^X,, %,).
+
+Le rôle de T est joué par l'action du groupe d'inertie I=Gal(^/7]), agissant sur
+H^Xyp Q^) par transport de structure (cf. (1.15)) :
+(4.^.2)
+
+I^Gal^/^GL^X,,^)).
+
+Les données (4.2.1), (4.2.2) décrivent entièrement les faisceaux R^Q^ sur S.
+(4.3) Posons n==2m pour n pair, et n=2m-\-i pour n impair. (4.2.1) et (4.2.2)
+se décrivent encore en terme d'un cycle évanescent
+(4.3.1)
+
+SeH^X^Km).
+
+Ce cycle est bien défini au signe près.
+Pour î=t=7z, yî+i, on a
+(4.3.2)
+
+H*(X., %/) ^ ÎÎ^X-,, %/)
+
+(i^n, n+i).
+
+Pour i=n, ^+1? on a une suite exacte
+(4.3.3)
+
+o^H^X,, ^^H^X,, %,) ^Tr(^ ^{m-n)^^1^ ^^IP-^X,, %^o.
+L'action (4.2.2) de 1 (la monodromie locale) est triviale si î=t=n. Pour Î==TZ,
+elle se décrit comme suit.
+A) n impair. — On dispose d'un homomorphisme canonique
+t,: I^Z,(i),
+et l'action de GGÏ est
+x\->x±tf{<5){x, 8)8.
+288
+
+LA CONJECTURE DE WEIL. 1
+
+289
+
+B) n pair. — Ce cas ne nous servira pas. Disons seulement que, si ^4=2, il existe
+un unique caractère d'ordre deux
+£ : I->{±l},
+
+et qu'on a
+ax==x
+.ax==x±{x, 8)8
+
+.
+£(o)=i
+£(o)=—i.
+
+si
+si
+
+Les signes db dans A) et B) sont les mêmes qu'en (4.1).
+(4.4) Ces résultats apportent les informations suivantes Sur les R^Q^.
+a) Si 84=0 :
+1) Pour i^=n, le faisceau R^Q^ est constant.
+2) Soit j l'inclusion de T] dans S. On a
+
+R^^-jJ'R^^.
+b) Si 8==o : (C'est là un cas exceptionnel. Puisque (8, 8) = ± 2 pour n pair, il ne
+peut se produire que pour n impair.)
+1) Pour î 4 = ^ + 1 ? le faisceau R^Q^ est constant.
+2) Soit Q^(w—n)g le faisceau Q^(^—n} sur {^}, prolongé par zéro sur S. On
+a une suite exacte
+o^^m-n)^^1/^^^1^^
+ou
+
+J^j*^1^1/*^/ est un faisceau constant.
+
+5. La théorie de Lefschetz : théorie globale.
+(5.1) Sur C, les résultats de Lefschetz sont les suivants. Soient P un espace projectif
+de dimension ^i, et P l'espace projectif dual; ses points paramétrisent les hyperplans
+de P, et on note H^ l'hyperplan défini par teP. Si A est un sous-espace linéaire de
+codimension 2 de P, les hyperplans contenant A sont paramétrés par les points d'une
+\^
+droite DcP, la duale de A. Ces hyperplans fH^çj) forment le pinceau d'axe A.
+Soit X c P une variété projective non singulière connexe et de dimension n +i.
+Soit X c X x D l'ensemble des couples (x, t) tels que xeïï^ Les applications première
+et seconde coordonnée forment un diagramme
+
+x ^- x
+(5-i.')
+
+[t
+D
+
+La fibre de y en tëD est la section hyperplane X(==XnH( de X.
+289
+37
+
+ago
+
+PIERRE DELIGNE
+
+Fixons X, et prenons A assez général. Alors :
+A) A est transverse à X, et X se déduit de X par éclatement de A n X. En particulier, X est non singulier.
+B) II eîdste une partie finie S de D et pour chaque je S un point ^eXg, tels
+que f soit lisse en dehors des X g . .
+G) Les Xg sont des points critiques non dégénérés de y.
+Pour chaque ^eS, la théorie de Lefschetz locale (4. i) s'applique donc à un petit
+disque Dg autour de s et ày'^Dg).
+(5.2) On pose U==D—S. Soit ueU, et choisissons des lacets disjoints (Ys)ses
+partant de u^ avec Ys tournant une fois autour de s :
+
+Ces lacets engendrent le groupe fondamental TT^U, u). Ce groupe agit sur H*(X^,Z),
+fibre en u du système local R^ZIU. D'après la théorie locale (4.1)3 à chaque seS
+correspond un cycle évanescent S^eH^X^Z); ces cycles dépendent du choix des Yg.
+Pour i^=n, l'action de TT^U, u) sur H^X^, Z) est triviale. Pour i=n, on a
+(5.2.1)
+
+Ï^=^±(^8J8,.
+
+Soit E le sous-espace de I-l^X^, Q^) engendré par les 8g (partie évanescente de la
+cohomologie).
+Proposition (5.3). — E est stable sous Faction du groupe de monodromie TT^U, u). U orthogonal E1 de E {pour la forme d^ intersection TrÇxujy)) est le sous-espace des invariants de la monodromie dans H^X^, QJ.
+
+Les Ys engendrant le groupe de monodromie, c'est clair sur (5.2.1).
+Théorème (5.4). — Les cycles évanescents ±8g (pris au signe près) sont conjugués sous
+Inaction de TT^U, u).
+
+Soit XcP la variété duale de X : c'est l'ensemble des teT
+
+tels que H( soit
+
+tangent à X, i.e. tels que X^ soit singulier, ou que XcH^. La variété X est irré290
+
+LA CONJECTURE DE WEIL. 1
+
+291
+
+\^
+
+ductible. Soit Y c X x P l'espace des couples {x, t) tels que xeïî^. On dispose d'un
+diagramme
+X <— Y
+
+P
+La fibre de g en teP est la section hyperplane X^ = X n H^ de X, et g est lisse en dehors
+de l'image réciproque de X.
+On retrouve la situation de (5.1) en remplaçant P par une droite DcP et Y
+par g~l('D). On a S == D nX. D'après un théorème de Lefschetz, pour D assez générale,
+l'application
+7T,(D-S, U) -^ 7Ti(P-X, U)
+•^
+
+^
+
+est surjective. Il suffit donc de montrer que les ±85 sont conjugués sous 7Ci(P—X).
+•»<'
+Pour x dans le lieu lisse de codimension i de X, soient ch un chemin de t à x dans
+^
+
+S^
+
+\^
+
+N-"
+
+P—X, et ^ le lacet qui suit ch jusqu'au voisinage de X, tourne une fois autour de X,
+puis revient à t par ch. Les lacets Ya; (pour ch variable) sont conjugués entre eux. Puisque
+X est irréductible, deux points du lieu lisse de X peuvent toujours, dans X, être joints
+par un chemin qui ne quitte pas le lieu lisse. Il en résulte que la classe de conjugaison
+de Ya; ne dépend pas de x. En particulier, les y^ sont conjugués entre eux. On lit sur (5.2.1)
+que ceci implique la conjugaison des ±8g.
+Corollaire (5.5). — U action de TT^U, u) sur E/(EnE 1 ) est absolument irréductible.
+Soit FcE®C un sous-espace stable sous la monodromie. Si F 4: (E n E1) ® C, il
+existe xeT et seS tels que {x, 8g) 4=0. On a alors
+Y^-^=±(A:,8,)8,eF,
+et 8^eF. D'après (5.4), tous les 8, sont alors dans F, et F=E. Ceci prouve (5.5).
+(5.6) Ces résultats se transposent comme suit en géométrie algébrique abstraite.
+Soient P un espace projectif de dimension > i sur k algébriquement clos de caractéristique ^ et XcP une variété projective non singulière connexe et de dimension n-\-i.
+Pour A un sous-espace linéaire de P de codimension 2, on définit comme en (5.1) D
+et le pinceau (H^çD, les X^, X et le diagramme (5.1.1). On dit que les (X^gj) forment
+un pinceau de Lefschetz de sections hyperplanes si les conditions suivantes sont vérifiées :
+A) L'axe A est transverse à X. L'espace X se déduit alors de X par éclatement
+de A n X, et est lisse.
+291
+
+292
+
+PIERRE DELIGNE
+
+B) II existe une partie finie S de D et pour chaque jeS un point ^eX^, tels
+que f soit lisse en dehors des x^.
+G) Xg est un point singulier quadratique ordinaire de Xg.
+Pour chaque je S, la théorie de Lefschetz locale du § 4 s'applique au spectre Dg
+de l'hensélisé de l'anneau local de D en s, et à X^ ^Xx^D^.
+(5.7) Soient N la dimension de P, r un entier ^i, et i^ le plongement de P dans
+l'espace projectif de dimension ( ^ ^ — i , de coordonnées homogènes les monômes de
+degré r en les coordonnées homogènes de P. Les sections hyperplanes de ^)(P) sont les
+hypergurfaces de degré r de P.
+Si j^=t=o, il se peut qu'aucun pinceau de sections hyperplanes de X ne soit de
+Lefschetz. Toutefois, si r>_2 et qu'on remplace le plongement projectif donné ^ : X<-^P
+par (^.==L^O^, alors, dans ce nouveau plongement, tout pinceau assez général est de
+Lefschetz. En d'autres termes, si r^2, un pinceau assez général de sections hypersurfaces
+de degré r de X est toujours de Lefschetz.
+(5.8) Dans la suite de cette discussion, nous étudions un pinceau de Lefschetz
+de sections hyperplanes de X, en excluant le cas p == 2, n pair. Le cas où n est impair nous
+suffirait pour la suite. On pose U=D—S. Soient ueU et i un nombre premier =^p.
+Les résultats locaux du § 4 montrent que R^Q^ est modérément ramifié en chaque seS.
+Le groupe fondamental modéré de U est un quotient du complété profini du groupe
+fondamental transcendant analogue (relèvement en caractéristique o des revêtements
+modérés, et théorème d'existence de Riemann). La situation algébrique est dès lors
+toute pareille à la situation transcendante, et la transposition de résultats de Lefschetz
+se fait par des arguments standards. Dans la démonstration de (5.4)3 le théorème de
+Lefschetz sur les T^ devient le théorème de Bertini, et on doit invoquer le lemme
+d'Abhyankar pour contrôler la ramification deR'^Q^ le long du lieu lisse de codimension
+v
+un de X.
+Les résultats sont les suivants.
+a) Si les cycles évanescents sont non nuls :
+
+1) Pour i^n, le faisceau R^Q^ sur D est constant.
+2) Soit j l'inclusion de U dans D. On a
+
+R^-j^R"/^.
+3) Soit EcH^X^Q^) le sous-espace de la cohomologie engendré par les
+cycles évanescents. Ce sous-espace est stable sous 7Ti(U, u), et
+E^H^X^O^^.
+La représentation de ^(U, u) sur E/(EnE 1 ) est absolument irréductible,
+et l'image de n^ dans GL(E/(EnE 1 )) est engendrée (topologiquement)
+par les x->x±{x, SJS^ (j-eS) (le signe ± étant déterminé comme en (4.1)).
+292
+
+LA CONJECTURE DE WEIL. 1
+
+293
+
+b) Si Us cycles évanescents sont nuls : (C'est là un cas exceptionnel. Puisque (S, 8) = ± 2
+pour n pair, il ne peut se produire que pour n impair : n == 2m +1 • On notera que si
+un cycle évanescent est nul, ils le sont tous, car conjugués.)
+1) Pour i^n-\-î, le faisceau R^Q^ est constant.
+2) On a une suite exacte
+^Çs^^"^^1^^^0
+avec y constant.
+3)^=0.
+
+(5.9) Le sous-espace EnE 1 de E est le noyau de la restriction à E de la forme
+d'intersection TrÇxujy). Cette forme induit donc une forme bilinéaire non dégénérée
+^ : E^EnE^E/ÇEnE 1 )-^^---^,
+alternée pour n impair, et symétrique pour n pair. Cette forme est respectée par la
+monodromie $ pour n impair, la représentation de monodromie induit donc
+p : 7r,(U,^Sp(E/(EnE 1 ),^).
+Théorème (5.10) (Kajdan-Margulis). — L'image de p est ouverte.
+L'image de p est un sous-groupe compact, donc analytique Sadique, de
+Sp(E/(EnE 1 ), <{/). Il suffit de montrer que son algèbre de Lie fi est égale à
+5p(E/(EnE 1 ), ^). L'analogue transcendant de cette algèbre de Lie est l'algèbre de Lie
+de l'adhérence de Zariski du groupe de monodromie.
+On déduit de (5.8) que fi est engendrée par les transformations de carré nul
+N, : x^ (x, 8J8,
+
+(.yeS)
+
+et que E/(EnE 1 ) est une représentation absolument irréductible de fi. Le théorème
+résulte du lemme suivant.
+Lemme (5.11). — Soient V un espace vectoriel de dimension finie sur un corps k de caractéristique o, 4' une forme alternée non dégénérée et S, une sous-algèbre de Lie de 5p(V, ^). On suppose
+que :
+(i) V est une représentation simple de S.
+(ii) fi est engendrée par une famille d^ endomorphismes de V de la forme x\->^(x, S) 8.
+Alors, fi=5p(V,^).
+
+On peut supposer et on supposera que V, donc fi, est non nul. Soit WcV
+l'ensemble des 8eV tels que N(8) :x\->^{x, 8)8 soit dans fi.
+a) W est stable par homothétie (car fi est un sous-espace vectoriel de 9Ï(V)).
+b) Si 8eW, exp(XN(8)) est un automorphisme de (V, ^, fi), donc transforme W
+en lui-même. Si 8', 8"eW, on a donc exp(ÀN(8 / )) .8 7 '=8"+À^(8",S / )8'eW; si
+^(87, 8 / ')4=Ô5 le sous-espace vectoriel tendu par 8' et 8" est dans W.
+293
+
+PIERRE DELIGNE
+
+294
+
+c ) II en résulte que W est réunion de ses sous-espaces linéaires maximaux Wa, et
+que ceux-ci sont deux à deux orthogonaux. Chaque WQ( est dès lors stable sous les N(8)
+(8eW), donc stable sous fi. Vu l'hypothèse (i), W^==V et fi contient tous les N(S)
+pour 8eV. On conclut en notant que l'algèbre de Lie 5p(V, ^) ^st engendrée par les
+N(8)
+
+(8eV).
+
+Remarque (5.12) (inutile pour la suite). — II est maintenant facile de prouver
+(1.6) pour une hypersurface de dimension impaire n dans Pi?4'1.
+Soient Xo une telle hypersurface, et XQ l'hypersurface sur fq qui s'en déduit par
+extension des scalaires. On a
+H^Xo.a^^-i)
+
+{o<,i<_n);
+
+H^Xo, Q^(î)) est engendré par la i^6 cup-puissance de 73, la classe de cohomologie ^1(^(1)) d'une section hyperplane. On a donc
+n
+
+Z(Xo^)=det(i-F*f, H"(Xo, %/))/n (i-^)
+i=0
+
+et det(i—F*^, H^Xo, Q^)) est un polynôme à coefficients entiers indépendants de i.
+Faisons varier XQ dans un pinceau de Lefschetz d'hypersurfaces, qui soit défini
+sur F (cf. (5.7) pour X = P n + l ; l'existence d'un tel pinceau n'est pas claire; si on
+voulait compléter l'argument esquissé ici, il faudrait recourir aux arguments qui seront
+donnés en (7.1)). On vérifie que E coïncide ici avec le ÏP tout entier, et (3.2) fournit la
+conjecture de Weil pour toutes les hypersurfaces du pinceau, en particulier pour Xo.
+(5.13) Indications bibliographiques sur les §§ 4 et 5.
+
+A) Les résultats de Lefschetz (4. i) et (5. i) à (5.5) sont contenus dans son livre [2].
+Pour la théorie locale (4. i), il peut être plus commode de consulter SGA 7, XIV (3.2).
+B) Les résultats du § 4 sont démontrés dans les exposés XIII, XIV et XV de SGA 7.
+G) (5.7) est démontré dans SGA 7, XVII.
+D) (5.8) est démontré dans SGA 7, XVIII. Le théorème d'irréductibilité y est
+démontré pour E, mais seulement sous l'hypothèse que EnE-'-^o}. La démonstration
+dans le cas général (pour E/(EnE 1 )) est pareille.
+
+6. Un théorème de rationalité.
+(6.1) Soient Pô un espace projectifde dimension >_î sur F^, XoCPo une variété
+projective non singulière, AoCPo un sous-espace linéaire de codimension deux, DoCPo
+la droite duale, F^ une clôture algébrique de F^ et P, X, A, D sur F^ déduits de PO, Xo,
+294
+
+LA CONJECTURE DE WEIL. 1
+
+295
+
+Aç, Do par extension des scalaires. Le diagramme (5.1.1) de (5.6) provient d'un
+diagramme analogue sur F^ :
+XQ <— XQ
+(6.1.1)
+
+[f.
+
+Do
+On suppose que X est connexe de dimension paire n-{-i==2m-}-2, et que le pinceau (X()(ÇD de sections hyperplanes de X défini par D est un pinceau de Lefschetz.
+L'ensemble S des teD tels que X< soit singulier est défini sur F^, Le. provient de SoCDg.
+On pose UO=DO—SO et U = = D — S .
+Soit ueU. La partie évanescente de la cohomologie EcH^X^Q^) est stable
+sous T^CU, M), donc définit sur U un sous-système local € de R^Q^. Ce dernier est
+défini sur Tq : R^Q^ est l'image réciproque du Q^-faisceau RVo*Q^ sur Do, et, sur U,
+ë est l'image réciproque d'un sous-système local
+
+^oCRVo^.
+Le cup-produit est une forme alternée
+
+4 / : R^^RYo^^O^^).
+Notant <?(1 l'orthogonal de <^ relativement à ^5 dans R^^Q^IUo on voit que ^ induit
+une dualité parfaite
+^ : ^/(^o^^ 1 ) 0 ^)/^^^ 1 )-^^-^Théorème (6.2). — Pour fout
+à coefficients rationnels.
+
+A:e|Uo|,
+
+le polynôme
+
+det(i—F^,^o/(^n^1)) est
+
+Corollaire (6.3). — Soient JQ l'inclusion de UQ dans D^ etj celle de U dans D. Les valeurs
+propres de F* agissant sur H^D^^/^n <?1)) sont des nombres algébriques dont tous les
+conjugués complexes a vérifient
+n+l
+
+q 2
+
+1
+
+n+l
+
+1
+
+^H^^"4'2.
+
+D'après (5.10) et (6.2)3 les hypothèses de (3.2) sont en effet vérifiées par
+(n^o/^o0^1)^ P0111' P ^ ^ et on applique (3.9).
+Lemme (6.4). — Soit ^o un Q^^-faisceau constant tordu sur Uo, tel que son image réciproque ^ sur U soit un faisceau constant. Il existe alors dans Q^ des unités o^ telles que, pour tout
+xe\UQ\, on ait
+det(i-F^^)=n(i-a^).
+i
+295
+
+296
+
+PIERRE DELIGNE
+
+Ce lemme exprime que ^o est l'image réciproque d'un faisceau sur Spec(F ), à savoir
+son image directe sur Spec(F^). Ce dernier s'identifie à une représentation Sadique GQ
+de Gal(F^/F^), et on prend
+det(i-F^,Go)=n(i-a^).
+
+Le lemme (6.4) s'applique aux R^Q^ (J-^n), à R^Q^/^o et à ^o0^1Pour A:e|Uo[ la fibre X^^/o"1^) est une variété sur le corps fini k (x), Si x est
+un point de U au-dessus de x, X^ se déduit de Xg par extension des scalaires de k[x)
+à sa clôture algébrique k{x)==T^, et H^X^, Q^) est la fibre de R^Q^ en x. La formule (1.5.4) pour la variété X^ sur k{x) s'écrit donc
+Z(:^,f)=ndet(i-F:f, RYo.^-1'"1
+
+et Z(X^, t) est le produit de
+Z^=det(i-F:f, R"/o.%//^) -det(i-F:<, ^n<%1-). n det(i-F^, R'/o.^)'-11"1
+i +n
+
+1
+
+par
+
+Z-^de^i-F^^/^n^ )).
+
+Posons ^==^/(^n^ 1 ), ^=^ ) /(<^n ^1) et appliquons (6.4) aux facteurs
+de Z^. On trouve qu'il existe des unités /-adiques o^ (i ^ î < N ) et (^. (i <J'<M) dans Q^
+tels que pour tout A:e|Uo|
+
+n(i-a^^)
+
+'^'^nt^i..)-""-1'-'-'-'
+et qu'en particulier le second membre est dans Q,(^). Si un a, coïncide avec un j^., il
+est loisible de supprimer simultanément cet oc^ de la liste des a et ce ^ de la liste des j3.
+On peut donc supposer, et nous supposerons, que o^ =h (Bj pour tout i et tout j.
+(6.5) II suffit de prouver que les polynômes II (i—a^) et II ( i — ^ t ) sont à
+coefficients rationnels, i.e. que la famille des oc^ (resp. la famille des [^.) est définie sur Q^.
+Nous le déduirons des propositions suivantes.
+Proposition (6.6). — Soient (y»)
+
+(i^^P) ^ (8j)
+
+(i^iJ^iQJ deux familles funitês
+
+f-adiques dans Ç^{. On suppose que Y^+Sj. &' K est un ensemble fini assez grand d'entiers =+=i,
+et L ^^ partie de densité o û^^ grande de |Uo[, ûZorj-, ji ;ce|Uo| vérifie k^degÇx) {pour tout
+AeK) et xfL, le dénominateur de
+(6.6.1)
+
+det(I-F^,^)^(I-Y^a;)^/^(I-Sde^)^,
+»
+j
+
+écrit sous forme irréductible, est H ( i — S^^).
+La démonstration sera donnée en (6.10-13). D'après (6.7) ci-dessous, (6.6) fournit
+296
+
+LA CONJECTURE DE WEIL. 1
+
+297
+
+une description intrinsèque de la famille des 8, en terme de la famille des fractions
+rationnelles (6.6.1) pour ^e|Uo[.
+Lemme(6.'j).—Soient K. un ensemble fini rentiers 4= i et(S.) (i^J^QJ ^(sj) (^Y^O.)
+deux familles d9 éléments d^un corps. Si, pour tout n assez grande non divisible par aucun des AeK,
+la famille des 8J1 coïncide avec celle des sj1 (à l^ ordre près), alors la famille des 8, coïncide avec celle
+des s, (à r ordre près).
+
+On procède par récurrence sur Q^. L'ensemble des entiers n tels que S^^eJ1 est
+un idéal (n^). Prouvons qu'il existe JQ tel que 8Q=e.. Sinon les n. seraient distincts
+de i, et il existerait des entiers arbitrairement grands n, non divisibles par aucun des n^
+ni par aucun des AeK. On, aurait 8^+sJ1, et ceci contredirait l'hypothèse. Il existe
+donc JQ tel que SQ=£^. On conclut en appliquant l'hypothèse de récurrence aux
+familles (8,) (j+QJ et0 (s,) (j^o).
+Proposition (6.8). —Soient (y») (i^^P) et (8^.) (i:<7<QJ deux familles d'unités
+p-adiques dans Q^, R(^) ==11 (i — y^) ^ S(^)==n(i--8^). Supposons que pour tout XG\'\JQ\,
+l
+j
+11(1-8^^) ûîw<?
+n(i-y^)^).det(i-F:^^).
+^/orj S(^ Ay^ R(^).
+
+Supprimons des familles (vj et (8.) des paires d'éléments communs jusqu'à vérifier
+l'hypothèse de (6.6). Appliquons (6.6). Par hypothèse, les fractions rationnelles (6.6.1)
+sont des polynômes. Aucun 8 n'a donc subsisté, ce qui signifie que S{t) divise R(^).
+Cette proposition fournit une caractérisation intrinsèque de R(^) en terme de la
+famille de polynômes
+e
+^(I-Y?
+^).det(I-F:^^o)•
+i
+
+C'est le ppcm des polynômes S(^)==II(i—S.t) vérifiant l'hypothèse de (6.8).
+j
+
+(6.9) Prouvons (6.5) et donc (6.2) (modulo (6.6)). Faisons dans (6.6) (Y^)==(a^)
+et (8.)=([3j). On trouve une caractérisation intrinsèque de la famille des (^ en terme
+de la famille de fractions rationnelles Z(X^, t) (^e|Uo|). Celles-ci étant dans Q,(^), la
+famille des (3j est définie sur Q^.
+Les polynômes ^(I—a^ g ( a ; ^).det(I—F^,^) sont donc dans Q^]. La proposition (6.8) fournit une description intrinsèque de la famille des oc^ en terme de cette
+famille de polynômes. La famille des o^ est donc définie sur Q^.
+(6.10) Préliminaires. — Soient ueV et e^ la fibre de y en u. Le groupe fondamental arithmétique 7Ti(Uo 5 ^) 5 extension de Z=Gal(Fg/Fg) (générateur : 9) par le
+groupe fondamental géométrique T^(U, u), agit Sur ^ par similitudes symplectiques :
+
+p : ^(Uo^)-^cspG^).
+297
+38
+
+298
+
+PIERRE DELIGNE
+
+Nous notons [L{g) le multiplicateur d'une similitude symplectique g. Soit
+
+HcZxCSp(J^)
+le sous-groupe défini par l'équation
+
+r'-^)
+{q étant une unité Sadique, ^eQ^ est défini pour tout yzeZ). Le fait que ^ soit à valeurs
+dans Q^(—^) s'exprime en disant que l'application de n^ dans ZxGSp, de coordonnées
+la projection canonique sur Z et p, se factorise par
+Pi ^ 7ri(Uo,^)->H.
+Lemme (6.11). — L'image H^ de pi ^ o^zw^ dans H.
+En effet, TT^UO, u) se projette jzzr Z, et l'image de TT^U, ^)==Ker(7Ti(Uo, u)-^Z)
+dans Sp(^, ^)=Ker(H->Z) est ouverte (5.10).
+Lemme (6.12). — Pour 8eQ^ une unité t-adique, l'ensemble Z (fc (n,g)e'H.^ tels que
+8 jo^ valeur propre de g est un fermé de mesure nulle.
+n
+
+Il est clair que Z est fermé. Pour chaque neZ, soit CSp^ l'ensemble des
+geCSp{^, ^) tels que ^{g^^q-^ et soit Z^ l'ensemble des ^eGSp^ tels que 8n soit
+valeur propre de g. Alors, CSp^ est un espace homogène sous Sp, et on vérifie que Z^
+en est un sous-espace algébrique propre, donc de mesure o. D'après (6.11), H^ n {{n} X ZJ
+est donc de mesure o dans l'image inverse dans H^ de n, et on applique Fubini à la
+projection H^-^Z.
+(6.13) Prouvons (6.6). Pour chaque i et j, l'ensemble des entiers n tels que
+Y^=SJ1 est l'ensemble des multiples d'un entier fixe n^ (on n'exclut pas n^==o). Par
+hypothèse, n^ + i.
+D'après (6.12) et le théorème de densité de Gebotarev, l'ensemble des A;e|Uo|
+tels qu'un ^Qgw soit valeur propre de F^ agissant sur ^ est de densité o. On prend
+pour K l'ensemble des n^ et pour L l'ensemble des x ci-dessus.
+7. Fin de la démonstration de 1.7.
+Lemme (7.1). — Soit X^ une variété projective non singulière absolument irréductible de
+dimension paire d sur F^. Soient X sur F^ déduit de Xg par extension des scalaires et a une valeur
+propre de F* agissant sur H^X, Q^). Alors, a est un nombre algébrique dont tous les conjugués
+complexes., encore notés a, vérifient
+(7.1.1)
+
+d _1
+
+d
+
+1
+
+2
+
+2
+
+2
+
+q~
+
+^H^?
+
+.
+
+On procède par récurrence sur d (toujours supposé pair). Le cas» d==o est trivial,
+même sans supposer Xg absolument irréductible; on suppose dorénavant rf^2. On
+pose û ? = 7 z + i = = 2 m + 2 .
+298
+
+LA CONJECTURE DE WEIL. 1
+
+299
+
+Si Fgf est une extension de degré r de F^ et que X^/F^r se déduit de X^/F par
+extension des scalaires, l'assertion (7.1) pour Xç/F équivaut à (7.1) pour Xo/Fr : de
+même que q est remplacé par qr^ les valeurs propres de F* sont remplacées par leurs
+puissances r16111®8.
+D'après (5.7), dans un plongement projectif convenable i : X-^P, X admet un
+pinceau de Lefschetz de sections hyperplanes. La remarque précédente nous permet
+de supposer i et ce pinceau définis sur F^ (quitte à remplacer F par une extension finie).
+Supposons donc qu'il existe sur F^ un plongement projectif X()->PO et un sousespace de codimension deux Ag de PQ qui définisse un pinceau de Lefschetz. On reprend
+les notations de (6.1) et (6.3). Une nouvelle extension des scalaires nous ramène à
+supposer que :
+a) Les points de S sont définis sur F .
+b) Les cycles évanescents en Xg (jeS) sont définis sur F^ (puisque seul dbS est
+intrinsèque, ils pourraient n'être définis que sur une extension quadratique).
+c ) II existe un point rationnel UQ^VQ. On prend le point correspondant u de U
+comme point base.
+d) X^ =fo~l{uo) ^met une section hyperplane lisse Yo, définie sur F . On pose
+Y—y
+®,,^ FF^ A ^ .
+I
+— 1O
+Puisque X se déduit de X par éclatement de la sous-variété lisse de codimension
+deux AnX, on a
+H^^^H^X,^)
+(en fait, ïT(X, Q^H^X, Q^OïT-^AnX, Q^)(-i)). Il suffit donc de prouver
+(7.1.1) pour les valeurs propres a de F* agissant sur H^X, Q^).
+La suite spectrale de Leray pour f s'écrit
+E^=IF(D, R^Q^) => ïP+^X, Q^).
+Il suffit de prouver (7.1.1) pour les valeurs propres a de F* agissant sur les E^ pour
+p-}-q=d==n-}-i. Ce sont :
+A) E^71-1. D'après (5.8), R""1/»^ est constant. D'après (2.10), on a donc
+E^-i^ip-^ %,)(-i).
+D'après le théorème de Lefschetz faible (corollaire de SGA 4, XIV (3.2), et de la dualité
+de Poincaré, SGA 4, XVIII), on a
+IP-^X,, %,)(-!) ^ ÏP-^Y, %,)(-!),
+
+et on applique l'hypothèse de récurrence à Yo.
+B) E^'^'1. Si les cycles évanescents sont non nuls, R^VoQ^ est constant et
+^'n+l=îin+l{^Q,^).
+299
+
+300
+
+PIERRE DELIGNE
+
+Le morphisme de Gysin
+
+IP-^Y, %,)(-i) -H^X,,^)
+est surjectif (cet argument est dual de A)), et on applique l'hypothèse de récurrence à Yo.
+Si les cycles évanescents sont nuls, la suite exacte de (5.8) b) fournit une
+suite exacte
+^0.^-n) ^E^^IP^X,, %,).
+
+La valeur propre de F agissant sur ÇifÇm—n) est q^, et IP4'1 se traite comme plus haut.
+G) E^. Si on disposait du théorème de Lefschetz « difficile », on saurait que
+1
+ër\ê - est nul, et que R^Q^ est somme directe de j^S et d'un faisceau constant.
+Le H1 d'un faisceau constant sur P1 est nul, et il suffirait d'appliquer (6.3).
+Faute d'avoir déjà démontré Lefschetz « difficile », il nous va falloir
+dévisser. Si les cycles évanescents sont nuls, R^Q^ est constant ((5.8) b)) et
+E^ == o. On peut donc supposer, et on supposera, les cycles évanescents non nuls. Filtrons R^Q.^^^R71/»^ (5.8) par les sous-faisceaux^ et j,(^n^1). Si les
+cycles évanescents 8 ne sont pas dans <^n<?1, on dispose de suites exactes :
+(7.1.2)
+
+o—^^—^R^Q^-^ faisceau constant->o.
+
+(7.1.3)
+
+o-> faisceau constant ^(^n^ l )-^J^^(^ ) /(^n^ i ))-»o.
+
+Si, à Dieu ne plaise, les S sont dans <^'n<?-1-, on a <?c<?1, et des Suites exactes :
+(7.1.4)
+o—^le faisceau constant ^^'-^R"/,^ -> un faisceau y->o
+(7.1.5)
+
+Q->y->\ç. faisceau constant j^j*^'-> (B Q^— rn)^ -^o.
+s£ S '
+
+Dans le premier cas, les suites exactes longues de cohomologie fournissent
+(7. i.2')
+
+H^D,^^) -^(RV^) ->o,
+
+(7.1.3')
+
+o-^H l (D,J^)-^H l (D,J,(^/(^n^ l )))
+
+et on applique (6.3).
+Dans le second cas, elles fournissent
+(7.1.4')
+(7.1.5')
+
+o^H^D.R^^H^D;^),
+© 0^-772)-^H^D.^-^o
+
+sGS
+
+et on remarque que F agit sur Q^(%—m) par multiplication par q^2.
+Lemme (7.2). — Soit XQ une variété projective non singulière absolument irréductible de
+dimension d sur Fç. Soient X sur Fç déduit de Xg par extension des scalaires et a une valeur propre
+de F' agissant sur H^X, Q^). Alors; a est un nombre algébrique dont tous les conjugués complexes,
+encore notés a, vérifient
+
+H =^2.
+300
+
+LA CONJECTURE DE WEIL. 1
+
+301
+
+Prouvons déjà que (7.2) =>(i .7),. Pour X^ projective non singulière sur F et
+i un entier, il faut prouver l'assertion suivante :
+W(Xo^). Soit X déduit de Xo par extension des scalaires de F à Fg. Si a est une valeur
+propre de F* agissant sur H^X, Q^), alors a est un nombre algébrique dont tous les conjugués
+complexes., encore notés a, vérifient \ a [ == ^/2.
+
+a) Si Fçn est une extension de degré n de Fg, et que Xç/F^ se déduit de X()/F
+par extension des scalaires, alors W(XQ, i) équivaut à W(Xo, ï) : étendre les scalaires
+revient à remplacer a par o^ et q par ^n.
+^ Si Xo est purement de dimension n, W(XQ, ï) équivaut à W(XQ, w—i) :
+ceci résulte de la dualité de Poincaré.
+c ) Si Xo est somme de variétés X^, W(XQ , i) équivaut à la conjonction des W(X^, i).
+d ) Si XQ est purement dé dimension n, YQ une section hyperplane lisse de Xo,
+et que i<n, alors W(Yp, i) =>W(XQ, i) : ceci résulte du théorème de Lefschetz faible.
+Pour prouver les assertions W(Xo, i), on se ramène successivement :
+— par c ) , à supposer Xç purement d'une dimension n;
+— par b), à supposer de plus o^z^%;
+— par a) et d ) , à supposer de plus i==w;
+— par a) et c ) , à supposer de plus Xo absolument irréductible.
+Ce cas est justiciable de (7.2).
+(7.3) Prouvons (7.2). Pour tout entier A, af est valeur propre de F* agissant
+sur H^X^, Q^) (formule de Kûnneth). Pour k pair, X^ est justiciable de (7.1), d'où
+kd
+
+1
+
+kd
+
+1
+
+^^l^l^'2'"2
+d_l_
+
+d
+
+i_
+
+^"^H^2^.
+
+et
+
+Faisant tendre k vers l'infini, on trouve (7.2).
+8, Premières applications.
+Théorème (8.1). — Soit XçCP^ 4 ' 1 ' une intersection complète non singulière sur F^, de
+dimension n et de multidegré (û?i, ..., dy). Soit b' le n^6 nombre de Betti des intersections complètes
+non singulières complexes, de mêmes dimension et multidegré. Posons
+
+&===&' pour n impair, et
+
+b == b' — i pour n pair. Alors
+\#X^)-#Pn(f,)\<_b.qn^
+
+Soient X/F^ déduit de XQ, et Q^.-^ la droite dans HP^X, Q^) engendrée par
+la i^6 cup-puissance de la classe de cohomologie d'une section hyperplane. Sur cette
+droite, F* agit par multiplication par q\ La cohomologie de X est somme des Q^.^
+301
+
+302
+
+PIERRE DELIGNE
+
+(o<^^7z) et de la partie primitive de I-P^X, Q^), de dimension b. D'après (i .5), il existe
+donc b nombres algébriques 0^3 les valeurs propres de F* agissant sur cette cohomologie
+primitive, tels que
+#Xo(F,)=J|^+(-i)»Sa,.
+D'après (1.7), [a,]^"''2 et
+|#Xo(F,)-^P(F,)|=|#X,(F,)-^*|=|Sa,|^S|a,|==é.^ 2 .
+Théorème (8.2). — Soient N un entier ^ i, s : (Z/N)*-^C* un caractère, k un entier ^ 2
+et f une forme modulaire holomorphe sur ^(N), de poids k et de caractère s : f est une fonction
+la b\
+holomorphe sur le demi-plan de Poincaré X, telle que pour (
+^|eSL(2, Z), avec c==o (N),
+
+\c
+
+on ait
+
+d
+
+/(^)=^)-l(^?).
+On suppose f cuspidale et primitive (« new » au sens dî} Atkin-Lehner et de Miyaké), en par00
+
+ticulier vecteur propre des opérateurs de Hecke Tp Q&'rN). Posons f= S ^n?"?
+n=l
+[et ûi==i). Alors, pour p premier ne divisant pas N
+
+avec
+
+?=^2"^^
+
+N^./"^.
+En d'autres termes, les racines de l'équation
+T^T+cC^-1
+k-l
+
+sont de valeur absolue p 2 .
+
+Ces racines sont en effet des valeurs propres de Frobenius agissant sur le HP"1
+d'une variété projective non singulière de dimension k—i définie sur fp.
+Sous des hypothèses restrictives, ce fait est démontré dans mon exposé Bourbaki
+(Formes modulaires et représentations Sadiques, exposé 355, février 1969, dans : Lecture
+Notes in Mathematics, 179). Le cas général n'est pas beaucoup plus difficile.
+Remarque (8.3). —J. P. Serre et moi-même avons récemment démontré que (8.2)
+reste vrai pour k=ï. La démonstration est toute différente.
+L'application suivante m'a été suggérée par E. Bombieri.
+Théorème (8.4). — Soient Q un polynôme à n variables et de degré d sur F^, Q^ la partie
+homogène de degré d de Q^et ^ : F^C* un caractère additif non trivial sur Fç. On suppose que :
+(i)
+
+d est premier à p;
+
+(ii) Uhypersurface Hg dans P^~1 définie par Q^ est lisse.
+302
+
+LA CONJECTURE DE WEIL. 1
+
+303
+
+Alors
+1
+
+S
+^Q^,...,^)!^-!)^2.
+a;i,...,^etç
+
+Quitte à remplacer Q,par un multiple scalaire, on peut supposer (et on supposera)
+que
+(8.4.1)
+
+^x)=exp(2niTr^(x)lp).
+
+Soit Xo le revêtement étale de l'espace affine AQ de dimension n sur F d'équation
+T^—T==Q^, et soit a" la projection de XQ sur AQ :
+(T : Xo-^Ao
+Xo=Spec(F^, ...,^T]/(T^-T-Q)).
+Le revêtement X^ est galoisien, de groupe de Galois Z/j&; ieZ/j&=Fp agit par Tl-^T+î.
+Soit xeAo(F) et calculons l'endomorphisme de Frobenius de la fibre de X^/AQ
+en A;. Posons q =pf et soit Fg une clôture algébrique de F^. Pour (x, T) eXo(F^) au-dessus
+de x, on a F((^ T))==(A:, T3), et
+Tq=rT
+
++^(rpi -rpî-l) ^T+^ ^pi~l= T+T^p^QM).
+
+C'est l'action de l'élément Tr? /p/OX^)) du groupe de Galois.
+Soient E le corps des racines ^lèmes de l'unité et À une place finie de E première
+à p. Nous travaillerons en cohomologie À-adique. Pour jeZ/j&, soit e^ o le E^-système
+local de rang un sur AQ défini par Xg et ^(—JA*) : Z/j&-^E*-^E^ : on dispose de
+i :XO—^^Q et L(î*A:)=4'(—J 1 )^)- Notons sans o les objets déduits de AQ, XQ, ^o
+par extension des scalaires à F . La formule des traces (1.12.1) pour «^ ç s'écrit
+(8.4.2)
+
+S
+
+a;i,...,^£F^
+
+^(Q(^, ...,^))==2(-iyTr(P,H:(A,^)).
+»
+
+On a (r,E^=©^, et donc
+(8.4.3)
+
+H:(X, %,)®^E,=©H:(A,^).
+
+Pour j==o, ^ est le faisceau constant E^; ce facteur correspond à l'inclusion, par
+image réciproque, de la cohomologie de A dans celle de X.
+Lemme (8.5). — (i) Pour j4=o, H^(A, e^) est nul pour i^n; pour i==n, cet espace
+de cohomologie est de dimension (ûf—i)^
+
+(ii) Pour j=f=o, le cup-produit
+
+H:(A, ^)®H:(A, ^-_,) ^ H^(A, E,) ^ E,(-»)
+^^ MH^ dualité parfaite.
+(iii) XQ ^^ un ouvert d'une variété projective non singulière ZQ.
+303
+
+304
+
+PIERREDELIGNE
+
+Déduisons (8.4) de (8.5). Soient JQ : XQ^ZQ et j : X<-^Z déduit par extension
+des scalaires à F^. D'après (8.4.2)3 (i), et (i. 7) pour Zg, il suffit de prouver l'injectivité de
+H;(A, ^) ^ H:(X, ^)=H:(X, E,) ^ H^Z, E,).
+On a Tr(ûu b)==- Tr(j\G*auj^(s*b), donc cette injectivité résulte de (ii).
+P
+(8.6) Prouvons (8.5) (iii). Soient Pg l'espace projectif sur F^ complété de AQ
+par adjonction d'un hyperplan à l'infini Pô", HoCPo° d'équation Q^=o et Yo le
+revêtement de PQ normalisé de P() dans XQ.
+Xo -^ Yo
+(8-6-1)
+
+"l
+Y
+AQ
+
+1
+
+Y
+
+-->
+
+Pô <--.
+
+Pô00
+
+^--
+
+Ho
+
+Étudions YQ/PO près de l'infini, localement pour la topologie étale.
+Lemme (8.7). — Yo est lisse en dehors de l'image réciproque de Ho.
+Le diviseur de la fonction rationnelle Q^sur PQ est somme de sa partie finie div(QJ^
+et de ( — d ) fois l'hyperplan à l'infini. On a :
+div(QJ=div(Q^-rfPo00
+
+(8.7.1)
+, -
+
+div(QJ,nPo°=Ho.
+
+A distance finie, Yo = Xo est étale sur AQ, donc lisse. A l'infini, mais en dehors de l'image
+réciproque de Ho, il existe des coordonnées locales (^, . .., -?J telles que 0^=^^ (ceci
+utilise que (</,j&)==i). Dans ces coordonnées, Yo apparaît comme produit d'une courbe
+et d'un espace lisse (correspondant aux coordonnées ^g, .. ., 2'J. Par normalité, il est lisse.
+Lemme (8.8). — Au voisinage étale d'un point au-dessus de Ho, Yo est lisse sur une surface
+singulière normale, toujours la même.
+
+On peut cette fois trouver des coordonnées locales telles que O^^f^a- ^n effet,
+puisque Ho est lisse, div(QJ^ est lisse au voisinage de l'infini et coupe Po° transversalement.
+Cette forme est indépendante du point choisi, et n'utilise que deux coordonnées, d'où
+l'assertion.
+(8.9) On sait que le procédé suivant (dû à Zariski) permet de résoudre les singularités de surfaces : alternativement, on normalise et on éclate le lieu singulier (réduit).
+Les opérateurs en jeu commutent à la localisation étale et au produit par un espace
+lisse. Le procédé de Zariski permet donc encore de résoudre les singularités d'un espace
+qui, comme Yo, est, localement pour la topologie étale, lisse sur une surface. La résolution
+obtenue de Yo est le ZQ cherché.
+304
+
+LA CONJECTURE DE WEIL. 1
+
+305
+
+Si T est une courbe sur une surface S, contenant le lieu singulier, et que T' est
+l'image réciproque de T dans la résolution de Zariski S' de S, on sait que si on éclate
+de façon itérée dans S' le lieu singulier (réduit) de (T')^? on obtient une surface S"
+telle que l'image réciproque réduite (T")^ de T dans S" soit un diviseur à croisements
+normaux. A nouveau, les opérations en jeu commutent à la localisation étale et au
+produit par un espace lisse. Raisonnant comme plus haut, et observant que (Yç, l'infini)
+est localement lisse sur un (S, T), on peut même trouver Zg tel que Zg—Xo soit un
+diviseur à croisements normaux.
+(8.10) Prouvons (8.5) (i), (ii). Ce sont des assertions géométriques; ceci nous permet de travailler dorénavant sur F . Soit S'l'espace affine sur F qui paramétrise les polynômes à n variables de degré ^d, et soit S l'ouvert de S' correspondant aux polynômes
+dont la partie homogène de degré d est de discriminant non nul. On note
+Q^geH°(S, ^g[A:i, . . ., ^J) le polynôme universel sur S, et Xg le revêtement galoisien
+étale de A g = A n x S d'équation T^—T=Q^g, de groupe de Galois Zip. Soient
+Pg^P^S l'espace projectifsur S complété de Ag et Yg le normalisé de Pg dans Xg. On
+dispose, sur S, d'un diagramme analogue à (8.6.1).
+Les expressions de Q^ en coordonnées locales données en (8.7) et (8.8) restent
+valables dans la situation présente, avec paramètres, de sorte que, localement pour la
+topologie étale sur Yg, Yg/S est isomorphe au produit de S (qui est lisse) avec une fibre.
+La méthode canonique de résolution utilisée en (8. g) nous fournit une compactification
+relative Zg/S de Xg/S, avec Zg—Xg un diviseur à croisements normaux relatifs sur S
+Xg
+
+<=
+
+—> Zg
+
+As -^ s
+(j^ propre et lisse, u plongement ouvert, Zg—Xg diviseur à croisements normaux relatifs).
+Soit y. a le E^-faisceau sur Ag déduit comme en (8.4) de Xg/Ag. On a
+o,E^=®^g, donc
+R.V»),(E,)=eR^,g.
+Les propriétés de Zg assurent que les 'R*{fù)^'E^==R'f^{u^'E^) sont des faisceaux
+localement constants sur S. Dès lors, les Ka^g également sont localement constants.
+Puisque S est connexe, il suffit de prouver (8.5) (i), (ii) pour un polynôme Q^ particulier.
+On prendra Q^= 2 x^. Ce polynôme vérifie la condition de non-singularité car Çd, p) = i.
+Pour ce polynôme, les variables se séparent dans la somme exponentielle de (8.4).
+Ceci correspond au fait que <^ est le produit tensoriel des images réciproques de
+300
+39
+
+3o6
+
+PIERRE DELIGNE
+
+faisceaux analogues e^1 sur les facteurs de dimension un A1 de A=A\ Par la formule
+de Kùnneth
+
+H* (A, ^) = ® H*(A\ y/-).
+Ceci ramène la preuve de (8.5) (i), (ii) au cas où n=i et où Q^est x01.
+(8. n) Traitons ce cas particulier. Le revêtement X de A est irréductible, de
+sorte que pour î=o,2
+H:(A,E,)^H:(X,E,).
+Pour i=+=i et j'=t=o, on a donc
+H:(A,^)=o.
+L'assertion (ii) résulte de (2.8) ou (2.12) et de ce que M,^==H,^. Pour prouver (i),
+il reste à vérifier que
+X,(A,^)=i-^.
+
+D'après la formule d'Euler-Poincaré (voir l'exposé Bourbaki 286 de février 1965, par
+M. Raynaud), ceci équivaut au lemme suivant.
+Lemme (8.12). — Le conducteur de Swan de ^ à l'infini est égal à d.
+Cet énoncé équivaut au suivant.
+Lemme (8.13). — Soient k un corps fini de caractéristique p, jy^k[[x]]
+
+un élément de
+
+valuation d première à p, L l'extension de K==A((A:)) engendré par les racines de TP—T^""1
+et ^ le caractère suivant de Gal(L/K) à valeurs dans Z,lp :
+X(or)=oT-T.
+Alors, ^ est de conducteur
+
+d-\-i.
+
+Par extension du corps résiduel, on se ramène à supposer k algébriquement clos
+plutôt que fini, et on applique : J. P. Serre, Sur les corps locaux à corps résiduel algébriquement clos, Bull. Soc. Math. France, 89 (1961), p. 105-154, n° 4.4.
+
+BIBLIOGRAPHIE
+[i] A. GROTHENDIECK, Formule de Lefschetz et rationalité des fonctions L, Séminaire Bourbaki, 279, décembre 1964
+(Benjamin).
+[2] S. LEFSCHETZ, Uanalysis situs et la géométrie algébrique (Gauthier-Villars), 1924. Reproduit dans : Selected papers
+(Chelsea Publ. Co.).
+[3] R. A. RANKIN, Contributions to thé theory of Ramanujan's function ï(n) and similar arithmetical functions.
+II, Proc. Camb. Phil. Soc., 35 (1939), 35I-372.
+306
+
+LA CONJECTURE DE WEIL. 1
+
+307
+
+[4] A. WEIL, Numbers of solutions of équations in finite fieids, Bull. Am. Math. Soc., 55 (1949), p. 497-508.
+SGA, Séminaire de Géométrie Algébrique du Bois-Marie (IHES) :
+SGA 4, Théorie des topos et cohomologie étale des schémas (dirigé par M. ARTIN, A. GROTHENDIECK etJ.-L.VERDiER),
+Lecture Notes in Math., 269, 270, 305.
+SGA 5, Cohomologie f-adique et fonctions L, diffusé par F IHES.
+SGA 7, Groupes de monodromie en géométrie algébrique.
+I1'® partie : dirigé par A. GROTHENDIECK, Lecture Notes in Math., 288.
+2e partie : par P. DELIGNE et N. KATZ, Lecture Notes in Math., 340.
+
+Manuscrit reçu le 20 septembre 1973.
+
+307
+
+

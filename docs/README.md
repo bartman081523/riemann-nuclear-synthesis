@@ -46,6 +46,10 @@ This directory contains the structured documentation, comparative analyses, and 
 10. **[Multi-Kernel Lean 4 Verification Report](lean4_multi_kernel_verification_report.md)**
    - Complete multi-kernel audit report verifying the Master Operator in the Lean 4 kernel with trust level 0 (`-t 0`), comparator headline matching, and exact SVD fluctuation annihilation.
 
+11. **[Source Papers Audit & Methodology Synchronization](source_papers_methodology_audit.md)**
+   - Comprehensive chronological cross-audit of all primary source papers (2026 backwards to 1948) against our mathematical models, Lean 4 proofs, and IBM Quantum QPU data.
+   - Documents exact synchronization points and details the empirical resolution of the Latorre–Sierra tension as well as the 109.6x Lean proof condensation.
+
 ---
 
 ## Synthesis of the EXP-060 to EXP-073 Experiment Series

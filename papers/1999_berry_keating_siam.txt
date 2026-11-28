@@ -1,0 +1,139 @@
+millennium essay
+
+Making waves in physics
+Three wave singularities from the miraculous 1830s.
+Michael Berry
+
+ingularities are places where mathematical quantities become infinite, or
+change abruptly. In waves — of light,
+for example — there can be singularities in
+the intensity, in the phase, or in the polarization. This is a modern view, sharply different
+from the traditional approach where waves
+were simply the solutions of wave equations,
+and singularities — if considered at all —
+were regarded as awkward places where the
+usual treatments fail. And yet the foundations
+of wave singularities were laid in three astonishing papers published as early as the 1830s,
+a decade whose intellectual significance we
+are only now beginning to appreciate.
+Reversing historical order, we start in
+1838, with a paper by George Biddell Airy.
+The immediate stimulus was the theory of
+the rainbow. Two centuries earlier, Descartes
+had understood the bright bow as Sun rays
+directionally focused by raindrops. This geometrical theory gives a good first approximation but fails to account for the delicate
+supernumerary bows sometimes seen just
+inside the main arc. In 1801 Thomas Young
+realized that by regarding light as waves it is
+possible to understand supernumaries as
+interference fringes, but could not give a precise mathematical description. Airy’s contributions were: to appreciate that the rainbow
+is a particular example of a caustic, that is, a
+line where light rays are focused (the bright
+lines on the bottom of swimming pools are
+also caustics); to see that caustics are singularities, where ray optics predicts infinite
+brightness; to realize that wave physics will
+soften the singularities; and to discover the
+precise mathematical description of this
+softening, in the form of his rainbow integral
+(pictured above).
+Airy’s paper was doubly influential. First,
+because refined techniques soon devised by
+George Gabriel Stokes to study the rainbow
+integral established divergent infinite series
+as an important tool in bridging gaps
+between physical theories (in this case ray and
+wave optics) and uncovered a mathematical
+phenomenon whose ramifications are still
+being explored. Second, because the rainbow
+integral, describing wave interference decorating the simplest kind of caustic, was found
+to be the first in a hierarchy of ‘diffraction catastrophes’. These more elaborate wave singularities are now classified using catastrophe
+theory — mathematics whose application
+greatly advances the physics of caustics.
+Next are two papers from 1833 and 1836
+by the polymath William Whewell (to whom
+
+S
+
+NATURE | VOL 403 | 6 JANUARY 2000 | www.nature.com
+
+Airy’s rainbow integral.
+
+Whewell’s amphidromy between England and
+Holland.
+
+we owe the word ‘physicist’, with its “four
+sibilant consonants that fizz like a squib”).
+He was studying the tides in the oceans, and
+seeking to “connect the actual tides of all the
+different parts of the world — and to account
+for their varieties and seeming anomalies”.
+From Young he learned to concentrate on the
+cotidal lines connecting places where the tide
+is high at a given time. Cotidal lines are wavefronts of the tide, regarded as a wave of
+twelve-hour period; they are contours of the
+phase of this wave. Whewell appreciated that
+a map of cotidal lines would render intelligible the pattern of tides around the coasts,
+and coordinated hundreds of new observations, in an early international scientific
+collaboration.
+Extrapolating away from the coasts into
+the ‘German Ocean’ he reached the extraordinary conclusion that there must be “rotatory
+systems of tide-waves [where] the cotidal lines
+... revolve around [a point] where there is no
+tide, for it is clear that at a point where all the
+cotidal lines meet, it is high-water equally at
+all times”. One of Whewell’s ‘amphidromies’
+can be seen above. What Whewell discovered
+were the phase singularities of the tide waves.
+© 2000 Macmillan Magazines Ltd
+
+Hamilton’s diabolical points (bullseyes) in
+several square centimetres of overhead-projector
+transparency foil viewed obliquely through
+crossed polarizers; in each bullseye, the
+interference rings are contours of difference of
+wave speeds, centred on an optic axis, and the
+black stripes reflect geometric phases.
+
+Phase singularities are now recognized as
+important features of all waves; in three
+dimensions they are lines rather than points.
+At a phase singularity, the wave intensity is
+zero — in contrast to caustics where the
+intensity is (geometrically) infinite. In acoustics, the singularities are threads of silence; in
+light, they are optical vortices; in superfluids,
+quantized vortices; and in superconductors,
+quantized lines of magnetic flux.
+In addition to intensity and phase, waves
+of light exhibit polarization: they are vector
+waves. Polarization has its singularities too,
+discovered by our third author, William
+Rowan Hamilton, in 1832, as an unexpected
+consequence of Augustin Fresnel’s theory of
+the optics of crystals. In a general anisotropic
+material, two waves propagate in each direction, with different speeds and polarizations.
+There are, however, two singular directions,
+optic axes, where the speeds are the same. As
+functions of direction, the two speeds can be
+represented by surfaces forming a diabolo
+(double cone) at each optic axis. Hamilton
+deduced that at such ‘diabolical points’ the
+wave direction corresponds to a cone of rays.
+This unprecedented ‘conical refraction’ was
+soon observed, confirming that light is a
+transverse wave. Diabolical points can easily
+be seen directly (pictured above).
+Hamilton’s diabolical point was the first
+physical example of degeneracy between
+eigenvalues of a real symmetric matrix. Its
+descendants thrive in many areas of science
+today, for example, as conical intersections
+between energy levels in quantum chemistry, as Bloch wave degeneracies in the
+quantum Hall effect, and as the simplest
+geometric phases.
+■
+Michael Berry is in the Department of
+Physics, University of Bristol, Bristol
+BS8 1TL, UK.
+21
+
+

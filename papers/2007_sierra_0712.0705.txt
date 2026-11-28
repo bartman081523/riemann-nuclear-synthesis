@@ -1,0 +1,3423 @@
+A quantum mechanical model of the Riemann zeros
+Germán Sierra
+Instituto de Fı́sica Teórica, CSIC-UAM, Madrid, Spain
+
+Abstract
+
+arXiv:0712.0705v1 [math-ph] 5 Dec 2007
+
+In 1999 Berry and Keating showed that a regularization of the 1D classical Hamiltonian H =
+xp gives semiclassically the smooth counting function of the Riemann zeros. In this paper we
+first generalize this result by considering a phase space delimited by two boundary functions in
+position and momenta, which induce a fluctuation term in the counting of energy levels. We
+next quantize the xp Hamiltonian, adding an interaction term that depends on two wave functions
+associated to the classical boundaries in phase space. The general model is solved exactly, obtaining
+a continuum spectrum with discrete bound states embbeded in it. We find the boundary wave
+functions, associated to the Berry-Keating regularization, for which the average Riemann zeros
+become resonances. A spectral realization of the Riemann zeros is achieved exploiting the symmetry
+of the model under the exchange of position and momenta which is related to the duality symmetry
+of the zeta function. The boundary wave functions, giving rise to the Riemann zeros, are found
+using the Riemann-Siegel formula of the zeta function. Other Dirichlet L-functions are shown to
+find a natural realization in the model.
+PACS numbers: 02.10.De, 05.45.Mt, 11.10.Hi
+
+1
+
+I.
+
+INTRODUCTION
+
+At the beginning of the XX century Polya and Hilbert made the bold conjecture that
+the imaginary part of the Riemann zeros could be the oscillation frequencies of a physical
+system. If true this suggestion would imply a proof of the celebrated Riemann hypothesis
+(RH). The importance of this conjecture lies in its connection with the prime numbers. If
+the RH is true then the statistical distribution of the primes will be constrained in the most
+favorable way [1, 2]. Otherwise, in the words of Bombieri, the failure of the RH would create
+havoc in the distribution of the prime numbers [3] (see also [4, 5, 6, 7, 8] for reviews on the
+RH).
+After the advent of Quantum Mechanics, the Polya-Hilbert conjecture was formulated as
+the existence of a self-adjoint operator whose spectrum contains the imaginary part of the
+Riemann zeros. This conjecture was for a long time regarded as a wild speculation until the
+works of Selberg in the 50’s and those of Montgomery in the 70’s. Selberg found a remarkable
+duality between the length of geodesics on a Riemann surface and the eigenvalues of the
+Laplacian operator defined on it [9]. This duality is encapsulated in the so called Selberg
+trace formula, which has a strong similarity with the Riemann explicit formula relating the
+zeros and the prime numbers. The Riemann zeros would correspond to the eigenvalues, and
+the primes to the geodesics. This classical versus quantum version of the primes and the
+zeros is also at the heart of the so called Quantum Chaos approach to the RH.
+Quite independently of Selbergs work, Montgomery showed that the Riemann zeros are
+distributed randomly and obeying locally the statistical law of the Random Matrix Theory
+(RMT) [10]. The RMT was originally proposed to explain the chaotic behaviour of the spectra of nuclei but it has applications in another branches of Physics, specially in Condensed
+Matter [11]. There are several universality classes of random matrices, and it turns out that
+the one related to the Riemann zeros is the gaussian unitary ensemble (GUE) associated to
+random hermitean matrices. Montgomery analytical results found an impressive numerical
+confirmation in the works of Odlyzko in the 80’s, so that the GUE law, as applied to the
+Riemann zeros is nowadays called the Montgomery-Odlyzko law [12]. An important hint
+suggested by this law is that the Polya-Hilbert Hamiltonian H must break the time reversal
+symmetry. The reason being that the GUE statistics describes random Hamiltonians where
+this symmetry is broken. A simple example is provided by materials with impurities subject
+2
+
+to an external magnetic field, as in the Quantum Hall effect.
+A further step in the Polya-Hilbert-Montgomery-Odlyzko pathway was taken by Berry
+[13, 14]. who noticed a similarity between the formula yielding the fluctuations of the number
+of zeros, around its average position En ∼ 2πn/ log n, and a formula giving the fluctuations
+of the energy levels of a Hamiltonian obtained by the quantization of a classical chaotic
+system [15]. The comparison between these two formulas suggests that the prime numbers
+p correspond to the isolated periodic orbits whose period is log p. In the Quantum Chaos
+scenario the prime numbers appear as classical objects, while the Riemann zeros are quantal.
+This classical/quantum interpretation of the primes/zeros is certainly reminiscent of the one
+underlying the Selberg trace formula mentioned earlier. A success of the Quantum Chaos
+approach is that it explains the deviations from the GUE law of the zeros found numerically
+by Odlyzko. The similarity between the fluctuation formulas described above, while rather
+appealing, has a serious drawback observed by Connes which has to do with an overall sign
+difference between them [16]. It is as if the periodic orbits were missing in the underlying
+classical chaotic dynamics, a fact that is difficult to understand physically. This and other
+observations lead Connes to propose an abstract approach to the RH based on discrete
+mathematical objects known as adeles [16]. The final outcome of Connes work is a trace
+formula whose proof, not yet found, amounts to that of a generalized version of the RH.
+In Connes approach there is an operator, which plays the role of the Hamiltonian, whose
+spectrum is a continuum with missing spectral lines corresponding to the Riemann zeros.
+We are thus confronted with two possible physical realizations of the Riemann zeros, either
+as point like spectra or as missing spectra in a continuum. Later on we shall see that
+both pictures can be reconciled in a QM model having a discrete spectra embedded in a
+continuum.
+The next step within the Polya-Hilbert framework came in 1999 when Berry and Keating
+[17, 18] on one hand and Connes [16] on the other, proposed that the classical Hamiltonian
+H = xp, where x and p are the position and momenta of a 1D particle, is closely related
+to the Riemann zeros. This striking suggestion was based on a semiclassical analysis of
+H = xp, which led these authors to reach quite opposite conclusions regarding the possible
+spectral interpretation of the Riemann zeros. The origin of the disagreement is due to the
+choice of different regularizations of H = xp. Berry and Keating choosed a Planck cell
+regularization in which case the smooth part of the Riemann zeros appears semiclassically
+3
+
+as discrete energy levels. Connes, on the other hand choosed an upper cutoff for the position
+and momenta which gives semiclassically a continuum spectrum where the smooth zeros are
+missing. All these semiclassical results are heuristic and lack so far of a consistent quantum
+version. It is the aim of this paper to provide such a quantum version in the hope that it
+will sed new light concerning the spectral realization of the Riemann zeros.
+The organization of the paper is as follows. In section II we review the semiclassical
+approaches to H = xp due to Berry, Keating and Connes which give an heuristic derivation
+of the asymptotic behaviour of the smooth part of the Riemann zeros. Then, we generalize
+the semiclassical Berry-Keating Planck cell regularization of xp by means of two classical
+functions which define a wiggly boundary for the allowed semiclassical region in phase
+space. This generalization allow us to explain semiclassically the fluctuation term in the
+spectrum. In section III we define the quantum Hamiltonian associated to the semiclassical
+approach introduced above. The Hamiltonian is given by the quantization of H = xp
+plus an interaction term that depends on two generic boundary wave functions associated
+to the classical boundary functions of the semiclassical approach. In section IV we solve
+the Schroedinger equation finding the exact eigenfunctions and eigenenergies in terms of a
+function F (E) which plays the role of a Jost function for this model, and whose analyticity
+properties are studied in section V. In section VI we find the boundary wave functions that
+give rise to the quantum version of the semiclassical Berry-Keating model for the smooth
+zeros of the Riemann zeta function, which are common to all the even Dirichlet L-functions.
+We also find the boundary wave functions associated to the smooth approximation of the
+zeros of the odd Dirichlet L-functions. In section VII we quantize the relation between
+the fluctuation part of the spectrum and the semiclassical phase boundaries, obtaining the
+equations satisfied by the boundary wave functions, and we solve them explicitely. Finally,
+using the duality properties of these wave functions and the Riemann-Siegel formula of the
+zeta function we find a model whose Jost function is proportional to the zeta function. From
+this fact, and making some additional asumptions, we show that the Riemann zeros on the
+critical line are bound states of the model. However we cannot exclude the existence of zeros
+outside the critical line, which would imply a proof of the RH. We describe in an appendix
+the computation of the wave functions associated to the smooth and exact Riemann zeros.
+The present work is closely related to those in references [19, 20, 21], where we studied
+an interacting version of the xp Hamiltonian based on the relation of this model with the so
+4
+
+called Russian doll model of superconductivity [22, 23, 24]. For a field theoretical approach
+to the RH inspired by the latter works see reference [25]. We would like also to mention
+some important differences between the present paper and those of references [19, 20, 21].
+First of all, the position variable x was choosen in [19, 20, 21] to belong to the finite interval
+(1, N) with N → ∞, while in this paper we choose the half line (0, ∞) which gives a more
+symmetric treatment between the position and momentum variables. Secondly, in the earlier
+references the interaction term was added to the inverse Hamiltonian 1/(xp), while in this
+paper we add the interaction directly to the Hamiltonian xp, which is more natural from a
+physical viewpoint. We have also tried to make an extensive use of the duality symmetry of
+the Riemann zeta function reflected in the functional relation it satisfies.
+
+II.
+
+SEMICLASSICAL APPROACH
+
+The classical Berry-Keating-Connes (BKC) Hamiltonian [16, 17, 18]
+H0cl = x p,
+
+(2.1)
+
+has classical trayectories given by the hyperbolas (see fig.1a)
+p(t) = p0 e−t .
+
+x(t) = x0 et ,
+
+(2.2)
+
+The dynamics is unbounded, so one should not expect a discrete spectrum even at the
+semiclassical level. To overcome this difficulty, Berry and Keating proposed in 1999 to
+restrict the phase space of the xp model to those points (x, p) where |x| > lx and |p| > lp ,
+with lx lp = 2π~. These constraints lead to a finite number of semiclassical states, N (E),
+with energy between 0 and E given by
+N (E) =
+
+A
+,
+2π~
+
+(2.3)
+
+where A is the area of the allowed phase space region below the curve E = xp. The result,
+in units ~ = 1, is
+
+
+
+E
+E
+log
+−1 +1
+(2.4)
+NBK (E) =
+2π
+2π
+which agrees with the asymptotic limit of the smooth part of the formula giving the number
+of Riemann zeros whose imaginary part lies in the interval (0, E),
+
+
+E
+7
+E
+log
+− 1 + + O(E −1 ).
+hN (E)i ∼
+2π
+2π
+8
+5
+
+(2.5)
+
+pM
+
+E/l x
+
+xp=E
+
+p
+
+xp=E
+
+p
+x cl (p)
+
+lp
+
+p cl (x)
+lx
+
+x
+
+x
+
+E/l p
+
+( 1a)
+
+xM
+
+( 1b)
+
+FIG. 1: 1a) a classical trayectory (2.2). The region in shadow is the allowed phase space of the
+semiclassical regularizations of Berry and Keating. 1b) generalization of the phase space region
+given by equations (2.12)
+
+The exact formula for the number of zeros, NR (E), due to Riemann, also contains a fluctuation term which depends on the zeta function [1] (see fig.2),
+NR (E) = hN (E)i + Nfl (E)
+θ(E)
+hN (E)i =
++1
+π
+
+
+1
+1
+Nfl (E) = Im log ζ
++ iE
+π
+2
+where θ(E) is the phase of the Riemann zeta function ζ(1/2 − iE),
+
+
+E
+1 i
++ E − log π
+θ(E) = Im log Γ
+4 2
+2
+
+(2.6)
+
+(2.7)
+
+whose asymptotic expansion
+E
+θ(E) = log
+2
+
+
+
+E
+2π
+
+
+
+−
+
+E π
+− + O(E −1)
+2
+8
+
+(2.8)
+
+yields (2.5). The function ζ(s), for Re s > 1, can be related to the prime numbers p thanks
+to the Euler product formula
+ζ(s) =
+
+Y
+
+1
+,
+−s
+1
+−
+p
+p>1
+6
+
+Re s > 1
+
+(2.9)
+
+N
+3
+2.5
+2
+1.5
+1
+0.5
+12.5 15 17.5 20 22.5 25
+
+E
+
+FIG. 2: Number of Riemann zeros in the interval (0, E): black: exact formula (2.6), red: smooth
+function hN (E)i, blue: hN (E)i + 1/2.
+
+This expression diverges if Re s = 1/2, however one can heuristically use it to write the
+fluctuation term in (2.6) as
+∞
+
+Nfl (E) = −
+
+1
+1 XX
+sin(mE log p)
+π p m=1 m pm/2
+
+(2.10)
+
+which gives a reasonable result after truncating the sum over the primes. As observed by
+Berry, eq.(2.10) resembles formally the fluctuation part of the spectrum of a classical 1D
+chaotic Hamiltonian with isolated periodic orbits
+∞
+
+1 XX
+1
+Nfl (E) =
+sin(Scl (E))
+π γ m=1 m 2 sinh(mλp /2)
+
+(2.11)
+
+p
+
+where γp denotes the primitive periodic orbits, the label m describes the windings of those
+orbits, ±λp are the instability exponents and Scl (E) is the classical action, which is equal
+to mETγp , with Tγp the period of γp . Comparing (2.10) and (2.11), Berry conjectured the
+existence of a classical chaotic Hamiltonian whose primitive periodic orbits would be labelled
+by the prime numbers p = 2, 3, . . . , with periods Tp = log p and instability exponents
+λp = ± log p [13, 14]. Moreover, since each orbit is counted once, the Hamiltonian must
+break time reversal (otherwise there would be a factor 2/π in front of eq. (2.10) instead
+of 1/π). The quantization of this classical chaotic Hamiltonian would likely contain the
+7
+
+Riemann zeros in its spectrum. This idea is the key of the Quantum Chaos approach to the
+Riemann hypothesis.
+Besides the fact that the earlier Hamiltonian has not yet been found there is the Connes
+criticism that the similarity between eqs.(2.10) and (2.11) fails in two issues. The first is
+the overall minus sign in (2.10) as compared to (2.11), and the second is that the term
+2 sinh(mλp /2) only becomes pm/2 when m → ∞. Connes relates the minus sign problem to
+an alternative interpretation of the Riemann zeros as missing spectral lines as opposed to
+the conventional one (we shall come back later to these conflicting interpretations). These
+two problems were the main Connes’s motivations to develop the adelic approach to the RH.
+As we saw above, the Quantum Chaos approach suggests that the fluctuation part of
+the spectrum of the yet unknown Riemann Hamiltonian has a classical origin related to the
+prime numbers. Taking into account the Berry-Keating heuristic derivation of the smooth
+part of the spectrum, it is tempting to extend the semiclassical approach in order to explain
+the fluctuation term in the Riemann formula for the zeros. The simplest idea is to generalize
+the allowed phase space of the xp Hamiltonian replacing the boundaries |x| = lx and |p| = lp
+by two curves xcl (p) and pcl (x), such that (see fig 1b)
+|p| > pcl (x)
+
+x > xcl (p),
+
+(2.12)
+
+where xcl (p) and pcl (x), are positive functions satisfying
+xcl (p) = xcl (−p) > 0,
+
+∀ p ∈ IR
+
+pcl (x) > 0
+
+∀ x ∈ IR+
+
+(2.13)
+
+These conditions split the allowed phase space into two disconnected regions in the first
+and forth quadrants of the xp plane. Notice that x is always positive while p can be either
+positive or negative. The BK boundaries obviously correspond to the choice
+BK : xcl (p) = lx ,
+
+pcl (x) = lp
+
+(2.14)
+
+For the extended BC’s the minimal distance lx and minimal momentum lp can be defined as
+the intersection point of the curves, xcl (p) and pcl (x), which we shall assume to be unique,
+and satisfying
+xcl (lp ) = lx ,
+
+pcl (lx ) = lp
+
+8
+
+(2.15)
+
+The classical xp Hamiltonian together with the BK conditions have the exchange symmetry
+x
+p
+↔
+lx
+lp
+
+(2.16)
+
+whose generalization to the extended model is
+pcl (x)
+xcl (lp x/lx )
+=
+lx
+lp
+
+(2.17)
+
+The counting of semiclassical states is based again on eq. (2.3). The area below the curve
+E = xp and bounded by the conditions (2.12) is given by (see fig.1b)
+A =
+
+Z xI
+
+dx
+
++
+
+dp +
+
+pcl (x)
+
+lx
+
+Z pI
+
+Z lp x/lx
+
+dp
+
+Z lx p/lp
+
+dx
+
+xI
+
+dx +
+
+xcl (p)
+
+lp
+
+Z xM
+
+Z pM
+pI
+
+Z E/x
+
+dp
+
+(2.18)
+
+pcl (x)
+
+dp
+
+Z E/p
+
+dx
+
+xcl (p)
+
+The quantities xM , pM (resp. xI , pI ) are the position and momenta of the points where the
+curve E = xp intersects the boundaries pcl (x), xcl (p) (resp. the line x/lx = p/lp ), and satisfy,
+E = xM pcl (xM ) = xcl (pM ) pM = xI pI ,
+
+xI
+pI
+=
+lx
+lp
+
+(2.19)
+
+The integration of (2.18) yields
+
+E
++ E − lx l p
+A = E log
+lx lp
+
+
+
+
+pcl (xM )
+xcl (pM )
+− E log
+− E log
+lp
+lx
+Z pM
+Z xM
+dp xcl (p)
+dx pcl (x) −
+−
+
+
+(2.20)
+
+lp
+
+lx
+
+Partial integrating the last two terms in (2.20) and dividing by h = lx lp = 2π(~ = 1), the
+semiclassical value of N (E) reads
+N (E) = NBK (E)
+
+
+
+
+E
+pcl (xM )
+xcl (pM )
+E
+−
+log
+log
+−
+2π
+lp
+2π
+lx
+Z xM
+Z pM
+dx dpcl (x)
+dp dxcl (p)
++
+x
++
+p
+2π
+dx
+2π
+dp
+lx
+lp
+
+(2.21)
+
+The BK conditions (2.14) of course reproduce eq. (2.4). More general boundary functions
+induce a fluctuation term in the counting formula of a form which recalls eq.(2.6). Let us
+9
+
+denote this term as
+
+
+
+
+E
+E
+pcl (xM )
+xcl (pM )
+nfl (E) = − log
+−
+log
+2π
+lp
+2π
+lx
+Z xM
+Z pM
+dx dpcl (x)
+dp dxcl (p)
++
+x
++
+p
+2π
+dx
+2π
+dp
+lx
+lp
+
+(2.22)
+
+so that
+N (E) = NBK (E) + nfl (E)
+
+(2.23)
+
+Taking the derivative of (2.22) with respect to E, and using eqs.(2.19) one gets
+
+
+
+
+1
+1
+pcl (xM )
+xcl (pM )
+dnfl (E)
+−
+= − log
+log
+dE
+2π
+lp
+2π
+lx
+
+(2.24)
+
+which implies that the boundary functions are related to the fluctuation part of the density
+of states. A further simplification is achieved imposing the xp symmetry (2.17)
+pcl (xM )
+xcl (pM ) pM
+xM
+=
+,
+=
+lp
+lx
+lp
+lx
+
+(2.25)
+
+which leads to
+1
+dnfl (E)
+= − log
+dE
+π
+
+
+
+pcl (xM )
+lp
+
+
+
+1
+= − log
+π
+
+
+
+xcl (pM )
+lx
+
+
+
+(2.26)
+
+Hence, xp-symmetric boundary functions pcl (xM ) and xcl (pM ) are completely fixed by the
+density of the fluctuations. To find pcl (x), one combines (2.26) and (2.19)
+′
+
+pcl (xM ) = lp e−πnfl (E) =
+
+E
+,
+xM
+
+n′fl (E) =
+
+dnfl (E)
+dE
+
+(2.27)
+
+which gives xM as a function of E
+xM =
+
+E πn′ (E)
+e fl
+lp
+
+(2.28)
+
+If nfl (E) = 0 , the latter equations reproduce the BK boundary conditions (2.15). Eq.(2.28)
+gives xM as a function of E and it is monotonically increasing provided
+dxM (E)
+d2 nfl (E)
+> 0 =⇒ 1 + πE
+>0
+dE
+dE 2
+
+(2.29)
+
+Under this condition we can expressed E as a function of xM and replaced it in (2.27),
+obtaining the boundary function pxM = E(xM )/xM . In this case the inverse problem of
+10
+
+finding a Hamiltonian given the spectrum has a unique solution at the semiclassical level. If
+the fluctuations are strong enough at some energies, then condition (2.29) could be violated
+implying that E = E(x) as well as pcl (x) will be multivalued functions. This gives rise to a
+manifold of boundary functions, each one having discontinuities at some values of x.
+
+III.
+
+FROM CLASSICAL TO QUANTUM
+
+In this section we shall give a quantum version of the semiclassical results obtained above.
+The starting point is the quantization of the classical hamiltonian H0cl = xp. Let us consider
+the usual normal ordered expression
+
+
+1
+d
+1
+H0 = (xp + px) = −i x +
+2
+dx 2
+
+(3.1)
+
+where p = −id/dx. In references [20, 26] it was shown that H0 becomes a self-adjoint
+operator in two cases where the domain of the x variable are choosen as: 1) 0 < x < ∞ or
+2) a < x < b with a and b finite. For the purposes of this paper we shall confine to the case
+1. Case 2 was discussed at length in [20]. Since x > 0 one can write (3.1) as
+H0 = x1/2 p x1/2 ,
+
+x>0
+
+(3.2)
+
+The exact eigenfunctions of (3.2) are given by
+1
+1
+φE (x) = √
+,
+1/2−iE
+2π x
+
+E ∈ IR
+
+(3.3)
+
+where the eigenenergies E belong to the real line. The normalization of (3.3) is the appropiate
+one for a continuum spectra,
+hφE |φE ′ i =
+
+Z ∞
+0
+
+dx φ∗E (x)φE ′ (x) = δ(E − E ′ ).
+
+(3.4)
+
+The quantum Hamiltonian associated to the semiclassical approach is
+H = H0 + i (|ψa ihψb | − |ψb ihψa |)
+
+(3.5)
+
+where ψa and ψb are two wave functions associated to the boundary functions pcl (x) and
+xcl (p), respectively, i.e.
+ψa ↔ pcl (x),
+11
+
+ψb ↔ xcl (p)
+
+(3.6)
+
+p
+
+p
+
+x
+
+x
+
+( 3a)
+
+( 3b)
+
+FIG. 3: Graphical representation of the classical transport operation in the phase space of the xp
+model given in eqs.(3.9) and (3.15).
+
+We shall choose real functions ψa (x) and ψb (x) so that H is an hermitean and antisymmetric
+operator, which implies that the eigenvalues appear in pairs E, −E. The interaction term in
+(3.5) can be justified by the following heuristic argument. Let us consider a particle which
+at t = 0 belong to the classical allowed region, i.e. x0 > xcl (p0 ) and p0 > pcl (x0 ). According
+to the classical evolution (2.2), the position x(t) increases while the momenta p(t) decreases,
+i.e.
+Classical evolution :(x0 , p0 )−→(et x0 , e−t p0 )
+
+(3.7)
+
+until a time tM where the particle hits the pcl -boundary.
+(etM x0 , e−tM p0 ) = (xM , pcl (xM ))
+
+(3.8)
+
+The semiclassical approach suggests to transport this particle from the pcl -boundary to a
+point in the xcl -boundary, (see fig. 3)
+Classical transport :(xM , pcl (xM )) → (xcl (pM ), pM ),
+
+(3.9)
+
+while preserving the energy,
+E = x0 p0 = xM pcl (xM ) = xcl (pM ) pM
+
+(3.10)
+
+Equation (3.10) coincides with (2.19) if we choose (x0 , p0 ) = (xI , pI ). The transported
+particle at the xcl - boundary continues its classical evolution returning to the initial point
+12
+
+(x0 , p0 ) after a time
+τE =
+
+1
+xM
+1
+pM
+log
+= log
+E
+xcl (pM )
+E
+pcl (xM )
+
+(3.11)
+
+This is also the period of the classical trayectory which has become a closed orbit thanks to
+the transport operation (3.9). The semiclassical calculation of the previous section measures
+classical action associated to this periodic orbit. At the quantum level the free evolution of
+a state ψ is given by the unitary transformation
+Quantum evolution :|ψ(0)i−→|ψ(t)i = e−itH0 |ψ(0)i
+
+(3.12)
+
+The operator that performs the transport (3.9) is given by one of the interacting terms in
+the Hamiltonian (3.5),
+Quantum transport :|ψi → −i|ψb ihψa |ψi
+
+(3.13)
+
+which consists in the proyection of the state ψ into the quantum state ψa , yielding the state
+ψb as a result. The hermiticity of the Hamiltonian H implies the existence of the inverse of
+the process (3.13), i.e.
+Inverse quantum transport :|ψi → −i|ψa ihψb |ψi
+
+(3.14)
+
+whose classical analogue is (see fig. 3b),
+Classical Inverse transport : (xcl (pM ), pM ), → (xM , pcl (xM ))
+
+(3.15)
+
+What is the physical meaning of this process? Let us take for a while a particle in the
+classical forbbiden region where x0 < xcl (p0 ) but p0 > pcl (x0 ). This particle will evolve
+freely according to eqs.(3.7), until a time tM where it hits the xcl -boundary, i.e.
+(etM x0 , e−tM p0 ) = (xcl (pM ), pM ))
+
+(3.16)
+
+Then one can apply the inverse transport (3.15) which carries the particle to the pcl -boundary
+where it continues its free and unbounded evolution : x → ∞ and p → 0. The phase space
+area traced by this trayectory is infinite which implies that the number of these kind of
+semiclassical states is infinite forming therefore a continuum.
+In summary, the transport operations between the two boundaries leads classically to
+closed periodic trayectories in the allowed phase space and to open trayectories in the forbbiden region. Semiclassically the closed periodic trayectories give rise to bound states while
+13
+
+the open ones form a continuum. This is scenario that comes out from the solution of the
+quantum model, as we show in the next section.
+The existence of a semiclassical continuum in the xp model was proposed by Connes in
+reference [16]. Instead of the boundary conditions set by lx and lp , Connes restricts the
+phase space of the model to be |x| < Λ, |p| < Λ, where Λ is a cutoff which is sent to infinite
+at the end of the calculation. The number of semiclassical states is given now by
+
+
+E
+E
+E
+NC (E) = log Λ −
+log
+−1
+π
+2π
+2π
+
+(3.17)
+
+where the first term leads, in the limit Λ → ∞, to a continuum while the second term coincides with minus the average position of the Riemann zeros (2.4). A possible interpretation
+of these result is that the Riemann zeros, are missing spectral lines in a continuum, which
+is in apparent contradiction with the Berry-Keating interpretation of the zeros as bound
+states. As we shall show below both interpretations can be reconciled at the quantum level
+where the Riemann zeros appear as discrete spectra embbeded in a continuum of states.
+
+IV.
+
+EXACT SOLUTION OF THE SCHROEDINGER EQUATION
+
+In this section we shall find explicitely the eigenstates and the eigenergies of the Hamiltonian (3.5) for generic states ψa and ψb . The method used is similar to the one employed
+in reference [20], where instead of the Hamiltonian xp we added an interaction to 1/xp. The
+Schroedinger equation for an eigenstate ψE (x) with energy E is given by
+
+
+1
+d
+ψE (x) + i (ψa (x)hψb |ψE i − ψb (x)hψa |ψE i = EψE (x))
+−i x +
+dx 2
+
+(4.1)
+
+Let us introduce the variable q
+q = log x,
+
+q ∈ IR
+
+(4.2)
+
+dx ψa (x)ψE (x)
+
+(4.3)
+
+and the overlap integrals
+A = hψa |ψE i =
+B = hψb |ψE i =
+
+Z ∞
+0
+
+Z ∞
+
+dx ψb (x)ψE (x)
+
+0
+
+which depend on E. Using these definitions eq.(4.1) becomes
+14
+
+−i
+
+
+
+
+1
+d
+ψE (q) + i(Bψa (q) − Aψb (q)) = EψE (q)
++
+dq 2
+
+The general solution of this equation is given by
+
+
+Z q
+−(1/2−iE)q
+′ (1/2−iE)q ′
+′
+′
+C0 +
+ψE (q) = e
+dq e
+(Bψa (q ) − Aψb (q ))
+
+(4.4)
+
+(4.5)
+
+−∞
+
+where C0 is an integration constant. It is convenient to define the functions
+a(q) = eq/2 ψa (q),
+b(q) = eq/2 ψb (q),
+so that
+−(1/2−iE)q
+
+ψE (q) = e
+
+a(x)
+ψa (x) = √
+x
+b(x)
+ψb (x) = √
+x
+
+
+
+Z q
+′ −iEq ′
+′
+′
+C0 +
+dq e
+(B a(q ) − A b(q ))
+
+(4.6)
+
+(4.7)
+
+−∞
+
+An alternative way to express (4.7) is
+
+
+Z ∞
+−(1/2−iE)q
+′ −iEq ′
+′
+′
+C∞ −
+dq e
+(B a(q ) − A b(q ))
+ψE (q) = e
+
+(4.8)
+
+q
+
+where C∞ is related to C0 by
+C∞ = C0 + B a
+b(−E) − A bb(−E)
+
+where
+
+fb(E) =
+
+Z ∞
+
+dq eiEq f (q),
+
+f = a, b
+
+(4.9)
+
+(4.10)
+
+−∞
+
+We shall assume that a(q) and b(q) satisfy
+Rq
+′
+limq→−∞ −∞ dq ′ e−iEq f (q ′) = 0, f = a, b
+R∞
+′
+limq→∞ q dq ′ e−iEq f (q ′ ) = 0, f = a, b
+
+(4.11)
+
+which implies that the asymptotic behaviour of ψE (x) is dominated by C0 , C∞ , i.e.
+lim ψE (x) =
+
+x→0
+
+C0
+,
+1/2−iE
+x
+
+lim ψE (x) =
+
+x→∞
+
+C∞
+,
+1/2−iE
+x
+
+Plugging (4.7) into (4.3) yields the relation between the constants A, B, C0 ,
+
+ 
+
+
+1 + Sa,b −Sa,a
+A
+b(E)
+a
+
+   = C0 
+
+b
+Sb,b 1 − Sb,a
+B
+b(E)
+15
+
+(4.12)
+
+(4.13)
+
+where the functions Sf,g (E) with f, g = a, b are defined by [27]
+Z ∞
+Z q
+′
+iEq
+Sf,g (E) =
+dq e f (q)
+dq ′ e−iEq g(q ′)
+−∞
+
+Similarly, introducing (4.8) into (4.3) yields
+
+
+ 
+
+e
+e
+b(E)
+a
+A
+1 − Sa,b Sa,a
+
+   = C∞ 
+
+b
+e
+e
+B
+b(E)
+−Sb,b 1 + Sb,a
+where
+
+Sef,g (E) =
+
+Z ∞
+
+(4.14)
+
+−∞
+
+iEq
+
+dq e
+
+f (q)
+
+−∞
+
+Z ∞
+
+′
+
+dq ′ e−iEq g(q ′ )
+
+(4.15)
+
+(4.16)
+
+q
+
+This function is related to Sf,g in two ways,
+
+Sef,g (E) = −Sf,g (E) + fb(E) gb(−E)
+Sef,g (E) = Sg,f (−E)
+
+(4.17)
+(4.18)
+
+To derive these equations one makes a change of order in the integration. Combining (4.17)
+and (4.18) one obtains the shuffle relation
+Sf,g (E) + Sg,f (−E) = fb(E) gb(−E)
+
+(4.19)
+
+The terminology is borrowed from the theory of multiple zeta functions where there is
+a similar relation between the two variable Euler-Zagier zeta function ζ(s1, s2 ), and the
+Riemann zeta function ζ(s) [28, 29].
+The solutions of the eqs.(4.13) and (4.15) depend on the determinant of the associated
+2 × 2 matrices given by
+F (E) = 1 + Sa,b − Sb,a + Sa,a Sb,b − Sa,b Sb,a
+
+(4.20)
+
+e
+F(E)
+= 1 − Sea,b + Seb,a + Sea,a Seb,b − Sea,b Seb,a
+
+which are related by (4.18)
+
+e
+F(E)
+= F (−E)
+
+(4.21)
+
+∗
+Sf,g
+(E) = Sf,g (−E ∗ )
+
+(4.22)
+
+F ∗(E) = F (−E ∗ )
+
+(4.23)
+
+Moreover, since a(x) and b(x) are real functions one has
+
+which in turn implies
+
+16
+
+After these observations we can return to the solution of (4.13) and (4.15). We shall distinguish two cases: 1) F (E) 6= 0 and 2) F (E) = 0, where E is real since it is an eigenvalue of
+the Hamiltonian (3.5).
+Case 1: F (E) 6= 0
+Eq.(4.23) implies that F (−E) 6= 0 and therefore A and B can be expressed in two different
+ways,
+i
+C0 h
+b
+(1 − Sb,a ) a
+b(E) + Sa,a b(E)
+F (E)
+i
+C∞ h
+(1 + Seb,a ) a
+b(E) − Sea,a bb(E) ,
+=
+F (−E)
+i
+C0 h
+B =
+−Sb,b a
+b(E) + (1 + Sa,b ) bb(E)
+F (E)
+i
+C∞ h e
+Sb,b a
+b(E) + (1 − Sea,b ) bb(E)
+=
+F (−E)
+A =
+
+(4.24)
+
+(4.25)
+
+Now using eq.(4.17), these eqs. reduce to
+
+C0
+F (E)
+=
+C∞
+F (−E)
+
+(4.26)
+
+which by eq.(4.23) is a pure phase for E real. Hence, up to an overall factor, the integration
+constants for this solution can be choosen as
+C0 = F (E)
+C∞ = F (−E)
+
+(4.27)
+
+A = (1 − Sb,a ) a
+b(E) + Sa,a bb(E)
+
+B = −Sb,b b
+a(E) + (1 + Sa,b ) bb(E).
+
+Since the constants C0 , C∞ do not vanish, the wave function is non normalizable near the
+origin and infinity (recall eq. (4.12)) and therefore they correspond to scattering states. Of
+course they will be normalizable in the distributional sense.
+Case 2: F (E) = 0.
+The integration constants can be choosen as
+C0 = 0
+C∞ = 0
+A = Sa,a
+B = (1 + Sa,b )
+17
+
+(4.28)
+
+Bound states
+
+Scattering states
+
+FIG. 4: Pictorial representation of the spectrum of the model. The bound states are the points
+where F(E) = 0, which are embedded in a continuum of scattering states.
+
+which solves eqs. (4.13) and (4.15). Since C0 = C∞ = 0, the leading term of the behaviour
+of ψE (x) vanish near the origin and infinity and under appropiate conditions on ψa,b , the
+state ψE will be normalizable corresponding to a bound state. In the appendix we compute
+the norm of these states.
+Hence the generic spectrum of the Hamiltonian (3.5) consist of a continuum covering
+the whole real line with, eventually, some isolated bound states embedded in it, whenever
+F (E) = 0. This structure also arises in the Hamiltonian studied in reference [20]. The
+function F (E) plays the role of the Jost function since its zeros gives the position of the
+bound states and its phase gives the scattering phase shift according to eq.(4.26).
+Before we continue with the general formalism it is worth to study a simple case which
+illustrates the results obtained so far.
+
+An example: a quantum trap
+
+Let us start with the classical version of a trap where a particle is restricted to the region
+xb < x < xa . The semiclassical number of states is given by the area formula (2.3),
+Z xa
+dx E
+E
+xa
+A
+=
+=
+log
+(4.29)
+n=
+2π
+2π
+xb
+xb 2π x
+which yields the eigenenergies
+En =
+
+2π n
+,
+log(xa /xb )
+
+n ∈ IN.
+
+(4.30)
+
+The quantum version of this model is realized by two boundary states ψa,b (x) proportional
+to delta functions, i.e.
+1/2
+
+ψa (x) = a0 x1/2
+a δ(x − xa ), ψb (x) = b0 xb δ(x − xb ).
+18
+
+(4.31)
+
+xp=E
+
+p
+
+x
+
+xb
+
+xa
+
+FIG. 5: Semiclassical picture of the model represented by the potential (4.32).
+
+The associated potentials a(q), b(q) are
+a(q) = a0 δ(q − qa ), b(q) = b0 δ(q − qb ),
+
+(4.32)
+
+qa = log xa , qb = log xb
+The various quantities defined above are readily computed obtaining
+bb = b0 eiEqb
+b = a0 eiEqa ,
+a
+a2
+b2
+Sa,a = 0 ,
+Sb,b = 0
+2
+2
+iEqa,b
+Sa,b = a0 b0 e
+Sb,a = 0
+where qa,b = qa − qb = log(xa /xb ). Plugging these eqs. into (4.20) yields
+2
+
+a0 b0
++ a0 b0 eiE qa,b
+F (E) = 1 +
+2
+
+(4.33)
+
+(4.34)
+
+For generic values of a0 , b0 , the Jost function (4.34) never vanishes obtaining a spectrum
+which is continuous. However, F (E) vanishes provided the following condition holds
+ǫ≡
+
+a0 b0
+= ±1 =⇒ F (E) = 2(1 + ǫ eiE qa,b )
+2
+
+(4.35)
+
+in which cases the spectrum contains bound states embbeded in the continuum with energies
+2π(n + 1/2)
+n ∈ IN
+qa,b
+2πn
+If ǫ = −1 =⇒ En =
+n ∈ IN
+qa,b
+If ǫ = 1 =⇒ En =
+
+19
+
+(4.36)
+
+that agree with the semiclassical energies (4.30) for n >> 1. The unnormalized wave function
+of the bound states, i.e. F (E) = 0, can be computed from eq. (4.7)
+
+ 1, x < x < x
+1
+b
+a
+ψE (x) = 1/2−iE ×
+ 0, x < xb or x > xa
+x
+
+(4.37)
+
+which shows that they are confined to the region (xb , xa ). The wave functions when F (E) 6= 0
+can be similarly found obtaining
+
+ψE (x) =
+
+1
+x1/2−iE
+
+×
+
+
+
+
+F (E),
+
+
+
+
+a0 b0 2
+
+1− 2
+
+
+
+ F (−E),
+
+0 < x < xb
+, xb < x < xa
+
+(4.38)
+
+xa < x < ∞
+
+Hence if (4.35) holds, these wave functions vanishes in the region (xb , xa ) which contains
+the trapped particles (4.37). In this example the mechanism responsible for the existence
+of bound states is the transport of the particles from the position xa to the position xb . At
+the quantum level the confinement requires the fine tuning of the couplings (see eq. (4.35)),
+which introduces periodic or antiperiodic boundary conditions depending on the sign of ǫ.
+When |ǫ| 6= 1 the particle can scape the trap and the bound states become resonances.
+V.
+
+ANALYTICITY PROPERTIES OF F(E)
+
+As in ordinary Quantum Mechanics, the Jost function F (E) satisfy certain analyticity
+properties reflecting the causal structure of the dynamics. In our case these properties
+follows from those of the function Sf,g (eq. (4.14)) and the definition (4.20).
+Indeed, let us express Sf,g (E) in terms of the Fourier transforms of the functions f, g.
+First we replace g(q) by its inverse Fourier transform
+Z ∞
+dE ′ iEq′
+′
+e
+gb(−E ′ )
+g(q ) =
+−∞ 2π
+
+back into eq.(4.14), obtaining
+Z ∞
+Z ∞
+Z q
+dE ′
+′
+′
+′
+iEq
+Sf,g (E) =
+gb(−E )
+dq e f (q)
+dq ′ ei(E −E)q .
+−∞ 2π
+−∞
+−∞
+
+The last integral is given by the distribution
+
+
+Z q
+1
+1
+′
+′ i(E ′ −E)q ′
+iq(E ′ −E)
+πδ(E − E) + P ′
+dq e
+=e
+i E −E
+−∞
+20
+
+(5.1)
+
+(5.2)
+
+(5.3)
+
+where P denotes the Cauchy principal part. Plugging (5.3) into (5.2) and using the Fourier
+transform of f gives,
+"
+#
+Z ∞
+1 b
+dE ′ fb(E ′ ) gb(−E ′ )
+Sf,g (E) =
+f (E) gb(−E) + P
+2
+E′ − E
+−∞ πi
+
+(5.4)
+
+Alternatively, one can write (5.4) as
+
+Sf,g (E) =
+
+Z ∞
+
+dE ′ fb(E ′ ) gb(−E ′ )
+′
+−∞ 2πi E − E − iǫ
+
+(5.5)
+
+with ǫ > 0 an infinitesimal. Eq. (5.5) shows that the poles of Sf,g (E) are located in the
+lower half of the complex energy plane. Thus for well behave functions fb, gb, the function
+
+Sf,g (E) will be analytic in the complex upper-half plane. These properties also apply to
+F (E) which is the product of Sf,g functions with f, g = a, b. Another important property
+of the Jost function F (E) is that its zeros lie either on the real axis or below it, i.e.
+If F (E) = 0 =⇒ Im E ≤ 0
+
+(5.6)
+
+The proof of this equation is similar to the one done in reference [20], being convenient to
+regularize the interval x ∈ (0, ∞) as (N −1 , N) with N → ∞.
+In the appendix we use the results obtained in this section to compute the norm of the
+eigenstates.
+
+VI.
+
+THE QUANTUM VERSION OF THE BERRY-KEATING MODEL
+
+Let us consider the BK constraints x > lx and |p| > lp . It is rather natural to associate
+constraint x > lx with the wave function
+ψb (x) = b0 lx1/2 δ(x − lx )
+
+(6.1)
+
+1/2
+
+gives the correct dimensionality
+
+which is localized at the boundary x = lx . The factor lx
+
+to ψb (x), with b0 a dimensionaless parameter. On the other hand the constraint |p| > lp
+admits two possible quantum versions,
+
+
+ 1/2 
+ ψ + (x)
+cos(lp x)
+lp
+a
+×
+= 2a0
+ sin(lp x)
+ ψ − (x)
+2π
+a
+
+21
+
+(6.2)
+
+Due to the fact that ψa has to be real, one cannot choose a pure plane wave eilp x . The
+boundary wave functions (6.1) and (6.2) are the cosine and sine Fourier transform of each
+other, namely
+
+ ψ + (x)
+a
+
+ ψ − (x)
+
+=
+
+a
+
+2a0
+b0
+
+
+
+lp
+2πlx
+
+1/2 Z ∞
+0
+
+dy ψb (y) ×
+
+
+ cos(l xy/l )
+p
+
+x
+
+ sin(lp xy/lx )
+
+(6.3)
+
+Indeed, extending the domain of ψb (x) according to the parity of ψaη (η = ±) one gets
+
+1/2
+ 
+lp
+a0
+lp x
+i π4 (η−1) b
+η
+(6.4)
+e
+ψb (−x) = ηψb (x) → ψa (x) =
+ψb
+b0 2πlx
+lx
+
+which are the quantum analogue of the classical equations (2.17). Later on, we shall consider
+
+more general wave functions ψa,b to account for the fluctuations in the Riemann formula,
+imposing again eq.(6.3). The relation (6.3) between ψa± and ψb must imply a close link
+between their Mellin transforms b
+a± (E) and bb(E). To derive it, let us write
+
+
+1/2 Z ∞
+Z ∞
+Z ∞
+ cos(l xy/l )
+2a0
+lp
+p
+x
+b± (E) =
+a
+x−1/2+iE ψa± (x) =
+dx x−1/2+iE
+dy ψb (y)×
+ sin(lp xy/lx )
+b0 2πlx
+0
+0
+0
+(6.5)
+
+The basic integrals one needs are
+Z ∞
+0
+
+where
+
+1
+
+dx x− 2 +iE ×
+
+
+ cos(px)
+
+=
+
+ sin(px)
+
+1
+2
+
+
+
+2π
+|p|
+
+ 12 +iE
+
+×
+
+
+ π −iE Γ(1/4+iE/2) , η = +
+Γ(1/4−iE/2)
+e2iθ± (E) =
+ π −iE Γ(3/4+iE/2) , η = −
+
+
+ e2iθ+ (E)
+
+ e2iθ− (E)
+
+(6.6)
+
+(6.7)
+
+Γ(3/4−iE/2)
+
+The function θ+ (E) coincides with the phase of the Riemann zeta function (2.7), and more
+generally of the even Dirichlet L-functions, while θ− (E) is the phase factor of the odd
+Dirichlet L-functions. These phases appear in the functional relation of even and odd L
+functions, and they arise in our context from the two possible relations between the boundary
+functions ψa± and ψb . Plugging eq.(6.6) into (6.5) yields
+
+iE
+Z ∞
+1
+a0 2πlx
+2iθ± (E)
+e
+dy ψb (y)y − 2 −iE
+b± (E) =
+a
+b0
+lp
+0
+
+where the integral is nothing but bb(−E), thus
+
+iE
+a0 2πlx
+e2iθ± (E) bb(−E)
+b± (E) =
+a
+b0
+lp
+22
+
+(6.8)
+
+(6.9)
+
+This important equation reflects the relation (6.3) which in turn is the quantum version
+of the xp symmetry between boundaries. In the BK case, the Mellin transforms of the
+associated wave functions (6.1) and (6.2) are
+ iE
+2π
+b± (E) = a0
+a
+e2iθ± (E) ,
+lp
+
+bb(E) = b0 liE
+x
+
+(6.10)
+
+which are pure phases, up to overall constants. The Sf,g functions can be readily computed
+using eq.(5.4). To do so, we first consider the products
+b± (E) a
+a
+b± (−E) = a20 ,
+bb(E) bb(−E) = b2
+0
+
+(6.11)
+
+b± (E) bb(−E) = a0 b0 e2iθ± (E)
+a
+
+bb(E) a
+b± (−E) = a0 b0 e−2iθ± (E)
+
+where we used lx lp = 2π and that θ± (−E) = −θ± (E). The diagonal terms of Sf,g are given
+simply by
+
+b20
+a20
+Sb,b (E) =
+Sa± ,a± (E) = ,
+2
+2
+since the Hilbert transform of a constant is zero, i.e.
+Z ∞
+dt 1
+= 0,
+E ∈ IR
+P
+−∞ πi t − E
+
+(6.12)
+
+(6.13)
+
+The computation of Sa± ,b and Sb,a± uses the analytic properties of e2iθ± (E) . Let us focus on
+the case of e2iθ+ (E) = e2iθ(E) . This function converges rapidly to zero as |E| → ∞ in the
+upper half plane, and it has poles at En = i(2n + 1/2) (n = 0, 1, . . . ) where it behaves like
+e2iθ(E) ∼
+
+(−1)n 2(2π)2n
+1
+(2n)!
+2n + 1/2 + iE
+
+(6.14)
+
+We can split e2iθ(E) into the sum
+e2iθ(E) = Ω+ (E) + Ω− (E)
+∞
+X
+(−1)n 2(2π)2n
+1
+Ω− (E) =
+(2n)!
+2n + 1/2 + iE
+n=0
+
+(6.15)
+
+where Ω+ (E) is analytic in the upper half plane and goes to zero at +i∞, while Ω− (E) has
+poles in the upper half plane and behaves as 1/E at infinity. The function Ω− (E) can also
+be written as
+Ω− (E) = 2
+
+Z 1
+
+dx x−1/2+iE cos(2πx)
+
+0
+
+=
+
+1
+E 1 5
+E
+4
++ i , −π 2 )
+1 F2 ( + i , ,
+1 + 2iE
+4
+2 2 4
+2
+23
+
+(6.16)
+
+where 1 F2 is a hypergeometric function of the type (1, 2). From the analyticity properties
+of Ω± one gets inmediately their Hilbert transform
+Z ∞
+dt Ω± (t)
+P
+= ± Ω± (E),
+−∞ πi t − E
+
+E ∈ IR
+
+(6.17)
+
+Hence Sa+ ,b ≡ Sa,b , as given by eq.(5.4), becomes
+
+
+
+Z ∞
+a0 b0 2iθ(E)
+dt e2iθ(t)
+Sa,b (E) =
+e
++P
+2
+−∞ πi t − E
+a0 b0
+=
+[Ω+ (E) + Ω− (E) + Ω+ (E) − Ω− (E)]
+2
+= a0 b0 Ω+ (E)
+
+(6.18)
+
+Similarly one finds
+Sb,a (E) = a0 b0 Ω− (−E)
+
+(6.19)
+
+Notice that both functions are analytic in the upper half plane. The Jost function finally
+reads
+F (E) = 1 + a0 b0 (Ω+ (E) − Ω− (−E)) +
+−(a0 b0 )2 Ω+ (E)Ω− (−E)
+
+
+
+a0 b0
+2
+
+2
+
+(6.20)
+
+In the asymptotic limit |E| >> 1
+Ω− (E) ∼
+
+1
+1
+→ Ω+ (E) = e2iθ(E) + O( )
+E
+E
+
+which implies
+2iθ(E)
+
+F (E) = 1 + a0 b0 e
+
++
+
+
+
+a0 b0
+2
+
+2
+
+1
++ O( )
+E
+
+(6.21)
+
+(6.22)
+
+This Jost function has zeros on the real axis, up to order 1/E, provided
+ǫ=
+
+a0 b0
+1
+= ±1 =⇒ F (E) = 2(1 + ǫ e2iθ(E) ) + O( )
+2
+E
+
+(6.23)
+
+The choice ǫ = −1 reproduces the smooth part of the Riemann formula (2.6) since,
+ǫ = −1 =⇒ 1 − e2iθ(E) = 1 − e2πihN (E)i = 0
+
+(6.24)
+
+where E is the average position of the zeros. On the other hand the choice ǫ = 1 leads to
+ǫ = 1 =⇒ 1 + e2iθ(E) = 0 =⇒ cos θ(E) = 0
+24
+
+(6.25)
+
+so that the number of zeros in the interval (0, E) is given by
+Nsm (E) =
+
+θ(E) 3
++
+π
+2
+
+(6.26)
+
+which gives a better numerical approximation than the term hN (E)i that appears in the
+exact Riemann formula (2.6) (see also fig.2). In the case of the sine boundary function (6.2)
+one similarly obtains the smooth part of the zeros of the odd Dirichlet L-functions.
+In summary, we have shown that the semiclassical BK boundary conditions have a quantum counterpart in terms of the boundary wave functions ψa,b , and that the average Riemann
+zeros become asymptotically bound states of the model or more appropiately resonances.
+
+VII.
+
+THE QUANTUM MODEL OF THE RIEMANN ZEROS
+
+In section II we showed how to incorporate the fluctuations of the energy levels in the
+heuristic xp model by means of the functions pcl (x) and xcl (p) which define the boundaries
+of the allowed phase space. These functions are given by eq.(2.26) in terms of the density
+of the fluctuation part of the energy levels. In the quantum model the functions pcl (x) and
+xcl (p) are represented by the wave functions ψa and ψb . Hence it is natural to impose the
+following conditions
+
+
+|b
+p|
+′
+log
++ π nfl (H0 ) |ψa i = 0
+lp
+
+
+x
+b
+′
+log + π nfl (H0 ) |ψb i = 0
+lx
+
+(7.1)
+(7.2)
+
+where n′fl (E) = dnfl (E)/dE and H0 is the no interacting Hamiltonian (3.1). The hat over
+x and p stress the fact that they are operators. Eqs.(7.1) and (7.2) can be taken as the
+definition of the boundary wave functions. To solve these eqs. let us write them as
+(log |b
+p| + λp + π n′fl (H0 )) |ψa i = 0 ,
+
+(7.3)
+
+(log x
+b + λx + π n′fl (H0 )) |ψb i = 0 ,
+
+(7.4)
+
+λp = − log lp , λx = − log lx
+
+It is convenient to expand the states |ψa,b i in the basis (3.3)
+Z ∞
+1
+1
+|ψa,b i =
+dE ψa,b (E) |φE i, hx|φE i = √
+2π x1/2−iE
+−∞
+25
+
+(7.5)
+
+(7.6)
+
+Let us first consider eq.(7.4) which in the basis (7.6) becomes
+Z ∞
+dE ′ hφE | log x
+b|φE ′ i ψb (E ′ ) + (λx + π n′fl (E))ψb (E) = 0
+
+(7.7)
+
+−∞
+
+The matrix elements of the operator log x
+b can be readily computed,
+hφE | log x
+b|φE ′ i = −i δ ′ (E ′ − E)
+
+(7.8)
+
+which replaced in (7.7) and upon integration yields
+i
+
+dψb (E)
++ (λx + π n′fl (E))ψb (E) = 0
+dE
+
+(7.9)
+
+The solution of (7.9) is simply
+ψb (E) = ψb,0 ei(λx E+π nfl (E))
+
+(7.10)
+
+where ψb,0 is an integration constant. The x-space representation of ψb follows from (7.10)
+and (7.6)
+ψb (x) =
+
+Z ∞
+
+dE ψb (E) φE (x) = ψb,0
+
+−∞
+
+Z ∞
+
+dE
+√ ei(λx E+π nfl (E)) x−1/2+iE
+2π
+−∞
+
+√
+Recalling that ψb (x) = b(x)/ x one gets
+Z ∞
+dE
+√ ei(λx E+π nfl (E)) xiE
+b(x) = ψb,0
+2π
+−∞
+Observing that b(x) is related to its Fourier transform bb(E), as
+Z ∞
+dE b
+b(x) =
+b(E) x−iE
+2π
+−∞
+one finally obtains
+
+bb(E) =
+
+√
+
+2π ψb,0 e−i(λx E+π nfl (E))
+
+(7.11)
+
+(7.12)
+
+(7.13)
+
+(7.14)
+
+where we assumed that nfl (E) is an odd function of E. If nfl (E) = 0, eq.(7.14) reproduces
+(6.10), i.e.
+nfl (E) = 0 =⇒ bb(E) =
+
+√
+
+2π ψb,0 lxiE = b0 lxiE
+
+(7.15)
+
+To simplify the notations we shall write (7.14) as
+bb(E) = b0 liE e−iπnfl (E)
+x
+26
+
+(7.16)
+
+Let us now solve the condition (7.3) for the wave function ψa . We first need to define the
+operator log |b
+p| acting in the Hilbert space expanded by the functions φE (E ∈ IR). In this
+respect it is worth to remember that the operator pb = −id/dx is self-adjoint in the real line
+
+(−∞, ∞) and in the finite intervals (a, b), but not in the half-line (0, ∞) [30]. However, the
+operator pb2 admits infinitely many self-adjoint extensions in the half-line provide the wave
+functions satisfy the boundary condition
+
+ψ ′ (0) = κ ψ(0)
+
+(7.17)
+
+where κ ∈ IR ∪ ∞. We shall confine ourselves to the cases where κ = 0 and ∞, which
+correspond to the von Neumann and Dirichlet BC’s respectively,
+κ = 0 → ψ ′ (0) = 0,
+
+(7.18)
+
+κ = ∞ → ψ(0) = 0
+The corresponding eigenstates of the operator pb2 with eigenvalues p2 read
+
+
+r
+ χ+
+2  cos(px) (p > 0)
+p
+×
+=
+ χ−
+π  sin(px) (p > 0)
+
+(7.19)
+
+p
+
+These basis are complete in the space of functions defined in (x > 0), i.e.
+Z ∞
+dp (χηp (x))∗ χηp (x′ ) = δ(x − x′ ), x, x′ > 0, η = ±
+
+(7.20)
+
+0
+
+The operator log |b
+p| will be defined as 21 log pb2 , and therefore admits the same self-adjoint
+
+extensions as pb2 . The analogue of eq.(7.7) reads now
+Z ∞
+dE ′ hφE | log |b
+p| |φE ′ i ψa (E ′ ) + (λp + π n′fl (E))ψa (E) = 0
+
+(7.21)
+
+−∞
+
+The matrix elements of log |b
+p| can be computed introducing the resolution of the identity in
+the basis (7.19),
+hφE | log |b
+p| |φE ′ i =
+
+Z ∞
+0
+
+dp log p hφE |χηp ihχηp |φE ′ i
+
+where the overlap of the eigenstates of pb2 and H0 are
+hχ±
+p |φE i =
+
+Z ∞
+0
+
+
+ cos(px)
+
+dx − 1 +iE
+×
+x 2
+ sin(px)
+π
+27
+
+(7.22)
+
+(7.23)
+
+These integrals were already computed in eq.(6.6), and the result is
+(2π)−1/2+iE 2iθ± (E)
+±
+hχp |φE i =
+e
+1/2+iE
+
+(7.24)
+
+p
+
+Plugging this eq. into (7.22), and performing the integral gives
+′
+
+′
+
+hφE | log |b
+p| |φE ′ i = i δ ′ (E ′ − E)(2π)i(E −E) e2i(θη (E )−θη (E))
+
+(7.25)
+
+which introduced in (7.21) yields a differential equation whose solution is
+ψaη (E) = ψa,0 (2π)−iE e−i(λp E+πnfl(E)+2θη (E))
+
+(7.26)
+
+The function ψa (x) reads
+Z ∞
+Z ∞
+dE
+√ (2π)−iE e−i(λp E+πnfl(E)+2θη (E)) x−1/2+iE
+ψaη (x) =
+dE ψaη (E) φE (x) = ψa,0
+2π
+−∞
+−∞
+(7.27)
+while
+aη (x) = ψa,0
+whose Fourier transform is
+
+Z ∞
+
+dE
+√ (2π)−iE e−i(λp E+πnfl (E)+2θη (E)) xiE
+2π
+−∞
+
+b
+aη (E) = ψa,0 (2π)1/2+iE ei(λp E+πnfl (E)+2θη (E))
+
+(7.28)
+
+(7.29)
+
+If there are no fluctuations, eq.(7.29) reduces to
+nfl (E) = 0 =⇒ a
+bη (E) =
+
+√
+
+2πψa,0
+
+
+
+2π
+lp
+
+iE
+
+e2iθη (E))
+
+which coincides with eq.(6.10). To simplify notations we shall write (7.29) as
+ iE
+2π
+bη (E) = a0
+a
+ei(πnfl (E)+2θη (E))
+lp
+
+(7.30)
+
+(7.31)
+
+The two solutions (7.16) and (7.31) satisfy the duality relation (6.9) and hence the wave
+functions ψa± (x) is the cosine or sine Fourier transform of ψb (x) ( see eq. (6.3)).
+Having found the boundary wave functions for generic fluctuations we turn into the
+computation of the corresponding Jost function. The basic products of the a
+b and bb functions
+
+needed to find the Sf,g functions are similar to eqs.(6.11),
+b± (E) a
+a
+b± (−E) = a20 ,
+bb(E) bb(−E) = b2
+0
+
+b± (E) bb(−E) = a0 b0 e2i(θ± (E)+πnfl (E))
+a
+
+bb(E) a
+b± (−E) = a0 b0 e−2i(θ± (E)+πnfl (E)
+28
+
+(7.32)
+
+The diagonal terms of Sf,g are the same as in eq.(6.12), i.e.
+Sa± ,a± (E) =
+
+a20
+,
+2
+
+Sb,b (E) =
+
+b20
+2
+
+(7.33)
+
+while the evaluation of the off-diagonal terms depends on the analytic properties of the
+function e2πi n± (E) where
+n± (E) ≡
+
+θ± (E)
++ nfl (E))
+π
+
+(7.34)
+
+This definition is strongly reminiscent of the Riemann formula (2.6), with n± (E) playing
+the role of NR (E), and nfl (E) that of Nfl (E). However, we must keep in mind that NR (E)
+is a step function while we expect n± (E) to be a continuous interpolating function between
+the zeros. The value of Sa± ,b is given by the integral
+
+
+Z ∞
+a0 b0 2πin± (E)
+dt e2πin± (t)
+Sa± ,b (E) =
+e
++P
+2
+−∞ πi t − E
+
+(7.35)
+
+We shall make the asumption that e2πin± (E) is an analytic function in the upper half plane
+which goes to zero as |E| → ∞. In this case the Cauchy integral on the RHS of (7.35) is
+
+equal to e2πin± (E) and one finds
+
+Sa± ,b (E) = a0 b0 e2πin± (E)
+
+(7.36)
+
+Similarly Sb,a± vanishes so that the Jost function reduces to
+2πin± (E)
+
+F (E) = 1 + a0 b0 e
+
++
+
+
+
+a0 b0
+2
+
+2
+
+(7.37)
+
+and under the usual choice
+ǫ=
+
+a0 b0
+= ±1 =⇒ F (E) = 2(1 + ǫ e2πin± (E) )
+2
+
+(7.38)
+
+When nfl = 0 the results of the previous subsection showed that ǫ = 1 gives a better
+numerical estimate to the smooth part of the zeros. In the sequel we shall also make that
+choice which implies that the number of zeros of F (E) in the interval (0, E) is
+NQM (E) = Nsm (E) + nfl (E) = n± (E) +
+
+3
+2
+
+(7.39)
+
+where Nsm (E) was defined in (6.26) for the particular case of the zeta function ζ(s), which
+corresponds to n+ (E). Equation (7.39) agrees asymptotically with the semiclassical formula
+(2.23), which confirms the ansatz made for the states ψa and ψb .
+29
+
+The connection with the Riemann-Siegel formula
+
+The next problem is to find the function nfl (E), and therefore NQM (E), which gives the
+exact location of the Riemann zeros. Let us consider the case of the zeta function with the
+following choices of parameters
+η = +, ǫ = 1, a0 = b0 =
+
+√
+
+2, lx = 1, lp = 2π
+
+(7.40)
+
+which correspond to the potentials (recall (7.31) and (7.16))
+b(t) = ei(2θ(t)+πnfl (t)) = ei(θ(t)+πn(t))
+a
+
+(7.41)
+
+bb(t) = e−iπnfl (t)) = ei(θ(t)−πn(t))
+
+where we skip a common factor
+
+√
+
+2 and denote n(E) ≡ n+ (E). These two functions are
+
+interchanged under the transformation
+b(t) → e2iθ(t) b
+a
+a(−t) = bb(t)
+
+(7.42)
+
+bb(t) → e2iθ(t) bb(−t) = a
+b(t)
+
+so that their sum is left invariant,
+
+b(t) + bb(t) → e2iθ(t) (b
+a
+a(−t) + bb(−t)) = a
+b(t) + bb(t)
+
+(7.43)
+
+ζ(1/2 − it) → e2iθ(t) ζ(1/2 + it) = ζ(1/2 − it)
+
+(7.44)
+
+The functional relation satisfied by the zeta function implies
+
+which suggests to relate a
+b + bb and ζ as
+
+ζ(1/2 − it) = ρ(t) (b
+a(t) + bb(t))
+
+(7.45)
+
+ζ(1/2 − it) = 2 ρ(t) eiθ(t) cos(πn(t))
+
+(7.46)
+
+where ρ(t) is a proportionally factor. Using eqs.(7.42) into (7.45) yields
+
+This formula can be compared with the parametrization of the zeta function in terms of the
+Riemann-Siegel zeta function Z(t) and its phase θ(t),
+ζ(1/2 − it) = Z(t) eiθ(t)
+30
+
+(7.47)
+
+which leads to,
+Z(t) = 2 ρ(t) cos(πn(t))
+
+(7.48)
+
+This equation is rather interesting since it implies that the zeros of cos(πn(t)), which give
+the bound states of the QM model, are also zeros of Z(t), of course if ρ(t) does not have
+poles at those values. Viceversa, the zeros of Z(t) can be zeros either of cos(πn(t)), or of
+ρ(t), or both. The latter possibility would be absent if the Rieman zeros are simple, as it is
+expected to be the case.
+A first hint on the structure of the functions ρ(t) and cos(πn(t)) can be obtained using
+the Riemann-Siegel formula for Z(t),
+Z(t) = 2
+
+ν(t)
+X
+n=1
+
+n−1/2 cos(θ(t) − t log n) + R(t), ν(t) =
+
+"r
+
+t
+2π
+
+#
+
+(7.49)
+
+where [x] the integer part of x and R(t) is a reminder of order t−1/4 . Combining the last
+two equations one finds
+Z(t) = 2ρ(t) [cos θ(t) cos(πnfl (t)) − sin θ(t) sin(πnfl (t))]
+
+
+ν(t)
+ν(t)
+X
+X
+sin(t log n) 
+cos(t log n)
++ sin θ(t)
+∼ 2 cos θ(t)
+1/2
+n
+n1/2
+n=1
+n=1
+
+(7.50)
+
+which suggests the following identifications
+
+ρ(t) cos(πnfl (t)) ∼
+
+ν(t)
+X
+cos(t log n)
+
+n1/2
+
+n=1
+
+ρ(t) sin(πnfl (t)) ∼ −
+
+(7.51)
+
+ν(t)
+X
+sin(t log n)
+
+n1/2
+
+n=1
+
+that can be combined into
+iπnfl (t)
+
+f (t) ≡ ρ(t)e
+
+∼
+
+ν(t)
+X
+n=1
+
+1
+n1/2+it
+
+(7.52)
+
+The fluctuation function nfl (t) is then given by the phase of f (t), i.e.
+nfl (t) =
+
+1
+Im log f (t)
+π
+
+(7.53)
+
+In fig. 6 we plot the values of NQM (t) that correspond to the approximate formula (7.52),
+which shows an excelent agreement with the Riemann formula (2.6). This is expected from
+31
+
+N
+6
+5
+4
+3
+2
+1
+15
+
+20
+
+25
+
+30
+
+35
+
+40
+
+E
+
+FIG. 6: In black: NR (E), in red: NQM (E) in the interval (10, 40)
+
+the fact that the main term of the Riemann-Siegel formula already gives accurate results for
+the lowest Riemann zeros. For higher zeros one has to compute more terms of the reminder
+R(t) depending on the desired accuracy. Observe that NQM (t) is a smooth function, except
+for some jumps at higher values of t (not shown in fig. 6) due to the approximation made,
+unlike NR (t), which is a step function.
+In fig. 7 we plot the values of (7.53) together with those of the fluctuation part of the
+Riemann formula (2.6), i.e.
+1
+Nfl (t) = Im log ζ
+π
+
+
+
+
+1
++ it
+2
+
+(7.54)
+
+The jumps in Nfl (t) correspond to the Riemann zeros, while those of nfl (t) correspond, either
+to jumps of the function ν(t) appearing in the Riemann Siegel formula (7.49), or to those
+points where the curve f (t) cuts the negative real axis in the complex plane.
+We gave in section II a formal expression of eq.(7.54) in terms of prime numbers, eq.
+(2.10), which resembles the fluctuation part (2.11) of a quantum chaotic system. Eq.(2.10)
+is based on the Euler product formula (2.9) which is not valid in the case where s = 1/2 + it,
+since Re s > 1 for convergence of the infinite product. The Euler product formula does not
+apply to the truncated sum (7.52), however we shall naively try to establish a relationship.
+Let us denote by pn the nth -prime number, e.g. p1 = 2, p2 = 3, etc, and by Π(x) the number
+of primes less or equal to x. The sum (7.52) involves all integers up to ν(t), which can be
+32
+
+N
+1
+0.5
+
+55
+
+60
+
+65
+
+70
+
+75
+
+80
+
+E
+
+-0.5
+-1
+
+FIG. 7: In black: Nfl (E), in red: nfl (E) in the interval (50, 80)
+
+expressed as products of the first µ(t) prime numbers where
+µ(t) = Π(ν(t)), pµ(t) = inf {p} < ν(t)
+
+(7.55)
+
+Using these functions we define a truncated Euler product as
+ζE (1/2 + it) ≡
+
+µ(t)
+Y
+
+1
+
+−1/2−it
+n=1 1 − pn
+
+(7.56)
+
+It is easy to see that ζE (1/2 + it) is not equal to f (t), for there are terms in (7.56) which
+do not appear in (7.52), although all the terms appearing in the latter sum also appear in
+the former product. The point is that a numerical comparison of these two functions shows
+a qualitative agreement as depicted in fig. 8. Indeed, the minima and maxima of their
+absolute value are located around the same points, and the same happens for the zeros of
+their arguments. The conclusion we draw from these heuristic considerations is that the
+function f (t) contains some sort of information related to the primes numbers although not
+in the form of an Euler product formula as is the case of ζE (1/2 + it). It would be interesting
+to investigate the consequences of this results from the point of view of Quantum Chaos.
+
+The Berry-Keating formula of Z(t)
+
+The main term of the Riemann-Siegel formula (7.49) is not analytic in t due to the
+discontinuity in the main sum. This problem was solved by Berry and Keating who found
+33
+
+Abs
+
+Arg
+3
+
+4
+2
+3
+
+1
+
+2
+
+60
+
+70
+
+80
+
+90
+
+100
+
+E
+
+-1
+
+1
+
+-2
+60
+
+70
+
+80
+
+90
+
+100
+
+E
+
+-3
+
+FIG. 8: Left: in black: |f (E)|, in red: |ζE (1/2 + iE)| in the interval (50, 100). Right: in black:
+Arg f (E), in red: Arg ζE (1/2 + iE).
+
+an alternative expression for Z(t) [31]. The formula is
+Z(t) =
+
+∞
+X
+
+(Tn (t) + Tn (−t))
+
+(7.57)
+
+n=1
+
+where
+ei θ(t)
+Tn (t) = Tn∗ (−t) = 1/2+it βn (t)
+n
+Z
+1
+dz −z 2 K 2/(2|t|) i[θ(z+t)−θ(t)−z log n]
+βn (t) =
+e
+e
+2πi C− z
+
+(7.58)
+
+and C− is an integration contour in the lower half plane with Im < −1/2 that avoids a cut
+starting at the brach point z = −t − i/2. The constant K in (7.58) can be choosen at will
+and it is related to the number of terms of the RS formula that has been smoothed for large
+values of t. Using eq.(7.57) one can write the zeta function as
+2iθ(t)
+
+ζ(1/2 − it) = e
+
+∞
+X
+βn (t)
+n=1
+
+n1/2+it
+
++
+
+∞
+X
+βn (−t)
+n=1
+
+n1/2−it
+
+(7.59)
+
+which can be compared with (7.45) obtaining
+f (t) = ρ(t)eiπnfl (t) =
+
+∞
+X
+βn (t)
+
+n1/2+it
+n=1
+
+(7.60)
+
+so that (7.59) can be written as
+ζ(1/2 − it) = e2iθ(t) f (t) + f (−t)
+34
+
+(7.61)
+
+Eq.(7.60) gives an exact expression of f (t), which is in fact a smooth version of (7.52). Berry
+and Keating also found a series for Z(t) which improves the RS series. The first term of
+that series corresponds to the following value of the βn (t) functions
+
+
+1
+ξ(n, t) p
+(0)
+βn (t) = Erfc
+t/2
+2
+Q(K, t)
+ξ(n, t) = log n − θ′ (t), Q2 (K, t) = K 2 − itθ′′ (t)
+
+(7.62)
+
+where Erf c is the complementary error function. Using these formulas one can find a better
+numerical evaluation of the functions NQM (t) and nfl (t).
+It is perhaps worth to mention that eq.(7.61), with the approximate value of f (t) given
+by (7.52), is a particular case of the so called aproximate functional relation due to Hardy
+and Littlewood [1, 2]
+ζ(s) =
+
+X
+n≤x
+
+n−s + π s−1/2
+
+Γ((1 − s)/2) X 1−s
+n
++ O(x−σ ) + O(|t|1/2−σ y σ−1 )
+Γ(s/2)
+n≤y
+
+(7.63)
+
+where s = σ + it, |t| = 2πxy, 0 < σ < 1. Recalling that in our model t is the energy E,
+then equation |t| = 2πxy becomes the hyperbola |E| = xp with p = 2πy = lp y so that the
+sums in (7.63) run over the integer values of the positions and momenta in units of lx and lp
+respectively. Eq.(7.63) also suggests that the case where σ 6= 1/2 could be related to the non
+hermitean Hamiltonian H0 = (xp + px)/2 − i(σ − 1/2) whose right (resp. left) eigenfunctions
+are given by 1/xσ−iE ( resp. 1/x1−σ−iE ).
+
+On more general grounds, we would like to mention two important points. First is that
+one still needs to show that the function n(t), defined in eq. (7.34), is such that e2πin(t)
+is analytic in the upper-half plane and that it goes to zero as |t| → ∞, so that the Jost
+function is indeed given by eq.(7.39), as we have assumed so far. Second, and related to the
+latter point, is that that the function nfl (t) is well defined provided f (t) does not vanish for
+t real, in which case (7.61) reads also
+
+
+2iθ(t) f (t)
+= f (−t) F (t)
+ζ(1/2 − it) = f (−t) 1 + e
+f (−t)
+
+(7.64)
+
+which shows that our construction of a QM model of the Riemann zeros relies on the absence
+of zeros of the function f (t) on the critical line. These zeros were investigated by Bombieri
+long ago in an attempt to improve the existing lower bounds for the number of Riemann
+zeros on the critical line [32]. In this regard our results give further support, but not a proof,
+35
+
+to the RH. As suggested in [20, 21] that proof would follow if the zeta function ζ(1/2−it) can
+be realized as the Jost function of a QM model of the sort discussed so far, due to its special
+analyticity properties. Eq.(7.64) gives a partial realization of this idea but the function f (t)
+lacks of a physical interpretation so far. The latter approach is analogue to the ones proposed
+in the past by several authors where the zeta function gives the scattering phase shift of
+some quantum mechanical model, particularly on the line Re s = 1 [33, 34, 35, 36, 37].
+Another important question is: where are the prime numbers in our construction? As
+suggested by the Quantum Chaos scenario, the prime numbers may well be classical objects hidden in the quantum model, so the next question is: what is the classical limit of
+the Hamiltonian?. The free part is of course given by xp, but the interacting part is an
+antisymmetric matrix with no obvious classical version. The existence of such a classical
+Hamiltonian may help to answer the prime question but it may also lead to a real physical
+realization of the model. Work along this direction is under progress [38].
+
+Acknowledgments
+
+I wish to thank for discussions M. Asorey, M. Berry, L.J. Boya, J. Garcı́a-Esteve, J. Keating, J.I. Latorre, A. LeClair, J. Links, M.A. Martı́n-Delgado, G. Mussardo, J. Rodrı́guezLaguna and P.K. Townsend. This work was supported by the CICYT of Spain under the
+contracts FIS2004-04885. I also acknowledge ESF Science Programme INSTANS 2005-2010.
+
+VIII.
+
+APPENDIX A: WAVE FUNCTIONS AND NORMS
+
+In this appendix we shall derive alternative expressions of the eigenfunctions of the model
+and compute their norm. Let us start from eq.(4.7) for the eigenfunctions of the Hamiltonian
+(3.5),
+−(1/2−iE)q
+
+ψE (q) = e
+
+
+
+Z q
+′
+′
+′ −iEq ′
+C0 +
+(B a(q ) − A b(q ))
+dq e
+
+(8.1)
+
+−∞
+
+Replacing a(q) and b(q) by their Fourier transform, and using eq.(5.3) one finds
+Z q
+Z ∞
+b(−E)
+a
+b(−ω)
+dω eiqω a
+′
+′ −iEq ′
+−iqE
+a(q ) =
+dq e
++e
+2
+ω−E
+−∞
+−∞ 2πi
+
+(8.2)
+
+and a similar expression for the integral of b(q). All the singular integrals appearing in this
+
+appendix must be understood in the Cauchy sense. Plugging the latter expressions into
+36
+
+(8.1) yields
+ψE (q) = e−(1/2−iE)q
+
+"
+
+1
+C0 + (Bb
+a(−E) − Abb(−E)) + e−iqE
+2
+
+#
+a(−ω) − Abb(−ω)
+dω iqω Bb
+e
+ω−E
+−∞ 2πi
+(8.3)
+
+Z ∞
+
+Using eqs.(4.9), (4.27) and (4.28), the first term in the RHS becomes
+C0 + C∞
+1
+a(−E) − Abb(−E)) =
+= Re F (E)
+C0 + (Bb
+2
+2
+
+(8.4)
+
+so that ψ(x) is given by
+
+ReF (E)
+ψE (x) = 1/2−iE +
+x
+
+Z ∞
+
+dω −1/2+iω B(E)b
+a(−ω) − A(E)bb(−ω)
+x
+ω−E
+−∞ 2πi
+
+(8.5)
+
+where A(E) and B(E) are given by the eqs.(4.27) and (4.28). The function (8.5) can also
+be expanded in the basis (3.3) of eigenfunctions of H0 , i.e.
+Z ∞
+|ψE i =
+dω ψE (ω) |φω i
+
+(8.6)
+
+−∞
+
+namely
+ψE (x) =
+
+Z ∞
+
+dω ψE (ω)
+
+−∞
+
+The result is
+ψE (ω) =
+
+√
+
+2π δ(E − ω) Re F (E) + √
+
+x−1/2+iω
+√
+2π
+
+a(−ω) − A(E)bb(−ω)
+1 B(E)b
+ω−E
+2πi
+
+(8.7)
+
+(8.8)
+
+which shows that the delocalized states, i.e. F (E) 6= 0, have to be normalized in the
+distributional sense, while the localized states, i.e. F (Em ) = 0, have a norm given by
+hψEm |ψEm i =
+
+Z ∞
+
+a(−ω) − A(Em )bb(−ω)|2
+dω |B(Em )b
+(ω − Em )2
+−∞ 2π
+
+(8.9)
+
+In the examples discussed throughout the paper the functions a
+b(t), bb(t) are phase factors, up
+to overall constants. Moreover, if the function a
+b(t)bb(−t) is analytic in the upper half-plane
+
+and vanishes when |t| → ∞, Re t > 0, then the S-functions and the associated Jost function
+take a particular simple form if we allow for the existence of bound states,
+
+Sa,a = Sb,b = 1, Sa,b = a
+b(t) bb(−t), Sb,a = 0 =⇒ F (t) = 2 + a
+b(t) bb(−t)
+
+(8.10)
+
+The integration constants A, B, corresponding to a bound state, can be choosen as
+A(Em ) = −B(Em ) = −1
+37
+
+(8.11)
+
+which differ with respect to (4.28) in an unimportant overall sign. The wave function (8.5)
+also simplifies
+ψEm (x) =
+
+Z ∞
+
+dω −1/2+iω a
+b(−ω) + bb(−ω)
+x
+ω − Em
+−∞ 2πi
+
+and scalar product of two bound state wave functions becomes
+Z ∞
+dω
+F (ω) + F (−ω)
+hψEm1 |ψEm2 i =
+−∞ 2π (ω − Em1 )(ω − Em2 )
+
+(8.12)
+
+(8.13)
+
+The analiticity of the Jost function F (E) in the upper-half plane implies the dispersion
+relation
+F (E) = F∞ +
+
+Z ∞
+
+dω F (ω)
+−∞ πi ω − Em
+
+(8.14)
+
+where F∞ is the value of F (E) at E = +i∞. From this equation, and the fact that
+F (Em1 ) = F (Em2 ) = 0, one can show that ψEm1 and ψEm1 are orthogonal. Furthermore,
+eq.(8.14) yields also a simple expression for the norm of ψEm
+Z ∞
+dω ReF (ω)
+hψEm |ψEm i =
+= −Im F ′(Em )
+2
+π
+(ω
+−
+E
+)
+m
+−∞
+
+(8.15)
+
+Finally, writing F (E) as in eq.(7.38), i.e.
+F (E) = 2(1 + ǫ e2πin(E) )
+
+(8.16)
+
+where n(E) is the number of states, up to a constant, one derives that the norm of ψEm is
+proportional to the density of states at Em ,
+hψEm |ψEm i = 4πn′ (Em )
+A.
+
+(8.17)
+
+Wave functions associated to the smooth and exact Riemann zeros
+
+The Mellin transforms of the boundary wave functions associated to the smooth Riemann
+√
+zeros were given in eq.(6.10). Choosing lx = 1, lp = 2π, a0 = b0 = 2 we have
+b(t) =
+a
+
+√
+
+2e2iθ(t) ,
+
+The wave functions (8.12) become in this case,
+Z ∞
+
+bb(t) = 1
+
+−2iθ(ω)
++1
+dω
+−1/2+iω e
+√
+x
+ψEm (x) =
+ω − Em
+2πi
+−∞
+
+38
+
+(8.18)
+
+(8.19)
+
+ÈΨÈ
+1.2
+
+ÈΨÈ
+
+ÈΨÈ
+0.8
+
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.6
+0.4
+
+0.4
+
+0.2
+
+0.2
+
+0.4
+0.2
+1
+
+2
+
+3
+
+4
+
+5
+
+x
+
+1
+
+2
+
+3
+
+4
+
+5
+
+x
+
+1
+
+2
+
+3
+
+4
+
+5
+
+x
+
+FIG. 9: Plot of |ψEm | for the energies Em = 14.5179, 20.654, 25.4915, corresponding to the lowest
+smooth Riemann zeros (see eq.(8.20)). The wave function are normalized using eq.(8.17).
+ÈΨÈ
+
+ÈΨÈ
+1
+
+ÈΨÈ
+
+1.2
+
+1
+
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.8
+0.6
+
+0.6
+
+0.4
+
+0.4
+
+0.4
+0.2
+
+0.2
+1
+
+2
+
+3
+
+4
+
+5
+
+x
+
+0.2
+1
+
+2
+
+3
+
+4
+
+5
+
+x
+
+1
+
+2
+
+3
+
+4
+
+FIG. 10: Plot of |ψEm | for the energies Riemann zeros: 14.1347, 21.022, 25.0109 evaluated with
+eq.(8.21) for Λ = 60. The wave function are normalized using eq.(8.17).
+
+The integrals can be performed using the residue theorem obtaining
+1
+1 iEm 1 5 iEm
+1
+H(x − 1)
+√ ψEm (x) = 1/2−iE + 1 iEm 1 F2 ( −
+; , −
+, −π 2 x2 )
+(8.20)
+m
+x
+4
+2 2 4
+2
+− 2
+2
+4
+√
+where H(x − 1) = 1 if x > 1 and 0 if 0 < x < 1. One can show that xψEm → 0 as
+
+x → ∞, if 1 + e2iθ(Em ) = 0. In fig.9 we plot the absolute values of (8.20) for those energies
+
+that correspond to the three lowest Riemann zeros. Notice that the functions are very small
+in the classical forbidden region 0 < x < 1. The amplitude has a high frequency component
+common to the three waves plus a low frequency one that depends on the level.
+The wave functions associated to the exact Riemann zeros can be computed from eq.(8.12)
+with a
+b(t) and bb(t) given by eq. (7.41). We do not have an analytic expression for this
+39
+
+5
+
+x
+
+integral, however a numerical estimate can be obtained truncating (8.12) as
+ψEm (x) ∼
+
+Z Em +Λ
+Em −Λ
+
+dω −1/2+iω a
+b(−ω) + bb(−ω)
+x
+2πi
+ω − Em
+
+(8.21)
+
+In fig.10 we plot the result for the lowests Riemann zeros. The wave functions have some
+common features with those of fig. 9, but they also exhibit a random behaviour.
+
+[1] H.M. Edwards, “Riemann’s Zeta Function”, Academic Press, New York, 1974.
+[2] E.C. Titchmarsh, “The Theory of the Riemann Zeta-Function”, 2nd ed., Oxford University
+Press 1999, Oxford.
+[3] E. Bombieri, “Problems of the Millenium: the Riemann hypothesis”, Clay Mathematics Institute (2000). http://www.claymath.org/millennium/Riemann-Hypothesis/
+[4] P. Sarnak, “Problems of the Millenium: the Riemann hypothesis (2004)”, Clay Mathematics
+Institute (2004).
+[5] J.B. Conrey, ”The Riemann Hypothesis.” Not. Amer. Math. Soc. 50, 341-353, 2003.
+[6] See M. Watkins at http://secamlocal.ex.ac.uk/∼mwatkins
+/zeta/physics.htm for a comprehensive review on several approaches to the RH.
+[7] H.C. Rosu, “Quantum hamiltonians and prime numbers”, Mod. Phys. Lett. A18 (2003) 1205;
+quant-ph/0304139.
+[8] E. Elizalde, V. Moretti, S. Zerbini, “On recent strategies proposed for proving the Riemann
+hypothesis”, Int.J.Mod.Phys. A18 (2003) 2189-2196; math-ph/0109006.
+[9] A. Selberg, ”Harmonic analysis and discontinuous groups in weakly symmetric Riemannian
+spaces with applications to Dirichlet series”, Journal of the Indian Mathematical Society 20
+(1956) 47-87.
+[10] H. Montgomery, “The pair correlation of zeros of the zeta function”, Analytic Number Theory,
+AMS (1973).
+[11] M.L. Mehta, “Random matrices”, Elsevier Academic Press, 2004, Amsterdam.
+[12] A. Odlyzko, “On the distribution of spacings between zeros of zeta functions”, Math. Comp.
+48, 273 (1987).
+[13] M.V. Berry, in Quantum Chaos and Statistical Nuclear Physics. Eds. T.H. Seligman and H.
+Nishioka, Lecture Notes in Physics, No. 263, Springer Verlag, New York, 1986.
+
+40
+
+[14] M.V. Berry, “Quantum Chaology”, Proc. R. Soc. Lond. A 413, 183 (1987).
+[15] M. C. Gutzwiller ”Periodic orbits and classical quantization conditions”, J. Math. Phys. 12
+no. 3 (1971).
+[16] A. Connes, “Trace formula in noncommutative geometry and the zeros of the Riemann zeta
+function”, Selecta Mathematica (New Series) 5 (1999) 29; math.NT/9811068.
+[17] M.V. Berry and J.P. Keating, “H=xp and the Riemann zeros”, in Supersymmetry and Trace
+Formulae: Chaos and Disorder, ed. J.P. Keating, D.E. Khmelnitskii and I. V. Lerner, Kluwer
+1999.
+[18] M. V. Berry and J. P. Keating, “The Riemann zeros and eigenvalue asymptotics”, SIAM
+REVIEW 41 (2) 236, 1999.
+[19] G. Sierra, “The Riemann zeros and the Cyclic Renormalization Group”, J.Stat.Mech. 0512
+(2005) P006; math.NT/0510572.
+[20] G. Sierra,”H=xp with interaction and the Riemann zeros”, Nucl. Phys. B 776, (2007) 327;
+math-ph/0702034.
+[21] G. Sierra,”Quantum reconstruction of the Riemann zeta function”, J. Phys. A: Math. Theor.
+40 (2007) 1; math-ph/0711.1063.
+[22] A. LeClair, J.M. Román and G. Sierra, “Russian doll Renormalization Group and Superconductivity”, Phys. Rev. B69 (2004) 20505; cond-mat/0211338.
+[23] A. Anfossi, A. LeClair, G. Sierra, “The elementary excitations of the exactly solvable Russian
+doll BCS model of superconductivity”, J. Stat. Mech. (2005) P05011; cond-mat/0503014.
+[24] C. Dunning and J. Links,“Integrability of the Russian doll BCS model”,Nucl. Phys. B702
+(2004) 481, cond-mat/0406234.
+[25] A. LeClair, “Interacting Bose and Fermi gases in low dimensions and the Riemann hypothesis”;
+math-ph/0611043.
+[26] J. Twamley and G. J. Milburn, “The quantum Mellin transform”, New J. Phys. 8 (2006) 328;
+quant-ph/0702107.
+[27] The Sf,g (z) differs in a sign respect to the one considered in references [20, 21].
+[28] S. Akiyama and Y. Tanigawa, “Multiple zeta values at non-positive integers”, Ramanujan J.
+5 (2001), 327-351.
+[29] L. Guo and B. Zhang, “Renormalization of Multiple zeta values”, math.NT/0606076.
+[30] G. Bonneau, J. Faraut, G. Valent, “Self-adjoint extensions of operators and the teaching of
+
+41
+
+quantum mechanics”, Am.J.Phys. 69 (2001) 322 quant-ph/0103153.
+[31] M.V. Berry and J.P. Keating, “A new asymptotic representation for ζ(1/2 + it) and quantum
+spectral determinants”, Proc. R. Soc. Lond. A (1992) 437 151.
+[32] E. Bombieri, ”A lower bound for the zeros of Riemanns zeta function on the critical line”,
+Séminaire N. Bourbaki, 1974-75, exp. no. 465, p. 176-182.
+[33] B.S. Pavlov and L.D. Faddeev, “Scattering theory and automorphic functions”, Sov. Math. 3,
+522 (1975), Plenum Publishing Corp. translation, N.Y;
+[34] Lax and R.S. Phillips, Scattering Theory for Automorphic Functions, Princeton University
+Press, Princeton, 1976.
+[35] M.C. Gutzwiller, “Stochastic behaviour in Quantum Scattering”, Physica D7, 341 (1983).
+[36] S. Joffily, “Jost function, prime numbers and Riemann zeta function”, math-ph/0303014
+[37] R.K. Bhaduri, Avinash Khare, and J. Law, ”Phase of the Riemann zeta function and the
+inverted harmonic oscillator”, Physical Review E 52 no. 1 (1995) 486-491; chao-dyn/9406006.
+[38] G. Sierra and P.K. Townsend, work in preparation.
+
+42
+
+

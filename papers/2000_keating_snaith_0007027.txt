@@ -1,0 +1,769 @@
+arXiv:math-ph/0007027v1 22 Jul 2000
+
+The Scalar-flat Kähler Metric and Painlevé III
+Shoji Okumura (okumura@math.sci.osaka-u.ac.jp)
+Math. Sci. Osaka Univ., Japan
+July 20, 2000
+Abstract
+We study the anti-self-dual equation for non-diagonal SU (2)-invariant
+metrics and give an equivalent ninth-order system. This system reduce to
+a sixth-order system if the metric is in the conformal class of scalar-flatKähler metric.
+
+1
+
+introduction
+
+The aim of this paper is to analyse scalar-flat Kähler metrics g in real dimmension four admitting an isometric action of SU (2) with generically threedimensional orbits. A scalar-flat Kähler metric is a metric with zero scalar
+curvature which is Kählerian with respect to a complex structure on M . It is
+automatically anti-self-dual with respect to the canonical orientation.
+Hitchin[6] shows that the SU (2)-invariant anti-self-dual metric is generically
+specified by a solution of Painlevé VI type equation, and if the metric is scalarflat Kähler it is specified by a solution of Painlevé III type equation. Hitchin
+used the twistor correspondence to associate the anti-self-dual equation and
+Painlevé equation. The lifted action of SU (2) determines a pre-homogenious
+action of SU (2) on the twistor space Z, and it determines a isomonodromic
+family of connections on CP1 , and then we have Painlevé equations. In this
+way, Dancer [5] analyse the scalar-flat Kähler metric with SU (2)-symmetry. In
+[6], Hichin obtains a complete classification of anti-self-dual Einstein metrics
+admitting an isometric action of SU (2) with three-dimensional orbits. For the
+completeness analysis, it is impotant to have the explicit form of anti-self-dual
+equation.
+If the metric is diagonal, the explicit form of anti-self-dual equation is known,
+but if the metric is non-diagonal, it is known very little. For scalar-flat Kähler
+metric, complex structure is not known for non-diagonal metric.
+In Section 2 we show how non-diagonal metric is represented, and by use of
+the block form of curvature tensor given by Besse [3], we have the ninth-order
+system equivalent to the anti-self-dual equation.
+In Section 3 we establishes the relationship between SU (2)-invariant antiself-dual manifold and the isomonodromic deformation. It is essentially equivalent to Hitchin’s ansatz. Still in our way, we have the explicit form of the
+isomonodromic deformations, and we have the condition that the corresponding Painlevé equation is type III.
+
+1
+
+In Section 4, we show that the anti-self-dual equation reduce to Painlevé III
+if and only if the metric admits an Hermitian structure. In this case, the antiself-dual equation is equivalent to a seventh-order system, and it also admits
+Kähler structure, the seventh-order system reduce to a sixth-order system.
+Acknowledgements
+The author would express his sincere gratitude to Professor Yousuke Ohyama,
+who intoroduced him to the subject, for enlightening discussions.
+
+2
+
+The non-diagonal anti-self-dual equations
+
+We can write the SU (2)-invariant metric in the form
+g = f (τ )dτ 2 +
+
+3
+X
+
+hl m (τ ) σl σm ,
+
+l,m=1
+
+where {σ1 , σ2 , σ3 } is a basis of left invariant one-forms on each SU (2)-orbit
+satisfying
+dσ1 = σ2 ∧ σ3 ,
+
+dσ2 = σ3 ∧ σ1 ,
+
+dσ3 = σ1 ∧ σ2 .
+
+Using the Killing form, we can diagonalize the metric g on each SU (2)-orbit.
+Then we can express the metric as follows:
+g = (abc)2 dt2 + a2 dσ̃12 + b2 σ̃22 + c2 σ̃32 ,
+where t = t(τ ), a = a(t), b = b(t), c = c(t) and
+
+
+
+
+σ1
+σ̃1
+ σ̃2  = R(t)  σ2  ,
+σ3
+σ̃3
+R(t) is SO(3)-valued function.
+d
+Since ṘR−1 (where ˙∗ = dt
+) is so(3)-valued, we can write
+
+
+
+
+
+
+σ1
+σ2 ∧ σ3
+σ̃1
+d  σ̃2  = R(t)  σ3 ∧ σ1  + Ṙ dt ∧  σ2 
+σ3
+σ2 ∧ σ2
+σ̃3
+
+ 
+
+
+
+σ̃2 ∧ σ̃3
+0
+ξ3 −ξ2
+σ̃1
+=  σ̃3 ∧ σ̃1  +  −ξ3
+0
+ξ1  dt ∧  σ̃2  ,
+σ̃1 ∧ σ̃2
+ξ2 −ξ1
+0
+σ̃3
+for some ξ1 = ξ1 (t), ξ2 = ξ2 (t), ξ3 = ξ3 (t).
+If ξ1 = 0, ξ2 = 0, ξ3 = 0, then the matrix (hl m ) can be chosen to be diagonal
+for all τ , and then we say that g has diagonal form.
+In this paper we mainly study the non-diagonal case. V
+2
+To compute the curvature tensor we choose a basis for
++
++
+− −
+−
+{Ω+
+1 , Ω2 , Ω3 , Ω1 Ω2 , Ω3 },
+
+2
+
+where
+2
+Ω+
+1 = a bc dt ∧ σ̃1 + bc σ̃2 ∧ σ̃3 ,
+
+2
+Ω+
+2 = ab c dt ∧ σ̃2 + ca σ̃3 ∧ σ̃1 ,
+2
+Ω+
+3 = abc dt ∧ σ̃3 + ab σ̃1 ∧ σ̃2 ,
+
+2
+Ω−
+1 = a bc dt ∧ σ̃1 − bc σ̃2 ∧ σ̃3 ,
+
+2
+Ω−
+2 = ab c dt ∧ σ̃2 − ca σ̃3 ∧ σ̃1 ,
+
+2
+Ω−
+3 = abc dt ∧ σ̃3 − ab σ̃1 ∧ σ̃2 .
+
+With respect to this frame, the curvature tensor has the following block form
+[3]
+
+
+A B
+,
+t
+B D
+1
+1
+where s = 4 traceD is the scalar curvature, W + = A − 12
+s and W − = D − 12
+s
+are the self-dual and anti-self-dual parts of the Weyl tensor and B is the trace
+free parts of Ricci tensor.
+We set w1 = bc, w2 = ca, w3 = ab and determine α1 , α2 , α3 by
+
+ẇ1 = −w2 w3 + w1 (α2 + α3 ),
+
+ẇ2 = −w3 w1 + w2 (α3 + α1 ),
+ẇ3 = −w1 w2 + w3 (α1 + α2 ).
+
+(1)
+
+Calculating the condition A = 0, we have the following theorem.
+Theorem 2.1 The metric is anti-self-dual with vanishing scalar curvature if
+and only if α1 , α2 , α3 and ξ1 , ξ2 , ξ3 satisfies the following equations:
+
+2
+1 2
+ξ1
+2 2
+α̇1 = − α2 α3 + α1 (α2 + α3 ) + (w2 − w3 )
+4
+w2 w3
+2
+
+ξ2
+1
++ (w32 − w12 )(3w12 + w32 )
+4
+w3 w1
+2
+
+1 2
+ξ3
+2
+2
+2
+,
++ (w2 − w1 )(3w1 + w2 )
+4
+w1 w2
+
+2
+ξ2
+1
+α̇2 = − α3 α1 + α2 (α3 + α1 ) + (w32 − w12 )2
+4
+w3 w1
+2
+
+1
+ξ3
+(2)
++ (w12 − w22 )(3w22 + w12 )
+4
+w1 w2
+2
+
+1
+ξ1
++ (w32 − w22 )(3w22 + w32 )
+,
+4
+w2 w3
+
+2
+ξ3
+1 2
+2 2
+α̇3 = − α1 α2 + α3 (α1 + α2 ) + (w1 − w2 )
+4
+w1 w2
+2
+
+1
+ξ1
++ (w22 − w32 )(3w32 + w22 )
+4
+w2 w3
+2
+
+ξ2
+1 2
+2
+2
+2
+,
++ (w1 − w3 )(3w3 + w1 )
+4
+w3 w1
+3
+
+and
+
+
+
+
+ξ2
+ξ3
+(−2w22 w32 + w32 w12 + w12 w22 )
+dt
+w3 w1 w1 w2
+ξ1
++
+(α2 w22 − α3 w32 + 3α2 w32 + 3α3 w22 ),
+w2 w3
+
+
+d
+ξ3
+ξ2
+ξ1
+(w32 − w12 )
+=
+(−2w32 w12 + w12 w22 + w22 w32 )
+dt w3 w1
+w1 w2 w2 w3
+ξ2
++
+(α3 w32 − α1 w12 + 3α3 w12 + 3α1 w22 ),
+w3 w1
+
+
+ξ3
+ξ2
+ξ1
+2
+2 d
+(−2w12 w22 + w22 w32 + w32 w12 )
+=
+(w1 − w2 )
+dt w1 w2
+w1 w3 w3 w1
+ξ3
++
+(α1 w12 − α2 w22 + 3α1 w22 + 3α2 w12 ).
+w1 w2
+
+d
+(w22 − w32 )
+
+ξ1
+w2 w3
+
+=
+
+(3)
+
+Remark 2.2 If ξ1 = 0, ξ2 = 0 and ξ3 = 0 then the system (1), (2), (3)
+reduce to a sixth-order system given by Tod[9]. Furthermore, if α1 = w1 , α2 =
+w2 , α3 = w3 then (1),(2),(3) reduce to a third-order system which determines
+Atiyha-Hitchin family [1], and if α1 = 0, α2 = 0, α3 = 0 then the system reduce
+to a third-order system which determines BGPP family [4].
+Remark 2.3 If w2 = w3 , then we can set ξ1 = 0, ξ2 = 0 and ξ3 = 0 by
+taking another flame. This is also a diagonal case. Therefore we assume (w2 −
+w3 )(w3 − w1 )(w1 − w2 ) 6= 0.
+
+3
+
+The Isomonodromic Deformations and Painlevé
+equation
+
+Let (M, g) be an oriented Riemannian four manifold. We define Z to be the unit
+sphere bundle in the bundle of self-dual two-forms, and let π : Z → M denote
+the projection. Each point z in the fiber over π(z) defines a complex structure
+on the tangent space Tπ(z) M , compatible with the metric and its orientation.
+Using the Levi-Civita connection, we can split the tangent space Tz Z into
+horizontal and vertical spaces, and the projection π identifies the horizontal
+space with Tπ(z) M . This space has a complex structure defined by z and the
+vertical space is the tangent space of the fiber S 3 ∼
+= CP1 which has its natural
+complex structure. The almost complex structure on Z is integrable if and only
+if the metric is anti-self-dual [2, 8]. In this situation Z is called the twistor space
+of (M, g) and The fibers are called the real twistor lines.
+The almost complex structure on Z can be determined by the following
+(1, 0)-forms:
+√
+√
+Θ1 =z(e2 + −1e3 ) − (e0 + −1e1 ),
+√
+√
+Θ2 =z(e0 − −1e1 ) + (e2 − −1e3 ),
+√
+1
+(4)
+Θ3 =dz + z 2 (ω20 − ω13 + −1(ω30 − ω21 ))
+2
+√
+√
+1
+− −1z(ω10 − ω32 ) + (ω20 − ω13 − −1(ω30 − ω21 )),
+2
+4
+
+where {e0 , e1 , e2 , e3 } is an orthonormal flame, and ωji are the connection forms
+determined by dei + ωji ∧ ej = 0 and ωji + ωij = 0. Then the anti-self-dual
+condition is
+dΘ1 ≡ 0,
+
+dΘ2 ≡ 0,
+
+dΘ3 ≡ 0
+
+(mod Θ1 , Θ2 , Θ3 ).
+
+If the metric is SU (2) invariant, we can write
+
+  
+
+
+
+
+0
+σ1
+Θ1
+v1
+ Θ2  =  0  dz +  v2  dt + A  σ2  ,
+σ3
+1
+Θ3
+v3
+where v1 = v1 (z, t), v2 = v2 (z, t), v3 = v3 (z, t); A = (ai j (z, t))i,j=1,2,3 .
+If detA ≡ 0, then metric is in the BGPP family [4].
+If detA 6= 0, then we can write
+
+
+ 
+
+ 
+
+
+σ1
+0
+v1
+ς1
+ σ2  ≡ −A−1  0  dz +  v2  dt =:  ς2  ,
+σ3
+1
+v3
+ς3
+
+(5)
+
+(6)
+
+(7)
+
+and then
+
+ 
+ς2 ∧ ς3
+ς1
+d  ς2  ≡  ς3 ∧ ς1  .
+ς1 ∧ ς2
+ς3
+
+
+(8)
+
+Since ς1 , ς2 , ς3 are one-forms on (z, t)−plane,
+
+ 
+
+ς2 ∧ ς3
+ς1
+d  ς2  =  ς3 ∧ ς1  .
+ς1 ∧ ς2
+ς3
+If we set
+
+
+√
+1
+−1ς
+√ 1
+Σ= √
+−1ς2
+ς
++
+3
+2
+=: − B1 dz − B2 dt,
+
+(9)
+
+
+√
+ς3 √
++ −1ς2
+−1ς1
+
+(10)
+(11)
+
+then
+dΣ + Σ ∧ Σ = 0.
+
+(12)
+
+This is the isomonodromic condition of the equation
+
+
+
+d
+y1
+= 0.
+− B1
+y2
+dz
+
+(13)
+
+B1 has poles on {z | detA = 0}.
+Lemma 3.1 det A = 0 is equivalent to the following equation
+√
+√
+
+
+z 4 (α2 + α3 ) − −1X1 − 2z 3 X2 − −1X3 + 2z 2 (−2α1 + α2 + α3 )
+√
+√
+
+
++ 2z X2 + −1X3 + (α2 + α3 ) + −1X1 = 0, (14)
+
+where
+
+X1 =
+
+w22 − w32
+ξ1 ,
+w2 w3
+
+X2 =
+
+w32 − w12
+ξ2 ,
+w3 w1
+5
+
+X3 =
+
+w12 − w22
+ξ3 .
+w1 w2
+
+For this lemma, generically B1 has four simple poles.
+Theorem 3.2 The anti-self-dual equation on SU (2)−invariant metrics generically reduce to a Painlevé VI type equation.
+Remark 3.3 If z = ζ is a solution of the equation then z = −1/ζ̄ is also a
+solution. Therefore the equation is compatible with the real structure of twistor
+space.
+Remark 3.4 The idea of Hitchin [6] is that the lifted action of SU (2) on the
+twistor space Z gives a homomorphism of vector bundles α : Z × su(2)C →
+T Z, and the inverse of α gives a flat meromorphic SL(2, C)-connection, which
+determine isomonodromic deformations. we can think that one-forms Θ1 , Θ2 , Θ3
+on Z are infinitesimal variations, therefore we can identify Σ with α−1 .
+Lemma 3.5 Let g be a non-diagonal SU (2)-invariant metric. Then (14) has
+two solutions of order two if and only if there exists a function f (t) satisfying
+X12 =4(f − α2 )(f − α3 ),
+
+X22 =4(f − α3 )(f − α1 ),
+
+X32 =4(f − α1 )(f − α2 ).
+
+And then the anti-self-dual equation reduce to (1), (2) and f˙ = f 2 .
+Proof.
+We can write (14) as
+ā z 4 − b̄ z 3 + c z 2 + b z + a = 0,
+
+(15)
+
+where a, b are complex coefficient and c is a real coefficient. By an linear fractional transformation
+z 7→
+
+(b − |b|) ζ − b + |b|
+
+−b̄ + |b| ζ − b̄ + |b|
+
+(16)
+
+preserving the real structure, we can write (14) as
+
+ζ 4 − b̄0 ζ 3 + c0 ζ 2 + b0 ζ + 1 = 0,
+
+(17)
+
+where b0 is a complex coefficient and c0 is a real coefficient. Since this equation
+is also compatible with the real structure, if ζ = ζ0 is a solution of order two
+then ζ = −1/ζ̄0 is also a solution of order two. Therefore
+ζ 4 − b̄0 ζ 3 + c0 ζ 2 + b0 ζ + 1 = (ζ − ζ0 )2 (ζ + 1/ζ̄0 )2 ,
+
+(18)
+
+2
+then we have ζ02 −1/ζ̄0 = 1 and then ζ0 = ±ζ̄0 , which implies ζ0 is real or
+pure-imaginary. Therefore b0 must be real or pure-imaginary. Calculating this
+condition, we have the Lemma.
+
+6
+
+4
+
+The Hermitian Structure
+
+Hitchin [6] shows that if a metric is scalar-flat Kähler but not Hyper-Kähler,
+then the anti-self-dual equation reduce to a Painleve III type equation. We can
+interprets this result as the following result.
+Corollary 4.1 If a metric is scalar-flat-Kähler but not hyper-Kähler then the
+equation (14) has two double zeros.
+Therefore we analyze the case (14) has two double zeros.
+Let z = z(t) is a solution of (14). If we restrict (1, 0)-forms Θ1 , Θ2 on
+Z to z = z(t), we have (1, 0)-forms on M , which determine an almost complex
+structure on M . Analyzing this almost complex structure, we have the following
+theorem.
+Theorem 4.2 Let g be an SU (2)-invariant anti-self-dual scalar-flat metric.
+There exists a SU (2)-invariant hermitian structure (g, I) if and only if (14)
+has solutions of order two.
+proof.
+Let (g, i) be a SU (2)-invariant hermitian structure. The complex structure
+I is determined by (1, 0)-forms Θ1 |z=z(t) and Θ2 |z=z(t) , where z = z(t) is a
+function on M depending on t only. Since the complex structure is integrable,
+Θ3 |z=z(t) ≡ 0 (mod Θ1 |z=z(t) , Θ2 |z=z(t) ). Therefore we have
+dz|z=z(t) =
+
+n1
+
+−α2 + α3 +
+
+√
+
+−1X1 z 3
+
+4
+√
+
+
+√
+w12
+1
+w12
+−1
+2
+−
+X2 + −1 2
+X3 z +
+X1 z
+2
+2
+2
+2 w3 − w1
+w1 − w2
+2
+
+
+√
+w12
+1
+w12
+−1
+−
+X
+−
+X
+2
+3
+2 w32 − w12
+w12 − w22
+√
+ o
+1
++
+α2 − α3 + −1X1 z 3 dt
+4
+
+(19)
+
+On the other hand, since Θ3 |z=z(t) ≡ 0, z = z(t) is a solution of (14). Moreover
+if we substitute z = z(t) and (19) into the derivative of left hand side of (14),
+it also becomes zero. Therefore (14) has solutions of order two.
+Conversely, let z = z0 be a solution of order two, then from lemma 3.1 we
+have
+p
+X2 X3 ± X22 X32 + X32 X22 + X12 X22
+√
+,
+(20)
+z0 =
+X1 (X2 − −1X3 )
+if X1 X2 X3 6= 0. And then we have Θ3 |z=z(t) ≡ 0. Therefore the almost complex
+structure determined by the (1, 0)-forms Θ1 |z=z(t) and Θ2 |z=z(t) is integrable.
+If X1 X2 X3 = 0, f must be α1 , α2 or α3 . Let f = α1 , then we have X2 = 0
+and X3 = 0, and then
+√ √
+√
+α3 − α1 + −1 α2 − α1
+√
+,
+(21)
+z0 =
+α2 + α3 + 2α1
+and then Θ3 |z=z(t) ≡ 0. In this case the almost complex structure is also
+integrable.
+7
+
+Theorem 4.3 The hermitian structure (g, I) determined by theorem 4.2 is Kähler
+if and only if
+X12 = 4α2 α3 ,
+
+X22 = 4α3 α1 ,
+
+X32 = 4α1 α2 .
+
+(22)
+
+proof.
+If X1 X2 X3 6= 0, the Kähler form is determined by (20) as
+X2 X3
+Ω =p 2 2
+Ω+
+1
+X2 X3 + X32 X22 + X12 X22
+X3 X1
+Ω+
++p 2 2
+2
+X2 X3 + X32 X22 + X12 X22
+X1 X2
+Ω+
++p 2 2
+3.
+X2 X3 + X32 X22 + X12 X22
+
+By the anti-self-dual equations (1),(2),(3), we have
+
+2f w1 X2 X3
+dt ∧ σ̃2 ∧ σ̃3
+dΩ = p 2 2
+X2 X3 + X32 X22 + X12 X22
+2f w2 X3 X1
+dt ∧ σ̃3 ∧ σ̃1
++p 2 2
+X2 X3 + X32 X22 + X12 X22
+2f w3 X1 X2
++p 2 2
+dt ∧ σ̃1 ∧ σ̃2 .
+X2 X3 + X32 X22 + X12 X22
+
+Since w1 w2 w3 6= 0 and X1 X2 X3 6= 0, we have dΩ = 0 if and only if f = 0.
+If X1 X2 X3 = 0, then f must be α1 , α2 or α3 . Let f = α1 , then X12 =
+4(α2 − α1 )(α3 − α1 ), X2 = 0, X3 = 0. The Kähler form is determined by (21)
+as
+√
+√
+α2 − α1
+α3 − α1
++
+Ω2 + √
+Ω+ .
+(23)
+Ω= √
+α2 + α3 − 2α1
+α2 + α3 − 2α1 3
+Then
+√
+√
+2w2 α1 α2 − α1
+2w3 α1 α3 − α1
+dΩ = √
+dt ∧ α̃3 ∧ α̃1 + √
+dt ∧ α̃1 ∧ α2 .
+α2 + α3 − 2α1
+α2 + α3 − 2α1
+
+(24)
+
+Since the metric is non-diagonal, X12 = 4(α2 −α1 )(α3 −α1 ) 6= 0 and then dΩ = 0
+if and only if α1 = 0.
+Remark 4.4 If the metric is scalar-flat Kähler, the anti-self-dual equation reduce to a sixth-order equation.
+
+References
+[1] Atiyah, M. F. and Hitchin, N. J.: Low energy scattering of non-Abelian
+monopoles, Phys. Lett. A 107 (1985), 21–25
+[2] Atiyha, M. F., Hitchin, N. J. and Singer, I. M.: Self-duality in fourdimensional Riemannian geometry, Proc. Roy. Soc, London Ser. A 362
+(1978) 425–461
+8
+
+[3] Besse, A. L.: Einstein Manifolds, Springer (1987)
+[4] Belinski, V. A., Gibbons, G. W., Page, D. W., Page, D. W. and Pope,
+C. N.: Asymptotically Euclidean Bianchi IX metrics in quantum gravity,
+Phys. Lett. B 76 (1978),433–435
+[5] Dancer, A. S.: Scalar-flat Kähler metrics with SU (2) symmetry, J.reine.
+angew. Math. 479 (1996), 99–120
+[6] Hitchin, N. J.: Twistor spaces, Einstein metrics and isomonodromic deformations, J. Differential Geom. 42 (1995), 30–112
+[7] Pedersen, H. and Poon, Y. S.: Kähler surfaces with zero scalar curvature,
+Classical Quantum Gravity 7 (1990), 1707–1719
+[8] Penrose, R.: Nonlinear gravitons and curved twistor theory, Gen. Rel.
+Grav. 7 (1976), 31–52
+[9] Tod, K. P.: Self-dual Einstein metrics from the Painlevé VI equation, Phys.
+Lett. A 190 (1994), 221–224
+
+9
+
+
